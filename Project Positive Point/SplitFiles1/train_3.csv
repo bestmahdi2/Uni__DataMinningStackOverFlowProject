@@ -1,0 +1,857 @@
+Id,Title,Body,Tags,CreationDate,Y
+34574650,what's wrong with my while loop code in R?,"<p>I want to using while loop in R.</p>
+
+<p>I want to repeat loop until evt>1 and cpr>0, but it doesn't work.</p>
+
+<p>work_f is function of generating numbers.</p>
+
+<pre><code>if((evt&gt;1)&amp;&amp;(cpr&gt;0)){
+work&lt;-work[order(work$z),]
+obs&lt;-c(1:length(work$z))
+work&lt;-cbind(work,obs)
+  } else {
+ while((evt&gt;1)&amp;&amp;(cpr&gt;0)) {
+  j&lt;-j+1
+  seed&lt;-settings*1000+h+j     
+
+  work_f(studysize = studysize,beta=beta,cutpoint = cutpoint,settings = settigns,p=p,alpha = alpha)
+
+  evt&lt;-data.frame(ftable(work$event))
+  evttr&lt;-data.frame(evt=numeric(1),cpr=numeric(1),csr=numeric(1))
+  if (p==0) {
+    evttr$evt&lt;-evt$Freq[1]; evttr$cpr&lt;-evt$Freq[2]; evttr$csr&lt;-0
+  }else {
+    evttr$evt&lt;-evt$Freq[2]; evttr$cpr&lt;-evt$Freq[3]; evttr$csr&lt;-evt$Freq[1]
+  }
+  evttr[is.na(evttr)]&lt;-0
+  evt&lt;-as.numeric(evttr$evt); cpr&lt;-as.numeric(evttr$cpr)
+
+  if((evt&gt;1)&amp;&amp;(cpr&gt;0)){
+    work&lt;-work[order(work$z),]
+    obs&lt;-c(1:length(work$z))
+    work&lt;-cbind(work,obs)
+  }
+ }
+} 
+</code></pre>
+
+<p>What's wrong?</p>
+",<r><while-loop>,16/01/03 8:23,LQ_CLOSE
+34574785,How to display a button when there is no network and make it disappear when connection is available in Android App Development?,"<p>I am creating an Android app and want to disappear retry button when there is network and it should be visible when there is no network, so the user can retry to load.</p>
+",<android>,16/01/03 8:47,LQ_CLOSE
+34575047,Java - Check if input is of Premitive type,"I have to check for each **input**, print out if it is an instance of a *primitive or referenced* type. But I am getting same output each time. Any Help?
+
+**Note: I do search SO, but no luck.**
+
+Code:
+-----
+
+    public class Demo {
+
+    public static void main(String[] args) throws IOException {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        for(int i=0; i<9; ++i){
+            String input = br.readLine();
+             showPremitive(input);
+        }     
+    }
+    public static void showPremitive(Object input){
+        try{
+                if (input instanceof Short)
+                    System.out.println(""Primitive : short"");
+                else if(input instanceof Integer)
+                    System.out.println(""Primitive : int"");
+                else if(input instanceof Long)
+                    System.out.println(""Primitive : long"");
+                else if(input instanceof Float)
+                    System.out.println(""Primitive : float"");
+                else if(input instanceof Double)
+                    System.out.println(""Primitive : double"");        
+                else if(input instanceof Boolean)
+                    System.out.println(""Primitive : bool"");
+                else if(input instanceof Character)
+                    System.out.println(""Primitive : char"");
+                else if(input instanceof Byte)
+                    System.out.println(""Primitive : byte"");
+                else  
+                    System.out.println(""Reference : string"");
+             }  
+        catch (InputMismatchException e){
+            System.out.println(""crashing down""+e);
+        }
+    }
+    
+}
+
+**Output:**
+
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+
+",<java><primitive-types>,16/01/03 9:27,LQ_EDIT
+34575066,How to prevent CMake from issuing /IMPLIB,"<p>I have a CMake build that sends /IMPLIB to the linker on Windows. This is a problem in my case because the argument to implib is the same path as one of the input files.
+It looks to me that CMake will <em>always</em> issue /IMPLIB when building with Visual Studio, and the passed argument cannot be modified.
+Is there a way to control this behaviour?</p>
+",<c++><cmake>,16/01/03 9:30,HQ
+34575102,"when website is loaded, get news from txt file","    <script type=""text/javascript"">
+    						$(document).ready(function() {
+    							$(""body"").ready(function() {
+    								$.ajax({
+    									url : ""helloworld.txt"",
+    									dataType: ""text"",
+    									success : function (data) {
+    										$("".slider"").html(data);
+    									}
+    								});
+    							});
+    						});</script>
+
+I want this code to get HTML code from a txt file and add it in here:
+
+    <div class=""slider""> <!-- News Slider --> </div>
+
+The txt file contains the following:
+
+    <div class=""callbacks_container"">
+								<ul class=""rslides"" id=""slider"">
+									<li>	          
+										<h2><a href=""http://services.runescape.com/m=news/christmas--zeah?oldschool=1"">Zeah</a></h2>
+										<h3><a href=""http://services.runescape.com/m=news/christmas--zeah?oldschool=1"">New continent, 50% expansion</a></h3>
+									</li>
+									<li>	          
+										<h2><a href=""https://www.facebook.com"">Sailing</a></h2>
+										<h3><a href=""https://www.facebook.com"">Sail around the world</a></h3>
+									</li>
+									<li>	          
+										<h2><a href=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">2016</a></h2>		
+										<h3><a href=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">Christmas event coming to an end</a></h3>
+									</li>
+								</ul>
+							</div>
+
+The function above doesn't work but i cant find a way to fix this, please help! Thanks!",<html><onload>,16/01/03 9:34,LQ_EDIT
+34575561,Automatically run gulp tasks after saving some of javascript files in Visual Studio,"<p>I have a folder in my asp.net project that contains some javascript files. Just before building project, they are minified and copied to ""wwwroot"" folder using gulp. It works great, but when I make some changes to any of javascript files, I have to restart entire project (to run tasks connected with building) or manually run tasks from ""Task Runner Explorer"".</p>
+
+<p>It takes some time and it is quite irritating. Is it some way to run those tasks as soon as I save any of javascript files in this folder?</p>
+",<asp.net><visual-studio><visual-studio-2015><gulp>,16/01/03 10:36,HQ
+34575753,Difference between sprite and texture?,"<p>Can you please explain the difference between texture and sprite? When we zoom in a sprite, it appears blurry because it's basically an image. Is it the same for a texture?</p>
+
+<p>I read this comment on the image below online: </p>
+
+<blockquote>
+  <p>The background layers are textures and not sprites.</p>
+</blockquote>
+
+<p><a href=""https://i.stack.imgur.com/Rfr5B.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/Rfr5B.png"" alt=""enter image description here""></a></p>
+
+<p>Can someone explain?</p>
+",<image><unity3d><textures><sprite><unity5>,16/01/03 10:59,HQ
+34575897,Passing a component as an 'argument' to another component in Angular 2,"<p>I am new to web development and I have just started building an Angular 2 app. At this point I am trying to create some CRUD components/forms but I find my self duplicating a lot of code. I am not going to ask what are the common best practices to avoid code duplication and achieve component reusability when designing CRUD applications with Angular2, because the post will get locked. I will rather focus on one particular aspect:</p>
+
+<p>I have a ""CRUD page"" that has a list (it is an html table actually) of resources and several buttons that open up ""create"", ""read"", and ""edit"" forms. The list is a separate component on its own and the create/read/edit separate components as well. Each row of the table includes another component which knows how to render a resource item. I will call this <code>&lt;resource-item&gt;</code> component. However, I have several of those ""CRUD pages"", each page for a different resource. So what I want is to reuse the list component for all the resources. So the first thing to do is to add Inputs or Attributes to the list component in order to control its labels. So far so good. </p>
+
+<p>But what about the <code>&lt;resource-item&gt;</code> component? Each resource of my application might have a completely different structure. As a result I will need different components for different resources, e.g.: <code>&lt;resource-a-item&gt;</code>, <code>&lt;resource-b-item&gt;</code>, etc. How can I specify which resource item component I want to use every time I create a list component?</p>
+
+<p>Thank you for your time.</p>
+",<typescript><angular>,16/01/03 11:17,HQ
+34576004,Simple way to reset Django PostgreSQL database?,"<p>I was able to reset a Django PostgreSQL database using the following steps:</p>
+
+<ol>
+<li>Delete migration files</li>
+<li>Enter psql command prompt. Connect to database. drop schema public cascade; create schema public;</li>
+<li>Step 2 unfortunately seemed to have removed my user role and rights so I went back to the psql command promt and recreated those.</li>
+<li>Step 2 also meant I needed to run the following commands in the psql command prompt: grant usage on schema public to public;
+grant create on schema public to public;</li>
+<li>Step 2 also deleted the standard Django users I had created so I needed to recreate these</li>
+<li>python manage.py makemigrations &amp;&amp; python manage.py migrate</li>
+</ol>
+
+<p>I am currently making changes to my models and testing each change. I don't have any data I need to keep. Is there an easier way than the above to reset the database when migrations donät work?</p>
+
+<p>I would at least like to replace step 2 with something else so that I can skip steps 3-5.</p>
+",<django><postgresql>,16/01/03 11:28,HQ
+34576493,[Android][Listview] Unable to show my ArrayList data in Listview,"The question is... I put my data in ArrayList and adding to ListView. But there has no data show on ListView but I am sure those data has been retrieved.
+
+The System output for testing is correct.( my data )
+
+Please solve my question...
+There is my partial code: 
+ 
+    public class query_page extends AppCompatActivity {
+    　　　　public ArrayList<String> show_Location, show_Messages;
+    　　　　public ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_query_page);
+        show_Location = new ArrayList<String>();
+        show_Messages = new ArrayList<String>();
+        listView = (ListView) findViewById(R.id.listView);
+        
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(""Danger"");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                if (e == null) {
+                    for (ParseObject j : list) {
+                        show_Location.add(j.getString(""DangerLocation""));
+                        show_Messages.add(j.getString(""DangerMessage""));
+                        System.out.println(""Location: "" + j.getString(""DangerLocation""));
+                        System.out.println(""Messages: "" + j.getString(""DangerMessage""));
+                    }
+                    ArrayAdapter adapter = new ArrayAdapter(query_page.this, android.R.layout.simple_list_item_1, show_Location);
+                    listView.setAdapter(adapter);
+
+                } else {
+                    System.out.println(""Exception occur! "");
+                }
+            }
+        });
+    }
+}",<android><android-layout><arraylist><android-listview><android-adapter>,16/01/03 12:24,LQ_EDIT
+34576542,Python - none returns from try and except clauses,"<p>the return from this code (date) is 'none' if an invalid entry is provided, then a valid entry is given. However if a valid entry is given first time, the correct return for date is given. Any tips on how I can solve it?</p>
+
+<pre><code>def getDate():
+    date = input(""Please enter the date in DD/MM/YYYY format: "")
+    try:
+        strptime(date, ""%d/%m/%Y"")
+        return date
+    except:
+        print (""Invalid Date, please enter again"")
+        getDate()
+</code></pre>
+",<python><function><validation><date><try-except>,16/01/03 12:30,LQ_CLOSE
+34576637,Notepad-like GUI text editor for Linux/Ubuntu (SSH into an Ubuntu Server 14.04 LTS AWS instance),"<p>I am not so familiar with Linux/Ubuntu bash command line. I am currently ssh'ing (using ConEmu) into an AWS instance (Ubuntu Server 14.04 LTS) in order to setup a Jupyter notebook server. However, in a part of the documentation in requires editing a file using the vim editor. Vim seems a but confusing right now to learn and I just need to edit a couple lines.</p>
+
+<p>Is there something similar in linux to the windows command line:</p>
+
+<pre><code>notepad file_name.txt
+</code></pre>
+
+<p>that opens a text file in a GUI for editing/saving. Is there a similar command line argument in Linux? Or something I can install which will give me this ability?</p>
+
+<p>Thanks</p>
+",<linux><bash><ubuntu><amazon-web-services><vim>,16/01/03 12:42,LQ_CLOSE
+34576659,NodeJS Express encodes the URL - how to decode,"<p>I'm using NodeJS with Express, and when I use foreign characters in the URL, they automatically get encoded.</p>
+
+<p><strong>How do I decode it back to the original string?</strong></p>
+
+<p>Before calling NodeJS, I escape characters.</p>
+
+<p>So the string: <code>אובמה</code></p>
+
+<p>Becomes <code>%u05D0%u05D5%u05D1%u05DE%u05D4</code></p>
+
+<p>The entire URL now looks like: <code>http://localhost:32323/?query=%u05D0%u05D5%u05D1%u05DE%u05D4</code></p>
+
+<p>Now in my NodeJS, I get the escaped string <code>%u05D0%u05D5%u05D1%u05DE%u05D4</code>.</p>
+
+<p>This is the relevant code:</p>
+
+<pre><code>var url_parts = url.parse(req.url, true);
+var params = url_parts.query;
+var query = params.query; // '%u05D0%u05D5%u05D1%u05DE%u05D4'
+</code></pre>
+
+<p>I've tried <code>url</code> and <code>querystring</code> libraries but nothing seems to fit my case.</p>
+
+<pre><code>querystring.unescape(query); // still '%u05D0%u05D5%u05D1%u05DE%u05D4'
+</code></pre>
+",<node.js><express><escaping>,16/01/03 12:44,HQ
+34576679,Python for loop - to iterate or not to iterate?,"I'm writing a hangman game using Python, based on a specific set of instructions. I specifically need to use a for loop in order to replace all the letters in a word with underscores and in fact I am succeeding in doing so. However I  have one slight issue, I'm getting a new line of underscores printed for every letter in my word. Is there a way to get rid of this? Can someone guide me on what is wrong with my logic? Thanks in advance.
+
+    word = ""test""
+
+    def createBlank(word):
+        for letter in word:
+                blanks = '_' * len(word)
+                print(blanks)
+
+My result is as you would assume:
+
+    >>> word
+    'test'
+    >>> createBlank(word)
+    ____ #<- only need this line to be printed.. is it even possible using a for?
+    ____
+    ____
+    ____",<python><loops><for-loop><printf><line>,16/01/03 12:47,LQ_EDIT
+34576731,Inherit ES6/TS class from non-class,"<p>Given the class is extended from non-class (including, but not limited to, function),</p>
+
+<pre><code>function Fn() {} 
+
+class Class extends Fn {
+    constructor() {
+        super();
+    }
+}
+</code></pre>
+
+<p>what are the the consequences? What do the specs say on that?</p>
+
+<p>It looks like the current implementations of Babel, Google V8 and Mozilla Spidermonkey are ok with that, and TypeScript throws</p>
+
+<blockquote>
+  <p>Type '() => void' is not a constructor function type</p>
+</blockquote>
+
+<p>If this is a valid ES2015 code, what's the proper way to handle it in TypeScript?</p>
+",<javascript><typescript><ecmascript-6>,16/01/03 12:53,HQ
+34577012,Creating a stopwatch with redux,"<p>I've been trying to make a stopwatch in react and redux. I've been having trouble trouble figuring out how to design such a thing in redux. </p>
+
+<p>The first thing that came to mind was having a <code>START_TIMER</code> action which would set the initial <code>offset</code> value. Right after that, I use <code>setInterval</code> to fire off a <code>TICK</code> action over and over again that calculates how much time has passed by using the offset, adds it to the current time, and then updates the <code>offset</code>.</p>
+
+<p>This approach seems to work, but I'm not sure how I would clear the interval to stop it. Also, it seems like this design is poor and there is probably a better way to do it.</p>
+
+<p>Here is a full <a href=""https://jsfiddle.net/a94jabzd/1/"" rel=""noreferrer"">JSFiddle</a> that has the <code>START_TIMER</code> functionality working. If you just want to see what my reducer looks like right now, here it is:</p>
+
+<pre><code>const initialState = {
+  isOn: false,
+  time: 0
+};
+
+const timer = (state = initialState, action) =&gt; {
+  switch (action.type) {
+    case 'START_TIMER':
+      return {
+        ...state,
+        isOn: true,
+        offset: action.offset
+      };
+
+    case 'STOP_TIMER':
+      return {
+        ...state,
+        isOn: false
+      };
+
+    case 'TICK':
+      return {
+        ...state,
+        time: state.time + (action.time - state.offset),
+        offset: action.time
+      };
+
+    default: 
+      return state;
+  }
+}
+</code></pre>
+
+<p>I would really appreciate any help.</p>
+",<javascript><reactjs><ecmascript-6><redux>,16/01/03 13:25,HQ
+34578174,Are there any alternatives to T4 templates and EnvDTE for cross platform asp.net 5 development?,"<p>We currently use T4 templates to generate C# code files based on C# Code (Entity POCO's) and the EDMX (in older applications) </p>
+
+<p>Moving to ASP.NET 5 with a view to support cross platform development, are there any code generation tools available that can read a projects class &amp; meta data structures, and to generate C# files at design time, similar to T4 templates?</p>
+",<code-generation><asp.net-core><t4><entity-framework-core>,16/01/03 15:27,HQ
+34578181,[Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting it manually,"<p>Im using Cordova in Linux mint 17 </p>
+
+<p>I installed android sdk , cordova , android studio , nodejs 4 </p>
+
+<p>problem is here
+when i wanna build app in codova and run this on terminal :</p>
+
+<p>sudo cordova build android</p>
+
+<p>it shows </p>
+
+<pre><code>Running command: /home/tnt/hello12/platforms/android/cordova/build 
+[Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting it manually.
+Failed to find 'android' command in your 'PATH'. Try update your 'PATH' to include path to valid SDK directory.]
+ERROR building one of the platforms: Error: /home/tnt/hello12/platforms/android/cordova/build: Command failed with exit code 2
+You may not have the required environment or OS to build this project
+Error: /home/tnt/hello12/platforms/android/cordova/build: Command failed with exit code 2
+</code></pre>
+
+<p>I put this code </p>
+
+<pre><code> export HOME=""/home/tnt""
+    export ANDROID_HOME=""$HOME/android/sdk/tools""
+    export ANDROID_PLATFORM_TOOLS=""$HOME/android/sdk/platform-tools""
+    export PATH=""$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS:$PATH""
+    export JAVA_HOME=""/usr/lib/jvm/java-7-openjdk-amd64""
+    export ANT_HOME=""/usr/share/ant""
+    export PATH=""$ANT_HOME/bin:$PATH""
+    export ANDROID_HOME=""/home/tnt/android/sdk/tools""
+</code></pre>
+
+<p>on  my </p>
+
+<pre><code>/home/tnt/.bash_profile  
+/home/tnt/.bashrc
+/home/tnt/.profile  
+/root/.bash_profile  
+/root/.bashrc
+/root/.profile 
+</code></pre>
+
+<p>but it wont works</p>
+",<android><linux><cordova>,16/01/03 15:28,HQ
+34578677,How to ignore a particular directory or file for tslint?,"<p>The IDE being used is WebStorm 11.0.3, the tslint is configured and works, but, it hangs because it tries to parse large *.d.ts library files. </p>
+
+<p>Is there a way to ignore a particular file or directory?</p>
+",<javascript><ide><typescript><webstorm><tslint>,16/01/03 16:16,HQ
+34579213,DBSCAN for clustering of geographic location data,"<p>I have a dataframe with latitude and longitude pairs.</p>
+
+<p>Here is my dataframe look like.</p>
+
+<pre><code>    order_lat  order_long
+0   19.111841   72.910729
+1   19.111342   72.908387
+2   19.111342   72.908387
+3   19.137815   72.914085
+4   19.119677   72.905081
+5   19.119677   72.905081
+6   19.119677   72.905081
+7   19.120217   72.907121
+8   19.120217   72.907121
+9   19.119677   72.905081
+10  19.119677   72.905081
+11  19.119677   72.905081
+12  19.111860   72.911346
+13  19.111860   72.911346
+14  19.119677   72.905081
+15  19.119677   72.905081
+16  19.119677   72.905081
+17  19.137815   72.914085
+18  19.115380   72.909144
+19  19.115380   72.909144
+20  19.116168   72.909573
+21  19.119677   72.905081
+22  19.137815   72.914085
+23  19.137815   72.914085
+24  19.112955   72.910102
+25  19.112955   72.910102
+26  19.112955   72.910102
+27  19.119677   72.905081
+28  19.119677   72.905081
+29  19.115380   72.909144
+30  19.119677   72.905081
+31  19.119677   72.905081
+32  19.119677   72.905081
+33  19.119677   72.905081
+34  19.119677   72.905081
+35  19.111860   72.911346
+36  19.111841   72.910729
+37  19.131674   72.918510
+38  19.119677   72.905081
+39  19.111860   72.911346
+40  19.111860   72.911346
+41  19.111841   72.910729
+42  19.111841   72.910729
+43  19.111841   72.910729
+44  19.115380   72.909144
+45  19.116625   72.909185
+46  19.115671   72.908985
+47  19.119677   72.905081
+48  19.119677   72.905081
+49  19.119677   72.905081
+50  19.116183   72.909646
+51  19.113827   72.893833
+52  19.119677   72.905081
+53  19.114100   72.894985
+54  19.107491   72.901760
+55  19.119677   72.905081
+</code></pre>
+
+<p>I want to cluster this points which are nearest to each other(200 meters distance) following is my distance matrix.</p>
+
+<pre><code>from scipy.spatial.distance import pdist, squareform
+distance_matrix = squareform(pdist(X, (lambda u,v: haversine(u,v))))
+
+array([[ 0.        ,  0.2522482 ,  0.2522482 , ...,  1.67313071,
+     1.05925366,  1.05420922],
+   [ 0.2522482 ,  0.        ,  0.        , ...,  1.44111548,
+     0.81742536,  0.98978355],
+   [ 0.2522482 ,  0.        ,  0.        , ...,  1.44111548,
+     0.81742536,  0.98978355],
+   ..., 
+   [ 1.67313071,  1.44111548,  1.44111548, ...,  0.        ,
+     1.02310118,  1.22871515],
+   [ 1.05925366,  0.81742536,  0.81742536, ...,  1.02310118,
+     0.        ,  1.39923529],
+   [ 1.05420922,  0.98978355,  0.98978355, ...,  1.22871515,
+     1.39923529,  0.        ]])
+</code></pre>
+
+<p>Then I am applying DBSCAN clustering algorithm on distance matrix.</p>
+
+<pre><code> from sklearn.cluster import DBSCAN
+
+ db = DBSCAN(eps=2,min_samples=5)
+ y_db = db.fit_predict(distance_matrix)
+</code></pre>
+
+<p>I don't know how to choose eps &amp; min_samples value. It clusters the points which are way too far, in one cluster.(approx 2 km in distance) Is it because it calculates euclidean distance while clustering? please help.</p>
+",<python><cluster-analysis><dbscan>,16/01/03 17:09,HQ
+34579243,how to do this on bootstrap,"<p>I am new in using bootstrap and I want to know how to do this in desktop size:</p>
+
+<pre><code> -----------------------
+ |  table1 |  table2   |
+ -----------           |
+ | table3  |           |
+ -----------           |
+ |  table4 |           |
+ -----------------------
+</code></pre>
+
+<p>Glad if you would help me.</p>
+",<css><html>,16/01/03 17:11,LQ_CLOSE
+34579676,How to sum all the numbers that I entered in the console,"So my code looks like this  
+  
+
+<import java.util.Scanner;
+public class homework3 {
+
+	public static void main(String[] args) {
+		
+		System.out.println(""Enter a positive number: "");
+	    Scanner scan = new Scanner(System.in);
+	    int i = scan.nextInt();
+	     int y = 1;
+	     int sum = 0;
+	     
+	     
+	    
+	     
+	     int e = 2;
+	     while (e <=i ) {
+	       System.out.print("" "" + e);
+	       e += 2;
+	     }
+	    
+	}
+
+}
+>
+I'm trying to sum all of the numbers that go up to the number that's entered.",<java>,16/01/03 17:55,LQ_EDIT
+34579839,Any chance to minify this snippet of code?,"Any chance to minify the snippet of code below? Something like `if (!$('body#pagina_blog_1 **TO** body#pagina_blog_10).length)....`
+
+On-line javascript minifires tools do not help...
+
+
+     jQuery(function($){
+            if (!$('body#pagina_blog_1, body#pagina_blog_2, body#pagina_blog_3, body#pagina_blog_4, body#pagina_blog_5, body#pagina_blog_6, body#pagina_blog_7, body#pagina_blog_8, body#pagina_blog_9, body#pagina_blog_10).length) return;
+            
+            // do stuff
+            
+            });",<javascript><jquery>,16/01/03 18:10,LQ_EDIT
+34580136,Facebook App Login: How to control expiration date of an image URL I got?,"<p>I'm developing an app, which uses the facebook login. After login the user must set additional informations and a profile picture, with the picture being provided from that logged in facebook account as well. Now the whole account details, including the URL to that profile picture, are saved in my database.</p>
+
+<p>To my surprise the profile picture has suddenly stopped working. Opening it's URL in a browser gives me this message ""URL signature expired""</p>
+
+<p><a href=""https://scontent.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.jpg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894D69"" rel=""noreferrer"">https://scontent.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.jpg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894D69</a></p>
+
+<p>Downloading those photos and save them to my own server is not really an option for me. Is there anything I can do to make that URL durable?</p>
+",<facebook><facebook-graph-api>,16/01/03 18:37,HQ
+34580150,How to print the following with php[preferred] or javaScript?,"<p>So i was asked the following question in an interview. I was able to print the whole xxx thing. but it was not diagonal like the below one. I think it meant to have spaces prints through a loop. Can Someone please help me with this.</p>
+
+<p>How to print the following using php or javascript?? Php would be preferred.</p>
+
+<pre><code>     xx
+    xxxx
+   xxxxxx
+  xxxxxxxx
+ xxxxxxxxxx
+</code></pre>
+
+<p>what i was able to get was</p>
+
+<pre><code>xx
+xxxx
+xxxxxx
+xxxxxxxx
+xxxxxxxxxx 
+</code></pre>
+
+<p>through php for loop.</p>
+",<javascript><php>,16/01/03 18:38,LQ_CLOSE
+34580166,What codes can I use in order to make music from parse I uploaded play shuffled for an app created by Xcode in swift language?,"This is what I have so far...
+                  let query = PFQuery(className: ""Genres"")
+                  //Find objects in the background
+                   query.findObjectsInBackgroundWithBlock({
+            //store objects in an array
+            (objectsArray :[PFObject]?, error: NSError?) -> Void in
+            
+            let objectIDs = objectsArray
+            // objects being added to array
+            for i in 0...objectIDs!.count-1{
+            // add a new element in the array
+            self.iDArray.append(objectIDs![i].valueForKey(""objectId"") as! String)
+            //store song name in song array
+            self.NameArray.append(objectIDs![i].valueForKey(""SongName"")as! String)
+            self.tableView.reloadData()
+             
+            NSLog(""\(objectIDs)"")
+                
+            }
+            
+        })
+    }
+    
+    func grabSong () {
+        let songQuery = PFQuery(className: ""Genres"")
+        songQuery.getObjectInBackgroundWithId(iDArray[SelectedSongNumber], block: {
+            (object: PFObject?, error : NSError?) -> Void in
+            
+            if let audioFile = object?[""SongFile""] as? PFFile {
+                let audioFileUrlString: String = (audioFile.url)!
+                let audioFileUrl = NSURL(string: audioFileUrlString)!
+                AudioPlayer = AVPlayer(URL: audioFileUrl)
+                AudioPlayer.play()
+            }
+        })
+    }
+",<ios><arrays><swift><parse-platform><shuffle>,16/01/03 18:40,LQ_EDIT
+34580415,Cross Domain Image upload Angular+laravel,"<p>I have been struggling with image upload on server. I am using <a href=""https://github.com/danialfarid/ng-file-upload"">ngFileUpload</a> on front end. But I always get </p>
+
+<p>""Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource""</p>
+
+<p>Angular Code for file Upload : </p>
+
+<pre><code> var uploadFile = function (file) {
+      if (file) {
+
+            if (!file.$error) {
+              Upload.upload({
+                  url: baseUrl+'upload',
+                  file: file
+
+
+              }).progress(function (evt) {
+                  var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                  //console.log(evt.total);
+              }).success(function (data, status, headers, config) {
+                  $timeout(function() {
+
+                    console.log(data);
+                    console.log(status);
+                      if(status==200)
+                        {
+
+                          logo_path = data.logo_path;
+
+                        }
+
+                  });
+              });
+            }
+
+      }
+  };
+</code></pre>
+
+<p>On Laravel i have configured CORS like this : </p>
+
+<pre><code>public function handle($request, Closure $next)
+{
+    header(""Access-Control-Allow-Origin: http://localhost:8001/"");
+
+    // ALLOW OPTIONS METHOD
+    $headers = [
+        'Access-Control-Allow-Methods'=&gt; 'POST, GET, OPTIONS, PUT, DELETE',
+        'Access-Control-Allow-Headers'=&gt; 'Content-Type, X-Auth-Token, Origin'
+    ];
+    if($request-&gt;getMethod() == ""OPTIONS"") {
+        // The client-side application can set only headers allowed in Access-Control-Allow-Headers
+        return Response::make('OK', 200, $headers);
+    }
+
+    $response = $next($request);
+    foreach($headers as $key =&gt; $value)
+        $response-&gt;header($key, $value);
+    return $response;
+}
+</code></pre>
+
+<p>The Normal cross domain POST request works fine. i.e $http.post(). I have tried many different variations of headers on angular but none helps. Also the OPTIONS request returns 200 OK but still preflight response failure message is displayed. Can anyone help me with how to further debug this issue?</p>
+",<angularjs><laravel-5><cors><ng-file-upload>,16/01/03 19:04,HQ
+34581270,Understanding JavaScript Object(value),"<p>I understand that the following code wraps a number into an object:</p>
+
+<pre><code>var x = Object(5);
+</code></pre>
+
+<p>I therefore expect and understand the following:</p>
+
+<pre><code>alert(x == 5); //true
+alert(x === 5); //false
+</code></pre>
+
+<p>However, I also understand that an object is a list of <strong>key/value pairs</strong>. So I would have expected the following to be different:</p>
+
+<pre><code>alert(JSON.stringify(5)); //5
+alert(JSON.stringify(x)); //5
+</code></pre>
+
+<p>What does the structure of x look like? And why does it not appear to be in key/value pair format?</p>
+",<javascript>,16/01/03 20:31,HQ
+34581961,"Android how to notify, when viewpager loads pages?","I have implemented viewpager autoscroll. But this triggers much earlier, even before the page loads/visible to user.
+
+I want to start the autoscroll, after all the pages visible to user. Please suggest how to handle the notification, when pages visible?
+
+Cheers
+AP",<android><android-viewpager>,16/01/03 21:45,LQ_EDIT
+34583073,Angular 2 Errors and Typescript - how to debug?,"<p>I've just started a project to learn Angular2 and Typescript+Javascript. I come from a Java background and my approach to debugging projects is usually a combination of stack traces, compile errors, and - on larger projects - lots of test cases. However, much of this doesn't seem to directly translate to the world of web-dev; particularly debugging my code that's interacting with Angular2's libraries.</p>
+
+<p>Could anyone suggest any approaches that I can take to debug code working with Angular2? Specifically; how can I see what parts of my HTML/TS is causing issues? I've checked the console, from which I can see that I've broken Angular2, but it doesn't seem much more informative from that.</p>
+
+<p>Just to clarify; I don't want help for this specific instance. I'd like to learn how to diagnose+fix these problems myself.</p>
+",<debugging><web><typescript><angular>,16/01/03 23:59,HQ
+34583224,What is the right command to convert an mp3 file to the required codec version (MPEG version 2) and bit rate (48 kbps) for Amazon Alexa SSML?,"<p>I am trying to convert an mp3 file to the format expected by the audio tag in the Amazon Alexa SSML markup language as described here: <a href=""https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference"">https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference</a></p>
+
+<p>The documentation recommends using <a href=""https://www.ffmpeg.org/ffmpeg.html"">https://www.ffmpeg.org/ffmpeg.html</a></p>
+
+<p>I tried this command but can't find the right codec to use:
+<code>ffmpeg -y -i input.mp3 -ar 44100 -ab 48k -codec:a mpeg2 -ac 1 output.mp3</code></p>
+
+<p>I know I need to convert the file because Alexa fails with the following error: <code>The audio is not of a supported MPEG version</code></p>
+",<ffmpeg><alexa-skills-kit>,16/01/04 0:25,HQ
+34583637,Will the following code removes a relationship by setting the foreign key to 0?,"I have a question about entity framework.
+
+Will the following code removes a relationship by setting the foreign key to 0?
+
+entity.relationEntityID = 0;",<c#><entity-framework>,16/01/04 1:35,LQ_EDIT
+34583717,Authentication (Passport) enough for security with Node js backend server?,"<p>Is PassportJS using Facebook Authentication enough for an iOS backend with Node JS?</p>
+
+<p>I have the toobusy package as well to decline requests when things get to busy (I'm guessing it would be good for DDOSes).</p>
+
+<p>I'm thinking of using nginx as a reverse proxy to my Node.JS server as well.</p>
+
+<p>What are some more security measures that can scale? Some advice and tips? Anything security related that I should be concerned about that PassportJS's authenticated session can't handle?</p>
+",<ios><node.js><facebook><security><backend>,16/01/04 1:51,HQ
+34583796,Android @Intdef for flags how to use it,"<p>I am not clear how to use @Intdef when making it a flag like this:</p>
+
+<pre><code>@IntDef(
+  flag = true
+  value = {NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS})
+</code></pre>
+
+<p>this example is straight from the <a href=""http://developer.android.com/reference/android/support/annotation/IntDef.html"" rel=""noreferrer"">docs</a>.  What does this actually mean ?  does it mean all of them are initially set to true ? if i do a ""or"" on the following:</p>
+
+<pre><code>NAVIGATION_MODE_STANDARD | NAVIGATION_MODE_LIST
+</code></pre>
+
+<p>what does it mean ...im a little confused whats happening here. </p>
+",<android><android-annotations>,16/01/04 2:05,HQ
+34584356,Add a Foreign Key in PgAdmin,"<p>I have <code>studidtemplates</code> table below:</p>
+
+<p><a href=""https://i.stack.imgur.com/fSHCa.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/fSHCa.png"" alt=""enter image description here""></a></p>
+
+<p><code>template_id</code> is the primary_key</p>
+
+<p><a href=""https://i.stack.imgur.com/JQ9vn.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/JQ9vn.png"" alt=""enter image description here""></a></p>
+
+<p>I want to create a new table referencing <code>template_id</code> as a <code>foreign key</code>. It is named <code>studidtemplatetextelements</code>. See image below:</p>
+
+<p><a href=""https://i.stack.imgur.com/WNCk0.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/WNCk0.png"" alt=""enter image description here""></a></p>
+
+<p>I created a column <code>template_id</code> in the second table and want to make it a foreign key referencing <code>template_id</code> in <code>studidtemplates</code> table. I did it by clicking the button in the <code>Constraints</code> tab,pointed by an arrow in the image below.</p>
+
+<p><a href=""https://i.stack.imgur.com/S2Gsh.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/S2Gsh.png"" alt=""enter image description here""></a></p>
+
+<p>I notice something different. In 'Referencing' option there's no <code>template_id</code> option available. See image below:</p>
+
+<p><a href=""https://i.stack.imgur.com/gCkBf.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/gCkBf.png"" alt=""enter image description here""></a></p>
+
+<p>Where am I missing?</p>
+",<postgresql><foreign-keys><foreign-key-relationship><pgadmin>,16/01/04 3:36,HQ
+34584578,TypeScript + ES6 Map + Index signature of object type implicitly has an 'any' type,"<p>I have the following code in TypeScript:</p>
+
+<pre><code>export class Config
+{
+    private options = new Map&lt;string, string&gt;();
+
+    constructor() {
+    }
+
+    public getOption(name: string): string {
+        return this.options[name]; // &lt;-- This line causes the error.
+    }
+}
+</code></pre>
+
+<p>And the compiler is giving me this error:</p>
+
+<p><code>Error:(10, 16) TS7017: Index signature of object type implicitly has an 'any' type.</code></p>
+
+<p>The Map is 'possible' through es6-shim. I am not quite sure what is going on here. Actually this Map confuses me a little. Map is supposed to come from es6-shim which is supposed to implement es6 functionality. But es6 doesn't have static types, right? So, why the Map expects the key/value types as generic arguments? I have seen some people adding a 'noImplicitAny' flag but I want to solve the problem, not ignore it.</p>
+
+<p>Thank you.</p>
+",<typescript><ecmascript-6><es6-shim>,16/01/04 4:12,HQ
+34585362,How to Type Cast null as Bool in C#?,"<p>I'm having one null-able bool (<code>bool?</code>) variable, it holds a value null. One more variable of type pure <code>bool</code>, I tried to convert the null-able bool to bool. But I faced an error ""<strong>Nullable object must have a value.</strong>""</p>
+
+<p>My C# Code is </p>
+
+<pre><code>bool? x = (bool?) null;
+bool y = (bool)x;
+</code></pre>
+",<c#><casting><boolean><nullable>,16/01/04 5:48,HQ
+34585453,How to bind raw html in Angular2,"<p>I use Angular 2.0.0-beta.0 and I want to create and bind some simple HTML directly. Is is possible and how?</p>
+
+<p>I tried to use</p>
+
+<pre><code>{{myField}}
+</code></pre>
+
+<p>but the text in myField will get escaped.</p>
+
+<p>For Angular 1.x i found hits for ng-bind-html, but this seems not be supported in 2.x</p>
+
+<p>thx
+Frank </p>
+",<angular>,16/01/04 5:58,HQ
+34585896,the \b flag not working in javascript regrex,"I am new to regular expressions and basically just playing around with them in my brower console ,  using MDN as a referance , i tried the below regrex:
+
+    /\bg/g.test('me building and him')
+
+even if i try `/\bg/g` , i still get false, WHY ? 
+
+The MDN definition says the following for `\b`:
+
+> Matches a zero-width word boundary, such as between a letter and a
+> space. (Not to be confused with [\b])
+> 
+> For example, /\bno/ matches the ""no"" in ""at noon""; /ly\b/ matches the
+> ""ly"" in ""possibly yesterday"".
+
+So why is the `g` at the end of building not being matched ? , can anybody explain ?  ",<javascript><regex>,16/01/04 6:38,LQ_EDIT
+34586069,ValueError: Series lengths must match to compare when matching dates in Pandas,"<p>I apologize in advance for asking such a basic question but I am stumped.</p>
+
+<p>This is a very simple, dummy example. I'm having some issue matching dates in Pandas and I can't figure out why.</p>
+
+<pre><code>df = pd.DataFrame([[1,'2016-01-01'], 
+                   [2,'2016-01-01'],
+                   [3,'2016-01-02'],
+                   [4,'2016-01-03']],
+                   columns=['ID', 'Date'])
+
+df['Date'] = df['Date'].astype('datetime64')
+</code></pre>
+
+<p>Say I want to match row 1 in the above df.<br>
+I know beforehand that I want to match ID <code>1</code>.<br>
+And I know the date I want as well, and as a matter of fact, I'll extract that date directly from row 1 of the df to make it bulletproof.</p>
+
+<pre><code>some_id = 1
+some_date = df.iloc[1:2]['Date']  # gives 2016-01-01
+</code></pre>
+
+<p>So why doesn't this line work to return me row 1??</p>
+
+<pre><code>df[(df['ID']==some_id) &amp; (df['Date'] == some_date)] 
+</code></pre>
+
+<p>Instead I get 
+<code>ValueError: Series lengths must match to compare</code><br>
+which I understand, and makes sense...but leaves me wondering...how else can I compare dates in pandas if I can't compare one to many?</p>
+",<python><pandas>,16/01/04 6:52,HQ

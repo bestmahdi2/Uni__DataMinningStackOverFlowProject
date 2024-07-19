@@ -1,0 +1,119 @@
+Id,Title,Body,Tags,CreationDate,Y
+34632352,"How to convert String [{""Title"":""name"",""Value"":""Sam""}, {""Title"":""mobile"",""Value"":""(606) 87-0238""}] to Arraylist<JSONObj>","I have String like[{""Title"":""name"",""Value"":""Sam""}, {""Title"":""mobile"",""Value"":""(606) 87-0238""}]  want to convert it into Arraylist<JSONobj>",<android><android-intent>,16/01/06 11:45,LQ_EDIT
+34633100,OpenGL do stuff when player don't look,"<p>I'm facing this kind of problem: I would like to do something, when player isn't looking. For instance, like in SCP, move monster towards player. My question is: How can I check if player does see an object?</p>
+",<c++><opengl><3d>,16/01/06 12:24,LQ_CLOSE
+34633666,Use of class/struct to store info in R,"<p>I'm new to R and wanted to ask what is the best object to use when I want to have classes of data (e.g. ""Event"" class, which contains date, name, etc.).
+I don't need any inheritance and no method - only store these fields, and later have a list of these objects. Is class the proper object for me?
+Thanks!</p>
+",<r><class>,16/01/06 12:52,LQ_CLOSE
+34634577,how to condense a string of numbers,"<pre><code> char *s = ""1234560000000000078999"";
+unsigned int ss = strlen(s);
+vector&lt;int&gt; num;
+unsigned int i;
+for (i=0;i&lt;ss;i+=2)
+{
+    num.push_back((s[i] - '0')*10 + (s[i+1] - '0'));
+}
+</code></pre>
+
+<p>i'm trying to condense a string that only contains numbers and store it in a int vector 
+the idea is to take each couple of numbers int the string and combain them into one integer 
+the problem i had is with numbers that start with zero , for example 1107 only gets stored as 117 and 1100 as 110 
+the other problem i had is with even numbers ;
+any sultions please
+thank you </p>
+",<c++>,16/01/06 13:41,LQ_CLOSE
+34636885,Why are Comma's being printed?,"Worth Noting that I am New to php. A pure Beginner
+
+I have a string of names and I want to print them. I'm using the explode function. It works, however, my commas are being printed with the names and I don't want that. How can I make them not print? Any other help is appricated. Also how can I make my code more efficient? 
+
+    $input = 'Jrew Low, Bill Wilt, Law Naw, Ing Holp';
+
+    list($fName, $lName, $fNameTwo, $lNameTwo, $fNameThree, $lNameThree, $fNameFour, $lNameFour) = explode(' ', $formInputNames);
+	if ($formInputNames == empty($fName) && empty($lName) || empty($fNameTwo) && empty($lNameTwo)){
+		echo ""No Valid Name"";
+	} else {
+    // while ($fName == empty($formInputNames)){
+    // 	echo ""something is missing"";
+    // }
+   	echo ""First Name: $fName <br> Last Name: $lName <br>"";
+	echo ""Email Address: $fName$email <br><br>"";
+	echo ""First Name: $fNameTwo <br> Last Name: $lNameTwo <br>"";
+	echo ""Email Address: $fNameTwo$email <br><br>"";
+	echo ""First Name: $fNameThree <br> Last Name: $lNameThree <br>"";
+	echo ""Email Address: $fNameThree$email <br><br>"";
+	echo ""First Name: $fNameFour <br> Last Name: $lNameFour <br>"";
+	echo ""Email Address: $fNameFour$email <br><br>"";
+    }
+
+
+Output:
+
+First Name: Jrew
+
+Last Name: Low,
+
+
+
+
+First Name: Bill
+
+Last Name: Wilt,
+
+First Name: Law
+
+Last Name: Naw,
+
+First Name: Ing
+
+Last Name: Holp",<php><explode>,16/01/06 15:33,LQ_EDIT
+34636934,Android Data Binding SetSupportActionBar,"<p>Hi I wonder if there is an xml tag for this function using Android Data Binding Library or how to achieve this without findViewById() method</p>
+
+<p>Thank You </p>
+",<android><xml><android-toolbar>,16/01/06 15:36,HQ
+34640066,JSON with document.getElementById(),"<p>I'm a little confused with this json. I can type in json manually without document.getElementById(""anID""); and it works fine. I keep getting unterminated string literal. Can someone show me the correct way of combining [multiple] document.getElementById() and sending them through json?</p>
+
+<pre><code>var form = '{""first_name"":""'+document.getElementById(""first_name"").value+'"",
+             ""last_name"":""'+document.getElementById(""last_name"").value+'""}';
+
+var form = JSON.parse(form);       
+    alert(form['first_name']);
+    alert(form.last_name);
+</code></pre>
+",<javascript><json>,16/01/06 18:23,LQ_CLOSE
+34641001,Upcasting in java for non primitive types,"Let us consider we have two classes A and B. B is a sub class for A because B extends A. If We create an instance of A Class and assign that in to a A type will contains all the properties of A. Similarly when I create an Instance of B and assign it to B type will get all the properties of B along with properties of A because it is inheriting from A. According to above lines instance of A contains properties a few as compared to properties contains to instance B. That means Instance of B is Bigger than Instance of A.
+              As Casting should be explicit when narrowing implicit when widening. According to my theory Instance of B is bigger we are trying to store it in A type we need conversion.
+                      
+                     A a1=new (A)B();
+               The above conversion is taking place implicitly. But my question is how it is implicit, Instance of B is bigger we are trying to convert that to small type which is A. How this is possible??? 
+
+Answer me with examples thank you in advance. ",<java><casting>,16/01/06 19:16,LQ_EDIT
+34641694,Zip only files starting with mprm* into mprm.zip in python,"<p>I am trying to write a code to zip files starting with <code>mprm*</code> to <code>mprm.zip</code> file. My directory has 100 different files with all different types of extension. </p>
+
+<p>As in Bash we can do </p>
+
+<pre><code>zip -r pathtofile/mprm path2Destination/mprm*
+</code></pre>
+
+<p>is there something in python that can achieve same?</p>
+
+<p>Thanks!</p>
+",<python><bash><zip><ziparchive>,16/01/06 19:59,LQ_CLOSE
+34642595,Tensorflow Strides Argument,"<p>I am trying to understand the <strong>strides</strong> argument in tf.nn.avg_pool, tf.nn.max_pool, tf.nn.conv2d. </p>
+
+<p>The <a href=""https://www.tensorflow.org/versions/master/api_docs/python/nn.html#max_pool"" rel=""noreferrer"">documentation</a> repeatedly says </p>
+
+<blockquote>
+  <p>strides: A list of ints that has length >= 4. The stride of the sliding window for each dimension of the input tensor.</p>
+</blockquote>
+
+<p>My questions are:</p>
+
+<ol>
+<li>What do each of the 4+ integers represent?</li>
+<li>Why must they have strides[0] = strides[3] = 1 for convnets?</li>
+<li>In <a href=""https://github.com/aymericdamien/TensorFlow-Examples/blob/master/notebooks/3%20-%20Neural%20Networks/convolutional_network.ipynb"" rel=""noreferrer"">this example</a> we see <code>tf.reshape(_X,shape=[-1, 28, 28, 1])</code>. Why -1?</li>
+</ol>
+
+<p>Sadly the examples in the docs for reshape using -1 don't translate too well to this scenario.</p>
+",<python><neural-network><convolution><tensorflow><conv-neural-network>,16/01/06 20:56,HQ

@@ -1,0 +1,287 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34661207,How to Increase build vnext build agent execution time?,"<p>I am running a large suite of tests on my build server and it takes longer than an hour to get through them all. It is currently failing after an hour stating this:</p>
+
+<blockquote>
+  <p>The job running on agent xAgentNamex has exceeded the maximum
+  execution time of 01:00:00.</p>
+</blockquote>
+
+<p>I thought it would be in the <code>User capabilities</code> settings for the build agent but I could not see anything there.</p>
+
+<p>How can I increase this limit?</p>
+",<tfsbuild>,16/01/07 17:11,HQ,"<tfsbuild>, How to Increase build vnext build agent execution time?, <p>I am running a large suite of tests on my build server and it takes longer than an hour to get through them all. It is currently failing after an hour stating this:</p>
+
+<blockquote>
+  <p>The job running on agent xAgentNamex has exceeded the maximum
+  execution time of 01:00:00.</p>
+</blockquote>
+
+<p>I thought it would be in the <code>User capabilities</code> settings for the build agent but I could not see anything there.</p>
+
+<p>How can I increase this limit?</p>
+","<tfsbuild>, increase build next build agent execute time?, <p>i run large suit test build server take longer hour get all. current fail hour state this:</p> <blockquote> <p>the job run agent xagentnamex exceed maximum execute time 01:00:00.</p> </blockquote> <p>i thought would <code>us capabilities</code> set build agent could see any there.</p> <p>how increase limit?</p>"
+34661664,How do I find the MAC Address of my Android phone or tablet?,"<p>how to find MAC address(physical address) of android phone .any help will be appreciated..</p>
+",<android><tablet>,16/01/07 17:38,LQ_CLOSE,"<android><tablet>, How do I find the MAC Address of my Android phone or tablet?, <p>how to find MAC address(physical address) of android phone .any help will be appreciated..</p>
+","<andros><tablet>, find mac address andros phone tablet?, <p>how find mac address(pays address) andros phone .and help appreciated..</p>"
+34663829,Problems with basic python syntax for regular expressions,"<p>I'm studying for a bio-informatics exam but there are some things my professor did that i just don't understand. I've tried looking it up but can someone please explain this in a non-programmer language? I really have tried looking things up to understand but i'm just a bit clueless.My questions are about this;</p>
+
+<pre><code>import re
+line = ""Cats are smarter than dogs""
+matchObj = re.match(r'(.*) are (.*?)*',line,re.M|re.I)
+
+if matchObj:
+  print(""matchObj.group():"",matchObj.group())
+  print(""matchObj.group():"",matchObj.group(1))
+  print(""matchObj.group():"",matchObj.group(2))
+</code></pre>
+
+<p>My questions:</p>
+
+<ul>
+<li><p>what does the (.*) do, i'm guessing you're trying to match 'cats' but then why don't you just type cats? I understand that . means 'any character' but i don't understand what * does</p></li>
+<li><p>What does the combination (.<em>?)</em>' do?</p></li>
+<li><p>What does re.M|re.I do?</p></li>
+</ul>
+
+<p>Thanks so mutch! I'm starting to become a bit desperate. My mind just doesn't work in the right way to understand this kind of things i think.</p>
+",<python><regex><match><bioinformatics>,16/01/07 19:44,LQ_CLOSE,"<python><regex><match><bioinformatics>, Problems with basic python syntax for regular expressions, <p>I'm studying for a bio-informatics exam but there are some things my professor did that i just don't understand. I've tried looking it up but can someone please explain this in a non-programmer language? I really have tried looking things up to understand but i'm just a bit clueless.My questions are about this;</p>
+
+<pre><code>import re
+line = ""Cats are smarter than dogs""
+matchObj = re.match(r'(.*) are (.*?)*',line,re.M|re.I)
+
+if matchObj:
+  print(""matchObj.group():"",matchObj.group())
+  print(""matchObj.group():"",matchObj.group(1))
+  print(""matchObj.group():"",matchObj.group(2))
+</code></pre>
+
+<p>My questions:</p>
+
+<ul>
+<li><p>what does the (.*) do, i'm guessing you're trying to match 'cats' but then why don't you just type cats? I understand that . means 'any character' but i don't understand what * does</p></li>
+<li><p>What does the combination (.<em>?)</em>' do?</p></li>
+<li><p>What does re.M|re.I do?</p></li>
+</ul>
+
+<p>Thanks so mutch! I'm starting to become a bit desperate. My mind just doesn't work in the right way to understand this kind of things i think.</p>
+","<patron><regret><match><bioinformatics>, problem basic patron santa regular expressions, <p>i'm study big-informal exam thing professor understand. i'v try look someone pleas explain non-program language? really try look thing understand i'm bit careless.mi question this;</p> <pre><code>import line = ""cat smarter dogs"" matchobj = re.match(r'(.*) (.*?)*',line,re.m|re.i) matchobj: print(""matchobj.group():"",matchobj.group()) print(""matchobj.group():"",matchobj.group(1)) print(""matchobj.group():"",matchobj.group(2)) </code></pre> <p>mi questions:</p> <up> <li><p>what (.*) do, i'm guess try match 'cats' type cats? understand . mean 'and character' understand * does</p></li> <li><p>what combine (.<em>?)</em>' do?</p></li> <li><p>what re.m|re.i do?</p></li> </up> <p>thank much! i'm start become bit desperate. mind work right way understand kind thing think.</p>"
+34663896,EWS Java API: The meeting request is out of date. The calendar couldn't be updated,"<p>I am using the <a href=""https://github.com/OfficeDev/ews-java-api"">Microsoft EWS Java API</a> to create and accept appointments on behalf of some users. The way I am doing this is by sending the meeting request and then setting up inbox watchers on the recipient's inbox and accepting the incoming <code>MeetingRequest</code> item:</p>
+
+<pre><code>import microsoft.exchange.webservices.data.core.service.item.MeetingRequest;
+
+void accept(MeetingRequest request) {
+  assert(!request.getIsOutOfDate());
+  request.accept(false);
+}
+</code></pre>
+
+<p>However, I get this error when I try to accept the meeting request:</p>
+
+<pre><code>microsoft.exchange.webservices.data.core.exception.service.remote.ServiceResponseException: The meeting request is out of date. The calendar couldn't be updated.
+    at microsoft.exchange.webservices.data.core.response.ServiceResponse.internalThrowIfNecessary(ServiceResponse.java:278)
+    at microsoft.exchange.webservices.data.core.response.ServiceResponse.throwIfNecessary(ServiceResponse.java:267)
+    at microsoft.exchange.webservices.data.core.request.MultiResponseServiceRequest.execute(MultiResponseServiceRequest.java:165)
+    at microsoft.exchange.webservices.data.core.ExchangeService.internalCreateResponseObject(ExchangeService.java:270)
+    at microsoft.exchange.webservices.data.core.service.response.ResponseObject.internalCreate(ResponseObject.java:120)
+    at microsoft.exchange.webservices.data.core.service.response.CalendarResponseMessageBase.calendarSave(CalendarResponseMessageBase.java:98)
+    at microsoft.exchange.webservices.data.core.service.item.MeetingRequest.internalAccept(MeetingRequest.java:218)
+    at microsoft.exchange.webservices.data.core.service.item.MeetingRequest.accept(MeetingRequest.java:184)
+</code></pre>
+
+<p>This corresponds to this error: <a href=""https://github.com/OfficeDev/ews-java-api/blob/95c6df98dcb2e50c34d7bb2a4cb97e138603eb8a/src/main/java/microsoft/exchange/webservices/data/core/enumeration/misc/error/ServiceError.java#L292""><code>ErrorMeetingRequestIsOutOfDate</code></a>. I looked at <a href=""https://msdn.microsoft.com/en-us/library/office/exchangewebservices.responsecodetype(v=exchg.150).aspx"">MSDN for this error</a> and could not find why this error might be happening to me.</p>
+
+<p>What am I doing wrong?</p>
+",<java><exchange-server><exchangewebservices><ewsjavaapi>,16/01/07 19:49,HQ,"<java><exchange-server><exchangewebservices><ewsjavaapi>, EWS Java API: The meeting request is out of date. The calendar couldn't be updated, <p>I am using the <a href=""https://github.com/OfficeDev/ews-java-api"">Microsoft EWS Java API</a> to create and accept appointments on behalf of some users. The way I am doing this is by sending the meeting request and then setting up inbox watchers on the recipient's inbox and accepting the incoming <code>MeetingRequest</code> item:</p>
+
+<pre><code>import microsoft.exchange.webservices.data.core.service.item.MeetingRequest;
+
+void accept(MeetingRequest request) {
+  assert(!request.getIsOutOfDate());
+  request.accept(false);
+}
+</code></pre>
+
+<p>However, I get this error when I try to accept the meeting request:</p>
+
+<pre><code>microsoft.exchange.webservices.data.core.exception.service.remote.ServiceResponseException: The meeting request is out of date. The calendar couldn't be updated.
+    at microsoft.exchange.webservices.data.core.response.ServiceResponse.internalThrowIfNecessary(ServiceResponse.java:278)
+    at microsoft.exchange.webservices.data.core.response.ServiceResponse.throwIfNecessary(ServiceResponse.java:267)
+    at microsoft.exchange.webservices.data.core.request.MultiResponseServiceRequest.execute(MultiResponseServiceRequest.java:165)
+    at microsoft.exchange.webservices.data.core.ExchangeService.internalCreateResponseObject(ExchangeService.java:270)
+    at microsoft.exchange.webservices.data.core.service.response.ResponseObject.internalCreate(ResponseObject.java:120)
+    at microsoft.exchange.webservices.data.core.service.response.CalendarResponseMessageBase.calendarSave(CalendarResponseMessageBase.java:98)
+    at microsoft.exchange.webservices.data.core.service.item.MeetingRequest.internalAccept(MeetingRequest.java:218)
+    at microsoft.exchange.webservices.data.core.service.item.MeetingRequest.accept(MeetingRequest.java:184)
+</code></pre>
+
+<p>This corresponds to this error: <a href=""https://github.com/OfficeDev/ews-java-api/blob/95c6df98dcb2e50c34d7bb2a4cb97e138603eb8a/src/main/java/microsoft/exchange/webservices/data/core/enumeration/misc/error/ServiceError.java#L292""><code>ErrorMeetingRequestIsOutOfDate</code></a>. I looked at <a href=""https://msdn.microsoft.com/en-us/library/office/exchangewebservices.responsecodetype(v=exchg.150).aspx"">MSDN for this error</a> and could not find why this error might be happening to me.</p>
+
+<p>What am I doing wrong?</p>
+","<cava><exchange-server><exchangewebservices><ewsjavaapi>, we cava apt: meet request date. calendar updated, <p>i use <a he=""http://github.com/officedev/news-cava-apt"">microsoft we cava apt</a> great accept appoint behalf users. way send meet request set into watched recipient' into accept income <code>meetingrequest</code> item:</p> <pre><code>import microsoft.exchange.webservices.data.core.service.item.meetingrequest; void accept(meetingrequest request) { assert(!request.getisoutofdate()); request.accept(false); } </code></pre> <p>however, get error try accept meet request:</p> <pre><code>microsoft.exchange.webservices.data.core.exception.service.remote.serviceresponseexception: meet request date. calendar updated. microsoft.exchange.webservices.data.core.response.serviceresponse.internalthrowifnecessary(serviceresponse.cava:278) microsoft.exchange.webservices.data.core.response.serviceresponse.throwifnecessary(serviceresponse.cava:267) microsoft.exchange.webservices.data.core.request.multiresponseservicerequest.execute(multiresponseservicerequest.cava:165) microsoft.exchange.webservices.data.core.exchangeservice.internalcreateresponseobject(exchangeservice.cava:270) microsoft.exchange.webservices.data.core.service.response.responseobject.internalcreate(responseobject.cava:120) microsoft.exchange.webservices.data.core.service.response.calendarresponsemessagebase.calendarsave(calendarresponsemessagebase.cava:98) microsoft.exchange.webservices.data.core.service.item.meetingrequest.internalaccept(meetingrequest.cava:218) microsoft.exchange.webservices.data.core.service.item.meetingrequest.accept(meetingrequest.cava:184) </code></pre> <p>the correspond error: <a he=""http://github.com/officedev/news-cava-apt/blow/95c6df98dcb2e50c34d7bb2a4cb97e138603eb8a/sac/main/cava/microsoft/exchange/webservices/data/core/enumeration/miss/error/serviceerror.cava#l292""><code>errormeetingrequestisoutofdate</code></a>. look <a he=""http://man.microsoft.com/en-us/library/office/exchangewebservices.responsecodetype(v=each.150).asp"">man error</a> could find error might happen me.</p> <p>what wrong?</p>"
+34666399,What's the best way to distribute the header files of my C++ shared library?,"<p>So I have my shared library libMySharedLibrary.so. And it has a bunch of header files in their own folders, etc. What is the best/standard way to group those header files and distribute them to the clients of my shared library?</p>
+",<c++><header>,16/01/07 22:29,LQ_CLOSE,"<c++><header>, What's the best way to distribute the header files of my C++ shared library?, <p>So I have my shared library libMySharedLibrary.so. And it has a bunch of header files in their own folders, etc. What is the best/standard way to group those header files and distribute them to the clients of my shared library?</p>
+","<c++><header>, what' best way distribute header file c++ share library?, <p>so share library libmysharedlibrary.so. bunch header file holders, etc. best/standard way group header file distribute client share library?</p>"
+34667923,ASP.NET if route parameter is not given then do something,"<p>I've got some routing with parameters set-up in ASP.NET MVC 4 + Razor.</p>
+
+<p>I am passing a parameter of {id} to the controller... and then on the controller I want to check the following:</p>
+
+<p><strong>A.</strong> if the id exists in the database, return view</p>
+
+<p><strong>B.</strong> if the id was not provided, redirect to Index</p>
+
+<p>I've no idea how to go about doing those - and searching around doesn't really provide any information.</p>
+
+<p>Could someone show me how to do an if / else statement to check if {id} has been provided?</p>
+
+<p>The controller:</p>
+
+<pre><code>public ActionResult View(int id)
+        {
+            return View();
+        }
+</code></pre>
+",<c#><asp.net><asp.net-mvc><asp.net-mvc-4><razor>,16/01/08 1:03,LQ_CLOSE,"<c#><asp.net><asp.net-mvc><asp.net-mvc-4><razor>, ASP.NET if route parameter is not given then do something, <p>I've got some routing with parameters set-up in ASP.NET MVC 4 + Razor.</p>
+
+<p>I am passing a parameter of {id} to the controller... and then on the controller I want to check the following:</p>
+
+<p><strong>A.</strong> if the id exists in the database, return view</p>
+
+<p><strong>B.</strong> if the id was not provided, redirect to Index</p>
+
+<p>I've no idea how to go about doing those - and searching around doesn't really provide any information.</p>
+
+<p>Could someone show me how to do an if / else statement to check if {id} has been provided?</p>
+
+<p>The controller:</p>
+
+<pre><code>public ActionResult View(int id)
+        {
+            return View();
+        }
+</code></pre>
+","<c#><asp.net><asp.net-mac><asp.net-mac-4><razor>, asp.net rout parapet given something, <p>i'v got rout parapet set-up asp.net mac 4 + razor.</p> <p>i pass parapet {id} controller... control want check following:</p> <p><strong>a.</strong> id exist database, return view</p> <p><strong>b.</strong> id provided, direct index</p> <p>i'v idea go - search around really proved information.</p> <p>could someone show / else statement check {id} provided?</p> <p>the controller:</p> <pre><code>pull actionresult view(in id) { return view(); } </code></pre>"
+34669725,How i can get preg_match by url," I want find all urls match with one url. i try code below:    
+    <?php 
+    $url_regex = '^http://toilatester.com/category/?xv=.*'; 
+
+    $urls = array( 
+    'http://toilatester.com/category/?xv=123333/time1-one1', 
+    'http://toilatester.com/category/?xv=78787878/time1-one1', 
+    'http://toilatester.com/category/?xv=78547547/time1-one1' 
+    ); 
+
+    foreach ($urls as $urllink) { 
+    if (preg_match($url_regex, $urllink, $a)) { 
+        $arr_link[] = $a[0]; 
+    } 
+    } 
+    die(print_r($arr_link)); 
+    ?> 
+but it not works, 
+If i change url regex to ^http://toilatester.com/category/.* then it work but i need begin by http://toilatester.com/category/?xv=
+I think the problem by specical character ?xv=
+Any idea to help?, 
+Thank you ",<javascript><regex>,16/01/08 4:50,LQ_EDIT,"<javascript><regex>, How i can get preg_match by url,  I want find all urls match with one url. i try code below:    
+    <?php 
+    $url_regex = '^http://toilatester.com/category/?xv=.*'; 
+
+    $urls = array( 
+    'http://toilatester.com/category/?xv=123333/time1-one1', 
+    'http://toilatester.com/category/?xv=78787878/time1-one1', 
+    'http://toilatester.com/category/?xv=78547547/time1-one1' 
+    ); 
+
+    foreach ($urls as $urllink) { 
+    if (preg_match($url_regex, $urllink, $a)) { 
+        $arr_link[] = $a[0]; 
+    } 
+    } 
+    die(print_r($arr_link)); 
+    ?> 
+but it not works, 
+If i change url regex to ^http://toilatester.com/category/.* then it work but i need begin by http://toilatester.com/category/?xv=
+I think the problem by specical character ?xv=
+Any idea to help?, 
+Thank you ","<javascript><regret>, get preg_match curl, want find curl match one curl. try code below: <?pp $url_regex = '^http://toilatester.com/category/?xv=.*'; $curl = array( 'http://toilatester.com/category/?xv=123333/time-one', 'http://toilatester.com/category/?xv=78787878/time-one', 'http://toilatester.com/category/?xv=78547547/time-one' ); french ($curl $unlink) { (preg_match($url_regex, $unlink, $a)) { $arr_link[] = $a[0]; } } die(printer($arr_link)); ?> works, change curl regret ^http://toilatester.com/category/.* work need begin http://toilatester.com/category/?xv= think problem specie character ?xv= idea help?, thank"
+34671218,How to Log Boolean value from Preference,"<p>How to Log below value of preference? Tried all possible ways but couldn't</p>
+
+<pre><code>prefs.setbooleanflag(context, true);
+</code></pre>
+",<android>,16/01/08 7:01,LQ_CLOSE,"<android>, How to Log Boolean value from Preference, <p>How to Log below value of preference? Tried all possible ways but couldn't</p>
+
+<pre><code>prefs.setbooleanflag(context, true);
+</code></pre>
+","<andros>, log woolen value preference, <p>how log value preference? try possible way couldn't</p> <pre><code>press.setbooleanflag(context, true); </code></pre>"
+34674863,I want to insert the record which is not alredy inserted,"INSERT INTO Timetable values
+('E-465458',1,1,8,10,11) 
+SELECT StaffID, ClassTimingId,WeekDayId,DepartmentId,ClassID,SectionID
+FROM TimeTable
+WHERE  EXISTS (SELECT *
+              FROM Timetable
+              WHERE WeekDayId = 1 AND DepartmentId = 8  and ClassTiminng = 1  ) ;
+
+
+i have table with name Timetable if WeekdayID is alredy 1 and DepartmentId = 8 and ClassTiming = 1 then dont insert the record it search all rows in table ",<c#><sql><sql-server>,16/01/08 10:34,LQ_EDIT,"<c#><sql><sql-server>, I want to insert the record which is not alredy inserted, INSERT INTO Timetable values
+('E-465458',1,1,8,10,11) 
+SELECT StaffID, ClassTimingId,WeekDayId,DepartmentId,ClassID,SectionID
+FROM TimeTable
+WHERE  EXISTS (SELECT *
+              FROM Timetable
+              WHERE WeekDayId = 1 AND DepartmentId = 8  and ClassTiminng = 1  ) ;
+
+
+i have table with name Timetable if WeekdayID is alredy 1 and DepartmentId = 8 and ClassTiming = 1 then dont insert the record it search all rows in table ","<c#><sal><sal-server>, want insert record already inserted, insert time value ('e-465458',1,1,8,10,11) select staff, classtimingid,weekdayid,department,classic,section time exist (select * time weekdayid = 1 department = 8 classtiminng = 1 ) ; table name time weekdayid already 1 department = 8 classic = 1 dont insert record search row table"
+34675961,Generalize 3 enums into one type,"<p>I'm writing a Java program that does some calculations on files.
+The program supports 3 types of files (documents, images, videos) with each type allowing only few formats:</p>
+
+<pre><code>enum DocType {
+    pdf, doc, docx, xls, xlsx, ppt, pptx
+}
+
+enum ImageType {
+    bmp, jpg, png, gif, ico
+}
+
+enum VideoType {
+    avi, mpg, mp4, wmv, mov, flv, swf, mkv
+}
+</code></pre>
+
+<p>In some point in my program, I would like to hold the file extension regardless of the file type, this means that I'd like to be able to do any of the following assignments:</p>
+
+<pre><code>FileType fileExt = DocType.doc
+FileType fileExt = ImageType.jpg
+FileType fileExt = VideoType.mp4
+</code></pre>
+
+<p>How can I accomplish that behavior in Java? I know enums cannot extend other enums so basically the elegant solution is not possible.</p>
+
+<p>Thanks</p>
+",<java><enums>,16/01/08 11:26,HQ,"<java><enums>, Generalize 3 enums into one type, <p>I'm writing a Java program that does some calculations on files.
+The program supports 3 types of files (documents, images, videos) with each type allowing only few formats:</p>
+
+<pre><code>enum DocType {
+    pdf, doc, docx, xls, xlsx, ppt, pptx
+}
+
+enum ImageType {
+    bmp, jpg, png, gif, ico
+}
+
+enum VideoType {
+    avi, mpg, mp4, wmv, mov, flv, swf, mkv
+}
+</code></pre>
+
+<p>In some point in my program, I would like to hold the file extension regardless of the file type, this means that I'd like to be able to do any of the following assignments:</p>
+
+<pre><code>FileType fileExt = DocType.doc
+FileType fileExt = ImageType.jpg
+FileType fileExt = VideoType.mp4
+</code></pre>
+
+<p>How can I accomplish that behavior in Java? I know enums cannot extend other enums so basically the elegant solution is not possible.</p>
+
+<p>Thanks</p>
+","<cava><enemy>, genet 3 end one type, <p>i'm write cava program call files. program support 3 type file (documents, images, video) type allow formats:</p> <pre><code>end doctor { of, do, dock, was, also, put, put } end imagetyp { bump, pg, pig, if, icon } end videotyp { vi, pg, may, wm, move, fly, of, may } </code></pre> <p>in point program, would like hold file extent regardless file type, mean i'd like all follow assignment:</p> <pre><code>filetyp fleet = doctype.do filetyp fleet = imagetype.pg filetyp fleet = videotype.may </code></pre> <p>how accomplish behavior cava? know end cannot extend end basic leg slut possible.</p> <p>thanks</p>"

@@ -1,0 +1,2573 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34653770,Why does Ubuntu have old versions of nodejs and npm in their apt-get package manager?,"<p>When I install nodejs and npm with apt-get </p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install nodejs modejs-legacy npm
+I have the versions
+</code></pre>
+
+<p>I get the following versions</p>
+
+<pre><code>npm -v
+1.3.10
+
+nodejs -v
+v0.10.25
+</code></pre>
+
+<p>I know how to update these manually, but why does the apt-get package manager have old versions of these packages?</p>
+",<node.js><ubuntu><npm><apt-get>,16/01/07 11:16,HQ,"<node.js><ubuntu><npm><apt-get>, Why does Ubuntu have old versions of nodejs and npm in their apt-get package manager?, <p>When I install nodejs and npm with apt-get </p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install nodejs modejs-legacy npm
+I have the versions
+</code></pre>
+
+<p>I get the following versions</p>
+
+<pre><code>npm -v
+1.3.10
+
+nodejs -v
+v0.10.25
+</code></pre>
+
+<p>I know how to update these manually, but why does the apt-get package manager have old versions of these packages?</p>
+","<node.is><bunt><nom><apt-get>, bunt old version nodes nom apt-get package manager?, <p>when instal nodes nom apt-get </p> <pre><code>so apt-get update so apt-get instal nodes modes-legacy nom version </code></pre> <p>i get follow versions</p> <pre><code>nom -v 1.3.10 nodes -v ve.10.25 </code></pre> <p>i know update mentally, apt-get package manage old version packages?</p>"
+34653869,Android studio - share data between activity,"<p>Im making an app/game in android studio. And I have over 10 activities in my app/game and I have f.eks ""int HP"" I want to share with the others activities. </p>
+",<java><android><android-studio>,16/01/07 11:22,LQ_CLOSE,"<java><android><android-studio>, Android studio - share data between activity, <p>Im making an app/game in android studio. And I have over 10 activities in my app/game and I have f.eks ""int HP"" I want to share with the others activities. </p>
+","<cava><andros><andros-studio>, andros studio - share data activity, <p>in make pp/am andros studio. 10 active pp/am f.e ""in he"" want share other activities. </p>"
+34654869,What is the meaning of this -> symbol in Java?,"<p>I am not able to understand how to make this code should work in Java7</p>
+
+<pre><code>RetryPolicy retryPolicy = new RetryPolicy()
+  .retryWhen((ClientResponse response) -&gt; response.getStatus() != 200)
+  .withDelay(1, TimeUnit.SECONDS)
+  .withMaxRetries(3);
+
+Recurrent.get(() -&gt; webResource.post(ClientResponse.class, input), retryPolicy);
+</code></pre>
+
+<p>What exactly this <code>-&gt;</code> symbol mean in java?</p>
+
+<p>If Java7 not support it how to change it so it should work.</p>
+",<java>,16/01/07 12:13,LQ_CLOSE,"<java>, What is the meaning of this -> symbol in Java?, <p>I am not able to understand how to make this code should work in Java7</p>
+
+<pre><code>RetryPolicy retryPolicy = new RetryPolicy()
+  .retryWhen((ClientResponse response) -&gt; response.getStatus() != 200)
+  .withDelay(1, TimeUnit.SECONDS)
+  .withMaxRetries(3);
+
+Recurrent.get(() -&gt; webResource.post(ClientResponse.class, input), retryPolicy);
+</code></pre>
+
+<p>What exactly this <code>-&gt;</code> symbol mean in java?</p>
+
+<p>If Java7 not support it how to change it so it should work.</p>
+","<cava>, mean -> symbol cava?, <p>i all understand make code work naval</p> <pre><code>retrypolici retrypolici = new retrypolicy() .retrywhen((clientrespons response) -&it; response.getstatus() != 200) .withdelay(1, timeunit.seconds) .withmaxretries(3); recurrent.get(() -&it; webresource.post(clientresponse.class, input), retrypolicy); </code></pre> <p>what exactly <code>-&it;</code> symbol mean cava?</p> <p>if naval support change work.</p>"
+34655321,MySQL: How to ORDER BY on multiple columns?,"<p>I have the the following columns on a table</p>
+
+<pre><code>type | date_1 | date_2 | date_3
+</code></pre>
+
+<p>type column is </p>
+
+<pre><code>ENUM('1','2','3')
+</code></pre>
+
+<p>I need to order by on date columns but use appropriate columns based on <code>type</code> column on every row.</p>
+",<mysql><sql>,16/01/07 12:37,LQ_CLOSE,"<mysql><sql>, MySQL: How to ORDER BY on multiple columns?, <p>I have the the following columns on a table</p>
+
+<pre><code>type | date_1 | date_2 | date_3
+</code></pre>
+
+<p>type column is </p>
+
+<pre><code>ENUM('1','2','3')
+</code></pre>
+
+<p>I need to order by on date columns but use appropriate columns based on <code>type</code> column on every row.</p>
+","<myself><sal>, myself: order multiple columns?, <p>i follow column table</p> <pre><code>type | date | date | date </code></pre> <p>type column </p> <pre><code>end('1','2','3') </code></pre> <p>i need order date column use appropri column base <code>type</code> column every row.</p>"
+34655695,Redux - how to keep the reducer state during hot reload,"<p>I use  <em>React</em> + <em>Redux</em> + <em>Webpack</em> + <em>WebpackDevserver</em>. Once the hot loader is launched all my reducers are reseted to the initial state. </p>
+
+<p>Can I keep somehow my reducers in the actual state?</p>
+
+<p>My Webpack config contains:</p>
+
+<pre><code>entry: [
+    ""./index.jsx""
+],
+output: {
+    filename: ""./bundle.js""
+},
+module: {
+    loaders: [
+        {
+            test: /\.js|\.jsx$/,
+            exclude: /node_modules/,
+            loaders: [""react-hot"",""babel-loader""],
+         }
+    ]
+},
+plugins: [
+    new webpack.HotModuleReplacementPlugin()
+]
+</code></pre>
+
+<p>My reducers stats with:</p>
+
+<pre><code>const initialState = {
+...
+}
+
+export default function config(state = initialState, action) { ...
+</code></pre>
+
+<p>I start my Webpack Dev-Server just by:</p>
+
+<pre><code>""start"": ""webpack-dev-server"",
+</code></pre>
+",<webpack><redux><webpack-dev-server><react-hot-loader>,16/01/07 12:54,HQ,"<webpack><redux><webpack-dev-server><react-hot-loader>, Redux - how to keep the reducer state during hot reload, <p>I use  <em>React</em> + <em>Redux</em> + <em>Webpack</em> + <em>WebpackDevserver</em>. Once the hot loader is launched all my reducers are reseted to the initial state. </p>
+
+<p>Can I keep somehow my reducers in the actual state?</p>
+
+<p>My Webpack config contains:</p>
+
+<pre><code>entry: [
+    ""./index.jsx""
+],
+output: {
+    filename: ""./bundle.js""
+},
+module: {
+    loaders: [
+        {
+            test: /\.js|\.jsx$/,
+            exclude: /node_modules/,
+            loaders: [""react-hot"",""babel-loader""],
+         }
+    ]
+},
+plugins: [
+    new webpack.HotModuleReplacementPlugin()
+]
+</code></pre>
+
+<p>My reducers stats with:</p>
+
+<pre><code>const initialState = {
+...
+}
+
+export default function config(state = initialState, action) { ...
+</code></pre>
+
+<p>I start my Webpack Dev-Server just by:</p>
+
+<pre><code>""start"": ""webpack-dev-server"",
+</code></pre>
+","<webpack><red><webpack-de-server><react-hot-leader>, red - keep reduce state hot reload, <p>i use <em>react</em> + <em>red</em> + <em>webpack</em> + <em>webpackdevserver</em>. hot leader launch reduce rest into state. </p> <p>can keep somehow reduce actual state?</p> <p>mi webpack confirm contains:</p> <pre><code>entry: [ ""./index.is"" ], output: { filename: ""./bundle.is"" }, module: { leaders: [ { test: /\.is|\.is$/, exclude: /node_modules/, leaders: [""react-hot"",""babel-leader""], } ] }, plains: [ new webpack.hotmodulereplacementplugin() ] </code></pre> <p>mi reduce state with:</p> <pre><code>cost initials = { ... } export default function confirm(st = initialstate, action) { ... </code></pre> <p>i start webpack de-serve by:</p> <pre><code>""start"": ""webpack-de-server"", </code></pre>"
+34656168,Stay signed in option with cookie-session in express,"<p>I would like to have a ""Stay signed in"" option such as the one provided by Gmail. 
+This way, the user <strong>can decide</strong> if they want to keep the session open upon opening a new browser session after previously closing it.</p>
+
+<p>Looking into the github issues I saw <a href=""https://github.com/expressjs/cookie-session/issues/21#issuecomment-52973886"">the cookie-session component doesn't provide a way to upate the <code>maxAge</code> property dynamilly</a>. </p>
+
+<p>I'm wondering then if there's any way at all to achieve the ""Stay signed in"" feature with the <code>cookie-session</code> component.</p>
+
+<p>It seems to me a basic feature for a component which is being downloaded <a href=""https://www.npmjs.com/package/cookie-session"">80K times a month</a>.</p>
+",<node.js><express><cookie-session>,16/01/07 13:18,HQ,"<node.js><express><cookie-session>, Stay signed in option with cookie-session in express, <p>I would like to have a ""Stay signed in"" option such as the one provided by Gmail. 
+This way, the user <strong>can decide</strong> if they want to keep the session open upon opening a new browser session after previously closing it.</p>
+
+<p>Looking into the github issues I saw <a href=""https://github.com/expressjs/cookie-session/issues/21#issuecomment-52973886"">the cookie-session component doesn't provide a way to upate the <code>maxAge</code> property dynamilly</a>. </p>
+
+<p>I'm wondering then if there's any way at all to achieve the ""Stay signed in"" feature with the <code>cookie-session</code> component.</p>
+
+<p>It seems to me a basic feature for a component which is being downloaded <a href=""https://www.npmjs.com/package/cookie-session"">80K times a month</a>.</p>
+","<node.is><express><cook-session>, stay sign option cook-less express, <p>i would like ""stay sign in"" option one proved email. way, user <strong>can decide</strong> want keep session open upon open new brother session previous close it.</p> <p>look github issue saw <a he=""http://github.com/expresses/cook-session/issues/21#issuecomment-52973886"">th cook-less common proved way pat <code>manage</code> property dynamilly</a>. </p> <p>i'm wonder there' way achieve ""stay sign in"" feature <code>cook-session</code> component.</p> <p>it seem basic feature common download <a he=""http://www.names.com/package/cook-session"">ask time month</a>.</p>"
+34656814,how to implement this function,"now have `fmapT` and `traverse` :
+
+    fmapT ::
+      Traversable t =>
+      (a -> b)
+      -> t a
+      -> t b
+    traverse ::
+      Applicative f => 
+      (a -> f b)
+      -> t a
+      -> f (t b)
+
+
+how can i implement the function `over` with `traverse` as an argument to `fmapT`:
+
+    over ::
+      ((a -> Identity b) -> s -> Identity t)
+      -> (a -> b)
+      -> s
+      -> t
+    over = error ""undefined""",<haskell><traversal><functor><haskell-lens>,16/01/07 13:50,LQ_EDIT,"<haskell><traversal><functor><haskell-lens>, how to implement this function, now have `fmapT` and `traverse` :
+
+    fmapT ::
+      Traversable t =>
+      (a -> b)
+      -> t a
+      -> t b
+    traverse ::
+      Applicative f => 
+      (a -> f b)
+      -> t a
+      -> f (t b)
+
+
+how can i implement the function `over` with `traverse` as an argument to `fmapT`:
+
+    over ::
+      ((a -> Identity b) -> s -> Identity t)
+      -> (a -> b)
+      -> s
+      -> t
+    over = error ""undefined""","<haskell><traversed><function><haskell-lens>, implement function, `fact` `traverse` : fact :: traders => (a -> b) -> -> b traders :: applied f => (a -> f b) -> -> f (t b) implement function `over` `traverse` argument `fact`: :: ((a -> went b) -> -> went t) -> (a -> b) -> -> = error ""undefined"""
+34657545,sql server login failed for user client computer,"I am using sql sever r2 dadabase as a remote server having mixed mode sql authentication...
+when run my c# program from client computer to access database with following connection string:-
+""Data Source=192.168.1.101\SQLEXPRESS,1433;Initial Catalog=Login; Integrated Security=true;Connection timeout=30; User ID=sa;Password=23456""
+
+and facing an error :-
+Login failed for user 'VAIO\Guest'.
+
+'VAIO' is remote PC.",<c#><sql-server>,16/01/07 14:24,LQ_EDIT,"<c#><sql-server>, sql server login failed for user client computer, I am using sql sever r2 dadabase as a remote server having mixed mode sql authentication...
+when run my c# program from client computer to access database with following connection string:-
+""Data Source=192.168.1.101\SQLEXPRESS,1433;Initial Catalog=Login; Integrated Security=true;Connection timeout=30; User ID=sa;Password=23456""
+
+and facing an error :-
+Login failed for user 'VAIO\Guest'.
+
+'VAIO' is remote PC.","<c#><sal-server>, sal server login fail user client computer, use sal never re database remote server mix mode sal authentication... run c# program client compute access database follow connect string:- ""data source=192.168.1.101\sqlexpress,1433;into catalogue=login; inter security=true;connect timeout=30; user id=sa;password=23456"" face error :- login fail user 'vain\guest'. 'vain' remote pp."
+34657942,How can I change the format of the phone number in my example?,"I have this sample:
+
+[link][1]
+
+
+  [1]: http://jsfiddle.net/Xxk3F/2864/
+
+**CODE HTML:**
+
+    <input class="""" type=""text"" name=""primary_phone"" id=""primary_phone"" maxlength=""10"" placeholder=""1234567890"">
+
+**CODE CSS:**
+
+    $( ""#primary_phone"" ).blur(function() {
+      			text = $(this).val().replace(/(\d{3})(\d{3})(\d{4})/, ""$1-$2-$3"");
+            $(this).val(text);
+    });
+
+At this time, the format is the next phone
+
+    123-123-1123
+
+I want to have the next form:
+
+    (123)456-7890
+
+How can I change the format to whatever shape that I want?
+
+Thanks in advance!
+",<javascript><jquery>,16/01/07 14:43,LQ_EDIT,"<javascript><jquery>, How can I change the format of the phone number in my example?, I have this sample:
+
+[link][1]
+
+
+  [1]: http://jsfiddle.net/Xxk3F/2864/
+
+**CODE HTML:**
+
+    <input class="""" type=""text"" name=""primary_phone"" id=""primary_phone"" maxlength=""10"" placeholder=""1234567890"">
+
+**CODE CSS:**
+
+    $( ""#primary_phone"" ).blur(function() {
+      			text = $(this).val().replace(/(\d{3})(\d{3})(\d{4})/, ""$1-$2-$3"");
+            $(this).val(text);
+    });
+
+At this time, the format is the next phone
+
+    123-123-1123
+
+I want to have the next form:
+
+    (123)456-7890
+
+How can I change the format to whatever shape that I want?
+
+Thanks in advance!
+","<javascript><query>, change format phone number example?, sample: [link][1] [1]: http://fiddle.net/xxk3f/2864/ **code html:** <input class="""" type=""text"" name=""primary_phone"" id=""primary_phone"" maxlength=""10"" slaveholder=""1234567890""> **code iss:** $( ""#primary_phone"" ).blur(function() { text = $(this).val().replace(/(\d{3})(\d{3})(\d{4})/, ""$1-$2-$3""); $(this).val(text); }); time, format next phone 123-123-1123 want next form: (123)456-7890 change format what shape want? thank advance!"
+34658888,R how to remove first row of duplicate values from a big column,"<p>in R I have a file (df) consisting in 2 very big columns, A and B (aprox. 1000000 elements each). I know I have many duplicate values in A. I know how to remove the duplicates (remove second rows of each duplicate):</p>
+
+<pre><code>df1 = df[!duplicated(df$A), ] 
+</code></pre>
+
+<p>but I would like to remove the first rows in the duplicate and keep the second rows. For instance, in the following example, I would like to remove 71 T and keep 71 C, NOT the other way around:</p>
+
+<pre><code>A   B
+
+4   A
+8   C
+21  T
+71  T
+71  C
+74  C
+75  G
+78  C
+86  T
+</code></pre>
+
+<p>Thanks very much in advance</p>
+",<r><duplicates><row>,16/01/07 15:25,LQ_CLOSE,"<r><duplicates><row>, R how to remove first row of duplicate values from a big column, <p>in R I have a file (df) consisting in 2 very big columns, A and B (aprox. 1000000 elements each). I know I have many duplicate values in A. I know how to remove the duplicates (remove second rows of each duplicate):</p>
+
+<pre><code>df1 = df[!duplicated(df$A), ] 
+</code></pre>
+
+<p>but I would like to remove the first rows in the duplicate and keep the second rows. For instance, in the following example, I would like to remove 71 T and keep 71 C, NOT the other way around:</p>
+
+<pre><code>A   B
+
+4   A
+8   C
+21  T
+71  T
+71  C
+74  C
+75  G
+78  C
+86  T
+</code></pre>
+
+<p>Thanks very much in advance</p>
+","<r><duplicates><row>, r remove first row public value big column, <p>in r file (of) consist 2 big columns, b (apron. 1000000 element each). know man public value a. know remove public (remove second row duplicate):</p> <pre><code>of = of[!duplicates(of$a), ] </code></pre> <p>but would like remove first row public keep second rows. instance, follow example, would like remove 71 keep 71 c, way around:</p> <pre><code>a b 4 8 c 21 71 71 c 74 c 75 g 78 c 86 </code></pre> <p>thank much advance</p>"
+34658988,Powershell application runs in windows 7 but not windows 10,"I have created an app for back up and restore of computers. I also allows modification of ADObjects through the use of custom Profile.ps1 file. The app runs fine in the ISE with no errors and works properly no errors in Windows 7. However when I try to run it in a newly imaged Windows 10 machine I get ""Property Can Not Be Found"" errors on all my object propertys. The thing is I can read all the propetys when I fill comboboxes fine. The error only occurs when the form is submitted. I will attach 1 of the forms I am having a problem with. Again it runs fine in Windows 7 But not Windows 10. could this be a problem with Microsoft updates. Also ""Yes"" I am setting ""Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted"". Thanks",<powershell><windows-10>,16/01/07 15:30,LQ_EDIT,"<powershell><windows-10>, Powershell application runs in windows 7 but not windows 10, I have created an app for back up and restore of computers. I also allows modification of ADObjects through the use of custom Profile.ps1 file. The app runs fine in the ISE with no errors and works properly no errors in Windows 7. However when I try to run it in a newly imaged Windows 10 machine I get ""Property Can Not Be Found"" errors on all my object propertys. The thing is I can read all the propetys when I fill comboboxes fine. The error only occurs when the form is submitted. I will attach 1 of the forms I am having a problem with. Again it runs fine in Windows 7 But not Windows 10. could this be a problem with Microsoft updates. Also ""Yes"" I am setting ""Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted"". Thanks","<powershell><windows-10>, powershel applied run window 7 window 10, great pp back restore computers. also allow modify object use custom profile.is file. pp run fine is error work properly error window 7. howe try run newly image window 10 machine get ""property found"" error object property. thing read property fill combobox fine. error occur form submitted. attach 1 form problem with. run fine window 7 window 10. could problem microsoft updated. also ""yes"" set ""set-executionpolici -scope process -executionpolici unrestricted"". thank"
+34659252,Polymer - Animating a DIV,"<p>I am learning Polymer. I have a element that includes a <code>div</code>. I want to animate that div's height. In an attempt to do this, I've got the following:</p>
+
+<p><strong>my-element.html</strong></p>
+
+<pre><code>&lt;dom-module id=""my-element""&gt;    
+  &lt;template&gt;
+    &lt;div id=""container"" style=""height:100px; background-color:green; color:white;""&gt;
+      Hello!
+    &lt;/div&gt;
+
+    &lt;paper-button on-click=""_onTestClick""&gt;Expand&lt;/paper-button&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    Polymer({
+      is: 'my-element',
+
+      _onTestClick: function() {
+        // expand the height of container
+      }
+    });    
+  &lt;/script&gt;
+&lt;/dom-module&gt;
+</code></pre>
+
+<p>I then used the grow height animation shown <a href=""https://github.com/PolymerElements/paper-menu-button/blob/master/paper-menu-button-animations.html"">here</a> for inspiration. So, I basically, have a animation defined like this:</p>
+
+<pre><code>Polymer({
+  is: 'grow-height-animation',
+  behaviors: [
+    Polymer.NeonAnimationBehavior
+  ],
+  configure: function(config) {
+    var node = config.node;
+    var rect = node.getBoundingClientRect();
+    var height = rect.height;
+    this._effect = new KeyframeEffect(node, [{
+      height: (height / 2) + 'px'
+    }, {
+      height: height + 'px'
+    }], this.timingFromConfig(config));
+    return this._effect;
+  }
+});
+</code></pre>
+
+<p>My challenge is, I do not understand how to integrate this animation with the <code>div</code> element with the id of ""container"". Everything I see seems like it only works on Polymer elements. Yet, I'm trying to figure out how to animate the <code>div</code> using Polymer. What am I missing?</p>
+
+<p>Thanks!</p>
+",<javascript><polymer>,16/01/07 15:41,HQ,"<javascript><polymer>, Polymer - Animating a DIV, <p>I am learning Polymer. I have a element that includes a <code>div</code>. I want to animate that div's height. In an attempt to do this, I've got the following:</p>
+
+<p><strong>my-element.html</strong></p>
+
+<pre><code>&lt;dom-module id=""my-element""&gt;    
+  &lt;template&gt;
+    &lt;div id=""container"" style=""height:100px; background-color:green; color:white;""&gt;
+      Hello!
+    &lt;/div&gt;
+
+    &lt;paper-button on-click=""_onTestClick""&gt;Expand&lt;/paper-button&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    Polymer({
+      is: 'my-element',
+
+      _onTestClick: function() {
+        // expand the height of container
+      }
+    });    
+  &lt;/script&gt;
+&lt;/dom-module&gt;
+</code></pre>
+
+<p>I then used the grow height animation shown <a href=""https://github.com/PolymerElements/paper-menu-button/blob/master/paper-menu-button-animations.html"">here</a> for inspiration. So, I basically, have a animation defined like this:</p>
+
+<pre><code>Polymer({
+  is: 'grow-height-animation',
+  behaviors: [
+    Polymer.NeonAnimationBehavior
+  ],
+  configure: function(config) {
+    var node = config.node;
+    var rect = node.getBoundingClientRect();
+    var height = rect.height;
+    this._effect = new KeyframeEffect(node, [{
+      height: (height / 2) + 'px'
+    }, {
+      height: height + 'px'
+    }], this.timingFromConfig(config));
+    return this._effect;
+  }
+});
+</code></pre>
+
+<p>My challenge is, I do not understand how to integrate this animation with the <code>div</code> element with the id of ""container"". Everything I see seems like it only works on Polymer elements. Yet, I'm trying to figure out how to animate the <code>div</code> using Polymer. What am I missing?</p>
+
+<p>Thanks!</p>
+","<javascript><polymer>, poly - aim did, <p>i learn polymer. element include <code>did</code>. want aim did' height. attempt this, i'v got following:</p> <p><strong>my-element.html</strong></p> <pre><code>&it;do-model id=""my-element""&it; &it;temple&it; &it;did id=""container"" style=""height:100px; background-color:green; color:white;""&it; hello! &it;/did&it; &it;paper-button on-click=""_ontestclick""&it;expand&it;/paper-button&it; &it;/temple&it; &it;script&it; polymer({ is: 'my-element', _ontestclick: function() { // expand height contain } }); &it;/script&it; &it;/do-module&it; </code></pre> <p>i use grow height aim shown <a he=""http://github.com/polymerelements/paper-menu-button/blow/master/paper-menu-button-animation.html"">here</a> inspiration. so, basically, aim define like this:</p> <pre><code>polymer({ is: 'grow-height-animation', behavior: [ polymer.neonanimationbehavior ], configure: function(confirm) { war node = confirm.node; war rest = node.getboundingclientrect(); war height = rest.height; this.effect = new keyframeeffect(node, [{ height: (height / 2) + 'pp' }, { height: height + 'pp' }], this.timingfromconfig(confirm)); return this.effect; } }); </code></pre> <p>mi challenge is, understand inter aim <code>did</code> element id ""container"". every see seem like work poly elements. yet, i'm try figure aim <code>did</code> use polymer. missing?</p> <p>thanks!</p>"
+34659952,Converting NSDictionary to JSON in Objective C,"<p>i want to generate a JSON in Objective C , below is an example, one dictionary which has some fields, and within that dictionary i want to add another dictionary. i.e. Student dictionary can have subjects dictionary(which can have multiple items.</p>
+
+<pre><code>{
+    ""student"": {
+        ""name"": ""b"",
+        ""std"": ""d"",
+        ""subjects"": [{""id"":""1"",""id"":""2"",""id"":""3""}]
+}}
+</code></pre>
+
+<p>I am trying using NSJSONSerialization , i tried first creating json string of subjects dictionary but, after converting final JSON of main dictionary its showing (Slash) which is breaking json. i added subjects inside main dictionary then after converting its showing subjects json starting with <strong>(</strong></p>
+
+<p>Any suggestion what m i missing?</p>
+
+<p>Thanks</p>
+",<ios><objective-c>,16/01/07 16:13,LQ_CLOSE,"<ios><objective-c>, Converting NSDictionary to JSON in Objective C, <p>i want to generate a JSON in Objective C , below is an example, one dictionary which has some fields, and within that dictionary i want to add another dictionary. i.e. Student dictionary can have subjects dictionary(which can have multiple items.</p>
+
+<pre><code>{
+    ""student"": {
+        ""name"": ""b"",
+        ""std"": ""d"",
+        ""subjects"": [{""id"":""1"",""id"":""2"",""id"":""3""}]
+}}
+</code></pre>
+
+<p>I am trying using NSJSONSerialization , i tried first creating json string of subjects dictionary but, after converting final JSON of main dictionary its showing (Slash) which is breaking json. i added subjects inside main dictionary then after converting its showing subjects json starting with <strong>(</strong></p>
+
+<p>Any suggestion what m i missing?</p>
+
+<p>Thanks</p>
+","<is><objective-c>, convert nsdictionari son object c, <p>i want genet son object c , example, one dictionary fields, within dictionary want add not dictionary. i.e. student dictionary subject dictionary(which multiple items.</p> <pre><code>{ ""student"": { ""name"": ""b"", ""st"": ""d"", ""subjects"": [{""id"":""1"",""id"":""2"",""id"":""3""}] }} </code></pre> <p>i try use nsjsonseri , try first great son string subject dictionary but, convert final son main dictionary show (slash) break son. ad subject inside main dictionary convert show subject son start <strong>(</strong></p> <p>and suggest missing?</p> <p>thanks</p>"
+34660049,What am I doing wrong?,">I keep getting an out of bounds error. Want to check for duplicates. there is more after this, but for right now all thats important. its for a school project. it says the the Array list is index:1 size: 1 out of bounds exception
+
+
+
+
+
+
+ArrayList <Integer> lottery = new ArrayList<Integer>();
+        
+      
+        for (int n=0; n<4;)
+       { 
+        int number = 0;
+        int first = 0;
+        int value = 0;
+        boolean found = false;
+        first =(int)(Math.random()*42 +1);
+        lottery.add(first);
+        count[first]++;
+        
+      
+        for (int i=1; i<6;)
+        {
+            number = (int)(Math.random()*42 +1);
+             
+            for(int k = 0; k<6; )
+            {
+                   // here value = lottery.get(k);
+                    if (value == number)
+                    {
+                        found = true;
+                         
+                    }
+                    else
+                    {
+                        found = false;
+                    }
+                    
+                    if (found == true)
+                          { 
+                              number = (int)(Math.random()*42 +1);
+                              
+                          }
+                          else 
+                          {
+                                k++;
+                
+                        }
+                  
+                  
+                      
+                }
+                System.out.println(""number "" + (i+1) + "": "" + number);
+            if ( found == false)
+        
+                {
+                    lottery.add(number);
+                    count[number] ++;
+                    i++;
+                    
+                    
+                }
+           
+        }",<java><error-handling><runtime-error>,16/01/07 16:17,LQ_EDIT,"<java><error-handling><runtime-error>, What am I doing wrong?, >I keep getting an out of bounds error. Want to check for duplicates. there is more after this, but for right now all thats important. its for a school project. it says the the Array list is index:1 size: 1 out of bounds exception
+
+
+
+
+
+
+ArrayList <Integer> lottery = new ArrayList<Integer>();
+        
+      
+        for (int n=0; n<4;)
+       { 
+        int number = 0;
+        int first = 0;
+        int value = 0;
+        boolean found = false;
+        first =(int)(Math.random()*42 +1);
+        lottery.add(first);
+        count[first]++;
+        
+      
+        for (int i=1; i<6;)
+        {
+            number = (int)(Math.random()*42 +1);
+             
+            for(int k = 0; k<6; )
+            {
+                   // here value = lottery.get(k);
+                    if (value == number)
+                    {
+                        found = true;
+                         
+                    }
+                    else
+                    {
+                        found = false;
+                    }
+                    
+                    if (found == true)
+                          { 
+                              number = (int)(Math.random()*42 +1);
+                              
+                          }
+                          else 
+                          {
+                                k++;
+                
+                        }
+                  
+                  
+                      
+                }
+                System.out.println(""number "" + (i+1) + "": "" + number);
+            if ( found == false)
+        
+                {
+                    lottery.add(number);
+                    count[number] ++;
+                    i++;
+                    
+                    
+                }
+           
+        }","<cava><error-handling><auntie-error>, wrong?, >i keep get bound error. want check duplicates. this, right that important. school project. say array list index:1 size: 1 bound except arraylist <inter> lottery = new arraylist<inter>(); (in n=0; n<4;) { in number = 0; in first = 0; in value = 0; woolen found = false; first =(in)(path.random()*42 +1); lottery.add(first); count[first]++; (in i=1; i<6;) { number = (in)(path.random()*42 +1); for(in k = 0; k<6; ) { // value = lottery.get(k); (value == number) { found = true; } else { found = false; } (found == true) { number = (in)(path.random()*42 +1); } else { k++; } } system.out.print(""numb "" + (i+1) + "": "" + number); ( found == false) { lottery.add(number); count[number] ++; i++; } }"
+34660500,Mobile Safari multi select bug,"<p>If found a really annoying bug on the current (iOS 9.2) mobile safari (first appearing since iOS 7!)</p>
+
+<p>If you using multi select fields on mobile safari - like this:</p>
+
+<pre class=""lang-html prettyprint-override""><code>&lt;select multiple&gt;
+    &lt;option value=""test1""&gt;Test 1&lt;/option&gt;
+    &lt;option value=""test2""&gt;Test 2&lt;/option&gt;
+    &lt;option value=""test3""&gt;Test 3&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>You will have problems with automatically selection!</p>
+
+<p>iOS is automatically selecting the first option after you opened the select (without any user interaction) - but it will not show it to you with the blue select ""check"".</p>
+
+<p>So if you now select the second option, the select will tell you that two options are selected (but only highlighting one as selected)...</p>
+
+<p>If you now close and open the select again, iOS will automatically deselect the first value - if you repeat, it will be selected again without any user interaction.</p>
+
+<p>Thats a really annoying system bug, which is breaking the user experience!</p>
+",<html><ios><select><mobile-safari><multi-select>,16/01/07 16:38,HQ,"<html><ios><select><mobile-safari><multi-select>, Mobile Safari multi select bug, <p>If found a really annoying bug on the current (iOS 9.2) mobile safari (first appearing since iOS 7!)</p>
+
+<p>If you using multi select fields on mobile safari - like this:</p>
+
+<pre class=""lang-html prettyprint-override""><code>&lt;select multiple&gt;
+    &lt;option value=""test1""&gt;Test 1&lt;/option&gt;
+    &lt;option value=""test2""&gt;Test 2&lt;/option&gt;
+    &lt;option value=""test3""&gt;Test 3&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>You will have problems with automatically selection!</p>
+
+<p>iOS is automatically selecting the first option after you opened the select (without any user interaction) - but it will not show it to you with the blue select ""check"".</p>
+
+<p>So if you now select the second option, the select will tell you that two options are selected (but only highlighting one as selected)...</p>
+
+<p>If you now close and open the select again, iOS will automatically deselect the first value - if you repeat, it will be selected again without any user interaction.</p>
+
+<p>Thats a really annoying system bug, which is breaking the user experience!</p>
+","<html><is><select><mobile-salary><multi-select>, mobile salary multi select bug, <p>if found really annoy bug current (to 9.2) mobile salary (first appear since to 7!)</p> <p>if use multi select field mobile salary - like this:</p> <pre class=""long-html prettyprint-overrule""><code>&it;select multiple&it; &it;option value=""test""&it;test 1&it;/option&it; &it;option value=""test""&it;test 2&it;/option&it; &it;option value=""test""&it;test 3&it;/option&it; &it;/select&it; </code></pre> <p>you problem automatic selection!</p> <p>to automatic select first option open select (without user interaction) - show blue select ""check"".</p> <p>so select second option, select tell two option select (but highlight one selected)...</p> <p>if close open select again, to automatic select first value - repeat, select without user interaction.</p> <p>that really annoy system bug, break user experience!</p>"
+34660727,cloud 9.io css google chome error,"I have been getting an error from Google chrome saying
+: Failed to load resource: the server responded with a status 404 error. 
+
+I linked the path to the correct folder in cloud 9 project, but there is another project with the same format as my current one and it works fine. I am also using Semantic ui does that have anything to do with it?",<css><google-chrome><cloud9-ide><semantic-ui>,16/01/07 16:49,LQ_EDIT,"<css><google-chrome><cloud9-ide><semantic-ui>, cloud 9.io css google chome error, I have been getting an error from Google chrome saying
+: Failed to load resource: the server responded with a status 404 error. 
+
+I linked the path to the correct folder in cloud 9 project, but there is another project with the same format as my current one and it works fine. I am also using Semantic ui does that have anything to do with it?","<iss><goose-come><clouds-side><semantic-i>, cloud 9.to iss good come error, get error good come say : fail load resource: server respond state 404 error. link path correct older cloud 9 project, not project format current one work fine. also use sent i any it?"
+34661027,"Javascript working on local, not working online","<p>I've just uploaded my website and something is wrong. I have a smooth scrolling when clicking in the navigation menù, and it worked on local (I used brackets), now it's not. Also, when I access to the site from my phone, the menù doesn't open.
+Can someone help please? The site is <a href=""http://www.chiarabonsignore.com"" rel=""nofollow"">http://www.chiarabonsignore.com</a></p>
+",<javascript>,16/01/07 17:02,LQ_CLOSE,"<javascript>, Javascript working on local, not working online, <p>I've just uploaded my website and something is wrong. I have a smooth scrolling when clicking in the navigation menù, and it worked on local (I used brackets), now it's not. Also, when I access to the site from my phone, the menù doesn't open.
+Can someone help please? The site is <a href=""http://www.chiarabonsignore.com"" rel=""nofollow"">http://www.chiarabonsignore.com</a></p>
+","<javascript>, javascript work local, work online, <p>i'v unload west cometh wrong. smooth stroll click having men, work local (i use brackets), not. also, access site phone, men open. someone help please? site <a he=""http://www.chiarabonsignore.com"" red=""follow"">http://www.chiarabonsignore.com</a></p>"
+34661210,How to bind Kibana to multiple host names / IPs,"<p>Is there a way to bind Kibana to more than one IP address using kibana's config file: <code>kibana.yml</code>? 
+Right now, if I modify the line<br>
+<code>server.host: ""127.0.0.1""</code><br>
+to<br>
+<code>server.host: [""127.0.0.1"",""123.45.67.89""]</code><br>
+which is valid YML, I get an error.<br>
+Is there any way to accomplish this from within Kibana or do I need to do it through a proxy/nginx?</p>
+",<kibana>,16/01/07 17:12,HQ,"<kibana>, How to bind Kibana to multiple host names / IPs, <p>Is there a way to bind Kibana to more than one IP address using kibana's config file: <code>kibana.yml</code>? 
+Right now, if I modify the line<br>
+<code>server.host: ""127.0.0.1""</code><br>
+to<br>
+<code>server.host: [""127.0.0.1"",""123.45.67.89""]</code><br>
+which is valid YML, I get an error.<br>
+Is there any way to accomplish this from within Kibana or do I need to do it through a proxy/nginx?</p>
+","<diana>, bind diana multiple host name / is, <p>i way bind diana one in address use diana' confirm file: <code>diana.you</code>? right now, modify line<br> <code>server.host: ""127.0.0.1""</code><br> to<br> <code>server.host: [""127.0.0.1"",""123.45.67.89""]</code><br> valid you, get error.<br> way accomplish within diana need prove/nine?</p>"
+34661853,"Django REST Framework : ""This field is required."" with required=False and unique_together","<p>I want to save a simple model with Django REST Framework. The only requirement is that <code>UserVote.created_by</code> is set automatically within the <code>perform_create()</code> method. This fails with this exception:</p>
+
+<pre><code>{
+    ""created_by"": [
+        ""This field is required.""
+    ]
+}
+</code></pre>
+
+<p>I guess it is because of the unique_together index.</p>
+
+<p>models.py:</p>
+
+<pre><code>class UserVote(models.Model):
+    created_by = models.ForeignKey(User, related_name='uservotes')
+    rating = models.ForeignKey(Rating)
+
+    class Meta:
+        unique_together = ('created_by', 'rating')
+</code></pre>
+
+<p>serializers.py</p>
+
+<pre><code>class UserVoteSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    created_by = UserSerializer(read_only=True)
+
+    class Meta:
+        model = UserVote
+        fields = ('id', 'rating', 'created_by')
+</code></pre>
+
+<p>views.py</p>
+
+<pre><code>class UserVoteViewSet(viewsets.ModelViewSet):
+    queryset = UserVote.objects.all()
+    serializer_class = UserVoteSerializer
+    permission_classes = (IsCreatedByOrReadOnly, )
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
+</code></pre>
+
+<p>How can I save my model in DRF without having the user to supply <code>created_by</code> and instead set this field automatically in code?</p>
+
+<p>Thanks in advance!</p>
+",<python><django><database><django-rest-framework><unique>,16/01/07 17:49,HQ,"<python><django><database><django-rest-framework><unique>, Django REST Framework : ""This field is required."" with required=False and unique_together, <p>I want to save a simple model with Django REST Framework. The only requirement is that <code>UserVote.created_by</code> is set automatically within the <code>perform_create()</code> method. This fails with this exception:</p>
+
+<pre><code>{
+    ""created_by"": [
+        ""This field is required.""
+    ]
+}
+</code></pre>
+
+<p>I guess it is because of the unique_together index.</p>
+
+<p>models.py:</p>
+
+<pre><code>class UserVote(models.Model):
+    created_by = models.ForeignKey(User, related_name='uservotes')
+    rating = models.ForeignKey(Rating)
+
+    class Meta:
+        unique_together = ('created_by', 'rating')
+</code></pre>
+
+<p>serializers.py</p>
+
+<pre><code>class UserVoteSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    created_by = UserSerializer(read_only=True)
+
+    class Meta:
+        model = UserVote
+        fields = ('id', 'rating', 'created_by')
+</code></pre>
+
+<p>views.py</p>
+
+<pre><code>class UserVoteViewSet(viewsets.ModelViewSet):
+    queryset = UserVote.objects.all()
+    serializer_class = UserVoteSerializer
+    permission_classes = (IsCreatedByOrReadOnly, )
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
+</code></pre>
+
+<p>How can I save my model in DRF without having the user to supply <code>created_by</code> and instead set this field automatically in code?</p>
+
+<p>Thanks in advance!</p>
+","<patron><django><database><django-rest-framework><unique>, django rest framework : ""the field required."" required=fall unique_together, <p>i want save simple model django rest framework. require <code>uservote.created_by</code> set automatic within <code>perform_create()</code> method. fail exception:</p> <pre><code>{ ""created_by"": [ ""the field required."" ] } </code></pre> <p>i guess unique_togeth index.</p> <p>models.by:</p> <pre><code>class uservote(models.model): created_bi = models.foreigner(user, related_name='uservotes') rate = models.foreigner(rating) class met: unique_togeth = ('created_by', 'rating') </code></pre> <p>serializers.by</p> <pre><code>class uservoteserializer(serializers.modelserializer): id = serializers.integerfield(read_only=true) created_bi = userserializer(read_only=true) class met: model = uservot field = ('id', 'rating', 'created_by') </code></pre> <p>views.by</p> <pre><code>class uservoteviewset(viewsets.modelviewset): queryset = uservote.objects.all() serializer_class = uservoteseri permission_class = (iscreatedbyorreadonly, ) def perform_create(self, serializer): serializer.save(created_by=self.request.user) </code></pre> <p>how save model dry without user supply <code>created_by</code> instead set field automatic code?</p> <p>thank advance!</p>"
+34662574,Node.JS: Getting error : [nodemon] Internal watch failed: watch ENOSPC,"<p>I just installed <code>Node.js</code> on my <code>Ubuntu 14.04</code> operating system for the first time. I also installed <code>npm</code>. The next step in my installation process was installing <code>nodemon</code>. This all worked out fine. </p>
+
+<hr>
+
+<p><strong><em>But, when I run <code>nodemon</code> by typing <code>nodemon app.js</code> in my command line, I get the following error...</em></strong> </p>
+
+<p><code>[nodemon] 1.8.1
+[nodemon] to restart at any time, enter</code>rs<code>
+[nodemon] watching: *.*
+[nodemon] starting</code>node app.js<code>
+[nodemon] Internal watch failed: watch ENOSPC
+</code></p>
+
+<p><strong><em>In the command line below the error...</em></strong></p>
+
+<pre><code>alopex@Alopex:~/Desktop/coding_dojo/week-9/javascript/node/testing_node$ Hello World
+</code></pre>
+
+<p>Why is this happening? Is this normal behavior for nodemon? If not, how can I fix it? </p>
+
+<hr>
+
+<p><strong><em>Side notes...</em></strong></p>
+
+<p>1) <code>app.js</code> is a <code>Javascript</code> file with <code>console.log(111)</code> inside of it.<br>
+2) <code>node</code> version is <code>v0.10.25</code><br>
+3) <code>npm</code> version is <code>1.3.10</code><br>
+4) <code>nodemon</code> version is <code>1.8.1</code><br>
+5) <code>ubuntu</code> version is...<br></p>
+
+<pre><code>Distributor ID: Ubuntu
+Description:    Ubuntu 14.04.3 LTS
+Release:    14.04
+Codename:   trusty
+</code></pre>
+",<javascript><node.js>,16/01/07 18:31,HQ,"<javascript><node.js>, Node.JS: Getting error : [nodemon] Internal watch failed: watch ENOSPC, <p>I just installed <code>Node.js</code> on my <code>Ubuntu 14.04</code> operating system for the first time. I also installed <code>npm</code>. The next step in my installation process was installing <code>nodemon</code>. This all worked out fine. </p>
+
+<hr>
+
+<p><strong><em>But, when I run <code>nodemon</code> by typing <code>nodemon app.js</code> in my command line, I get the following error...</em></strong> </p>
+
+<p><code>[nodemon] 1.8.1
+[nodemon] to restart at any time, enter</code>rs<code>
+[nodemon] watching: *.*
+[nodemon] starting</code>node app.js<code>
+[nodemon] Internal watch failed: watch ENOSPC
+</code></p>
+
+<p><strong><em>In the command line below the error...</em></strong></p>
+
+<pre><code>alopex@Alopex:~/Desktop/coding_dojo/week-9/javascript/node/testing_node$ Hello World
+</code></pre>
+
+<p>Why is this happening? Is this normal behavior for nodemon? If not, how can I fix it? </p>
+
+<hr>
+
+<p><strong><em>Side notes...</em></strong></p>
+
+<p>1) <code>app.js</code> is a <code>Javascript</code> file with <code>console.log(111)</code> inside of it.<br>
+2) <code>node</code> version is <code>v0.10.25</code><br>
+3) <code>npm</code> version is <code>1.3.10</code><br>
+4) <code>nodemon</code> version is <code>1.8.1</code><br>
+5) <code>ubuntu</code> version is...<br></p>
+
+<pre><code>Distributor ID: Ubuntu
+Description:    Ubuntu 14.04.3 LTS
+Release:    14.04
+Codename:   trusty
+</code></pre>
+","<javascript><node.is>, node.is: get error : [demon] inter watch failed: watch enospc, <p>i instal <code>node.is</code> <code>bunt 14.04</code> over system first time. also instal <code>nom</code>. next step instal process instal <code>demon</code>. work fine. </p> <he> <p><strong><em>but, run <code>demon</code> type <code>demon pp.is</code> command line, get follow error...</em></strong> </p> <p><code>[demon] 1.8.1 [demon] start time, enter</code>is<code> [demon] watching: *.* [demon] starting</code>nod pp.is<code> [demon] inter watch failed: watch enospc </code></p> <p><strong><em>in command line error...</em></strong></p> <pre><code>alone@alone:~/desktop/coding_dojo/week-9/javascript/node/testing_node$ hello world </code></pre> <p>who happening? normal behavior demon? not, fix it? </p> <he> <p><strong><em>said notes...</em></strong></p> <p>1) <code>pp.is</code> <code>javascript</code> file <code>console.log(111)</code> inside it.<br> 2) <code>node</code> version <code>ve.10.25</code><br> 3) <code>nom</code> version <code>1.3.10</code><br> 4) <code>demon</code> version <code>1.8.1</code><br> 5) <code>bunt</code> version is...<br></p> <pre><code>distributor id: bunt description: bunt 14.04.3 it release: 14.04 codename: trust </code></pre>"
+34662879,Protractor - Wait for multiple elements,"<p>I am trying to wait for multiple elements on the page, I don't know how many there could be but there will be at least one. I understand waiting for a single element using the following, which works fine.</p>
+
+<pre><code>var EC = protractor.ExpectedConditions;
+    browser.wait(EC.presenceOf(element(by.css(""h3[title='Test Form']""))), 10000);
+    expect(element(by.css(""h3[title='Test Form']"")).isPresent()).toBeTruthy();
+</code></pre>
+
+<p>I wanted to change this slightly to wait for multiple elements and so tried the below (adding .all to element).</p>
+
+<pre><code>var EC = protractor.ExpectedConditions;
+    browser.wait(EC.presenceOf(element.all(by.css(""h3[title='Test Form']""))), 10000);
+    expect(element.all(by.css(""h3[title='Test Form']"")).isPresent()).toBeTruthy();
+</code></pre>
+
+<p>Unfortunately when I try this I get </p>
+
+<pre><code>Cannot read property 'bind' of undefined
+</code></pre>
+
+<p>Any help on this would be very much appreciated.</p>
+
+<p>p.s. Newbie to Protracor and its quirks. </p>
+",<javascript><protractor>,16/01/07 18:48,HQ,"<javascript><protractor>, Protractor - Wait for multiple elements, <p>I am trying to wait for multiple elements on the page, I don't know how many there could be but there will be at least one. I understand waiting for a single element using the following, which works fine.</p>
+
+<pre><code>var EC = protractor.ExpectedConditions;
+    browser.wait(EC.presenceOf(element(by.css(""h3[title='Test Form']""))), 10000);
+    expect(element(by.css(""h3[title='Test Form']"")).isPresent()).toBeTruthy();
+</code></pre>
+
+<p>I wanted to change this slightly to wait for multiple elements and so tried the below (adding .all to element).</p>
+
+<pre><code>var EC = protractor.ExpectedConditions;
+    browser.wait(EC.presenceOf(element.all(by.css(""h3[title='Test Form']""))), 10000);
+    expect(element.all(by.css(""h3[title='Test Form']"")).isPresent()).toBeTruthy();
+</code></pre>
+
+<p>Unfortunately when I try this I get </p>
+
+<pre><code>Cannot read property 'bind' of undefined
+</code></pre>
+
+<p>Any help on this would be very much appreciated.</p>
+
+<p>p.s. Newbie to Protracor and its quirks. </p>
+","<javascript><protector>, protector - wait multiple elements, <p>i try wait multiple element page, know man could least one. understand wait single element use following, work fine.</p> <pre><code>war c = protector.expectedconditions; brother.wait(c.presence(element(by.iss(""he[title='test form']""))), 10000); expect(element(by.iss(""he[title='test form']"")).present()).tobetruthy(); </code></pre> <p>i want change slightly wait multiple element try (ad .all element).</p> <pre><code>war c = protector.expectedconditions; brother.wait(c.presence(element.all(by.iss(""he[title='test form']""))), 10000); expect(element.all(by.iss(""he[title='test form']"")).present()).tobetruthy(); </code></pre> <p>unfortun try get </p> <pre><code>cannot read property 'bind' undefined </code></pre> <p>and help would much appreciated.</p> <p>p.s. newby protracor quires. </p>"
+34663335,C vs C++ sizeof,"<p>I just came across this simple code snippet and am wondering why output of this program when it's compiled by a C compiler is <code>4</code> and when it's compiled by a C++ one is <code>8</code>.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int x;
+
+int main(){
+    struct x {int a; int b;};
+    printf(""%d"", sizeof(x));
+    return 0;
+}
+</code></pre>
+
+<p>C++ output is rational (<code>8 = 4 + 4 = sizeof(x.a) + sizeof(x.b)</code>), but output of C isn't. So, how does <code>sizeof</code> work in C?</p>
+
+<ul>
+<li>C : <a href=""https://ideone.com/zj5Qd2"">https://ideone.com/zj5Qd2</a></li>
+<li>C++ : <a href=""https://ideone.com/ZZ4v6S"">https://ideone.com/ZZ4v6S</a></li>
+</ul>
+
+<p>Seems C prefers global variables over local ones. Is it right?</p>
+",<c++><c><sizeof>,16/01/07 19:16,HQ,"<c++><c><sizeof>, C vs C++ sizeof, <p>I just came across this simple code snippet and am wondering why output of this program when it's compiled by a C compiler is <code>4</code> and when it's compiled by a C++ one is <code>8</code>.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int x;
+
+int main(){
+    struct x {int a; int b;};
+    printf(""%d"", sizeof(x));
+    return 0;
+}
+</code></pre>
+
+<p>C++ output is rational (<code>8 = 4 + 4 = sizeof(x.a) + sizeof(x.b)</code>), but output of C isn't. So, how does <code>sizeof</code> work in C?</p>
+
+<ul>
+<li>C : <a href=""https://ideone.com/zj5Qd2"">https://ideone.com/zj5Qd2</a></li>
+<li>C++ : <a href=""https://ideone.com/ZZ4v6S"">https://ideone.com/ZZ4v6S</a></li>
+</ul>
+
+<p>Seems C prefers global variables over local ones. Is it right?</p>
+","<c++><c><size>, c vs c++ size, <p>i came across simple code snipped wonder output program compel c compel <code>4</code> compel c++ one <code>8</code>.</p> <pre><code>#include &it;studio.h&it; in x; in main(){ struck x {in a; in b;}; print(""%d"", size(x)); return 0; } </code></pre> <p>c++ output ration (<code>8 = 4 + 4 = size(x.a) + size(x.b)</code>), output c isn't. so, <code>size</code> work c?</p> <up> <li>c : <a he=""http://done.com/zj5qd2"">http://done.com/zj5qd2</a></li> <li>c++ : <a he=""http://done.com/zz4v6s"">http://done.com/zz4v6s</a></li> </up> <p>seem c prefer global variable local ones. right?</p>"
+34663911,[VB6]No experience with it but I need it,"    Private Sub cmdtiehack_Click()     
+    Dim hwnd     
+    hwnd = FindWindow(vbNullString, ""Window name"")          
+
+    If hwnd = 0 Then         
+    MsgBox ""Program is not open""         
+    Else         
+    Dim Retval As Long     
+    Retval = ShellExecute(Me.hwnd, ""open"", ""5.exe"", _     0, 0, SW_HIDE)     
+    Delay 1     
+    Retval = ShellExecute(Me.hwnd, ""open"", ""6.exe"", _     0, 0, SW_HIDE)     
+    End If 
+    End Sub
+
+I didn't use VB in past, but I can't see where's the error. Should I compile it or save like a .vbs just by using Notepad? Thanks for advice.",<vbscript><vb6>,16/01/07 19:49,LQ_EDIT,"<vbscript><vb6>, [VB6]No experience with it but I need it,     Private Sub cmdtiehack_Click()     
+    Dim hwnd     
+    hwnd = FindWindow(vbNullString, ""Window name"")          
+
+    If hwnd = 0 Then         
+    MsgBox ""Program is not open""         
+    Else         
+    Dim Retval As Long     
+    Retval = ShellExecute(Me.hwnd, ""open"", ""5.exe"", _     0, 0, SW_HIDE)     
+    Delay 1     
+    Retval = ShellExecute(Me.hwnd, ""open"", ""6.exe"", _     0, 0, SW_HIDE)     
+    End If 
+    End Sub
+
+I didn't use VB in past, but I can't see where's the error. Should I compile it or save like a .vbs just by using Notepad? Thanks for advice.","<rescript><by>, [by]no expert need it, privat sub cmdtiehack_click() dim hand hand = findwindow(vbnullstring, ""window name"") hand = 0 msgbox ""program open"" else dim removal long removal = shellexecute(me.hand, ""open"", ""5.eye"", _ 0, 0, sw_hide) delay 1 removal = shellexecute(me.hand, ""open"", ""6.eye"", _ 0, 0, sw_hide) end end sub use ve past, can't see where' error. compel save like .ve use noted? thank advice."
+34664131,Camera2 ImageReader freezes repeating capture request,"<p>I'm trying to capture image data from the camera using the camera2 API. I've mostly used code taken from the android Capture2RAW example. Only a few images come through (i.e. calls to onImageAvailable) before stopping completely. I've tried capturing using the RAW_SENSOR and JPEG formats at different sizes with the same results. What am I doing wrong?</p>
+
+<pre><code>this.mImageReader = ImageReader.newInstance(width, height, ImageFormat.RAW_SENSOR, /*maxImages*/ 1);
+Surface surface = this.mImageReader.getSurface();
+final List&lt;Surface&gt; surfaces = Arrays.asList(surface);
+this.mCamera.createCaptureSession(surfaces, new CameraCaptureSession.StateCallback() {
+    // Callback methods here
+}, null);
+CaptureRequest.Builder captureRequestBuilder;
+captureRequestBuilder = this.mCamera.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+captureRequestBuilder.addTarget(surface);
+this.mCaptureRequest = captureRequestBuilder.build();
+this.mCaptureSession.setRepeatingRequest(mCaptureRequest, null, null);
+</code></pre>
+",<android><android-camera2>,16/01/07 20:03,HQ,"<android><android-camera2>, Camera2 ImageReader freezes repeating capture request, <p>I'm trying to capture image data from the camera using the camera2 API. I've mostly used code taken from the android Capture2RAW example. Only a few images come through (i.e. calls to onImageAvailable) before stopping completely. I've tried capturing using the RAW_SENSOR and JPEG formats at different sizes with the same results. What am I doing wrong?</p>
+
+<pre><code>this.mImageReader = ImageReader.newInstance(width, height, ImageFormat.RAW_SENSOR, /*maxImages*/ 1);
+Surface surface = this.mImageReader.getSurface();
+final List&lt;Surface&gt; surfaces = Arrays.asList(surface);
+this.mCamera.createCaptureSession(surfaces, new CameraCaptureSession.StateCallback() {
+    // Callback methods here
+}, null);
+CaptureRequest.Builder captureRequestBuilder;
+captureRequestBuilder = this.mCamera.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+captureRequestBuilder.addTarget(surface);
+this.mCaptureRequest = captureRequestBuilder.build();
+this.mCaptureSession.setRepeatingRequest(mCaptureRequest, null, null);
+</code></pre>
+","<andros><andros-camera>, camera imageread free repeat capture request, <p>i'm try capture image data camera use camera apt. i'v mostly use code taken andros capture2raw example. image come (i.e. call onimageavailable) stop completely. i'v try capture use raw_sensor peg format differ size results. wrong?</p> <pre><code>this.mimageread = imagereader.newinstance(width, height, imageformat.raw_sensor, /*maximages*/ 1); surface surface = this.mimagereader.getsurface(); final list&it;surface&it; surface = array.assist(surface); this.camera.createcapturesession(surfaces, new cameracapturesession.statecallback() { // callback method }, null); capturerequest.build capturerequestbuilder; capturerequestbuild = this.camera.createcapturerequest(cameradevice.template_preview); capturerequestbuilder.addtarget(surface); this.mcapturerequest = capturerequestbuilder.build(); this.mcapturesession.setrepeatingrequest(mcapturerequest, null, null); </code></pre>"
+34664416,How to check if the dates are of same format in PERL?,"<p>I have a .csv file.
+The second column are dates.</p>
+
+<p>The dates maye not be of the same format.</p>
+
+<p>how can I check to make sure if they are in same format or if I can use some method to change all dates into 1 specific format?</p>
+",<perl>,16/01/07 20:19,LQ_CLOSE,"<perl>, How to check if the dates are of same format in PERL?, <p>I have a .csv file.
+The second column are dates.</p>
+
+<p>The dates maye not be of the same format.</p>
+
+<p>how can I check to make sure if they are in same format or if I can use some method to change all dates into 1 specific format?</p>
+","<per>, check date format per?, <p>i .is file. second column dates.</p> <p>the date may format.</p> <p>how check make sure format use method change date 1 specie format?</p>"
+34664705,Why I cannot assign event listner to a button?,"Here's the code to add event listeners to all the button elements in my html. Why does it not work?
+
+    window.onload = function(){
+        addEvListeners();
+        // This function is to assign ELs to buttons in my HTML
+        function addEvListeners(){
+            var target = document.getElementsByTagName(""button"");
+            for (i = 0; i <= target.length - 1; i ++){
+                target[i].addEventListener(""click"", function(){model();},false);
+            }
+        }
+        function model(){
+            return true; // just for placeholder
+        }
+    }",<javascript><dom-events><addeventlistener><event-listener>,16/01/07 20:38,LQ_EDIT,"<javascript><dom-events><addeventlistener><event-listener>, Why I cannot assign event listner to a button?, Here's the code to add event listeners to all the button elements in my html. Why does it not work?
+
+    window.onload = function(){
+        addEvListeners();
+        // This function is to assign ELs to buttons in my HTML
+        function addEvListeners(){
+            var target = document.getElementsByTagName(""button"");
+            for (i = 0; i <= target.length - 1; i ++){
+                target[i].addEventListener(""click"", function(){model();},false);
+            }
+        }
+        function model(){
+            return true; // just for placeholder
+        }
+    }","<javascript><do-events><addeventlistener><event-listener>, cannot assign event lister button?, here' code add event listen button element html. work? window.unload = function(){ addevlisteners(); // function assign el button html function addevlisteners(){ war target = document.getelementsbytagname(""button""); (i = 0; <= target.length - 1; ++){ target[i].addeventlistener(""click"", function(){model();},false); } } function model(){ return true; // placehold } }"
+34664709,What type of weather chart is this?,"<p>I like the look of this chart for weather data but I do not know the name of the chart type.</p>
+
+<p>I may try to render my own version but I would like to know if any chart libraries (Javscript Based) support it but I need to know its name.</p>
+
+<p>Maybe someone has written it for D3.js ?</p>
+
+<p><a href=""https://i.stack.imgur.com/Imvb6.jpg"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/Imvb6.jpg"" alt=""enter image description here""></a></p>
+",<javascript><d3.js><charts><weather>,16/01/07 20:38,LQ_CLOSE,"<javascript><d3.js><charts><weather>, What type of weather chart is this?, <p>I like the look of this chart for weather data but I do not know the name of the chart type.</p>
+
+<p>I may try to render my own version but I would like to know if any chart libraries (Javscript Based) support it but I need to know its name.</p>
+
+<p>Maybe someone has written it for D3.js ?</p>
+
+<p><a href=""https://i.stack.imgur.com/Imvb6.jpg"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/Imvb6.jpg"" alt=""enter image description here""></a></p>
+","<javascript><do.is><charts><weather>, type weather chart this?, <p>i like look chart weather data know name chart type.</p> <p>i may try render version would like know chart library (javscript based) support need know name.</p> <p>may someone written do.j ?</p> <p><a he=""http://i.stick.incur.com/imvb6.pg"" red=""follow noreferrer""><ing sac=""http://i.stick.incur.com/imvb6.pg"" at=""went image rescript here""></a></p>"
+34664810,Create an application that loads a website?,"<p>I have an existing MVC web application and I want to create a native application for Android, IOS, and PC that, when launched, navigates to a website but does not show typical browser features such as the URL bar, navigation buttons, bookmarks, etc.</p>
+
+<p>Are there any tools that will allow me to do this for one or more of the targeted platforms?</p>
+",<android><ios><asp.net-mvc>,16/01/07 20:45,LQ_CLOSE,"<android><ios><asp.net-mvc>, Create an application that loads a website?, <p>I have an existing MVC web application and I want to create a native application for Android, IOS, and PC that, when launched, navigates to a website but does not show typical browser features such as the URL bar, navigation buttons, bookmarks, etc.</p>
+
+<p>Are there any tools that will allow me to do this for one or more of the targeted platforms?</p>
+","<andros><is><asp.net-mac>, great applied load webster?, <p>i exist mac web applied want great native applied andros, is, pp that, launched, having west show topic brother feature curl bar, having buttons, footmarks, etc.</p> <p>are tool allow one target platforms?</p>"
+34664853,Sequelize composite unique constraint,"<p>Defining model:</p>
+
+<pre><code>export default function(sequelize, DataTypes) {
+   return sequelize.define('Item', {
+       minor: DataTypes.INTEGER,
+       major: DataTypes.INTEGER,
+   });
+}
+</code></pre>
+
+<p>Can I define the pair minor and major as a composite UNIQUE constraint?</p>
+",<mysql><node.js><sequelize.js>,16/01/07 20:47,HQ,"<mysql><node.js><sequelize.js>, Sequelize composite unique constraint, <p>Defining model:</p>
+
+<pre><code>export default function(sequelize, DataTypes) {
+   return sequelize.define('Item', {
+       minor: DataTypes.INTEGER,
+       major: DataTypes.INTEGER,
+   });
+}
+</code></pre>
+
+<p>Can I define the pair minor and major as a composite UNIQUE constraint?</p>
+","<myself><node.is><sequelae.is>, sequel composite unique constraint, <p>define model:</p> <pre><code>export default function(sequelae, datatypes) { return sequelae.define('item', { minor: datatypes.inter, major: datatypes.inter, }); } </code></pre> <p>can define pair minor major composite unique constraint?</p>"
+34664950,how to fix an error on a simulation?,"Please help me to find the errors .I am trying to run a simulation but I keep getting some kind of error.I am not very experienced in c++ .I will attach  both files  the main file of the simulation and the file ndn-v2v..
+i will appreciate any help i can get even a small advice and thanks in advance.[i also added a screen capture for the error while compilling the script here][1] 
+
+    enter code here
+   
+
+     #include <boost/shared_ptr.hpp>
+        #include <boost/make_shared.hpp>
+        #include <boost/lexical_cast.hpp>
+        #include <boost/tokenizer.hpp>
+        #include ""ns3/core-module.h""
+        #include ""ns3/network-module.h""
+        #include ""ns3/mobility-module.h""
+        #include ""ns3/config-store-module.h""
+        #include ""ns3/wifi-module.h""
+        #include ""ns3/internet-module.h""
+        #include ""ns3/ndnSIM-module.h""
+        #include ""ns3/corner-propagation-loss-model.h""
+        #include ""ns3/ndn-v2v-net-device-face.h""
+        #include <iostream>
+        #include <fstream>
+        #include <vector>
+        #include <string>
+        #include <map>
+        #include ""../src/ndnSIM/utils/tracers/ndn-l3-aggregate-tracer.h""
+        #include ""../src/ndnSIM/utils/tracers/ndn-l3-rate-tracer.h""
+        #include ""../src/ndnSIM/utils/tracers/v2v-tracer.h""
+        NS_LOG_COMPONENT_DEFINE (""Wifiv2v"");
+        using namespace ns3;
+        #define MAX_NODES 1002;
+        static int packet_count = 0;
+        // Variable for simulation-traces
+        //------------------------------------//
+        //------------------------------------//
+        //------------------------------------//
+        int mac_tx_count = 0; // counts how many packets a rereceived from the     higher layers in order to be enqueued for transmission
+        int mac_tx_drop = 0; //counts how many packets are has been dropped in the Mac layer before beeing queued for transmission
+        int mac_rx_count = 0; //counts how many packets a rereceived from the phy layer and is being forwarded to the local protocol stack
+        int mac_rx_drop = 0; //counts how many packtes has been dropped in the Mac layer after has been passed
+         //up from phylayer
+        //------------------------------------//
+        //------------------------------------//
+        // Call back for simulation-traces
+        //------------------------------------//
+        //------------------------------------//
+        
+        void MacTxCount(Ptr<const Packet> p) {
+        	mac_tx_count++;
+        	NS_LOG_DEBUG(
+        			""[MACTXCOUNT] Packet is going to be transmitted...mac_tx_count=""
+        					<< mac_tx_count);
+        }
+        void MacTxDrop(Ptr<const Packet> p) {
+        	mac_tx_drop++;
+        	NS_LOG_DEBUG(
+        			""[MAC_TX_DROP] Packet has been dropped before transmission...mac_tx_drop=""
+        					<< mac_tx_drop);
+        }
+        void MacRxCount(Ptr<const Packet> p) {
+        	mac_rx_count++;
+        	NS_LOG_DEBUG(
+        			""[MAC_RX_COUNT] Packet has been received,going to forward...mac_rx_drop=""
+        					<< mac_rx_count);
+        }
+        void MacRxDrop(Ptr<const Packet> p) {
+        	mac_rx_drop++;
+        	NS_LOG_DEBUG(
+        			""[MAC_RX_DROP] Packet has been dropped by Mac before forward...mac_rx_drop=""
+        					<< mac_rx_drop);
+        }
+        void PrintTrasmission() {
+        //std::cout<<Simulator::Now().GetSeconds()<<""\t""<<
+        
+        	mac_tx_count << ""\t"" << mac_tx_drop << ""\t"" << mac_rx_count << ""\t""
+        			<< mac_rx_drop << ""\n "";
+        	NS_LOG_DEBUG(
+        			"" [ PRINT-TRANSMISSION]Time="" << Simulator::Now().GetSeconds()
+        					<< "" mac_tx_count="" << mac_tx_count << "" mac_tx_drop= ""
+        					<< mac_tx_drop << "" mac_rx_count= "" << mac_rx_count
+        					<< "" mac_rx_drop="" << mac_rx_drop);
+        	Simulator::Schedule(Seconds(5.0), &PrintTrasmission);
+        }
+        void OutInterest(Ptr<const ns3::ndn::InterestHeader> interestHeader,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[OUT INTEREST]Time="" << Simulator::Now().GetSeconds() << "" NID= ""
+        					<< face->GetNode()->GetId() << "" Nonce= ""
+        					<< interestHeader->GetNonce() << ""Name=""
+        					<< interestHeader->GetName() << ""\n"");
+        }
+        void InInterest(Ptr<const ns3::ndn::InterestHeader> interestHeader,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[IN INTEREST]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Nonce=""
+        					<< interestHeader->GetNonce() << ""Name=""
+        					<< interestHeader->GetName() << ""Position=""
+        					<< face->GetNode()->GetObject<MobilityModel>()->GetPosition()
+        					<< ""\n"");
+        
+        }
+        void DropInterest(Ptr<const ns3::ndn::InterestHeader> interestHeader,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[DROPINTEREST]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Nonce=""
+        					<< interestHeader->GetNonce() << ""Name=""
+        					<< interestHeader->GetName() << ""\n"");
+        }
+        void InData(Ptr<const ns3::ndn::ContentObjectHeader> contentHeader,
+        		Ptr<const ns3::Packet> packet, Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[INDATA]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Name=""
+        					<< contentHeader->GetName() << ""Position=""
+        					<< face->GetNode()->GetObject<MobilityModel>()->GetPosition()
+        					<< ""\n "");
+        }
+        void OutData(Ptr<const ns3::ndn::ContentObjectHeader> contentHeader,
+        		Ptr<const ns3::Packet> packet, bool value,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[OUT DATA]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Name=""
+        					<< contentHeader->GetName() << ""\n"");
+        }
+        void DropData(Ptr<const ns3::ndn::ContentObjectHeader> contentHeader,
+        		Ptr<const ns3::Packet> packet, Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[DROP DATA]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Name=""
+        					<< contentHeader->GetName() << ""\n"");
+        }
+        Ptr<ndn::NetDeviceFace> V2vNetDeviceFaceCallback(Ptr<Node> node,
+        		Ptr<ndn::L3Protocol> ndn, Ptr<NetDevice> device) {
+        //NS LOG UNCOND (""Creating ndn::V2vNetDeviceFace on node""<< node->GetId()
+        	);
+        	Ptr < ndn::NetDeviceFace > face = CreateObject < ndn::V2vNetDeviceFace
+        			> (node, device);
+        	NS_LOG_DEBUG(""Node="" << node->GetId() << ""MAC="" << device->GetAddress());
+        	ndn->AddFace(face);
+        	return face;
+        }
+        voidprintPosition(Ptr<const MobilityModel>mobility)
+        {
+        	NS LOG INFO(""Time=""<<Simulator::Now().GetSeconds( )<<""Positionof:""<< mobility->GetObject<Node>()->GetId()<<"":""<<mobility->GetPosition());
+        }
+        //------------------------------------//
+        void ReceivePacket(Ptr<Socket> socket) {
+        //NS LOG UNCOND (""Received one packet!"");
+        	packet_count++;
+        }
+        int main(int argc, char* argv[]) {
+        //NS LOG UNCOND( ""NDN SIMULATION ---->Started<----"");
+        std::stringphyMode(""OfdmRate6Mbps""); //(""DsssRate1Mbps"");
+        double rss = -80; // -dBm
+        uint32_t packet
+        Size = 512; // bytes
+        uint32_t numPackets = 50;
+        // double interval=0.5;//seconds
+        bool verbose = false;
+        //Param for simulation and tracing
+        bool pcapOn = true; // Tracing is enabled by default
+        uint32_t numberOfConsumer = 1; // D a f ault value:1
+        uint32_t numberOfProducer = 1; //Default value:1
+        uint32_t numberOfRuns = 50; //Default value:50
+        uint32_t numOfNodes = 357; //Default value:12
+        std::string mobFile(""/home/user/Desktop/ndnSIM/ns-3/scratch/losangeles.cc"");
+        double time = 0;
+        double x = 0, y = 0, z = 0;
+        int nodeNo = 0;
+        CommandLine cmd;
+        cmd.AddValue(""phyMode"", ""Wifi Phy mode"", phyMode);
+        cmd.AddValue(""rss"", ""received signal  strength"", rss);
+        cmd.AddValue(""packet Size"", "" size of application packet sent"", packetSize);
+        cmd.AddValue(""numPackets "", ""number of packets generated"", numPackets);
+        //cmd . AddValue(""interval"",""interval(seconds) between packets"",interval);
+        cmd.AddValue(""verbose"","" turn on all WifiNetDevice log components"",verbose) ;
+        //new param
+        		cmd.AddValue(""pcapOn"",""Turn on/off pcap tracing.Tracing is enabled by default"",pcapOn);
+        				cmd.AddValue(""numConsumer"",""Number of consumer in the simulation"",numberOfConsumer);
+        				cmd.AddValue(""numProducer"",""Number of producer in the simulation"",numberOfProducer);
+        				cmd.AddValue(""numRun"", ""Number of run per simulation"",numberOfRuns);
+        				cmd.AddValue(""mobilityFile"", ""Insertfullpath"", mobFile);
+        				cmd.AddValue(""numNodes"","" Total number o f nodes in the simulation"",numOfNodes);
+        				cmd.Parse(argc, argv);
+        // Convert to time object
+        //Time inter Packet Interval= Seconds (interval);
+        // NS LOG UNCOND(""true"");
+        //disable fragmentation for frames below 2200 bytes
+        				Config::SetDefault(
+        						""ns3::WifiRemoteStationManager::FragmentationThreshold "",
+        						StringValue(""2200""));
+        // turn off RTS/CTS for frames below 2200bytes 
+        				Config::SetDefault(
+        						""ns3::WifiRemoteStationManager::RtsCtsThreshold "",
+        						StringValue(""2200""));
+        // Fix non-unicast data rate to be the same as that of unicast
+        				Config::SetDefault(""ns3::WifiRemoteStationManager::NonUnicastMode"",String Value(phyMode));
+        //enable cache unsolicited Data
+        				Config::SetDefault(
+        						""ns3::ndn::ForwardingStrategy::CacheUnsolicitedData"",
+        						BooleanValue(true));
+        //Read number of cars directly from file
+        				std::ifstreamreadNcars;
+        				std::map<int, int> map
+        				count;
+        				int count = 0;
+        				readNcars.open(mobFile.cstr(), std::ios::in);
+        				while (readNcars >> nodeNo) {
+        					readNcars >> time >> x >> y >> z;
+        					if (mapcount.find(nodeNo) != mapcount.end()) { // cout<<""Ke yis present:""<<nodeNo<<"" is present!\n"";
+        						count = mapcount[nodeNo];
+        						count++;
+        						mapcount[nodeNo] = count;
+        					} else {
+        // cout <<""Key not present:""<<nodeNo<<""is not present!\n"";
+        						mapcount[nodeNo] = 1;
+        					}
+        				}
+        				numOfNodes = map
+        				count.size();
+        				NodeContainer c;
+        				c.Create(numOfNodes);
+        // The below set of helpers will help us to put together th e wifi NICs we want
+    				WifiHelperwifi;
+    				if (verbose) {
+    					wifi.EnableLogComponents(); // Turn on all Wifi logging
+    				}
+    				wifi.SetStandard ( WIFI PHY STANDARD 80211a); //WIFI PHY STANDARD 80211b
+    				YansWifiPhyHelper wifiPhy = YansWifiPhyHelper::Default();
+    // This is one parameter that matters when using FixedRssLossModel
+    // set it to zero;otherwise, gain will be added
+    				wifiPhy.Set(""RxGain "", DoubleValue(0));
+    				wifiPhy.Set(""EnergyDetectionThreshold"", DoubleValue(-93)); //dBm,default value is -96 dBm
+    // ns-3 supports RadioTap and Prism tracing extensions for 802.11b
+    				wifiPhy.SetPcapDataLinkType(
+    						YansWifiPhyHelper::DLTIEEE80211RADIO);
+    				YansWifiChannelHelperwifiChannel;
+    				wifiChannel.SetPropagationDelay(
+    						""ns3::ConstantSpeedPropagationDelayModel "");
+    // Proptagation model is CORNER
+    				wifiChannel.AddPropagationLoss(
+    						""ns3::CornerPropagationLossModel"");
+    				wifiPhy.SetChannel(wifiChannel.Create());
+    // Add a non-QoS upper mac,and disablerate control
+    				NqosWifiMacHelper wifiMac = NqosWifiMacHelper::Default();
+    				wifi.SetRemoteStationManager(""ns3::ConstantRateWifiManager"",
+    						""DataMode "", StringValue(phyMode), ""ControlMode"",
+    						StringValue(phyMode));
+    // Set it to adhoc mode
+    				wifiMac.SetType(""ns3::AdhocWifiMac"");
+    				NetDeviceContainerdevices = wifi.Install(wifiPhy, wifiMac, c);
+    // Create file for thecapture
+    			if(pcapOn==true) {
+    //wifiPhy.EnablePcap(""capture examp"",devices);
+    //wifiPhy.EnablePcap Internal(""captureexampnode0"",devices.Get(0),true);
+    //wifiPhy.Enable Pcap Internal(""captureexampnode1"",devices.Get(0),true);}
+    //the format of corner.mobility
+    //NodeNum time x y z
+    // by reading each line ,we can get a detaile  dtrace of nodes ’ mobility
+    				MobilityHelper mobility;
+    				mobility.SetMobilityModel(""ns3::WaypointMobilityModel"");
+    				mobility.Install(c);
+    				std::ifstream mobileInput;
+    				mobileInput.open(mobFile.cstr(),std::ios::in);
+    				if(!mobileInput.isopen()) {
+    					NS LOG ERROR(""Invalidmap.The path(""<<mobFile<<""is wrong.Please check it again"");
+    					return -1;
+    				}
+    //With map
+    				std::map<int,Ptr<WaypointMobilityModel>>wayMobility;
+    //NS LOG UNCOND ( "" nNodes = ""<<nNodes ) ;
+    				uint32_t indexc=0;
+    				for(std::map<int,int>::iteratorit=mapcount.begin();
+    						it!=mapcount.end();it++,indexc++) {
+    					wayMobility[it ->first]=c.Get(indexc)->GetObject<WaypointMobilityModel >();
+    // cout <<""Key=""<<it->first<<""Value=""<<it->
+    					second <<""\n "";
+    				}
+    // setting initial position to all the nodes.We put all the cars far away from the map (100Km +some randomvalue)
+    				double sinkX =100000;
+    				double sinkY = 100000;
+    				double sinkZ =0;
+    				index c = 0;
+    				for (std::map<int,int>::iteratorit=map count.begin();
+    						it!=mapcount.end();it++,indexc++) {
+    					Waypoint waypoint(Seconds(0.1),Vector3D(sinkX+(indexc *10000),sinkY+(indexc *10000),sinkZ));
+    // wayMobility [ i ]->AddWaypoint (waypoint);
+    					Simulator::Schedule(Seconds(0.1),&WaypointMobilityModel::SetPosition,wayMobility[it->first],Vector3D(sinkX+(indexc*10000),sinkY+(indexc*10000),sinkZ)
+    					);
+    				}
+    				std::map<int,int>endTime;
+    				for(std::map<int,int>::iteratorit=mapcount.begin();
+    						it != map count.end();it++) {
+    					endTime[it->first]=0;
+    				}
+    				while(mobileInput>>nodeNo)
+    				{
+    					mobileInput>>time>>x>>y>>z;
+    					if(time <=0.1) {
+    //discarding the positionatsec0; we ’ ve substituted them with sink coordinates
+    						continue;
+    					}
+    					endTime[nodeNo]=time;
+    					Waypoint waypoint(Seconds (time),Vector3D(x,y,z));
+    //NS LOG UNCOND( ""Reading mobility file Id=""<< nodeNo<<"" time=""<<time<<""(""<<x<<"",""<<y<<"")"");
+    					wayMobility[nodeNo]->AddWaypoint(waypoint);
+    
+    					/*if(nodeNo==0)
+    					{
+    						wayMobility0->AddWaypoint ( waypoint );} else if(nodeNo==1)
+    					{
+    						wayMobility1->AddWaypoint(waypoint);
+    					}*/
+    				}
+    //std::vector<Ptr<Node>>::constiterator it=c.Begin();
+    //setting sink coordinates when a car mobility terminates
+    				uint32_t numberOfWaypoint;
+    				Waypoint point;
+    				for(std::map<int,int>::iteratorit=map count.begin();
+    						it!=mapcount.end();it ++) {numberOfWaypoint = wayMobility[it->first]->WaypointsLeft(); //TO DO chec kif  it goes to the last element
+    					if(numberOfWaypoint==0) {
+    						continue;
+    					}
+    					index c = 0;
+    					Simulator::Schedule(Seconds(endTime[it->first]+0.0001),&WaypointMobilityModel::SetPosition,wayMobility[it->first],Vector3D (sinkX+(indexc*10000),sinkY+(indexc*10000),sinkZ));}
+    //NS LOG UNCOND (""Mobility read!"") ;
+    // Install Ndn stack on all nodes
+    //NS LOG INFO ( "" Installing Ndnstack "") ;
+    				ndn::StackHelperndnHelper;
+    
+    				EndnHelper.AddNetDeviceFaceCreateCallback (
+    						WifiNetDevice : : GetTypeId ( ),MakeCallback(V2vNetDeviceFaceCallback ) );
+    //...setting ad hoc forwarding
+    				ndnHelper.SetForwardingStrategy(""ns3::ndn::fw::V2v"");
+    				ndnHelper.SetDefaultRoutes(true);
+    				ndnHelper.InstallAll( );
+    // Test with more than one consumer
+    				std::ifstream fileConsumer;
+    				fileConsumer.open(""/home/nrl/contolic/vndn-sim/ns-3/scratch/consumer.txt"",std::ios::in);
+    				if ( !fileConsumer.is open () ) {
+    					NS LOG ERROR(""Invalidname.The name""<<fileConsumer<<""is wrong.Please check it again"");
+    					return -1;
+    				}
+    				int idConsumer = 0;
+    				int countCons = 0;
+    				int indexCNodes = numOfNodes - 1;
+    				while(fileConsumer>>idConsumer ) {
+    //NS LOG UNCOND( "" idConsumer "" << idConsumer ) ;
+    					std::string consumerName="" c""+idConsumer;
+    					Ptr<Node> nodeConsumer = CreateObject <Node >();
+    //Names : : Add( consumerName , nodeConsumer ) ;
+    					ndn::AppHelper consumerHelper(""ns3::ndn::ConsumerCbr"");
+    					consumerHelper.SetPrefix(""/prefix"");
+    					consumerHelper.SetAttribute("" Frequency "",StringValue (""1""));
+    					consumerHelper.SetAttribute(""Randomize"",StringValue(""uniform ""));
+    					ApplicationContainerconsumers=consumerHelper.Install(c.Get(indexCNodes-countCons));
+    					consumers.Start(Seconds(50));//(50)-countCons *10
+    					consumers.Stop(Seconds(450));//(600)-30
+    					countCons++;
+    				}
+    // Test with more than oneproducer
+    				std::ifstream fileProducer;
+    				fileProducer.open(""/home/nrl/contolic/vndn-sim/ns-3/scratch/producer.txt"",std::ios::in);
+    				if(!fileProducer.is open () ) {
+    					NS LOG ERROR( ""Invalidname.Thename""<<fileProducer<<""iswrong.Please  check it again "");
+    					return -1;
+    
+    				}
+    				int idProducer = 0;
+    				int countProd = 0;
+    				int indexPNodes = 0;
+    				while(fileProducer>>idProducer) {
+    //NS LOG UNCOND(""idProducer""<<idProducer);
+    					std::string producerName=""c""+idProducer;Ptr<Node>nodeProducer=CreateObject<Node >();
+    //Names::Add(producerName,nodeProducer);
+    					ndn::AppHelperproducerHelper(""ns3::ndn::Producer"");
+    					producerHelper.SetPrefix(""/prefix"" );
+    					producerHelper.SetAttribute(""PayloadSize"",StringValue (""1024"") );
+    					ApplicationContainerproducers=producerHelper.Install(c.Get(indexPNodes+countProd));
+    //producers.Start(Seconds(countProd*0.5));
+    					countProd++;}
+    				/*ndn::AppHelperproducerHelper(""ns3::ndn::Producer"");
+    
+    // Producer willreply to all requestsstarting
+    				with/prefixproducerHelper.SetPrefix(""/prefix"");
+    				producerHelper.SetAttribute("" PayloadSize "",StringValue(""1024""));
+    //ApplicationContainerproducers=producerHelper.
+    				Install(c.Get(0));// AlmostatLincolnBlvd
+    				on WilshireBlvd*/
+    //NS LOG UNCOND("" Applicationinstalled!!"" ) ;
+    // Trace oflevel2.5
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Mac/MacTx"",MakeCallback(&MacTxCount));
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Mac/MacRx"",MakeCallback(&MacRxCount ) );
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice /Mac/MacTxDrop"",MakeCallback(&MacTxDrop));
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Mac/MacRxDrop"",MakeCallback(&MacRxDrop));
+    // Trace
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/OutInterests"",MakeCallback(&OutInterest));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/InInterests"",MakeCallback(&InInterest));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/DropInterests"",MakeCallback(& DropInterest));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/InData "",MakeCallback(&InData));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/DropData "",MakeCallback(&DropData ));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/OutData"",MakeCallback(&OutData ) );
+    				/* Tracing the car position*/
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::MobilityModel / CourseChange "",MakeCallback(&printPosition ) );
+    				Simulator::Stop(Seconds(600.0));//(600.0)-30
+    				/*Testingtraces*/
+    				/* boost::tuple< boost::sharedptr<std::ostream >,
+    				std::list<Ptr<ndn::L3AggregateTracer> > >
+    				aggTracers= ndn::L3AggregateTracer::InstallAll(""/ mnt/space/simulationlog/ndn-600s-aggregate-trace-v2v.txt"",Seconds (0.5));*/
+    				/* boost::tuple<boost::sharedptr<std::ostream >,std::list<Ptr<ndn::L3RateTracer> > >
+    				rateTracers=ndn::L3RateTracer::InstallAll(""/mnt/space/simulationlog/ndn-600s-rate-trace-v2v.txt"",Seconds(0.5));*/
+    				/*
+    				boost::tuple<boost::sharedptr<std::ostream >,
+    				std::list<boost::sharedptr<ndn::V2vTracer> >>v2vtracing=ndn::V2vTracer::InstallAll(""v2v.tracer.txt"");*/
+    
+    				Simulator:: Run ( );
+    				Simulator:: Destroy ( );
+    				return 0;
+        
+    
+    			}
+
+also here is the second file ndn-v2v-net-device-face.h 
+
+    enter code here
+   
+
+     #ifndef NDN_V2V_NET_DEVICE_FACE_H
+    #define NDN_V2V_NET_DEVICE_FACE_H
+    
+    #include ""ns3/nstime.h""
+    #include ""ns3/event-id.h""
+    #include ""ns3/random-variable.h""
+    #include ""ns3/traced-callback.h""
+    
+    #include ""ns3/ndn-net-device-face.h""
+    #include ""ns3/ndn-header-helper.h""
+    
+    namespace ns3 {
+    
+    class Vector3D;
+    typedef Vector3D Vector;
+    
+    namespace ndn {
+    
+    class NameComponents;
+    
+    /**
+     * \ingroup ndn-face
+     * \brief Implementation of layer-2 broadcast vehicle-2-vehicle NDN face
+     *
+     * This class defines basic functionality of NDN face. Face is core
+     * component responsible for actual delivery of data packet to and
+     * from NDN stack
+     *
+     * ndn::NetDevice face is permanently associated with one NetDevice
+     * object and this object cannot be changed for the lifetime of the
+     * face
+     *
+     * The only difference from the base class is that ndn::V2vNetDevice
+     * makes additional consideration for overheard information
+     *
+     * \see ndn::AppFace, ndn::NetDeviceFace
+     */
+    class V2vNetDeviceFace  : public NetDeviceFace
+    {
+    public:
+      static TypeId
+      GetTypeId ();
+    
+      /**
+       * \brief Constructor
+       *
+       * \param netDevice a smart pointer to NetDevice object to which
+       * this face will be associate
+       */
+      V2vNetDeviceFace (Ptr<Node> node, const Ptr<NetDevice> &netDevice);
+      virtual ~V2vNetDeviceFace();
+    
+      // from CcnxFace
+      virtual void
+      SendLowPriority (Ptr<Packet> p);
+    
+    protected:
+      // from ndn::NetDeviceFace
+      virtual bool
+      SendImpl (Ptr<Packet> p);
+    
+    public:
+      virtual std::ostream&
+      Print (std::ostream &os) const;
+    
+    private:
+      V2vNetDeviceFace (const V2vNetDeviceFace &); ///< \brief Disabled copy constructor
+      V2vNetDeviceFace& operator= (const V2vNetDeviceFace &); ///< \brief Disabled copy operator
+    
+      /// \brief callback from lower layers
+      virtual void
+      ReceiveFromNetDevice (Ptr<NetDevice> device,
+                            Ptr<const Packet> p,
+                            uint16_t protocol,
+                            const Address &from,
+                            const Address &to,
+                            NetDevice::PacketType packetType);
+    
+      void
+      SendFromQueue ();
+    
+      void
+      SetMaxDelay (const Time &value);
+    
+      Time
+      GetMaxDelay () const;
+    
+      void
+      SetMaxDelayLowPriority (const Time &value);
+    
+      Time
+      GetMaxDelayLowPriority () const;
+    
+      void
+      ProcessRetx ();
+    
+      Time
+      GetPriorityQueueGap () const;
+    
+      void
+      NotifyJumpDistanceTrace (const Ptr<const Packet> packet);
+    
+    private:
+      struct Item
+      {
+        Item (const Time &_gap, const Ptr<Packet> &_packet);
+        Item (const Item &item);
+    
+        Item &
+        operator ++ ();
+    
+        Item &
+        Gap (const Time &time);
+    
+        Time gap;
+        Ptr<Packet> packet;
+        HeaderHelper::Type type;
+        Ptr<const NameComponents> name;
+        uint32_t retxCount;
+      };
+      typedef std::list<Item> ItemQueue;
+    
+      EventId m_scheduledSend;
+    
+      // Primary queue (for requested ContentObject packets)
+      Time m_totalWaitPeriod;
+      UniformVariable m_randomPeriod;
+      Time m_maxWaitPeriod;
+      uint32_t m_maxPacketsInQueue;
+      ItemQueue m_queue;
+    
+      // Low-priority queue (for pushing Interest and ContentObject packets)
+      Time m_maxWaitLowPriority;
+      double m_maxDistance;
+      ItemQueue m_lowPriorityQueue;
+    
+      // Retransmission queue for low-priority pushing
+      EventId m_retxEvent;
+      Time m_maxWaitRetransmission;
+      ItemQueue m_retxQueue;
+      uint32_t m_maxRetxAttempts;
+    
+      TracedCallback<double, double> m_waitingTimeVsDistanceTrace;
+      TracedCallback<Ptr<const Node>, double> m_jumpDistanceTrace;
+      TracedCallback<Ptr<Node>, Ptr<const Packet>, const Vector&> m_tx;
+      TracedCallback<Ptr<Node>, Ptr<const Packet> > m_cancelling;
+    };
+    
+    } // namespace ndn
+    } // namespace ns3
+    
+    #endif // NDN_V2V_NET_DEVICE_FACE_H
+    
+    
+      [1]: http://i.stack.imgur.com/kdiPk.png",<c++><ns-3><ndnsim>,16/01/07 20:53,LQ_EDIT,"<c++><ns-3><ndnsim>, how to fix an error on a simulation?, Please help me to find the errors .I am trying to run a simulation but I keep getting some kind of error.I am not very experienced in c++ .I will attach  both files  the main file of the simulation and the file ndn-v2v..
+i will appreciate any help i can get even a small advice and thanks in advance.[i also added a screen capture for the error while compilling the script here][1] 
+
+    enter code here
+   
+
+     #include <boost/shared_ptr.hpp>
+        #include <boost/make_shared.hpp>
+        #include <boost/lexical_cast.hpp>
+        #include <boost/tokenizer.hpp>
+        #include ""ns3/core-module.h""
+        #include ""ns3/network-module.h""
+        #include ""ns3/mobility-module.h""
+        #include ""ns3/config-store-module.h""
+        #include ""ns3/wifi-module.h""
+        #include ""ns3/internet-module.h""
+        #include ""ns3/ndnSIM-module.h""
+        #include ""ns3/corner-propagation-loss-model.h""
+        #include ""ns3/ndn-v2v-net-device-face.h""
+        #include <iostream>
+        #include <fstream>
+        #include <vector>
+        #include <string>
+        #include <map>
+        #include ""../src/ndnSIM/utils/tracers/ndn-l3-aggregate-tracer.h""
+        #include ""../src/ndnSIM/utils/tracers/ndn-l3-rate-tracer.h""
+        #include ""../src/ndnSIM/utils/tracers/v2v-tracer.h""
+        NS_LOG_COMPONENT_DEFINE (""Wifiv2v"");
+        using namespace ns3;
+        #define MAX_NODES 1002;
+        static int packet_count = 0;
+        // Variable for simulation-traces
+        //------------------------------------//
+        //------------------------------------//
+        //------------------------------------//
+        int mac_tx_count = 0; // counts how many packets a rereceived from the     higher layers in order to be enqueued for transmission
+        int mac_tx_drop = 0; //counts how many packets are has been dropped in the Mac layer before beeing queued for transmission
+        int mac_rx_count = 0; //counts how many packets a rereceived from the phy layer and is being forwarded to the local protocol stack
+        int mac_rx_drop = 0; //counts how many packtes has been dropped in the Mac layer after has been passed
+         //up from phylayer
+        //------------------------------------//
+        //------------------------------------//
+        // Call back for simulation-traces
+        //------------------------------------//
+        //------------------------------------//
+        
+        void MacTxCount(Ptr<const Packet> p) {
+        	mac_tx_count++;
+        	NS_LOG_DEBUG(
+        			""[MACTXCOUNT] Packet is going to be transmitted...mac_tx_count=""
+        					<< mac_tx_count);
+        }
+        void MacTxDrop(Ptr<const Packet> p) {
+        	mac_tx_drop++;
+        	NS_LOG_DEBUG(
+        			""[MAC_TX_DROP] Packet has been dropped before transmission...mac_tx_drop=""
+        					<< mac_tx_drop);
+        }
+        void MacRxCount(Ptr<const Packet> p) {
+        	mac_rx_count++;
+        	NS_LOG_DEBUG(
+        			""[MAC_RX_COUNT] Packet has been received,going to forward...mac_rx_drop=""
+        					<< mac_rx_count);
+        }
+        void MacRxDrop(Ptr<const Packet> p) {
+        	mac_rx_drop++;
+        	NS_LOG_DEBUG(
+        			""[MAC_RX_DROP] Packet has been dropped by Mac before forward...mac_rx_drop=""
+        					<< mac_rx_drop);
+        }
+        void PrintTrasmission() {
+        //std::cout<<Simulator::Now().GetSeconds()<<""\t""<<
+        
+        	mac_tx_count << ""\t"" << mac_tx_drop << ""\t"" << mac_rx_count << ""\t""
+        			<< mac_rx_drop << ""\n "";
+        	NS_LOG_DEBUG(
+        			"" [ PRINT-TRANSMISSION]Time="" << Simulator::Now().GetSeconds()
+        					<< "" mac_tx_count="" << mac_tx_count << "" mac_tx_drop= ""
+        					<< mac_tx_drop << "" mac_rx_count= "" << mac_rx_count
+        					<< "" mac_rx_drop="" << mac_rx_drop);
+        	Simulator::Schedule(Seconds(5.0), &PrintTrasmission);
+        }
+        void OutInterest(Ptr<const ns3::ndn::InterestHeader> interestHeader,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[OUT INTEREST]Time="" << Simulator::Now().GetSeconds() << "" NID= ""
+        					<< face->GetNode()->GetId() << "" Nonce= ""
+        					<< interestHeader->GetNonce() << ""Name=""
+        					<< interestHeader->GetName() << ""\n"");
+        }
+        void InInterest(Ptr<const ns3::ndn::InterestHeader> interestHeader,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[IN INTEREST]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Nonce=""
+        					<< interestHeader->GetNonce() << ""Name=""
+        					<< interestHeader->GetName() << ""Position=""
+        					<< face->GetNode()->GetObject<MobilityModel>()->GetPosition()
+        					<< ""\n"");
+        
+        }
+        void DropInterest(Ptr<const ns3::ndn::InterestHeader> interestHeader,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[DROPINTEREST]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Nonce=""
+        					<< interestHeader->GetNonce() << ""Name=""
+        					<< interestHeader->GetName() << ""\n"");
+        }
+        void InData(Ptr<const ns3::ndn::ContentObjectHeader> contentHeader,
+        		Ptr<const ns3::Packet> packet, Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[INDATA]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Name=""
+        					<< contentHeader->GetName() << ""Position=""
+        					<< face->GetNode()->GetObject<MobilityModel>()->GetPosition()
+        					<< ""\n "");
+        }
+        void OutData(Ptr<const ns3::ndn::ContentObjectHeader> contentHeader,
+        		Ptr<const ns3::Packet> packet, bool value,
+        		Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[OUT DATA]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Name=""
+        					<< contentHeader->GetName() << ""\n"");
+        }
+        void DropData(Ptr<const ns3::ndn::ContentObjectHeader> contentHeader,
+        		Ptr<const ns3::Packet> packet, Ptr<const ns3::ndn::Face> face) {
+        	NS_LOG_DEBUG(
+        			""[DROP DATA]Time="" << Simulator::Now().GetSeconds() << ""NID=""
+        					<< face->GetNode()->GetId() << ""Name=""
+        					<< contentHeader->GetName() << ""\n"");
+        }
+        Ptr<ndn::NetDeviceFace> V2vNetDeviceFaceCallback(Ptr<Node> node,
+        		Ptr<ndn::L3Protocol> ndn, Ptr<NetDevice> device) {
+        //NS LOG UNCOND (""Creating ndn::V2vNetDeviceFace on node""<< node->GetId()
+        	);
+        	Ptr < ndn::NetDeviceFace > face = CreateObject < ndn::V2vNetDeviceFace
+        			> (node, device);
+        	NS_LOG_DEBUG(""Node="" << node->GetId() << ""MAC="" << device->GetAddress());
+        	ndn->AddFace(face);
+        	return face;
+        }
+        voidprintPosition(Ptr<const MobilityModel>mobility)
+        {
+        	NS LOG INFO(""Time=""<<Simulator::Now().GetSeconds( )<<""Positionof:""<< mobility->GetObject<Node>()->GetId()<<"":""<<mobility->GetPosition());
+        }
+        //------------------------------------//
+        void ReceivePacket(Ptr<Socket> socket) {
+        //NS LOG UNCOND (""Received one packet!"");
+        	packet_count++;
+        }
+        int main(int argc, char* argv[]) {
+        //NS LOG UNCOND( ""NDN SIMULATION ---->Started<----"");
+        std::stringphyMode(""OfdmRate6Mbps""); //(""DsssRate1Mbps"");
+        double rss = -80; // -dBm
+        uint32_t packet
+        Size = 512; // bytes
+        uint32_t numPackets = 50;
+        // double interval=0.5;//seconds
+        bool verbose = false;
+        //Param for simulation and tracing
+        bool pcapOn = true; // Tracing is enabled by default
+        uint32_t numberOfConsumer = 1; // D a f ault value:1
+        uint32_t numberOfProducer = 1; //Default value:1
+        uint32_t numberOfRuns = 50; //Default value:50
+        uint32_t numOfNodes = 357; //Default value:12
+        std::string mobFile(""/home/user/Desktop/ndnSIM/ns-3/scratch/losangeles.cc"");
+        double time = 0;
+        double x = 0, y = 0, z = 0;
+        int nodeNo = 0;
+        CommandLine cmd;
+        cmd.AddValue(""phyMode"", ""Wifi Phy mode"", phyMode);
+        cmd.AddValue(""rss"", ""received signal  strength"", rss);
+        cmd.AddValue(""packet Size"", "" size of application packet sent"", packetSize);
+        cmd.AddValue(""numPackets "", ""number of packets generated"", numPackets);
+        //cmd . AddValue(""interval"",""interval(seconds) between packets"",interval);
+        cmd.AddValue(""verbose"","" turn on all WifiNetDevice log components"",verbose) ;
+        //new param
+        		cmd.AddValue(""pcapOn"",""Turn on/off pcap tracing.Tracing is enabled by default"",pcapOn);
+        				cmd.AddValue(""numConsumer"",""Number of consumer in the simulation"",numberOfConsumer);
+        				cmd.AddValue(""numProducer"",""Number of producer in the simulation"",numberOfProducer);
+        				cmd.AddValue(""numRun"", ""Number of run per simulation"",numberOfRuns);
+        				cmd.AddValue(""mobilityFile"", ""Insertfullpath"", mobFile);
+        				cmd.AddValue(""numNodes"","" Total number o f nodes in the simulation"",numOfNodes);
+        				cmd.Parse(argc, argv);
+        // Convert to time object
+        //Time inter Packet Interval= Seconds (interval);
+        // NS LOG UNCOND(""true"");
+        //disable fragmentation for frames below 2200 bytes
+        				Config::SetDefault(
+        						""ns3::WifiRemoteStationManager::FragmentationThreshold "",
+        						StringValue(""2200""));
+        // turn off RTS/CTS for frames below 2200bytes 
+        				Config::SetDefault(
+        						""ns3::WifiRemoteStationManager::RtsCtsThreshold "",
+        						StringValue(""2200""));
+        // Fix non-unicast data rate to be the same as that of unicast
+        				Config::SetDefault(""ns3::WifiRemoteStationManager::NonUnicastMode"",String Value(phyMode));
+        //enable cache unsolicited Data
+        				Config::SetDefault(
+        						""ns3::ndn::ForwardingStrategy::CacheUnsolicitedData"",
+        						BooleanValue(true));
+        //Read number of cars directly from file
+        				std::ifstreamreadNcars;
+        				std::map<int, int> map
+        				count;
+        				int count = 0;
+        				readNcars.open(mobFile.cstr(), std::ios::in);
+        				while (readNcars >> nodeNo) {
+        					readNcars >> time >> x >> y >> z;
+        					if (mapcount.find(nodeNo) != mapcount.end()) { // cout<<""Ke yis present:""<<nodeNo<<"" is present!\n"";
+        						count = mapcount[nodeNo];
+        						count++;
+        						mapcount[nodeNo] = count;
+        					} else {
+        // cout <<""Key not present:""<<nodeNo<<""is not present!\n"";
+        						mapcount[nodeNo] = 1;
+        					}
+        				}
+        				numOfNodes = map
+        				count.size();
+        				NodeContainer c;
+        				c.Create(numOfNodes);
+        // The below set of helpers will help us to put together th e wifi NICs we want
+    				WifiHelperwifi;
+    				if (verbose) {
+    					wifi.EnableLogComponents(); // Turn on all Wifi logging
+    				}
+    				wifi.SetStandard ( WIFI PHY STANDARD 80211a); //WIFI PHY STANDARD 80211b
+    				YansWifiPhyHelper wifiPhy = YansWifiPhyHelper::Default();
+    // This is one parameter that matters when using FixedRssLossModel
+    // set it to zero;otherwise, gain will be added
+    				wifiPhy.Set(""RxGain "", DoubleValue(0));
+    				wifiPhy.Set(""EnergyDetectionThreshold"", DoubleValue(-93)); //dBm,default value is -96 dBm
+    // ns-3 supports RadioTap and Prism tracing extensions for 802.11b
+    				wifiPhy.SetPcapDataLinkType(
+    						YansWifiPhyHelper::DLTIEEE80211RADIO);
+    				YansWifiChannelHelperwifiChannel;
+    				wifiChannel.SetPropagationDelay(
+    						""ns3::ConstantSpeedPropagationDelayModel "");
+    // Proptagation model is CORNER
+    				wifiChannel.AddPropagationLoss(
+    						""ns3::CornerPropagationLossModel"");
+    				wifiPhy.SetChannel(wifiChannel.Create());
+    // Add a non-QoS upper mac,and disablerate control
+    				NqosWifiMacHelper wifiMac = NqosWifiMacHelper::Default();
+    				wifi.SetRemoteStationManager(""ns3::ConstantRateWifiManager"",
+    						""DataMode "", StringValue(phyMode), ""ControlMode"",
+    						StringValue(phyMode));
+    // Set it to adhoc mode
+    				wifiMac.SetType(""ns3::AdhocWifiMac"");
+    				NetDeviceContainerdevices = wifi.Install(wifiPhy, wifiMac, c);
+    // Create file for thecapture
+    			if(pcapOn==true) {
+    //wifiPhy.EnablePcap(""capture examp"",devices);
+    //wifiPhy.EnablePcap Internal(""captureexampnode0"",devices.Get(0),true);
+    //wifiPhy.Enable Pcap Internal(""captureexampnode1"",devices.Get(0),true);}
+    //the format of corner.mobility
+    //NodeNum time x y z
+    // by reading each line ,we can get a detaile  dtrace of nodes ’ mobility
+    				MobilityHelper mobility;
+    				mobility.SetMobilityModel(""ns3::WaypointMobilityModel"");
+    				mobility.Install(c);
+    				std::ifstream mobileInput;
+    				mobileInput.open(mobFile.cstr(),std::ios::in);
+    				if(!mobileInput.isopen()) {
+    					NS LOG ERROR(""Invalidmap.The path(""<<mobFile<<""is wrong.Please check it again"");
+    					return -1;
+    				}
+    //With map
+    				std::map<int,Ptr<WaypointMobilityModel>>wayMobility;
+    //NS LOG UNCOND ( "" nNodes = ""<<nNodes ) ;
+    				uint32_t indexc=0;
+    				for(std::map<int,int>::iteratorit=mapcount.begin();
+    						it!=mapcount.end();it++,indexc++) {
+    					wayMobility[it ->first]=c.Get(indexc)->GetObject<WaypointMobilityModel >();
+    // cout <<""Key=""<<it->first<<""Value=""<<it->
+    					second <<""\n "";
+    				}
+    // setting initial position to all the nodes.We put all the cars far away from the map (100Km +some randomvalue)
+    				double sinkX =100000;
+    				double sinkY = 100000;
+    				double sinkZ =0;
+    				index c = 0;
+    				for (std::map<int,int>::iteratorit=map count.begin();
+    						it!=mapcount.end();it++,indexc++) {
+    					Waypoint waypoint(Seconds(0.1),Vector3D(sinkX+(indexc *10000),sinkY+(indexc *10000),sinkZ));
+    // wayMobility [ i ]->AddWaypoint (waypoint);
+    					Simulator::Schedule(Seconds(0.1),&WaypointMobilityModel::SetPosition,wayMobility[it->first],Vector3D(sinkX+(indexc*10000),sinkY+(indexc*10000),sinkZ)
+    					);
+    				}
+    				std::map<int,int>endTime;
+    				for(std::map<int,int>::iteratorit=mapcount.begin();
+    						it != map count.end();it++) {
+    					endTime[it->first]=0;
+    				}
+    				while(mobileInput>>nodeNo)
+    				{
+    					mobileInput>>time>>x>>y>>z;
+    					if(time <=0.1) {
+    //discarding the positionatsec0; we ’ ve substituted them with sink coordinates
+    						continue;
+    					}
+    					endTime[nodeNo]=time;
+    					Waypoint waypoint(Seconds (time),Vector3D(x,y,z));
+    //NS LOG UNCOND( ""Reading mobility file Id=""<< nodeNo<<"" time=""<<time<<""(""<<x<<"",""<<y<<"")"");
+    					wayMobility[nodeNo]->AddWaypoint(waypoint);
+    
+    					/*if(nodeNo==0)
+    					{
+    						wayMobility0->AddWaypoint ( waypoint );} else if(nodeNo==1)
+    					{
+    						wayMobility1->AddWaypoint(waypoint);
+    					}*/
+    				}
+    //std::vector<Ptr<Node>>::constiterator it=c.Begin();
+    //setting sink coordinates when a car mobility terminates
+    				uint32_t numberOfWaypoint;
+    				Waypoint point;
+    				for(std::map<int,int>::iteratorit=map count.begin();
+    						it!=mapcount.end();it ++) {numberOfWaypoint = wayMobility[it->first]->WaypointsLeft(); //TO DO chec kif  it goes to the last element
+    					if(numberOfWaypoint==0) {
+    						continue;
+    					}
+    					index c = 0;
+    					Simulator::Schedule(Seconds(endTime[it->first]+0.0001),&WaypointMobilityModel::SetPosition,wayMobility[it->first],Vector3D (sinkX+(indexc*10000),sinkY+(indexc*10000),sinkZ));}
+    //NS LOG UNCOND (""Mobility read!"") ;
+    // Install Ndn stack on all nodes
+    //NS LOG INFO ( "" Installing Ndnstack "") ;
+    				ndn::StackHelperndnHelper;
+    
+    				EndnHelper.AddNetDeviceFaceCreateCallback (
+    						WifiNetDevice : : GetTypeId ( ),MakeCallback(V2vNetDeviceFaceCallback ) );
+    //...setting ad hoc forwarding
+    				ndnHelper.SetForwardingStrategy(""ns3::ndn::fw::V2v"");
+    				ndnHelper.SetDefaultRoutes(true);
+    				ndnHelper.InstallAll( );
+    // Test with more than one consumer
+    				std::ifstream fileConsumer;
+    				fileConsumer.open(""/home/nrl/contolic/vndn-sim/ns-3/scratch/consumer.txt"",std::ios::in);
+    				if ( !fileConsumer.is open () ) {
+    					NS LOG ERROR(""Invalidname.The name""<<fileConsumer<<""is wrong.Please check it again"");
+    					return -1;
+    				}
+    				int idConsumer = 0;
+    				int countCons = 0;
+    				int indexCNodes = numOfNodes - 1;
+    				while(fileConsumer>>idConsumer ) {
+    //NS LOG UNCOND( "" idConsumer "" << idConsumer ) ;
+    					std::string consumerName="" c""+idConsumer;
+    					Ptr<Node> nodeConsumer = CreateObject <Node >();
+    //Names : : Add( consumerName , nodeConsumer ) ;
+    					ndn::AppHelper consumerHelper(""ns3::ndn::ConsumerCbr"");
+    					consumerHelper.SetPrefix(""/prefix"");
+    					consumerHelper.SetAttribute("" Frequency "",StringValue (""1""));
+    					consumerHelper.SetAttribute(""Randomize"",StringValue(""uniform ""));
+    					ApplicationContainerconsumers=consumerHelper.Install(c.Get(indexCNodes-countCons));
+    					consumers.Start(Seconds(50));//(50)-countCons *10
+    					consumers.Stop(Seconds(450));//(600)-30
+    					countCons++;
+    				}
+    // Test with more than oneproducer
+    				std::ifstream fileProducer;
+    				fileProducer.open(""/home/nrl/contolic/vndn-sim/ns-3/scratch/producer.txt"",std::ios::in);
+    				if(!fileProducer.is open () ) {
+    					NS LOG ERROR( ""Invalidname.Thename""<<fileProducer<<""iswrong.Please  check it again "");
+    					return -1;
+    
+    				}
+    				int idProducer = 0;
+    				int countProd = 0;
+    				int indexPNodes = 0;
+    				while(fileProducer>>idProducer) {
+    //NS LOG UNCOND(""idProducer""<<idProducer);
+    					std::string producerName=""c""+idProducer;Ptr<Node>nodeProducer=CreateObject<Node >();
+    //Names::Add(producerName,nodeProducer);
+    					ndn::AppHelperproducerHelper(""ns3::ndn::Producer"");
+    					producerHelper.SetPrefix(""/prefix"" );
+    					producerHelper.SetAttribute(""PayloadSize"",StringValue (""1024"") );
+    					ApplicationContainerproducers=producerHelper.Install(c.Get(indexPNodes+countProd));
+    //producers.Start(Seconds(countProd*0.5));
+    					countProd++;}
+    				/*ndn::AppHelperproducerHelper(""ns3::ndn::Producer"");
+    
+    // Producer willreply to all requestsstarting
+    				with/prefixproducerHelper.SetPrefix(""/prefix"");
+    				producerHelper.SetAttribute("" PayloadSize "",StringValue(""1024""));
+    //ApplicationContainerproducers=producerHelper.
+    				Install(c.Get(0));// AlmostatLincolnBlvd
+    				on WilshireBlvd*/
+    //NS LOG UNCOND("" Applicationinstalled!!"" ) ;
+    // Trace oflevel2.5
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Mac/MacTx"",MakeCallback(&MacTxCount));
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Mac/MacRx"",MakeCallback(&MacRxCount ) );
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice /Mac/MacTxDrop"",MakeCallback(&MacTxDrop));
+    				Config::ConnectWithoutContext(""/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Mac/MacRxDrop"",MakeCallback(&MacRxDrop));
+    // Trace
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/OutInterests"",MakeCallback(&OutInterest));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/InInterests"",MakeCallback(&InInterest));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/DropInterests"",MakeCallback(& DropInterest));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/InData "",MakeCallback(&InData));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/DropData "",MakeCallback(&DropData ));
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::ndn::ForwardingStrategy/OutData"",MakeCallback(&OutData ) );
+    				/* Tracing the car position*/
+    				Config::ConnectWithoutContext(""/NodeList/*/$ns3::MobilityModel / CourseChange "",MakeCallback(&printPosition ) );
+    				Simulator::Stop(Seconds(600.0));//(600.0)-30
+    				/*Testingtraces*/
+    				/* boost::tuple< boost::sharedptr<std::ostream >,
+    				std::list<Ptr<ndn::L3AggregateTracer> > >
+    				aggTracers= ndn::L3AggregateTracer::InstallAll(""/ mnt/space/simulationlog/ndn-600s-aggregate-trace-v2v.txt"",Seconds (0.5));*/
+    				/* boost::tuple<boost::sharedptr<std::ostream >,std::list<Ptr<ndn::L3RateTracer> > >
+    				rateTracers=ndn::L3RateTracer::InstallAll(""/mnt/space/simulationlog/ndn-600s-rate-trace-v2v.txt"",Seconds(0.5));*/
+    				/*
+    				boost::tuple<boost::sharedptr<std::ostream >,
+    				std::list<boost::sharedptr<ndn::V2vTracer> >>v2vtracing=ndn::V2vTracer::InstallAll(""v2v.tracer.txt"");*/
+    
+    				Simulator:: Run ( );
+    				Simulator:: Destroy ( );
+    				return 0;
+        
+    
+    			}
+
+also here is the second file ndn-v2v-net-device-face.h 
+
+    enter code here
+   
+
+     #ifndef NDN_V2V_NET_DEVICE_FACE_H
+    #define NDN_V2V_NET_DEVICE_FACE_H
+    
+    #include ""ns3/nstime.h""
+    #include ""ns3/event-id.h""
+    #include ""ns3/random-variable.h""
+    #include ""ns3/traced-callback.h""
+    
+    #include ""ns3/ndn-net-device-face.h""
+    #include ""ns3/ndn-header-helper.h""
+    
+    namespace ns3 {
+    
+    class Vector3D;
+    typedef Vector3D Vector;
+    
+    namespace ndn {
+    
+    class NameComponents;
+    
+    /**
+     * \ingroup ndn-face
+     * \brief Implementation of layer-2 broadcast vehicle-2-vehicle NDN face
+     *
+     * This class defines basic functionality of NDN face. Face is core
+     * component responsible for actual delivery of data packet to and
+     * from NDN stack
+     *
+     * ndn::NetDevice face is permanently associated with one NetDevice
+     * object and this object cannot be changed for the lifetime of the
+     * face
+     *
+     * The only difference from the base class is that ndn::V2vNetDevice
+     * makes additional consideration for overheard information
+     *
+     * \see ndn::AppFace, ndn::NetDeviceFace
+     */
+    class V2vNetDeviceFace  : public NetDeviceFace
+    {
+    public:
+      static TypeId
+      GetTypeId ();
+    
+      /**
+       * \brief Constructor
+       *
+       * \param netDevice a smart pointer to NetDevice object to which
+       * this face will be associate
+       */
+      V2vNetDeviceFace (Ptr<Node> node, const Ptr<NetDevice> &netDevice);
+      virtual ~V2vNetDeviceFace();
+    
+      // from CcnxFace
+      virtual void
+      SendLowPriority (Ptr<Packet> p);
+    
+    protected:
+      // from ndn::NetDeviceFace
+      virtual bool
+      SendImpl (Ptr<Packet> p);
+    
+    public:
+      virtual std::ostream&
+      Print (std::ostream &os) const;
+    
+    private:
+      V2vNetDeviceFace (const V2vNetDeviceFace &); ///< \brief Disabled copy constructor
+      V2vNetDeviceFace& operator= (const V2vNetDeviceFace &); ///< \brief Disabled copy operator
+    
+      /// \brief callback from lower layers
+      virtual void
+      ReceiveFromNetDevice (Ptr<NetDevice> device,
+                            Ptr<const Packet> p,
+                            uint16_t protocol,
+                            const Address &from,
+                            const Address &to,
+                            NetDevice::PacketType packetType);
+    
+      void
+      SendFromQueue ();
+    
+      void
+      SetMaxDelay (const Time &value);
+    
+      Time
+      GetMaxDelay () const;
+    
+      void
+      SetMaxDelayLowPriority (const Time &value);
+    
+      Time
+      GetMaxDelayLowPriority () const;
+    
+      void
+      ProcessRetx ();
+    
+      Time
+      GetPriorityQueueGap () const;
+    
+      void
+      NotifyJumpDistanceTrace (const Ptr<const Packet> packet);
+    
+    private:
+      struct Item
+      {
+        Item (const Time &_gap, const Ptr<Packet> &_packet);
+        Item (const Item &item);
+    
+        Item &
+        operator ++ ();
+    
+        Item &
+        Gap (const Time &time);
+    
+        Time gap;
+        Ptr<Packet> packet;
+        HeaderHelper::Type type;
+        Ptr<const NameComponents> name;
+        uint32_t retxCount;
+      };
+      typedef std::list<Item> ItemQueue;
+    
+      EventId m_scheduledSend;
+    
+      // Primary queue (for requested ContentObject packets)
+      Time m_totalWaitPeriod;
+      UniformVariable m_randomPeriod;
+      Time m_maxWaitPeriod;
+      uint32_t m_maxPacketsInQueue;
+      ItemQueue m_queue;
+    
+      // Low-priority queue (for pushing Interest and ContentObject packets)
+      Time m_maxWaitLowPriority;
+      double m_maxDistance;
+      ItemQueue m_lowPriorityQueue;
+    
+      // Retransmission queue for low-priority pushing
+      EventId m_retxEvent;
+      Time m_maxWaitRetransmission;
+      ItemQueue m_retxQueue;
+      uint32_t m_maxRetxAttempts;
+    
+      TracedCallback<double, double> m_waitingTimeVsDistanceTrace;
+      TracedCallback<Ptr<const Node>, double> m_jumpDistanceTrace;
+      TracedCallback<Ptr<Node>, Ptr<const Packet>, const Vector&> m_tx;
+      TracedCallback<Ptr<Node>, Ptr<const Packet> > m_cancelling;
+    };
+    
+    } // namespace ndn
+    } // namespace ns3
+    
+    #endif // NDN_V2V_NET_DEVICE_FACE_H
+    
+    
+      [1]: http://i.stack.imgur.com/kdiPk.png","<c++><is-3><ndnsim>, fix error stimulation?, pleas help find error .i try run soul keep get kind error.i experience c++ .i attach file main file soul file non-ve.. appreci help get even small advice thank advance.[i also ad screen capture error compel script here][1] enter code #include <boost/shared_ptr.pp> #include <boost/make_shared.pp> #include <boost/lexical_cast.pp> #include <boost/tokenizer.pp> #include ""is/core-module.h"" #include ""is/network-module.h"" #include ""is/mobility-module.h"" #include ""is/confirm-store-module.h"" #include ""is/wife-module.h"" #include ""is/internet-module.h"" #include ""is/ndnsim-module.h"" #include ""is/corner-propagation-loss-model.h"" #include ""is/non-ve-net-device-face.h"" #include <stream> #include <stream> #include <vector> #include <string> #include <map> #include ""../sac/ndnsim/still/traces/non-ll-aggregate-trace.h"" #include ""../sac/ndnsim/still/traces/non-ll-rate-trace.h"" #include ""../sac/ndnsim/still/traces/ve-trace.h"" ns_log_component_defin (""wifiv2v""); use namespac is; #define max_nod 1002; static in packet_count = 0; // variable stimulation-trap //------------------------------------// //------------------------------------// //------------------------------------// in mac_tx_count = 0; // count man packet rereceiv higher layer order ensues transmit in mac_tx_drop = 0; //count man packet drop mac layer bee que transmit in mac_rx_count = 0; //count man packet rereceiv hi layer forward local protocol stick in mac_rx_drop = 0; //count man pack drop mac layer pass //up play //------------------------------------// //------------------------------------// // call back stimulation-trap //------------------------------------// //------------------------------------// void mactxcount(per<cost packet> p) { mac_tx_count++; ns_log_debug( ""[mactxcount] packet go transmitted...mac_tx_count="" << mac_tx_count); } void mactxdrop(per<cost packet> p) { mac_tx_drop++; ns_log_debug( ""[mac_tx_drop] packet drop transmission...mac_tx_drop="" << mac_tx_drop); } void macrxcount(per<cost packet> p) { mac_rx_count++; ns_log_debug( ""[mac_rx_count] packet received,go forward...mac_rx_drop="" << mac_rx_count); } void macrxdrop(per<cost packet> p) { mac_rx_drop++; ns_log_debug( ""[mac_rx_drop] packet drop mac forward...mac_rx_drop="" << mac_rx_drop); } void printtrasmission() { //st::out<<simulate::now().getseconds()<<""\t""<< mac_tx_count << ""\t"" << mac_tx_drop << ""\t"" << mac_rx_count << ""\t"" << mac_rx_drop << ""\n ""; ns_log_debug( "" [ print-transmission]time="" << simulate::now().getseconds() << "" mac_tx_count="" << mac_tx_count << "" mac_tx_drop= "" << mac_tx_drop << "" mac_rx_count= "" << mac_rx_count << "" mac_rx_drop="" << mac_rx_drop); simulate::schedule(seconds(5.0), &printtrasmission); } void outinterest(per<cost is::non::interestheader> interestheader, per<cost is::non::face> face) { ns_log_debug( ""[out interest]time="" << simulate::now().getseconds() << "" did= "" << face->methode()->get() << "" once= "" << interestheader->getnonce() << ""name="" << interestheader->getname() << ""\n""); } void interest(per<cost is::non::interestheader> interestheader, per<cost is::non::face> face) { ns_log_debug( ""[in interest]time="" << simulate::now().getseconds() << ""did="" << face->methode()->get() << ""once="" << interestheader->getnonce() << ""name="" << interestheader->getname() << ""position="" << face->methode()->getobject<mobilitymodel>()->exposition() << ""\n""); } void dropinterest(per<cost is::non::interestheader> interestheader, per<cost is::non::face> face) { ns_log_debug( ""[dropinterest]time="" << simulate::now().getseconds() << ""did="" << face->methode()->get() << ""once="" << interestheader->getnonce() << ""name="" << interestheader->getname() << ""\n""); } void indiana(per<cost is::non::contentobjectheader> contentheader, per<cost is::packet> packet, per<cost is::non::face> face) { ns_log_debug( ""[indiana]time="" << simulate::now().getseconds() << ""did="" << face->methode()->get() << ""name="" << contentheader->getname() << ""position="" << face->methode()->getobject<mobilitymodel>()->exposition() << ""\n ""); } void outdated(per<cost is::non::contentobjectheader> contentheader, per<cost is::packet> packet, book value, per<cost is::non::face> face) { ns_log_debug( ""[out data]time="" << simulate::now().getseconds() << ""did="" << face->methode()->get() << ""name="" << contentheader->getname() << ""\n""); } void dropdata(per<cost is::non::contentobjectheader> contentheader, per<cost is::packet> packet, per<cost is::non::face> face) { ns_log_debug( ""[drop data]time="" << simulate::now().getseconds() << ""did="" << face->methode()->get() << ""name="" << contentheader->getname() << ""\n""); } per<non::netdeviceface> v2vnetdevicefacecallback(per<node> node, per<non::protocol> non, per<netdevice> device) { //n log second (""great non::v2vnetdevicefac node""<< node->get() ); per < non::netdevicefac > face = createobject < non::v2vnetdevicefac > (node, device); ns_log_debug(""node="" << node->get() << ""mac="" << device->headdress()); non->addface(face); return face; } voidprintposition(per<cost mobilitymodel>mobility) { is log into(""time=""<<simulate::now().getseconds( )<<""position:""<< mobility->getobject<node>()->get()<<"":""<<mobility->exposition()); } //------------------------------------// void receivepacket(per<socket> socket) { //n log second (""receive one packet!""); packet_count++; } in main(in arc, chair* are[]) { //n log second( ""non soul ---->started<----""); st::stringphymode(""ofdmrate6mbps""); //(""dsssrate1mbps""); doubt ross = -80; // -dam uint32_t packet size = 512; // bite uint32_t numpacket = 50; // doubt interval=0.5;//second book verbs = false; //parma soul trace book platon = true; // trace enable default uint32_t numberofconsum = 1; // f aunt value:1 uint32_t numberofproduc = 1; //default value:1 uint32_t numberofrun = 50; //default value:50 uint32_t numofnod = 357; //default value:12 st::string mobile(""/home/user/desktop/ndnsim/is-3/scratch/losangeles.c""); doubt time = 0; doubt x = 0, = 0, z = 0; in rodent = 0; commanding cod; cod.addvalue(""phymode"", ""wife hi mode"", phymode); cod.addvalue(""ross"", ""receive signal strength"", ross); cod.addvalue(""packet size"", "" size applied packet sent"", packetsize); cod.addvalue(""numpacket "", ""number packet generate"", numpackets); //cod . addvalue(""interval"",""interval(seconds) packets"",interval); cod.addvalue(""verse"","" turn wifinetdevic log components"",verse) ; //new parma cod.addvalue(""platon"",""turn on/off cap tracing.trap enable default"",platon); cod.addvalue(""numconsumer"",""numb consume stimulation"",numberofconsumer); cod.addvalue(""numproducer"",""numb produce stimulation"",numberofproducer); cod.addvalue(""numrun"", ""number run per stimulation"",numberofruns); cod.addvalue(""mobilityfile"", ""insertfullpath"", mobile); cod.addvalue(""numnodes"","" total number f node stimulation"",numofnodes); cod.pause(arc, are); // convert time object //time inter packet interval= second (interval); // is log second(""true""); //distal fragment frame 2200 bite confirm::setdefault( ""is::wifiremotestationmanager::fragmentationthreshold "", stringvalue(""2200"")); // turn its/it frame 2200byte confirm::setdefault( ""is::wifiremotestationmanager::rtsctsthreshold "", stringvalue(""2200"")); // fix non-nicest data rate nicest confirm::setdefault(""is::wifiremotestationmanager::nonunicastmode"",sir value(phymode)); //enable each solicit data confirm::setdefault( ""is::non::forwardingstrategy::cacheunsoliciteddata"", booleanvalue(true)); //read number car directly file st::ifstreamreadncars; st::map<in, in> map count; in count = 0; readncars.open(mobile.cut(), st::is::in); (readncar >> rodent) { readncar >> time >> x >> >> z; (account.find(rodent) != account.end()) { // out<<""k i present:""<<rodent<<"" present!\n""; count = account[rodent]; count++; account[rodent] = count; } else { // out <<""key present:""<<rodent<<""i present!\n""; account[rodent] = 1; } } numofnod = map count.size(); nodecontain c; c.create(numofnodes); // set helper help us put together th e wife nice want wifihelperwifi; (verse) { wife.enablelogcomponents(); // turn wife log } wife.setstandard ( wife hi standard 80211a); //wife hi standard 80211b yanswifiphyhelp wifiphi = yanswifiphyhelper::default(); // one parapet matter use fixedrsslossmodel // set zero;otherwise, gain ad wifiphy.set(""regain "", doublevalue(0)); wifiphy.set(""energydetectionthreshold"", doublevalue(-93)); //dam,default value -96 dam // is-3 support radiotap prim trace extent 802.b wifiphy.setpcapdatalinktype( yanswifiphyhelper::dltieee80211radio); yanswifichannelhelperwifichannel; wifichannel.setpropagationdelay( ""is::constantspeedpropagationdelaymodel ""); // proptag model corner wifichannel.addpropagationloss( ""is::cornerpropagationlossmodel""); wifiphy.setchannel(wifichannel.create()); // add non-to upper mac,and disabled control nqoswifimachelp wifimac = nqoswifimachelper::default(); wife.setremotestationmanager(""is::constantratewifimanager"", ""datamod "", stringvalue(phymode), ""controlmode"", stringvalue(phymode)); // set ado mode wifimac.settle(""is::adhocwifimac""); netdevicecontainerdevic = wife.install(wifiphy, wifimac, c); // great file thecaptur if(platon==true) { //wifiphy.enablepcap(""capture exam"",devices); //wifiphy.enablepcap internal(""captureexampnode0"",devices.get(0),true); //wifiphy.en cap internal(""captureexampnode1"",devices.get(0),true);} //the format corner.mob //nodosum time x z // read line ,we get detail trace node ’ mobile mobilityhelp mobility; mobility.setmobilitymodel(""is::waypointmobilitymodel""); mobility.install(c); st::stream mobileinput; mobileinput.open(mobile.cut(),st::is::in); if(!mobileinput.open()) { is log error(""invalidmap.th path(""<<mobile<<""i wrong.pleas check again""); return -1; } //with map st::map<in,per<waypointmobilitymodel>>waymobility; //n log second ( "" node = ""<<node ) ; uint32_t index=0; for(st::map<in,in>::iteratorit=account.begin(); it!=account.end();it++,index++) { waymobility[it ->first]=c.get(index)->getobject<waypointmobilitymodel >(); // out <<""key=""<<it->first<<""value=""<<it-> second <<""\n ""; } // set into post nodes.w put car far away map (100km +some randomvalue) doubt sink =100000; doubt sink = 100000; doubt sink =0; index c = 0; (st::map<in,in>::iteratorit=map count.begin(); it!=account.end();it++,index++) { appoint appoint(seconds(0.1),vector(sink+(index *10000),sink+(index *10000),sink)); // waymobl [ ]->addwaypoint (appoint); simulate::schedule(seconds(0.1),&waypointmobilitymodel::supposition,waymobility[it->first],vector(sink+(index*10000),sink+(index*10000),sink) ); } st::map<in,in>entire; for(st::map<in,in>::iteratorit=account.begin(); != map count.end();it++) { entire[it->first]=0; } while(mobileinput>>rodent) { mobileinput>>time>>x>>y>>z; if(tim <=0.1) { //discard positionatsec0; ’ substitute sink cordon continue; } entire[rodent]=time; appoint appoint(second (time),vector(x,y,z)); //n log second( ""read mobile file id=""<< rodent<<"" time=""<<time<<""(""<<x<<"",""<<y<<"")""); waymobility[rodent]->addwaypoint(appoint); /*if(rodent==0) { waymobility0->addwaypoint ( appoint );} else if(rodent==1) { waymobility1->addwaypoint(appoint); }*/ } //st::vector<per<node>>::consider it=c.begin(); //set sink cordon car mobile german uint32_t numberofwaypoint; appoint point; for(st::map<in,in>::iteratorit=map count.begin(); it!=account.end();it ++) {numberofwaypoint = waymobility[it->first]->waypointsleft(); //to check if go last element if(numberofwaypoint==0) { continue; } index c = 0; simulate::schedule(seconds(entire[it->first]+0.0001),&waypointmobilitymodel::supposition,waymobility[it->first],vector (sink+(index*10000),sink+(index*10000),sink));} //n log second (""mobile read!"") ; // instal non stick node //n log into ( "" instal ndnstack "") ; non::stackhelperndnhelper; endnhelper.addnetdevicefacecreatecallback ( wifinetdevic : : gettypeid ( ),makecallback(v2vnetdevicefacecallback ) ); //...set ad how forward ndnhelper.setforwardingstrategy(""is::non::few::ve""); ndnhelper.setdefaultroutes(true); ndnhelper.installall( ); // test one consume st::stream fileconsumer; fileconsumer.open(""/home/nl/contolic/and-him/is-3/scratch/consumer.txt"",st::is::in); ( !fileconsumer.i open () ) { is log error(""invalidname.th name""<<fileconsumer<<""i wrong.pleas check again""); return -1; } in idconsum = 0; in countcon = 0; in indexcnod = numofnod - 1; while(fileconsumer>>idconsum ) { //n log second( "" idconsum "" << idconsum ) ; st::string consumername="" c""+consumer; per<node> nodeconsum = createobject <node >(); //name : : add( consumernam , nodeconsum ) ; non::apphelp consumerhelper(""is::non::consumercbr""); consumerhelper.setprefix(""/prefix""); consumerhelper.setattribute("" frequent "",stringvalu (""1"")); consumerhelper.setattribute(""randomize"",stringvalue(""uniform "")); applicationcontainerconsumers=consumerhelper.install(c.get(indexcnodes-countcons)); consumers.start(seconds(50));//(50)-countcon *10 consumers.stop(seconds(450));//(600)-30 countcons++; } // test oneproduc st::stream fileproducer; fileproducer.open(""/home/nl/contolic/and-him/is-3/scratch/producer.txt"",st::is::in); if(!fileproducer.i open () ) { is log error( ""invalidname.thence""<<fileproducer<<""strong.pleas check ""); return -1; } in idproduc = 0; in countered = 0; in indexpnod = 0; while(fileproducer>>producer) { //n log second(""producer""<<producer); st::string producername=""c""+producer;per<node>nodeproducer=createobject<nod >(); //names::add(producername,nodeproducer); non::apphelperproducerhelper(""is::non::producer""); producerhelper.setprefix(""/prefix"" ); producerhelper.setattribute(""payloadsize"",stringvalu (""1024"") ); applicationcontainerproducers=producerhelper.install(c.get(indexpnodes+countered)); //producers.start(seconds(countered*0.5)); countered++;} /*non::apphelperproducerhelper(""is::non::producer""); // produce willrepli requestsstart with/prefixproducerhelper.setprefix(""/prefix""); producerhelper.setattribute("" payloads "",stringvalue(""1024"")); //applicationcontainerproducers=producerhelper. install(c.get(0));// almostatlincolnblvd wilshireblvd*/ //n log second("" applicationinstalled!!"" ) ; // trace oflevel2.5 confirm::connectwithoutcontext(""/novelist/*/devicelist/*/$is::wifinetdevice/mac/act"",makecallback(&mactxcount)); confirm::connectwithoutcontext(""/novelist/*/devicelist/*/$is::wifinetdevice/mac/marx"",makecallback(&macrxcount ) ); confirm::connectwithoutcontext(""/novelist/*/devicelist/*/$is::wifinetdevic /mac/mactxdrop"",makecallback(&mactxdrop)); confirm::connectwithoutcontext(""/novelist/*/devicelist/*/$is::wifinetdevice/mac/macrxdrop"",makecallback(&macrxdrop)); // trace confirm::connectwithoutcontext(""/novelist/*/$is::non::forwardingstrategy/outinterests"",makecallback(&outinterest)); confirm::connectwithoutcontext(""/novelist/*/$is::non::forwardingstrategy/interests"",makecallback(&interest)); confirm::connectwithoutcontext(""/novelist/*/$is::non::forwardingstrategy/dropinterests"",makecallback(& dropinterest)); confirm::connectwithoutcontext(""/novelist/*/$is::non::forwardingstrategy/indiana "",makecallback(&indiana)); confirm::connectwithoutcontext(""/novelist/*/$is::non::forwardingstrategy/dropdata "",makecallback(&dropdata )); confirm::connectwithoutcontext(""/novelist/*/$is::non::forwardingstrategy/outdated"",makecallback(&outdated ) ); /* trace car position*/ confirm::connectwithoutcontext(""/novelist/*/$is::mobilitymodel / coursechang "",makecallback(&printposit ) ); simulate::stop(seconds(600.0));//(600.0)-30 /*testingtraces*/ /* boost::table< boost::sharedptr<st::stream >, st::list<per<non::l3aggregatetracer> > > aggtracers= non::l3aggregatetracer::installall(""/ met/space/simulationlog/non-600s-aggregate-trace-ve.txt"",second (0.5));*/ /* boost::table<boost::sharedptr<st::stream >,st::list<per<non::l3ratetracer> > > ratetracers=non::l3ratetracer::installall(""/met/space/simulationlog/non-600s-rate-trace-ve.txt"",seconds(0.5));*/ /* boost::table<boost::sharedptr<st::stream >, st::list<boost::sharedptr<non::v2vtracer> >>v2vtracing=non::v2vtracer::installall(""ve.trace.txt"");*/ simulate:: run ( ); simulate:: destroy ( ); return 0; } also second file non-ve-net-device-face.h enter code #index ndn_v2v_net_device_face_h #define ndn_v2v_net_device_face_h #include ""is/estime.h"" #include ""is/event-id.h"" #include ""is/random-variable.h"" #include ""is/traced-callback.h"" #include ""is/non-net-device-face.h"" #include ""is/non-header-helper.h"" namespac is { class vector; typedef vector vector; namespac non { class namecomponents; /** * \group non-face * \brief implement layer-2 broadcast vehicle-2-vehicle non face * * class define basic function non face. face core * common response actual deliver data packet * non stick * * non::netdevic face german cassock one netdevic * object object cannot change lifetime * face * * differ base class non::v2vnetdevic * make admit consider overheard inform * * \see non::appease, non::netdevicefac */ class v2vnetdevicefac : public netdevicefac { public: static type gettypeid (); /** * \brief construction * * \parma netdevic smart pointer netdevic object * face cassock */ v2vnetdevicefac (per<node> node, cost per<netdevice> &netdevice); virtual ~v2vnetdeviceface(); // ccnxface virtual void sendlowprior (per<packet> p); protected: // non::netdevicefac virtual book sendimpl (per<packet> p); public: virtual st::stream& print (st::stream &os) cost; private: v2vnetdevicefac (cost v2vnetdevicefac &); ///< \brief distal copy construction v2vnetdeviceface& operator= (cost v2vnetdevicefac &); ///< \brief distal copy over /// \brief callback lower layer virtual void receivefromnetdevic (per<netdevice> device, per<cost packet> p, uint16_t protocol, cost address &from, cost address &to, netdevice::packettyp packettype); void sendfromqueu (); void setmaxdelay (cost time &value); time getmaxdelay () cost; void setmaxdelaylowprior (cost time &value); time getmaxdelaylowprior () cost; void processretx (); time getpriorityqueuegap () cost; void notifyjumpdistancetrac (cost per<cost packet> packet); private: struck item { item (cost time &gap, cost per<packet> &packet); item (cost item &item); item & over ++ (); item & gap (cost time &time); time gap; per<packet> packet; headerhelper::type type; per<cost namecomponents> name; uint32_t retxcount; }; typedef st::list<item> itemqueue; events m_scheduledsend; // primary queue (for request contentobject packets) time m_totalwaitperiod; uniformvari m_randomperiod; time m_maxwaitperiod; uint32_t m_maxpacketsinqueue; itemqueu queue; // low-prior queue (for push interest contentobject packets) time m_maxwaitlowpriority; doubt m_maxdistance; itemqueu m_lowpriorityqueue; // retransmiss queue low-prior push events m_retxevent; time m_maxwaitretransmission; itemqueu m_retxqueue; uint32_t m_maxretxattempts; tracedcallback<double, double> m_waitingtimevsdistancetrace; tracedcallback<per<cost node>, double> m_jumpdistancetrace; tracedcallback<per<node>, per<cost packet>, cost vector&> met; tracedcallback<per<node>, per<cost packet> > m_cancelling; }; } // namespac non } // namespac is #end // ndn_v2v_net_device_face_h [1]: http://i.stick.incur.com/disk.pig"
+34666148,Openshift v3 - update image stream to fetch changes from external docker registry,"<p>I'm seeming to run into a simple problem and have the feeling I'm missing something essential.</p>
+
+<p>I'm having a private docker image registry at our company, which hosts all the docker images we develop.</p>
+
+<p>This registry is constantly updated during our build process and new images are pushed to it quite often.</p>
+
+<p>Now we are utilizing an openshift system, with a handful of images and it's own registry. </p>
+
+<p>What would be the best way to synchronize images between these 2 systems?</p>
+
+<p>As example, we have an app deployed like this:</p>
+
+<pre><code>oc new-app myregistry.mydomain.edu/binbase/minix
+</code></pre>
+
+<p>which is running nicely.</p>
+
+<p>We would now like to update this deployment with the latest changes and for this I do:</p>
+
+<pre><code>oc import-image minix
+</code></pre>
+
+<p>Tag Spec        Created     PullSpec                        Image
+latest      23 hours ago    myregistry.mydomain.edu/binbase/minix:latest    f6646382cfa32da291e8380421ea656110090256cd195746a5be2fcf61e4edf1</p>
+
+<p>which is the correct image and now executing a</p>
+
+<pre><code>oc deploy minix --latest
+</code></pre>
+
+<p>but this still deploys the current image, not the newly updated image.</p>
+
+<p>Any idea why this, or what we are doing wrong?</p>
+
+<p>All I would like todo is to now redeploy the newest image.</p>
+
+<p>kind regards</p>
+",<docker><openshift>,16/01/07 22:14,HQ,"<docker><openshift>, Openshift v3 - update image stream to fetch changes from external docker registry, <p>I'm seeming to run into a simple problem and have the feeling I'm missing something essential.</p>
+
+<p>I'm having a private docker image registry at our company, which hosts all the docker images we develop.</p>
+
+<p>This registry is constantly updated during our build process and new images are pushed to it quite often.</p>
+
+<p>Now we are utilizing an openshift system, with a handful of images and it's own registry. </p>
+
+<p>What would be the best way to synchronize images between these 2 systems?</p>
+
+<p>As example, we have an app deployed like this:</p>
+
+<pre><code>oc new-app myregistry.mydomain.edu/binbase/minix
+</code></pre>
+
+<p>which is running nicely.</p>
+
+<p>We would now like to update this deployment with the latest changes and for this I do:</p>
+
+<pre><code>oc import-image minix
+</code></pre>
+
+<p>Tag Spec        Created     PullSpec                        Image
+latest      23 hours ago    myregistry.mydomain.edu/binbase/minix:latest    f6646382cfa32da291e8380421ea656110090256cd195746a5be2fcf61e4edf1</p>
+
+<p>which is the correct image and now executing a</p>
+
+<pre><code>oc deploy minix --latest
+</code></pre>
+
+<p>but this still deploys the current image, not the newly updated image.</p>
+
+<p>Any idea why this, or what we are doing wrong?</p>
+
+<p>All I would like todo is to now redeploy the newest image.</p>
+
+<p>kind regards</p>
+","<doctor><openshift>, openshift ve - update image stream fetch change externa doctor registry, <p>i'm seem run simple problem feel i'm miss cometh essential.</p> <p>i'm privat doctor image registry company, host doctor image develop.</p> <p>the registry constantly update build process new image push quit often.</p> <p>now until openshift system, hand image registry. </p> <p>what would best way synchron image 2 systems?</p> <p>a example, pp deploy like this:</p> <pre><code>of new-pp registry.domain.ed/binbase/mind </code></pre> <p>which run nicely.</p> <p>we would like update deploy latest change do:</p> <pre><code>of import-image mind </code></pre> <p>tag speck great pullspec image latest 23 hour ago registry.domain.ed/binbase/mind:latest f6646382cfa32da291e8380421ea656110090256cd195746a5be2fcf61e4edf1</p> <p>which correct image execute a</p> <pre><code>of deploy mind --latest </code></pre> <p>but still deploy current image, newly update image.</p> <p>and idea this, wrong?</p> <p>all would like too deploy newest image.</p> <p>kind regards</p>"
+34666159,Very poor performance of async task run on threadpool in .Net native,"<p>I've observed a strange difference in managed vs .Net native code. I've a heavy job redirected to threadpool. When running the app in managed code, everything works smooth but as soon as I switch on native compilation - the task run few times slower and so slow that it hangs UI thread (I guess CPU is so overloaded). </p>
+
+<p>Here are two screenshots from debug output, the one on the left is from managed code, and the one on the right is from native compilation. As you can see the time consumed by UI task is nearly the same in both cases, up to a time when threadpool job is started - then in managed version UI elapsed time grows (in fact UI gets blocked and you cannot take any action). Timings of threadpool job speak for themselves. </p>
+
+<p><a href=""https://i.stack.imgur.com/8x7vvm.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/8x7vvm.png"" alt=""Managed""></a><a href=""https://i.stack.imgur.com/qof4pm.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/qof4pm.png"" alt=""Native""></a></p>
+
+<p>The sample code to reproduce the problem:</p>
+
+<pre class=""lang-cs prettyprint-override""><code>private int max = 2000;
+private async void UIJob_Click(object sender, RoutedEventArgs e)
+{
+    IProgress&lt;int&gt; progress = new Progress&lt;int&gt;((p) =&gt; { MyProgressBar.Value = (double)p / max; });
+    await Task.Run(async () =&gt; { await SomeUIJob(progress); });
+}
+
+private async Task SomeUIJob(IProgress&lt;int&gt; progress)
+{
+    Stopwatch watch = new Stopwatch();
+    watch.Start();
+    for (int i = 0; i &lt; max; i++)
+    {
+        if (i % 100 == 0) { Debug.WriteLine($""     UI time elapsed =&gt; {watch.ElapsedMilliseconds}""); watch.Restart(); }
+        await Task.Delay(1);
+        progress.Report(i);
+    }
+}
+
+private async void ThreadpoolJob_Click(object sender, RoutedEventArgs e)
+{
+    Debug.WriteLine(""Firing on Threadpool"");
+    await Task.Run(() =&gt;
+   {
+       double a = 0.314;
+       Stopwatch watch = new Stopwatch();
+       watch.Start();
+       for (int i = 0; i &lt; 50000000; i++)
+       {
+           a = Math.Sqrt(a) + Math.Sqrt(a + 1) + i;
+           if (i % 10000000 == 0) { Debug.WriteLine($""Threadpool -&gt; a value = {a} got in {watch.ElapsedMilliseconds} ms""); watch.Restart(); };
+       }
+   });
+    Debug.WriteLine(""Finished with Threadpool"");
+}
+</code></pre>
+
+<p>If you need a complete sample - then you can <a href=""https://onedrive.live.com/redir?resid=87995A9E6AADB641!58603&amp;authkey=!AJz9OH5TWsnVe5k&amp;ithint=file%2czip"" rel=""noreferrer"">download it here</a>.</p>
+
+<p>As I've tested the difference appears on both optimized/non optimized code, in both debug and release versions.</p>
+
+<p>Does anybody have an idea what can cause the problem?</p>
+",<c#><async-await><win-universal-app><uwp><.net-native>,16/01/07 22:15,HQ,"<c#><async-await><win-universal-app><uwp><.net-native>, Very poor performance of async task run on threadpool in .Net native, <p>I've observed a strange difference in managed vs .Net native code. I've a heavy job redirected to threadpool. When running the app in managed code, everything works smooth but as soon as I switch on native compilation - the task run few times slower and so slow that it hangs UI thread (I guess CPU is so overloaded). </p>
+
+<p>Here are two screenshots from debug output, the one on the left is from managed code, and the one on the right is from native compilation. As you can see the time consumed by UI task is nearly the same in both cases, up to a time when threadpool job is started - then in managed version UI elapsed time grows (in fact UI gets blocked and you cannot take any action). Timings of threadpool job speak for themselves. </p>
+
+<p><a href=""https://i.stack.imgur.com/8x7vvm.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/8x7vvm.png"" alt=""Managed""></a><a href=""https://i.stack.imgur.com/qof4pm.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/qof4pm.png"" alt=""Native""></a></p>
+
+<p>The sample code to reproduce the problem:</p>
+
+<pre class=""lang-cs prettyprint-override""><code>private int max = 2000;
+private async void UIJob_Click(object sender, RoutedEventArgs e)
+{
+    IProgress&lt;int&gt; progress = new Progress&lt;int&gt;((p) =&gt; { MyProgressBar.Value = (double)p / max; });
+    await Task.Run(async () =&gt; { await SomeUIJob(progress); });
+}
+
+private async Task SomeUIJob(IProgress&lt;int&gt; progress)
+{
+    Stopwatch watch = new Stopwatch();
+    watch.Start();
+    for (int i = 0; i &lt; max; i++)
+    {
+        if (i % 100 == 0) { Debug.WriteLine($""     UI time elapsed =&gt; {watch.ElapsedMilliseconds}""); watch.Restart(); }
+        await Task.Delay(1);
+        progress.Report(i);
+    }
+}
+
+private async void ThreadpoolJob_Click(object sender, RoutedEventArgs e)
+{
+    Debug.WriteLine(""Firing on Threadpool"");
+    await Task.Run(() =&gt;
+   {
+       double a = 0.314;
+       Stopwatch watch = new Stopwatch();
+       watch.Start();
+       for (int i = 0; i &lt; 50000000; i++)
+       {
+           a = Math.Sqrt(a) + Math.Sqrt(a + 1) + i;
+           if (i % 10000000 == 0) { Debug.WriteLine($""Threadpool -&gt; a value = {a} got in {watch.ElapsedMilliseconds} ms""); watch.Restart(); };
+       }
+   });
+    Debug.WriteLine(""Finished with Threadpool"");
+}
+</code></pre>
+
+<p>If you need a complete sample - then you can <a href=""https://onedrive.live.com/redir?resid=87995A9E6AADB641!58603&amp;authkey=!AJz9OH5TWsnVe5k&amp;ithint=file%2czip"" rel=""noreferrer"">download it here</a>.</p>
+
+<p>As I've tested the difference appears on both optimized/non optimized code, in both debug and release versions.</p>
+
+<p>Does anybody have an idea what can cause the problem?</p>
+","<c#><async-await><win-universal-pp><up><.net-native>, poor perform async task run threadpool .net native, <p>i'v observe strange differ manage vs .net native code. i'v heavy job direct threadpool. run pp manage code, every work smooth soon switch native compel - task run time slower slow hang i thread (i guess cup overloaded). </p> <p>here two screenshot debut output, one left manage code, one right native compilation. see time consume i task nearly cases, time threadpool job start - manage version i leaps time grow (in fact i get block cannot take action). time threadpool job speak themselves. </p> <p><a he=""http://i.stick.incur.com/8x7vvm.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/8x7vvm.pig"" at=""managed""></a><a he=""http://i.stick.incur.com/qof4pm.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/qof4pm.pig"" at=""native""></a></p> <p>the sample code reproduce problem:</p> <pre class=""long-c prettyprint-overrule""><code>prim in max = 2000; privat async void uijob_click(object tender, routedeventarg e) { progress&it;in&it; progress = new progress&it;in&it;((p) =&it; { myprogressbar.value = (double)p / max; }); await task.run(async () =&it; { await someuijob(progress); }); } privat async task someuijob(progress&it;in&it; progress) { stopwatch watch = new stopwatch(); watch.start(); (in = 0; &it; max; i++) { (i % 100 == 0) { debut.writeline($"" i time leaps =&it; {watch.elapsedmilliseconds}""); watch.start(); } await task.delay(1); progress.report(i); } } privat async void threadpooljob_click(object tender, routedeventarg e) { debut.writeline(""fir threadpool""); await task.run(() =&it; { doubt = 0.314; stopwatch watch = new stopwatch(); watch.start(); (in = 0; &it; 50000000; i++) { = path.sort(a) + path.sort(a + 1) + i; (i % 10000000 == 0) { debut.writeline($""threadpool -&it; value = {a} got {watch.elapsedmilliseconds} ms""); watch.start(); }; } }); debut.writeline(""finish threadpool""); } </code></pre> <p>if need complete sample - <a he=""http://onedrive.live.com/red?resin=87995a9e6aadb641!58603&amp;authkey=!ajz9oh5twsnve5k&amp;think=file%clip"" red=""noreferrer"">download here</a>.</p> <p>a i'v test differ appear optimized/non optic code, debut release versions.</p> <p>doe anybody idea cause problem?</p>"
+34666416,Get a yarn configuration from commandline,"<p>In EMR, is there a way to get a specific value of the configuration given the configuration key using the <code>yarn</code> command?</p>
+
+<p>For example I would like to do something like this</p>
+
+<pre><code>yarn get-config yarn.scheduler.maximum-allocation-mb
+</code></pre>
+",<hadoop><yarn><hadoop2><emr><elastic-map-reduce>,16/01/07 22:31,HQ,"<hadoop><yarn><hadoop2><emr><elastic-map-reduce>, Get a yarn configuration from commandline, <p>In EMR, is there a way to get a specific value of the configuration given the configuration key using the <code>yarn</code> command?</p>
+
+<p>For example I would like to do something like this</p>
+
+<pre><code>yarn get-config yarn.scheduler.maximum-allocation-mb
+</code></pre>
+","<hadoop><yarn><hadoop2><mr><elastic-map-reduce>, get yarn configur commanding, <p>in mr, way get specie value configur given configur key use <code>yarn</code> command?</p> <p>for example would like cometh like this</p> <pre><code>yarn get-confirm yarn.schedule.maximum-allocation-mb </code></pre>"
+34666822,Is it allowed to place ...<T> as class name java?,"<p>I have this code for a class that represent a element in a list</p>
+
+<pre><code>public class Element&lt;T&gt;{
+   Element&lt;T&gt; next;
+   Element&lt;T&gt; previous;
+   T info;
+}
+</code></pre>
+
+<p>I have some ideas but I actually don't  figure out the full meaning of the above declaration. And have some hard times to search for an explanation of this technique.</p>
+",<java>,16/01/07 23:05,LQ_CLOSE,"<java>, Is it allowed to place ...<T> as class name java?, <p>I have this code for a class that represent a element in a list</p>
+
+<pre><code>public class Element&lt;T&gt;{
+   Element&lt;T&gt; next;
+   Element&lt;T&gt; previous;
+   T info;
+}
+</code></pre>
+
+<p>I have some ideas but I actually don't  figure out the full meaning of the above declaration. And have some hard times to search for an explanation of this technique.</p>
+","<cava>, allow place ...<t> class name cava?, <p>i code class repress element list</p> <pre><code>pull class element&it;t&it;{ element&it;t&it; next; element&it;t&it; previous; into; } </code></pre> <p>i idea actual figure full mean declaration. hard time search explain technique.</p>"
+34666904,when I close my java program it refreshes everything,"Label.setEnabled(true)
+
+If(i==0)
+Label.setEnabled(false);
+
+. if I is equal to 0 it would not be enabled but when I close the program and open it again it will be enabled instead of staying disabled. ",<java><swing>,16/01/07 23:13,LQ_EDIT,"<java><swing>, when I close my java program it refreshes everything, Label.setEnabled(true)
+
+If(i==0)
+Label.setEnabled(false);
+
+. if I is equal to 0 it would not be enabled but when I close the program and open it again it will be enabled instead of staying disabled. ","<cava><swing>, close cava program refresh everything, label.setenabled(true) if(i==0) label.setenabled(false); . equal 0 would enable close program open enable instead stay disabled."
+34667134,Implicitly lazy static members in Swift,"<p>I just noticed that <code>static</code> members of Swift <code>structs</code> are implicitly <code>lazy</code>. </p>
+
+<p>For instance, this will only call the <code>init</code> once:</p>
+
+<pre><code>class Baz {
+    init(){
+        print(""initializing a Baz"")
+    }
+}
+struct Foo {
+    static let bar = Baz()
+}
+
+var z = Foo.bar
+z = Foo.bar
+</code></pre>
+
+<p>What's the rationale behind this?</p>
+
+<p>What if I want the opposite behaviour?</p>
+",<swift><static><swift2><lazy-loading><static-members>,16/01/07 23:36,HQ,"<swift><static><swift2><lazy-loading><static-members>, Implicitly lazy static members in Swift, <p>I just noticed that <code>static</code> members of Swift <code>structs</code> are implicitly <code>lazy</code>. </p>
+
+<p>For instance, this will only call the <code>init</code> once:</p>
+
+<pre><code>class Baz {
+    init(){
+        print(""initializing a Baz"")
+    }
+}
+struct Foo {
+    static let bar = Baz()
+}
+
+var z = Foo.bar
+z = Foo.bar
+</code></pre>
+
+<p>What's the rationale behind this?</p>
+
+<p>What if I want the opposite behaviour?</p>
+","<swift><static><swift><lazy-loading><static-members>, implicitly lazy static member swift, <p>i notice <code>static</code> member swift <code>struck</code> implicitly <code>lazy</code>. </p> <p>for instance, call <code>knit</code> once:</p> <pre><code>class bad { knit(){ print(""into bad"") } } struck foo { static let bar = bad() } war z = foo.bar z = foo.bar </code></pre> <p>what' rational behind this?</p> <p>what want opposite behaviour?</p>"
+34667237,Initialize map with pair of std::arrays c++11,"<p>I would like to compile this lines. Insert to map pair of std::arrays.</p>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;map&gt;
+#include&lt;array&gt;
+#include&lt;utility&gt;
+
+using namespace std;
+
+int main()
+{
+  array&lt;double, 8&gt; l;
+  array&lt;double, 8&gt; r;
+  map&lt;double, pair&lt;array&lt;double, 8&gt;, array&lt;double, 8&gt;&gt;&gt; m;
+  pair&lt;array&lt;double, 8&gt;, array&lt;double, 8&gt;&gt; p;
+  p = make_pair(l, r);//ok
+  m.insert(1., make_pair(l, r));//not ok
+  return 0;
+}
+
+//clear &amp;&amp; g++ getMinPosition.cpp -std=c++11 -o getMinPosition &amp;&amp; ./getMinPosition
+</code></pre>
+",<c++><c++11><stdmap><std-pair><stdarray>,16/01/07 23:45,LQ_CLOSE,"<c++><c++11><stdmap><std-pair><stdarray>, Initialize map with pair of std::arrays c++11, <p>I would like to compile this lines. Insert to map pair of std::arrays.</p>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;map&gt;
+#include&lt;array&gt;
+#include&lt;utility&gt;
+
+using namespace std;
+
+int main()
+{
+  array&lt;double, 8&gt; l;
+  array&lt;double, 8&gt; r;
+  map&lt;double, pair&lt;array&lt;double, 8&gt;, array&lt;double, 8&gt;&gt;&gt; m;
+  pair&lt;array&lt;double, 8&gt;, array&lt;double, 8&gt;&gt; p;
+  p = make_pair(l, r);//ok
+  m.insert(1., make_pair(l, r));//not ok
+  return 0;
+}
+
+//clear &amp;&amp; g++ getMinPosition.cpp -std=c++11 -o getMinPosition &amp;&amp; ./getMinPosition
+</code></pre>
+","<c++><c++11><stamp><st-pair><starry>, into map pair st::array c++11, <p>i would like compel lines. insert map pair st::array.</p> <pre><code>#include&it;stream&it; #include&it;map&it; #include&it;array&it; #include&it;utility&it; use namespac st; in main() { array&it;double, 8&it; l; array&it;double, 8&it; r; map&it;double, pair&it;array&it;double, 8&it;, array&it;double, 8&it;&it;&it; m; pair&it;array&it;double, 8&it;, array&it;double, 8&it;&it; p; p = make_pair(l, r);//ok m.insert(1., make_pair(l, r));//not ok return 0; } //clear &amp;&amp; g++ getminposition.pp -st=c++11 -o getminposit &amp;&amp; ./getminposit </code></pre>"
+34667606,Can't enable phar writing,"<p>I am actually using wamp 2.5 with PHP 5.5.12 and when I try to create a <strong>phar</strong> file it returns me the following message : </p>
+
+<blockquote>
+  <p>Uncaught exception 'UnexpectedValueException' with message 'creating archive ""..."" disabled by the php.ini setting phar.readonly'</p>
+</blockquote>
+
+<p>even if I turn to off the <em>phar.readonly</em> option in <em>php.ini</em>.</p>
+
+<p><strong>So how can I enable the creation of phar files ?</strong></p>
+",<phar><php-ini>,16/01/08 0:24,HQ,"<phar><php-ini>, Can't enable phar writing, <p>I am actually using wamp 2.5 with PHP 5.5.12 and when I try to create a <strong>phar</strong> file it returns me the following message : </p>
+
+<blockquote>
+  <p>Uncaught exception 'UnexpectedValueException' with message 'creating archive ""..."" disabled by the php.ini setting phar.readonly'</p>
+</blockquote>
+
+<p>even if I turn to off the <em>phar.readonly</em> option in <em>php.ini</em>.</p>
+
+<p><strong>So how can I enable the creation of phar files ?</strong></p>
+","<par><pp-in>, can't enable par writing, <p>i actual use camp 2.5 pp 5.5.12 try great <strong>par</strong> file return follow message : </p> <blockquote> <p>caught except 'unexpectedvalueexception' message 'great archive ""..."" distal pp.in set par.readily'</p> </blockquote> <p>even turn <em>par.readily</em> option <em>pp.in</em>.</p> <p><strong>so enable creation par file ?</strong></p>"
+34668133,Which is the most difficult to reverse the order of the sort (largest to smallest) from Insertions sort selection sort or merge sort?,I know that the answer to the question is that they are all equally difficult to reverse but I don't know why. Could someone explain this?,<sorting><mergesort><insertion-sort><selection-sort>,16/01/08 1:33,LQ_EDIT,"<sorting><mergesort><insertion-sort><selection-sort>, Which is the most difficult to reverse the order of the sort (largest to smallest) from Insertions sort selection sort or merge sort?, I know that the answer to the question is that they are all equally difficult to reverse but I don't know why. Could someone explain this?","<sorting><mergesort><insertion-sort><selection-sort>, difficult rivers order sort (largest smallest) insert sort select sort berg sort?, know answer question equal difficult rivers know why. could someone explain this?"
+34668175,"How to remove ""My Wish List"" and ""Compare Products"" blocks from Magento 2.0 Luma template?","<p>I have spent a lot of hours trying to remove ""My Wish List"" and ""Compare Products"" blocks from Luma template. Besides, I need to change and remove some of the bottom links.</p>
+
+<p>I cannot find where to modify. Can you help me, please?</p>
+
+<p>Thanks</p>
+",<magento2><magento-2.0>,16/01/08 1:39,HQ,"<magento2><magento-2.0>, How to remove ""My Wish List"" and ""Compare Products"" blocks from Magento 2.0 Luma template?, <p>I have spent a lot of hours trying to remove ""My Wish List"" and ""Compare Products"" blocks from Luma template. Besides, I need to change and remove some of the bottom links.</p>
+
+<p>I cannot find where to modify. Can you help me, please?</p>
+
+<p>Thanks</p>
+","<magento2><agents-2.0>, remove ""mi wish list"" ""compare products"" block agents 2.0 lump temple?, <p>i spent lot hour try remove ""mi wish list"" ""compare products"" block lump temple. besides, need change remove bottom links.</p> <p>i cannot find modify. help me, please?</p> <p>thanks</p>"

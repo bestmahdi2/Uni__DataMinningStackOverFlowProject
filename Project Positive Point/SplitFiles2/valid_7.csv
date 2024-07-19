@@ -1,0 +1,211 @@
+Id,Title,Body,Tags,CreationDate,Y
+34597768,"Visual Studio 2015- How to disable ""based on your project, we have identified extensions you may find helpful"" message?","<p>Since the latest update to Visual Studio 2015, I get this message when I open <code>.html</code> or <code>.cshtml</code> files. Clicking ""Don't Ask Again"" only disables this until VS is restarted. How can I turn it off permanently?</p>
+
+<p><a href=""https://i.stack.imgur.com/j0jIj.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/j0jIj.png"" alt=""enter image description here""></a></p>
+",<html><asp.net-mvc><visual-studio><visual-studio-2015>,16/01/04 18:47,HQ
+34598541,How can I add new elements to an array inside of another struct array in C?,"<p><strong>Right now my code looks like this,</strong></p>
+
+<pre><code>    typedef struct veiculo
+{
+    char matricula[8];
+    int nreixos;
+    float alturaeixo;
+    int tag;
+    int classe;
+
+}veiculo;
+
+typedef struct portagem
+{
+    int nome;
+    int kilometros;
+    float preco;
+    float total_recebido;
+    struct veiculo carro[100];
+}portagem;
+
+(...)
+
+int encontrar_ult_elemento(struct veiculo v[]){
+    int d;
+    int i;
+    for(i=0;i&lt;100;i++){
+        if (v[i]!= 0)
+        d++;
+        else
+            return d;
+    }
+}
+void guardar_veiculo(struct portagem p[] ,struct veiculo v, int d){
+    int i;
+        if(v.tag==""1"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[1].carro[n]=v;
+        else if(v.tag==""2"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[2].carro[n]=v;
+        else if(v.tag==""3"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[3].carro[n]=v;
+        else if(v.tag==""4"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[4].carro[n]=v;
+        else if(v.tag==""5"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[5].carro[n]=v;
+        else if(v.tag==""6"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[6].carro[n]=v;
+        else if(v.tag=""7"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[7].carro[n]=v;
+        else if(v.tag=""8"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[8].carro[n]=v;
+        else if(v.tag=""9"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[9].carro[n]=v;
+        else if(v.tag=""10"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[10].carro[n]=v;
+    }
+
+
+    int main()
+{
+struct portagem portagem1;
+portagem1.nome = 1;
+portagem1.kilometros=14;
+portagem1.preco=1.00;
+portagem1.total_recebido;
+
+struct portagem portagem2;
+portagem2.nome = 2;
+portagem2.kilometros=15;
+portagem2.preco=1.05;
+portagem2.total_recebido;
+
+struct portagem portagem3;
+portagem3.nome = 3;
+portagem3.kilometros=7;
+portagem3.preco=1.20;
+portagem3.total_recebido;
+
+(...)
+
+
+
+struct portagem p[]={portagem1,portagem2,portagem3,portagem4,portagem5,portagem6,portagem7,portagem8,portagem9};
+</code></pre>
+
+<p>****I have another functions going on, to ask the user to register the veicule, assigning the respective tag etc...I just don't if this is the correct way to do it.
+thanks for your help guys! ****</p>
+",<c><arrays>,16/01/04 19:37,LQ_CLOSE
+34598845,i want to get the keys and values of each set using java,"<p>Am new to java i have formed a set of result in </p>
+
+<pre><code>       `Map&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;`
+</code></pre>
+
+<p>now i want to get the keys and values of each set</p>
+
+<p>How should get this. anyone please suggest me</p>
+
+<p>thanks in advance.</p>
+",<java>,16/01/04 19:58,LQ_CLOSE
+34600588,"I want to use the output of `gcloud` in a script, but the format changes. What should I do?","<p>I’m using the command <code>gcloud compute instances list</code> in a script, but I’m worried that the exact output format isn’t static. What should I do?</p>
+",<gcloud>,16/01/04 21:56,HQ
+34600612,Weird checkbox behaviour,"I've recently solved browser neutral check boxes issue which I was having in IE vs Chrome. we have a theme for the application in the background. theme color get applies if I checked the check box in chrome but not in IE11
+
+how should I force or tell the chrome check box to ignore the theme. it's working fine in IE but not in chrome that's the problem.
+
+http://jsfiddle.net/LnL7b/
+
+            .mycheckbox:checked {
+             background: url(icon.png)no-repeat center center;
+             background-size: 100%;
+             }
+
+ 
+  [Here's how ugly it's Chrome][1]
+
+
+
+  [1]: http://i.stack.imgur.com/ZNEjD.png
+  ",<html><css><google-chrome><internet-explorer>,16/01/04 21:57,LQ_EDIT
+34600833,I want to populate a single element in a 2D array randomly with a single char value?,"<p>How can I randomly choose a single element out of a 2D array and fill that one element with char 'M'?</p>
+",<java><arrays><multidimensional-array>,16/01/04 22:13,LQ_CLOSE
+34604508,How to create a duplicate of a stack in Java,"<p>My teacher requested that I create a duplicate of a Stack that returns a new Stack containing the same elements and in the same order as the specified Stack.</p>
+
+<p>If I am only able to use methods that are unique to Stack, I would pop every element off the Stack and onto a que. Then I would pop from the bottom of the que onto a new Stack and return the new Stack.</p>
+
+<p>However, I figured that since Stack inherits from Vector I could just use the addAll() method from Vector!</p>
+
+<p>Here is the Java code implementation:</p>
+
+<pre><code>public class DuplicateStack {
+
+private Stack backStack;
+
+public Stack duplicateStack(Stack s) {
+    backStack.addAll(s);
+    return backStack;
+}
+</code></pre>
+
+<p>This would seem to do all the work for me. Only problem is, I keep getting a nullPointerException when I run this in my main:</p>
+
+<pre><code>Stack s1 = new Stack();
+s1.push(""c"");
+s1.push(""b"");
+s1.push(""a"");
+
+DuplicateStack dup = new DuplicateStack();
+Stack s2 = dup.duplicateStack(s1);
+
+while(!s2.empty())
+    System.out.println(s2.pop());
+</code></pre>
+
+<p>The error comes from the addAll() call in my DuplicateStack class.
+So my question is why am I getting a nullPointerException from the addAll(), and is there any way to make a duplicate copy other than using the method stated earlier (using only Stack unique methods)?</p>
+",<java><nullpointerexception><stack>,16/01/05 5:05,LQ_CLOSE
+34605604,Magento Error :There has been an error processing your request ?,"I changed the port of mysql 3306 to 3307 and after this localhost url not opening for Magento.
+ 
+Exception printing is disabled by default for security reasons.
+Error log record number: 1108316134
+
+a:4:{i:0;s:100:""SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+"";i:1;s:2928:""#0 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Pdo\Mysql.php(111): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#1 C:\xampp\htdocs\magento\lib\Varien\Db\Adapter\Pdo\Mysql.php(396): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#2 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#3 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#4 C:\xampp\htdocs\magento\lib\Varien\Db\Adapter\Pdo\Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#5 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource.php(179): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#6 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#7 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#8 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#9 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#10 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(360): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#11 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Collection\Abstract.php(134): Mage_Core_Model_Resource_Db_Abstract->getReadConnection()
+#12 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Config.php(1348): Mage_Core_Model_Resource_Db_Collection_Abstract->__construct(Object(Mage_Core_Model_Resource_Website))
+#13 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Config.php(1380): Mage_Core_Model_Config->getModelInstance('core_resource/w...', Object(Mage_Core_Model_Resource_Website))
+#14 C:\xampp\htdocs\magento\app\Mage.php(491): Mage_Core_Model_Config->getResourceModelInstance('core/website_co...', Object(Mage_Core_Model_Resource_Website))
+#15 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Abstract.php(208): Mage::getResourceModel('core/website_co...', Object(Mage_Core_Model_Resource_Website))
+#16 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Abstract.php(213): Mage_Core_Model_Abstract->getResourceCollection()
+#17 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(619): Mage_Core_Model_Abstract->getCollection()
+#18 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(477): Mage_Core_Model_App->_initStores()
+#19 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(360): Mage_Core_Model_App->_initCurrentStore('', 'store')
+#20 C:\xampp\htdocs\magento\app\Mage.php(684): Mage_Core_Model_App->run(Array)
+#21 C:\xampp\htdocs\magento\index.php(83): Mage::run('', 'store')
+#22 {main}"";s:3:""url"";s:78:""/magento/index.php/admin/dashboard/index/key/008099640c2b60fc343428e925bb560f/"";s:11:""script_name"";s:18:""/magento/index.php"";}",<mysql><apache><magento>,16/01/05 6:37,LQ_EDIT
+34606196,Create a post activate script in Conda,"<p>I'm creating a Django web app and using Conda to manage the required packages and virtual environment. I want to set an environmental variable (the Django settings location) as soon as I activate the environment. It should also change the current directory to my project directory. </p>
+
+<p>I previously used virtualenvwrapper and I just added the commands to the postactivate script.</p>
+
+<p>How can I achieve this using Conda?</p>
+",<python><django><conda>,16/01/05 7:20,HQ
+34606601,How can I set different opacity of edgecolor and facecolor of a patch in Matplotlib,"<p>I am trying to plot a set of triangles with different orientations and sizes. The inner overlapped shape is what i wanted, which is the darkest area. 
+But when I set opacity (alpha) in mpatches.RegularPolygon, the edges become transparent too. 
+How can I solve this problem?
+Thank you!</p>
+",<python><matplotlib>,16/01/05 7:49,HQ

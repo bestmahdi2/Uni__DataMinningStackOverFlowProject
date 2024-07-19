@@ -1,0 +1,932 @@
+Id,Title,Body,Tags,CreationDate,Y
+34785653,PyODBC : can't open the driver even if it exists,"<p>I'm new to the linux world and I want to query a Microsoft SQL Server from Python. I used it on Windows and it was perfectly fine but in Linux it's quite painful.</p>
+
+<p>After some hours, I finally succeed to install the Microsoft ODBC driver on Linux Mint with unixODBC.</p>
+
+<p>Then, I set up an anaconda with python 3 environment. </p>
+
+<p>I then do this :</p>
+
+<pre><code>import pyodbc as odbc
+
+sql_PIM = odbc.connect(""Driver={ODBC Driver 13 for SQL Server};Server=XXX;Database=YYY;Trusted_Connection=Yes"")
+</code></pre>
+
+<p>It returns :</p>
+
+<pre><code>('01000', ""[01000] [unixODBC][Driver Manager]Can't open lib '/opt/microsoft/msodbcsql/lib64/libmsodbcsql-13.0.so.0.0' : file not found (0) (SQLDriverConnect)"")
+</code></pre>
+
+<p>The thing I do not undertsand is that PyODBC seems to read the right filepath from odbcinst.ini and still does not work.</p>
+
+<p>I went to ""/opt/microsoft/msodbcsql/lib64/libmsodbcsql-13.0.so.0.0"" and the file actually exists !</p>
+
+<p>So why does it tell me that it does not exist ?
+Here are some possible clues :</p>
+
+<ul>
+<li>I'm on a virtual environment</li>
+<li>I need to have ""read"" rights because it's a root filepath</li>
+</ul>
+
+<p>I do not know how to solve either of these problems.</p>
+
+<p>Thanks !</p>
+",<python><sql-server><linux><pyodbc><unixodbc>,16/01/14 9:18,HQ
+34785684,"unable to start activity, android.content.res.Resources$NotFoundException: String resource ID #0x0","<p>I'm developing an android game, and I'm stuck with this problem.<br />
+This is the secondary activity, when I click the button that takes me to the second activity, it shows some errors, I'm trying to figure this out on my on by searching and experimenting by my self, but it didn't work<br />
+This is my activity :</p>
+
+<pre><code>package game.esolindo.com.gametest;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+
+public class MoneyActivity extends ActionBarActivity {
+
+private TextView txtMoney;
+private Button btnWork;
+private Button btnBuyClothes;
+int workMoney = 15;
+int buyClothesMoney = 20;
+int currentMoney;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_money);
+
+    txtMoney = (TextView)findViewById(R.id.txtMoney);
+
+    btnWork = (Button)findViewById(R.id.btnWork);
+    btnWork.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            currentMoney = currentMoney + workMoney;
+            txtMoney.setText(String.valueOf(currentMoney));
+        }
+    });
+
+    btnBuyClothes = (Button)findViewById(R.id.btnBuyClothes);
+    btnBuyClothes.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            currentMoney = currentMoney - buyClothesMoney;
+            txtMoney.setText(String.valueOf(currentMoney));
+        }
+    });
+
+    txtMoney.setText(currentMoney);
+}
+}
+</code></pre>
+
+<p>This is my xml file :</p>
+
+<pre><code>&lt;RelativeLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+xmlns:tools=""http://schemas.android.com/tools"" android:layout_width=""match_parent""
+android:layout_height=""match_parent"" android:paddingLeft=""@dimen/activity_horizontal_margin""
+android:paddingRight=""@dimen/activity_horizontal_margin""
+android:paddingTop=""@dimen/activity_vertical_margin""
+android:paddingBottom=""@dimen/activity_vertical_margin""
+tools:context=""game.esolindo.com.gametest.MoneyActivity""&gt;
+
+&lt;TextView
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    android:textAppearance=""?android:attr/textAppearanceLarge""
+    android:text=""Money""
+    android:id=""@+id/txtMoneyText""
+    android:layout_alignParentTop=""true""
+    android:layout_centerHorizontal=""true""
+    android:layout_marginTop=""10dp"" /&gt;
+
+&lt;TextView
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    android:textAppearance=""?android:attr/textAppearanceLarge""
+    android:text=""0""
+    android:textSize=""50sp""
+    android:id=""@+id/txtMoney""
+    android:layout_below=""@+id/txtMoneyText""
+    android:layout_centerHorizontal=""true"" /&gt;
+
+&lt;Button
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    android:text=""Work""
+    android:id=""@+id/btnWork""
+    android:layout_marginTop=""20dp""
+    android:layout_below=""@+id/txtMoney""
+    android:layout_alignParentRight=""true""
+    android:layout_alignParentEnd=""true""
+    android:layout_alignParentLeft=""true""
+    android:layout_alignParentStart=""true"" /&gt;
+
+&lt;Button
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    android:text=""Buy Clothes""
+    android:id=""@+id/btnBuyClothes""
+    android:layout_below=""@+id/btnWork""
+    android:layout_alignParentRight=""true""
+    android:layout_alignParentEnd=""true""
+    android:layout_alignParentLeft=""true""
+    android:layout_alignParentStart=""true"" /&gt;
+</code></pre>
+
+<p></p>
+
+<p>And this is the error message I received :</p>
+
+<pre><code>01-14 04:00:15.927  22640-22640/game.esolindo.com.gametest E/AndroidRuntime﹕ FATAL EXCEPTION: main
+    Process: game.esolindo.com.gametest, PID: 22640
+    java.lang.RuntimeException: Unable to start activity ComponentInfo{game.esolindo.com.gametest/game.esolindo.com.gametest.MoneyActivity}: android.content.res.Resources$NotFoundException: String resource ID #0x0
+            at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2184)
+            at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+            at android.app.ActivityThread.access$800(ActivityThread.java:135)
+            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+            at android.os.Handler.dispatchMessage(Handler.java:102)
+            at android.os.Looper.loop(Looper.java:136)
+            at android.app.ActivityThread.main(ActivityThread.java:5001)
+            at java.lang.reflect.Method.invokeNative(Native Method)
+            at java.lang.reflect.Method.invoke(Method.java:515)
+            at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+            at dalvik.system.NativeStart.main(Native Method)
+     Caused by: android.content.res.Resources$NotFoundException: String resource ID #0x0
+            at android.content.res.Resources.getText(Resources.java:244)
+            at android.widget.TextView.setText(TextView.java:3888)
+            at game.esolindo.com.gametest.MoneyActivity.onCreate(MoneyActivity.java:46)
+            at android.app.Activity.performCreate(Activity.java:5231)
+            at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1087)
+            at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2148)
+            at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+            at android.app.ActivityThread.access$800(ActivityThread.java:135)
+            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+            at android.os.Handler.dispatchMessage(Handler.java:102)
+            at android.os.Looper.loop(Looper.java:136)
+            at android.app.ActivityThread.main(ActivityThread.java:5001)
+            at java.lang.reflect.Method.invokeNative(Native Method)
+            at java.lang.reflect.Method.invoke(Method.java:515)
+            at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+            at dalvik.system.NativeStart.main(Native Method)
+</code></pre>
+
+<p>Please help me fix this<br />
+Thanks in advance</p>
+",<java><android><android-studio>,16/01/14 9:20,LQ_CLOSE
+34785690,"execute hello world with flask ""ImportError: No module named flask""","<p>I'm trying to use flask and python. I did a simple file named <code>hello.py</code>. tHis file contains this code:</p>
+
+<pre><code>from flask import Flask
+app = Flask(__name__)
+
+
+@app.route(""/"")
+def main():
+    return ""Welcome!""
+
+if __name__ == ""__main__"":
+    app.run()
+</code></pre>
+
+<p>This is a simple hello world with flask. I want to execute it but actually, I have a problem. In the terminal, I typed <code>python hello.py</code> 
+and I get this error:</p>
+
+<pre><code>File ""hello.py"", line 1, in &lt;module&gt;
+from flask import Flask
+ImportError: No module named flask
+</code></pre>
+
+<p>Even that I installed flask globally.
+I understand that this is a basic question, but I'm stuck?</p>
+",<python><flask>,16/01/14 9:20,HQ
+34785789,how can i retreive a row(given as search) from postgresql and display the result in html page?,"my problem is that i have to search a term(take as id).if i give some number to search it should search the id in the table(take as result) of pgadmin3(postgresql).and display the result table of particular row what i have searched in the html page.my conditions are i can use only html5 ,ccs3, angularjs and with out using jsp and servelets how can i actually retreive data from postgres and display that in html page??please send me some link or something like step by step code to do that.  ",<javascript><html><angularjs><postgresql>,16/01/14 9:25,LQ_EDIT
+34786440,Row to column for frequency in R,"<p>I have a data frame which looks like this</p>
+
+<pre><code>&gt; initial
+  Name Status
+1    a    Win
+2    b    Win
+3    c   Loss
+</code></pre>
+
+<p>From here I want a data frame which looks like this</p>
+
+<pre><code>&gt; final
+  Name Win Loss
+1    a   1    0
+2    b   1    0
+3    c   0    1
+</code></pre>
+
+<p>How can I achieve this</p>
+",<r>,16/01/14 9:55,LQ_CLOSE
+34786855,count html table rows using PHP,"I need to display the num of the row (tr) using php, but i don't know how to do because i using quotes ... 
+Thanks for yours answers aaaaaaaaaaaaaaaaaaaaa
+
+    	$data['formation'] = '
+		<div class=""table-responsive"">
+			<table class=""table table-bordered"" style=""width: auto !important;"">
+			 <thead style=""font-weight: bold;"">
+			   <tr>
+			      <td>N</td>
+			      <td>Intitulé</td>
+			      <td>Organisme</td>
+			      <td>Date</td>
+			      <td>Durée (en heures)</td>
+			      <td>Eval. à chaud / à froid</td>
+			      <td>Dispositif utilisé</td>
+			    </tr>
+			  </thead>
+			  <tbody class=""table-striped"">
+			    <tr>
+					<td>
+						**HERE NUM OF THE ROW**
+					</td>
+					<td>
+						<input type=""text"" class=""form-control"" name=""form_intitule"" id=""form_intitule"" readonly>
+					</td>
+					<td>
+						<input type=""text"" class=""form-control"" name=""form_organisme"" id=""form_organisme"" readonly>
+					</td>
+					<td>
+						<input type=""text"" class=""form-control"" name=""form_date"" id=""form_date"" readonly>
+					</td>
+					<td>
+						<input type=""text"" class=""form-control"" name=""form_duree"" id=""form_duree"" readonly>
+					</td>
+					<td></td>
+					<td></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>';
+    }",<php>,16/01/14 10:13,LQ_EDIT
+34787378,"PHP error "" Undefined variable: mysql_fetch_assoc""","<p>I'm recieving the above error when I try to run this code, I have tried multiple solutions, using fetch_array too:
+    
+
+<pre><code>$conn = mysql_connect('localhost', '-----', '-----','-----') 
+or die('Error connecting to mysql');
+$sql = ""SELECT * FROM Subject"";
+$result = mysql_query($sql);
+$row=null;
+echo ""&lt;table&gt;"";
+while( $row = $mysql_fetch_assoc[$result]){
+
+echo ""&lt;tr&gt;&lt;td&gt;"";
+echo $data['SubjectNo'];
+echo ""&lt;/td&gt;&lt;td&gt;"";
+echo $data['SubjectName'];
+echo""&lt;/td&gt;&lt;/tr&gt;"";
+} 
+echo ""&lt;/table"";
+echo""urnan"";
+
+?&gt;
+</code></pre>
+",<php><html><mysql><database>,16/01/14 10:37,LQ_CLOSE
+34787457,"This classic asp page is throwing ""internal server 500 error"". Please help me on this","        **Connection file-**
+        <%
+        	Set Conn = Server.CreateObject(""ADODB.Connection"")
+        	Conn.Open ""abc"",""ID"",""Password""
+        	conn.commandtimeout=120`enter code here`
+        	
+        	Set RS = Server.CreateObject(""ADODB.RecordSet"")
+        	rs.activeConnection = Conn
+        	
+        %>
+       
+    
+    **Classic ASP file**
+    
+    <%response.buffer = true%>
+    <%Response.Expires = 0%>
+    <!-- #include file=""functions.asp"" -->
+    
+    <% Response.Write session(""RequestID"")%>
+    <%if session(""ValidLogon"") <> ""true"" then
+    	if request(""FromEmail"") = ""True"" then
+    		SetSessVar()
+    	else%>
+    		<%response.redirect ""Default.asp""
+    	end if
+    end if%>
+    
+    <html>
+    <body>
+    
+    <%rs.Source = ""SELECT * from tblRequests WHERE RequestID = "" & request(""requestID"")
+    
+    rs.Open
+    
+    session(""RequestID"") = rs(""requestid"")
+    
+    if rs(""RequestType"") = ""O"" then
+    
+    	response.clear
+    
+    	If request(""Tag"") = ""Change"" then
+    		response.redirect ""abc.asp#change""
+    	else
+    		response.redirect ""abc.asp?From="" & request(""From"")
+    	end if
+    
+    else
+    
+    	response.clear
+    
+    	If request(""Tag"") = ""Change"" then
+    		response.redirect ""editinternal.asp#change""
+    	else
+    		response.redirect ""editinternal.asp?From="" & request(""From"")
+    	end if
+    
+    end if
+    rs.close%>
+    
+    </body>
+    </html>
+    
+    ----------
+
+
+I have checked the classic asp page and it looks like there is error in syntax inside ""Body"" tag. As I dont know anything about it.
+Please help me on this classic asp page. Quick help will be appreciated. 
+I am stuck on this page as it is giving internal server error 500.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+",<vbscript><asp-classic>,16/01/14 10:40,LQ_EDIT
+34788914,How can i convert to json," 
+I am using the below function, i need to use json object instead of javascript. How i can achieve it?
+
+   
+
+    function ChangeIDToString(strCondition,id)
+            {
+                if (strCondition.indexOf(""AssignedTo"") > -1)
+                    return GetUserName(id)
+                else if (strCondition.indexOf(""ClaimStatusId"") > -1)
+                    return GetClaimStatus(id)
+                else if (strCondition.indexOf(""ClaimTypeId"") > -1)
+                    return GetClaimType(id);           
+                else
+                    return id;
+            }",<javascript>,16/01/14 11:50,LQ_EDIT
+34789337,python pandas\numpy encode unique by integers,"<p>Say I have <code>x=[""apple"",""orange"",""orange"",""apple"",""pear""]</code> I would like to have a categorical representation with integers e.g. <code>y=[1,2,2,1,3]</code>. What would be the best way to do so?</p>
+",<python><pandas><integer><unique><categorical-data>,16/01/14 12:12,LQ_CLOSE
+34790455,PHP WITH MS SQL SERVER DOWNLOADING AND CONNECTING,"    I have a project written in php.Also,another application is written in C(sharp) with Ms Sql as the database engine. I want to fetch some data from the Ms Sql database and use it in php. I have tried many solution provided on stackover and other site, but none seems to work.Below are what I have done, maybe there is a place where i am missing something:
+    1.  I Downloaded drivers(Ms Drivers for php)  and  loads it into the C:\wamp\bin\php\php5.5.12\ext directories.files are 
+    php_pdo_sqlsrv_55_nts.dll
+    php_pdo_sqlsrv_55_ts.dll
+    php_sqlsrv_55_nts.dll
+    php_sqlsrv_55_ts.dll
+    2. Modify the php.ini by including the following in the extension  area:
+    extension=php_pdo_sqlsrv_55_nts.dll
+    extension=php_pdo_sqlsrv_55_ts.dll
+    extension=php_sqlsrv_55_nts.dll
+    extension=php_sqlsrv_55_ts.dll
+Infact, one of the site says I should rename by removing the ""_55_xx"", so that it looks like php_sqlsrv.dll.yet it is still not working.
+    3. Restart the Apache server and discovered that the included files not activated or seen when you click on the wamp  monitor,navigate to the php and view the extension directory.
+   
+
+
+I have search and search,seems to be given up, but thought it better to communicate with others who can be of assistance. I currently use wamp and php version is php5.5.12. Please, I need a solution on how to get working drivers to connect my php with Ms Sql server and get data from the server seamlessly.
+    ",<php><sql-server>,16/01/14 13:07,LQ_EDIT
+34790802,Can you use AND in an IF - to check two conditions - python,"<p>I am trying to search by two criteria matches or word starts in an input:</p>
+
+<pre><code>sentence=input(""What is wrong with your device?\n"") # variable arrays
+screenissues=[""scre"",""displ"",""moni"",""blan""]
+wifiissues=[""wif"",""connect"",""signal"",""3g"",""4g""]
+waterdamage=[""wet"",""damp"",""rain"",""water"",""soak""]
+phone=[""phon"",""samsun"",""calls"",""mobi"",""mob""]
+
+for word in sentence.split(): #splits
+    if (word.startswith(tuple(screenissues)) and word.startswith(tuple(phone))): #trys to serach for two criteria at once - or works...
+        print( word)
+        print(""you have an issue with your PHONE screen, please call us"")
+</code></pre>
+",<python>,16/01/14 13:26,LQ_CLOSE
+34790925,How do I use Cognito with the generated Javascript SDK?,"<p>I couldn't find any documentation that showed how to do this so I tried my best to figure it out (is this not a common use case)? I've set up my resource to use IAM authentication, set up CORS, etc. Then I deployed it, and downloaded the generated the SDK.</p>
+
+<p>On the client-side I'm using the credentials from AWS.CognitoIdentityCredentials with apigClientFactory.newClient. When I try to post to my resource, I get a 403 error response with no body. </p>
+
+<p>The response headers contain: <code>x-amz-ErrorType: UnrecognizedClientException</code></p>
+
+<p>Could this error possibly be coming from some other AWS service (do they bubble up like that)? If so, how can I tell which one? What else might be causing the error?</p>
+
+<p>The code I'm using test test client-side looks like this:</p>
+
+
+
+<pre><code>function onFacebookLogin(fbtoken) {
+  // get cognito credentials
+  AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: 'us-east-1:abcd6789-1234-567a-b123-12ab34cd56ef',
+    Logins: {'graph.facebook.com': fbtoken}
+  });
+  AWS.config.credentials.get(function(err) {
+    if (err) {return console.error('Credentials error: ', err);}
+
+    /* I'm assuming that this is what I use for accessKey and secretKey */
+    var credentials = AWS.config.credentials;
+    apigClient = apigClientFactory.newClient({
+      accessKey: credentials.accessKeyId,
+      secretKey: credentials.secretAccessKey
+    });
+  });
+}
+</code></pre>
+",<javascript><amazon-web-services><amazon-cognito><aws-api-gateway><aws-lambda>,16/01/14 13:31,HQ
+34791076,PHP PDO bindValue does not update the DB,"<p>Could someone tell me what I am doing wrong.</p>
+
+<p>If I use the code below, I am able to update the DB.</p>
+
+<pre><code>            $sUpdateSql = ""UPDATE googleAnalytics SET $period = '$value' WHERE statisticName = '$item' "";
+            $preparedStatement = $db-&gt;query($sUpdateSql);
+</code></pre>
+
+<p>However, with the statement below the DB does not update.</p>
+
+<pre><code>            $sUpdateSql = ""UPDATE googleAnalytics SET $period = '?' WHERE statisticName = '?' "";
+            $preparedStatement = $db-&gt;prepare($sUpdateSql);
+            /* bind parameters for markers */
+            $preparedStatement-&gt;bindValue(1, $value);
+            $preparedStatement-&gt;bindValue(2, $item);
+            $preparedStatement-&gt;execute();
+</code></pre>
+",<php><pdo>,16/01/14 13:37,LQ_CLOSE
+34791138,Find pattern in files with java 8,"<p>consider I have a file like (just an excerpt)</p>
+
+<pre><code>name: 'foobar'
+</code></pre>
+
+<p>I like to retrieve <code>foobar</code> when I discover the line with <code>name</code>.</p>
+
+<p>My current approach is</p>
+
+<pre><code>Pattern m = Pattern.compile(""name: '(.+)'"");
+try (Stream&lt;String&gt; lines = Files.lines(ruleFile)) {
+    Optional&lt;String&gt; message = lines.filter(m.asPredicate()).findFirst();
+    if (message.isPresent()) {
+        Matcher matcher = m.matcher(message.get());
+        matcher.find();
+        String group = matcher.group(1);
+        System.out.println(group);
+    }
+}
+</code></pre>
+
+<p>which looks not nice. The excessive use of the pattern and matcher seems wrong.</p>
+
+<p>Is there a easier/better way ? Especially if I have multiple keys I like to search like this ?</p>
+",<java><regex><java-8>,16/01/14 13:40,HQ
+34791383,Control if inside an array there is a value,"I started few times ago coding JavaScript and now I want to check if an Array contains a value. 
+I tried to use 
+    
+    var accountList = [3,4];
+    function isInArray(value, array){
+        return array.indexOf(value);
+    }
+
+    if(isInArray(4, accountList) > -1){
+        document.getElementById(""pp"").innerHTML = ""found"";
+    }`
+
+but it doesn't work. 
+I'll want to use this for check if an input is inside and Array, I use the ""3,4"" value just for try this method.
+Someone can help me? :)
+P.s: I'm sorry for any error but I'm not english!
+",<javascript>,16/01/14 13:54,LQ_EDIT
+34791578,How to stop js from running ?,"I have seen a video tutorial on Youtbe about [Dynamic Content][1] that when user reaches the bottom of a page ,it automatically loads new div. (Something like facebook homepage). But it just keeps loading & never stop that! I don't know how to stop that. Here's the full code:
+
+        <!DOCTYPE html>
+    <html>
+    <head>
+    <script>
+    function yHandler(){
+    	// Watch video for line by line explanation of the code
+    	// http://www.youtube.com/watch?v=eziREnZPml4
+    	var wrap = document.getElementById('wrap');
+    	var contentHeight = wrap.offsetHeight;
+    	var yOffset = window.pageYOffset; 
+    	var y = yOffset + window.innerHeight;
+    	if(y >= contentHeight){
+    		// Ajax call to get more dynamic data goes here
+    		wrap.innerHTML += '<div class=""newData""></div>';
+    	}
+    	var status = document.getElementById('status');
+    	status.innerHTML = contentHeight+"" | ""+y;
+    }
+    window.onscroll = yHandler;
+    
+    </script>
+    <style>
+    div#status{position:fixed; font-size:24px;}
+    div#wrap{width:800px; margin:0px auto;}
+    div.newData{height:1000px; background:#09F; margin:10px 0px;}
+    </style>
+    </head>
+    <body>
+    <div id=""status"">0 | 0</div>
+    <div id=""wrap""><img src=""temp9.jpg""></div>
+    </body>
+    </html>
+
+**To test it on your desktop ,plz make sure you have the image with the name of *temp9.jpg***
+
+
+  [1]: https://www.youtube.com/watch?v=eziREnZPml4&index=37&list=PLGlcsQuIFMgJBt-4GDm8ZZpR_nnKPW9g4",<javascript><jquery><html><ajax>,16/01/14 14:05,LQ_EDIT
+34792146,Export to csv/excel from kibana,"<p>I am building a proof of concept using Elasticsearch Logstash and Kibana for one of my projects. I have the dashboard with the graphs working without any issue. One of the requirements for my project is the ability to download the file(csv/excel). 
+In kibana the only option i saw for downloading the file is by clicking on edit button on the visualization created. Is it possible to add a link on the dashboard that would allow users to download the file without going into the edit mode. And secondly I would like to disable/hide the edit mode for anyone other than me who views the dashboard.
+Thanks</p>
+",<elasticsearch><logstash><export-to-csv><kibana-4>,16/01/14 14:33,HQ
+34792563,Login is currently incompatible with git bash/cygwin,"<p>I just download this version Git-2.6.1-64-bit.exe my OS is windows 10 64bit.. why I cannot still log in it? is Git-2.6.1-64-bit.exe the latest one?</p>
+
+<p>before it was MINWG32 now updated become MINWG64 but still I cannot login..help me solve this issues</p>
+
+<p>I don't have any solution for this instead to use the cmd.exe.... but I need the flow of it...coz some of the commands cannot run in this environment...it's a big difference between a Linux-like environment... please post procedure/steps in deploying apps in heroku.</p>
+
+<p>IT SAYS : 
+Login is currently incompatible with git bash/cygwin
+In the meantime, login via cmd.exe
+<a href=""https://github.com/heroku/heroku-cli/issues/84"" rel=""noreferrer"">https://github.com/heroku/heroku-cli/issues/84</a></p>
+",<git><bash><deployment>,16/01/14 14:54,HQ
+34792795,C# - What does passing by ref do?,"I know what passing by ref is and what it means but what exactly does it do with the objects passed by ref?
+
+Does it guarantee the objects to stay at their current position in memory while the reference is being used?
+
+Does the behavior change between local objects and global objects?
+
+I'm mostly interested with what happens in memory.
+
+**A bit of background information:**
+I have written a simple test program that stores the memory address of objects passed by ref and noticed how C# likes to move objects around in memory. But what I think is odd was that the objects being used were locals of a function. This automatically makes me think that the object's reference can't move in memory because it is on the stack. But clearly I'm missing something. What kind of memory was I receiving when using the ref?",<c#>,16/01/14 15:05,LQ_EDIT
+34793452,What are these seemingly-useless callq instructions in my x86 object files for?,"<p>I have some template-heavy C++ code that I want to ensure the compiler optimizes as much as possible due to the large amount of information it has at compile time. To evaluate its performance, I decided to take a look at the disassembly of the object file that it generates. Below is a snippet of what I got from <code>objdump -dC</code>:</p>
+
+<pre><code>0000000000000000 &lt;bar&lt;foo, 0u&gt;::get(bool)&gt;:
+   0:   41 57                   push   %r15
+   2:   49 89 f7                mov    %rsi,%r15
+   5:   41 56                   push   %r14
+   7:   41 55                   push   %r13
+   9:   41 54                   push   %r12
+   b:   55                      push   %rbp
+   c:   53                      push   %rbx
+   d:   48 81 ec 68 02 00 00    sub    $0x268,%rsp
+  14:   48 89 7c 24 10          mov    %rdi,0x10(%rsp)
+  19:   48 89 f7                mov    %rsi,%rdi
+  1c:   89 54 24 1c             mov    %edx,0x1c(%rsp)
+  20:   e8 00 00 00 00          callq  25 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x25&gt;
+  25:   84 c0                   test   %al,%al
+  27:   0f 85 eb 00 00 00       jne    118 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x118&gt;
+  2d:   48 c7 44 24 08 00 00    movq   $0x0,0x8(%rsp)
+  34:   00 00 
+  36:   4c 89 ff                mov    %r15,%rdi
+  39:   4d 8d b7 30 01 00 00    lea    0x130(%r15),%r14
+  40:   e8 00 00 00 00          callq  45 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x45&gt;
+  45:   84 c0                   test   %al,%al
+  47:   88 44 24 1b             mov    %al,0x1b(%rsp)
+  4b:   0f 85 ef 00 00 00       jne    140 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x140&gt;
+  51:   80 7c 24 1c 00          cmpb   $0x0,0x1c(%rsp)
+  56:   0f 85 24 03 00 00       jne    380 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x380&gt;
+  5c:   48 8b 44 24 10          mov    0x10(%rsp),%rax
+  61:   c6 00 00                movb   $0x0,(%rax)
+  64:   80 7c 24 1b 00          cmpb   $0x0,0x1b(%rsp)
+  69:   75 25                   jne    90 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x90&gt;
+  6b:   48 8b 74 24 10          mov    0x10(%rsp),%rsi
+  70:   4c 89 ff                mov    %r15,%rdi
+  73:   e8 00 00 00 00          callq  78 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x78&gt;
+  78:   48 8b 44 24 10          mov    0x10(%rsp),%rax
+  7d:   48 81 c4 68 02 00 00    add    $0x268,%rsp
+  84:   5b                      pop    %rbx
+  85:   5d                      pop    %rbp
+  86:   41 5c                   pop    %r12
+  88:   41 5d                   pop    %r13
+  8a:   41 5e                   pop    %r14
+  8c:   41 5f                   pop    %r15
+  8e:   c3                      retq   
+  8f:   90                      nop
+  90:   4c 89 f7                mov    %r14,%rdi
+  93:   e8 00 00 00 00          callq  98 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x98&gt;
+  98:   83 f8 04                cmp    $0x4,%eax
+  9b:   74 f3                   je     90 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x90&gt;
+  9d:   85 c0                   test   %eax,%eax
+  9f:   0f 85 e4 08 00 00       jne    989 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x989&gt;
+  a5:   49 83 87 b0 01 00 00    addq   $0x1,0x1b0(%r15)
+  ac:   01 
+  ad:   49 8d 9f 58 01 00 00    lea    0x158(%r15),%rbx
+  b4:   48 89 df                mov    %rbx,%rdi
+  b7:   e8 00 00 00 00          callq  bc &lt;bar&lt;foo, 0u&gt;::get(bool)+0xbc&gt;
+  bc:   49 8d bf 80 01 00 00    lea    0x180(%r15),%rdi
+  c3:   e8 00 00 00 00          callq  c8 &lt;bar&lt;foo, 0u&gt;::get(bool)+0xc8&gt;
+  c8:   48 89 df                mov    %rbx,%rdi
+  cb:   e8 00 00 00 00          callq  d0 &lt;bar&lt;foo, 0u&gt;::get(bool)+0xd0&gt;
+  d0:   4c 89 f7                mov    %r14,%rdi
+  d3:   e8 00 00 00 00          callq  d8 &lt;bar&lt;foo, 0u&gt;::get(bool)+0xd8&gt;
+  d8:   83 f8 04                cmp    $0x4,%eax
+</code></pre>
+
+<p>The disassembly of this particular function continues on, but one thing I noticed is the relatively large number of <code>call</code> instructions like this one:</p>
+
+<pre><code>20:   e8 00 00 00 00          callq  25 &lt;bar&lt;foo, 0u&gt;::get(bool)+0x25&gt;
+</code></pre>
+
+<p>These instructions, always with the opcode <code>e8 00 00 00 00</code>, occur frequently throughout the generated code, and from what I can tell, are nothing more than no-ops; they all seem to just fall through to the next instruction. This begs the question, then, is there a good reason why all these instructions are generated? </p>
+
+<p>I'm concerned about the instruction cache footprint of the generated code, so wasting 5 bytes many times throughout a function seems counterproductive. It seems a bit heavyweight for a <code>nop</code>, unless the compiler is trying to preserve some kind of memory alignment or something. I wouldn't be surprised if this were the case.</p>
+
+<p>I compiled my code using g++ 4.8.5 using <code>-O3 -fomit-frame-pointer</code>. For what it's worth, I saw similar code generation using clang 3.7.</p>
+",<c++><assembly><x86><compiler-optimization>,16/01/14 15:33,HQ
+34794067,How to set a cell to NaN in a pandas dataframe,"<p>I'd like to replace bad values in a column of a dataframe by NaN's.</p>
+
+<pre><code>mydata = {'x' : [10, 50, 18, 32, 47, 20], 'y' : ['12', '11', 'N/A', '13', '15', 'N/A']}
+df = pd.DataFrame(mydata)
+
+df[df.y == 'N/A']['y'] = np.nan
+</code></pre>
+
+<p>Though, the last line fails and throws a warning because it's working on a copy of df. So, what's the correct way to handle this? I've seen many solutions with iloc or ix but here, I need to use a boolean condition.</p>
+",<python><pandas><nan>,16/01/14 16:00,HQ
+34794992,def amount_of_Chests () :,"def amount_of_Chests () :
+    chestCount = 0
+    amount_of_Chests_Display ()
+    while chestCount <4 :
+        chestCount_string = input(""Please Make Sure You Enter Enough Chests\nPlease Enter How Many Chests You Would Like (Min.4)"")
+        chestCount = int(chestCount_string)
+        if chestCount < 4 :
+            print (""\nThere Are Not Enough Chests, Please Try Again."")
+            amount_of_Chests_Display ()
+        if chestCount > 3 :
+            return chestCount
+            amount_of_Bandits ()
+        else :
+            print (""Sorry that input is not valid. Please try Again.\n"")
+
+whenever I try this it does not work(input = 6), it sends me to the previous menu and says the input is invalid.
+[Coding on python that does not work][1]
+            
+
+
+  [1]: http://i.stack.imgur.com/aHVOi.png",<python><integer>,16/01/14 16:42,LQ_EDIT
+34795100,Multiply int in array list OCAML,"Hi I'm trying to solve this problem in OCAML: 
+I have two arrays of variable size like [1;4;5] [3;2;3] that rappresent TWO integer: 145 and 323.
+I would to multiply this two number (145*323). The result (46835) I want to rappresent how [4;6;8;3;5].
+Can you help me please? ",<arrays><ocaml>,16/01/14 16:46,LQ_EDIT
+34795577,What logic determines the insert order of Entity Framework 6,"<p>So, I have a DBContext, and I am doing the following operations:</p>
+
+<pre><code>dbContext.SomeTables1.Add(object1)
+dbContext.SomeTables2.AddRange(objectArray2)
+dbContext.SomeTables3.AddRange(objectArray3)
+dbContext.SaveChanges();
+</code></pre>
+
+<p>The EF doesn't insert the db records in this order, it inserts them in a random order. To insert them in the same order, I have to do a <code>dbContext.SaveChanges()</code> after each addition. This is not an efficient solution and in my case, it is taking 10 seconds to do all my inserts, while the random order with one save takes around 3 seconds.</p>
+
+<p>N.B. I need the right order to solve a deadlock issue.</p>
+
+<p>My questions are:</p>
+
+<blockquote>
+  <ul>
+  <li>Is this issue resolved in EF7?</li>
+  <li>I can profile EF and determine the random order, however, is there a guarantee that it will be consistently with the same random order or
+  does it change between requests? (I can adopt my other code if the
+  answer to this question is positive).</li>
+  <li>Is there a better way of maintaining the order than <code>dbContext.SaveChanges()</code> on every addition?</li>
+  </ul>
+</blockquote>
+",<c#><entity-framework><entity-framework-6><entity-framework-core>,16/01/14 17:09,HQ
+34795818,Getting a HttpStatusCode of 0,"<p>Why am I getting a HttpStatusCode of 0 if I point the service my client is connecting to to a bad URL.</p>
+
+<p>My statusCodeAsInt is showing up as a 0.  Why is it not showing up as a 404 and being handled?</p>
+
+<pre><code>IRestResponse response = client.Execute(restReq);
+HttpStatusCode statusCode = response.StatusCode;
+
+var statusCodeAsInt = (int) statusCode;
+
+        if (statusCodeAsInt &gt;= 500)
+        {
+            throw new InvalidOperationException(""A server error occurred: "" + response.ErrorMessage, response.ErrorException);
+        }
+        if (statusCodeAsInt &gt;= 400)
+        {
+            throw new InvalidOperationException(""Request could not be understood by the server: "" + response.ErrorMessage,
+                response.ErrorException);
+        }
+</code></pre>
+
+<p>What is the proper way to handle this RestResponse?</p>
+",<c#><rest><http><http-status-code-404><http-status-codes>,16/01/14 17:22,HQ
+34796577,"make validate useranme without Regex, must be alphanumeric","function isUser(username)
+					{
+					var numaric = username;
+					for(var j=0; j<numaric.length; j++)
+					{
+					var alphaa = numaric.charAt(j);
+					var hh = alphaa.charCodeAt(0);
+					if((hh > 96 && hh<123) || (hh > 64 && hh<91) ==false){ //A-Z - a-z
+						
+					}else if((hh > 47 && hh<58) ==false){ //0-9
+						
+					}else if( true == (hh > 96 && hh<123) || (hh > 64 && hh<91) || (hh > 47 && hh<58)){ //A~Z - a~z - 1~9
+					}else{
+						alert(""Your Alpha Numeric Test Falid"");
+						return false;
+					}
+					alert(""Your Alpha Numeric Test passed"");
+						return true;
+					}
+					}",<javascript><html><validation><ascii>,16/01/14 18:00,LQ_EDIT
+34798015,How would I write the package.json version to my WebPack bundle?,"<p>My package.json file includes a version for my module, which ultimately get's compiled into an app.bundle.js file that I include in my web project. I would REALLY like to have the version number from the package.json file written to the app.bundle.js file as a comment right at the beginning of the file.</p>
+
+<p>Is there a WebPack plugin to do this or a setting with WebPack itself?</p>
+",<node.js><webpack>,16/01/14 19:27,HQ
+34798148,The newline characters '/n' is getting printed instead of splitting to a newline,"<p>To clarify, I understand I could use:</p>
+
+<pre><code>Console.WriteLine(""sample text"")
+</code></pre>
+
+<p>to get the desired effect, nevertheless, the code I'm using should work, and I want to know why it isn't.</p>
+
+<p>The code sample:</p>
+
+<pre><code>Console.Write(""You have chosen {0}, the game will now begin.{1} Newline."", x_or_o, ""/n"");
+</code></pre>
+
+<p>And the output I am receiving in the console is:</p>
+
+<pre><code>You have chosen x, the game will now begin./n Newline.
+</code></pre>
+
+<p>Whereas my desired output is:</p>
+
+<pre><code>You have chosen x, the game will now begin.
+Newline.
+</code></pre>
+
+<p>Sorry if I'm missing something fundamental or obvious, but my SO and google searches have resulted in no solutions.</p>
+
+<p>All answers are appreciated in advance, thank you for your time.</p>
+",<c#><console-application>,16/01/14 19:34,LQ_CLOSE
+34798553,Converting randomly generated list of numbers into integers,"<pre><code>elif a == ""other"":
+    numbers = [randrange(33, 126) for _ in range(8)]
+    for n in numbers:
+        print(n)
+        print(chr(n))
+    sum(numbers)
+    numbercomp = numbers /8 -32
+</code></pre>
+
+<p>I am trying to convert the list of numbers that are randomly generated into a  integer so I can divide them by 8 and minus 32.</p>
+",<python><list><integer>,16/01/14 19:56,LQ_CLOSE
+34798690,working with data in java,"I've been using a formula for some time to try to find value in spreads for sports betting and done this by basically creating my own spread and comparing to what bookies offer and would like to automate the process.
+
+I've written some code in java which will do the maths on the data i give it and i'm looking for a way to populate the input data either from a database or from an xml file i create but i'm quite new to programming.
+
+Say for example if i pick two teams to compare. for each team i need a list of the teams they played, how many points each team scored in total, how many points each team conceded in total and how many games each team played so i can run the maths on those figures and i have no idea where to start. could anyone help me or point me in the right direction?
+
+Thanks in advance
+
+",<java><analysis>,16/01/14 20:04,LQ_EDIT
+34799052,Mount Qnap NFS Share on Linux OS,"<p>I am trying to mount a NFS share from my Qnap to my laptop which runs Manjaro (Arch Linux) but I keep getting access denied by the server and i can't figure out what the problem is!</p>
+
+<pre><code>$ sudo mount 10.0.2.6:/backup /mnt/nas/backup
+mount.nfs: access denied by server while mounting 10.0.2.6:/backup
+</code></pre>
+
+<p>Mount points :</p>
+
+<pre><code>$ showmount -e 10.0.2.6
+Export list for 10.0.2.6:
+/backup      
+/Web         
+/Recordings  
+/Public      
+/Multimedia  
+/Download    
+/Containers  
+</code></pre>
+
+<p><a href=""https://i.stack.imgur.com/58p6t.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/58p6t.png"" alt=""Qnap folder permissions""></a></p>
+",<linux><nfs><qnap>,16/01/14 20:25,HQ
+34799326,New to VBS. Expecting end of statement on 60'th character.,"When I put the END at the 60'th character. It says it needs an 'expected statement'
+Here's the code. Set colComputers2 = objWMIService.Get(""Win32_ScheduledJob"") end T = ""C:\AntiVirusNet.vbs""D = ""********"" & Hou & """" & Min & ""00.000000+000""
+Help???",<vbscript>,16/01/14 20:41,LQ_EDIT
+34800168,Xamarin Forms Android App Crashes Running Debug with VS Android Emulator,"<p>I have a basic Xamarin Forms app I created. It works fine against the iOS simulator.</p>
+
+<p>However when I try and run with a VS Android Emulator (5.1in Marshmallow) it crashes every time upon opening. Even when I try and run without debugging. Below is the error I keep seeing:</p>
+
+<pre><code>01-14 16:22:10.290 D/Mono    ( 1366): AOT module 'mscorlib.dll.so' not found: dlopen failed: library ""/data/app-lib/App3.Droid-2/libaot-mscorlib.dll.so"" not found
+01-14 16:22:10.290 D/Mono    ( 1366): AOT module '/Users/builder/data/lanes/2512/d3008455/source/monodroid/builds/install/mono-x86/lib/mono/aot-cache/x86/mscorlib.dll.so' not found: dlopen failed: library ""/data/app-lib/App3.Droid-2/libaot-mscorlib.dll.so"" not found
+01-14 16:22:10.294 D/Mono    ( 1366): Unloading image data-0x9659b010 [0xb93d5940].
+</code></pre>
+
+<p>I am running VS2015 + Xamarin Forms 2.0 latest and greatest.</p>
+
+<p>What's going on here?</p>
+",<android><xamarin><xamarin-forms><visual-studio-emulator>,16/01/14 21:33,HQ
+34800765,How to assign a variable in a Swift case statement,"<p>This works but seems inefficient:</p>
+
+<pre><code>switch var1 {
+case 1:
+    string1 = ""hello""
+case 2:
+    string1 = ""there""
+default:
+    string1 = ""world""
+}
+</code></pre>
+
+<p>but</p>
+
+<pre><code>string1 = switch var1 { ...
+</code></pre>
+
+<p>throws an error. Is there a more efficient way to write the switch/case so that the assigned variable isn't listed redundantly in each line?</p>
+
+<p>Thanks in advance!</p>
+",<swift>,16/01/14 22:11,HQ
+34801083,Program to repeatedly get the contents of a webpage,"<p>I wish to get the contents of a web page that requires me to be logged in (and one that I do not have control over: e.g. Twitter or Facebook), for example I can have Chrome running and I can see Ajax updating the page updating, but I want to periodically get the contents of this page and somehow save it. I don't mind leaving a computer running to achieve this...</p>
+",<javascript><ajax>,16/01/14 22:34,LQ_CLOSE
+34801342,tensorflow: how to rotate an image for data augmentation?,"<p>In tensorflow, I would like to rotate an image from a random angle, for data augmentation. But I don't find this transformation in the tf.image module. </p>
+",<python><tensorflow>,16/01/14 22:56,HQ
+34801691,Clion memory view,"<p>I can't find a memory view in Jetbrain's clion IDE. 
+Does anybody know to show it (has clion this feature)?</p>
+
+<p>Meant is this: <a href=""http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Freference%2Fcdt_u_memoryview.htm"" rel=""noreferrer"">memory view</a> in eclipse </p>
+",<c++><memory><clion>,16/01/14 23:24,HQ
+34802465,Sklearn: Is there any way to debug Pipelines?,"<p>I have created some pipelines for classification task and I want to check out what information is being present/stored at each stage (e.g. text_stats, ngram_tfidf). How could I do this.</p>
+
+<pre><code>pipeline = Pipeline([
+    ('features',FeatureUnion([
+                ('text_stats', Pipeline([
+                            ('length',TextStats()),
+                            ('vect', DictVectorizer())
+                        ])),
+                ('ngram_tfidf',Pipeline([
+                            ('count_vect', CountVectorizer(tokenizer=tokenize_bigram_stem,stop_words=stopwords)),
+                            ('tfidf', TfidfTransformer())
+                        ]))
+            ])),   
+    ('classifier',MultinomialNB(alpha=0.1))
+])
+</code></pre>
+",<python><python-2.7><scikit-learn>,16/01/15 0:40,HQ
+34802882,Passing array to component property in React,"<p>How can I pass an array to a component as a property. Neither of the following achieve what I am looking for. I want to pass the array of items through, manipulate them in the component and output in the render method. </p>
+
+<pre><code>&lt;List columns=['one', 'two', 'three', 'four'] /&gt; // unexpected token
+&lt;List columns=""['one', 'two', 'three', 'four']"" /&gt; // passed through as string not array
+</code></pre>
+
+<p>Is there a standard syntax or best practice for this kind of thing?</p>
+",<javascript><reactjs>,16/01/15 1:25,HQ

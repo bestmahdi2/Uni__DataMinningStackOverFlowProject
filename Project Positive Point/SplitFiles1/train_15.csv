@@ -1,0 +1,964 @@
+Id,Title,Body,Tags,CreationDate,Y
+34770482,How do I compile a GitHub project?,"<p>I've tried for few hours.. and failed. i can't seem to get it to work. ( in NetBeans)</p>
+
+<p>I've added libraries that creator pointed out, source and nbproject - I get errors.</p>
+
+<p>Can someone tell me what to do step by step? Thank you in advance.</p>
+
+<p>LINK TO GITHUB: <a href=""https://github.com/lucidexploration/JonBot-NG"" rel=""nofollow"">https://github.com/lucidexploration/JonBot-NG</a></p>
+
+<p>(   i've tried adding it - I downloaded the zip from github then I created new project in netbeams (selected as just Java) then I went to ""files"" tab and dragged and dropped down src folder from zip i downloaded from GitHub then nbproject and the rest. I've got an JAVADOC error. )</p>
+",<java>,16/01/13 15:24,LQ_CLOSE
+34770675,How do I save a text file into an array?,"<p>This is how I print out the text file</p>
+
+<pre><code>FILE *file;
+char array[200];
+
+file = fopen(""test.txt"", ""r"");
+
+fread(array,1, 200, file);
+printf(""\n%s"", array);
+fclose(file);
+</code></pre>
+
+<p>Instead I want to save the text file rows to an array so i can print out the text file with the array.</p>
+
+<p>I can only use those fopen,fprintf,fwrite,fscanf,fread,fseek,fclose. Not fget.</p>
+
+<p>How do i save the text file lines to an array?</p>
+",<c>,16/01/13 15:33,LQ_CLOSE
+34770720,Broadcast a dictionary to rdd in PySpark,"<p>I am just getting the hang of Spark, and I have function that needs to be mapped to an <code>rdd</code>, but uses a global dictionary:</p>
+
+<pre><code>from pyspark import SparkContext
+
+sc = SparkContext('local[*]', 'pyspark')
+
+my_dict = {""a"": 1, ""b"": 2, ""c"": 3, ""d"": 4} # at no point will be modified
+my_list = [""a"", ""d"", ""c"", ""b""]
+
+def my_func(letter):
+    return my_dict[letter]
+
+my_list_rdd = sc.parallelize(my_list)
+
+result = my_list_rdd.map(lambda x: my_func(x)).collect()
+
+print result
+</code></pre>
+
+<p>The above gives the expected result; however, I am really not sure about my use of the global variable <code>my_dict</code>. It seems that a copy of the dictionary is made with every partition. And it just does not feel right..</p>
+
+<p>It looked like <a href=""http://spark.apache.org/docs/latest/programming-guide.html#broadcast-variables"">broadcast</a> is what I am looking for. However, when I try to use it:</p>
+
+<pre><code>my_dict_bc = sc.broadcast(my_dict)
+
+def my_func(letter):
+    return my_dict_bc[letter] 
+</code></pre>
+
+<p>I get the following error:</p>
+
+<pre><code>TypeError: 'Broadcast' object has no attribute '__getitem__
+</code></pre>
+
+<p>This seems to imply that I cannot broadcast a dictionary.</p>
+
+<p>My question: If I have a function that uses a global dictionary, that needs to be mapped to <code>rdd</code>, what is the proper way to do it?</p>
+
+<p>My example is very simple, but in reality <code>my_dict</code> and <code>my_list</code> are much larger, and <code>my_func</code> is more complicated.</p>
+",<apache-spark><pyspark>,16/01/13 15:35,HQ
+34771128,Is there something similar to NEGATIVE_INFINITY in php?,"<p>I love the negative infinity value in javascript, I think it's useful and clean in many case to use it but couldn't find something similar in PHP, does it exists?</p>
+",<php>,16/01/13 15:52,HQ
+34771255,Where should the android service calls and calls to GoogleAPIClient be written while using MVP pattern in android?,"<p>I am trying to implement <strong>MVP pattern</strong> in my android project by referring to this link : <a href=""https://github.com/jpotts18/android-mvp"" rel=""noreferrer"">https://github.com/jpotts18/android-mvp</a></p>
+
+<p>I have successfully implemented the <strong>view / presenter / interactor</strong> classes. I am not clear on </p>
+
+<ul>
+<li><strong>Where to put the <code>service</code> call code?</strong></li>
+</ul>
+
+<blockquote>
+  <p>Since i cannot get the context inside the presenter or interactor
+  class, I am not able to put the <code>service</code> call there</p>
+</blockquote>
+
+<ul>
+<li><strong>Where to implement the <code>GoogleApiClient</code> class?</strong></li>
+</ul>
+
+<blockquote>
+  <p>Since <code>GoogleApiClient</code> also requires context to run, it also cannot be
+  implemented inside the presenter or interactor without a context</p>
+</blockquote>
+",<android><design-patterns><android-service><mvp><android-googleapiclient>,16/01/13 15:57,HQ
+34771256,How does Pandas to_sql determine what dataframe column is placed into what database field?,"<p>I'm currently using Pandas to_sql in order to place a large dataframe into an SQL database. I'm using sqlalchemy in order to connect with the database and part of that process is defining the columns of the database tables.</p>
+
+<p>My question is, when I'm running to_sql on a dataframe, how does it know what column from the dataframe goes into what field in the database? Is it looking at column names in the dataframe and looking for the same fields in the database? Is it the order that the variables are in?</p>
+
+<p>Here's some example code to facilitate discussion:</p>
+
+<pre><code>engine = create_engine('sqlite:///store_data.db')
+meta = MetaData()
+
+table_pop = Table('xrf_str_geo_ta4_1511', meta, 
+    Column('TDLINX',Integer, nullable=True, index=True),
+    Column('GEO_ID',Integer, nullable=True),
+    Column('PERCINCL', Numeric, nullable=True)
+)
+
+meta.create_all(engine)
+
+for df in pd.read_csv(file, chunksize=50000, iterator=True, encoding='utf-8', sep=',')
+    df.to_sql('table_name', engine, flavor='sqlite', if_exists='append', index=index)
+</code></pre>
+
+<p>The dataframe in question has 3 columns TDLINX, GEO_ID, and PERCINCL</p>
+",<python><database><pandas><sqlite><sqlalchemy>,16/01/13 15:57,HQ
+34772109,What does (void (^)(BOOL supported)) mean?,"<p>as I am working myself into some new code, I came across a thing, where I couldnt find any explanation for in the web so far. So hopefully you can give me one.</p>
+
+<p>I have this method signature in Objective-C code:</p>
+
+<pre><code>-(void) supportsUrl: (NSString*) url callback:(void (^)(BOOL supported)) callback;
+</code></pre>
+
+<p>Can someone please tell me what it is about in the last parameter?</p>
+
+<p>Thanks a lot!</p>
+",<objective-c>,16/01/13 16:36,LQ_CLOSE
+34772259,C++ sort() function for sorting strings,"<p><br>
+Some days ago I wanted to use c++ <code>sort()</code> function to sort an array of strings which the total size, but I had a problem!<br>
+Does this function use the same algorithm for sorting numbers array and strings array?
+And if we use it to sort an array of strings which the total size of them is less than 100,000 characters, would it work in less than 1 second(in the worst case)?</p>
+",<c++><string><sorting>,16/01/13 16:42,LQ_CLOSE
+34772494,RxSwift minimal Observable.create example,"<p>Currently I am trying to get RxSwift working. And I want to create a custom Observable. But I think I am doing something wrong. </p>
+
+<p>I have distilled what I do to this minimal sample:</p>
+
+<pre><code>import Foundation
+import RxSwift
+
+class Example
+{
+
+    let exampleObservable : Observable&lt;String&gt; = Observable.create { (observer) in
+        observer.on(.Next(""hello""))
+        observer.on(.Completed)
+
+        return AnonymousDisposable { }
+    }
+
+    let exampleObserver : AnyObserver&lt;String&gt;?
+
+    func run()
+    {
+        self.exampleObserver = exampleObservable.subscribeNext({ (text) -&gt; Void in
+            print(text)
+        })  
+    }
+
+}
+
+let ex = Example()
+ex.run()
+</code></pre>
+
+<p>Is this correct? In the run method, the subscribeNext method is autocompleted that way by XCode.</p>
+
+<p><a href=""https://i.stack.imgur.com/kMKjb.png""><img src=""https://i.stack.imgur.com/kMKjb.png"" alt=""Example""></a></p>
+
+<p>But when I run it I get the following compilation error: </p>
+
+<pre><code>Cannot Invoke 'substribeNext' with an argument list of type ((String) -&gt; Void)
+</code></pre>
+",<swift><rx-swift>,16/01/13 16:53,HQ
+34774032,How to Trim leading and trailing tab spaces in MSSQL query,"<p>I have data which has leading and trailing spaces in the string. when storing that data in database I want to trim the space in query itself before storing into DB.</p>
+
+<p>Normal spaces are trimming properly with RTRIM and LTRIM function but if a string contains tab space,its not trimming the tab space from the input string.</p>
+
+<p>Can anyone help me to get the string with trimmed with tab space from leading and trailing.</p>
+",<sql><sql-server><sql-server-2005>,16/01/13 18:11,HQ
+34774050,Does Java's lack of multiple inheritance hurt its potential for Android game development?,"<p>I'm currently enrolled in a mobile app development class, and I have an idea for a game that I'd like to do that involves virtual pets. I'm confident that I'll be able to utilize Java's capabilities for this class without a problem, but further down the line if I wanted to, say, fuse pets and/or breed, I imagine it might become difficult to implement my ideas using Java. </p>
+
+<p>I know that objects can inherit from multiple interfaces and there are ways of obtaining variables through other means, but in terms of code and app efficiency, would I be better off using another language down the line?</p>
+
+<p>Really looking forward to this discussion, as I enjoy hearing the pros and cons of each side. Java's my favorite language at the moment because I'm most familiar with it, but even so... I'd love to branch out if I'd be better off doing so. I've looked this up using search engines many times but I thought this would be a more hands-on approach to engage with people in conversation as opposed to simply reading past threads. </p>
+
+<p>Thanks in advance!</p>
+",<java><android><performance>,16/01/13 18:12,LQ_CLOSE
+34775068,PHP Throws error when calling class method inside function,"<pre><code>include ""sys.php"";
+
+$logger = new logger();
+$logger-&gt;write(""Hello!"");
+</code></pre>
+
+<p>This works. However,</p>
+
+<pre><code>include ""sys.php"";
+
+$logger = new logger();
+
+function test() {
+    $logger-&gt;write(""Hello!"");
+}
+
+test();
+</code></pre>
+
+<p>This does not. The server crashes, error 500.</p>
+
+<p>Why?</p>
+",<php>,16/01/13 19:10,LQ_CLOSE
+34775157,Angular UI Bootstrap Pagination ng-model not updating,"<p>I am trying to use a UI Bootstrap Pagination directive in my project, but for some strange reason the ng-model used for updating the current page is not working. The pagination is showing up correctly with the correct number of tabs and everything, but when I click on a different number, the ng-model variable is not getting updated. For the life of me, I can't figure out why not.</p>
+
+<p>The code I am using is taken from the examples on the UI Bootstrap homepage:</p>
+
+<pre><code>&lt;uib-pagination total-items=""totalItems"" ng-model=""currentPage""
+  ng-change=""pageChanged()""&gt;&lt;/uib-pagination&gt;
+</code></pre>
+
+<p>The controller looks like this: </p>
+
+<pre><code>$scope.currentPage = 1;
+$scope.totalItems = 160;
+
+$scope.pageChanged = function() {
+  console.log('Page changed to: ' + $scope.currentPage);
+};
+</code></pre>
+
+<p>Here are the different required sources I am including:</p>
+
+<pre><code>&lt;link rel=""stylesheet"" href=""//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"" /&gt;
+&lt;script src=""https://code.angularjs.org/1.4.8/angular.js""&gt;&lt;/script&gt;
+&lt;script src=""//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.0.3.js""&gt;&lt;/script&gt;
+</code></pre>
+
+<p>The strangest thing is I have created a plnkr which replicates my code and it works! You can see here: <a href=""http://plnkr.co/edit/4DoKnRACbKjLnMH5vGB6"">http://plnkr.co/edit/4DoKnRACbKjLnMH5vGB6</a></p>
+
+<p>Can anybody think of any ideas that might be causing this not to work? I'm scratching my head here, and can't think of anything obvious I am doing wrong...</p>
+
+<p>All help much apprecatiated!</p>
+",<angularjs><twitter-bootstrap><angular-ui-bootstrap>,16/01/13 19:14,HQ
+34775353,Is it possible to shuffle or randomly select entire rows of an array in Python?,"<p>I'm working with a multidimensional array where each column contains ordered data and each row is a different sample.  I would like to randomly downsample to a specific number of rows, but I don't know how to randomly select an entire row or how to randomly shuffle only the orders of the rows of the array.</p>
+",<python><arrays><random>,16/01/13 19:25,LQ_CLOSE
+34775504,Printf is not working in AJAX php file?,"<p>Hi I want to update some data in my mysql database by using form in html and AJAX  technology. I have problem because data is not updated after click on submit and in response message I have not only message but clear mysql ask too! Let's look at my alert:
+<a href=""https://i.stack.imgur.com/gc8od.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/gc8od.png"" alt=""enter image description here""></a></p>
+
+<p>My idea is the printf is not really post text into ""query"" function but this text output is going stright into response data and query is always wrong from empty text...</p>
+
+<p>Let's look at my AJAX php file:</p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"" data-console=""false"" data-babel=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;?php
+	session_start();
+	error_reporting(0);
+	$imie = $_POST['imie'];
+	$nazwisko = $_POST['nazwisko'];
+	$kodpocztowy = $_POST['kodpocztowy'];
+	$ulica = $_POST['ulica'];
+	$nrdomu = $_POST['nrdomu'];
+	$nrmieszkania = $_POST['nrmieszkania'];
+	$miasto = $_POST['miasto'];
+
+	try
+	{
+		if (! @include_once('connect.php'))
+  		throw new Exception ('connect.php kurwa nie istnieje&lt;/br&gt;');
+		if (!file_exists('connect.php' ))
+  		throw new Exception ('connect.php nie istnieje&lt;/br&gt;');
+		else
+  		require_once('connect.php'); 
+	}
+	catch(Exception $e)
+	{    
+  		echo ""Wiadomość: "" . $e-&gt;getMessage();
+  		echo ""Kod: "" . $e-&gt;getCode();
+	}
+	require_once ""connect.php"";
+
+	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
+	if($rezultat = @$polaczenie-&gt;query(printf(""UPDATE adresy SET imie='%s', nazwisko='%s', kodpocztowy='%s', ulica='%s', nrdomu='%s', nrmieszkania='%s', miasto='%s' WHERE id=%s"",$imie,$nazwisko,$kodpocztowy,$ulica,$nrdomu,$nrmieszkania,$miasto,$_SESSION['id'])))
+	{
+		$polaczenie-&gt;close();
+		echo ""Good!"";
+	}
+	else
+	{
+		$polaczenie-&gt;close();
+		echo ""Not good!"";
+	}
+
+	
+?&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>Have you any idea how to solve this problem? Maybe what to use instead printf or echo? Please help, greatings.</p>
+",<php><mysql><ajax><printf>,16/01/13 19:35,LQ_CLOSE
+34775937,Python lists in lists,"I have the following code:
+
+`addresses = [['Jim', 543, 65], ['Jack', 4376, 23], ['Hank', 764, 43]]
+print addresses[0:][0] # I want this to return: ['Jim', 'Jack', 'Hank']`
+
+How would I make this print out only the names in `addresses`?
+
+Thank you!",<python>,16/01/13 20:00,LQ_EDIT
+34776201,Why wont this work ? Dynamic memory beginner program,"    enter code here
+        
+        int main()
+        {	
+	        //FILE *out = fopen(""keimeno.txt"", ""w+"");
+
+        FILE *in = fopen(""keimeno.txt"", ""r"");
+          	int fullbufflen=0 , i;
+  	
+          	char buffer[100];
+          	fgets(buffer, 100, in);
+
+          	int bufflen = strlen(buffer);
+          	char *text;
+          	text =calloc(bufflen,sizeof(char));
+	        char *strcat(text, buffer);	
+        //	printf(""line of \""keimeno.txt\"": %s"", buffer);
+        //	printf(""size of line \""keimeno.txt\"": %i\n\n"", bufflen);
+        
+        	fullbufflen = bufflen;	
+        	
+        	while(fgets(buffer, 100, in)!=NULL)
+        	{         
+	        //	printf(""line of \""keimeno.txt\"": %s"", buffer);
+	        //	printf(""size of line \""keimeno.txt\"": %i\n\n"", bufflen);
+	        	text =realloc(text,bufflen*sizeof(char));
+	        	char *strcat(text, buffer);
+	        	
+	        	fullbufflen = bufflen + fullbufflen ;
+	        }
+	        for (i = 0;i<fullbufflen;i++)
+	        	{
+	        	printf(""%c\n"",text[i]);
+        		}
+        }
+       
+I am trying to copy the full text file (keimeno.txt) into a dynamic memory array,with a buffer of 100 character at most everytime .To test it at the end i tried to prinf the results .And i just cant get it to work .Dont know if there is a problem on the printf at the end,or the whole program is just wrong.(also the dynamic array is supposed to have 0 size at the beggining ,so if someone could tell me how to do that too ,it would be welcome .)Thanks in advance.",<c><file><dynamic><malloc><realloc>,16/01/13 20:15,LQ_EDIT
+34776213,How to make a POST request using retrofit 2?,"<p>I was only able to run the hello world example (GithubService) from the docs.   </p>
+
+<p>The problem is when I run my code, I get the following Error, inside of <code>onFailure()</code></p>
+
+<blockquote>
+  <p>Use JsonReader.setLenient(true) to accept malformed JSON at line 1
+  column 1 path $</p>
+</blockquote>
+
+<p>My API takes POST params value, so no need to encode them as JSON, but it does return the response in JSON.</p>
+
+<p>For the response I got ApiResponse class that I generated using tools.</p>
+
+<p>My interface:</p>
+
+<pre><code>public interface ApiService {
+    @POST(""/"")
+    Call&lt;ApiResponse&gt; request(@Body HashMap&lt;String, String&gt; parameters);
+}
+</code></pre>
+
+<p>Here is how I use the service:</p>
+
+<pre><code>HashMap&lt;String, String&gt; parameters = new HashMap&lt;&gt;();
+parameters.put(""api_key"", ""xxxxxxxxx"");
+parameters.put(""app_id"", ""xxxxxxxxxxx"");
+
+Call&lt;ApiResponse&gt; call = client.request(parameters);
+call.enqueue(new Callback&lt;ApiResponse&gt;() {
+    @Override
+    public void onResponse(Response&lt;ApiResponse&gt; response) {
+        Log.d(LOG_TAG, ""message = "" + response.message());
+        if(response.isSuccess()){
+            Log.d(LOG_TAG, ""-----isSuccess----"");
+        }else{
+            Log.d(LOG_TAG, ""-----isFalse-----"");
+        }
+
+    }
+    @Override
+    public void onFailure(Throwable t) {
+        Log.d(LOG_TAG, ""----onFailure------"");
+        Log.e(LOG_TAG, t.getMessage());
+        Log.d(LOG_TAG, ""----onFailure------"");
+    }
+});
+</code></pre>
+",<java><android><post><retrofit><retrofit2>,16/01/13 20:16,HQ
+34776245,How do I get the current action from within a controller?,"<p>How do I get the current action from within a controller? <code>current_page?</code> works for views, but not controllers.</p>
+
+<pre><code>redirect_to step3_users_path unless current_page?(step3_users_path)
+</code></pre>
+
+<p>I also tried</p>
+
+<pre><code>controller.action_name == 'step3'
+</code></pre>
+
+<p>I also tried</p>
+
+<pre><code>params[:action_name] == 'step3'
+</code></pre>
+",<ruby-on-rails><ruby-on-rails-4>,16/01/13 20:17,HQ
+34776325,Convert text data set to .arrd file,"I have this data set https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences
+
+and I need to convert it from .txt to .arff file to make classification with weka program .
+any help ?
+",<converter><weka><text-mining><text-classification><arff>,16/01/13 20:22,LQ_EDIT
+34778147,Cannot boot Windows guest in VirtualBox without kernel module error,"<p>I'm running Vagrant (1.8.1) + VirtualBox (5.0.12) on Windows 7 and trying to boot up a Windows 7 image (modernIE/w7-ie8). However, I get this error:</p>
+
+<pre><code>---------------------------
+VirtualBox - Error In supR3HardenedWinReSpawn
+---------------------------
+&lt;html&gt;&lt;b&gt;NtCreateFile(\Device\VBoxDrvStub) failed: 0xc0000034 STATUS_OBJECT_NAME_NOT_FOUND (0 retries) (rc=-101)&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;Make sure the kernel module has been loaded successfully.&lt;br&gt;&lt;br&gt;&lt;!--EOM--&gt;where: supR3HardenedWinReSpawn
+what:  3
+VERR_OPEN_FAILED (-101) - File/Device open failed.
+
+Driver is probably stuck stopping/starting. Try 'sc.exe query vboxdrv' to get more information about its state. Rebooting may actually help.&lt;/html&gt;
+---------------------------
+OK
+---------------------------
+</code></pre>
+
+<p>I ran the query command, but the service ""is not found"".</p>
+
+<pre><code>&gt; sc.exe query vboxdrv
+[SC] EnumQueryServicesStatus:OpenService FAILED 1060:
+
+The specified service does not exist as an installed service.
+</code></pre>
+
+<p>I tried rebooting, too. Nothing.</p>
+",<windows><service><kernel><virtualbox>,16/01/13 22:18,HQ
+34778476,Java Threads producer-consumer shared buffer,"<p>Implement producer consumer problem using threads in Java. Producers and consumers share a buffer, producers put elements in buffer and consumers consume elements from the shared buffer. If the buffer is full producers should wait till consumers take out elements, similarly consumers should wait till producers put elements if the buffer is empty.
+Your program should accept the following inputs:</p>
+
+<pre><code>m: the number of producer threads
+n: the number of consumer threads
+k: the size of the bounded buffer
+</code></pre>
+
+<p>Your code should prompt for the above inputs in that order. You can assume that a valid integer is provided by the user for each of these. You will need to spawn m Producer threads and n Consumer threads. Each producer generates 20 integers ranging between 0 and 9 and puts them in the buffer. After putting a number in the buffer, it prints its id along with the generated number. The producer sleeps for a random amount of time before repeating the number generating cycle again. Each consumer takes a number from the buffer then prints its id along with the value it got. Then, it sleeps for a random amount of time before reading from the buffer again.
+A sample output of the program is:</p>
+
+<pre><code>Producer #2 put: 1
+Producer #1 put: 4
+Consumer #3 got: 1
+Producer #1 put: 3
+Consumer #3 got: 4
+Consumer #3 got: 3
+...
+</code></pre>
+
+<p>i have this problem. it is clear that the <strong>array of buffer</strong> is a global variable for two method because of that array is shared with Producer &amp; Consumer. so? Unfortunately i have no idea how to do this project. anybody have an idea?</p>
+",<java><multithreading><algorithm><producer-consumer><critical-section>,16/01/13 22:42,LQ_CLOSE
+34778937,Replacing word except when it is between letters,"<p>For example I would like to change every ""hi"" to hello
+The problem is when I try to do it I get into some kind of problems.
+It translates other words badly like:
+ from ""his dog is nice"" to ""hellos dog is nice""
+How can I fix it
+(I am using php)</p>
+",<php><regex><replace><preg-replace>,16/01/13 23:18,LQ_CLOSE
+34778950,"How to compare ""Any"" value types","<p>I have several ""Any"" value types that I want to compare.</p>
+
+<pre><code>var any1: Any = 1
+var any2: Any = 1
+
+var any3: Any = ""test""
+var any4: Any = ""test""
+
+print(any1 == any2)
+print(any2 == any3)
+print(any3 == any4)
+</code></pre>
+
+<p>Using the == operator shows an error:</p>
+
+<blockquote>
+  <p>""Binary operator '==' cannot be applied to two 'Any' (aka
+  'protocol&lt;>') operands""</p>
+</blockquote>
+
+<p>What would be the way to do this ? </p>
+",<swift>,16/01/13 23:19,HQ
+34779642,Dynamic href tag React in JSX,"<pre><code>// This Javascript &lt;a&gt; tag generates correctly
+React.createElement('a', {href:""mailto:""+this.props.email}, this.props.email)
+</code></pre>
+
+<p>However, I'm struggling to recreate it in JSX</p>
+
+<pre><code>&lt;a href=""mailto: {this.props.email}""&gt;{this.props.email}&lt;/a&gt;
+
+// =&gt; &lt;a href=""mailto: {this.props.email}""&gt;&lt;/a&gt;
+</code></pre>
+
+<p>The href tag thinks the <code>{this.props.email}</code> is a string instead of dynamically inputting the value of <code>{this.props.email}</code>. Any ideas on where I went amiss?</p>
+",<javascript><reactjs><react-jsx>,16/01/14 0:29,HQ
+34780267,Anaconda Python installation error,"<p>I get the following error during Python 2.7 64-bit windows installation. I previously installed python 3.5 64-bit and it worked fine. But during python 2.7 installation i get this error:</p>
+
+<pre><code>Traceback (most recent call last):
+File ""C:\Anaconda2\Lib\_nsis.py"", line 164, in &lt;module&gt; main()
+File ""C:\Anaconda2\Lib\_nsis.py"", line 150, in main
+  mk_menus(remove=False)
+File ""C:\Anaconda2\Lib\_nsis.py"", line 94, in mk_menus
+  err(""Traceback:\n%s\n"" % traceback.format_exc(20))
+IOError: [Errno 9] Bad file descriptor
+</code></pre>
+
+<p>Kindly help me out.</p>
+",<python><python-2.7><installation><anaconda>,16/01/14 1:37,HQ
+34780328,How to automatic update status?,"[this is the image][1]I have a problem on how to update all status in one click. As you can see in the picture, if I click the lock it will then automatically update all status of the student to ""lock"", if I click the unlock button also it will automatic the status into ""unlock"", how to do that?
+Here's my code:
+
+    <a href=""unlock.php""  title=""Lock""><img src=""images/lock.png"" height=""40"" width=""40""></a>
+    								
+    <a href=""lock.php"" title=""Unlock""><img style=""margin-left:8px;"" src=""images/unlock.png"" height=""40"" width=""40""></a>
+
+when I click the lock.php here's what the codes like:
+
+    <?php
+    			include '../connection/connect.php';
+    				include '../dbcon.php';
+    				
+    $idnum=$_POST['idnum'];
+    $stat='LOCK';
+    $sqla = ""UPDATE student 
+          SET status=?
+    	WHERE idno=?"";
+    $qa = $db->prepare($sqla);
+    $qa->execute(array($stat,$idnum));
+    			
+    	Header ('Location:lock_unlock.php');
+    	}
+    ?>
+      
+
+
+  [1]: http://i.stack.imgur.com/CMUVY.png",<php>,16/01/14 1:44,LQ_EDIT
+34780767,Free problems in C language,"I'm working on a project in C language. The purpose of the project is to code a function that returns the next line of a file every time it's called.
+I'm only allowed to use the malloc, free and read functions.
+Here's the errors I'm getting :
+[Errors][1]
+
+
+  [1]: http://i.stack.imgur.com/VYh0l.jpg
+And here's my code :
+
+    #include <sys/types.h>
+    #include <sys/stat.h>
+    #include <fcntl.h>
+    #include ""get_next_line.h""
+
+    int		my_putstr(char *str)
+    {
+      int		i;
+
+      if (str == NULL)
+        return (1);
+      i = 0;
+      while (str[i] != '\0')
+        {
+          write(1, &str[i], 1);
+          i = i + 1;
+        }
+      return (0);
+    }
+    
+    char		*my_strcpy(char *src, char *dest)
+    {
+      int		i;
+      int		r;
+    
+      r = 0;
+      i = 0;
+      if (src == NULL)
+        return (dest);
+      while (dest != NULL && dest[i] != '\0')
+        i = i + 1;
+      while (src[r] != '\0')
+        {
+          dest[i] = src[r];
+          i = i + 1;
+          r = r + 1;
+        }
+      dest[i] = '\0';
+      return (dest);
+    }
+    
+    int		check_back_n(t_stock *stock)
+    {
+      int		i;
+    
+      if (stock->save == NULL)
+        return (1);
+      i = 0;
+      while (stock->save[i] != '\0')
+        {
+          if (stock->save[i] == '\n')
+            return (0);
+          i = i + 1;
+        }
+      return (1);
+    }
+    
+    int		my_realloc(t_stock *stock)
+    {
+      if ((stock->temp = malloc(sizeof(char) *
+	    		    (READ_SIZE * stock->counter) + 1)) == NULL)
+        return (1);
+      stock->temp = my_strcpy(stock->save, stock->temp);
+      free(stock->save);
+      if ((stock->save = malloc(sizeof(char) *
+	    	       (READ_SIZE * (stock->counter + 1)) + 1)) == NULL)
+        return (1);
+      stock->save = my_strcpy(stock->temp, stock->save);
+      free(stock->temp);
+      return (0);
+    }
+
+    char		*fill_over(t_stock *stock, char *over)
+    {
+      stock->r = 0;
+      stock->i = 0;
+      while (stock->save[stock->i] != '\n')
+        stock->i = stock->i + 1;
+      stock->save[stock->i] = '\0';
+      stock->i = stock->i + 1;
+      if ((over = malloc(sizeof(char) * READ_SIZE) + 1) == NULL)
+        return (NULL);
+      while (stock->save[stock->i] != '\0')
+        {
+          stock->save[stock->i] = over[stock->r];
+          stock->save[stock->i] = '\0';
+          stock->i = stock->i + 1;
+          stock->r = stock->r + 1;
+        }
+      return (over);
+    }
+    
+    char		*get_next_line(const int fd)
+    {
+      t_stock	stock;
+      static char	*over;
+    
+      stock.counter = 2;
+      if ((stock.save = malloc(sizeof(char) * READ_SIZE) + 1) == NULL)
+        return (NULL);
+      stock.save = my_strcpy(over, stock.save);
+      free(over);
+      while (check_back_n(&stock) == 1)
+        {
+          if (my_realloc(&stock) == 1)
+	    return (NULL);
+          if ((stock.buffer = malloc(sizeof(char) * READ_SIZE) + 1) == NULL)
+	    return (NULL);
+          if ((stock.read_return = read(fd, stock.buffer, READ_SIZE)) == -1||
+	  (stock.read_return == 0))
+	    return (stock.save);
+          stock.counter = stock.counter + 1;
+          stock.save = my_strcpy(stock.buffer, stock.save);
+          free(stock.buffer);
+        }
+      if ((over = fill_over(&stock, over)) == NULL)
+        return (NULL);
+      return (stock.save);
+    }
+
+    int		main()
+    {
+      char		*s;
+      int		fd;
+    
+      fd = open(""test"", O_RDONLY);
+      while (s = get_next_line(fd))
+        {
+          my_putstr(s);
+          write(1, ""\n"", 1);
+          free(s);
+        }
+      return (0);
+    }
+
+",<c><malloc><free>,16/01/14 2:37,LQ_EDIT
+34781308,"Disable home ,menu and back button in LockScreen Activity?","<p>Hi guys i am working on Pattern Lock App.I want to Disable home , app switch menu and back buttons on lock-screen Activity actually These button are not disable in KITKAT , JELLYBEANS AND OTHER DEVICE ALL BUTTON DISABLE INSTEAD OF HOME BUTTON .please help me i am already in tension. thanks in Advance.</p>
+",<android><android-layout><android-intent><android-activity>,16/01/14 3:38,LQ_CLOSE
+34781748,Data from PHP form is not posting to mySQL,"<p>I am a novice with coding, so I am unsure why I am not getting data to store in mySQL after submitting a form. I started with a code generator, but it just ins't working. Thanks for any help.  Here is my code:</p>
+
+<p>Form:</p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;html&gt;
+  &lt;body&gt;
+    &lt;form id=""FormName"" action=""added.php"" method=""post"" name=""FormName""&gt;
+    &lt;table width=""448"" border=""0"" cellspacing=""2"" cellpadding=""0""&gt;
+
+    &lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""name""&gt;Name of Farm    &lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""name"" name=""name"" type=""text"" size=""25"" value="""" maxlength=""255""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""owners""&gt;Name of Owners&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""owners"" name=""owners"" type=""text"" size=""25"" value="""" maxlength=""255""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""location""&gt;Location (city,state)&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""location"" name=""location"" type=""text"" size=""25"" value="""" maxlength=""255""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""phone""&gt;Phone&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""phone"" name=""phone"" type=""text"" size=""25"" value="""" maxlength=""10""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""email""&gt;Email&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""email"" name=""email"" type=""text"" size=""25"" value="""" maxlength=""255""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""website""&gt;Website&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""website"" name=""website"" type=""text"" size=""25"" value="""" maxlength=""255""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""description""&gt;Description&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;textarea id=""description"" name=""description"" rows=""4"" cols=""40""&gt;&lt;/textarea&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""dateadded""&gt;Today's Date&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""dateadded"" name=""dateadded"" type=""text"" size=""25"" value="""" maxlength=""255""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""logo""&gt;Logo&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""logo"" name=""logo"" type=""text"" size=""25"" value="""" maxlength=""255""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width = ""150""&gt;&lt;div align=""right""&gt;&lt;label for=""state""&gt;State&lt;/label&gt;&lt;/div&gt;&lt;/td&gt;
+
+&lt;td&gt;&lt;input id=""state"" name=""state"" type=""text"" size=""25"" value="""" maxlength=""2""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=""150""&gt;&lt;/td&gt;&lt;td&gt;
+
+&lt;input type=""submit"" name=""submitButtonName"" value=""Add""&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+PHP is in 2 files - one with db connection instructions and the other to post the data in the mySQL.
+
+
+**Code to Connect to mySQL:**
+
+&lt;?php
+
+$hostname='localhost'; //// specify host, i.e. 'localhost'
+$user='llamabre_visitor'; //// specify username
+$pass='llama'; //// specify password
+$dbase='llamabre_farms1'; //// specify database name
+$connection = mysql_connect(""$hostname"" , ""$user"" , ""$pass"") 
+or die (""Can't connect to MySQL"");
+$db = mysql_select_db($dbase , $connection) or die (""Can't select database."");
+?&gt;
+
+&lt;a href=""index.php""&gt;Back to List&lt;/a&gt;
+
+
+**Code for posting to mySQL:**
+
+&lt;?php
+
+include(""connect.php"");
+
+$name = trim($_POST['name']);
+$owners = trim($_POST['owners']);
+$location = trim($_POST['location']);
+$phone = trim($_POST['phone']);
+$email = trim($_POST['email']);
+$website = trim($_POST['website']);
+$description = trim($_POST['description']);
+$dateadded = trim($_POST['dateadded']);
+$logo = trim($_POST['logo']);
+$state = trim($_POST['state']);
+
+$query = ""INSERT INTO farmsdir (id, name, owners, location, phone, email, website, description, dateadded, logo, state)
+
+VALUES ('', '$name', '$owners', '$location', '$phone', '$email', '$website', '$description', '$dateadded', '$logo', '$state')"";
+
+$results = mysql_query($query);
+
+if ($results)
+{
+  echo ""Details added."";
+}
+mysql_close();
+?&gt;</code></pre>
+</div>
+</div>
+</p>
+",<php><mysql>,16/01/14 4:27,LQ_CLOSE
+34782249,"Can a React-Redux app really scale as well as, say Backbone? Even with reselect. On mobile","<p>In Redux, every change to the store triggers a <code>notify</code> on all connected components. This makes things very simple for the developer, but what if you have an application with N connected components, and N is very large?</p>
+
+<p>Every change to the store, even if unrelated to the component, still runs a <code>shouldComponentUpdate</code> with a simple <code>===</code> test on the <code>reselect</code>ed paths of the store. That's fast, right? Sure, maybe once. But N times, for <em>every</em> change? This fundamental change in design makes me question the true scalability of Redux.</p>
+
+<p>As a further optimization, one can batch all <code>notify</code> calls using <code>_.debounce</code>. Even so, having N <code>===</code> tests for every store change <em>and</em> handling other logic, for example view logic, seems like a means to an end.</p>
+
+<p>I'm working on a health &amp; fitness social mobile-web hybrid application with millions of users and am transitioning from <strong>Backbone to Redux</strong>. In this application, a user is presented with a swipeable interface that allows them to navigate between different stacks of views, similar to Snapchat, except each stack has infinite depth. In the most popular type of view, an endless scroller efficiently handles the loading, rendering, attaching, and detaching of feed items, like a post. For an engaged user, it is not uncommon to scroll through hundreds or thousands of posts, then enter a user's feed, then another user's feed, etc. Even with heavy optimization, the number of connected components can get very large.</p>
+
+<p>Now on the other hand, Backbone's design allows every view to listen precisely to the models that affect it, reducing N to a constant.</p>
+
+<p>Am I missing something, or is Redux fundamentally flawed for a large app?</p>
+",<performance><backbone.js><mobile><reactjs><redux>,16/01/14 5:22,HQ
+34782370,I am trying to set attributes string to UITableViewCell's text label I am using following code,"    NSDictionary * dic = [arrayForTableView objectAtIndex:indexPath.row];
+            
+                NSNumber* lostPets = [dic valueForKey:@""lostPets""];
+                NSNumber * foundPets = [dic valueForKey:@""foundPets""];
+                NSString * breed = [dic valueForKey:@""breed""];
+            
+            
+                NSMutableAttributedString* message = [[NSMutableAttributedString alloc] init];
+                //set text
+                [message appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@""%@ ("",breed]]];
+            
+            
+            
+                [message appendAttributedString:[[NSAttributedString alloc] initWithString:[foundPets stringValue] attributes:@{
+                                                                                                             NSFontAttributeName : [UIColor greenColor]
+                                                                                                             }]];
+            
+                [message appendAttributedString:[[NSAttributedString alloc] initWithString:@""), (""]];
+            
+            
+                [message appendAttributedString:[[NSAttributedString alloc] initWithString:[lostPets stringValue] attributes:@{
+                                                                                                             NSFontAttributeName : [UIColor redColor]
+                                                                                                             }]];
+                [message appendAttributedString:[[NSAttributedString alloc] initWithString:@"")""]];
+            
+            cell.textLabel.attributedText = message;
+
+Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[UICachedDeviceRGBColor ctFontRef]: unrecognized selector sent to instance
+
+I tried to debug the code but unable to get the point of crash.  Kindly help.
+Thanks in advance.",<ios><nsattributedstring>,16/01/14 5:34,LQ_EDIT
+34782410,"sdl compile error, cannot open file 'SDL_lib.obj' in vs2005","When I compile a project with sdl in mvs2005,I encounter the problem.
+
+**LINK : fatal error LNK1104: cannot open file 'SDL_lib.obj'**
+
+How can I solve the problem?",<c><sdl><fatal-error>,16/01/14 5:38,LQ_EDIT
+34783317,Automate Microsoft Microsoft Visual C# / Basic .NET,"<p>I have to test a desktop application (it has login field/password field/settings/text box etc).Is there any free tool /perl /python module which can be used to automate application written in Microsoft Visual C# ?Sikuli is not an option as per our company .Please help</p>
+",<python><perl><testing><automation><automated-tests>,16/01/14 6:50,LQ_CLOSE
+34783546,Android Certifications Recognized,"<p>I am working as an Android developer for already more than 1 year and I was wondering, if there exists any Android certifications well-known as those from Oracle,Microsoft or Cisco ?</p>
+",<android>,16/01/14 7:06,LQ_CLOSE
+34784539,Android Studio: Text cursor disappears/gone after open some other class or pasting text in different classes,"<p><strong>Android Studio:</strong> Text cursor disappears/gone after open some other class or pasting text in different classes.
+Cursor is randomly disappear while coding in Android Studio. Currently using version 1.5.1
+Some time cursor is only visible in one file either in java or xml
+Right click is working but cursor is not visible in java/ or xml file so I am not able to type the code.</p>
+
+<p><strong>Observed scenario</strong>
+The text cursor is not visible or the cursor is gone when I open a different file (e.g. ApplicationTest.java instead of activity_main.xml) the cursor appears again.</p>
+
+<p><strong>Expected scenario:</strong>
+The text cursor should be located after the insertion point.</p>
+
+<p><strong>Action taken to solved</strong>
+I used synchronize, restart Android Studio…..  but not able to get solution. 
+I am using window 7 and I have cleared temp</p>
+
+<p><strong>R&amp;D</strong> <a href=""https://code.google.com/p/android/issues/detail?id=78384"" rel=""noreferrer"">https://code.google.com/p/android/issues/detail?id=78384</a></p>
+
+<p>I stuck to this problem so please help me. Appreciate, if anyone can help to troubleshoot.</p>
+",<java><android><xml><android-studio>,16/01/14 8:13,HQ
+34784588,ESLint says array never modified even though elements are pushed into array,"<p>I am converting some existing code to follow ECMA script and I am using ESLint to follow a coding standard.  I have the following ecmascript method</p>
+
+<pre><code>static getArrayOfIndices(text, char) {
+    let resultArray = [];
+    let index = text.indexOf(char);
+    const lastIndex = text.lastIndexOf(char);
+    while (index &lt;= lastIndex &amp;&amp; index !== -1) {
+      resultArray.push(index);
+      if (index &lt; lastIndex) {
+        index = text.substr(index + 1).indexOf(char) + index + 1;
+      } else {
+        index = lastIndex + 1999; // some random addition to fail test condition on next iteration
+      }
+    }
+    return resultArray;
+  }
+</code></pre>
+
+<p>For the declaration of resultArray, ESLint throws the error </p>
+
+<pre><code>ESLint: `resultArray` is never modified, use `const`instead. (prefer-const)
+</code></pre>
+
+<p>But since elements are being pushed into the array, isn't it being modified? </p>
+",<javascript><arrays><ecmascript-6><eslint>,16/01/14 8:16,HQ
+34784644,What is the difference between OAuth based and Token based authentication?,"<p>I thought that OAuth is basically a token based authentication specification but most of the time frameworks act as if there is a difference between them. For example, as shown in the picture below <a href=""https://jhipster.github.io/"" rel=""noreferrer"">Jhipster</a> asks whether to use an OAuth based or a token based authentication. </p>
+
+<p>Aren't these the same thing ? What exactly is the difference since both includes tokens in their implementations ?</p>
+
+<p><a href=""https://i.stack.imgur.com/vCcXA.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/vCcXA.png"" alt=""enter image description here""></a></p>
+",<authentication><oauth><oauth-2.0><access-token><jwt>,16/01/14 8:19,HQ
+34785161,How to debug java source code when I implement a custom Detector for Lint?,"<p>I am a Android developer.
+I have already design my own lint rules by implementing new XXXDetector and XXXIssueRegistry, here is my source code snip:</p>
+
+<p>My XXXIssueRegistry file:</p>
+
+<pre><code>public class MyIssueRegistry extends IssueRegistry {
+  @Override
+  public List&lt;Issue&gt; getIssues() {
+
+    System.out.println(""!!!!!!!!!!!!! ljf MyIssueRegistry lint rules works"");
+    return Arrays.asList(AttrPrefixDetector.ISSUE,
+            LoggerUsageDetector.ISSUE);
+  }
+}
+</code></pre>
+
+<p>My XXXDetector file:</p>
+
+<pre><code>public class LoggerUsageDetector extends Detector
+    implements Detector.ClassScanner {
+public static final Issue ISSUE = Issue.create(""LogUtilsNotUsed"",
+        ""You must use our `LogUtils`"",
+        ""Logging should be avoided in production for security and performance reasons. Therefore, we created a LogUtils that wraps all our calls to Logger and disable them for release flavor."",
+        Category.MESSAGES,
+        9,
+        Severity.ERROR,
+        new Implementation(LoggerUsageDetector.class,
+                Scope.CLASS_FILE_SCOPE));
+
+@Override
+public List&lt;String&gt; getApplicableCallNames() {
+    return Arrays.asList(""v"", ""d"", ""i"", ""w"", ""e"", ""wtf"");
+}
+
+@Override
+public List&lt;String&gt; getApplicableMethodNames() {
+    return Arrays.asList(""v"", ""d"", ""i"", ""w"", ""e"", ""wtf"");
+}
+
+@Override
+public void checkCall(@NonNull ClassContext context,
+                      @NonNull ClassNode classNode,
+                      @NonNull MethodNode method,
+                      @NonNull MethodInsnNode call) {
+    String owner = call.owner;
+    if (owner.startsWith(""android/util/Log"")) {
+        context.report(ISSUE,
+                method,
+                call,
+                context.getLocation(call),
+                ""You must use our `LogUtils`"");
+    }
+}
+}
+</code></pre>
+
+<p>Now I can run my custom lint rules by runnig command:</p>
+
+<pre><code>$gradle lint
+</code></pre>
+
+<p>And I will get output message like I expected in console.</p>
+
+<p>But I want to debug my XXXDetector source file. How can I do that?
+If I click ""debug"" or ""run"" or ""build"" , my custom lint rules will NOT run! So I have to run it in console, which don't support debug.
+How can I solve this?</p>
+",<java><android><lint>,16/01/14 8:52,HQ
+34785569,Html code not working in safari.But working in all other browsers,"And i think its not able to submit form in safari browser
+This is working fine in all the browsers except safari
+             <form action=""/commonDashboard"" name=""loginForm"" method=""post"" autocomplete=""off"" id=""loginForm"">
+                                <div>
+                                    <label>User Email ID</label>
+                                    <input type=""text"" placeholder=""Enter your Email Address"" id=""userEmail"" name=""userEmail"" tabindex=""1"" />
+                                </div>
+                                <div>
+                                    <label>Password</label>
+                                    <input type=""password"" placeholder=""Enter your password"" id=""userPassword"" name=""userPassword"" tabindex=""2"" />
+                                </div>
+                                <div>
+                                    <input type=""button"" value=""Sign In"" onclick=""validatelogin();"" tabindex=""3"" />
+                                </div>
+                            </form>
+                ",<html><safari>,16/01/14 9:14,LQ_EDIT

@@ -1,0 +1,12 @@
+python-csv
+Gensim
+matplotlib
+nltk
+numpy
+pandas
+scikit-learn
+scipy
+seaborn
+textblob
+tqdm
+xgboost

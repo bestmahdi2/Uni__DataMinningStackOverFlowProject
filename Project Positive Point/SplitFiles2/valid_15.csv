@@ -1,0 +1,168 @@
+Id,Title,Body,Tags,CreationDate,Y
+34706114,Get specific words followed by and preceed by words,"Hello There I need to get some words based on some other words that come after and before that words!
+suppose that I have a String:
+   
+    not me and you but me and no you but me not
+
+so that the output should be:
+   
+    not me
+    and no
+    no you
+    me not
+
+In simple words i want to get words with no and not comes after or before the specific words!
+I am trying as:
+
+    String regex = ""(?i)%s\\s+([\\S]+)\\s+([\\S]+)"";
+    Matcher m = Pattern.compile(String.format(regex, Pattern.quote(""no""))).matcher(""not me and you but me and no you but me not"");
+    
+    while (m.find())
+    {
+        System.out.println(m.group(1));
+    
+    }
+
+Thanks in advance!",<java><regex><pattern-matching>,16/01/10 13:45,LQ_EDIT
+34706263,Trying to call a function from a dictionary based on lists,"<p>I was trying to write some code which checks two lists (<code>owned</code> and <code>choose</code>) and then it will check if the items in <code>choose</code> are in <code>owned</code> and will run the correct function according to what is in both lists.</p>
+
+<pre><code>def func1():
+    print(""hello"")
+
+def func2():
+    print(""hello2"")
+
+def func3():
+    print(""hello3"")
+
+def func4():
+    print(""hello4"")
+
+owned = ['a', 'b', 'c', 'd']
+choose = ['a', 'c', 'f' ,'g']
+
+funcs = {'a' : func1(), 'b' : func2(), 'c' : func3(), 'd' : func4}
+for i in choose:
+    if i in owned:
+        funcs[i]()
+</code></pre>
+
+<p>My problem is that I can't use <code>funcs[i]()</code> but I get this error:</p>
+
+<pre><code>    funcs[i]()
+TypeError: 'NoneType' object is not callable
+</code></pre>
+
+<p>Which means I can't use <code>i</code> to call the functions. Is there anyway I can achieve the same goal?</p>
+",<python><list><function><dictionary><iterable>,16/01/10 14:01,LQ_CLOSE
+34707586,"Python, tkinter user input","   Trying to get clients input and make a search google
+Example:
+client's  input entry = business emails 
+output = opens a new tab in chrome > searches google for, ""intext:gmail.com bussiness emails""
+
+from tkinter import *
+    import webbrowser
+    def main():
+        global userInput
+        root = Tk()
+    
+        Label2 = Label(text=""GhostTest"")
+        Label2.pack()
+    
+        userInput = Entry(bd=2)
+        userInput.pack()
+    
+        Button1 = Button(text=""Search,"", command=userInput)
+        Button1.pack()
+    
+    
+    def GoogleSearch():
+            new = 2
+            userInput = Entry(bd=2)
+            term = Entry(userInput)
+            tabUrl = ""http://google.com/?#q=""
+            webbrowser.open(tabUrl+str(term.get()),new=new);
+    
+    root.mainloop()
+    
+    if __name__=='__main__':
+        main()",<python><tkinter><tk>,16/01/10 16:02,LQ_EDIT
+34709091,I'm brand new to coding and get my program to work. Any help would be amazing," double weeklySales =0, grossPay = 0, fedTax = 0, socSecurity = 0, retirement = 0, totDeductions = 0, takeHomePay = 0;            
+
+            Console.WriteLine(""Please enter your total for sales for the week."");
+            weeklySales=Convert.ToDouble(Console.ReadLine());
+            grossPay = weeklySales * .07;
+            fedTax = grossPay * .18;
+            socSecurity = grossPay * .06;
+            retirement = grossPay * .1;
+            totDeductions = fedTax + socSecurity + retirement;
+            takeHomePay = grossPay - totDeductions;
+
+            Console.WriteLine(""Your total sales for the week were $ "", weeklySales);
+            Console.WriteLine(""Your gross pay for the week was $ "", grossPay);
+            Console.WriteLine(""Your Federal Taxes for the week were $ "", fedTax);
+            Console.WriteLine(""You were deducted $ "", socSecurity, "" for social security."");
+            Console.WriteLine(""Your retirement contribution was $ "", retirement);
+            Console.WriteLine(""The total amount of of deductions were $ "", totDeductions);
+            Console.WriteLine(""Your take home pay for the week is $ "", takeHomePay);
+
+            Console.ReadLine();",<c#>,16/01/10 18:17,LQ_EDIT
+34711766,#NAME?,"So i have an assignment. Theyre asking me to Calculate the Area under a Curve with a Integral (Riemann). I wrote a good code but its giving me problems when i run it, exactly this problem: NameError: name 'y' is not defiende
+
+    from math import *
+
+    def f(x):
+       return y**2
+
+    def integral (A, B, Rectangulos):
+        ancho = (float(B) - float(A)) / Rectangulos
+        suma = 0
+        for i in range(Rectangulos):
+           altura = f(A + i * ancho)
+           area = altura * ancho
+           suma = suma + area
+        return suma
+    
+    A = int(input(""Asigna el valor de A:  ""))
+    B = int(input(""Asigna el valor de B:  ""))
+        
+    Rectangulos = int(input(""Indique la cantidad de rectangulos que desea utilizar \n (Recuerde que mientras mayor sea la densidad, el valor final sera mas cercano al valor deseado):  ""))
+
+    print (""El valor aproximado de esta integral es "", integral(A,B,Rectangulos))
+
+
+If you could give me a hand please, i dont know how to fix this error",<python><function><undefined>,16/01/10 22:59,LQ_EDIT
+34712329,"Regex , regular expression","<p>I have a string of the following pattern : 
+""x44A-x440-x427-x45E-Yellow-apple"", for the hex numbers(of unicode  characters) I want to replace those dashes with # character and to append the # to the first one as well. Those hex codes can be any from the unicode char range.  Please help with the regex to achieve my goal, prefferably in perl. Thanks</p>
+",<regex><perl>,16/01/11 0:09,LQ_CLOSE
+34713153,"Symfony2, Assetic, Compass, and SASS","<p>I've been looking all over for a good, recent tutorial on how to hook up SASS within symfony (specifically 2.8). It looks like there are no tutorials newer that 2011. Is this because there's some reason I shouldn't be using SASS with Symfony? If there is a way to set this up easily, could someone point me in the right direction. I have Compass and SASS installed on my machine (along with the assetic bundle for Symfony).</p>
+",<php><symfony><sass><assetic><symfony-2.8>,16/01/11 2:03,LQ_CLOSE
+34715049,How to convert minutes to find how many number of years are in those minutes?,"<p>Program that prompts the user to enter the minutes(e.g., 1 billion), and display the number of years and days for the minutes. </p>
+",<java><algorithm>,16/01/11 5:57,LQ_CLOSE
+34717293,I want to identify a click on google ad on my website and want to perform some javascript on click function,"<p>I want to identify a click on google ad on my website and want to perform some javascript on click function. Basically i want to hide the ad once user click on google ad.</p>
+",<javascript><jquery><google-analytics>,16/01/11 8:48,LQ_CLOSE
+34718253,adding minutes in scala with formatting,"How to add minutes in scala with the below format
+
+import java.text.SimpleDateFormat
+import java.util.Calendar
+ 
+val cal = Calendar.getInstance().getTime()
+   //val cal = Calendar.getInstance()
+
+
+    // create the date/time formatters
+    val dayFormat = new SimpleDateFormat(""dd"")
+    val monthFormat = new SimpleDateFormat(""MM"")
+    val yearFormat = new SimpleDateFormat(""yyyy"")
+    val hourFormat = new SimpleDateFormat(""HH"")
+    val minuteFormat = new SimpleDateFormat(""mm"")
+    val secondFormat = new SimpleDateFormat(""ss"")
+
+    val year = yearFormat.format(cal);
+    val month = monthFormat.format(cal);
+    val day = dayFormat.format(cal);
+    val hour = hourFormat.format(cal);
+    val minute = minuteFormat.format(cal);
+    val second = secondFormat.format(cal);
+
+val AxedaRecvdDt = year + ""-"" + month + ""-"" + day + ""T"" + hour + "":"" + minute + "":"" + second + ""Z""",<scala>,16/01/11 9:43,LQ_EDIT

@@ -1,0 +1,188 @@
+Id,Title,Body,Tags,CreationDate,Y
+34739660,Objective-C send variable to Swift,"I have that code:
+
+    - (NSString *)obtenerDatosUsuario
+    {
+       __block NSString *result=@"""";
+        [self obtenerDatosUsuarioSQL:^(NSString *resultadoSQL){
+            result=resultadoSQL;
+        }];
+        return result;
+    } 
+
+And I want that the return be the content of resultadoSQL",<objective-c>,16/01/12 9:20,LQ_EDIT
+34743160,Android I don't understand nine patch tool,"<p>Android I don't understand nine patch tool and why we use the nine patch and what is the benefits of using nine patch .I think it is used for small images in order to not loose quality when it is scaled.
+plz can anyone give me detail explanation about why we use nine patch ?</p>
+",<android>,16/01/12 12:01,LQ_CLOSE
+34745955,Replaceobjectatindex doesn't reload the tableview in ios?,"This is my piece of code:
+
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
+    NSDictionary oldDict = (NSDictionary )[dataArray objectAtIndex:0];
+    [newDict addEntriesFromDictionary:oldDict];
+    [newDict setObject:@""Don"" forKey:@""Name""];
+    [dataArray replaceObjectAtIndex:0 withObject:newDict];
+    [self.tblview reloadData];
+
+I have to reload my tableview.But the tableview is not reloaded.How to rectify it.",<ios><objective-c><uitableview><nsarray>,16/01/12 14:12,LQ_EDIT
+34746775,Scheduling a second notification if first is ignored in swift (or completing any action if notification is ignored),"<p>So I have an app currently on the app store that schedules 10 notifications in advance assuming you miss one you will still get a second chance or ten. Now before you think I will be bothering the person, the notification is very important to the functionality of the app and really is the main purpose. The app was built for iOS 7 so at that time there was no ""handleActionWithIdentifier"" which can, from my understanding, complete actions for the app even if it is closed depending on the users response to the notification. This update was very helpful for the app as it eliminates part of my problem of having to open the app to respond to the notification (the notifications ask the user a question and depending on the answer, completes something).</p>
+
+<p>The problem that remains is detecting if the notification was missed, how would I make another notification appear, for example the next day, if the notification is dismissed or ignored. I have searched this on google and stack overflow and from my understanding all previous questions have been asking how to detect if the notification was missed one the app is opened which I do not need.</p>
+
+<p>At this point, I can properly run code if the user responds to the notification by pressing one of the options on the notification by this :</p>
+
+<pre><code>func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -&gt; Void) {
+        var userInfo = [NSObject: AnyObject]()
+        userInfo[""text""] = responseInfo[UIUserNotificationActionResponseTypedTextKey]
+        NSNotificationCenter.defaultCenter().postNotificationName(""text"", object: nil, userInfo: userInfo)
+
+        print(userInfo)
+
+        completionHandler()
+    }
+</code></pre>
+
+<p>as of right now, I am just taking textfield input and printing it but I could launch a second notification if I wanted. Is there a method to detecting when a notification is missed and scheduling another notification?</p>
+
+<p>There is always a chance that it is still not possible to do what I want and I would just schedule 10 notifications in advance which seems sloppy and does not let me make the response as iterative.</p>
+
+<p>TLDR; how do I detect and run code if a local notification is missed WITHOUT opening the app</p>
+
+<p>BTW: if you have answers, swift is the preferred language</p>
+",<ios><iphone><swift><notifications><uilocalnotification>,16/01/12 14:51,HQ
+34747233,I want to compare two values from two lists of dictionaries,"I' trying to compare two values, one from list1 and another from list2. Each values inside dictionaries in these lists. I read it from a csv file. I want the code to be fast and efficient. Please help. Thanks in advance. 
+
+    import csv    
+    
+    list1 = []
+    list2 = []
+    reader1 = csv.DictReader(open('file1.csv'))
+    reader2 = csv.DictReader(open('file2.csv'))
+    
+    list1 = [x for x in reader1]
+    list2 = [x for x in reader2]
+    
+    
+    print [x['MyMail'] for x in list1 for y in list2 if x['MyMail']==y['Email']]
+
+This is comparing only the first value and not iterating. ",<python><csv><dictionary><list-comprehension><dictionary-comprehension>,16/01/12 15:14,LQ_EDIT
+34749819,Maven resource filtering exclude,"<p>I have a following maven configuration:</p>
+
+<pre><code>        &lt;resources&gt;
+            &lt;resource&gt;
+                &lt;directory&gt;src/main/resources&lt;/directory&gt;
+                &lt;filtering&gt;true&lt;/filtering&gt;
+                &lt;excludes&gt;
+                    &lt;exclude&gt;keystore.jks&lt;/exclude&gt;
+                &lt;/excludes&gt;
+            &lt;/resource&gt;
+        &lt;/resources&gt;
+</code></pre>
+
+<p>I want <code>keystore.jks</code> to be included in my classes/war application but not to be processed by Maven filtering.</p>
+
+<p>How to change this configuration ? </p>
+",<maven>,16/01/12 17:12,HQ
+34752519,Regular expression to search for files and folders,"<p>Help write a regular expression to search for files and folders,
+searches for a given mask. In the mask, you can use ""*""
+(any characters in any number), and the ""?"" (one symbol).</p>
+",<c#><regex>,16/01/12 19:46,LQ_CLOSE
+34752647,Why are these ID's no longer visible?,"I've been arranging these shapes in a grid, then all of a sudden I hit run and all the shapes that are ID's disappeared and I cant work out why. I haven't changed anything. Why are the not visible? 
+<script async src=""//jsfiddle.net/wundersoy/zsf5x91q/embed/js,html,css,result/dark/""></script>",<html><css><visible>,16/01/12 19:55,LQ_EDIT
+34754142,Stripe Error: 'Token is Not Supported' when trying to sign up to subscription,"<p>Can't find any information on this particular error anywhere so please bear with me.</p>
+
+<p>My Angular/NodeJS app has a payment page (for monthly and annual subscriptions) handled through Stripe.</p>
+
+<p>I've created the subscription types in my Stripe dashboard (two subscriptions: <code>StarterAnnual</code> and <code>StarterMonthly</code>), and I've set up the handler like so:</p>
+
+<pre><code>  var handler = StripeCheckout.configure({
+          key: 'pk_test_qs8Ot1USopAZAyLN3gNXma0T',
+          image: '/img/stripe-logo.png',
+          locale: 'auto',
+          email: $scope.user.email,
+          token: function(token) {
+            console.log(token)
+            var tempObj = {
+                stripeToken : token,
+                email : $scope.user.email,
+                cost : $scope.plan.price * 100
+                plan : $scope.plan.name
+            }
+            $http.post('/api/makePayment', tempObj).then(function(data){
+                console.log('stripe data', data);
+            },function(err){
+                console.log('stripe error', err);
+            })
+          }
+        });
+
+        handler.open({
+          name: '&lt;bizname&gt;',
+          description: $scope.plan.name,
+          amount: $scope.plan.price * 100
+        });
+</code></pre>
+
+<p>In my Node route, I'm doing this:</p>
+
+<pre><code>exports.makePayment = function(req,res){
+
+  var stripeToken = req.body.stripeToken,
+            email = req.body.email,
+             cost = req.body.cost,
+             plan = req.body.plan;
+
+  var tempObj = {
+    source: stripeToken,
+    plan: plan,
+    email: email
+  }
+
+  console.log(tempObj); // Everything looks fine in this log
+
+  stripe.customers.create(tempObj, function(err, customer) {
+    if(err){
+      console.log(""Stripe Error"");
+      console.log(err);
+    }else{
+      console.log(customer);
+      res.status(200).send(customer);
+    }
+
+  });
+}
+</code></pre>
+
+<p>When I try to make a payment I get:</p>
+
+<pre><code>Stripe Error
+{ [Error: token is not supported.]
+  type: 'StripeInvalidRequestError',
+  stack: 'Error: token is not supported.\n    at Error._Error (/node_modules/stripe/lib/Error.js:12:17)\n    at Error.Constructor (/node_modules/stripe/lib/utils.js:105:13)\n    at Error.Constructor (/node_modules/stripe/lib/utils.js:105:13)\n    at Function.StripeError.generate (/node_modules/stripe/lib/Error.js:56:14)\n    at IncomingMessage.&lt;anonymous&gt; (/node_modules/stripe/lib/StripeResource.js:138:39)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:905:12)\n    at doNTCallback2 (node.js:452:9)\n    at process._tickCallback (node.js:366:17)',
+  rawType: 'invalid_request_error',
+  code: undefined,
+  param: 'source',
+  message: 'token is not supported.',
+  detail: undefined,
+  raw: 
+   { type: 'invalid_request_error',
+     message: 'token is not supported.',
+     param: 'source',
+     statusCode: 400,
+     requestId: 'req_7hzY3mEgeM3nNJ' },
+  requestId: 'req_7hzY3mEgeM3nNJ',
+  statusCode: 400 }
+</code></pre>
+
+<p>I've pretty much just used code straight out of the docs, what am I doing wrong here? Do I need to set things up differently for creating a customer when doing a subscription?</p>
+",<javascript><angularjs><node.js><stripe-payments>,16/01/12 21:30,HQ
+34755728,Profile Python import times,"<p>Is there a way to find out which imports are taking the longest in Python? Looking at the output of <code>python -m cProfile &lt;script&gt;</code>, it doesn't seem to include <code>import</code> statements (understandably given potentially huge dependency trees). Initially I thought it did since I saw a row for <code>__import__()</code> calls, but I think this might actually be because code somewhere is explicitly calling it, toy programs with only <code>import</code> statements don't have a row for it.</p>
+
+<p>Right now I'm just using:</p>
+
+<pre><code>start = time.time()
+import &lt;module&gt;
+print '%s / time: %f' % (&lt;module&gt;, time.time()-start)
+</code></pre>
+
+<p>around each module, but it doesn't profile it recursively to see which import within an import might be inflating the time.</p>
+",<python><profiling><python-import>,16/01/12 23:27,HQ

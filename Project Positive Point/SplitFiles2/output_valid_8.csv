@@ -1,0 +1,431 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34606682,How to modify SDK manger path?,"[enter image description here][1]
+""Error:Cause: failed to find target with hash string 'android-19' in: E:\android\android_sdk""
+but I have modified SDK path as ""E:\android\android_sdk_19\Android\Android\sdk"",which is shown in the pic below.
+I changed Project structure-SDK Location as ""E:\android\android_sdk_19\Android\Android\sdk"" too.
+[enter image description here][2]
+Please tell me how to fix this problem,thank you!
+
+
+  [1]: http://i.stack.imgur.com/B8hEs.png
+  [2]: http://i.stack.imgur.com/UQZDv.png",<android><android-studio><android-studio-import>,16/01/05 7:56,LQ_EDIT,"<android><android-studio><android-studio-import>, How to modify SDK manger path?, [enter image description here][1]
+""Error:Cause: failed to find target with hash string 'android-19' in: E:\android\android_sdk""
+but I have modified SDK path as ""E:\android\android_sdk_19\Android\Android\sdk"",which is shown in the pic below.
+I changed Project structure-SDK Location as ""E:\android\android_sdk_19\Android\Android\sdk"" too.
+[enter image description here][2]
+Please tell me how to fix this problem,thank you!
+
+
+  [1]: http://i.stack.imgur.com/B8hEs.png
+  [2]: http://i.stack.imgur.com/UQZDv.png","<andros><andros-studio><andros-studio-import>, modify sd manger path?, [enter image rescript here][1] ""error:cause: fail find target has string 'andros-19' in: e:\andros\android_sdk"" modify sd path ""e:\andros\android_sdk_19\andros\andros\sd"",which shown pick below. change project structure-sd local ""e:\andros\android_sdk_19\andros\andros\sd"" too. [enter image rescript here][2] pleas tell fix problem,thank you! [1]: http://i.stick.incur.com/bones.pig [2]: http://i.stick.incur.com/uqzdv.pig"
+34607210,How do you add a Root element/Tag in XML using perl,"I have a XML data which does not have a root element/tag. Is there a way where you can add a Root tag? This is just an example.
+
+***Example : Existing XML***
+
+         <Module name=""ALU"">
+         <input name=""power_control_bus""/>
+         <bidirection name=""address_bus""/>
+         </Module>
+         <Module name=""Power_control"">
+         <input name=""cpu_control_bus""/>
+         <output name=""power_control_bus""/>
+         <bidirection name=""address_bus""/>
+         </Module>
+
+Now I'd like to add a Root tag/element to this XML using perl
+
+***What I'm looking for***
+
+         <Root>
+           <Module name=""AL"">
+           <input name=""cpu""/>
+           <bidirection name=""add""/>
+           </Module>          
+           <Module name=""Pow"">
+           <input name=""cpu""/>
+           <output name=""pow""/>
+           <bidirection name=""add""/>
+           </Module>
+        </Root>
+
+**NOTE:** I'm using XML::Simple module because the perl script is written in such and its tedious to convert to any other XML module as of now. It'll be great if we can get an explanation for the answer!
+
+thanks!",<xml><perl><xml-simple>,16/01/05 8:30,LQ_EDIT,"<xml><perl><xml-simple>, How do you add a Root element/Tag in XML using perl, I have a XML data which does not have a root element/tag. Is there a way where you can add a Root tag? This is just an example.
+
+***Example : Existing XML***
+
+         <Module name=""ALU"">
+         <input name=""power_control_bus""/>
+         <bidirection name=""address_bus""/>
+         </Module>
+         <Module name=""Power_control"">
+         <input name=""cpu_control_bus""/>
+         <output name=""power_control_bus""/>
+         <bidirection name=""address_bus""/>
+         </Module>
+
+Now I'd like to add a Root tag/element to this XML using perl
+
+***What I'm looking for***
+
+         <Root>
+           <Module name=""AL"">
+           <input name=""cpu""/>
+           <bidirection name=""add""/>
+           </Module>          
+           <Module name=""Pow"">
+           <input name=""cpu""/>
+           <output name=""pow""/>
+           <bidirection name=""add""/>
+           </Module>
+        </Root>
+
+**NOTE:** I'm using XML::Simple module because the perl script is written in such and its tedious to convert to any other XML module as of now. It'll be great if we can get an explanation for the answer!
+
+thanks!","<all><per><all-simple>, add root element/tag all use per, all data root element/tag. way add root tag? example. ***example : exist all*** <model name=""all""> <input name=""power_control_bus""/> <direct name=""address_bus""/> </module> <model name=""power_control""> <input name=""cpu_control_bus""/> <output name=""power_control_bus""/> <direct name=""address_bus""/> </module> i'd like add root tag/el all use per ***what i'm look for*** <root> <model name=""al""> <input name=""cup""/> <direct name=""add""/> </module> <model name=""now""> <input name=""cup""/> <output name=""now""/> <direct name=""add""/> </module> </root> **note:** i'm use all::simple model per script written tedious convert all model now. it'll great get explain answer! thanks!"
+34607877,What document is Play Store expecting me to upload to show that I'm not impersonating others?,"<p>My company is currently making an Android application for a local $BigCarManufacturer dealer. We are not impersonating anyone, the application is under the name of ""$BigCarManufacturer $dealer"", and we even cooperated with some guys from $BigCarManufacturer to provide us some web services from their official website. Unfortunately, the application was immediately suspended for impersonation, and now I can only appeal the removal. When I do, I get the option to upload some documents, and the following message: </p>
+
+<blockquote>
+  <p>If you selected Intellectual property and impersonation or deceptive behavior above, please provide a document that proves you have the rights to use specific content, icons, images, etc.</p>
+</blockquote>
+
+<p>So what exactly is expected here? The scans of the contract? In what language? The contract doesn't exist in English, and is pretty trivial otherwise, basically ""make an app for us, we'll pay you X, and use anything you need from our website"". No one was anal enough to specify individual icons, images or anything silly like that since none of those rights were transferred to us in the first place, we are merely using assets to build an app <em>for them</em>.</p>
+",<android><google-play>,16/01/05 9:11,HQ,"<android><google-play>, What document is Play Store expecting me to upload to show that I'm not impersonating others?, <p>My company is currently making an Android application for a local $BigCarManufacturer dealer. We are not impersonating anyone, the application is under the name of ""$BigCarManufacturer $dealer"", and we even cooperated with some guys from $BigCarManufacturer to provide us some web services from their official website. Unfortunately, the application was immediately suspended for impersonation, and now I can only appeal the removal. When I do, I get the option to upload some documents, and the following message: </p>
+
+<blockquote>
+  <p>If you selected Intellectual property and impersonation or deceptive behavior above, please provide a document that proves you have the rights to use specific content, icons, images, etc.</p>
+</blockquote>
+
+<p>So what exactly is expected here? The scans of the contract? In what language? The contract doesn't exist in English, and is pretty trivial otherwise, basically ""make an app for us, we'll pay you X, and use anything you need from our website"". No one was anal enough to specify individual icons, images or anything silly like that since none of those rights were transferred to us in the first place, we are merely using assets to build an app <em>for them</em>.</p>
+","<andros><goose-play>, document play store expect unload show i'm person others?, <p>mi company current make andros applied local $bigcarmanufactur dealer. person anyone, applied name ""$bigcarmanufactur $dealer"", even cooper guy $bigcarmanufactur proved us web service office webster. unfortunately, applied dimmed suspend impersonation, appeal removal. do, get option unload documents, follow message: </p> <blockquote> <p>if select intellect property person decent behavior above, pleas proved document prove right use specie content, icons, images, etc.</p> </blockquote> <p>so exactly expect here? scan contract? language? contract exist english, pretty trivial otherwise, basic ""make pp us, we'll pay x, use any need webster"". one anal enough specific individu icons, image any sill like since none right transfer us first place, mere use asset build pp <em>for them</em>.</p>"
+34611991,How to package a multi-architecture .NET library that targets the Universal Windows Platform?,"<p>How do I package a Universal Windows Platform library written in C# that offers only architecture-dependent builds? For the sake of illustration, let's say that I have some architecture-specific code conditionally compiled in for each architecture (using <code>#if ARM</code> and equivalents).</p>
+
+<p>To be clear, no AnyCPU build exists for my library - only x86, x64 and ARM.</p>
+
+<p>An equivalent and potentially more common situation is one where I have a dependency on an external library that is only provided as architecture-specific builds (e.g. <a href=""https://github.com/Microsoft/Win2D"" rel=""noreferrer"">Win2D</a>). To keep the context simple, let's assume there are no dependencies and only my own code is involved - the solution should reduce to the same thing either way.</p>
+
+<blockquote>
+  <p>This is a series of questions and answers that document my findings on the topic of modern NuGet package authoring, focusing especially on the changes introduced with NuGet 3. You may also be interested in some related questions:</p>
+  
+  <ul>
+  <li><a href=""https://stackoverflow.com/questions/34611829/how-to-package-a-net-framework-library"">How to package a .NET Framework library?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34611882/how-to-package-a-net-library-targeting-the-universal-windows-platform"">How to package a .NET library targeting the Universal Windows Platform?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34611919/how-to-package-a-portable-net-library-targeting-net-core"">How to package a portable .NET library targeting .NET Core?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34611968/how-to-package-a-net-library-targeting-net-framework-and-universal-windows-pla"">How to package a .NET library targeting .NET Framework and Universal Windows Platform and include platform-specific functionality?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34612015/how-to-package-a-net-library-that-targets-the-universal-windows-platform-and-de"">How to package a .NET library that targets the Universal Windows Platform and depends on Visual Studio extension SDKs?</a></li>
+  </ul>
+</blockquote>
+",<nuget><uwp><nuget-package>,16/01/05 12:41,HQ,"<nuget><uwp><nuget-package>, How to package a multi-architecture .NET library that targets the Universal Windows Platform?, <p>How do I package a Universal Windows Platform library written in C# that offers only architecture-dependent builds? For the sake of illustration, let's say that I have some architecture-specific code conditionally compiled in for each architecture (using <code>#if ARM</code> and equivalents).</p>
+
+<p>To be clear, no AnyCPU build exists for my library - only x86, x64 and ARM.</p>
+
+<p>An equivalent and potentially more common situation is one where I have a dependency on an external library that is only provided as architecture-specific builds (e.g. <a href=""https://github.com/Microsoft/Win2D"" rel=""noreferrer"">Win2D</a>). To keep the context simple, let's assume there are no dependencies and only my own code is involved - the solution should reduce to the same thing either way.</p>
+
+<blockquote>
+  <p>This is a series of questions and answers that document my findings on the topic of modern NuGet package authoring, focusing especially on the changes introduced with NuGet 3. You may also be interested in some related questions:</p>
+  
+  <ul>
+  <li><a href=""https://stackoverflow.com/questions/34611829/how-to-package-a-net-framework-library"">How to package a .NET Framework library?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34611882/how-to-package-a-net-library-targeting-the-universal-windows-platform"">How to package a .NET library targeting the Universal Windows Platform?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34611919/how-to-package-a-portable-net-library-targeting-net-core"">How to package a portable .NET library targeting .NET Core?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34611968/how-to-package-a-net-library-targeting-net-framework-and-universal-windows-pla"">How to package a .NET library targeting .NET Framework and Universal Windows Platform and include platform-specific functionality?</a></li>
+  <li><a href=""https://stackoverflow.com/questions/34612015/how-to-package-a-net-library-that-targets-the-universal-windows-platform-and-de"">How to package a .NET library that targets the Universal Windows Platform and depends on Visual Studio extension SDKs?</a></li>
+  </ul>
+</blockquote>
+","<puget><up><puget-package>, package multi-architecture .net library target univers window platform?, <p>how package univers window platform library written c# offer architecture-depend build? sake illustration, let' say architecture-specie code conduct compel architecture (use <code>#if arm</code> equivalent).</p> <p>to clear, anycpu build exist library - x, x arm.</p> <p>an equal potent common situate one depend externa library proved architecture-specie build (e.g. <a he=""http://github.com/microsoft/wind"" red=""noreferrer"">wind</a>). keep context simple, let' assume depend code involve - slut reduce thing either way.</p> <blockquote> <p>the peri question answer document find topic modern puget package authority, focus respect change introduce puget 3. may also interest relate questions:</p> <up> <li><a he=""http://stackoverflow.com/questions/34611829/how-to-package-a-net-framework-library"">how package .net framework library?</a></li> <li><a he=""http://stackoverflow.com/questions/34611882/how-to-package-a-net-library-marketing-the-universal-windows-platform"">how package .net library target univers window platform?</a></li> <li><a he=""http://stackoverflow.com/questions/34611919/how-to-package-a-portable-net-library-marketing-net-core"">how package portable .net library target .net core?</a></li> <li><a he=""http://stackoverflow.com/questions/34611968/how-to-package-a-net-library-marketing-net-framework-and-universal-windows-plan"">how package .net library target .net framework univers window platform include platform-specie functionality?</a></li> <li><a he=""http://stackoverflow.com/questions/34612015/how-to-package-a-net-library-that-target-the-universal-windows-platform-and-de"">how package .net library target univers window platform depend visual studio extent sides?</a></li> </up> </blockquote>"
+34612019,Programmatic SchemaExport / SchemaUpdate with Hibernate 5 and Spring 4,"<p>With Spring 4 and Hibernate 4, I was able to use Reflection to get the Hibernate Configuration object from the current environment, using this code:</p>
+
+<pre><code>@Autowired LocalContainerEntityManagerFactoryBean lcemfb;
+
+EntityManagerFactoryImpl emf = (EntityManagerFactoryImpl) lcemfb.getNativeEntityManagerFactory();
+SessionFactoryImpl sf = emf.getSessionFactory();
+SessionFactoryServiceRegistryImpl serviceRegistry = (SessionFactoryServiceRegistryImpl) sf.getServiceRegistry();
+Configuration cfg = null;
+
+try {
+    Field field = SessionFactoryServiceRegistryImpl.class.getDeclaredField(""configuration"");
+    field.setAccessible(true);
+    cfg = (Configuration) field.get(serviceRegistry);
+} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+    e.printStackTrace();
+}
+
+SchemaUpdate update = new SchemaUpdate(serviceRegistry, cfg);
+</code></pre>
+
+<p>With Hibernate 5, I must use some <code>MetadataImplementor</code>, which doesn't seems to be available from any of those objects. I also tried to use <code>MetadataSources</code> with the <code>serviceRegistry</code>. But it did say that it's the wrong kind of <code>ServiceRegistry</code>.</p>
+
+<p>Is there any other way to get this working?  </p>
+",<java><spring><hibernate><spring-4><hibernate-5.x>,16/01/05 12:43,HQ,"<java><spring><hibernate><spring-4><hibernate-5.x>, Programmatic SchemaExport / SchemaUpdate with Hibernate 5 and Spring 4, <p>With Spring 4 and Hibernate 4, I was able to use Reflection to get the Hibernate Configuration object from the current environment, using this code:</p>
+
+<pre><code>@Autowired LocalContainerEntityManagerFactoryBean lcemfb;
+
+EntityManagerFactoryImpl emf = (EntityManagerFactoryImpl) lcemfb.getNativeEntityManagerFactory();
+SessionFactoryImpl sf = emf.getSessionFactory();
+SessionFactoryServiceRegistryImpl serviceRegistry = (SessionFactoryServiceRegistryImpl) sf.getServiceRegistry();
+Configuration cfg = null;
+
+try {
+    Field field = SessionFactoryServiceRegistryImpl.class.getDeclaredField(""configuration"");
+    field.setAccessible(true);
+    cfg = (Configuration) field.get(serviceRegistry);
+} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+    e.printStackTrace();
+}
+
+SchemaUpdate update = new SchemaUpdate(serviceRegistry, cfg);
+</code></pre>
+
+<p>With Hibernate 5, I must use some <code>MetadataImplementor</code>, which doesn't seems to be available from any of those objects. I also tried to use <code>MetadataSources</code> with the <code>serviceRegistry</code>. But it did say that it's the wrong kind of <code>ServiceRegistry</code>.</p>
+
+<p>Is there any other way to get this working?  </p>
+","<cava><spring><liberate><spring-4><liberate-5.x>, programme schemaexport / schemaupd wiberd 5 spring 4, <p>with spring 4 wiberd 4, all use reflect get wiberd configur object current environment, use code:</p> <pre><code>@autowir localcontainerentitymanagerfactorybean lcemfb; entitymanagerfactoryimpl em = (entitymanagerfactoryimpl) lcemfb.getnativeentitymanagerfactory(); sessionfactoryimpl of = em.getsessionfactory(); sessionfactoryserviceregistryimpl serviceregistri = (sessionfactoryserviceregistryimpl) of.getserviceregistry(); configur cf = null; try { field field = sessionfactoryserviceregistryimpl.class.getdeclaredfield(""configuration""); field.setaccessible(true); cf = (configuration) field.get(serviceregistry); } catch (nosuchfieldexcept | securityexcept | illegalargumentexcept | illegalaccessexcept e) { e.printstacktrace(); } schemaupd update = new schemaupdate(serviceregistry, cf); </code></pre> <p>with wiberd 5, must use <code>metadataimplementor</code>, seem avail objects. also try use <code>metadatasources</code> <code>serviceregistry</code>. say wrong kind <code>serviceregistry</code>.</p> <p>i way get working? </p>"
+34612415,"What is "".v8flags.3.14.5.9.{Name}""?","<p>I am doing a clean install of Windows 10 Professional (x64) and am noticing some peculiar files appearing in the root of my home directory, specifically I see...</p>
+
+<p><code>.v8flags.3.14.5.9.Ciel</code></p>
+
+<p>Ciel is obviously my username; I've tried to do a search on this file and found very little - the best I can tell is that it relates to <code>nodejs</code>, which might make sense because I have <code>Visual Studio 2015</code> installed.</p>
+
+<p>Can anyone else identify what this file is, and if I need to keep it?</p>
+",<node.js>,16/01/05 13:02,HQ,"<node.js>, What is "".v8flags.3.14.5.9.{Name}""?, <p>I am doing a clean install of Windows 10 Professional (x64) and am noticing some peculiar files appearing in the root of my home directory, specifically I see...</p>
+
+<p><code>.v8flags.3.14.5.9.Ciel</code></p>
+
+<p>Ciel is obviously my username; I've tried to do a search on this file and found very little - the best I can tell is that it relates to <code>nodejs</code>, which might make sense because I have <code>Visual Studio 2015</code> installed.</p>
+
+<p>Can anyone else identify what this file is, and if I need to keep it?</p>
+","<node.is>, "".flags.3.14.5.9.{name}""?, <p>i clean instal window 10 profession (x) notice peculiar file appear root home directory, specie see...</p> <p><code>.flags.3.14.5.9.icel</code></p> <p>icel obvious surname; i'v try search file found little - best tell relate <code>nodes</code>, might make sens <code>vise studio 2015</code> installed.</p> <p>can anyone else identify file is, need keep it?</p>"
+34614710,Why is systemd stopping service immediately after it is started?,"<p>I created a systemd service which should invoke a shell script, when started or on reboot.</p>
+
+<pre><code>[Unit]
+Description=Starts the DCCA index software
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/opt/insiteone/bin/indexControl start
+ExecStop=/opt/insiteone/bin/indexControl stop
+
+# Execute pre and post scripts as root
+#PermissionsStartOnly=true
+Restart=on-abort
+TimeoutSec=600
+</code></pre>
+
+<p>Initially it kept on restarting in infinite loop as soon as it is started, but when i added the <code>TimeoutSec</code> option, it called the <code>ExecStop</code> as soon as the service was started for the first time (started, and then stopped again immediately).</p>
+
+<p>Any clue, where i am going wrong?
+P.S: indexControl is a shell script, which starts other processes.</p>
+",<linux><systemd>,16/01/05 14:59,HQ,"<linux><systemd>, Why is systemd stopping service immediately after it is started?, <p>I created a systemd service which should invoke a shell script, when started or on reboot.</p>
+
+<pre><code>[Unit]
+Description=Starts the DCCA index software
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/opt/insiteone/bin/indexControl start
+ExecStop=/opt/insiteone/bin/indexControl stop
+
+# Execute pre and post scripts as root
+#PermissionsStartOnly=true
+Restart=on-abort
+TimeoutSec=600
+</code></pre>
+
+<p>Initially it kept on restarting in infinite loop as soon as it is started, but when i added the <code>TimeoutSec</code> option, it called the <code>ExecStop</code> as soon as the service was started for the first time (started, and then stopped again immediately).</p>
+
+<p>Any clue, where i am going wrong?
+P.S: indexControl is a shell script, which starts other processes.</p>
+","<line><system>, system stop service dimmed started?, <p>i great system service invoke shell script, start report.</p> <pre><code>[unit] description=start duct index software [install] wanted=multi-user.target [service] execstart=/opt/insiteone/bin/indexcontrol start executor=/opt/insiteone/bin/indexcontrol stop # execute pre post script root #permissionsstartonly=true start=on-abort timeoutsec=600 </code></pre> <p>into kept start infinite loop soon started, ad <code>timeoutsec</code> option, call <code>executor</code> soon service start first time (started, stop immediately).</p> <p>and clue, go wrong? p.s: indexcontrol shell script, start processes.</p>"
+34615796,pure Domain Driven Design in PHP project,"<p>In ""PHP World"" there is a weird feeling about infrastructure layer in any DDD application (example) what I could found.</p>
+
+<p>I see many examples, when developers using <code>Doctrine2</code> in infrastructure layer, use Domain entities (from Domain layer) as <code>Doctrine2</code> models, puting doc comments on top on it, or mention them in config (xml, yml).
+For instance, <a href=""https://github.com/codeliner/php-ddd-cargo-sample"" rel=""nofollow"">Big Blue Book example</a>, this is where domain entities are located: <a href=""https://github.com/codeliner/php-ddd-cargo-sample/tree/master/CargoBackend/src/Model"" rel=""nofollow"">https://github.com/codeliner/php-ddd-cargo-sample/tree/master/CargoBackend/src/Model</a>, and as you can see it's highly coupled with Doctrine (look on annotations). Are they ?</p>
+
+<p>I've feeling that this is wrong way.</p>
+
+<p>What I understood about DDD, is:
+Repository should make a query to persistence layer and pass result to factory to instantiate <code>Aggregate Root</code> entity (Domain model) properly. It means that only Factory knows how specific Aggregate Root might be instantiated, moreover there is a, so called, entities lyfe cycle. It means that not every time Domain entity should be instantiated (hydrated) via <code>__construct</code>.</p>
+
+<p>If I have correct feeling, then where is a good example, of proper usage <code>Doctrine2</code> in DDD-like application?</p>
+",<php><symfony><domain-driven-design><onion-architecture>,16/01/05 15:52,LQ_CLOSE,"<php><symfony><domain-driven-design><onion-architecture>, pure Domain Driven Design in PHP project, <p>In ""PHP World"" there is a weird feeling about infrastructure layer in any DDD application (example) what I could found.</p>
+
+<p>I see many examples, when developers using <code>Doctrine2</code> in infrastructure layer, use Domain entities (from Domain layer) as <code>Doctrine2</code> models, puting doc comments on top on it, or mention them in config (xml, yml).
+For instance, <a href=""https://github.com/codeliner/php-ddd-cargo-sample"" rel=""nofollow"">Big Blue Book example</a>, this is where domain entities are located: <a href=""https://github.com/codeliner/php-ddd-cargo-sample/tree/master/CargoBackend/src/Model"" rel=""nofollow"">https://github.com/codeliner/php-ddd-cargo-sample/tree/master/CargoBackend/src/Model</a>, and as you can see it's highly coupled with Doctrine (look on annotations). Are they ?</p>
+
+<p>I've feeling that this is wrong way.</p>
+
+<p>What I understood about DDD, is:
+Repository should make a query to persistence layer and pass result to factory to instantiate <code>Aggregate Root</code> entity (Domain model) properly. It means that only Factory knows how specific Aggregate Root might be instantiated, moreover there is a, so called, entities lyfe cycle. It means that not every time Domain entity should be instantiated (hydrated) via <code>__construct</code>.</p>
+
+<p>If I have correct feeling, then where is a good example, of proper usage <code>Doctrine2</code> in DDD-like application?</p>
+","<pp><symfony><domain-driven-design><onion-architecture>, pure domain driven design pp project, <p>in ""pp world"" weird feel infrastructure layer did applied (example) could found.</p> <p>i see man examples, develop use <code>doctrine</code> infrastructure layer, use domain entity (from domain layer) <code>doctrine</code> models, put do comment top it, mention confirm (all, you). instance, <a he=""http://github.com/codeliner/pp-did-cargo-sample"" red=""follow"">big blue book example</a>, domain entity located: <a he=""http://github.com/codeliner/pp-did-cargo-sample/tree/master/cargobackend/sac/model"" red=""follow"">http://github.com/codeliner/pp-did-cargo-sample/tree/master/cargobackend/sac/model</a>, see highly couple doctrine (look innovations). ?</p> <p>i'v feel wrong way.</p> <p>what understood did, is: depositors make query persist layer pass result factor instant <code>agree root</code> entity (domain model) properly. mean factor know specie agree root might instantiated, more a, called, entity life cycle. mean every time domain entity instant (hydrate) via <code>construct</code>.</p> <p>if correct feeling, good example, proper usage <code>doctrine</code> did-like application?</p>"
+34617269,How to use Byebug with Sidekiq and Foreman,"<p>I have a rails application in which I use foreman to start my rails and sidekiq servers. Since foreman doesn't interact well with regular byebug (you can't see the prompt as you type), I have set up remote debugging for both my rails and sidekiq servers. This works perfectly for the rails server, but when I connect to the byebug server for the sidekiq server, I get the following:</p>
+
+<pre><code>$ bundle exec byebug -R localhost:58501
+Connecting to byebug server localhost:58501...
+Connected.
+(byebug:ctrl)
+</code></pre>
+
+<p>And I'm unable to catch any byebug breakpoints.</p>
+
+<p>According to the documentation, the (byebug:ctrl) prompt means that the program has terminated normally (<a href=""https://github.com/deivid-rodriguez/byebug/blob/master/GUIDE.md"">https://github.com/deivid-rodriguez/byebug/blob/master/GUIDE.md</a>), but sidekiq is running jobs just fine.</p>
+
+<p>Is there something incorrect in my configuration, or is sidekiq just not compatible with byebug's remote debugging? </p>
+
+<p><strong>Procfile:</strong></p>
+
+<pre><code>sidekiq: bundle exec sidekiq
+rails: rails server
+</code></pre>
+
+<p><strong>config/initializers/byebug.rb:</strong></p>
+
+<pre><code>if Rails.env.development?
+  require 'byebug'
+
+  def find_available_port
+    server = TCPServer.new(nil, 0)
+    server.addr[1]
+  ensure
+    server.close if server
+  end
+
+  port = find_available_port
+
+  puts ""Starting remote debugger...""
+  Byebug.start_server 'localhost', port
+  puts ""Remote debugger on port #{port}""
+end
+</code></pre>
+
+<p>Note that when I don't use remote debugging, byebug functions fine with sidekiq (although in foreman I can't see the prompt as I type).</p>
+
+<p>Also note that I've tried using <code>Byebug.wait_connection = true</code> before <code>Byebug.start_server</code>, but I have the same issue.</p>
+",<ruby-on-rails><sidekiq><foreman><byebug>,16/01/05 17:05,HQ,"<ruby-on-rails><sidekiq><foreman><byebug>, How to use Byebug with Sidekiq and Foreman, <p>I have a rails application in which I use foreman to start my rails and sidekiq servers. Since foreman doesn't interact well with regular byebug (you can't see the prompt as you type), I have set up remote debugging for both my rails and sidekiq servers. This works perfectly for the rails server, but when I connect to the byebug server for the sidekiq server, I get the following:</p>
+
+<pre><code>$ bundle exec byebug -R localhost:58501
+Connecting to byebug server localhost:58501...
+Connected.
+(byebug:ctrl)
+</code></pre>
+
+<p>And I'm unable to catch any byebug breakpoints.</p>
+
+<p>According to the documentation, the (byebug:ctrl) prompt means that the program has terminated normally (<a href=""https://github.com/deivid-rodriguez/byebug/blob/master/GUIDE.md"">https://github.com/deivid-rodriguez/byebug/blob/master/GUIDE.md</a>), but sidekiq is running jobs just fine.</p>
+
+<p>Is there something incorrect in my configuration, or is sidekiq just not compatible with byebug's remote debugging? </p>
+
+<p><strong>Procfile:</strong></p>
+
+<pre><code>sidekiq: bundle exec sidekiq
+rails: rails server
+</code></pre>
+
+<p><strong>config/initializers/byebug.rb:</strong></p>
+
+<pre><code>if Rails.env.development?
+  require 'byebug'
+
+  def find_available_port
+    server = TCPServer.new(nil, 0)
+    server.addr[1]
+  ensure
+    server.close if server
+  end
+
+  port = find_available_port
+
+  puts ""Starting remote debugger...""
+  Byebug.start_server 'localhost', port
+  puts ""Remote debugger on port #{port}""
+end
+</code></pre>
+
+<p>Note that when I don't use remote debugging, byebug functions fine with sidekiq (although in foreman I can't see the prompt as I type).</p>
+
+<p>Also note that I've tried using <code>Byebug.wait_connection = true</code> before <code>Byebug.start_server</code>, but I have the same issue.</p>
+","<ruby-on-rails><sidekiq><foreman><byebug>, use byebug sidekiq foreman, <p>i rail applied use foreman start rail sidekiq serves. since foreman interact well regular byebug (you can't see prompt type), set remote debut rail sidekiq serves. work perfectly rail server, connect byebug server sidekiq server, get following:</p> <pre><code>$ bundle even byebug -r localhost:58501 connect byebug server localhost:58501... connected. (byebug:curl) </code></pre> <p>and i'm unable catch byebug breakpoints.</p> <p>accord documentation, (byebug:curl) prompt mean program german normal (<a he=""http://github.com/devil-rodriguez/byebug/blow/master/guide.md"">http://github.com/devil-rodriguez/byebug/blow/master/guide.md</a>), sidekiq run job fine.</p> <p>i cometh incorrect configuration, sidekiq compact byebug' remote debugging? </p> <p><strong>profile:</strong></p> <pre><code>sidekiq: bundle even sidekiq rails: rail server </code></pre> <p><strong>confirm/initializers/byebug.re:</strong></p> <pre><code>if rails.end.development? require 'byebug' def find_available_port server = tcpserver.new(nail, 0) server.add[1] ensue server.close server end port = find_available_port put ""start remote debugger..."" byebug.start_serv 'localhost', port put ""remote deluge port #{port}"" end </code></pre> <p>note use remote debugging, byebug function fine sidekiq (although foreman can't see prompt type).</p> <p>also note i'v try use <code>byebug.wait_connect = true</code> <code>byebug.start_server</code>, issue.</p>"
+34618297,please convert this code in c# for decode bmp file(Please help me),"   i am very poor in English and cpp also so please convert the code in c# or vb I'm using hdr photography in my C# project, but I cannot convert this code in c++ to C#
+
+
+
+
+
+ #include ""define.h""
+    
+    void bmp_read(char *filename, bmp *b)
+    {
+    	FILE *input = fopen(filename, ""rb"");
+    	if(input == NULL)
+    	{
+    		return;
+    	}
+    	fread(&b->header.type, 2, 1, input);
+    	fread(&b->header.size, 4, 1, input);
+    	fread(&b->header.reserved1, 2, 1, input);
+    	fread(&b->header.reserved2, 2, 1, input);
+    	fread(&b->header.offset, 4, 1, input);
+    	
+    	fread(&b->info.size, 4, 1, input);
+    	fread(&b->info.width, 4, 1, input);
+    	fread(&b->info.height, 4, 1, input);
+    	fread(&b->info.planes, 2, 1, input);
+    	fread(&b->info.bits, 2, 1, input);
+    	fread(&b->info.compression, 4, 1, input);
+    	fread(&b->info.imagesize, 4, 1, input);
+    	fread(&b->info.xresolution, 4, 1, input);
+    	fread(&b->info.yresolution, 4, 1, input);
+    	fread(&b->info.ncolours, 4, 1, input);
+    	fread(&b->info.importantcolours, 4, 1, input);
+    
+    	b->info.imagesize	= b->info.width * b->info.height * 3;
+    	b->data				= new unsigned char [b->info.imagesize];
+    	fread(b->data, b->info.imagesize, 1, input);
+    
+    	fclose(input);
+    }
+",<c#>,16/01/05 18:01,LQ_EDIT,"<c#>, please convert this code in c# for decode bmp file(Please help me),    i am very poor in English and cpp also so please convert the code in c# or vb I'm using hdr photography in my C# project, but I cannot convert this code in c++ to C#
+
+
+
+
+
+ #include ""define.h""
+    
+    void bmp_read(char *filename, bmp *b)
+    {
+    	FILE *input = fopen(filename, ""rb"");
+    	if(input == NULL)
+    	{
+    		return;
+    	}
+    	fread(&b->header.type, 2, 1, input);
+    	fread(&b->header.size, 4, 1, input);
+    	fread(&b->header.reserved1, 2, 1, input);
+    	fread(&b->header.reserved2, 2, 1, input);
+    	fread(&b->header.offset, 4, 1, input);
+    	
+    	fread(&b->info.size, 4, 1, input);
+    	fread(&b->info.width, 4, 1, input);
+    	fread(&b->info.height, 4, 1, input);
+    	fread(&b->info.planes, 2, 1, input);
+    	fread(&b->info.bits, 2, 1, input);
+    	fread(&b->info.compression, 4, 1, input);
+    	fread(&b->info.imagesize, 4, 1, input);
+    	fread(&b->info.xresolution, 4, 1, input);
+    	fread(&b->info.yresolution, 4, 1, input);
+    	fread(&b->info.ncolours, 4, 1, input);
+    	fread(&b->info.importantcolours, 4, 1, input);
+    
+    	b->info.imagesize	= b->info.width * b->info.height * 3;
+    	b->data				= new unsigned char [b->info.imagesize];
+    	fread(b->data, b->info.imagesize, 1, input);
+    
+    	fclose(input);
+    }
+","<c#>, pleas convert code c# second bump file(pleas help me), poor english pp also pleas convert code c# ve i'm use her photograph c# project, cannot convert code c++ c# #include ""define.h"" void bmp_read(chair *filename, bump *b) { file *input = open(filename, ""re""); if(input == null) { return; } read(&b->header.type, 2, 1, input); read(&b->header.size, 4, 1, input); read(&b->header.reserved, 2, 1, input); read(&b->header.reserved, 2, 1, input); read(&b->header.offset, 4, 1, input); read(&b->into.size, 4, 1, input); read(&b->into.width, 4, 1, input); read(&b->into.height, 4, 1, input); read(&b->into.planes, 2, 1, input); read(&b->into.bits, 2, 1, input); read(&b->into.compression, 4, 1, input); read(&b->into.imagesize, 4, 1, input); read(&b->into.resolution, 4, 1, input); read(&b->into.resolution, 4, 1, input); read(&b->into.colours, 4, 1, input); read(&b->into.importantcolours, 4, 1, input); b->into.images = b->into.width * b->into.height * 3; b->data = new ensign chair [b->into.imagesize]; read(b->data, b->into.imagesize, 1, input); close(input); }"

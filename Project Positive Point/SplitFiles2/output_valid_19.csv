@@ -1,0 +1,215 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34767272,How to organize casperjs test with es6 modules,"<p>Is there a way to use ES6 modules to organise the test for CasperJS, and if not what is the normal way to organise the tests?</p>
+",<phantomjs><casperjs>,16/01/13 12:52,HQ,"<phantomjs><casperjs>, How to organize casperjs test with es6 modules, <p>Is there a way to use ES6 modules to organise the test for CasperJS, and if not what is the normal way to organise the tests?</p>
+","<phantoms><capers>, organ capers test est nodules, <p>i way use est model organs test capers, normal way organs tests?</p>"
+34767684,create a migration file with role admin rails app,"How to create a migration file which will create a user with role admin in rails?
+
+    rails g migration User
+
+But How can I give it a role of admin to this user?
+
+",<ruby-on-rails><activerecord><migration>,16/01/13 13:13,LQ_EDIT,"<ruby-on-rails><activerecord><migration>, create a migration file with role admin rails app, How to create a migration file which will create a user with role admin in rails?
+
+    rails g migration User
+
+But How can I give it a role of admin to this user?
+
+","<ruby-on-rails><activerecord><migration>, great migrate file role admit rail pp, great migrate file great user role admit rails? rail g migrate user give role admit user?"
+34770802,ld: -bundle and -bitcode_bundle (Xcode setting ENABLE_BITCODE=YES) cannot be used together,"<p>I want to build my app <strong>with</strong> Bitcode enabled. As far as I know all my 3rd party library dependencies are Bitcode enabled. But when I do a build, I get this error:</p>
+
+<p><code>ld: -bundle and -bitcode_bundle (Xcode setting ENABLE_BITCODE=YES) cannot be used together</code></p>
+
+<p>How do I fix this?</p>
+",<xcode><swift><bitcode>,16/01/13 15:39,HQ,"<xcode><swift><bitcode>, ld: -bundle and -bitcode_bundle (Xcode setting ENABLE_BITCODE=YES) cannot be used together, <p>I want to build my app <strong>with</strong> Bitcode enabled. As far as I know all my 3rd party library dependencies are Bitcode enabled. But when I do a build, I get this error:</p>
+
+<p><code>ld: -bundle and -bitcode_bundle (Xcode setting ENABLE_BITCODE=YES) cannot be used together</code></p>
+
+<p>How do I fix this?</p>
+","<code><swift><bitcode>, old: -bundle -bitcode_bundl (code set enable_bitcode=yes) cannot use together, <p>i want build pp <strong>with</strong> bitch enabled. far know rd part library depend bitch enabled. build, get error:</p> <p><code>old: -bundle -bitcode_bundl (code set enable_bitcode=yes) cannot use together</code></p> <p>how fix this?</p>"
+34771191,matplotlib taking time when being imported,"<p>I just upgraded to the latest stable release of <code>matplotlib</code> (1.5.1) and everytime I import matplotlib I get this message:</p>
+
+<pre><code>/usr/local/lib/python2.7/dist-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+</code></pre>
+
+<p>... which always stalls for a few seconds.</p>
+
+<p>Is this the expected behaviour? Was it the same also before, but just without the printed message?</p>
+",<python><matplotlib>,16/01/13 15:54,HQ,"<python><matplotlib>, matplotlib taking time when being imported, <p>I just upgraded to the latest stable release of <code>matplotlib</code> (1.5.1) and everytime I import matplotlib I get this message:</p>
+
+<pre><code>/usr/local/lib/python2.7/dist-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+</code></pre>
+
+<p>... which always stalls for a few seconds.</p>
+
+<p>Is this the expected behaviour? Was it the same also before, but just without the printed message?</p>
+","<patron><matplotlib>, matplotlib take time imported, <p>i upgrade latest stable release <code>matplotlib</code> (1.5.1) everytim import matplotlib get message:</p> <pre><code>/us/local/limb/python2.7/list-packages/matplotlib/font_manager.by:273: userwarning: matplotlib build font each use ff-list. may take moment. warnings.warn('matplotlib build font each use ff-list. may take moment.') </code></pre> <p>... away stall seconds.</p> <p>i expect behaviour? also before, without print message?</p>"
+34772012,Capturing panic() in golang,"<p>We have a large-ish golang application that uses the logger (actually, a custom logger), to write output to a log file that is periodically rotated.</p>
+
+<p>However, when an application crashes or panic()'s, those messages go to standard error.</p>
+
+<p>Is there any way to override the panic functionality to use our logger?</p>
+",<logging><go><panic>,16/01/13 16:32,HQ,"<logging><go><panic>, Capturing panic() in golang, <p>We have a large-ish golang application that uses the logger (actually, a custom logger), to write output to a log file that is periodically rotated.</p>
+
+<p>However, when an application crashes or panic()'s, those messages go to standard error.</p>
+
+<p>Is there any way to override the panic functionality to use our logger?</p>
+","<logging><go><panic>, capture panic() going, <p>we large-is going applied use longer (actually, custom longer), write output log file period rotated.</p> <p>however, applied crash panic()'s, message go standard error.</p> <p>i way overdid panic function use longer?</p>"
+34772320,JS framework for dividing the code into categories,"<p>I'm looking for a JS framework, which would help me to divide the code into categories. Whenever I do any apps, I don't use any framework and even tho it's working, my code looks really untidy, it lacks a nice structure. Can you advise any nicely formatted, object oriented, MVC framework which works well with node.js apps and EJS? (besides express.js)</p>
+",<javascript><node.js><frameworks>,16/01/13 16:46,LQ_CLOSE,"<javascript><node.js><frameworks>, JS framework for dividing the code into categories, <p>I'm looking for a JS framework, which would help me to divide the code into categories. Whenever I do any apps, I don't use any framework and even tho it's working, my code looks really untidy, it lacks a nice structure. Can you advise any nicely formatted, object oriented, MVC framework which works well with node.js apps and EJS? (besides express.js)</p>
+","<javascript><node.is><framework>, is framework livid code categories, <p>i'm look is framework, would help livid code categories. when apes, use framework even the working, code look really untidy, lack nice structure. advise nice formatted, object tormented, mac framework work well node.j pp es? (beside express.is)</p>"
+34772755,Detect Mobile or Windows PHP,"<p>I want to make a website and I messed something up. I want to make two versions, one for desktops and one for mobile, but do not know how to redirect people .. I want to have two folders, mobile and web and file index.php. If they use mobile phones i want to redirect in mobile folder if they use PC redirect to web folder.</p>
+
+<p>How could I do this? Thanks</p>
+
+<p>Sorry for english</p>
+",<php><redirect><mobile><web>,16/01/13 17:06,LQ_CLOSE,"<php><redirect><mobile><web>, Detect Mobile or Windows PHP, <p>I want to make a website and I messed something up. I want to make two versions, one for desktops and one for mobile, but do not know how to redirect people .. I want to have two folders, mobile and web and file index.php. If they use mobile phones i want to redirect in mobile folder if they use PC redirect to web folder.</p>
+
+<p>How could I do this? Thanks</p>
+
+<p>Sorry for english</p>
+","<pp><direct><mobile><web>, detect mobile window pp, <p>i want make west mess cometh up. want make two versions, one desktop one mobile, know direct people .. want two holders, mobile web file index.pp. use mobile phone want direct mobile older use pp direct web older.</p> <p>how could this? thanks</p> <p>sorry english</p>"
+34773317,Python Pandas removing substring using another column,"<p>I've tried searching around and can't figure out an easy way to do this, so I'm hoping your expertise can help.</p>
+
+<p>I have a pandas data frame with two columns</p>
+
+<pre><code>import numpy as np
+import pandas as pd
+
+pd.options.display.width = 1000
+testing = pd.DataFrame({'NAME':[
+    'FIRST', np.nan, 'NAME2', 'NAME3', 
+    'NAME4', 'NAME5', 'NAME6'], 'FULL_NAME':['FIRST LAST', np.nan, 'FIRST LAST', 'FIRST NAME3', 'FIRST NAME4 LAST', 'ANOTHER NAME', 'LAST NAME']})
+</code></pre>
+
+<p>which gives me</p>
+
+<pre><code>          FULL_NAME   NAME
+0        FIRST LAST  FIRST
+1               NaN    NaN
+2        FIRST LAST  NAME2
+3       FIRST NAME3  NAME3
+4  FIRST NAME4 LAST  NAME4
+5      ANOTHER NAME  NAME5
+6         LAST NAME  NAME6
+</code></pre>
+
+<p>what I'd like to do is take the values from the 'NAME' column and remove then from the 'FULL NAME' column if it's there. So the function would then return</p>
+
+<pre><code>          FULL_NAME   NAME           NEW
+0        FIRST LAST  FIRST          LAST
+1               NaN    NaN           NaN
+2        FIRST LAST  NAME2    FIRST LAST
+3       FIRST NAME3  NAME3         FIRST
+4  FIRST NAME4 LAST  NAME4    FIRST LAST
+5      ANOTHER NAME  NAME5  ANOTHER NAME
+6         LAST NAME  NAME6     LAST NAME
+</code></pre>
+
+<p>So far, I've defined a function below and am using the apply method. This runs rather slow on my large data set though and I'm hoping there's a more efficient way to do it. Thanks!</p>
+
+<pre><code>def address_remove(x):
+    try:
+        newADDR1 = re.sub(x['NAME'], '', x[-1])
+        newADDR1 = newADDR1.rstrip()
+        newADDR1 = newADDR1.lstrip()
+        return newADDR1
+    except:
+        return x[-1]
+</code></pre>
+",<python><string><pandas><replace><series>,16/01/13 17:35,HQ,"<python><string><pandas><replace><series>, Python Pandas removing substring using another column, <p>I've tried searching around and can't figure out an easy way to do this, so I'm hoping your expertise can help.</p>
+
+<p>I have a pandas data frame with two columns</p>
+
+<pre><code>import numpy as np
+import pandas as pd
+
+pd.options.display.width = 1000
+testing = pd.DataFrame({'NAME':[
+    'FIRST', np.nan, 'NAME2', 'NAME3', 
+    'NAME4', 'NAME5', 'NAME6'], 'FULL_NAME':['FIRST LAST', np.nan, 'FIRST LAST', 'FIRST NAME3', 'FIRST NAME4 LAST', 'ANOTHER NAME', 'LAST NAME']})
+</code></pre>
+
+<p>which gives me</p>
+
+<pre><code>          FULL_NAME   NAME
+0        FIRST LAST  FIRST
+1               NaN    NaN
+2        FIRST LAST  NAME2
+3       FIRST NAME3  NAME3
+4  FIRST NAME4 LAST  NAME4
+5      ANOTHER NAME  NAME5
+6         LAST NAME  NAME6
+</code></pre>
+
+<p>what I'd like to do is take the values from the 'NAME' column and remove then from the 'FULL NAME' column if it's there. So the function would then return</p>
+
+<pre><code>          FULL_NAME   NAME           NEW
+0        FIRST LAST  FIRST          LAST
+1               NaN    NaN           NaN
+2        FIRST LAST  NAME2    FIRST LAST
+3       FIRST NAME3  NAME3         FIRST
+4  FIRST NAME4 LAST  NAME4    FIRST LAST
+5      ANOTHER NAME  NAME5  ANOTHER NAME
+6         LAST NAME  NAME6     LAST NAME
+</code></pre>
+
+<p>So far, I've defined a function below and am using the apply method. This runs rather slow on my large data set though and I'm hoping there's a more efficient way to do it. Thanks!</p>
+
+<pre><code>def address_remove(x):
+    try:
+        newADDR1 = re.sub(x['NAME'], '', x[-1])
+        newADDR1 = newADDR1.rstrip()
+        newADDR1 = newADDR1.lstrip()
+        return newADDR1
+    except:
+        return x[-1]
+</code></pre>
+","<patron><string><hands><replace><series>, patron and remove substr use not column, <p>i'v try search around can't figure east way this, i'm hope experts help.</p> <p>i and data frame two columns</p> <pre><code>import jump no import and pp pp.option.display.width = 1000 test = pp.dataframe({'name':[ 'first', no.nan, 'name', 'name', 'name', 'name', 'name'], 'full_name':['first last', no.nan, 'first last', 'first name', 'first name last', 'not name', 'last name']}) </code></pre> <p>which give me</p> <pre><code> full_nam name 0 first last first 1 nan nan 2 first last name 3 first name name 4 first name last name 5 not name name 6 last name name </code></pre> <p>what i'd like take value 'name' column remove 'full name' column there. function would return</p> <pre><code> full_nam name new 0 first last first last 1 nan nan nan 2 first last name first last 3 first name name first 4 first name last name first last 5 not name name not name 6 last name name last name </code></pre> <p>so far, i'v define function use apply method. run rather slow large data set though i'm hope there' effect way it. thanks!</p> <pre><code>def address_remove(x): try: newaddr1 = re.sub(x['name'], '', x[-1]) newaddr1 = newaddr1.strip() newaddr1 = newaddr1.strip() return newaddr1 except: return x[-1] </code></pre>"
+34775308,Leaflet: How to add a text label to a custom marker icon?,"<p>Is it possible to add text to a custom icon marker? I want to avoid having to edit the icon in an image editor just to add the text. </p>
+
+<p>I've created my custom icon marker like so:</p>
+
+<pre><code>var airfieldIcon = L.icon({
+        iconUrl: 'images/airfield.png',
+        iconSize: [48,48]
+});
+
+var airfield = L.geoJson (airfield, {
+    pointToLayer: function(feature,latlng){
+        return L.marker(latlng, {
+            icon: airfieldIcon
+        })
+    }
+}).addTo(map);
+</code></pre>
+
+<p>How would I add the text ""Banff Airfield"" as a label to this icon? Is the easiest and most efficient way through using an image editor? if so, I will do that method, but wondering if there was a better way. Thanks!</p>
+",<leaflet><mapbox>,16/01/13 19:23,HQ,"<leaflet><mapbox>, Leaflet: How to add a text label to a custom marker icon?, <p>Is it possible to add text to a custom icon marker? I want to avoid having to edit the icon in an image editor just to add the text. </p>
+
+<p>I've created my custom icon marker like so:</p>
+
+<pre><code>var airfieldIcon = L.icon({
+        iconUrl: 'images/airfield.png',
+        iconSize: [48,48]
+});
+
+var airfield = L.geoJson (airfield, {
+    pointToLayer: function(feature,latlng){
+        return L.marker(latlng, {
+            icon: airfieldIcon
+        })
+    }
+}).addTo(map);
+</code></pre>
+
+<p>How would I add the text ""Banff Airfield"" as a label to this icon? Is the easiest and most efficient way through using an image editor? if so, I will do that method, but wondering if there was a better way. Thanks!</p>
+","<leaflet><mapbox>, leaflet: add text label custom marker icon?, <p>i possible add text custom icon marker? want avoid edit icon image editor add text. </p> <p>i'v great custom icon marker like so:</p> <pre><code>war airfieldicon = l.icon({ iconurl: 'images/fairfield.pig', iconsize: [48,48] }); war fairfield = l.godson (fairfield, { pointtolayer: function(feature,laying){ return l.marker(laying, { icon: airfieldicon }) } }).added(map); </code></pre> <p>how would add text ""bank fairfield"" label icon? easiest effect way use image editor? so, method, wonder better way. thanks!</p>"
+34775543,Add an a tag using css or javascript,"<p>Is it possible to make an html tag a link to another page on website using either css or javascript?  I am trying to edit a wordpress site but it only gives options for custom css and javascipt.  </p>
+
+<p>Thanks</p>
+",<javascript><css>,16/01/13 19:37,LQ_CLOSE,"<javascript><css>, Add an a tag using css or javascript, <p>Is it possible to make an html tag a link to another page on website using either css or javascript?  I am trying to edit a wordpress site but it only gives options for custom css and javascipt.  </p>
+
+<p>Thanks</p>
+","<javascript><iss>, add tag use iss javascript, <p>i possible make html tag link not page west use either iss javascript? try edit wordpress site give option custom iss javascipt. </p> <p>thanks</p>"

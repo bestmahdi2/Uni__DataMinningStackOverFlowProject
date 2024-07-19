@@ -1,0 +1,1900 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition,MergedText,ProcessedText
+50163432,Oracle's default DATE format,"First time using Oracle SQL (I'm used to MySQL).  I'm finding conflicting info on what the default date format is.  After several attempts having to use TO_DATE with my INSERT INTO my_table statements, I finally found the database I'm using expects DD-MON-YY (i.e. 25-JAN-18).  Yet on various pages here in stackoverflow and elsewhere, I see some that say default is YYYYMMDD or DD/MM/YYYY or YYYY-MM-DD.  Why so many conflicting pieces of information?
+",<sql><oracle><date>,453,0,0,827,4,15,35,50,141248,0.0,31,4,25,2018-05-03 20:32,2018-05-03 20:37,2018-05-03 20:37,0.0,0.0,Basic,3,"<sql><oracle><date>, Oracle's default DATE format, First time using Oracle SQL (I'm used to MySQL).  I'm finding conflicting info on what the default date format is.  After several attempts having to use TO_DATE with my INSERT INTO my_table statements, I finally found the database I'm using expects DD-MON-YY (i.e. 25-JAN-18).  Yet on various pages here in stackoverflow and elsewhere, I see some that say default is YYYYMMDD or DD/MM/YYYY or YYYY-MM-DD.  Why so many conflicting pieces of information?
+","<sal><oracle><date>, oracle' default date format, first time use oral sal (i'm use myself). i'm find conflict into default date format is. never attempt use today insert my_tabl statements, final found database i'm use expect did-mon-by (i.e. 25-jan-18). yet various page stackoverflow elsewhere, see say default yyyymmdd did/mm/yyyy yyyy-mm-did. man conflict piece information?"
+59998409,Error Code: 3685. Illegal argument to a regular expression,"I am trying to find an exact number in MySQL 8.0 using the below SQL statement
+SELECT * FROM rulebook.node__body 
+WHERE body_value REGEXP ""[[:&lt;:]]DVP[[:&gt;:]]"";
+when i am running the above SQL statement i am getting below error
+  Error Code: 3685. Illegal argument to a regular expression
+could you please anyone tell me where i am  making mistake.
+",<mysql-8.0>,353,1,2,1011,2,16,29,77,8655,0.0,31,4,25,2020-01-31 5:34,2020-01-31 6:10,,0.0,,Basic,1,"<mysql-8.0>, Error Code: 3685. Illegal argument to a regular expression, I am trying to find an exact number in MySQL 8.0 using the below SQL statement
+SELECT * FROM rulebook.node__body 
+WHERE body_value REGEXP ""[[:&lt;:]]DVP[[:&gt;:]]"";
+when i am running the above SQL statement i am getting below error
+  Error Code: 3685. Illegal argument to a regular expression
+could you please anyone tell me where i am  making mistake.
+","<myself-8.0>, error code: 3685. killed argument regular expression, try find exact number myself 8.0 use sal statement select * rulebook.node__bodi body_valu regent ""[[:&it;:]]dip[[:&it;:]]""; run sal statement get error error code: 3685. killed argument regular express could pleas anyone tell make mistake."
+50126503,"Homebrew, MySQL 8 support","Anyone have the inside scoop on when Homebrew will be updated to support MySQL 8's first general release (8.0.11)? I can't seem to find it by searching, but I bet someone here knows :)
+",<mysql><version-control><homebrew><mysql-5.7><mysql-8.0>,185,0,0,991,3,14,24,71,24342,0.0,52,4,25,2018-05-02 2:56,2018-06-06 11:03,2018-06-14 6:54,35.0,43.0,Intermediate,21,"<mysql><version-control><homebrew><mysql-5.7><mysql-8.0>, Homebrew, MySQL 8 support, Anyone have the inside scoop on when Homebrew will be updated to support MySQL 8's first general release (8.0.11)? I can't seem to find it by searching, but I bet someone here knows :)
+","<myself><version-control><hebrew><myself-5.7><myself-8.0>, hebrew, myself 8 support, anyone inside scoop hebrew update support myself 8' first genet release (8.0.11)? can't seem find searching, bet someone know :)"
+60536206,Speed up odbc::dbFetch,"I'm trying to analyze data stored in an SQL database (MS SQL server) in R, and on a mac. Typical queries might return a few GB of data, and the entire database is a few TB. So far, I've been using the R package odbc, and it seems to work pretty well.
+However, dbFetch() seems really slow. For example, a somewhat complex query returns all results in ~6 minutes in SQL server, but if I run it with odbc and then try dbFetch, it takes close to an hour to get the full 4 GB into a data.frame. I've tried fetching in chunks, which helps modestly: https://stackoverflow.com/a/59220710/8400969. I'm wondering if there is another way to more quickly pipe the data to my mac, and I like the line of thinking here: Quickly reading very large tables as dataframes
+What are some strategies for speeding up dbFetch when the results of queries are a few GB of data? If the issue is generating a data.frame object from larger tables, are there savings available by &quot;fetching&quot; in a different manner? Are there other packages that might help?
+Thanks for your ideas and suggestions!
+",<r><sql-server><dataframe><odbc><fread>,1076,2,9,1344,0,13,31,58,1175,0.0,660,2,25,2020-03-04 23:30,2022-09-28 11:45,,938.0,,Intermediate,23,"<r><sql-server><dataframe><odbc><fread>, Speed up odbc::dbFetch, I'm trying to analyze data stored in an SQL database (MS SQL server) in R, and on a mac. Typical queries might return a few GB of data, and the entire database is a few TB. So far, I've been using the R package odbc, and it seems to work pretty well.
+However, dbFetch() seems really slow. For example, a somewhat complex query returns all results in ~6 minutes in SQL server, but if I run it with odbc and then try dbFetch, it takes close to an hour to get the full 4 GB into a data.frame. I've tried fetching in chunks, which helps modestly: https://stackoverflow.com/a/59220710/8400969. I'm wondering if there is another way to more quickly pipe the data to my mac, and I like the line of thinking here: Quickly reading very large tables as dataframes
+What are some strategies for speeding up dbFetch when the results of queries are a few GB of data? If the issue is generating a data.frame object from larger tables, are there savings available by &quot;fetching&quot; in a different manner? Are there other packages that might help?
+Thanks for your ideas and suggestions!
+","<r><sal-server><dataframe><duc><read>, speed duc::fetch, i'm try analyze data store sal database (m sal server) r, mac. topic query might return go data, enter database to. far, i'v use r package duc, seem work pretty well. however, fetch() seem really slow. example, somewhat complex query return result ~6 minute sal server, run duc try fetch, take close hour get full 4 go data.frame. i'v try fetch chinks, help modestly: http://stackoverflow.com/a/59220710/8400969. i'm wonder not way quickly pipe data mac, like line think here: quickly read large table datafram strategic speed fetch result query go data? issue genet data.from object larger tables, save avail &quit;fetching&quit; differ manner? package might help? thank idea suggestions!"
+50378664,Permission denied inside /var/www/html when creating a website and it's files with the apache2 server,"
+UPDATE** The screenshot is within atom, but when I navigate to the directory using the file explorer, and right click, the option to rename or create a new folder are restricted and I cannot click on them.  
+I just finished setting up the LAMP stack on my fresh UBUNTU 18.04 installation. I have everything working, the default /var/www/html/index.html page from Apache2 is being served on localhost, no port forwarding or any unique domain name, i just wanna run this on my network from my computer for now. 
+If there is a simple way to create multiple websites and easily choose which folder to serve than that's fine, but I want to serve just one website for now. 
+When I go to my /var/www/html folder and try to edit the index.html file it says permission denied. What do I need to do in order to work inside this directory for the remaining time that I am building the website. I am signed in as the root user on my system. 
+Also, if I do change permissions to allow me to work in this directory, what does it mean for people trying to access my server if it was available to the public. (RIGHT NOW JUST ON LOCALHOST).
+Lemme know if you need more info or explanation thanks!
+",<mysql><permissions><apache2><lamp><ubuntu-18.04>,1181,1,0,1543,1,13,17,44,125725,0.0,33,8,25,2018-05-16 19:33,2018-05-16 19:36,2018-05-16 20:19,0.0,0.0,Basic,14,"<mysql><permissions><apache2><lamp><ubuntu-18.04>, Permission denied inside /var/www/html when creating a website and it's files with the apache2 server, 
+UPDATE** The screenshot is within atom, but when I navigate to the directory using the file explorer, and right click, the option to rename or create a new folder are restricted and I cannot click on them.  
+I just finished setting up the LAMP stack on my fresh UBUNTU 18.04 installation. I have everything working, the default /var/www/html/index.html page from Apache2 is being served on localhost, no port forwarding or any unique domain name, i just wanna run this on my network from my computer for now. 
+If there is a simple way to create multiple websites and easily choose which folder to serve than that's fine, but I want to serve just one website for now. 
+When I go to my /var/www/html folder and try to edit the index.html file it says permission denied. What do I need to do in order to work inside this directory for the remaining time that I am building the website. I am signed in as the root user on my system. 
+Also, if I do change permissions to allow me to work in this directory, what does it mean for people trying to access my server if it was available to the public. (RIGHT NOW JUST ON LOCALHOST).
+Lemme know if you need more info or explanation thanks!
+","<myself><permission><apaches><lamp><bunt-18.04>, permits den inside /war/www/html great west file apaches server, update** screenshot within atom, having director use file explorer, right click, option renal great new older restrict cannot click them. finish set lamp stick fresh bunt 18.04 installation. every working, default /war/www/html/index.html page apaches serve localhost, port forward unique domain name, anna run network compute now. simple way great multiple west vasili choose older serve that' fine, want serve one west now. go /war/www/html older try edit index.html file say permits denied. need order work inside director remain time build webster. sign root user system. also, change permits allow work directory, mean people try access server avail public. (right localhost). left know need into explain thanks!"
+54380363,"Microsoft SQL Server stuck at ""Install_SQLSupport_CPU64_Action""","While installing SQL Server 2017 Developer Edition, I got stuck at ""Install_SQLSupport_CPU64_Action"", this happened to me for the second time, once at work and once at home.
+After searching online I found no solution.
+",<sql><sql-server><installation><freeze>,218,0,0,1356,1,10,14,77,30749,0.0,2,2,25,2019-01-26 16:33,2019-01-26 16:38,2019-01-26 16:38,0.0,0.0,Basic,14,"<sql><sql-server><installation><freeze>, Microsoft SQL Server stuck at ""Install_SQLSupport_CPU64_Action"", While installing SQL Server 2017 Developer Edition, I got stuck at ""Install_SQLSupport_CPU64_Action"", this happened to me for the second time, once at work and once at home.
+After searching online I found no solution.
+","<sal><sal-server><installation><freeze>, microsoft sal server stuck ""install_sqlsupport_cpu64_action"", instal sal server 2017 develop edition, got stuck ""install_sqlsupport_cpu64_action"", happen second time, work home. search online found solution."
+58808332,Should we ever check for mysqli_connect() errors manually?,"The PHP manual for mysqli_connect() suggests checking for the return value and displaying the error messages on the screen.
+$link = mysqli_connect(""127.0.0.1"", ""my_user"", ""my_password"", ""my_db"");
+if (!$link) {
+    echo ""Error: Unable to connect to MySQL."" . PHP_EOL;
+    echo ""Debugging errno: "" . mysqli_connect_errno() . PHP_EOL;
+    echo ""Debugging error: "" . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+Similarly for OOP-style constructor this is suggested:
+$mysqli = new mysqli('localhost', 'my_user', 'my_password', 'my_db');
+if ($mysqli-&gt;connect_error) {
+    die('Connect Error (' . $mysqli-&gt;connect_errno . ') '
+            . $mysqli-&gt;connect_error);
+}
+Some users on Stack Overflow even used code with mysqli_error($conn) such as this:
+$conn = mysqli_connect('localhost', 'a', 'a');
+if (!$con) {
+    die('Could not connect: ' . mysqli_error($conn));
+}
+However, in the past few weeks I have been asking myself a question, why would I need to do that? The output of the first example is:
+  Warning:  mysqli_connect(): (HY000/1045): Access denied for user
+  'my_user'@'localhost' (using password: YES) in
+  C:\xampp\...\mysqli.php on line 4
+  Error: Unable to connect to MySQL. Debugging errno: 1045 Debugging
+  error: Access denied for user 'my_user'@'localhost' (using password:
+  YES)
+As you can see the error message is displayed twice! The manual ""debugging"" actually provides less information. 
+Should we ever manually check for connection errors? Would we ever get more information this way than from the automatic warning? Is this the recommended practice?  
+",<php><mysqli><error-handling>,1583,1,18,31395,25,88,134,62,7671,0.0,5269,1,25,2019-11-11 20:33,2019-11-11 20:33,2019-11-11 20:33,0.0,0.0,Basic,13,"<php><mysqli><error-handling>, Should we ever check for mysqli_connect() errors manually?, The PHP manual for mysqli_connect() suggests checking for the return value and displaying the error messages on the screen.
+$link = mysqli_connect(""127.0.0.1"", ""my_user"", ""my_password"", ""my_db"");
+if (!$link) {
+    echo ""Error: Unable to connect to MySQL."" . PHP_EOL;
+    echo ""Debugging errno: "" . mysqli_connect_errno() . PHP_EOL;
+    echo ""Debugging error: "" . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+Similarly for OOP-style constructor this is suggested:
+$mysqli = new mysqli('localhost', 'my_user', 'my_password', 'my_db');
+if ($mysqli-&gt;connect_error) {
+    die('Connect Error (' . $mysqli-&gt;connect_errno . ') '
+            . $mysqli-&gt;connect_error);
+}
+Some users on Stack Overflow even used code with mysqli_error($conn) such as this:
+$conn = mysqli_connect('localhost', 'a', 'a');
+if (!$con) {
+    die('Could not connect: ' . mysqli_error($conn));
+}
+However, in the past few weeks I have been asking myself a question, why would I need to do that? The output of the first example is:
+  Warning:  mysqli_connect(): (HY000/1045): Access denied for user
+  'my_user'@'localhost' (using password: YES) in
+  C:\xampp\...\mysqli.php on line 4
+  Error: Unable to connect to MySQL. Debugging errno: 1045 Debugging
+  error: Access denied for user 'my_user'@'localhost' (using password:
+  YES)
+As you can see the error message is displayed twice! The manual ""debugging"" actually provides less information. 
+Should we ever manually check for connection errors? Would we ever get more information this way than from the automatic warning? Is this the recommended practice?  
+","<pp><myself><error-handling>, ever check mysqli_connect() error mentally?, pp manual mysqli_connect() suggest check return value display error message screen. $link = mysqli_connect(""127.0.0.1"", ""my_user"", ""my_password"", ""my_db""); (!$link) { echo ""error: unable connect myself."" . php_eol; echo ""debut error: "" . mysqli_connect_errno() . php_eol; echo ""debut error: "" . mysqli_connect_error() . php_eol; exit; } similarly top-style construction suggested: $myself = new myself('localhost', 'my_user', 'my_password', 'my_db'); ($myself-&it;connect_error) { die('connect error (' . $myself-&it;connect_errno . ') ' . $myself-&it;connect_error); } user stick overflow even use code mysqli_error($corn) this: $corn = mysqli_connect('localhost', 'a', 'a'); (!$con) { die('could connect: ' . mysqli_error($corn)); } however, past week ask question, would need that? output first example is: warning: mysqli_connect(): (hy000/1045): access den user 'my_user'@'localhost' (use password: yes) c:\camp\...\myself.pp line 4 error: unable connect myself. debut error: 1045 debut error: access den user 'my_user'@'localhost' (use password: yes) see error message display twice! manual ""debugging"" actual proved less information. ever manual check connect errors? would ever get inform way automatic warning? recommend practice?"
+61910260,SQLiteConstraintException error showing after start of every activity,"I have this error popping out in logcat all the time. It always shows after every change of activity. And sometimes, the app disappears and in a second it shows again. There is not any fatal error in logcat, all I see is this:
+2020-05-20 11:53:26.422 2940-8484/? E/SQLiteDatabase: Error inserting flex_time=3324000 job_id=-1 period=6650000 source=16 requires_charging=0 preferred_network_type=1 target_class=com.google.android.gms.measurement.PackageMeasurementTaskService user_id=0 target_package=com.google.android.gms tag=Measurement.PackageMeasurementTaskService.UPLOAD_TASK_TAG task_type=0 required_idleness_state=0 service_kind=0 source_version=201516000 persistence_level=1 preferred_charging_state=1 required_network_type=0 runtime=1589968406417 retry_strategy={""maximum_backoff_seconds"":{""3600"":0},""initial_backoff_seconds"":{""30"":0},""retry_policy"":{""0"":0}} last_runtime=0
+android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: pending_ops.tag, pending_ops.target_class, pending_ops.target_package, pending_ops.user_id (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+    at android.database.sqlite.SQLiteConnection.nativeExecuteForLastInsertedRowId(Native Method)
+    at android.database.sqlite.SQLiteConnection.executeForLastInsertedRowId(SQLiteConnection.java:879)
+    at android.database.sqlite.SQLiteSession.executeForLastInsertedRowId(SQLiteSession.java:790)
+    at android.database.sqlite.SQLiteStatement.executeInsert(SQLiteStatement.java:88)
+    at android.database.sqlite.SQLiteDatabase.insertWithOnConflict(SQLiteDatabase.java:1599)
+    at android.database.sqlite.SQLiteDatabase.insert(SQLiteDatabase.java:1468)
+    at aplm.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):76)
+    at aplb.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):173)
+    at aplb.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):21)
+    at aplb.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):167)
+    at aphk.run(:com.google.android.gms@201516038@20.15.16 (120406-309763488):8)
+    at sob.b(:com.google.android.gms@201516038@20.15.16 (120406-309763488):12)
+    at sob.run(:com.google.android.gms@201516038@20.15.16 (120406-309763488):7)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+    at sub.run(:com.google.android.gms@201516038@20.15.16 (120406-309763488):0)
+    at java.lang.Thread.run(Thread.java:919)
+But it does not show anywhere to the code is there any solution to it?
+Edit: Google libraries:
+implementation 'com.google.android.material:material:1.1.0'
+implementation 'com.google.firebase:firebase-core:17.1.0'
+implementation 'com.google.firebase:firebase-database:19.0.0'
+implementation 'com.google.firebase:firebase-analytics:17.0.1'
+implementation 'com.google.firebase:firebase-perf:19.0.0'
+implementation 'com.google.android.gms:play-services-ads:18.1.1'
+",<android><android-sqlite>,2963,0,25,443,1,7,16,65,11340,,154,3,25,2020-05-20 10:00,2020-07-19 10:50,2020-07-28 15:01,60.0,69.0,Basic,13,"<android><android-sqlite>, SQLiteConstraintException error showing after start of every activity, I have this error popping out in logcat all the time. It always shows after every change of activity. And sometimes, the app disappears and in a second it shows again. There is not any fatal error in logcat, all I see is this:
+2020-05-20 11:53:26.422 2940-8484/? E/SQLiteDatabase: Error inserting flex_time=3324000 job_id=-1 period=6650000 source=16 requires_charging=0 preferred_network_type=1 target_class=com.google.android.gms.measurement.PackageMeasurementTaskService user_id=0 target_package=com.google.android.gms tag=Measurement.PackageMeasurementTaskService.UPLOAD_TASK_TAG task_type=0 required_idleness_state=0 service_kind=0 source_version=201516000 persistence_level=1 preferred_charging_state=1 required_network_type=0 runtime=1589968406417 retry_strategy={""maximum_backoff_seconds"":{""3600"":0},""initial_backoff_seconds"":{""30"":0},""retry_policy"":{""0"":0}} last_runtime=0
+android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: pending_ops.tag, pending_ops.target_class, pending_ops.target_package, pending_ops.user_id (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+    at android.database.sqlite.SQLiteConnection.nativeExecuteForLastInsertedRowId(Native Method)
+    at android.database.sqlite.SQLiteConnection.executeForLastInsertedRowId(SQLiteConnection.java:879)
+    at android.database.sqlite.SQLiteSession.executeForLastInsertedRowId(SQLiteSession.java:790)
+    at android.database.sqlite.SQLiteStatement.executeInsert(SQLiteStatement.java:88)
+    at android.database.sqlite.SQLiteDatabase.insertWithOnConflict(SQLiteDatabase.java:1599)
+    at android.database.sqlite.SQLiteDatabase.insert(SQLiteDatabase.java:1468)
+    at aplm.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):76)
+    at aplb.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):173)
+    at aplb.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):21)
+    at aplb.a(:com.google.android.gms@201516038@20.15.16 (120406-309763488):167)
+    at aphk.run(:com.google.android.gms@201516038@20.15.16 (120406-309763488):8)
+    at sob.b(:com.google.android.gms@201516038@20.15.16 (120406-309763488):12)
+    at sob.run(:com.google.android.gms@201516038@20.15.16 (120406-309763488):7)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+    at sub.run(:com.google.android.gms@201516038@20.15.16 (120406-309763488):0)
+    at java.lang.Thread.run(Thread.java:919)
+But it does not show anywhere to the code is there any solution to it?
+Edit: Google libraries:
+implementation 'com.google.android.material:material:1.1.0'
+implementation 'com.google.firebase:firebase-core:17.1.0'
+implementation 'com.google.firebase:firebase-database:19.0.0'
+implementation 'com.google.firebase:firebase-analytics:17.0.1'
+implementation 'com.google.firebase:firebase-perf:19.0.0'
+implementation 'com.google.android.gms:play-services-ads:18.1.1'
+","<andros><andros-quite>, sqliteconstraintexcept error show start every activity, error pop local time. away show every change activity. sometimes, pp disappear second show again. fatal error local, see this: 2020-05-20 11:53:26.422 2940-8484/? e/sqlitedatabase: error insert flex_time=3324000 job_id=-1 period=6650000 source=16 requires_charging=0 preferred_network_type=1 target_class=com.goose.andros.gas.measurement.packagemeasurementtaskservic user_id=0 target_package=com.goose.andros.go tag=measurement.packagemeasurementtaskservice.upload_task_tag task_type=0 required_idleness_state=0 service_kind=0 source_version=201516000 persistence_level=1 preferred_charging_state=1 required_network_type=0 auntie=1589968406417 retry_strategy={""maximum_backoff_seconds"":{""3600"":0},""initial_backoff_seconds"":{""30"":0},""retry_policy"":{""0"":0}} last_runtime=0 andros.database.quite.sqliteconstraintexception: unique constraint failed: pending_ops.tag, pending_ops.target_class, pending_ops.target_package, pending_ops.user_id (code 2067 sqlite_constraint_unique) andros.database.quite.sqliteconnection.nativeexecuteforlastinsertedrowid(n method) andros.database.quite.sqliteconnection.executeforlastinsertedrowid(sqliteconnection.cava:879) andros.database.quite.sqlitesession.executeforlastinsertedrowid(sqlitesession.cava:790) andros.database.quite.sqlitestatement.executeinsert(sqlitestatement.cava:88) andros.database.quite.sqlitedatabase.insertwithonconflict(sqlitedatabase.cava:1599) andros.database.quite.sqlitedatabase.insert(sqlitedatabase.cava:1468) palm.a(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):76) all.a(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):173) all.a(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):21) all.a(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):167) ask.run(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):8) sob.b(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):12) sob.run(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):7) cava.until.concurrent.threadpoolexecutor.runworker(threadpoolexecutor.cava:1167) cava.until.concurrent.threadpoolexecutor$worker.run(threadpoolexecutor.cava:641) sub.run(:com.goose.andros.gas@201516038@20.15.16 (120406-309763488):0) cava.long.thread.run(thread.cava:919) show anywhere code slut it? edit: good libraries: implement 'com.goose.andros.material:material:1.1.0' implement 'com.goose.firebase:firebase-core:17.1.0' implement 'com.goose.firebase:firebase-database:19.0.0' implement 'com.goose.firebase:firebase-analysis:17.0.1' implement 'com.goose.firebase:firebase-per:19.0.0' implement 'com.goose.andros.gas:play-services-as:18.1.1'"
+50350741,Room @Relation with composite Primary Key,"my question is an extension of this question (also mine :) ) -> Room composite Primary Key link to Foreign Key
+So, if I have this class:
+public class FoodWithIngredients extends Food{
+    @Relation(parentColumn = ""id"", entityColumn = ""food_id"", entity = 
+    Ingredient.class)
+    private List&lt;Ingredient&gt; mIngredients;
+}
+But the PrimaryKey of ""Food"" table is composite (primaryKeys = {""id"", ""language_id""}).
+How I can make the @Relation returns records where ""parentColumn = {""id"", ""language_id""}, entityColumn = {""food_id"", food_language_id}"" ?
+",<android><sqlite><android-room><composite-primary-key>,553,1,11,1513,2,17,34,48,4784,0.0,119,3,24,2018-05-15 12:52,2019-06-18 7:52,,399.0,,Basic,8,"<android><sqlite><android-room><composite-primary-key>, Room @Relation with composite Primary Key, my question is an extension of this question (also mine :) ) -> Room composite Primary Key link to Foreign Key
+So, if I have this class:
+public class FoodWithIngredients extends Food{
+    @Relation(parentColumn = ""id"", entityColumn = ""food_id"", entity = 
+    Ingredient.class)
+    private List&lt;Ingredient&gt; mIngredients;
+}
+But the PrimaryKey of ""Food"" table is composite (primaryKeys = {""id"", ""language_id""}).
+How I can make the @Relation returns records where ""parentColumn = {""id"", ""language_id""}, entityColumn = {""food_id"", food_language_id}"" ?
+","<andros><quite><andros-room><composite-primary-key>, room @relate composite primary key, question extent question (also mine :) ) -> room composite primary key link foreign key so, class: public class foodwithingredi extend food{ @relation(parentcolumn = ""id"", entitycolumn = ""food_id"", entity = ingredient.class) privat list&it;ingredient&it; ingredient; } primarykey ""food"" table composite (primarykey = {""id"", ""language_id""}). make @relate return record ""parentcolumn = {""id"", ""language_id""}, entitycolumn = {""food_id"", food_language_id}"" ?"
+51492078,Drop column if exists in SQL Server 2008 r2,"I am using SQL Server 2008 R2.
+I want to drop the column if it is already exists in the table else not throw any error.
+Tried:
+ALTER TABLE Emp 
+DROP COLUMN IF EXISTS Lname;
+Error: 
+  Incorrect syntax near the keyword 'IF'.
+By searching I came to know that, this option is available from 2016.
+What is the alternative in the SQL Server 2008 R2?
+",<sql-server><sql-server-2008-r2>,344,0,2,6902,26,75,133,73,66168,0.0,788,3,24,2018-07-24 6:42,2018-07-24 6:44,2018-07-24 6:44,0.0,0.0,Basic,8,"<sql-server><sql-server-2008-r2>, Drop column if exists in SQL Server 2008 r2, I am using SQL Server 2008 R2.
+I want to drop the column if it is already exists in the table else not throw any error.
+Tried:
+ALTER TABLE Emp 
+DROP COLUMN IF EXISTS Lname;
+Error: 
+  Incorrect syntax near the keyword 'IF'.
+By searching I came to know that, this option is available from 2016.
+What is the alternative in the SQL Server 2008 R2?
+","<sal-server><sal-server-2008-re>, drop column exist sal server 2008 re, use sal server 2008 re. want drop column already exist table else throw error. tried: alter table hemp drop column exist name; error: incorrect santa near eyford 'if'. search came know that, option avail 2016. alter sal server 2008 re?"
+50081527,Can't connect to MySQL from Java: NullPointerException inside MySQL driver connection logic,"I'm trying to connect to a database I created with MySQL in my Java program, but it always fails.
+For the sake of example, here is my code:
+import java.sql.*;
+public class Squirrel {
+    public static void main(String[] args) {
+        String user;
+        String password;
+        Connection connection;
+        Statement statement;
+        try {
+            Class.forName(""com.mysql.jdbc.Driver"");
+            connection = DriverManager.getConnection(
+                ""jdbc:mysql://localhost:3306"", user, password);
+            statement = connection.createStatement();
+            // Other code
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+I am able to connect to the database from within IntelliJ and have added the mysql-connector-java-5.1.40.jar added to the project, but each time I run the program DriverManager.getConnection() throws this:
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server.
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+    at com.mysql.jdbc.Util.getInstance(Util.java:408)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:918)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:897)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:886)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:860)
+    at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2330)
+    at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+    at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:806)
+    at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+    at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+    at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+    at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:678)
+    at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+    at Squirrel.main(Squirrel.java:12)
+Caused by: java.lang.NullPointerException
+    at com.mysql.jdbc.ConnectionImpl.getServerCharset(ConnectionImpl.java:2997)
+    at com.mysql.jdbc.MysqlIO.sendConnectionAttributes(MysqlIO.java:1934)
+    at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1863)
+    at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+    at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2253)
+    at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+... 13 more
+",<java><mysql>,3829,0,68,537,1,5,15,38,24219,0.0,63,5,24,2018-04-28 22:13,2018-04-28 22:19,2018-04-29 0:28,0.0,1.0,Basic,12,"<java><mysql>, Can't connect to MySQL from Java: NullPointerException inside MySQL driver connection logic, I'm trying to connect to a database I created with MySQL in my Java program, but it always fails.
+For the sake of example, here is my code:
+import java.sql.*;
+public class Squirrel {
+    public static void main(String[] args) {
+        String user;
+        String password;
+        Connection connection;
+        Statement statement;
+        try {
+            Class.forName(""com.mysql.jdbc.Driver"");
+            connection = DriverManager.getConnection(
+                ""jdbc:mysql://localhost:3306"", user, password);
+            statement = connection.createStatement();
+            // Other code
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+I am able to connect to the database from within IntelliJ and have added the mysql-connector-java-5.1.40.jar added to the project, but each time I run the program DriverManager.getConnection() throws this:
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server.
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+    at com.mysql.jdbc.Util.getInstance(Util.java:408)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:918)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:897)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:886)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:860)
+    at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2330)
+    at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2083)
+    at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:806)
+    at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+    at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:410)
+    at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:328)
+    at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:678)
+    at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+    at Squirrel.main(Squirrel.java:12)
+Caused by: java.lang.NullPointerException
+    at com.mysql.jdbc.ConnectionImpl.getServerCharset(ConnectionImpl.java:2997)
+    at com.mysql.jdbc.MysqlIO.sendConnectionAttributes(MysqlIO.java:1934)
+    at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1863)
+    at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+    at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2253)
+    at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2284)
+... 13 more
+","<cava><myself>, can't connect myself cava: nullpointerexcept inside myself driver connect logic, i'm try connect database great myself cava program, away fails. sake example, code: import cava.sal.*; public class squirrel { public static void main(string[] arms) { string user; string password; connect connection; statement statement; try { class.frame(""com.myself.job.driver""); connect = drivermanager.getconnection( ""job:myself://localhost:3306"", user, password); statement = connection.createstatement(); // code } catch (classnotfoundexcept | sqlexcept e) { e.printstacktrace(); } final { try { (statement != null) { statement.close(); } (connect != null) { connection.close(); } } catch (sqlexcept e) { e.printstacktrace(); } } } } all connect database within intellij ad myself-connection-cava-5.1.40.jar ad project, time run program drivermanager.getconnection() throw this: com.myself.job.exceptions.jdbc4.mysqlnontransientconnectionexception: could great connect database server. cava.base/do.internal.reflect.nativeconstructoraccessorimpl.newinstance0(n method) cava.base/do.internal.reflect.nativeconstructoraccessorimpl.newinstance(nativeconstructoraccessorimpl.cava:62) cava.base/do.internal.reflect.delegatingconstructoraccessorimpl.newinstance(delegatingconstructoraccessorimpl.cava:45) cava.base/cava.long.reflect.construction.newinstance(construction.cava:488) com.myself.job.until.handlenewinstance(until.cava:425) com.myself.job.until.getinstance(until.cava:408) com.myself.job.sqlerror.createsqlexception(sqlerror.cava:918) com.myself.job.sqlerror.createsqlexception(sqlerror.cava:897) com.myself.job.sqlerror.createsqlexception(sqlerror.cava:886) com.myself.job.sqlerror.createsqlexception(sqlerror.cava:860) com.myself.job.connectionimpl.connectonetryonly(connectionimpl.cava:2330) com.myself.job.connectionimpl.createnewio(connectionimpl.cava:2083) com.myself.job.connectionimpl.&it;knit&it;(connectionimpl.cava:806) com.myself.job.jdbc4connection.&it;knit&it;(jdbc4connection.cava:47) cava.base/do.internal.reflect.nativeconstructoraccessorimpl.newinstance0(n method) cava.base/do.internal.reflect.nativeconstructoraccessorimpl.newinstance(nativeconstructoraccessorimpl.cava:62) cava.base/do.internal.reflect.delegatingconstructoraccessorimpl.newinstance(delegatingconstructoraccessorimpl.cava:45) cava.base/cava.long.reflect.construction.newinstance(construction.cava:488) com.myself.job.until.handlenewinstance(until.cava:425) com.myself.job.connectionimpl.getinstance(connectionimpl.cava:410) com.myself.job.nonregisteringdriver.connect(nonregisteringdriver.cava:328) cava.sal/cava.sal.drivermanager.getconnection(drivermanager.cava:678) cava.sal/cava.sal.drivermanager.getconnection(drivermanager.cava:229) squirrel.main(squirrel.cava:12) cause by: cava.long.nullpointerexcept com.myself.job.connectionimpl.getservercharset(connectionimpl.cava:2997) com.myself.job.mysqlio.sendconnectionattributes(mysqlio.cava:1934) com.myself.job.mysqlio.proceedhandshakewithpluggableauthentication(mysqlio.cava:1863) com.myself.job.mysqlio.dohandshake(mysqlio.cava:1226) com.myself.job.connectionimpl.coreconnect(connectionimpl.cava:2253) com.myself.job.connectionimpl.connectonetryonly(connectionimpl.cava:2284) ... 13"
+51803216,lower_case_table_names Settings in MySQL 8.0.12,"I've just compiled the version MySQL 8.0.12 in a Ubuntu 16.0.4.
+After following the instructions in the website and making the following my.cnf file:
+[mysqld]
+datadir=/usr/local/mysql/data
+socket=/tmp/mysql.sock
+port=3306
+log-error=/usr/local/mysql/data/localhost.localdomain.err
+user=mysql
+secure_file_priv=/usr/local/mysql/mysql-files
+local_infile=OFF
+log_error = /var/log/mysql/error.log
+# Remove case sensitive in table names
+lower_case_table_names=1
+I get the following error:
+2018-08-11T19:45:06.461585Z 1 [ERROR] [MY-011087] [Server] Different lower_case_table_names settings for server ('1') and data dictionary ('0').
+What should I change so that data dictionary is aligned to server settings?
+",<mysql><lowercase><data-dictionary>,703,0,14,2259,3,22,26,59,83242,0.0,211,7,24,2018-08-11 19:53,2018-08-11 21:47,2018-08-11 21:47,0.0,0.0,Basic,14,"<mysql><lowercase><data-dictionary>, lower_case_table_names Settings in MySQL 8.0.12, I've just compiled the version MySQL 8.0.12 in a Ubuntu 16.0.4.
+After following the instructions in the website and making the following my.cnf file:
+[mysqld]
+datadir=/usr/local/mysql/data
+socket=/tmp/mysql.sock
+port=3306
+log-error=/usr/local/mysql/data/localhost.localdomain.err
+user=mysql
+secure_file_priv=/usr/local/mysql/mysql-files
+local_infile=OFF
+log_error = /var/log/mysql/error.log
+# Remove case sensitive in table names
+lower_case_table_names=1
+I get the following error:
+2018-08-11T19:45:06.461585Z 1 [ERROR] [MY-011087] [Server] Different lower_case_table_names settings for server ('1') and data dictionary ('0').
+What should I change so that data dictionary is aligned to server settings?
+","<myself><lowercase><data-dictionary>, lower_case_table_nam set myself 8.0.12, i'v compel version myself 8.0.12 bunt 16.0.4. follow instruct west make follow my.cf file: [myself] datadir=/us/local/myself/data socket=/tm/myself.sock port=3306 log-error=/us/local/myself/data/localhost.localdomain.err user=myself secure_file_priv=/us/local/myself/myself-fig local_infile=off log_error = /war/log/myself/error.log # remove case sent table name lower_case_table_names=1 get follow error: 2018-08-11t19:45:06.461585z 1 [error] [my-011087] [server] differ lower_case_table_nam set server ('1') data dictionary ('0'). change data dictionary align server settings?"
+52815608,ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client,"Problem in mysql used in nodejs
+const mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '123456789',
+  database : 'userdata'
+});
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err);
+    return;
+  }
+ console.log('connected as id ' + connection.threadId);
+});
+Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+",<mysql><node.js>,519,0,16,287,1,3,14,64,45241,0.0,10,5,24,2018-10-15 11:20,2019-01-04 20:54,2019-01-04 20:54,81.0,81.0,Basic,14,"<mysql><node.js>, ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client, Problem in mysql used in nodejs
+const mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '123456789',
+  database : 'userdata'
+});
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err);
+    return;
+  }
+ console.log('connected as id ' + connection.threadId);
+});
+Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+","<myself><node.is>, er_not_supported_auth_mode: client support authentic protocol request server; consider upgrade myself client, problem myself use nodes cost myself = require('myself'); war connect = myself.createconnection({ host : 'localhost', user : 'root', password : '123456789', database : 'userdata' }); connection.connect(function(err) { (err) { console.error('error connecting: ' + err); return; } console.log('connect id ' + connection.thread); }); error: er_not_supported_auth_mode: client support authentic protocol request server; consider upgrade myself client"
+60395574,"How to disable ""clr strict security"" in SQL Server","I enabled clr integration (i.e. SQLCLR) by running:
+EXEC sp_configure 'clr enabled', 1;  
+RECONFIGURE;  
+Now when I try:
+EXEC sp_configure 'clr strict security', 0;
+RECONFIGURE;
+I get an error saying the setting does not exist:
+Msg 15123, Level 16, State 1, Procedure sp_configure, Line 62
+The configuration option 'clr strict security' does not exist, or it may be an advanced option.
+I know the proper solution to my problem is signing the assembly containing the stored procedures to allow it running with strict security but for now I need the quick and dirty fix.
+",<sql-server><configuration><sqlclr>,569,0,4,3281,1,28,41,38,38213,0.0,384,1,24,2020-02-25 13:19,2020-02-25 13:37,2020-02-25 13:37,0.0,0.0,Basic,14,"<sql-server><configuration><sqlclr>, How to disable ""clr strict security"" in SQL Server, I enabled clr integration (i.e. SQLCLR) by running:
+EXEC sp_configure 'clr enabled', 1;  
+RECONFIGURE;  
+Now when I try:
+EXEC sp_configure 'clr strict security', 0;
+RECONFIGURE;
+I get an error saying the setting does not exist:
+Msg 15123, Level 16, State 1, Procedure sp_configure, Line 62
+The configuration option 'clr strict security' does not exist, or it may be an advanced option.
+I know the proper solution to my problem is signing the assembly containing the stored procedures to allow it running with strict security but for now I need the quick and dirty fix.
+","<sal-server><configuration><sqlclr>, distal ""car strict security"" sal server, enable car inter (i.e. sqlclr) running: even sp_configur 'car enabled', 1; reconfigure; try: even sp_configur 'car strict security', 0; reconfigure; get error say set exist: mug 15123, level 16, state 1, procedure sp_configure, line 62 configur option 'car strict security' exist, may advance option. know proper slut problem sign assembly contain store procedure allow run strict secure need quick dirty fix."
+62917136,"'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration","I'm upgrading an ASP.NET Core application from Framework 2.2 to 3.1. It also uses Entity Framework Core.
+In the Startup.ConfigureServices method, there is this code:
+services.AddEntityFrameworkNpgsql()
+    .AddDbContext&lt;MainDbContext&gt;(options =&gt; options
+        .UseNpgsql(Configuration.GetConnectionString(&quot;MainDbContext&quot;)));
+Everything was fine with .NET Core 2.2. With .NET Core 3.1, I get this warning on every application start:
+'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Remove the 'AddEntityFramework*' call as in most cases it's not needed and might cause conflicts with other products and services registered in the same service provider.
+Looking up the UseInternalServiceProvider method, it looks like that should be called on the options to pass on the main service provider. Unfortunately, at this point, the service provider does not exist yet. It is just about to be built.
+I don't understand what the problem is and what this warning wants to tell me, but failed to do. How can I make that warning go away? The web doesn't know about this message yet.
+",<c#><asp.net-core><.net-core><entity-framework-core><npgsql>,1188,0,5,18981,23,117,217,60,11079,,1123,1,24,2020-07-15 14:23,2020-07-15 14:32,2020-07-15 14:32,0.0,0.0,Basic,14,"<c#><asp.net-core><.net-core><entity-framework-core><npgsql>, 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration, I'm upgrading an ASP.NET Core application from Framework 2.2 to 3.1. It also uses Entity Framework Core.
+In the Startup.ConfigureServices method, there is this code:
+services.AddEntityFrameworkNpgsql()
+    .AddDbContext&lt;MainDbContext&gt;(options =&gt; options
+        .UseNpgsql(Configuration.GetConnectionString(&quot;MainDbContext&quot;)));
+Everything was fine with .NET Core 2.2. With .NET Core 3.1, I get this warning on every application start:
+'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Remove the 'AddEntityFramework*' call as in most cases it's not needed and might cause conflicts with other products and services registered in the same service provider.
+Looking up the UseInternalServiceProvider method, it looks like that should be called on the options to pass on the main service provider. Unfortunately, at this point, the service provider does not exist yet. It is just about to be built.
+I don't understand what the problem is and what this warning wants to tell me, but failed to do. How can I make that warning go away? The web doesn't know about this message yet.
+","<c#><asp.net-core><.net-core><entity-framework-core><npgsql>, 'addentityframework*' call service provider, 'useinternalserviceprovider' call context option configuration, i'm upgrade asp.net core applied framework 2.2 3.1. also use entity framework core. started.configureservic method, code: services.addentityframeworknpgsql() .adddbcontext&it;maindbcontext&it;(opt =&it; option .usenpgsql(configuration.getconnectionstring(&quit;maindbcontext&quit;))); every fine .net core 2.2. .net core 3.1, get warn every applied start: 'addentityframework*' call service provider, 'useinternalserviceprovider' call context option configuration. remove 'addentityframework*' call case need might cause conflict product service resist service provider. look useinternalserviceprovid method, look like call option pass main service provider. unfortunately, point, service proved exist yet. built. understand problem warn want tell me, fail do. make warn go away? web know message yet."
+55478489,"android Room, how to delete multiple rows in the table by id list","Having a Android Room with three tables timestamp, index, details, and all three have 
+@PrimaryKey @ColumnInfo(name = ""id"") var id: Int = 0
+having fun clearDataByID(idList: List&lt;Int&gt;)  to clear data from all three tables by the id in the idList
+Dao as:
+@Dao
+interface DataDAO {
+@Transaction
+fun clearDataByID(idList: List&lt;Int&gt;) {
+    deleteDataInTimestamp(idList)
+    deleteDataIndex(idList)
+    deleteDataDetails(idList)
+}
+@Query(""delete from timestamp where id in :idList"")
+fun deleteDataInTimestamp(idList: List&lt;Int&gt;)
+@Query(""delete from index where id in :idList"")
+fun deleteDataIndex(idList: List&lt;Int&gt;)
+@Query(""delete from details where id in :idList"")
+fun deleteDataDetails(idList: List&lt;Int&gt;)
+}
+but it gets compiler error (similar for all three)
+error: no viable alternative at input 'delete from timestamp where id in :idList'
+public abstract void deleteDataInTimestamp(@org.jetbrains.annotations.NotNull()
+if delete by single id it worked.  
+How to delete by a list of ids?
+@Query(""delete from timestamp where id = :id"")
+fun deleteSingleTimestamp(id: Int)
+",<android-room><sql-delete>,1094,0,31,10115,12,74,155,65,13620,0.0,251,2,24,2019-04-02 15:31,2019-04-02 20:34,2022-09-20 3:46,0.0,1267.0,Basic,9,"<android-room><sql-delete>, android Room, how to delete multiple rows in the table by id list, Having a Android Room with three tables timestamp, index, details, and all three have 
+@PrimaryKey @ColumnInfo(name = ""id"") var id: Int = 0
+having fun clearDataByID(idList: List&lt;Int&gt;)  to clear data from all three tables by the id in the idList
+Dao as:
+@Dao
+interface DataDAO {
+@Transaction
+fun clearDataByID(idList: List&lt;Int&gt;) {
+    deleteDataInTimestamp(idList)
+    deleteDataIndex(idList)
+    deleteDataDetails(idList)
+}
+@Query(""delete from timestamp where id in :idList"")
+fun deleteDataInTimestamp(idList: List&lt;Int&gt;)
+@Query(""delete from index where id in :idList"")
+fun deleteDataIndex(idList: List&lt;Int&gt;)
+@Query(""delete from details where id in :idList"")
+fun deleteDataDetails(idList: List&lt;Int&gt;)
+}
+but it gets compiler error (similar for all three)
+error: no viable alternative at input 'delete from timestamp where id in :idList'
+public abstract void deleteDataInTimestamp(@org.jetbrains.annotations.NotNull()
+if delete by single id it worked.  
+How to delete by a list of ids?
+@Query(""delete from timestamp where id = :id"")
+fun deleteSingleTimestamp(id: Int)
+","<andros-room><sal-delete>, andros room, delete multiple row table id list, andros room three table timestamp, index, details, three @primarykey @columninfo(am = ""id"") war id: in = 0 fun cleardatabyid(list: list&it;in&it;) clear data three table id list do as: @do interface datadao { @transact fun cleardatabyid(list: list&it;in&it;) { deletedataintimestamp(list) deletedataindex(list) deletedatadetails(list) } @query(""delete timestamp id :list"") fun deletedataintimestamp(list: list&it;in&it;) @query(""delete index id :list"") fun deletedataindex(list: list&it;in&it;) @query(""delete detail id :list"") fun deletedatadetails(list: list&it;in&it;) } get compel error (similar three) error: viable alter input 'delete timestamp id :list' public abstract void deletedataintimestamp(@org.jetbrains.innovations.notnull() delete single id worked. delete list is? @query(""delete timestamp id = :id"") fun deletesingletimestamp(id: in)"
+56328832,Transactionscope throwing exception this platform does not support distributed transactions while opening connection object,"TransactionScope is throwing a exception in .net core 2.2
+In this example I created a scope of TransactioScop.
+Opening SQL transaction for one database which is working fine.
+After the first transaction I´m calling commit which will commit the SQL transaction.
+I try to open call transaction for another database while creating a transaction and the system is throwing an exception
+This platform does not support distributed transactions.
+tried to remove SQL transaction
+c#
+using (TransactionScope scop =new TransactionScope(TransactionScopeOption.Required, TransactionScopeAsyncFlowOption.Enabled))
+{       
+    _db1UOW.Begin(); //creating sql transaction
+    await _db1UOW.IDenialDetailsRepositorydb1.InsertDenialDetails(denialsDetails);
+    await _db1UOW.IRuleDetailsRepositorydb1.InsertRulesDetails(rulesDetails);
+    _db1UOW.Commit(); //commitng sql transaction
+    _db2UOW.Begin(); //creating sql transaction (but while opening connection object its throwing exception as This platform does not support distributed transactions)
+    await _db2UOW.IRuleDetailsRepository.GetRulesDetails();
+    await _db2UOW.IDenialDetailsRepository.InsertDenialDetails(denialsDetails);
+    var data = await _db2UOW.IRuleDetailsRepository.InsertRulesDetails(rulesDetails);
+    _db2UOW.Commit(); //commitng sql transaction
+    scop.Complete();
+}
+Message
+&quot;This platform does not support distributed transactions.&quot;  at System.Transactions.Distributed.DistributedTransactionManager.GetDistributedTransactionFromTransmitterPropagationToken(Byte[] propagationToken)
+   at System.Transactions.TransactionInterop.GetDistributedTransactionFromTransmitterPropagationToken(Byte[] propagationToken)
+   at System.Transactions.TransactionStatePSPEOperation.PSPEPromote(InternalTransaction tx)
+   at System.Transactions.TransactionStateDelegatedBase.EnterState(InternalTransaction tx)
+   at System.Transactions.EnlistableStates.Promote(InternalTransaction tx)
+   at System.Transactions.Transaction.Promote()
+   at System.Transactions.TransactionInterop.ConvertToDistributedTransaction(Transaction transaction)
+   at System.Transactions.TransactionInterop.GetExportCookie(Transaction transaction, Byte[] whereabouts)
+   at System.Data.SqlClient.SqlInternalConnection.GetTransactionCookie(Transaction transaction, Byte[] whereAbouts)
+   at System.Data.SqlClient.SqlInternalConnection.EnlistNonNull(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnection.Enlist(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnectionTds.Activate(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.PrepareConnection(DbConnection owningObject, DbConnectionInternal obj, Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+",<c#><sql-server><.net-core>,3921,0,37,375,1,2,5,56,29197,0.0,0,2,24,2019-05-27 15:25,2019-05-27 20:17,2019-05-27 20:17,0.0,0.0,Advanced,32,"<c#><sql-server><.net-core>, Transactionscope throwing exception this platform does not support distributed transactions while opening connection object, TransactionScope is throwing a exception in .net core 2.2
+In this example I created a scope of TransactioScop.
+Opening SQL transaction for one database which is working fine.
+After the first transaction I´m calling commit which will commit the SQL transaction.
+I try to open call transaction for another database while creating a transaction and the system is throwing an exception
+This platform does not support distributed transactions.
+tried to remove SQL transaction
+c#
+using (TransactionScope scop =new TransactionScope(TransactionScopeOption.Required, TransactionScopeAsyncFlowOption.Enabled))
+{       
+    _db1UOW.Begin(); //creating sql transaction
+    await _db1UOW.IDenialDetailsRepositorydb1.InsertDenialDetails(denialsDetails);
+    await _db1UOW.IRuleDetailsRepositorydb1.InsertRulesDetails(rulesDetails);
+    _db1UOW.Commit(); //commitng sql transaction
+    _db2UOW.Begin(); //creating sql transaction (but while opening connection object its throwing exception as This platform does not support distributed transactions)
+    await _db2UOW.IRuleDetailsRepository.GetRulesDetails();
+    await _db2UOW.IDenialDetailsRepository.InsertDenialDetails(denialsDetails);
+    var data = await _db2UOW.IRuleDetailsRepository.InsertRulesDetails(rulesDetails);
+    _db2UOW.Commit(); //commitng sql transaction
+    scop.Complete();
+}
+Message
+&quot;This platform does not support distributed transactions.&quot;  at System.Transactions.Distributed.DistributedTransactionManager.GetDistributedTransactionFromTransmitterPropagationToken(Byte[] propagationToken)
+   at System.Transactions.TransactionInterop.GetDistributedTransactionFromTransmitterPropagationToken(Byte[] propagationToken)
+   at System.Transactions.TransactionStatePSPEOperation.PSPEPromote(InternalTransaction tx)
+   at System.Transactions.TransactionStateDelegatedBase.EnterState(InternalTransaction tx)
+   at System.Transactions.EnlistableStates.Promote(InternalTransaction tx)
+   at System.Transactions.Transaction.Promote()
+   at System.Transactions.TransactionInterop.ConvertToDistributedTransaction(Transaction transaction)
+   at System.Transactions.TransactionInterop.GetExportCookie(Transaction transaction, Byte[] whereabouts)
+   at System.Data.SqlClient.SqlInternalConnection.GetTransactionCookie(Transaction transaction, Byte[] whereAbouts)
+   at System.Data.SqlClient.SqlInternalConnection.EnlistNonNull(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnection.Enlist(Transaction tx)
+   at System.Data.SqlClient.SqlInternalConnectionTds.Activate(Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.PrepareConnection(DbConnection owningObject, DbConnectionInternal obj, Transaction transaction)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+","<c#><sal-server><.net-core>, transactionscop throw except platform support distribute transact open connect object, transactionscop throw except .net core 2.2 example great scope transactioscop. open sal transact one database work fine. first transact i´m call commit commit sal transaction. try open call transact not database great transact system throw except platform support distribute transactions. try remove sal transact c# use (transactionscop stop =new transactionscope(transactionscopeoption.required, transactionscopeasyncflowoption.enabled)) { _db1uow.begin(); //great sal transact await _db1uow.idenialdetailsrepositorydb1.insertdenialdetails(denialsdetails); await _db1uow.iruledetailsrepositorydb1.insertrulesdetails(rulesdetails); _db1uow.commit(); //coming sal transact _db2uow.begin(); //great sal transact (but open connect object throw except platform support distribute transactions) await _db2uow.iruledetailsrepository.getrulesdetails(); await _db2uow.idenialdetailsrepository.insertdenialdetails(denialsdetails); war data = await _db2uow.iruledetailsrepository.insertrulesdetails(rulesdetails); _db2uow.commit(); //coming sal transact stop.complete(); } message &quit;the platform support distribute transactions.&quit; system.transactions.distributed.distributedtransactionmanager.getdistributedtransactionfromtransmitterpropagationtoken(bite[] propagationtoken) system.transactions.transactioninterop.getdistributedtransactionfromtransmitterpropagationtoken(bite[] propagationtoken) system.transactions.transactionstatepspeoperation.pspepromote(internaltransact to) system.transactions.transactionstatedelegatedbase.interstate(internaltransact to) system.transactions.enlistablestates.promote(internaltransact to) system.transactions.transaction.promote() system.transactions.transactioninterop.converttodistributedtransaction(transact transaction) system.transactions.transactioninterop.getexportcookie(transact transaction, bite[] whereabouts) system.data.sqlclient.sqlinternalconnection.gettransactioncookie(transact transaction, bite[] whereabouts) system.data.sqlclient.sqlinternalconnection.enlistnonnull(transact to) system.data.sqlclient.sqlinternalconnection.enlist(transact to) system.data.sqlclient.sqlinternalconnectiontds.activate(transact transaction) system.data.providerbase.dbconnectionpool.prepareconnection(connect owningobject, dbconnectionintern obs, transact transaction) system.data.providerbase.dbconnectionpool.trygetconnection(connect owningobject, uint32 waitformultipleobjectstimeout, woolen allowcreate, woolen onlyonecheckconnection, dbconnectionopt useroptions, dbconnectioninternal&amp; connection) system.data.providerbase.dbconnectionpool.trygetconnection(connect owningobject, taskcompletionsource`1 retro, dbconnectionopt useroptions, dbconnectioninternal&amp; connection) system.data.providerbase.dbconnectionfactory.trygetconnection(connect owningconnection, taskcompletionsource`1 retro, dbconnectionopt useroptions, dbconnectionintern oldconnection, dbconnectioninternal&amp; connection) system.data.providerbase.dbconnectioninternal.tryopenconnectioninternal(connect outerconnection, dbconnectionfactori connectionfactory, taskcompletionsource`1 retro, dbconnectionopt useroptions) system.data.providerbase.dbconnectionclosed.tryopenconnection(connect outerconnection, dbconnectionfactori connectionfactory, taskcompletionsource`1 retro, dbconnectionopt useroptions) system.data.sqlclient.sqlconnection.trooper(taskcompletionsource`1 retro) system.data.sqlclient.sqlconnection.open()"
+50295175,How to check XAMPP's version on Windows?,"In Linux, its simple. I just type /opt/lampp/lampp status, and it tells me about the XAMPP version.
+Version: XAMPP for Linux 5.6.35-0
+Apache is running.
+MySQL is running.
+ProFTPD is running.
+What is the equivalent command for XAMPP on windows?
+",<php><mysql><apache><xampp>,244,0,4,1799,3,11,17,74,95723,0.0,14,7,24,2018-05-11 15:03,2018-09-27 15:41,,139.0,,Basic,1,"<php><mysql><apache><xampp>, How to check XAMPP's version on Windows?, In Linux, its simple. I just type /opt/lampp/lampp status, and it tells me about the XAMPP version.
+Version: XAMPP for Linux 5.6.35-0
+Apache is running.
+MySQL is running.
+ProFTPD is running.
+What is the equivalent command for XAMPP on windows?
+","<pp><myself><apache><camp>, check camp' version windows?, line, simple. type /opt/lamp/lamp status, tell camp version. version: camp line 5.6.35-0 apace running. myself running. profited running. equal command camp windows?"
+56724622,How to fix 'postgres.h' file not found problem?,"I am trying to write a base type for PostgreSQL in C (using xcode), and I already installed PostgreSQL 11, but it seems that postgres.h cannot be simply included in the file (""'postgres.h' file not found"").
+Could someone tell me how to fix that problem? And can I write code under an arbitary directory, or do I have to write under the PostgreSQL directory?
+Or perhaps the question should be: how to install header files like postgres.h?
+",<c><postgresql><postgresql-11>,438,0,2,459,1,5,13,54,31979,0.0,27,3,24,2019-06-23 14:02,2019-06-25 5:37,,2.0,,Intermediate,19,"<c><postgresql><postgresql-11>, How to fix 'postgres.h' file not found problem?, I am trying to write a base type for PostgreSQL in C (using xcode), and I already installed PostgreSQL 11, but it seems that postgres.h cannot be simply included in the file (""'postgres.h' file not found"").
+Could someone tell me how to fix that problem? And can I write code under an arbitary directory, or do I have to write under the PostgreSQL directory?
+Or perhaps the question should be: how to install header files like postgres.h?
+","<c><postgresql><postgresql-11>, fix 'postures.h' file found problem?, try write base type postgresql c (use code), already instal postgresql 11, seem postures.h cannot simple include file (""'postures.h' file found""). could someone tell fix problem? write code arbitrary directory, write postgresql directory? perhaps question be: instal header file like postures.h?"
+51817841,Create database view from django model,"I learned sql ""view"" as a virtual table to facilitate the SQL operations,  like
+MySQL [distributor]&gt; CREATE VIEW CustomerEMailList AS
+    -&gt; SELECT cust_id, cust_name, cust_email
+    -&gt; FROM Customers
+    -&gt; WHERE cust_email IS NOT NULL;
+Query OK, 0 rows affected (0.026 sec)
+MySQL [distributor]&gt; select * from customeremaillist;
++------------+---------------+-----------------------+
+| cust_id    | cust_name     | cust_email            |
++------------+---------------+-----------------------+
+| 1000000001 | Village Toys  | sales@villagetoys.com |
+| 1000000003 | Fun4All       | jjones@fun4all.com    |
+| 1000000004 | Fun4All       | dstephens@fun4all.com |
+| 1000000005 | The Toy Store | kim@thetoystore.com   |
+| 1000000006 | toy land      | sam@toyland.com       |
++------------+---------------+-----------------------+
+5 rows in set (0.014 sec)
+When I checked the Django documentation subsequently, there are no such functionality to create a virtual ""model table"" which could simplify the data manipulation.
+Should I forget the virtual table ""view"" when using Django ORM?
+",<django><sql-view>,1094,0,17,20291,20,83,143,67,28907,0.0,1063,3,24,2018-08-13 8:09,2018-08-13 8:43,2018-08-13 8:43,0.0,0.0,Intermediate,19,"<django><sql-view>, Create database view from django model, I learned sql ""view"" as a virtual table to facilitate the SQL operations,  like
+MySQL [distributor]&gt; CREATE VIEW CustomerEMailList AS
+    -&gt; SELECT cust_id, cust_name, cust_email
+    -&gt; FROM Customers
+    -&gt; WHERE cust_email IS NOT NULL;
+Query OK, 0 rows affected (0.026 sec)
+MySQL [distributor]&gt; select * from customeremaillist;
++------------+---------------+-----------------------+
+| cust_id    | cust_name     | cust_email            |
++------------+---------------+-----------------------+
+| 1000000001 | Village Toys  | sales@villagetoys.com |
+| 1000000003 | Fun4All       | jjones@fun4all.com    |
+| 1000000004 | Fun4All       | dstephens@fun4all.com |
+| 1000000005 | The Toy Store | kim@thetoystore.com   |
+| 1000000006 | toy land      | sam@toyland.com       |
++------------+---------------+-----------------------+
+5 rows in set (0.014 sec)
+When I checked the Django documentation subsequently, there are no such functionality to create a virtual ""model table"" which could simplify the data manipulation.
+Should I forget the virtual table ""view"" when using Django ORM?
+","<django><sal-view>, great database view django model, learn sal ""view"" virtual table facility sal operations, like myself [distributor]&it; great view customeremaillist -&it; select cust_id, cust_name, cust_email -&it; custom -&it; cust_email null; query ok, 0 row affect (0.026 see) myself [distributor]&it; select * customeremaillist; +------------+---------------+-----------------------+ | cust_id | cust_nam | cust_email | +------------+---------------+-----------------------+ | 1000000001 | village toy | sales@villagetoys.com | | 1000000003 | final | jones@fun4all.com | | 1000000004 | final | stephens@fun4all.com | | 1000000005 | toy store | him@thetoystore.com | | 1000000006 | toy land | sam@poland.com | +------------+---------------+-----------------------+ 5 row set (0.014 see) check django document subsequently, function great virtual ""model table"" could simplify data manipulation. forget virtual table ""view"" use django or?"
+48951549,docker and mysql: Got an error reading communication packets,"I have a problem with connectivity in docker. I use an official mysql 5.7 image and Prisma server. When I start it via prisma cli, that uses docker compose underneath (described here) everything works. 
+But I need to start this containers programmatically via docker api and in this case connections from app are dropped with [Note] Aborted connection 8 to db: 'unconnected' user: 'root' host: '164.20.10.2' (Got an error reading communication packets).
+So what I doo:
+Creating a bridge network:
+const network = await docker.network.create({
+Name: manifest.name + '_network',
+IPAM: {
+  ""Driver"": ""default"",
+  ""Config"": [
+    {
+      ""Subnet"": ""164.20.0.0/16"",
+      ""IPRange"": ""164.20.10.0/24""
+    }
+  ]
+}});
+Creating mysql container and attaching it to network
+const mysql = await docker.container.create({
+Image: 'mysql:5.7',
+Hostname: manifest.name + '-mysql',
+Names: ['/' + manifest.name + '-mysql'],
+NetworkingConfig: {
+  EndpointsConfig: {
+    [manifest.name + '_network']: {
+      Aliases: [manifest.name + '-mysql']
+    }
+  }
+},
+Restart: 'always',
+Args: [
+  ""mysqld"",
+  ""--max-connections=1000"",
+  ""--sql-mode=ALLOW_INVALID_DATES,ANSI_QUOTES,ERROR_FOR_DIVISION_BY_ZERO,HIGH_NOT_PRECEDENCE,IGNORE_SPACE,NO_AUTO_CREATE_USER,NO_AUTO_VALUE_ON_ZERO,NO_BACKSLASH_ESCAPES,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION,NO_FIELD_OPTIONS,NO_KEY_OPTIONS,NO_TABLE_OPTIONS,NO_UNSIGNED_SUBTRACTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,ONLY_FULL_GROUP_BY,PIPES_AS_CONCAT,REAL_AS_FLOAT,STRICT_ALL_TABLES,STRICT_TRANS_TABLES,ANSI,DB2,MAXDB,MSSQL,MYSQL323,MYSQL40,ORACLE,POSTGRESQL,TRADITIONAL""
+],
+Env: [
+  'MYSQL_ROOT_PASSWORD=secret'
+]
+});
+await network.connect({
+   Container: mysql.id
+});
+await mysql.start();
+Then I wait Mysql to boot, create needed databases and needed Prisma containers from prismagraphql/prisma:1.1 and start them. App server resolves mysql host correctly, but connections are dropped by mysql.
+Telnet from app container to mysql container in 3306 port responds correctly:
+J
+5.7.21U;uH  Kem']#45T]2mysql_native_password
+What am I doing wrong?
+",<mysql><docker><docker-api><prisma><prisma-graphql>,2044,2,43,2396,3,28,42,80,20919,,26,3,24,2018-02-23 15:46,2019-04-12 15:15,,413.0,,Basic,14,"<mysql><docker><docker-api><prisma><prisma-graphql>, docker and mysql: Got an error reading communication packets, I have a problem with connectivity in docker. I use an official mysql 5.7 image and Prisma server. When I start it via prisma cli, that uses docker compose underneath (described here) everything works. 
+But I need to start this containers programmatically via docker api and in this case connections from app are dropped with [Note] Aborted connection 8 to db: 'unconnected' user: 'root' host: '164.20.10.2' (Got an error reading communication packets).
+So what I doo:
+Creating a bridge network:
+const network = await docker.network.create({
+Name: manifest.name + '_network',
+IPAM: {
+  ""Driver"": ""default"",
+  ""Config"": [
+    {
+      ""Subnet"": ""164.20.0.0/16"",
+      ""IPRange"": ""164.20.10.0/24""
+    }
+  ]
+}});
+Creating mysql container and attaching it to network
+const mysql = await docker.container.create({
+Image: 'mysql:5.7',
+Hostname: manifest.name + '-mysql',
+Names: ['/' + manifest.name + '-mysql'],
+NetworkingConfig: {
+  EndpointsConfig: {
+    [manifest.name + '_network']: {
+      Aliases: [manifest.name + '-mysql']
+    }
+  }
+},
+Restart: 'always',
+Args: [
+  ""mysqld"",
+  ""--max-connections=1000"",
+  ""--sql-mode=ALLOW_INVALID_DATES,ANSI_QUOTES,ERROR_FOR_DIVISION_BY_ZERO,HIGH_NOT_PRECEDENCE,IGNORE_SPACE,NO_AUTO_CREATE_USER,NO_AUTO_VALUE_ON_ZERO,NO_BACKSLASH_ESCAPES,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION,NO_FIELD_OPTIONS,NO_KEY_OPTIONS,NO_TABLE_OPTIONS,NO_UNSIGNED_SUBTRACTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,ONLY_FULL_GROUP_BY,PIPES_AS_CONCAT,REAL_AS_FLOAT,STRICT_ALL_TABLES,STRICT_TRANS_TABLES,ANSI,DB2,MAXDB,MSSQL,MYSQL323,MYSQL40,ORACLE,POSTGRESQL,TRADITIONAL""
+],
+Env: [
+  'MYSQL_ROOT_PASSWORD=secret'
+]
+});
+await network.connect({
+   Container: mysql.id
+});
+await mysql.start();
+Then I wait Mysql to boot, create needed databases and needed Prisma containers from prismagraphql/prisma:1.1 and start them. App server resolves mysql host correctly, but connections are dropped by mysql.
+Telnet from app container to mysql container in 3306 port responds correctly:
+J
+5.7.21U;uH  Kem']#45T]2mysql_native_password
+What am I doing wrong?
+","<myself><doctor><doctor-apt><prima><prima-graph>, doctor myself: got error read common packets, problem connect doctor. use office myself 5.7 image prima server. start via prima coli, use doctor compose underneath (describe here) every works. need start contain programme via doctor apt case connect pp drop [note] abort connect 8 do: 'unconnected' user: 'root' host: '164.20.10.2' (got error read common packets). do: great bring network: cost network = await doctor.network.create({ name: manifest.am + 'network', am: { ""driver"": ""default"", ""confirm"": [ { ""subject"": ""164.20.0.0/16"", ""strange"": ""164.20.10.0/24"" } ] }}); great myself contain attach network cost myself = await doctor.container.create({ image: 'myself:5.7', hostage: manifest.am + '-myself', names: ['/' + manifest.am + '-myself'], networkingconfig: { endpointsconfig: { [manifest.am + 'network']: { arises: [manifest.am + '-myself'] } } }, start: 'always', arms: [ ""myself"", ""--max-connections=1000"", ""--sal-mode=allow_invalid_dates,ansi_quotes,error_for_division_by_zero,high_not_precedence,ignore_space,no_auto_create_user,no_auto_value_on_zero,no_backslash_escapes,no_dir_in_create,no_engine_substitution,no_field_options,no_key_options,no_table_options,no_unsigned_subtraction,no_zero_date,no_zero_in_date,only_full_group_by,pipes_as_concat,real_as_float,strict_all_tables,strict_trans_tables,anti,by,made,mssql,mysql323,mysql40,oracle,postgresql,traditional"" ], end: [ 'mysql_root_password=secret' ] }); await network.connect({ container: myself.id }); await myself.start(); wait myself boot, great need database need prima contain prismagraphql/prima:1.1 start them. pp server resolve myself host correctly, connect drop myself. tent pp contain myself contain 3306 port respond correctly: j 5.7.you;up key']#it]2mysql_native_password wrong?"
+51825799,Known reasons why sqlite3_open_v2 can take over 60s on windows?,"I will start with TL;DR version as this may be enough for some of you:
+We are trying to investigate an issue that we see in diagnostic data of our C++ product.
+The issue was pinpointed to be caused by timeout on sqlite3_open_v2 which supposedly takes over 60s to complete (we only give it 60s).
+We tried multiple different configurations, but never were able to reproduce even 5s delay on this call.
+So the question is if maybe there are some known scenarios in which sqlite3_open_v2 can take that long (on windows)?
+Now to the details:
+We are using version 3.10.2 of SQLite. We went through changelogs from this version till now and nothing we've found in the bugfixes section seems to suggest that there was some issue that was addressed in consecutive SQLite releases and may have caused our problem.
+The issue we see affects around 0.1% unique user across all supported versions of windows (Win 7, Win 8, Win 10). There are no manual user complaints/reports about that - this can suggest that a problem happens in the context where something serious enough is happening with the user machine/system that he doesn't expect anything to work. So something that indicates system-wide failure is a valid possibility as long as it can possibly happen for 0.1% of random windows users.
+There are no data indicating that the same issue ever occurred on Mac which is also supported platform with large enough sample of diagnostic data.
+We are using Poco (https://github.com/pocoproject/poco, version: 1.7.2) as a tool for accessing our SQLite database, but we've analyzed the Poco code and it seems that failure on this code level can only (possibly) explain ~1% of all collected samples. This is how we've determined that the problem lies in sqlite3_open_v2 taking a long time.
+This happens on both DELETE journal mode as well as on WAL.
+It seems like after this problem happens the first time for a particular user each consecutive call to sqlite3_open_v2 takes that long until the user restarts whole application (possibly machine, no way to tell from our data).
+We are using following flags setup for sqlite3_open_v2 (as in Poco):
+sqlite3_open_v2(..., ..., SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_URI, NULL);
+This usually doesn't happen on startup of the application so it's not likely to be caused by something happening while our application is not running. This includes power cuts offs causing data destruction (which tends to return SQLITE_CORRUPT anyway, as mentioned in https://www.sqlite.org/howtocorrupt.html).
+We were never able to reproduce this issue locally even though we tried different things:
+Multiple threads writing and reading from DB with synchronization required by a particular journaling system.
+Keeping SQLite connection open for a long time and working on DB normally in a meanwhile.
+Trying to hit HDD hard with other data (dumping /dev/rand (WSL) to multiple files from different processes while accessing DB normally).
+Trying to force antivirus software to scan DB on every file access (tested with Avast with basically everything enabled including ""scan on open"" and ""scan on write"").
+Breaking our internal synchronization required by particular journaling systems.
+Calling WinAPI CreateFile with all possible combinations of file sharing options on DB file - this caused issues but sqlite3_open_v2 always returned fast - just with an error.
+Calling WinAPI LockFile on random parts of DB file which is btw. nice way of reproducing SQLITE_IOERR, but no luck with reproducing the discussed issue.
+Some additional attempts to actually stretch the Poco layer and double-check if our static analysis of codes is right.
+We've tried to look for similar issues online but anything somewhat relevant we've found was here sqlite3-open-v2-performance-degrades-as-number-of-opens-increase. This doesn't seem to explain our case though, as the numbers of parallel connections are way beyond what we have as well as what would typical windows users have (unless there is some somewhat popular app exploiting SQLite which we don't know about).
+It's very unlikely that this issue is caused by db being accessed through network share as we are putting the DB file inside %appdata% unless there is some pretty standard windows configuration which sets %appdata% to be a remote share.
+Do you have any ideas what can cause that issue?
+Maybe some hints on what else should we check or what additional diagnostic data that we can collect from users would be useful to pinpoint the real reason why that happens?
+Thanks in advance
+",<sqlite><poco>,4552,5,13,652,0,6,18,72,429,0.0,79,0,24,2018-08-13 15:29,,,,,Advanced,32,"<sqlite><poco>, Known reasons why sqlite3_open_v2 can take over 60s on windows?, I will start with TL;DR version as this may be enough for some of you:
+We are trying to investigate an issue that we see in diagnostic data of our C++ product.
+The issue was pinpointed to be caused by timeout on sqlite3_open_v2 which supposedly takes over 60s to complete (we only give it 60s).
+We tried multiple different configurations, but never were able to reproduce even 5s delay on this call.
+So the question is if maybe there are some known scenarios in which sqlite3_open_v2 can take that long (on windows)?
+Now to the details:
+We are using version 3.10.2 of SQLite. We went through changelogs from this version till now and nothing we've found in the bugfixes section seems to suggest that there was some issue that was addressed in consecutive SQLite releases and may have caused our problem.
+The issue we see affects around 0.1% unique user across all supported versions of windows (Win 7, Win 8, Win 10). There are no manual user complaints/reports about that - this can suggest that a problem happens in the context where something serious enough is happening with the user machine/system that he doesn't expect anything to work. So something that indicates system-wide failure is a valid possibility as long as it can possibly happen for 0.1% of random windows users.
+There are no data indicating that the same issue ever occurred on Mac which is also supported platform with large enough sample of diagnostic data.
+We are using Poco (https://github.com/pocoproject/poco, version: 1.7.2) as a tool for accessing our SQLite database, but we've analyzed the Poco code and it seems that failure on this code level can only (possibly) explain ~1% of all collected samples. This is how we've determined that the problem lies in sqlite3_open_v2 taking a long time.
+This happens on both DELETE journal mode as well as on WAL.
+It seems like after this problem happens the first time for a particular user each consecutive call to sqlite3_open_v2 takes that long until the user restarts whole application (possibly machine, no way to tell from our data).
+We are using following flags setup for sqlite3_open_v2 (as in Poco):
+sqlite3_open_v2(..., ..., SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_URI, NULL);
+This usually doesn't happen on startup of the application so it's not likely to be caused by something happening while our application is not running. This includes power cuts offs causing data destruction (which tends to return SQLITE_CORRUPT anyway, as mentioned in https://www.sqlite.org/howtocorrupt.html).
+We were never able to reproduce this issue locally even though we tried different things:
+Multiple threads writing and reading from DB with synchronization required by a particular journaling system.
+Keeping SQLite connection open for a long time and working on DB normally in a meanwhile.
+Trying to hit HDD hard with other data (dumping /dev/rand (WSL) to multiple files from different processes while accessing DB normally).
+Trying to force antivirus software to scan DB on every file access (tested with Avast with basically everything enabled including ""scan on open"" and ""scan on write"").
+Breaking our internal synchronization required by particular journaling systems.
+Calling WinAPI CreateFile with all possible combinations of file sharing options on DB file - this caused issues but sqlite3_open_v2 always returned fast - just with an error.
+Calling WinAPI LockFile on random parts of DB file which is btw. nice way of reproducing SQLITE_IOERR, but no luck with reproducing the discussed issue.
+Some additional attempts to actually stretch the Poco layer and double-check if our static analysis of codes is right.
+We've tried to look for similar issues online but anything somewhat relevant we've found was here sqlite3-open-v2-performance-degrades-as-number-of-opens-increase. This doesn't seem to explain our case though, as the numbers of parallel connections are way beyond what we have as well as what would typical windows users have (unless there is some somewhat popular app exploiting SQLite which we don't know about).
+It's very unlikely that this issue is caused by db being accessed through network share as we are putting the DB file inside %appdata% unless there is some pretty standard windows configuration which sets %appdata% to be a remote share.
+Do you have any ideas what can cause that issue?
+Maybe some hints on what else should we check or what additional diagnostic data that we can collect from users would be useful to pinpoint the real reason why that happens?
+Thanks in advance
+","<quite><pock>, known reason sqlite3_open_v2 take 60 windows?, start to;dr version may enough you: try investing issue see diagnose data c++ product. issue pinpoint cause timeout sqlite3_open_v2 supposedly take 60 complete (we give was). try multiple differ configuration, never all reproduce even is delay call. question may known scenario sqlite3_open_v2 take long (on windows)? details: use version 3.10.2 quite. went changelog version till not we'v found bugfix section seem suggest issue address consent quite release may cause problem. issue see affect around 0.1% unique user across support version window (win 7, win 8, win 10). manual user complaints/report - suggest problem happen context cometh serious enough happen user machine/system expect any work. cometh india system-wid failure valid possible long possible happen 0.1% random window users. data india issue ever occur mac also support platform large enough sample diagnose data. use pock (http://github.com/pocoproject/pock, version: 1.7.2) tool access quite database, we'v analyze pock code seem failure code level (possibly) explain ~1% collect samples. we'v determine problem lie sqlite3_open_v2 take long time. happen delete journal mode well was. seem like problem happen first time particular user consent call sqlite3_open_v2 take long user start whole applied (possible machine, way tell data). use follow flag set sqlite3_open_v2 (a pock): sqlite3_open_v2(..., ..., sqlite_open_readwrit | sqlite_open_cr | sqlite_open_uri, null); usual happen started applied like cause cometh happen applied running. include power cut off cause data district (which tend return sqlite_corrupt anyway, mention http://www.quite.org/howtocorrupt.html). never all reproduce issue local even though try differ things: multiple thread write read do synchron require particular journal system. keep quite connect open long time work do normal meanwhile. try hit had hard data (dump /de/and (was) multiple file differ process access do normally). try for antiviru software scan do every file access (test vast basic every enable include ""scan open"" ""scan write""). break inter synchron require particular journal systems. call inapt createfil possible combine file share option do file - cause issue sqlite3_open_v2 away return fast - error. call inapt lockfil random part do file bow. nice way reproduce sqlite_ioerr, luck reproduce discuss issue. admit attempt actual stretch pock layer double-check static analysis code right. we'v try look similar issue online any somewhat rule we'v found sqlite3-open-ve-performance-degraded-as-number-of-opens-increase. seem explain case though, number parallel connect way beyond well would topic window user (unless somewhat popular pp exploit quite know about). unlike issue cause do access network share put do file inside %appdata% unless pretty standard window configur set %appdata% remote share. idea cause issue? may hint else check admit diagnose data collect user would use pinpoint real reason happens? thank advance"
+60790801,"Azure SQL DB Error, This location is not available for subscription","I am having pay as you go subscription and I am creating an Azure SQL server.
+While adding server, on selection of location, I am getting this error:
+This location is not available for subscriptions
+Please help.
+",<azure-sql-server>,212,0,1,243,0,2,5,71,9393,0.0,0,5,24,2020-03-21 17:12,2020-03-24 2:28,2020-03-24 2:28,3.0,3.0,Intermediate,19,"<azure-sql-server>, Azure SQL DB Error, This location is not available for subscription, I am having pay as you go subscription and I am creating an Azure SQL server.
+While adding server, on selection of location, I am getting this error:
+This location is not available for subscriptions
+Please help.
+","<azure-sal-server>, azur sal do error, local avail subscription, pay go subscribe great azur sal server. ad server, select location, get error: local avail subscribe pleas help."
+50923408,Connect to postgres in docker container from host machine,"How can I connect to postgres in docker from a host machine?
+docker-compose.yml
+version: '2'
+networks:
+    database:
+        driver: bridge
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Application.Dockerfile
+        env_file:
+            - docker/Application/env_files/main.env
+        ports:
+            - ""8060:80""
+        networks:
+           - database
+        depends_on:
+            - appdb
+    appdb:
+        image: postdock/postgres:1.9-postgres-extended95-repmgr32
+        environment:
+            POSTGRES_PASSWORD: app_pass
+            POSTGRES_USER: www-data
+            POSTGRES_DB: app_db
+            CLUSTER_NODE_NETWORK_NAME: appdb
+            NODE_ID: 1
+            NODE_NAME: node1
+        ports:
+            - ""5432:5432""
+        networks:
+            database:
+                aliases:
+                    - database
+docker-compose ps
+           Name                          Command               State               Ports
+-----------------------------------------------------------------------------------------------------
+appname_app_1     /bin/sh -c /app/start.sh         Up      0.0.0.0:8060-&gt;80/tcp
+appname_appdb_1   docker-entrypoint.sh /usr/ ...   Up      22/tcp, 0.0.0.0:5432-&gt;5432/tcp
+From container I can connect successfully. Both from app container and db container.
+List of dbs and users from running psql inside container:
+# psql -U postgres
+psql (9.5.13)
+Type ""help"" for help.
+postgres=# \du
+                                       List of roles
+    Role name     |                         Attributes                         | Member of
+------------------+------------------------------------------------------------+-----------
+ postgres         | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ replication_user | Superuser, Create role, Create DB, Replication             | {}
+ www-data         | Superuser                                                  | {}
+postgres=# \l
+                                       List of databases
+      Name      |      Owner       | Encoding |  Collate   |   Ctype    |   Access privileges
+----------------+------------------+----------+------------+------------+-----------------------
+ app_db         | postgres         | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres       | postgres         | UTF8     | en_US.utf8 | en_US.utf8 |
+ replication_db | replication_user | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0      | postgres         | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+                |                  |          |            |            | postgres=CTc/postgres
+ template1      | postgres         | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+                |                  |          |            |            | postgres=CTc/postgres
+(5 rows)
+DB image is not official postgres image. But Dockerfile in GitHub seem looking fine.
+cat /var/lib/postgresql/data/pg_hba.conf from DB container:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+# ""local"" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+#local   replication     postgres                                trust
+#host    replication     postgres        127.0.0.1/32            trust
+#host    replication     postgres        ::1/128                 trust
+host all all all md5
+host replication replication_user 0.0.0.0/0 md5
+I tried both users with no luck
+$ psql -U postgres -h localhost
+psql: FATAL:  role ""postgres"" does not exist
+$ psql -h localhost -U www-data appdb -W
+Password for user www-data:
+psql: FATAL:  role ""www-data"" does not exist
+Looks like on my host machine there is already PSQL running on that port. How can I check it?
+",<postgresql><docker><docker-compose>,4060,0,83,488,1,12,31,78,35736,0.0,61,6,24,2018-06-19 8:00,2018-06-21 11:15,,2.0,,Basic,9,"<postgresql><docker><docker-compose>, Connect to postgres in docker container from host machine, How can I connect to postgres in docker from a host machine?
+docker-compose.yml
+version: '2'
+networks:
+    database:
+        driver: bridge
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Application.Dockerfile
+        env_file:
+            - docker/Application/env_files/main.env
+        ports:
+            - ""8060:80""
+        networks:
+           - database
+        depends_on:
+            - appdb
+    appdb:
+        image: postdock/postgres:1.9-postgres-extended95-repmgr32
+        environment:
+            POSTGRES_PASSWORD: app_pass
+            POSTGRES_USER: www-data
+            POSTGRES_DB: app_db
+            CLUSTER_NODE_NETWORK_NAME: appdb
+            NODE_ID: 1
+            NODE_NAME: node1
+        ports:
+            - ""5432:5432""
+        networks:
+            database:
+                aliases:
+                    - database
+docker-compose ps
+           Name                          Command               State               Ports
+-----------------------------------------------------------------------------------------------------
+appname_app_1     /bin/sh -c /app/start.sh         Up      0.0.0.0:8060-&gt;80/tcp
+appname_appdb_1   docker-entrypoint.sh /usr/ ...   Up      22/tcp, 0.0.0.0:5432-&gt;5432/tcp
+From container I can connect successfully. Both from app container and db container.
+List of dbs and users from running psql inside container:
+# psql -U postgres
+psql (9.5.13)
+Type ""help"" for help.
+postgres=# \du
+                                       List of roles
+    Role name     |                         Attributes                         | Member of
+------------------+------------------------------------------------------------+-----------
+ postgres         | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ replication_user | Superuser, Create role, Create DB, Replication             | {}
+ www-data         | Superuser                                                  | {}
+postgres=# \l
+                                       List of databases
+      Name      |      Owner       | Encoding |  Collate   |   Ctype    |   Access privileges
+----------------+------------------+----------+------------+------------+-----------------------
+ app_db         | postgres         | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres       | postgres         | UTF8     | en_US.utf8 | en_US.utf8 |
+ replication_db | replication_user | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0      | postgres         | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+                |                  |          |            |            | postgres=CTc/postgres
+ template1      | postgres         | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+                |                  |          |            |            | postgres=CTc/postgres
+(5 rows)
+DB image is not official postgres image. But Dockerfile in GitHub seem looking fine.
+cat /var/lib/postgresql/data/pg_hba.conf from DB container:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+# ""local"" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+#local   replication     postgres                                trust
+#host    replication     postgres        127.0.0.1/32            trust
+#host    replication     postgres        ::1/128                 trust
+host all all all md5
+host replication replication_user 0.0.0.0/0 md5
+I tried both users with no luck
+$ psql -U postgres -h localhost
+psql: FATAL:  role ""postgres"" does not exist
+$ psql -h localhost -U www-data appdb -W
+Password for user www-data:
+psql: FATAL:  role ""www-data"" does not exist
+Looks like on my host machine there is already PSQL running on that port. How can I check it?
+","<postgresql><doctor><doctor-compose>, connect poster doctor contain host machine, connect poster doctor host machine? doctor-compose.you version: '2' network: database: driver: bring services: pp: build: context: . dockerfile: application.dockerfil env_file: - doctor/application/env_files/main.end ports: - ""8060:80"" network: - database depends_on: - apply apply: image: postdock/postures:1.9-postures-extended-repmgr32 environment: postgres_password: app_pass postgres_user: www-data postgres_db: app_db cluster_node_network_name: apply node_id: 1 node_name: nodes ports: - ""5432:5432"" network: database: arises: - database doctor-compose is name command state port ----------------------------------------------------------------------------------------------------- appname_app_1 /bin/s -c /pp/start.s 0.0.0.0:8060-&it;80/top appname_appdb_1 doctor-entrypoint.s /us/ ... 22/top, 0.0.0.0:5432-&it;5432/top contain connect successfully. pp contain do container. list do user run pool inside container: # pool -u poster pool (9.5.13) type ""help"" help. postures=# \du list role role name | attribute | member ------------------+------------------------------------------------------------+----------- poster | superuser, great role, great do, application, pass ll | {} replication_us | superuser, great role, great do, relic | {} www-data | humerus | {} postures=# \l list database name | owner | end | collar | type | access privilege ----------------+------------------+----------+------------+------------+----------------------- app_db | poster | utf | ends.utf | ends.utf | poster | poster | utf | ends.utf | ends.utf | replication_db | replication_us | utf | ends.utf | ends.utf | template0 | poster | utf | ends.utf | ends.utf | =c/poster + | | | | | postures=etc/poster template1 | poster | utf | ends.utf | ends.utf | =c/poster + | | | | | postures=etc/poster (5 rows) do image office poster image. dockerfil github seem look fine. cat /war/limb/postgresql/data/pg_hba.cone do container: # type database user address method # ""local"" unit domain socket connect local trust # iv local connections: host 127.0.0.1/32 trust # iv local connections: host ::1/128 trust # allow relic connect localhost, user # relic privilege. #local relic poster trust #host relic poster 127.0.0.1/32 trust #host relic poster ::1/128 trust host md host relic replication_us 0.0.0.0/0 md try user luck $ pool -u poster -h localhost pool: fatal: role ""postures"" exist $ pool -h localhost -u www-data apply -w password user www-data: pool: fatal: role ""www-data"" exist look like host machine already pool run port. check it?"
+49643047,Update multiple rows in sequelize with different conditions,"I'm trying to perform an update command with sequelize on rows in a postgres database. I need to be able to update multiple rows that have different conditions with the same value.
+For example, assume I have a user table that contains the following fields:
+ID
+First Name
+Last Name
+Gender
+Location
+createdAt
+Assume, I have 4 records in this table, I want to update records with ID - 1 and 4 with a new location say Nigeria.
+Something like this: SET field1 = 'foo' WHERE id = 1, SET field1 = 'bar' WHERE id = 2
+How can I achieve that with sequelize?
+",<javascript><postgresql><sequelize.js>,548,0,1,1679,6,18,31,46,65126,0.0,12,3,24,2018-04-04 4:53,2018-04-04 5:02,2018-04-04 5:02,0.0,0.0,Basic,9,"<javascript><postgresql><sequelize.js>, Update multiple rows in sequelize with different conditions, I'm trying to perform an update command with sequelize on rows in a postgres database. I need to be able to update multiple rows that have different conditions with the same value.
+For example, assume I have a user table that contains the following fields:
+ID
+First Name
+Last Name
+Gender
+Location
+createdAt
+Assume, I have 4 records in this table, I want to update records with ID - 1 and 4 with a new location say Nigeria.
+Something like this: SET field1 = 'foo' WHERE id = 1, SET field1 = 'bar' WHERE id = 2
+How can I achieve that with sequelize?
+","<javascript><postgresql><sequelae.is>, update multiple row sequel differ conditions, i'm try perform update command sequel row poster database. need all update multiple row differ conduct value. example, assume user table contain follow fields: id first name last name gender local created assume, 4 record table, want update record id - 1 4 new local say siberia. cometh like this: set field = 'foo' id = 1, set field = 'bar' id = 2 achieve sequelae?"
+54302793,dyld: Library not loaded: /usr/local/opt/unixodbc/lib/libodbc.2.dylib,"I am facing the following issue on Mac when I run rake ts:index for Thinking Sphinx indexing:
+dyld: Library not loaded: /usr/local/opt/unixodbc/lib/libodbc.2.dylib
+I am using mysql version 8.0.13 for osx10.13 on x86_64.
+How can I resolve this issue?
+",<mysql><ruby-on-rails><macos><thinking-sphinx>,250,0,2,1337,1,10,16,72,19325,0.0,15,2,24,2019-01-22 6:57,2019-01-22 7:01,2019-01-22 7:01,0.0,0.0,Basic,14,"<mysql><ruby-on-rails><macos><thinking-sphinx>, dyld: Library not loaded: /usr/local/opt/unixodbc/lib/libodbc.2.dylib, I am facing the following issue on Mac when I run rake ts:index for Thinking Sphinx indexing:
+dyld: Library not loaded: /usr/local/opt/unixodbc/lib/libodbc.2.dylib
+I am using mysql version 8.0.13 for osx10.13 on x86_64.
+How can I resolve this issue?
+","<myself><ruby-on-rails><faces><thinking-sphinx>, dyed: library loaded: /us/local/opt/unixodbc/limb/libodbc.2.dynia, face follow issue mac run rake to:index think sphinx indexing: dyed: library loaded: /us/local/opt/unixodbc/limb/libodbc.2.dynia use myself version 8.0.13 osx10.13 x86_64. resolve issue?"
+51008807,NodeJS MySQL Client does not support authentication protocol,"When I am trying to connect with mysql 8.0 I am getting this error. How can I fix this ? 
+code: 'ER_NOT_SUPPORTED_AUTH_MODE',
+errno: 1251,
+sqlMessage: 'Client does not support authentication protocol requested by server; 
+consider upgrading MySQL client',
+sqlState: '08004',
+fatal: true
+",<mysql><node.js><database><backend>,287,0,6,870,1,12,26,56,64904,0.0,166,3,24,2018-06-24 9:58,2018-11-25 0:26,,154.0,,Basic,14,"<mysql><node.js><database><backend>, NodeJS MySQL Client does not support authentication protocol, When I am trying to connect with mysql 8.0 I am getting this error. How can I fix this ? 
+code: 'ER_NOT_SUPPORTED_AUTH_MODE',
+errno: 1251,
+sqlMessage: 'Client does not support authentication protocol requested by server; 
+consider upgrading MySQL client',
+sqlState: '08004',
+fatal: true
+","<myself><node.is><database><backed>, nodes myself client support authentic protocol, try connect myself 8.0 get error. fix ? code: 'er_not_supported_auth_mode', error: 1251, sqlmessage: 'client support authentic protocol request server; consider upgrade myself client', sqlstate: '08004', fatal: true"
+57459643,TypeORM: Dynamically set database schema for EntityManager (or repositories) at runtime?,"Situation:
+For our SaaS API we use schema-based multitenancy, which means every customer (~tenant) has its own separate schema within the same (postgres) database, without interfering with other customers. Each schema consists of the same underlying entity-model. 
+Everytime a new customer is registered to the system, a new isolated schema is automatically created within the db. This means, the schema is created at runtime and not known in advance. The customer's schema is named according to the customer's domain.
+For every request that arrives at our API, we extract the user's tenancy-affiliation from the JWT and determine which db-schema to use to perform the requested db-operations for this tenant.
+Problem
+After having established a connection to a (postgres) database via TypeORM (e.g. using createConnection), our only chance to set the schema for a db-operation is to resort to the createQueryBuilder:
+const orders = await this.entityManager
+  .createQueryBuilder()
+  .select()
+  .from(`${tenantId}.orders`, 'order') // &lt;--- setting schema-prefix here
+  .where(""order.priority = 4"")
+  .getMany();
+This means, we are forced to use the QueryBuilder as it does not seem to be possible to set the schema when working with the EntityManager API (or the Repository API).
+However, we want/need to use these APIs, because they are much simpler to write, require less code and are also less error-prone, since they do not rely on writing queries ""manually"" employing a string-based syntax.
+Question
+In case of TypeORM, is it possible to somehow set the db-schema when working with the EntityManager or repositories?
+Something like this?
+// set schema when instantiating manager
+const manager = connection.createEntityManager({ schema: tenantDomain });
+// should find all matching ""order"" entities within schema
+const orders = manager.find(Order, { priority: 4 })
+// should find a matching ""item"" entity within schema using same manager
+const item = manager.findOne(Item, { id: 321 })
+Notes:
+The db-schema needs to be set in a request-scoped way to avoid setting the schema for other requests, which may belong to other customers. Setting the schema for the whole connection is not an option.
+We are aware that one could create a whole new connection and set the schema for this connection, but we want to reuse the existing connection. So simply creating a new connection to set the schema is not an option.
+",<postgresql><orm><multi-tenant><nestjs><typeorm>,2417,6,17,14367,9,58,74,56,24059,0.0,1380,3,24,2019-08-12 10:36,2019-10-09 9:09,2020-02-08 15:26,58.0,180.0,Basic,4,"<postgresql><orm><multi-tenant><nestjs><typeorm>, TypeORM: Dynamically set database schema for EntityManager (or repositories) at runtime?, Situation:
+For our SaaS API we use schema-based multitenancy, which means every customer (~tenant) has its own separate schema within the same (postgres) database, without interfering with other customers. Each schema consists of the same underlying entity-model. 
+Everytime a new customer is registered to the system, a new isolated schema is automatically created within the db. This means, the schema is created at runtime and not known in advance. The customer's schema is named according to the customer's domain.
+For every request that arrives at our API, we extract the user's tenancy-affiliation from the JWT and determine which db-schema to use to perform the requested db-operations for this tenant.
+Problem
+After having established a connection to a (postgres) database via TypeORM (e.g. using createConnection), our only chance to set the schema for a db-operation is to resort to the createQueryBuilder:
+const orders = await this.entityManager
+  .createQueryBuilder()
+  .select()
+  .from(`${tenantId}.orders`, 'order') // &lt;--- setting schema-prefix here
+  .where(""order.priority = 4"")
+  .getMany();
+This means, we are forced to use the QueryBuilder as it does not seem to be possible to set the schema when working with the EntityManager API (or the Repository API).
+However, we want/need to use these APIs, because they are much simpler to write, require less code and are also less error-prone, since they do not rely on writing queries ""manually"" employing a string-based syntax.
+Question
+In case of TypeORM, is it possible to somehow set the db-schema when working with the EntityManager or repositories?
+Something like this?
+// set schema when instantiating manager
+const manager = connection.createEntityManager({ schema: tenantDomain });
+// should find all matching ""order"" entities within schema
+const orders = manager.find(Order, { priority: 4 })
+// should find a matching ""item"" entity within schema using same manager
+const item = manager.findOne(Item, { id: 321 })
+Notes:
+The db-schema needs to be set in a request-scoped way to avoid setting the schema for other requests, which may belong to other customers. Setting the schema for the whole connection is not an option.
+We are aware that one could create a whole new connection and set the schema for this connection, but we want to reuse the existing connection. So simply creating a new connection to set the schema is not an option.
+","<postgresql><or><multi-tenant><nests><typeorm>, typeorm: dream set database scheme entitymanag (or depositaries) auntie?, situation: say apt use scheme-was multitenancy, mean every custom (~tenant) spear scheme within (postures) database, without inter customers. scheme consist underlip entity-model. everytim new custom resist system, new iso scheme automatic great within do. means, scheme great until known advance. customer' scheme name accord customer' domain. every request arrive apt, extract user' tendency-fili jet determine do-scheme use perform request do-over tenant. problem establish connect (postures) database via typeorm (e.g. use createconnection), chance set scheme do-over resort createquerybuilder: cost order = await this.entitymanag .createquerybuilder() .select() .from(`${tenants}.orders`, 'order') // &it;--- set scheme-prefix .where(""order.prior = 4"") .germany(); means, for use querybuild seem possible set scheme work entitymanag apt (or depositors apt). however, want/ne use axis, much simpler write, require less code also less error-prone, since rely write query ""mentally"" employ string-was santa. question case typeorm, possible somehow set do-scheme work entitymanag depositaries? cometh like this? // set scheme instant manage cost manage = connection.createentitymanager({ scheme: tenantdomain }); // find match ""order"" entity within scheme cost order = manager.find(order, { priority: 4 }) // find match ""item"" entity within scheme use manage cost item = manager.finding(item, { id: 321 }) notes: do-scheme need set request-stop way avoid set scheme requests, may belong customers. set scheme whole connect option. war one could great whole new connect set scheme connection, want zeus exist connection. simple great new connect set scheme option."
+49178334,Prevent model hydration on Eloquent queries,"Is it possible to have an eloquent query builder return StdClass rather then Model?
+For example User::where('age', '&gt;', 34)-&gt;get() returns a Collection of User models.
+Whereas DB::table('users')-&gt;where('age', '&gt;', 34)-&gt;get() returns a Collection of StdClass objects. Much faster.
+Therefore:
+Is it possible to prevent hydrating eloquent models and return StdClass objects as a database query builder would, but still leverage the usefulness of an eloquent query builder syntax?
+",<php><mysql><laravel><performance><eloquent>,492,0,9,13560,23,91,160,68,5574,0.0,1176,3,24,2018-03-08 16:49,2018-03-08 21:23,2019-01-20 4:24,0.0,318.0,Basic,2,"<php><mysql><laravel><performance><eloquent>, Prevent model hydration on Eloquent queries, Is it possible to have an eloquent query builder return StdClass rather then Model?
+For example User::where('age', '&gt;', 34)-&gt;get() returns a Collection of User models.
+Whereas DB::table('users')-&gt;where('age', '&gt;', 34)-&gt;get() returns a Collection of StdClass objects. Much faster.
+Therefore:
+Is it possible to prevent hydrating eloquent models and return StdClass objects as a database query builder would, but still leverage the usefulness of an eloquent query builder syntax?
+","<pp><myself><travel><performance><eloquent>, prevent model hydrate elope queried, possible elope query builder return stdclass rather model? example user::where('age', '&it;', 34)-&it;get() return collect user models. where do::table('users')-&it;where('age', '&it;', 34)-&it;get() return collect stdclass objects. much faster. therefore: possible prevent hydrate elope model return stdclass object database query builder would, still several use elope query builder santa?"
+52085191,ModuleNotFoundError: No module named 'pyodbc' when importing pyodbc into py script,"I've written a short python script which tries to import the pyodbc extension package so I can access my SQL table.
+import pyodbc as pyodbc
+cnxn = pyodbc.connect('Driver={SQL Server};'
+                      'Server=DESKTOP-UO8KJOP;'
+                      'Database=ExamplePFData'
+                      'Trusted_Connection=yes;')
+I have definitely installed the extension by using: pip install pyodbc. And when I go to install it again, cmd says: Requirement already satisfied: pyodbc in ... and I've found the pyd file in my directories.
+I have also tried installing pypyodbc, which didn't work.
+The error I get is:
+Traceback (most recent call last):
+File ""C:\Users\Jerry\Documents\Python\SQLembed.py"", line 5, in &lt;module&gt;
+import pyodbc as pyodbc
+ModuleNotFoundError: No module named 'pyodbc'
+(where line 5 is the 'import pyodbc' line)
+I have tried copying the pyodbc.cp37-win_amd64.pyd file into my Python Scripts folder and into the folder where my pip.exe file is.
+Currently python is my Python37 folder. 
+pyodbc.cp37-win_amd64.pyd is in Python > Lib > site-packages.
+Can anyone help me fix this error please so that I can import pyodbc?
+Do all of the python extensions/modules that I install via pip need to be in the same folder/directory as python.exe?
+",<python><sql><sql-server><sqlite><pyodbc>,1265,0,9,251,1,2,6,65,138157,0.0,3,13,24,2018-08-29 19:56,2018-08-29 20:57,,0.0,,Basic,14,"<python><sql><sql-server><sqlite><pyodbc>, ModuleNotFoundError: No module named 'pyodbc' when importing pyodbc into py script, I've written a short python script which tries to import the pyodbc extension package so I can access my SQL table.
+import pyodbc as pyodbc
+cnxn = pyodbc.connect('Driver={SQL Server};'
+                      'Server=DESKTOP-UO8KJOP;'
+                      'Database=ExamplePFData'
+                      'Trusted_Connection=yes;')
+I have definitely installed the extension by using: pip install pyodbc. And when I go to install it again, cmd says: Requirement already satisfied: pyodbc in ... and I've found the pyd file in my directories.
+I have also tried installing pypyodbc, which didn't work.
+The error I get is:
+Traceback (most recent call last):
+File ""C:\Users\Jerry\Documents\Python\SQLembed.py"", line 5, in &lt;module&gt;
+import pyodbc as pyodbc
+ModuleNotFoundError: No module named 'pyodbc'
+(where line 5 is the 'import pyodbc' line)
+I have tried copying the pyodbc.cp37-win_amd64.pyd file into my Python Scripts folder and into the folder where my pip.exe file is.
+Currently python is my Python37 folder. 
+pyodbc.cp37-win_amd64.pyd is in Python > Lib > site-packages.
+Can anyone help me fix this error please so that I can import pyodbc?
+Do all of the python extensions/modules that I install via pip need to be in the same folder/directory as python.exe?
+","<patron><sal><sal-server><quite><pyodbc>, modulenotfounderror: model name 'pyodbc' import pyodbc by script, i'v written short patron script try import pyodbc extent package access sal table. import pyodbc pyodbc can = pyodbc.connect('driver={sal server};' 'server=desktop-uo8kjop;' 'database=examplepfdata' 'trusted_connection=yes;') definite instal extent using: pp instal pyodbc. go instal again, cod says: require already satisfied: pyodbc ... i'v found pad file directors. also try instal pypyodbc, work. error get is: traceback (most recent call last): file ""c:\users\merry\documents\patron\sqlembed.by"", line 5, &it;module&it; import pyodbc pyodbc modulenotfounderror: model name 'pyodbc' (where line 5 'import pyodbc' line) try copy pyodbc.cp37-win_amd64.pad file patron script older older pp.ex file is. current patron python37 older. pyodbc.cp37-win_amd64.pad patron > limb > site-packages. anyone help fix error pleas import pyodbc? patron extensions/model instal via pp need older/director patron.eye?"
+56108003,How to replace null value with value from the next row,"I need support in my sql query code. I have to replace null value in a column with not-null value from the next row. 
+as a example we can use this code:
+declare   @value table (r# int, value varchar(15))
+insert into @value ( r#, value ) values
+ (1, NULL   ) ,
+ (2, 'January'), 
+ (3, 'February' ), 
+ (4, NULL    ),
+ (5, 'March'  ),
+ (6, NULL    ),
+(7, Null  ),
+(8, 'December' ),
+(9, Null ),
+(10, Null  ),
+(11, Null  ),
+(12, 'November' ),
+(13, Null )
+select * from @value
+When I use lead function I get this value but it does not work with NULLs.
+What I need is to get:
+1 January
+2 January
+3 February
+4 March
+5 March
+6 December
+7 December
+8 December
+9 November
+10 November
+11 November
+12 November
+13 NULL
+Bu from my query :
+SELECT r#, 
+  value
+ ,case when value is null  then Lead(value) OVER ( order by  r#  asc) else value end as RESULT 
+FROM @value
+order by r#
+I have:
+",<sql><sql-server>,870,1,34,265,1,2,7,68,10346,0.0,9,4,24,2019-05-13 7:59,2019-05-13 8:35,2019-05-13 10:53,0.0,0.0,Basic,9,"<sql><sql-server>, How to replace null value with value from the next row, I need support in my sql query code. I have to replace null value in a column with not-null value from the next row. 
+as a example we can use this code:
+declare   @value table (r# int, value varchar(15))
+insert into @value ( r#, value ) values
+ (1, NULL   ) ,
+ (2, 'January'), 
+ (3, 'February' ), 
+ (4, NULL    ),
+ (5, 'March'  ),
+ (6, NULL    ),
+(7, Null  ),
+(8, 'December' ),
+(9, Null ),
+(10, Null  ),
+(11, Null  ),
+(12, 'November' ),
+(13, Null )
+select * from @value
+When I use lead function I get this value but it does not work with NULLs.
+What I need is to get:
+1 January
+2 January
+3 February
+4 March
+5 March
+6 December
+7 December
+8 December
+9 November
+10 November
+11 November
+12 November
+13 NULL
+Bu from my query :
+SELECT r#, 
+  value
+ ,case when value is null  then Lead(value) OVER ( order by  r#  asc) else value end as RESULT 
+FROM @value
+order by r#
+I have:
+","<sal><sal-server>, replace null value value next row, need support sal query code. replace null value column not-null value next row. example use code: declare @value table (r# in, value varchar(15)) insert @value ( r#, value ) value (1, null ) , (2, 'january'), (3, 'february' ), (4, null ), (5, 'march' ), (6, null ), (7, null ), (8, 'december' ), (9, null ), (10, null ), (11, null ), (12, 'november' ), (13, null ) select * @value use lead function get value work null. need get: 1 january 2 january 3 february 4 march 5 march 6 december 7 december 8 december 9 november 10 november 11 november 12 november 13 null bu query : select r#, value ,case value null lead(value) ( order r# as) else value end result @value order r# have:"
+58952919,"PostgreSQL: background worker ""logical replication launcher"" exited with exit code 1","Using our own instance of Gitlab we get the error background worker ""logical replication launcher"" exited with exit code 1 when trying to use the postgres service in our runners. Haven't found anything useful over the internet. Any idea what's going on? 
+Versions:
+Gitlab 12.4.3
+gitlab-runner 12.5.0 (limit of 4 concurrent jobs)
+postgres 12.1 (tried with 11 and same result)
+DigitalOcean droplet: CPU-Optimized / 8 GB / 4 vCPUs 
+Relevant part in gitlab-ci.yml:
+image: golang:1.12
+services:
+  - postgres
+variables:
+  POSTGRES_USER: postgres
+  POSTGRES_DB: xproject_test
+  POSTGRES_PASSWORD: postgres
+Failure log:
+Running with gitlab-runner 12.5.0 (577f813d)
+  on xproject sEZeszwx
+Using Docker executor with image xproject-ci ...
+Starting service postgres:latest ...
+Pulling docker image postgres:latest ...
+Using docker image sha256:9eb7b0ce936d2eac8150df3de7496067d56bf4c1957404525fd60c3640dfd450 for postgres:latest ...
+Waiting for services to be up and running...
+*** WARNING: Service runner-sEZeszwx-project-18-concurrent-0-postgres-0 probably didn't start properly.
+Health check error:
+service ""runner-sEZeszwx-project-18-concurrent-0-postgres-0-wait-for-service"" timeout
+Health check container logs:
+Service container logs:
+2019-11-20T10:16:23.805738908Z The files belonging to this database system will be owned by user ""postgres"".
+2019-11-20T10:16:23.805807212Z This user must also own the server process.
+2019-11-20T10:16:23.805818432Z 
+2019-11-20T10:16:23.806094094Z The database cluster will be initialized with locale ""en_US.utf8"".
+2019-11-20T10:16:23.806120707Z The default database encoding has accordingly been set to ""UTF8"".
+2019-11-20T10:16:23.806208494Z The default text search configuration will be set to ""english"".
+2019-11-20T10:16:23.806264704Z 
+2019-11-20T10:16:23.806282587Z Data page checksums are disabled.
+2019-11-20T10:16:23.806586302Z 
+2019-11-20T10:16:23.806931287Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+2019-11-20T10:16:23.807763042Z creating subdirectories ... ok
+2019-11-20T10:16:23.808045789Z selecting dynamic shared memory implementation ... posix
+2019-11-20T10:16:23.835644353Z selecting default max_connections ... 100
+2019-11-20T10:16:23.866604734Z selecting default shared_buffers ... 128MB
+2019-11-20T10:16:23.928432088Z selecting default time zone ... Etc/UTC
+2019-11-20T10:16:23.929447992Z creating configuration files ... ok
+2019-11-20T10:16:24.122662589Z running bootstrap script ... ok
+2019-11-20T10:16:24.706975030Z performing post-bootstrap initialization ... ok
+2019-11-20T10:16:24.819117668Z initdb: warning: enabling ""trust"" authentication for local connections
+2019-11-20T10:16:24.819150100Z You can change this by editing pg_hba.conf or using the option -A, or
+2019-11-20T10:16:24.819157763Z --auth-local and --auth-host, the next time you run initdb.
+2019-11-20T10:16:24.819272849Z syncing data to disk ... ok
+2019-11-20T10:16:24.819313390Z 
+2019-11-20T10:16:24.819328954Z 
+2019-11-20T10:16:24.819340787Z Success. You can now start the database server using:
+2019-11-20T10:16:24.819349374Z 
+2019-11-20T10:16:24.819357407Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+2019-11-20T10:16:24.819365840Z 
+2019-11-20T10:16:24.857656160Z waiting for server to start....2019-11-20 10:16:24.857 UTC [46] LOG:  starting PostgreSQL 12.1 (Debian 12.1-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+2019-11-20T10:16:24.860371378Z 2019-11-20 10:16:24.860 UTC [46] LOG:  listening on Unix socket ""/var/run/postgresql/.s.PGSQL.5432""
+2019-11-20T10:16:24.886271885Z 2019-11-20 10:16:24.886 UTC [47] LOG:  database system was shut down at 2019-11-20 10:16:24 UTC
+2019-11-20T10:16:24.892844968Z 2019-11-20 10:16:24.892 UTC [46] LOG:  database system is ready to accept connections
+2019-11-20T10:16:24.943542403Z  done
+2019-11-20T10:16:24.943591286Z server started
+2019-11-20T10:16:25.084670051Z CREATE DATABASE
+2019-11-20T10:16:25.086153670Z 
+2019-11-20T10:16:25.086604000Z 
+2019-11-20T10:16:25.086694058Z /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+2019-11-20T10:16:25.086711933Z 
+2019-11-20T10:16:25.088473308Z 2019-11-20 10:16:25.088 UTC [46] LOG:  received fast shutdown request
+2019-11-20T10:16:25.090893184Z waiting for server to shut down....2019-11-20 10:16:25.090 UTC [46] LOG:  aborting any active transactions
+2019-11-20T10:16:25.092499368Z 2019-11-20 10:16:25.092 UTC [46] LOG:  background worker ""logical replication launcher"" (PID 53) exited with exit code 1
+2019-11-20T10:16:25.093942785Z 2019-11-20 10:16:25.093 UTC [48] LOG:  shutting down
+2019-11-20T10:16:25.112341160Z 2019-11-20 10:16:25.112 UTC [46] LOG:  database system is shut down
+2019-11-20T10:16:25.189351710Z  done
+2019-11-20T10:16:25.189393803Z server stopped
+2019-11-20T10:16:25.189929555Z 
+2019-11-20T10:16:25.189967760Z PostgreSQL init process complete; ready for start up.
+2019-11-20T10:16:25.189982340Z 
+2019-11-20T10:16:25.214046388Z 2019-11-20 10:16:25.213 UTC [1] LOG:  starting PostgreSQL 12.1 (Debian 12.1-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+2019-11-20T10:16:25.214092434Z 2019-11-20 10:16:25.213 UTC [1] LOG:  listening on IPv4 address ""0.0.0.0"", port 5432
+2019-11-20T10:16:25.214172706Z 2019-11-20 10:16:25.214 UTC [1] LOG:  listening on IPv6 address ""::"", port 5432
+2019-11-20T10:16:25.219769380Z 2019-11-20 10:16:25.219 UTC [1] LOG:  listening on Unix socket ""/var/run/postgresql/.s.PGSQL.5432""
+2019-11-20T10:16:25.241614800Z 2019-11-20 10:16:25.241 UTC [64] LOG:  database system was shut down at 2019-11-20 10:16:25 UTC
+2019-11-20T10:16:25.248887712Z 2019-11-20 10:16:25.248 UTC [1] LOG:  database system is ready to accept connections
+*********
+",<postgresql><docker><gitlab><gitlab-ci-runner>,5737,0,85,3528,2,27,38,61,38744,,810,4,24,2019-11-20 11:08,2019-11-20 11:14,2019-12-10 11:18,0.0,20.0,Advanced,32,"<postgresql><docker><gitlab><gitlab-ci-runner>, PostgreSQL: background worker ""logical replication launcher"" exited with exit code 1, Using our own instance of Gitlab we get the error background worker ""logical replication launcher"" exited with exit code 1 when trying to use the postgres service in our runners. Haven't found anything useful over the internet. Any idea what's going on? 
+Versions:
+Gitlab 12.4.3
+gitlab-runner 12.5.0 (limit of 4 concurrent jobs)
+postgres 12.1 (tried with 11 and same result)
+DigitalOcean droplet: CPU-Optimized / 8 GB / 4 vCPUs 
+Relevant part in gitlab-ci.yml:
+image: golang:1.12
+services:
+  - postgres
+variables:
+  POSTGRES_USER: postgres
+  POSTGRES_DB: xproject_test
+  POSTGRES_PASSWORD: postgres
+Failure log:
+Running with gitlab-runner 12.5.0 (577f813d)
+  on xproject sEZeszwx
+Using Docker executor with image xproject-ci ...
+Starting service postgres:latest ...
+Pulling docker image postgres:latest ...
+Using docker image sha256:9eb7b0ce936d2eac8150df3de7496067d56bf4c1957404525fd60c3640dfd450 for postgres:latest ...
+Waiting for services to be up and running...
+*** WARNING: Service runner-sEZeszwx-project-18-concurrent-0-postgres-0 probably didn't start properly.
+Health check error:
+service ""runner-sEZeszwx-project-18-concurrent-0-postgres-0-wait-for-service"" timeout
+Health check container logs:
+Service container logs:
+2019-11-20T10:16:23.805738908Z The files belonging to this database system will be owned by user ""postgres"".
+2019-11-20T10:16:23.805807212Z This user must also own the server process.
+2019-11-20T10:16:23.805818432Z 
+2019-11-20T10:16:23.806094094Z The database cluster will be initialized with locale ""en_US.utf8"".
+2019-11-20T10:16:23.806120707Z The default database encoding has accordingly been set to ""UTF8"".
+2019-11-20T10:16:23.806208494Z The default text search configuration will be set to ""english"".
+2019-11-20T10:16:23.806264704Z 
+2019-11-20T10:16:23.806282587Z Data page checksums are disabled.
+2019-11-20T10:16:23.806586302Z 
+2019-11-20T10:16:23.806931287Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+2019-11-20T10:16:23.807763042Z creating subdirectories ... ok
+2019-11-20T10:16:23.808045789Z selecting dynamic shared memory implementation ... posix
+2019-11-20T10:16:23.835644353Z selecting default max_connections ... 100
+2019-11-20T10:16:23.866604734Z selecting default shared_buffers ... 128MB
+2019-11-20T10:16:23.928432088Z selecting default time zone ... Etc/UTC
+2019-11-20T10:16:23.929447992Z creating configuration files ... ok
+2019-11-20T10:16:24.122662589Z running bootstrap script ... ok
+2019-11-20T10:16:24.706975030Z performing post-bootstrap initialization ... ok
+2019-11-20T10:16:24.819117668Z initdb: warning: enabling ""trust"" authentication for local connections
+2019-11-20T10:16:24.819150100Z You can change this by editing pg_hba.conf or using the option -A, or
+2019-11-20T10:16:24.819157763Z --auth-local and --auth-host, the next time you run initdb.
+2019-11-20T10:16:24.819272849Z syncing data to disk ... ok
+2019-11-20T10:16:24.819313390Z 
+2019-11-20T10:16:24.819328954Z 
+2019-11-20T10:16:24.819340787Z Success. You can now start the database server using:
+2019-11-20T10:16:24.819349374Z 
+2019-11-20T10:16:24.819357407Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+2019-11-20T10:16:24.819365840Z 
+2019-11-20T10:16:24.857656160Z waiting for server to start....2019-11-20 10:16:24.857 UTC [46] LOG:  starting PostgreSQL 12.1 (Debian 12.1-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+2019-11-20T10:16:24.860371378Z 2019-11-20 10:16:24.860 UTC [46] LOG:  listening on Unix socket ""/var/run/postgresql/.s.PGSQL.5432""
+2019-11-20T10:16:24.886271885Z 2019-11-20 10:16:24.886 UTC [47] LOG:  database system was shut down at 2019-11-20 10:16:24 UTC
+2019-11-20T10:16:24.892844968Z 2019-11-20 10:16:24.892 UTC [46] LOG:  database system is ready to accept connections
+2019-11-20T10:16:24.943542403Z  done
+2019-11-20T10:16:24.943591286Z server started
+2019-11-20T10:16:25.084670051Z CREATE DATABASE
+2019-11-20T10:16:25.086153670Z 
+2019-11-20T10:16:25.086604000Z 
+2019-11-20T10:16:25.086694058Z /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+2019-11-20T10:16:25.086711933Z 
+2019-11-20T10:16:25.088473308Z 2019-11-20 10:16:25.088 UTC [46] LOG:  received fast shutdown request
+2019-11-20T10:16:25.090893184Z waiting for server to shut down....2019-11-20 10:16:25.090 UTC [46] LOG:  aborting any active transactions
+2019-11-20T10:16:25.092499368Z 2019-11-20 10:16:25.092 UTC [46] LOG:  background worker ""logical replication launcher"" (PID 53) exited with exit code 1
+2019-11-20T10:16:25.093942785Z 2019-11-20 10:16:25.093 UTC [48] LOG:  shutting down
+2019-11-20T10:16:25.112341160Z 2019-11-20 10:16:25.112 UTC [46] LOG:  database system is shut down
+2019-11-20T10:16:25.189351710Z  done
+2019-11-20T10:16:25.189393803Z server stopped
+2019-11-20T10:16:25.189929555Z 
+2019-11-20T10:16:25.189967760Z PostgreSQL init process complete; ready for start up.
+2019-11-20T10:16:25.189982340Z 
+2019-11-20T10:16:25.214046388Z 2019-11-20 10:16:25.213 UTC [1] LOG:  starting PostgreSQL 12.1 (Debian 12.1-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+2019-11-20T10:16:25.214092434Z 2019-11-20 10:16:25.213 UTC [1] LOG:  listening on IPv4 address ""0.0.0.0"", port 5432
+2019-11-20T10:16:25.214172706Z 2019-11-20 10:16:25.214 UTC [1] LOG:  listening on IPv6 address ""::"", port 5432
+2019-11-20T10:16:25.219769380Z 2019-11-20 10:16:25.219 UTC [1] LOG:  listening on Unix socket ""/var/run/postgresql/.s.PGSQL.5432""
+2019-11-20T10:16:25.241614800Z 2019-11-20 10:16:25.241 UTC [64] LOG:  database system was shut down at 2019-11-20 10:16:25 UTC
+2019-11-20T10:16:25.248887712Z 2019-11-20 10:16:25.248 UTC [1] LOG:  database system is ready to accept connections
+*********
+","<postgresql><doctor><gitlab><gitlab-i-runner>, postgresql: background worker ""logic relic launched"" exit exit code 1, use instant gitlab get error background worker ""logic relic launched"" exit exit code 1 try use poster service runners. found any use internet. idea what' go on? versions: gitlab 12.4.3 gitlab-run 12.5.0 (limit 4 concur jobs) poster 12.1 (try 11 result) digitalocean droplets: cup-optic / 8 go / 4 cup rule part gitlab-i.you: image: going:1.12 services: - poster variable: postgres_user: poster postgres_db: xproject_test postgres_password: poster failure log: run gitlab-run 12.5.0 (577f813d) project sezeszwx use doctor executor image project-i ... start service postures:latest ... pull doctor image postures:latest ... use doctor image sha256:9eb7b0ce936d2eac8150df3de7496067d56bf4c1957404525fd60c3640dfd450 postures:latest ... wait service running... *** warning: service runner-sezeszwx-project-18-concurrent-0-postures-0 probably start properly. health check error: service ""runner-sezeszwx-project-18-concurrent-0-postures-0-wait-for-service"" timeout health check contain logs: service contain logs: 2019-11-20t10:16:23.805738908z file belong database system own user ""postures"". 2019-11-20t10:16:23.805807212z user must also server process. 2019-11-20t10:16:23.805818432z 2019-11-20t10:16:23.806094094z database cluster into local ""ends.utf"". 2019-11-20t10:16:23.806120707z default database end accordingly set ""utf"". 2019-11-20t10:16:23.806208494z default text search configur set ""english"". 2019-11-20t10:16:23.806264704z 2019-11-20t10:16:23.806282587z data page checks disabled. 2019-11-20t10:16:23.806586302z 2019-11-20t10:16:23.806931287z fix permits exist director /war/limb/postgresql/data ... ok 2019-11-20t10:16:23.807763042z great subdirectori ... ok 2019-11-20t10:16:23.808045789z select dream share memory implement ... six 2019-11-20t10:16:23.835644353z select default max_connect ... 100 2019-11-20t10:16:23.866604734z select default shared_buff ... 128mb 2019-11-20t10:16:23.928432088z select default time zone ... etc/etc 2019-11-20t10:16:23.929447992z great configur file ... ok 2019-11-20t10:16:24.122662589z run bootstrap script ... ok 2019-11-20t10:16:24.706975030z perform post-bootstrap into ... ok 2019-11-20t10:16:24.819117668z initdb: warning: enable ""trust"" authentic local connect 2019-11-20t10:16:24.819150100z change edit pg_hba.cone use option -a, 2019-11-20t10:16:24.819157763z --auto-low --auto-host, next time run initdb. 2019-11-20t10:16:24.819272849z son data disk ... ok 2019-11-20t10:16:24.819313390z 2019-11-20t10:16:24.819328954z 2019-11-20t10:16:24.819340787z success. start database server using: 2019-11-20t10:16:24.819349374z 2019-11-20t10:16:24.819357407z pg_ctl -d /war/limb/postgresql/data -l logic start 2019-11-20t10:16:24.819365840z 2019-11-20t10:16:24.857656160z wait server start....2019-11-20 10:16:24.857 etc [46] log: start postgresql 12.1 (median 12.1-1.pgdg100+1) x86_64-pp-line-gun, compel go (median 8.3.0-6) 8.3.0, 64-bit 2019-11-20t10:16:24.860371378z 2019-11-20 10:16:24.860 etc [46] log: listen unit socket ""/war/run/postgresql/.s.pgsql.5432"" 2019-11-20t10:16:24.886271885z 2019-11-20 10:16:24.886 etc [47] log: database system shut 2019-11-20 10:16:24 etc 2019-11-20t10:16:24.892844968z 2019-11-20 10:16:24.892 etc [46] log: database system ready accept connect 2019-11-20t10:16:24.943542403z done 2019-11-20t10:16:24.943591286z server start 2019-11-20t10:16:25.084670051z great database 2019-11-20t10:16:25.086153670z 2019-11-20t10:16:25.086604000z 2019-11-20t10:16:25.086694058z /us/local/bin/doctor-entrypoint.s: ignore /doctor-entrypoint-initdb.d/* 2019-11-20t10:16:25.086711933z 2019-11-20t10:16:25.088473308z 2019-11-20 10:16:25.088 etc [46] log: receive fast shutdown request 2019-11-20t10:16:25.090893184z wait server shut down....2019-11-20 10:16:25.090 etc [46] log: abort active transact 2019-11-20t10:16:25.092499368z 2019-11-20 10:16:25.092 etc [46] log: background worker ""logic relic launched"" (did 53) exit exit code 1 2019-11-20t10:16:25.093942785z 2019-11-20 10:16:25.093 etc [48] log: shut 2019-11-20t10:16:25.112341160z 2019-11-20 10:16:25.112 etc [46] log: database system shut 2019-11-20t10:16:25.189351710z done 2019-11-20t10:16:25.189393803z server stop 2019-11-20t10:16:25.189929555z 2019-11-20t10:16:25.189967760z postgresql knit process complete; ready start up. 2019-11-20t10:16:25.189982340z 2019-11-20t10:16:25.214046388z 2019-11-20 10:16:25.213 etc [1] log: start postgresql 12.1 (median 12.1-1.pgdg100+1) x86_64-pp-line-gun, compel go (median 8.3.0-6) 8.3.0, 64-bit 2019-11-20t10:16:25.214092434z 2019-11-20 10:16:25.213 etc [1] log: listen iv address ""0.0.0.0"", port 5432 2019-11-20t10:16:25.214172706z 2019-11-20 10:16:25.214 etc [1] log: listen iv address ""::"", port 5432 2019-11-20t10:16:25.219769380z 2019-11-20 10:16:25.219 etc [1] log: listen unit socket ""/war/run/postgresql/.s.pgsql.5432"" 2019-11-20t10:16:25.241614800z 2019-11-20 10:16:25.241 etc [64] log: database system shut 2019-11-20 10:16:25 etc 2019-11-20t10:16:25.248887712z 2019-11-20 10:16:25.248 etc [1] log: database system ready accept connect *********"
+53746197,Cannot delete rows from a temporal history table,"I've recently discovered temporal tables in SQL Server. I'd like to start using this functionality. However the biggest hurdle is not being able to delete records from it. Due to GDPR compliance this is an absolute must.
+Deleting records from a history table obviously leads to the error: 
+  Cannot delete rows from a temporal history table
+So to be able to delete records from a history table I have to disable SYSTEM_VERSIONING, then delete, and then re-enable SYSTEM_VERSIONING. Unless there's another way I'm not aware of?
+Since it's not possible to use GO's in a stored procedure/SqlCommand, how can I ensure deleting a history record does not mess with other transactions e.g. updates sent to the temporal table during deleting records from the history table will still result in records being added to the history table? 
+I've tried creating a stored procedure to wrap it in one transaction but this fails because the ALTER TABLE statement disabling the SYSTEM_VERSIONING is not executed yet leading to the same error.
+CREATE PROCEDURE [dbo].[OrderHistoryDelete]
+     (@Id UNIQUEIDENTIFIER)
+AS
+BEGIN
+    BEGIN TRANSACTION
+    ALTER TABLE [dbo].[Order] SET ( SYSTEM_VERSIONING = OFF )
+    -- No GO possible here obviously.
+    DELETE FROM [dbo].[OrderHistory] WITH (TABLOCKX) 
+    WHERE [Id] = @Id
+    ALTER TABLE [dbo].[Order] SET ( SYSTEM_VERSIONING = ON (HISTORY_TABLE = [dbo].[OrderHistory]))
+    COMMIT TRANSACTION
+END
+GO
+",<sql-server><t-sql>,1433,0,22,2601,3,24,41,39,26493,0.0,49,2,24,2018-12-12 15:22,2018-12-12 18:59,2018-12-12 18:59,0.0,0.0,Advanced,32,"<sql-server><t-sql>, Cannot delete rows from a temporal history table, I've recently discovered temporal tables in SQL Server. I'd like to start using this functionality. However the biggest hurdle is not being able to delete records from it. Due to GDPR compliance this is an absolute must.
+Deleting records from a history table obviously leads to the error: 
+  Cannot delete rows from a temporal history table
+So to be able to delete records from a history table I have to disable SYSTEM_VERSIONING, then delete, and then re-enable SYSTEM_VERSIONING. Unless there's another way I'm not aware of?
+Since it's not possible to use GO's in a stored procedure/SqlCommand, how can I ensure deleting a history record does not mess with other transactions e.g. updates sent to the temporal table during deleting records from the history table will still result in records being added to the history table? 
+I've tried creating a stored procedure to wrap it in one transaction but this fails because the ALTER TABLE statement disabling the SYSTEM_VERSIONING is not executed yet leading to the same error.
+CREATE PROCEDURE [dbo].[OrderHistoryDelete]
+     (@Id UNIQUEIDENTIFIER)
+AS
+BEGIN
+    BEGIN TRANSACTION
+    ALTER TABLE [dbo].[Order] SET ( SYSTEM_VERSIONING = OFF )
+    -- No GO possible here obviously.
+    DELETE FROM [dbo].[OrderHistory] WITH (TABLOCKX) 
+    WHERE [Id] = @Id
+    ALTER TABLE [dbo].[Order] SET ( SYSTEM_VERSIONING = ON (HISTORY_TABLE = [dbo].[OrderHistory]))
+    COMMIT TRANSACTION
+END
+GO
+","<sal-server><t-sal>, cannot delete row temper history table, i'v recent disco temper table sal server. i'd like start use functionality. howe biggest hard all delete record it. due gdp compliance absolute must. delete record history table obvious lead error: cannot delete row temper history table all delete record history table distal system_versioning, delete, re-en system_versioning. unless there' not way i'm war of? since possible use go' store procedure/sqlcommand, ensue delete history record mess transact e.g. update sent temper table delete record history table still result record ad history table? i'v try great store procedure wrap one transact fail alter table statement distal system_vers execute yet lead error. great procedure [do].[orderhistorydelete] (@id uniqueidentifier) begin begin transact alter table [do].[order] set ( system_vers = ) -- go possible obviously. delete [do].[orderhistory] (tablockx) [id] = @id alter table [do].[order] set ( system_vers = (history = [do].[orderhistory])) commit transact end go"
+50766928,Presto array contains an element that likes some pattern,"For example, one column in my table is an array, I want to check if that column contains an element that contains substring ""denied"" (so elements like ""denied at 12:00 pm"", ""denied by admin"" will all count, I believe I will have to use ""like"" to identify the pattern). How to write sql for this? 
+",<sql><presto><trino>,297,0,0,2117,5,23,48,50,85061,0.0,110,4,24,2018-06-08 19:00,2018-06-08 20:48,,0.0,,Basic,10,"<sql><presto><trino>, Presto array contains an element that likes some pattern, For example, one column in my table is an array, I want to check if that column contains an element that contains substring ""denied"" (so elements like ""denied at 12:00 pm"", ""denied by admin"" will all count, I believe I will have to use ""like"" to identify the pattern). How to write sql for this? 
+","<sal><preston><think>, preston array contain element like pattern, example, one column table array, want check column contain element contain substr ""denied"" (so element like ""den 12:00 pm"", ""den admit"" count, believe use ""like"" identify pattern). write sal this?"
+50322966,Changing Django development Database from the default SQLite to PostgreSQL,"What are the steps I need to take to migrate from the default SQLite database to Postgres database?
+I'm doing this to get my local development environment as close to my live server (which uses postrgres).
+Or is there a reason why local development uses SQLite? Is it not recommended to use Postgres for local development?
+",<python><django><postgresql><sqlite>,323,0,0,8357,27,108,215,41,19371,0.0,258,4,24,2018-05-14 4:07,2018-05-14 4:15,2018-05-14 4:15,0.0,0.0,Basic,10,"<python><django><postgresql><sqlite>, Changing Django development Database from the default SQLite to PostgreSQL, What are the steps I need to take to migrate from the default SQLite database to Postgres database?
+I'm doing this to get my local development environment as close to my live server (which uses postrgres).
+Or is there a reason why local development uses SQLite? Is it not recommended to use Postgres for local development?
+","<patron><django><postgresql><quite>, change django develop database default quite postgresql, step need take migrate default quite database poster database? i'm get local develop environs close live server (which use postures). reason local develop use quite? recommend use poster local development?"
+56911833,Postgres and alembic - Assuming SERIAL sequence,"I have a postgres DB, which I manage through SQLAlchemy and alembic (for migrations). When creating a DB migration  through alembic, I get the following INFO in the console.
+INFO  [alembic.ddl.postgresql] Detected sequence named 'my_table_name_id_seq' as owned by integer column 'my_table_name(id)', assuming SERIAL and omitting
+My model looks like
+class CopyJob(db.Model):
+    __tablename__ = ""my_table_name""
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+I interpret the above as a warning. One line is generated for each of my tables. I have two questions:
+Am I doing something wrong when getting the warning above
+What should I fix / explicitly set, in order to make it go away. Migrations are too verbose.
+Thank you!
+",<python><postgresql><flask><alembic>,744,0,5,3514,5,34,62,60,6597,0.0,1019,1,24,2019-07-06 6:35,2021-08-08 22:57,,764.0,,Basic,5,"<python><postgresql><flask><alembic>, Postgres and alembic - Assuming SERIAL sequence, I have a postgres DB, which I manage through SQLAlchemy and alembic (for migrations). When creating a DB migration  through alembic, I get the following INFO in the console.
+INFO  [alembic.ddl.postgresql] Detected sequence named 'my_table_name_id_seq' as owned by integer column 'my_table_name(id)', assuming SERIAL and omitting
+My model looks like
+class CopyJob(db.Model):
+    __tablename__ = ""my_table_name""
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+I interpret the above as a warning. One line is generated for each of my tables. I have two questions:
+Am I doing something wrong when getting the warning above
+What should I fix / explicitly set, in order to make it go away. Migrations are too verbose.
+Thank you!
+","<patron><postgresql><flask><alembic>, poster limb - assume aerial sequence, poster do, manage sqlalchemi limb (for migrations). great do migrate alembic, get follow into console. into [alembic.del.postgresql] detect sequence name 'my_table_name_id_seq' own inter column 'my_table_name(id)', assume aerial omit model look like class copyjob(do.model): __tablename__ = ""my_table_name"" id = do.column(do.inter, primary_key=true, autoincrement=true) interpret warning. one line genet tables. two questions: cometh wrong get warn fix / explicitly set, order make go away. migrate verse. thank you!"
+61441186,"PostgreSQL: What is meant by ""please specify covering index name""","I wanted to edit the actions in a table. However I get the error message ""Please specify covering index name."" when I try to edit the FK. How do I fix this?
+The table consists of only two columns:
+The foreign keys:
+category FK:
+",<postgresql><pgadmin-4>,228,3,0,385,1,4,12,75,14817,0.0,8,12,23,2020-04-26 12:57,2020-04-26 14:38,2020-04-26 14:38,0.0,0.0,Basic,9,"<postgresql><pgadmin-4>, PostgreSQL: What is meant by ""please specify covering index name"", I wanted to edit the actions in a table. However I get the error message ""Please specify covering index name."" when I try to edit the FK. How do I fix this?
+The table consists of only two columns:
+The foreign keys:
+category FK:
+","<postgresql><pgadmin-4>, postgresql: meant ""pleas specific cover index name"", want edit action table. howe get error message ""pleas specific cover index name."" try edit ff. fix this? table consist two columns: foreign keys: category ff:"
+50672815,Unable to retrieve project metadata. Ensure it's an MSBuild-based .NET Core project,"I've been researching a lot online but did not find a proper solution. I was trying to use Entity Framework Core with MySQL by using database-first scaffold method to mapping table model while always received this error when applied the command
+Unable to retrieve project metadata. Ensure it's an MSBuild-based .NET Core project. If you're using custom BaseIntermediateOutputPath or MSBuildProjectExtensionsPath values, Use the --msbuildprojectextensionspath option.
+This is the command I am using to scaffold the database model:
+Scaffold-DbContext ""server=localhost;port=3306;user=root;password=1234;database=world"" ""Pomelo.EntityFrameworkCore.MySql"" -OutputDir .\Models -f
+And this is my .Net Core project setting:
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.Tools"" Version=""2.0.1"" /&gt;
+    &lt;PackageReference Include=""Pomelo.EntityFrameworkCore.MySql"" Version=""2.0.1"" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;DotNetCliToolReference Include=""Microsoft.EntityFrameworkCore.Tools.DotNet"" Version=""2.0.1"" /&gt;
+  &lt;/ItemGroup&gt;
+",<mysql><entity-framework><asp.net-core-2.0><ef-database-first><entity-framework-core-2.1>,1088,0,10,3491,9,33,60,81,16440,0.0,76,7,23,2018-06-04 2:40,2018-09-24 23:04,,112.0,,Basic,9,"<mysql><entity-framework><asp.net-core-2.0><ef-database-first><entity-framework-core-2.1>, Unable to retrieve project metadata. Ensure it's an MSBuild-based .NET Core project, I've been researching a lot online but did not find a proper solution. I was trying to use Entity Framework Core with MySQL by using database-first scaffold method to mapping table model while always received this error when applied the command
+Unable to retrieve project metadata. Ensure it's an MSBuild-based .NET Core project. If you're using custom BaseIntermediateOutputPath or MSBuildProjectExtensionsPath values, Use the --msbuildprojectextensionspath option.
+This is the command I am using to scaffold the database model:
+Scaffold-DbContext ""server=localhost;port=3306;user=root;password=1234;database=world"" ""Pomelo.EntityFrameworkCore.MySql"" -OutputDir .\Models -f
+And this is my .Net Core project setting:
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.Tools"" Version=""2.0.1"" /&gt;
+    &lt;PackageReference Include=""Pomelo.EntityFrameworkCore.MySql"" Version=""2.0.1"" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;DotNetCliToolReference Include=""Microsoft.EntityFrameworkCore.Tools.DotNet"" Version=""2.0.1"" /&gt;
+  &lt;/ItemGroup&gt;
+","<myself><entity-framework><asp.net-core-2.0><of-database-first><entity-framework-core-2.1>, unable retrieve project metadata. ensue build-was .net core project, i'v research lot online find proper solution. try use entity framework core myself use database-first scaffold method map table model away receive error apply command unable retrieve project metadata. ensue build-was .net core project. use custom baseintermediateoutputpath msbuildprojectextensionspath values, use --msbuildprojectextensionspath option. command use scaffold database model: scaffold-context ""server=localhost;port=3306;user=root;password=1234;database=world"" ""homely.entityframeworkcore.myself"" -outputdir .\model -f .net core project setting: &it;itemgroup&it; &it;packagerefer include=""microsoft.entityframeworkcore.tools"" version=""2.0.1"" /&it; &it;packagerefer include=""homely.entityframeworkcore.myself"" version=""2.0.1"" /&it; &it;/itemgroup&it; &it;itemgroup&it; &it;dotnetclitoolrefer include=""microsoft.entityframeworkcore.tools.done"" version=""2.0.1"" /&it; &it;/itemgroup&it;"
+52926064,How to connect to SQL Server docker container from another container?,"I have pulled and run SQL Server 2017 container image using the following command:
+docker pull microsoft/mssql-server-linux
+docker run --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=!Abcd123' -p 1433:1433 -d microsoft/mssql-server-linux
+And I also deployed an ASP.NET Core Web API application to a Docker container, using the following commands:
+dotnet publish -c Release -o Output
+docker build -t apitest .
+docker run -p 3000:80 --name apitest_1 apitest
+The content of Dockerfile:
+FROM microsoft/dotnet
+COPY Output /app
+WORKDIR /app
+EXPOSE 80/tcp
+ENTRYPOINT [""dotnet"", ""DockerSQLTest.dll""]
+In my Web API application, I have created an Entity Framework Core migration which will create the database and seed some data. In Configure method of Startup class, I add the following code to apply the pending migrations to the database:
+public async void Configure(IApplicationBuilder app,
+                            IHostingEnvironment env, 
+                            StudentDbContext dbContext)
+{
+    await dbContext.Database.MigrateAsync();
+    ...
+}
+And the database connection string is retrieved from appsettings.json which contains the following section:
+""ConnectionStrings"": {
+    ""DefaultConnection"": ""Server=localhost,1433;Database=student;User Id=sa;Password=!Abcd123;""
+}
+But the app cannot run correctly, the exception message:
+fail: WebApplication6.Startup[0]
+  System.Threading.Tasks.TaskCanceledException: A task was canceled.
+     at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+     at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+     at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.&lt;&gt;c__DisplayClass20_0.&lt;&lt;ExistsAsync&gt;b__0&gt;d.MoveNext()
+  --- End of stack trace from previous location where exception was thrown ---
+     at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+     at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.ExistsAsync(CancellationToken cancellationToken)
+     at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+Is there anything wrong?
+",<sql-server><docker><asp.net-core><entity-framework-core><asp.net-core-2.0>,2465,0,33,1076,1,8,21,78,24905,0.0,175,4,23,2018-10-22 9:23,2018-10-22 9:45,2018-11-16 7:33,0.0,25.0,Basic,9,"<sql-server><docker><asp.net-core><entity-framework-core><asp.net-core-2.0>, How to connect to SQL Server docker container from another container?, I have pulled and run SQL Server 2017 container image using the following command:
+docker pull microsoft/mssql-server-linux
+docker run --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=!Abcd123' -p 1433:1433 -d microsoft/mssql-server-linux
+And I also deployed an ASP.NET Core Web API application to a Docker container, using the following commands:
+dotnet publish -c Release -o Output
+docker build -t apitest .
+docker run -p 3000:80 --name apitest_1 apitest
+The content of Dockerfile:
+FROM microsoft/dotnet
+COPY Output /app
+WORKDIR /app
+EXPOSE 80/tcp
+ENTRYPOINT [""dotnet"", ""DockerSQLTest.dll""]
+In my Web API application, I have created an Entity Framework Core migration which will create the database and seed some data. In Configure method of Startup class, I add the following code to apply the pending migrations to the database:
+public async void Configure(IApplicationBuilder app,
+                            IHostingEnvironment env, 
+                            StudentDbContext dbContext)
+{
+    await dbContext.Database.MigrateAsync();
+    ...
+}
+And the database connection string is retrieved from appsettings.json which contains the following section:
+""ConnectionStrings"": {
+    ""DefaultConnection"": ""Server=localhost,1433;Database=student;User Id=sa;Password=!Abcd123;""
+}
+But the app cannot run correctly, the exception message:
+fail: WebApplication6.Startup[0]
+  System.Threading.Tasks.TaskCanceledException: A task was canceled.
+     at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+     at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+     at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.&lt;&gt;c__DisplayClass20_0.&lt;&lt;ExistsAsync&gt;b__0&gt;d.MoveNext()
+  --- End of stack trace from previous location where exception was thrown ---
+     at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+     at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.ExistsAsync(CancellationToken cancellationToken)
+     at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+Is there anything wrong?
+","<sal-server><doctor><asp.net-core><entity-framework-core><asp.net-core-2.0>, connect sal server doctor contain not container?, pull run sal server 2017 contain image use follow command: doctor pull microsoft/mssql-server-line doctor run --name mssql -e 'accept_eula=y' -e 'sa_password=!abcd123' -p 1433:1433 -d microsoft/mssql-server-line also deploy asp.net core web apt applied doctor container, use follow commands: done publish -c release -o output doctor build -t apitest . doctor run -p 3000:80 --name apitest_1 apitest content dockerfile: microsoft/done copy output /pp worker /pp expose 80/top entrypoint [""done"", ""dockersqltest.all""] web apt application, great entity framework core migrate great database seed data. configur method started class, add follow code apply end migrate database: public async void configure(iapplicationbuild pp, ihostingenviron end, studentdbcontext context) { await context.database.migrateasync(); ... } database connect string retrieve appsettings.son contain follow section: ""connectionstrings"": { ""defaultconnection"": ""server=localhost,1433;database=student;us id=sa;password=!abcd123;"" } pp cannot run correctly, except message: fail: webapplication6.started[0] system.treading.tasks.taskcanceledexception: task canceled. microsoft.entityframeworkcore.storage.relationalconnection.opendbconnectionasync(woolen errorsexpected, cancellationtoken cancellationtoken) microsoft.entityframeworkcore.storage.relationalconnection.openasync(cancellationtoken cancellationtoken, woolen errorsexpected) microsoft.entityframeworkcore.sqlserver.storage.internal.sqlserverdatabasecreator.&it;&it;c__displayclass20_0.&it;&it;existsasync&it;b__0&it;d.movement() --- end stick trace previous local except thrown --- microsoft.entityframeworkcore.sqlserver.storage.internal.sqlserverexecutionstrategy.executeasync[state,result](st state, fun`4 operation, fun`4 verifysucceeded, cancellationtoken cancellationtoken) microsoft.entityframeworkcore.migrations.historyrepository.existsasync(cancellationtoken cancellationtoken) microsoft.entityframeworkcore.migrations.internal.migratory.migrateasync(sir targetmigration, cancellationtoken cancellationtoken) any wrong?"
+49355530,System.Data.SqlClient is not supported on this platform,"I'm using ASP.NET Core 2 with Entity Framework Core 2.0.2. I created a context and Add-Migrations command in Package Manager Controller works fine.
+However when Update-Database command is used, I get an error:
+  System.Data.SqlClient is not supported on this platform
+I can't figure out where the problem is. Can you help me? Thanks.
+My .csproj file:
+&lt;Project Sdk=""Microsoft.NET.Sdk.Web""&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;netcoreapp2.0&lt;/TargetFramework&gt;
+    &lt;DebugType&gt;portable&lt;/DebugType&gt;
+    &lt;PreserveCompilationContext&gt;true&lt;/PreserveCompilationContext&gt;
+    &lt;DockerComposeProjectPath&gt;..\docker-compose.dcproj&lt;/DockerComposeProjectPath&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;Folder Include=""wwwroot\"" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=""Autofac.Extensions.DependencyInjection"" Version=""4.2.1"" /&gt;
+    &lt;PackageReference Include=""Microsoft.AspNetCore.All"" Version=""2.0.6"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.Design"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.SqlServer"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.Tools"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Swashbuckle.AspNetCore"" Version=""2.3.0"" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;DotNetCliToolReference Include=""Microsoft.VisualStudio.Web.CodeGeneration.Tools"" Version=""2.0.2"" /&gt;
+    &lt;DotNetCliToolReference Include=""Microsoft.EntityFrameworkCore.Tools.DotNet"" Version=""2.0.2"" /&gt;
+  &lt;/ItemGroup&gt;
+&lt;/Project&gt;
+",<c#><sql-server><asp.net-core><entity-framework-core><database-migration>,1755,0,32,397,1,5,14,45,37910,0.0,74,11,23,2018-03-19 3:50,2018-03-22 19:35,2018-03-22 19:35,3.0,3.0,Basic,9,"<c#><sql-server><asp.net-core><entity-framework-core><database-migration>, System.Data.SqlClient is not supported on this platform, I'm using ASP.NET Core 2 with Entity Framework Core 2.0.2. I created a context and Add-Migrations command in Package Manager Controller works fine.
+However when Update-Database command is used, I get an error:
+  System.Data.SqlClient is not supported on this platform
+I can't figure out where the problem is. Can you help me? Thanks.
+My .csproj file:
+&lt;Project Sdk=""Microsoft.NET.Sdk.Web""&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;netcoreapp2.0&lt;/TargetFramework&gt;
+    &lt;DebugType&gt;portable&lt;/DebugType&gt;
+    &lt;PreserveCompilationContext&gt;true&lt;/PreserveCompilationContext&gt;
+    &lt;DockerComposeProjectPath&gt;..\docker-compose.dcproj&lt;/DockerComposeProjectPath&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;Folder Include=""wwwroot\"" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=""Autofac.Extensions.DependencyInjection"" Version=""4.2.1"" /&gt;
+    &lt;PackageReference Include=""Microsoft.AspNetCore.All"" Version=""2.0.6"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.Design"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.SqlServer"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Microsoft.EntityFrameworkCore.Tools"" Version=""2.0.2"" /&gt;
+    &lt;PackageReference Include=""Swashbuckle.AspNetCore"" Version=""2.3.0"" /&gt;
+  &lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;DotNetCliToolReference Include=""Microsoft.VisualStudio.Web.CodeGeneration.Tools"" Version=""2.0.2"" /&gt;
+    &lt;DotNetCliToolReference Include=""Microsoft.EntityFrameworkCore.Tools.DotNet"" Version=""2.0.2"" /&gt;
+  &lt;/ItemGroup&gt;
+&lt;/Project&gt;
+","<c#><sal-server><asp.net-core><entity-framework-core><database-migration>, system.data.sqlcli support platform, i'm use asp.net core 2 entity framework core 2.0.2. great context add-might command package manage control work fine. howe update-database command used, get error: system.data.sqlcli support platform can't figure problem is. help me? thanks. .csproj file: &it;project sd=""microsoft.net.sd.web""&it; &it;propertygroup&it; &it;targetframework&it;netcoreapp2.0&it;/targetframework&it; &it;debugtype&it;portable&it;/debugtype&it; &it;preservecompilationcontext&it;true&it;/preservecompilationcontext&it; &it;dockercomposeprojectpath&it;..\doctor-compose.dcproj&it;/dockercomposeprojectpath&it; &it;/propertygroup&it; &it;itemgroup&it; &it;older include=""wwwroot\"" /&it; &it;/itemgroup&it; &it;itemgroup&it; &it;packagerefer include=""autofac.extensions.dependencyinjection"" version=""4.2.1"" /&it; &it;packagerefer include=""microsoft.aspnetcore.all"" version=""2.0.6"" /&it; &it;packagerefer include=""microsoft.entityframeworkcore"" version=""2.0.2"" /&it; &it;packagerefer include=""microsoft.entityframeworkcore.design"" version=""2.0.2"" /&it; &it;packagerefer include=""microsoft.entityframeworkcore.sqlserver"" version=""2.0.2"" /&it; &it;packagerefer include=""microsoft.entityframeworkcore.tools"" version=""2.0.2"" /&it; &it;packagerefer include=""swashbuckle.aspnetcore"" version=""2.3.0"" /&it; &it;/itemgroup&it; &it;itemgroup&it; &it;dotnetclitoolrefer include=""microsoft.visualstudio.web.degeneration.tools"" version=""2.0.2"" /&it; &it;dotnetclitoolrefer include=""microsoft.entityframeworkcore.tools.done"" version=""2.0.2"" /&it; &it;/itemgroup&it; &it;/project&it;"
+62333176,Docker difference postgres:12 from postgres:12-alpine,"Docker hub contains several versions(tag) of Postgres db such as: 
+12.3, 12, latest
+12.3-alpine, 12-alpine, alpine
+-...
+What is diff between postgres version 12.3 and 12.3-alpine?
+",<postgresql><docker>,180,0,0,525,2,7,17,36,16863,,366,3,23,2020-06-11 20:38,2020-06-11 20:43,2020-06-11 20:44,0.0,0.0,Intermediate,19,"<postgresql><docker>, Docker difference postgres:12 from postgres:12-alpine, Docker hub contains several versions(tag) of Postgres db such as: 
+12.3, 12, latest
+12.3-alpine, 12-alpine, alpine
+-...
+What is diff between postgres version 12.3 and 12.3-alpine?
+","<postgresql><doctor>, doctor differ postures:12 postures:12-aline, doctor hut contain never versions(tag) poster do as: 12.3, 12, latest 12.3-aline, 12-aline, again -... if poster version 12.3 12.3-aline?"
+61162288,run-as package: not debuggable,"I'm trying to extract the database file from my Android device (non rooted Exynos Galaxy S9 running One UI 2.0) and every time I open up Android Studio 3.6.2 -> Device File Explorer I get the message ""run-as package: not debuggable"". 
+This happens to every app I have in the list, not just the one i'm interested in.
+Also, this issue persists with adb shell.
+Can anyone help? (sorry if this has incomplete information or was posted in the wrong section)
+",<android><database><sqlite><pull>,454,0,0,351,1,2,7,63,32354,0.0,0,1,23,2020-04-11 19:09,2020-04-11 19:21,2020-04-11 19:21,0.0,0.0,Basic,9,"<android><database><sqlite><pull>, run-as package: not debuggable, I'm trying to extract the database file from my Android device (non rooted Exynos Galaxy S9 running One UI 2.0) and every time I open up Android Studio 3.6.2 -> Device File Explorer I get the message ""run-as package: not debuggable"". 
+This happens to every app I have in the list, not just the one i'm interested in.
+Also, this issue persists with adb shell.
+Can anyone help? (sorry if this has incomplete information or was posted in the wrong section)
+","<andros><database><quite><pull>, run-a package: debuggable, i'm try extract database file andros devil (non root exyno galaxy s run one i 2.0) every time open andros studio 3.6.2 -> devil file explore get message ""run-a package: debuggable"". happen every pp list, one i'm interest in. also, issue persist add shell. anyone help? (sorry incomplete inform post wrong section)"
+51542703,knex: select rows that are in certain date range,"How can I select rows from the table that are in certain date range with knex queries? For example, selecting rows from last seven days.
+Knex version: 0.15.0
+DB: PostgreSQL
+",<postgresql><knex.js>,173,0,0,8953,13,34,41,52,47916,0.0,1343,5,23,2018-07-26 15:38,2018-08-03 8:17,2018-08-03 8:17,8.0,8.0,Basic,10,"<postgresql><knex.js>, knex: select rows that are in certain date range, How can I select rows from the table that are in certain date range with knex queries? For example, selecting rows from last seven days.
+Knex version: 0.15.0
+DB: PostgreSQL
+","<postgresql><knew.is>, knew: select row certain date range, select row table certain date rang knew queried? example, select row last seven days. knew version: 0.15.0 do: postgresql"
+65422890,"How to use time-series with Sqlite, with fast time-range queries?","Let's say we log events in a Sqlite database with Unix timestamp column ts:
+CREATE TABLE data(ts INTEGER, text TEXT);   -- more columns in reality
+and that we want fast lookup for datetime ranges, for example:
+SELECT text FROM data WHERE ts BETWEEN 1608710000 and 1608718654;
+Like this, EXPLAIN QUERY PLAN gives SCAN TABLE data which is bad, so one obvious solution is to create an index with CREATE INDEX dt_idx ON data(ts).
+Then the problem is solved, but it's rather a poor solution to have to maintain an index for an already-increasing sequence / already-sorted column ts for which we could use a B-tree search in O(log n) directly. Internally this will be the index:
+ts           rowid
+1608000001   1
+1608000002   2
+1608000012   3
+1608000077   4
+which is a waste of DB space (and CPU when a query has to look in the index first).
+To avoid this:
+(1) we could use ts as INTEGER PRIMARY KEY, so ts would be the rowid itself. But this fails because ts is not unique: 2 events can happen at the same second (or even at the same millisecond).
+See for example the info given in SQLite Autoincrement.
+(2) we could use rowid as timestamp ts concatenated with an increasing number. Example:
+ 16087186540001      
+ 16087186540002
+ [--------][--]
+     ts     increasing number 
+Then rowid is unique and strictly increasing (provided there are less than 10k events per second), and no index would be required. A query WHERE ts BETWEEN a AND b would simply become WHERE rowid BETWEEN a*10000 AND b*10000+9999.
+But is there an easy way to ask Sqlite to INSERT an item with a rowid greater than or equal to a given value? Let's say the current timestamp is 1608718654 and two events appear:
+  CREATE TABLE data(ts_and_incr INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT);
+  INSERT INTO data VALUES (NEXT_UNUSED(1608718654), &quot;hello&quot;)  #16087186540001 
+  INSERT INTO data VALUES (NEXT_UNUSED(1608718654), &quot;hello&quot;)  #16087186540002
+More generally, how to create time-series optimally with Sqlite, to have fast queries WHERE timestamp BETWEEN a AND b?
+",<sql><database><sqlite><time-series><auto-increment>,2056,1,33,42385,103,394,707,41,13968,0.0,3760,2,23,2020-12-23 10:38,2020-12-23 21:49,2020-12-23 21:49,0.0,0.0,Intermediate,16,"<sql><database><sqlite><time-series><auto-increment>, How to use time-series with Sqlite, with fast time-range queries?, Let's say we log events in a Sqlite database with Unix timestamp column ts:
+CREATE TABLE data(ts INTEGER, text TEXT);   -- more columns in reality
+and that we want fast lookup for datetime ranges, for example:
+SELECT text FROM data WHERE ts BETWEEN 1608710000 and 1608718654;
+Like this, EXPLAIN QUERY PLAN gives SCAN TABLE data which is bad, so one obvious solution is to create an index with CREATE INDEX dt_idx ON data(ts).
+Then the problem is solved, but it's rather a poor solution to have to maintain an index for an already-increasing sequence / already-sorted column ts for which we could use a B-tree search in O(log n) directly. Internally this will be the index:
+ts           rowid
+1608000001   1
+1608000002   2
+1608000012   3
+1608000077   4
+which is a waste of DB space (and CPU when a query has to look in the index first).
+To avoid this:
+(1) we could use ts as INTEGER PRIMARY KEY, so ts would be the rowid itself. But this fails because ts is not unique: 2 events can happen at the same second (or even at the same millisecond).
+See for example the info given in SQLite Autoincrement.
+(2) we could use rowid as timestamp ts concatenated with an increasing number. Example:
+ 16087186540001      
+ 16087186540002
+ [--------][--]
+     ts     increasing number 
+Then rowid is unique and strictly increasing (provided there are less than 10k events per second), and no index would be required. A query WHERE ts BETWEEN a AND b would simply become WHERE rowid BETWEEN a*10000 AND b*10000+9999.
+But is there an easy way to ask Sqlite to INSERT an item with a rowid greater than or equal to a given value? Let's say the current timestamp is 1608718654 and two events appear:
+  CREATE TABLE data(ts_and_incr INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT);
+  INSERT INTO data VALUES (NEXT_UNUSED(1608718654), &quot;hello&quot;)  #16087186540001 
+  INSERT INTO data VALUES (NEXT_UNUSED(1608718654), &quot;hello&quot;)  #16087186540002
+More generally, how to create time-series optimally with Sqlite, to have fast queries WHERE timestamp BETWEEN a AND b?
+","<sal><database><quite><time-series><auto-incitement>, use time-peri quite, fast time-rang queried?, let' say log event quite database unit timestamp column to: great table data(t inter, text text); -- column reality want fast lockup datetim ranges, example: select text data to 1608710000 1608718654; like this, explain query plan give scan table data bad, one obvious slut great index great index dt_idx data(to). problem solved, rather poor slut maintain index already-increase sequence / already-sort column to could use b-tree search o(log n) directly. inter index: to round 1608000001 1 1608000002 2 1608000012 3 1608000077 4 wast do space (and cup query look index first). avoid this: (1) could use to inter primary key, to would round itself. fail to unique: 2 event happen second (or even millisecond). see example into given quite autoincrement. (2) could use round timestamp to concave increase number. example: 16087186540001 16087186540002 [--------][--] to increase number round unique strictly increase (proved less ask event per second), index would required. query to b would simple become round a*10000 b*10000+9999. east way ask quite insert item round greater equal given value? let' say current timestamp 1608718654 two event appear: great table data(ts_and_incr inter primary key autoincrement, text text); insert data value (next_unused(1608718654), &quit;hello&quit;) #16087186540001 insert data value (next_unused(1608718654), &quit;hello&quit;) #16087186540002 generally, great time-peri optic quite, fast query timestamp b?"
+50828098,Permissions For Google Cloud SQL Import Using Service Accounts,"I've exported MySQL Database following the MySQL Export Guide successfully. 
+Now, I'm trying to import MySQL Database following the MySQL Import Guide.
+I've checked the permissions for the service_account_email I'm using, and I have allowed both Admin SQL and Admin Storage permissions. 
+I was able to successfully activate my service account using this command locally:
+gcloud auth activate-service-account &lt;service_account_email&gt; --key-file=&lt;service_account_json_file&gt;  
+After I ran the command:
+gcloud sql import sql &lt;instance&gt; &lt;gstorage_file&gt; --database=&lt;db_name&gt; --async
+I got this information:
+{
+  ""error"": {
+    ""errors"": Array[1][
+      {
+        ""domain"": ""global"",
+        ""reason"": ""required"",
+        ""message"": ""Login Required"",
+        ""locationType"": ""header"",
+        ""location"": ""Authorization""
+      }
+    ],
+    ""code"": 401,
+    ""message"": ""Login Required""
+  }
+}
+Other Things I've Tried
+I also tried using the service_account_email of my SQL instance, which came from:
+gcloud sql instances describe &lt;instance_name&gt;
+But, it seems to have the same error.
+Question
+Based on the REST API JSON error I'm given, how do I ""login"" using the service_account_email so I wouldn't get the 401 Error?
+",<google-cloud-platform><google-cloud-storage><google-cloud-sql><user-permissions><service-accounts>,1243,2,22,1840,2,24,51,45,14274,0.0,240,5,23,2018-06-13 1:56,2018-06-14 15:27,2018-12-04 8:43,1.0,174.0,Intermediate,17,"<google-cloud-platform><google-cloud-storage><google-cloud-sql><user-permissions><service-accounts>, Permissions For Google Cloud SQL Import Using Service Accounts, I've exported MySQL Database following the MySQL Export Guide successfully. 
+Now, I'm trying to import MySQL Database following the MySQL Import Guide.
+I've checked the permissions for the service_account_email I'm using, and I have allowed both Admin SQL and Admin Storage permissions. 
+I was able to successfully activate my service account using this command locally:
+gcloud auth activate-service-account &lt;service_account_email&gt; --key-file=&lt;service_account_json_file&gt;  
+After I ran the command:
+gcloud sql import sql &lt;instance&gt; &lt;gstorage_file&gt; --database=&lt;db_name&gt; --async
+I got this information:
+{
+  ""error"": {
+    ""errors"": Array[1][
+      {
+        ""domain"": ""global"",
+        ""reason"": ""required"",
+        ""message"": ""Login Required"",
+        ""locationType"": ""header"",
+        ""location"": ""Authorization""
+      }
+    ],
+    ""code"": 401,
+    ""message"": ""Login Required""
+  }
+}
+Other Things I've Tried
+I also tried using the service_account_email of my SQL instance, which came from:
+gcloud sql instances describe &lt;instance_name&gt;
+But, it seems to have the same error.
+Question
+Based on the REST API JSON error I'm given, how do I ""login"" using the service_account_email so I wouldn't get the 401 Error?
+","<goose-cloud-platform><goose-cloud-storage><goose-cloud-sal><user-permission><service-accounts>, permits good cloud sal import use service accounts, i'v export myself database follow myself export guide successfully. now, i'm try import myself database follow myself import guide. i'v check permits service_account_email i'm using, allow admit sal admit storage permission. all success active service account use command locally: cloud auto activate-service-account &it;service_account_email&it; --key-file=&it;service_account_json_file&it; ran command: cloud sal import sal &it;instance&it; &it;gstorage_file&it; --database=&it;db_name&it; --async got information: { ""error"": { ""errors"": array[1][ { ""domain"": ""global"", ""reason"": ""required"", ""message"": ""login required"", ""locationtype"": ""header"", ""location"": ""authorization"" } ], ""code"": 401, ""message"": ""login required"" } } thing i'v try also try use service_account_email sal instance, came from: cloud sal instant describe &it;instance_name&it; but, seem error. question base rest apt son error i'm given, ""login"" use service_account_email get 401 error?"
+62111066,mysqlclient installation error in AWS Elastic Beanstalk,"I am deploying a django with mysql app on AWS Elastic Beanstalk, so mysqlclient library is needed. mysqlclient needs python3-devel and mysql-devel package to be installed, so I have the custom config file for it 01_packages.config:
+packages: 
+  yum:
+    python3-devel: []
+    mysql-devel: []
+Deployment fails and the log file /var/log/cfn-init.log (mentioned in Beanstalk logs) shows the error: 
+2020-05-31 02:17:37,565 [INFO] -----------------------Starting build-----------------------
+2020-05-31 02:17:37,572 [INFO] Running configSets: Infra-EmbeddedPreBuild
+2020-05-31 02:17:37,575 [INFO] Running configSet Infra-EmbeddedPreBuild
+2020-05-31 02:17:37,579 [INFO] Running config prebuild_0_doyouknow
+2020-05-31 02:17:41,831 [ERROR] mysql-devel is not available to be installed
+2020-05-31 02:17:41,831 [ERROR] Error encountered during build of prebuild_0_doyouknow: Yum does no
+t have mysql-devel available for installation
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py"", line 542, in run_config
+    CloudFormationCarpenter(config, self._auth_config).build(worklog)
+  File ""/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py"", line 229, in build
+    changes['packages'][manager] = CloudFormationCarpenter._packageTools[manager]().apply(packages,
+ self._auth_config)
+  File ""/usr/lib/python2.7/site-packages/cfnbootstrap/rpm_tools.py"", line 74, in apply
+    raise ToolError(""Yum does not have %s available for installation"" % pkg_spec)
+ToolError: Yum does not have mysql-devel available for installation
+2020-05-31 02:17:41,834 [ERROR] -----------------------BUILD FAILED!------------------------
+However, I tried to install it manually on my Ec2 instance through yum install mysql-devel and it is installed successfully.
+My python version is 3.7 and my requirements.txt file content is:
+asgiref==3.2.7
+Django==3.0.5
+django-cors-headers==3.2.1
+django-dotenv==1.4.2
+django-social-share==1.4.0
+mysqlclient==1.4.6
+numpy==1.18.4
+pandas==1.0.3
+Pillow==7.1.1
+python-dateutil==2.8.1
+pytz==2019.3
+six==1.14.0
+sqlparse==0.3.1
+xlrd==1.2.0
+",<mysql><amazon-ec2><amazon-elastic-beanstalk>,2098,0,43,1420,1,12,29,70,5681,0.0,34,2,23,2020-05-31 3:06,2020-05-31 12:48,2020-05-31 12:48,0.0,0.0,Basic,14,"<mysql><amazon-ec2><amazon-elastic-beanstalk>, mysqlclient installation error in AWS Elastic Beanstalk, I am deploying a django with mysql app on AWS Elastic Beanstalk, so mysqlclient library is needed. mysqlclient needs python3-devel and mysql-devel package to be installed, so I have the custom config file for it 01_packages.config:
+packages: 
+  yum:
+    python3-devel: []
+    mysql-devel: []
+Deployment fails and the log file /var/log/cfn-init.log (mentioned in Beanstalk logs) shows the error: 
+2020-05-31 02:17:37,565 [INFO] -----------------------Starting build-----------------------
+2020-05-31 02:17:37,572 [INFO] Running configSets: Infra-EmbeddedPreBuild
+2020-05-31 02:17:37,575 [INFO] Running configSet Infra-EmbeddedPreBuild
+2020-05-31 02:17:37,579 [INFO] Running config prebuild_0_doyouknow
+2020-05-31 02:17:41,831 [ERROR] mysql-devel is not available to be installed
+2020-05-31 02:17:41,831 [ERROR] Error encountered during build of prebuild_0_doyouknow: Yum does no
+t have mysql-devel available for installation
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py"", line 542, in run_config
+    CloudFormationCarpenter(config, self._auth_config).build(worklog)
+  File ""/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py"", line 229, in build
+    changes['packages'][manager] = CloudFormationCarpenter._packageTools[manager]().apply(packages,
+ self._auth_config)
+  File ""/usr/lib/python2.7/site-packages/cfnbootstrap/rpm_tools.py"", line 74, in apply
+    raise ToolError(""Yum does not have %s available for installation"" % pkg_spec)
+ToolError: Yum does not have mysql-devel available for installation
+2020-05-31 02:17:41,834 [ERROR] -----------------------BUILD FAILED!------------------------
+However, I tried to install it manually on my Ec2 instance through yum install mysql-devel and it is installed successfully.
+My python version is 3.7 and my requirements.txt file content is:
+asgiref==3.2.7
+Django==3.0.5
+django-cors-headers==3.2.1
+django-dotenv==1.4.2
+django-social-share==1.4.0
+mysqlclient==1.4.6
+numpy==1.18.4
+pandas==1.0.3
+Pillow==7.1.1
+python-dateutil==2.8.1
+pytz==2019.3
+six==1.14.0
+sqlparse==0.3.1
+xlrd==1.2.0
+","<myself><amazon-end><amazon-elastic-beanstalk>, mysqlclient instal error a last beanstalk, deploy django myself pp a last beanstalk, mysqlclient library needed. mysqlclient need python3-devil myself-devil package installed, custom confirm file 01_packages.confirm: packages: sum: python3-devil: [] myself-devil: [] deploy fail log file /war/log/can-knit.log (mention beanstalk logs) show error: 2020-05-31 02:17:37,565 [into] -----------------------start build----------------------- 2020-05-31 02:17:37,572 [into] run configsets: infra-embeddedprebuild 2020-05-31 02:17:37,575 [into] run configset infra-embeddedprebuild 2020-05-31 02:17:37,579 [into] run confirm prebuild_0_doyouknow 2020-05-31 02:17:41,831 [error] myself-devil avail instal 2020-05-31 02:17:41,831 [error] error count build prebuild_0_doyouknow: sum myself-devil avail instal traceback (most recent call last): file ""/us/limb/python2.7/site-packages/cfnbootstrap/construction.by"", line 542, run_config cloudformationcarpenter(confirm, self._auth_config).build(working) file ""/us/limb/python2.7/site-packages/cfnbootstrap/construction.by"", line 229, build changes['packages'][manager] = cloudformationcarpenter._packagetools[manager]().apply(packages, self._auth_config) file ""/us/limb/python2.7/site-packages/cfnbootstrap/rpm_tools.by"", line 74, apply rays toolerror(""sum %s avail installation"" % pkg_spec) toolerror: sum myself-devil avail instal 2020-05-31 02:17:41,834 [error] -----------------------build failed!------------------------ however, try instal manual end instant sum instal myself-devil instal successfully. patron version 3.7 requirements.txt file content is: aspired==3.2.7 django==3.0.5 django-corps-leaders==3.2.1 django-dozen==1.4.2 django-social-share==1.4.0 mysqlclient==1.4.6 jump==1.18.4 hands==1.0.3 pillow==7.1.1 patron-dateutil==2.8.1 put==2019.3 six==1.14.0 sqlparse==0.3.1 old==1.2.0"
+54375913,Athena: Query exhausted resources at scale factor,"I am running a query like: 
+SELECT f.*, p.countryName, p.airportName, a.name AS agentName
+FROM (
+    SELECT 
+        f.outboundlegid, 
+        f.inboundlegid,
+        f.querydatetime,
+        cast(f.agent as bigint) as agent,
+        cast(f.querydestinationplace as bigint) as querydestinationplace,
+        f.queryoutbounddate,
+        f.queryinbounddate,
+        f.quoteageinminutes,
+        f.price
+    FROM flights f
+    WHERE querydatetime &gt;= '2018-01-02'
+    AND querydatetime &lt;= '2019-01-10'
+) f
+INNER JOIN (
+  SELECT airportId, airportName, countryName
+  FROM airports
+  WHERE countryName IN ('Philippines', 'Indonesia', 'Malaysia', 'Hong Kong', 'Thailand', 'Vietnam')
+) p
+ON f.querydestinationplace = p.airportId
+INNER JOIN agents a
+ON f.agent = a.id
+ORDER BY f.outboundlegid, f.inboundlegid, f.agent, querydatetime DESC
+What's wrong with it? Or how can I optimize it? It gives me 
+  Query exhausted resources at this scale factor
+I have a flights table and I want to query for flights inside a specific country
+",<sql><amazon-web-services><query-optimization><amazon-athena><presto>,1027,0,25,85007,187,498,808,60,28981,0.0,798,1,23,2019-01-26 5:30,2019-01-26 9:56,2019-01-26 9:56,0.0,0.0,Intermediate,23,"<sql><amazon-web-services><query-optimization><amazon-athena><presto>, Athena: Query exhausted resources at scale factor, I am running a query like: 
+SELECT f.*, p.countryName, p.airportName, a.name AS agentName
+FROM (
+    SELECT 
+        f.outboundlegid, 
+        f.inboundlegid,
+        f.querydatetime,
+        cast(f.agent as bigint) as agent,
+        cast(f.querydestinationplace as bigint) as querydestinationplace,
+        f.queryoutbounddate,
+        f.queryinbounddate,
+        f.quoteageinminutes,
+        f.price
+    FROM flights f
+    WHERE querydatetime &gt;= '2018-01-02'
+    AND querydatetime &lt;= '2019-01-10'
+) f
+INNER JOIN (
+  SELECT airportId, airportName, countryName
+  FROM airports
+  WHERE countryName IN ('Philippines', 'Indonesia', 'Malaysia', 'Hong Kong', 'Thailand', 'Vietnam')
+) p
+ON f.querydestinationplace = p.airportId
+INNER JOIN agents a
+ON f.agent = a.id
+ORDER BY f.outboundlegid, f.inboundlegid, f.agent, querydatetime DESC
+What's wrong with it? Or how can I optimize it? It gives me 
+  Query exhausted resources at this scale factor
+I have a flights table and I want to query for flights inside a specific country
+","<sal><amazon-web-services><query-optimization><amazon-athens><preston>, athens: query exhaust resource scale factor, run query like: select f.*, p.countryname, p.airportname, a.am agentnam ( select f.outboundlegid, f.inboundlegid, f.querydatetime, cast(f.a begin) agent, cast(f.querydestinationplac begin) querydestinationplace, f.queryoutbounddate, f.queryinbounddate, f.quoteageinminutes, f.price flight f querydatetim &it;= '2018-01-02' querydatetim &it;= '2019-01-10' ) f inner join ( select airport, airportname, countryman airport countryman ('philippines', 'indonesia', 'malasha', 'long long', 'thailand', 'vienna') ) p f.querydestinationplac = p.airport inner join agent f.agent = a.id order f.outboundlegid, f.inboundlegid, f.agent, querydatetim desk what' wrong it? optic it? give query exhaust resource scale factor flight table want query flight inside specie country"
+65013610,Way to have SQL intellisense or autocompletion inside code strings in Visual Studio Code?,"In JetBrains IDE's like PHPStorm this is a built-in feature. E.g. in the code below, editing the SQL inside the string would autocomplete as SQL and suggest table/column names from an active database connection.
+query(&quot;SELECT * FROM users LIMIT 50&quot;);
+When using Visual Studio Code or similar editors like Theia, this functionality would be supplied by a plugin. Unfortunately, I haven't come across a plugin on the marketplace that has this feature. Some have autocomplete for .sql files, but not inline SQL. It's hard to believe this isn't possible yet in such a popular editor.
+Has anyone found a solution for this?
+Plugins I've tried so far (I'm specifically looking for Postgres):
+SQLTools
+PostgreSQL - privately maintained
+PostgreSQL - abandonware by Microsoft
+",<sql><postgresql><visual-studio-code><autocomplete><intellisense>,776,7,2,349,0,5,12,81,8648,0.0,84,2,23,2020-11-25 22:31,2022-09-04 17:10,,648.0,,Intermediate,20,"<sql><postgresql><visual-studio-code><autocomplete><intellisense>, Way to have SQL intellisense or autocompletion inside code strings in Visual Studio Code?, In JetBrains IDE's like PHPStorm this is a built-in feature. E.g. in the code below, editing the SQL inside the string would autocomplete as SQL and suggest table/column names from an active database connection.
+query(&quot;SELECT * FROM users LIMIT 50&quot;);
+When using Visual Studio Code or similar editors like Theia, this functionality would be supplied by a plugin. Unfortunately, I haven't come across a plugin on the marketplace that has this feature. Some have autocomplete for .sql files, but not inline SQL. It's hard to believe this isn't possible yet in such a popular editor.
+Has anyone found a solution for this?
+Plugins I've tried so far (I'm specifically looking for Postgres):
+SQLTools
+PostgreSQL - privately maintained
+PostgreSQL - abandonware by Microsoft
+","<sal><postgresql><visual-studio-code><autocomplete><intelligence>, way sal intelligent autocomplet inside code string visual studio code?, jetbrain side' like phpstorm built-in feature. e.g. code below, edit sal inside string would autocomplet sal suggest table/column name active database connection. query(&quit;select * user limit 50&quit;); use visual studio code similar editor like their, function would supply plain. unfortunately, come across plain marketplac feature. autocomplet .sal files, indian sal. hard believe possible yet popular editor. anyone found slut this? plain i'v try far (i'm specie look postures): stool postgresql - privat maintain postgresql - abandonwar microsoft"
+57905821,Tables and views keep on fetching in MYSQL,"I am fairly new to MYSQL. I just today installed MYSQL on my Windows 10 computer for my personal learning. I installed mySQL workbench 8.0 and created some tables in the database. But the problem I am facing is the tables, views, stored procedures and functions are keep on fetching. I see some solutions online to run a linux command to resolve the problem. But mine is on windows and not sure where and how to execute the command. Can somebody please help me resolving the problem I am facing with MYSQL.
+",<mysql>,507,1,0,668,1,8,21,37,25737,,27,5,23,2019-09-12 11:33,2020-06-26 15:42,,288.0,,Basic,6,"<mysql>, Tables and views keep on fetching in MYSQL, I am fairly new to MYSQL. I just today installed MYSQL on my Windows 10 computer for my personal learning. I installed mySQL workbench 8.0 and created some tables in the database. But the problem I am facing is the tables, views, stored procedures and functions are keep on fetching. I see some solutions online to run a linux command to resolve the problem. But mine is on windows and not sure where and how to execute the command. Can somebody please help me resolving the problem I am facing with MYSQL.
+","<myself>, table view keep fetch myself, fairly new myself. today instal myself window 10 compute person learning. instal myself workbench 8.0 great table database. problem face tables, views, store procedure function keep fetching. see slut online run line command resolve problem. mine window sure execute command. somebody pleas help resolve problem face myself."

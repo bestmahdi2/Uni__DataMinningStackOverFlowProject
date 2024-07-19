@@ -1,0 +1,1823 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34640598,grab all observations from a data set that are present in a second data set based on a linker ID using %in% function R,"<p>So, say I have two data sets: </p>
+
+<pre><code>d1&lt;- data.frame(seq(1:10),rnorm(10))
+colnames(d1) &lt;- c('id','x1')
+
+d2&lt;- data.frame(seq(3:7),rnorm(5))
+colnames(d2) &lt;- c('id','x2')
+</code></pre>
+
+<p>Now, say I want a new dataset, <code>d3</code>, that is the data from <code>d1</code> with values of <code>id</code> that are also present in <code>d2</code>. I'd like to use a really simple function, something like:</p>
+
+<pre><code>d3 &lt;- d1[id %in% d2$id]
+</code></pre>
+
+<p>Except this is printing an error for me. What is a simple one liner to accomplish this?</p>
+",<r>,16/01/06 18:53,LQ_CLOSE,"<r>, grab all observations from a data set that are present in a second data set based on a linker ID using %in% function R, <p>So, say I have two data sets: </p>
+
+<pre><code>d1&lt;- data.frame(seq(1:10),rnorm(10))
+colnames(d1) &lt;- c('id','x1')
+
+d2&lt;- data.frame(seq(3:7),rnorm(5))
+colnames(d2) &lt;- c('id','x2')
+</code></pre>
+
+<p>Now, say I want a new dataset, <code>d3</code>, that is the data from <code>d1</code> with values of <code>id</code> that are also present in <code>d2</code>. I'd like to use a really simple function, something like:</p>
+
+<pre><code>d3 &lt;- d1[id %in% d2$id]
+</code></pre>
+
+<p>Except this is printing an error for me. What is a simple one liner to accomplish this?</p>
+","<r>, grab observe data set present second data set base linked id use %in% function r, <p>so, say two data sets: </p> <pre><code>do&it;- data.frame(see(1:10),norm(10)) colnames(do) &it;- c('id','x') do&it;- data.frame(see(3:7),norm(5)) colnames(do) &it;- c('id','x') </code></pre> <p>now, say want new dataset, <code>do</code>, data <code>do</code> value <code>id</code> also present <code>do</code>. i'd like use really simple function, cometh like:</p> <pre><code>do &it;- do[id %in% do$id] </code></pre> <p>except print error me. simple one line accomplish this?</p>"
+34641003,Error checking TLS connection: Error checking and/or regenerating the certs,"<p>After I restarted my windows i cannot connect to docker machine running in Oracle Virtual Box.
+When i start Docker QuickStart Terminal every thing looks fine, it's coming up OK and it gives me this message:</p>
+
+<pre><code>docker is configured to use the default machine with IP 192.168.99.100
+For help getting started, check out the docs at https://docs.docker.com
+</code></pre>
+
+<p>but when i do:</p>
+
+<pre><code>$ docker-machine ls
+NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER   ERRORS
+default   -        virtualbox   Timeout
+</code></pre>
+
+<p>and:</p>
+
+<pre><code>λ docker images
+An error occurred trying to connect: Get http://localhost:2375/v1.21/images/json: dial tcp 127.0.0.1:2375: ConnectEx tcp: No connection could be made because the target machine actively refused it.
+</code></pre>
+
+<p>also when i try to reinitialize my env., i get:</p>
+
+<pre><code>λ docker-machine env default
+Error checking TLS connection: Error checking and/or regenerating the certs: There was an error validating certificates for host ""192.168.99.100:2376"": dial tcp 192.168.99.100:2376: i/o timeout
+You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
+Be advised that this will trigger a Docker daemon restart which will stop running containers.
+</code></pre>
+
+<p>BTW, Regenerating certs also not helping.
+Any idea?</p>
+
+<p>Thanks.</p>
+",<docker><docker-machine>,16/01/06 19:17,HQ,"<docker><docker-machine>, Error checking TLS connection: Error checking and/or regenerating the certs, <p>After I restarted my windows i cannot connect to docker machine running in Oracle Virtual Box.
+When i start Docker QuickStart Terminal every thing looks fine, it's coming up OK and it gives me this message:</p>
+
+<pre><code>docker is configured to use the default machine with IP 192.168.99.100
+For help getting started, check out the docs at https://docs.docker.com
+</code></pre>
+
+<p>but when i do:</p>
+
+<pre><code>$ docker-machine ls
+NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER   ERRORS
+default   -        virtualbox   Timeout
+</code></pre>
+
+<p>and:</p>
+
+<pre><code>λ docker images
+An error occurred trying to connect: Get http://localhost:2375/v1.21/images/json: dial tcp 127.0.0.1:2375: ConnectEx tcp: No connection could be made because the target machine actively refused it.
+</code></pre>
+
+<p>also when i try to reinitialize my env., i get:</p>
+
+<pre><code>λ docker-machine env default
+Error checking TLS connection: Error checking and/or regenerating the certs: There was an error validating certificates for host ""192.168.99.100:2376"": dial tcp 192.168.99.100:2376: i/o timeout
+You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
+Be advised that this will trigger a Docker daemon restart which will stop running containers.
+</code></pre>
+
+<p>BTW, Regenerating certs also not helping.
+Any idea?</p>
+
+<p>Thanks.</p>
+","<doctor><doctor-machine>, error check to connection: error check and/or keener carts, <p>after start window cannot connect doctor machine run oral virtual box. start doctor quickstart german every thing look fine, come ok give message:</p> <pre><code>dock configur use default machine in 192.168.99.100 help get started, check do http://docs.doctor.com </code></pre> <p>but do:</p> <pre><code>$ doctor-machine is name active driver state curl swarm doctor error default - virtualbox timeout </code></pre> <p>and:</p> <pre><code>λ doctor image error occur try connect: get http://localhost:2375/ve.21/images/son: dial top 127.0.0.1:2375: connected top: connect could made target machine active refuse it. </code></pre> <p>also try reining end., get:</p> <pre><code>λ doctor-machine end default error check to connection: error check and/or keener carts: error valid certify host ""192.168.99.100:2376"": dial top 192.168.99.100:2376: i/o timeout attempt keener use 'doctor-machine regenerate-cent [name]'. advise trigger doctor demon start stop run container. </code></pre> <p>bow, keener cent also helping. idea?</p> <p>thanks.</p>"
+34641032,"syntax error, unexpected (T_IF)","<p>Parse error: syntax error, unexpected 'if' (T_IF) on line 4</p>
+
+<p>I really don't know what is wrong with my code or why this is happening because I am new to PHP.</p>
+
+<p>Line 4 is: if($passcheck == $mypass){</p>
+
+<pre><code>    &lt;?php
+    $mypass=""DaPigeon123"";
+    $passcheck=$_POST[""password""]
+    if($passcheck == $mypass){
+    echo ""Welcome,"" .$_POST[""username""]. ""! You are now logged in.&lt;br/&gt;"";
+    {
+    else
+    echo ""Sorry, wrong password. &lt;br/&gt;"";
+    ?&gt;
+</code></pre>
+",<php><if-statement><syntax>,16/01/06 19:19,LQ_CLOSE,"<php><if-statement><syntax>, syntax error, unexpected (T_IF), <p>Parse error: syntax error, unexpected 'if' (T_IF) on line 4</p>
+
+<p>I really don't know what is wrong with my code or why this is happening because I am new to PHP.</p>
+
+<p>Line 4 is: if($passcheck == $mypass){</p>
+
+<pre><code>    &lt;?php
+    $mypass=""DaPigeon123"";
+    $passcheck=$_POST[""password""]
+    if($passcheck == $mypass){
+    echo ""Welcome,"" .$_POST[""username""]. ""! You are now logged in.&lt;br/&gt;"";
+    {
+    else
+    echo ""Sorry, wrong password. &lt;br/&gt;"";
+    ?&gt;
+</code></pre>
+","<pp><if-statement><santa>, santa error, expect (this), <p>part error: santa error, expect 'if' (this) line 4</p> <p>i really know wrong code happen new pp.</p> <p>line 4 is: if($passcheck == $pass){</p> <pre><code> &it;?pp $pass=""dapigeon123""; $passcheck=$post[""password""] if($passcheck == $pass){ echo ""welcome,"" .$post[""surname""]. ""! log in.&it;br/&it;""; { else echo ""sorry, wrong password. &it;br/&it;""; ?&it; </code></pre>"
+34641659,Generic composable Ecto query w/ dynamic field name in query expression,"<p>I'm trying to allow for passing in a field name and running it in an Ecto query expression dynamically, like so:</p>
+
+<pre><code>def count_distinct(query, field_name) when is_binary(field_name) do
+  query
+  |&gt; select([x], count(Map.fetch!(x, field_name), :distinct))
+end
+</code></pre>
+
+<p>However, I get this compilation error:</p>
+
+<pre><code>(Ecto.Query.CompileError) `Map.fetch!(x, field_name)` is not a valid query expression
+</code></pre>
+
+<p>Is there any way to accomplish this?</p>
+",<elixir><ecto>,16/01/06 19:56,HQ,"<elixir><ecto>, Generic composable Ecto query w/ dynamic field name in query expression, <p>I'm trying to allow for passing in a field name and running it in an Ecto query expression dynamically, like so:</p>
+
+<pre><code>def count_distinct(query, field_name) when is_binary(field_name) do
+  query
+  |&gt; select([x], count(Map.fetch!(x, field_name), :distinct))
+end
+</code></pre>
+
+<p>However, I get this compilation error:</p>
+
+<pre><code>(Ecto.Query.CompileError) `Map.fetch!(x, field_name)` is not a valid query expression
+</code></pre>
+
+<p>Is there any way to accomplish this?</p>
+","<elicit><echo>, genet compose echo query w/ dream field name query expression, <p>i'm try allow pass field name run echo query express dynamically, like so:</p> <pre><code>def count_distinct(query, field_name) is_binary(field_name) query |&it; select([x], count(map.fetch!(x, field_name), :distinct)) end </code></pre> <p>however, get compel error:</p> <pre><code>(echo.query.compileerror) `map.fetch!(x, field_name)` valid query express </code></pre> <p>i way accomplish this?</p>"
+34642165,This application's bundle identifier does not match its code signing identifier,"<p>When I try to build and run the app on the device I get following error <code>App installation failed: This application's bundle identifier does not match its code signing identifier.</code></p>
+
+<p>I checked the signing certificates, bundle ids, provision profile, entitlements and everything is correct. </p>
+
+<p><a href=""https://i.stack.imgur.com/ZnQ6P.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/ZnQ6P.png"" alt=""Error message""></a></p>
+
+<p>Any Ideas ?</p>
+",<xcode><swift><ios9><code-signing>,16/01/06 20:29,HQ,"<xcode><swift><ios9><code-signing>, This application's bundle identifier does not match its code signing identifier, <p>When I try to build and run the app on the device I get following error <code>App installation failed: This application's bundle identifier does not match its code signing identifier.</code></p>
+
+<p>I checked the signing certificates, bundle ids, provision profile, entitlements and everything is correct. </p>
+
+<p><a href=""https://i.stack.imgur.com/ZnQ6P.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/ZnQ6P.png"" alt=""Error message""></a></p>
+
+<p>Any Ideas ?</p>
+","<code><swift><is><code-signing>, application' bundle identify match code sign identified, <p>when try build run pp devil get follow error <code>pp instal failed: application' bundle identify match code sign identified.</code></p> <p>i check sign certificates, bundle is, proves profile, entity every correct. </p> <p><a he=""http://i.stick.incur.com/znq6p.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/znq6p.pig"" at=""error message""></a></p> <p>and idea ?</p>"
+34642506,What is the '1995-12-17T03:24:00' for of a datetime called?,"<p>I'm trying to to create a method that returns a random date in that format in the from today to a year ago. So right now I have</p>
+
+<pre><code>var curDate = new Date(),
+    oneYearAgo = curDate-365*24*60*60*1000, 
+    randDate = new Date(Math.random() * (CurDate - OneYearAgo) + OneYearAgo);
+</code></pre>
+
+<p>But now how do I convert that to a string like in the title? I'm looking through <a href=""https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date"" rel=""nofollow"">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date</a> and can't figure it out because I don't know what the name of that format is. </p>
+",<javascript><algorithm><datetime>,16/01/06 20:50,LQ_CLOSE,"<javascript><algorithm><datetime>, What is the '1995-12-17T03:24:00' for of a datetime called?, <p>I'm trying to to create a method that returns a random date in that format in the from today to a year ago. So right now I have</p>
+
+<pre><code>var curDate = new Date(),
+    oneYearAgo = curDate-365*24*60*60*1000, 
+    randDate = new Date(Math.random() * (CurDate - OneYearAgo) + OneYearAgo);
+</code></pre>
+
+<p>But now how do I convert that to a string like in the title? I'm looking through <a href=""https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date"" rel=""nofollow"">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date</a> and can't figure it out because I don't know what the name of that format is. </p>
+","<javascript><algorithm><daytime>, '1995-12-17t03:24:00' datetim called?, <p>i'm try great method return random date format today year ago. right have</p> <pre><code>war murat = new date(), oneyearago = curate-365*24*60*60*1000, granddad = new date(path.random() * (murat - oneyearago) + oneyearago); </code></pre> <p>but convert string like title? i'm look <a he=""http://developer.maxilla.org/en-us/docs/web/javascript/reference/global_objects/date"" red=""follow"">http://developer.maxilla.org/en-us/docs/web/javascript/reference/global_objects/date</a> can't figure know name format is. </p>"
+34642947,How to use Domain Transform Edge-Preserving technique for Image Enhancement in Matlab,"I am interested in using this Domain Transform Edge-Preserving Video filtering technique (http://inf.ufrgs.br/~eslgastal/DomainTransform/ - source code available there) for image enhancement in Matlab (2015a).
+
+At around 3:12 on a 5-minute video (on the site linked above), they perform detail enhancement. I'm not sure how to use the filtered image to sharpen/deblur my original image.
+
+I usually use:
+H = padarray(2,[2 2]) - fspecial('gaussian' ,[5 5],2);
+sharpened = imfilter(I,H);
+
+to sharpen images, but I can't use imfilter with the filtered image from the edge-preserving technique (I've been testing with the normalized convolution filter from the source code) that I'm interested in.
+
+Can anyone advise me on what I can do to make use of this filtered image for sharpening/deblurring? Providing a snippet of code would be appreciated as well if possible.  ",<matlab><filter><dns><transform><edge-detection>,16/01/06 21:17,LQ_EDIT,"<matlab><filter><dns><transform><edge-detection>, How to use Domain Transform Edge-Preserving technique for Image Enhancement in Matlab, I am interested in using this Domain Transform Edge-Preserving Video filtering technique (http://inf.ufrgs.br/~eslgastal/DomainTransform/ - source code available there) for image enhancement in Matlab (2015a).
+
+At around 3:12 on a 5-minute video (on the site linked above), they perform detail enhancement. I'm not sure how to use the filtered image to sharpen/deblur my original image.
+
+I usually use:
+H = padarray(2,[2 2]) - fspecial('gaussian' ,[5 5],2);
+sharpened = imfilter(I,H);
+
+to sharpen images, but I can't use imfilter with the filtered image from the edge-preserving technique (I've been testing with the normalized convolution filter from the source code) that I'm interested in.
+
+Can anyone advise me on what I can do to make use of this filtered image for sharpening/deblurring? Providing a snippet of code would be appreciated as well if possible.  ","<matas><filter><des><transform><edge-detection>, use domain transform edge-preserve technique image enhance matas, interest use domain transform edge-preserve video filter technique (http://in.figs.br/~eslgastal/domaintransform/ - source code avail there) image enhance matas (2015a). around 3:12 5-minute video (on site link above), perform detail enhancement. i'm sure use filter image sharpen/dealer origin image. usual use: h = padarray(2,[2 2]) - special('russian' ,[5 5],2); sharpen = filter(i,h); sharpen images, can't use imfilt filter image edge-preserve technique (i'v test normal convoluted filter source code) i'm interest in. anyone advise make use filter image sharpening/deblurring? proved snipped code would appreci well possible."
+34643800,How to build a release version of an iOS framework in Xcode?,"<p>Let's say I do the following:</p>
+
+<ol>
+<li>Open Xcode 7</li>
+<li>File | New | Project | Cocoa Touch Framework</li>
+<li>Create ""TestFramework"" with the Swift language</li>
+<li>Create a file Hello.swift with public func hello() { print(""Hello"") }.</li>
+</ol>
+
+<p>From here, I can build a debug build of the framework (inside the Debug-iphoneos folder), but I cannot figure out how to build the release version of the framework (inside Release-iphoneos). I thought Archive might do it, but it doesn't. Pointers please?</p>
+",<ios><xcode><frameworks><release>,16/01/06 22:11,HQ,"<ios><xcode><frameworks><release>, How to build a release version of an iOS framework in Xcode?, <p>Let's say I do the following:</p>
+
+<ol>
+<li>Open Xcode 7</li>
+<li>File | New | Project | Cocoa Touch Framework</li>
+<li>Create ""TestFramework"" with the Swift language</li>
+<li>Create a file Hello.swift with public func hello() { print(""Hello"") }.</li>
+</ol>
+
+<p>From here, I can build a debug build of the framework (inside the Debug-iphoneos folder), but I cannot figure out how to build the release version of the framework (inside Release-iphoneos). I thought Archive might do it, but it doesn't. Pointers please?</p>
+","<is><code><framework><release>, build release version to framework code?, <p>let' say following:</p> <of> <li>open code 7</li> <li>fig | new | project | cocoa touch framework</li> <li>great ""testframework"" swift language</li> <li>great file hello.swift public fun hello() { print(""hello"") }.</li> </of> <p>from here, build debut build framework (inside debut-phone older), cannot figure build release version framework (inside release-iphoneos). thought archive might it, doesn't. pointer please?</p>"
+34644113,"Msg 201, Procedure stp_DespatchedJob, Line 0 Procedure or Function 'stp_DespatchedJob' expects parameter '@jobId', which was not supplied","USE [taxi]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[stp_DespatchedJob]
+		@JobStatusId = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+",<sql><sql-server>,16/01/06 22:31,LQ_EDIT,"<sql><sql-server>, Msg 201, Procedure stp_DespatchedJob, Line 0 Procedure or Function 'stp_DespatchedJob' expects parameter '@jobId', which was not supplied, USE [taxi]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[stp_DespatchedJob]
+		@JobStatusId = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+","<sal><sal-server>, mug 201, procedure stp_despatchedjob, line 0 procedure function 'stp_despatchedjob' expect parapet '@join', supplied, use [taxi] go declare @return_valu in even @return_valu = [do].[stp_despatchedjob] @jobstatusid = null select 'return value' = @return_valu go"
+34644117,Golang struct inheritance not working as intended?,"<p>Check out <a href=""https://play.golang.org/p/elIHgHAZjT"" rel=""noreferrer"" title=""this sandbox"">this sandbox</a></p>
+
+<p>When declaring a struct that inherits from a different struct:</p>
+
+<pre><code>type Base struct {
+    a string
+    b string
+}
+
+type Something struct {
+    Base
+    c string
+}
+</code></pre>
+
+<p>Then calling functions specifying values for the inherited values gives a compilation error:</p>
+
+<pre><code>f(Something{
+    a: ""letter a"",
+    c: ""letter c"",
+})
+</code></pre>
+
+<p>The error message is: <code>unknown Something field 'a' in struct literal</code>.</p>
+
+<p>This seems highly weird to me. Is this really the intended functionality?</p>
+
+<p>Thanks for the help!</p>
+",<go>,16/01/06 22:31,HQ,"<go>, Golang struct inheritance not working as intended?, <p>Check out <a href=""https://play.golang.org/p/elIHgHAZjT"" rel=""noreferrer"" title=""this sandbox"">this sandbox</a></p>
+
+<p>When declaring a struct that inherits from a different struct:</p>
+
+<pre><code>type Base struct {
+    a string
+    b string
+}
+
+type Something struct {
+    Base
+    c string
+}
+</code></pre>
+
+<p>Then calling functions specifying values for the inherited values gives a compilation error:</p>
+
+<pre><code>f(Something{
+    a: ""letter a"",
+    c: ""letter c"",
+})
+</code></pre>
+
+<p>The error message is: <code>unknown Something field 'a' in struct literal</code>.</p>
+
+<p>This seems highly weird to me. Is this really the intended functionality?</p>
+
+<p>Thanks for the help!</p>
+","<go>, going struck inherit work intended?, <p>check <a he=""http://play.going.org/p/elihghazjt"" red=""noreferrer"" title=""the sandbag"">the sandbag</a></p> <p>when declare struck inherit differ struck:</p> <pre><code>type base struck { string b string } type cometh struck { base c string } </code></pre> <p>then call function specific value inherit value give compel error:</p> <pre><code>f(something{ a: ""letter a"", c: ""letter c"", }) </code></pre> <p>the error message is: <code>unknown cometh field 'a' struck literal</code>.</p> <p>the seem highly weird me. really intend functionality?</p> <p>thank help!</p>"
+34644264,Where are the additional command line options in Android Studio version 1.5.1 for the emulator,"<p>After the latest update to AS, the emulator's additional command line options are missing. I use this primarily for -http-proxy and -scale commands. Any help in locating these options, or it's replacement, would be appreciated.</p>
+",<android><android-studio><command-line><android-emulator><http-proxy>,16/01/06 22:43,HQ,"<android><android-studio><command-line><android-emulator><http-proxy>, Where are the additional command line options in Android Studio version 1.5.1 for the emulator, <p>After the latest update to AS, the emulator's additional command line options are missing. I use this primarily for -http-proxy and -scale commands. Any help in locating these options, or it's replacement, would be appreciated.</p>
+","<andros><andros-studio><command-line><andros-emulation><http-prove>, admit command line option andros studio version 1.5.1 emulation, <p>after latest update as, emulation' admit command line option missing. use primarily -http-prove -scale commands. help local option, replacement, would appreciated.</p>"
+34645131,How do I run PhantomJS on AWS Lambda with NodeJS,"<p><em>After not finding a working answer anywhere else on the internet, I am submitting this ask-and-answer-myself tutorial</em></p>
+
+<p>How can I get a simple <code>PhantomJS</code> process running from a <code>NodeJS</code> script on <code>AWS Lambda</code>?  My code works fine on my local machine, but I run into different problems trying to run it on Lambda.</p>
+",<node.js><amazon-web-services><phantomjs><aws-lambda>,16/01/06 23:59,HQ,"<node.js><amazon-web-services><phantomjs><aws-lambda>, How do I run PhantomJS on AWS Lambda with NodeJS, <p><em>After not finding a working answer anywhere else on the internet, I am submitting this ask-and-answer-myself tutorial</em></p>
+
+<p>How can I get a simple <code>PhantomJS</code> process running from a <code>NodeJS</code> script on <code>AWS Lambda</code>?  My code works fine on my local machine, but I run into different problems trying to run it on Lambda.</p>
+","<node.is><amazon-web-services><phantoms><was-labia>, run phantoms a labia nodes, <p><em>aft find work answer anywhere else internet, submit ask-and-answer-myself tutoring</em></p> <p>how get simple <code>phantoms</code> process run <code>nodes</code> script <code>a labia</code>? code work fine local machine, run differ problem try run labia.</p>"
+34645274,"EF query to Oracle throwing ""ORA-12704: character set mismatch""","<p>I'm trying to combine a few columns in EF from Oracle then do a <code>.Contains()</code> over the columns like this:</p>
+
+<pre><code>public IEnumerable&lt;User&gt; SearchUsers(string search)
+{
+    search = search.ToLower();
+
+    return _securityUow.Users
+            .Where(u =&gt; (u.FirstName.ToLower() + "" "" + u.LastName.ToLower() + "" ("" + u.NetId.ToLower() + "")"").Contains(search))
+            .OrderBy(u =&gt; u.LastName)
+            .ThenBy(u =&gt; u.FirstName)
+            .AsEnumerable();
+}
+</code></pre>
+
+<p>However, I'm getting this exception:</p>
+
+<pre><code>{
+  ""Message"": ""An error has occurred."",
+  ""ExceptionMessage"": ""An error occurred while executing the command definition. See the inner exception for details."",
+  ""ExceptionType"": ""System.Data.Entity.Core.EntityCommandExecutionException"",
+  ""StackTrace"": ""   at SoftwareRegistration.WebUI.Controllers.Api.V1.UserContactController.Lookup(String search) in C:\LocalRepository\OnlineSupport\SoftwareRegistration\trunk\release\SoftwareRegistration\SoftwareRegistration.WebUI\Controllers\Api\V1\UserContactController.cs:line 40\r\n   at lambda_method(Closure , Object , Object[] )\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClass10.&lt;GetExecutor&gt;b__9(Object instance, Object[] methodParameters)\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at System.Web.Http.Dispatcher.HttpControllerDispatcher.&lt;SendAsync&gt;d__1.MoveNext()"",
+  ""InnerException"": {
+    ""Message"": ""An error has occurred."",
+    ""ExceptionMessage"": ""ORA-12704: character set mismatch"",
+    ""ExceptionType"": ""Oracle.ManagedDataAccess.Client.OracleException"",
+    ""StackTrace"": ""   at OracleInternal.ServiceObjects.OracleCommandImpl.VerifyExecution(OracleConnectionImpl connectionImpl, Int32&amp; cursorId, Boolean bThrowArrayBindRelatedErrors, OracleException&amp; exceptionForArrayBindDML, Boolean&amp; hasMoreRowsInDB, Boolean bFirstIterationDone)\r\n   at OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl&amp; rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]&amp; scnFromExecution, OracleParameterCollection&amp; bindByPositionParamColl, Boolean&amp; bBindParamPresent, Int64&amp; internalInitialLOBFS, OracleException&amp; exceptionForArrayBindDML, Boolean isDescribeOnly, Boolean isFromEF)\r\n   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)\r\n   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.&lt;Reader&gt;b__c(DbCommand t, DbCommandInterceptionContext`1 c)\r\n   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)\r\n   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)\r\n   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)""
+  }
+}
+</code></pre>
+
+<p>The columns I'm querying are all of type VARCHAR2(128) in Oracle.</p>
+
+<p>I'm also using this exact same code in another project and it works. The only difference is that for the project that works I'm using <code>Oracle.DataAccess</code> and for the one that doesn't work, I'm using <code>Oracle.ManagedDataAccess</code> (I am unable to use <code>Oracle.DataAccess</code> for this project). So I believe there is a bug/problem in the managed driver.</p>
+
+<p>I'm open to solutions or workarounds.</p>
+",<c#><.net><oracle><entity-framework>,16/01/07 0:15,HQ,"<c#><.net><oracle><entity-framework>, EF query to Oracle throwing ""ORA-12704: character set mismatch"", <p>I'm trying to combine a few columns in EF from Oracle then do a <code>.Contains()</code> over the columns like this:</p>
+
+<pre><code>public IEnumerable&lt;User&gt; SearchUsers(string search)
+{
+    search = search.ToLower();
+
+    return _securityUow.Users
+            .Where(u =&gt; (u.FirstName.ToLower() + "" "" + u.LastName.ToLower() + "" ("" + u.NetId.ToLower() + "")"").Contains(search))
+            .OrderBy(u =&gt; u.LastName)
+            .ThenBy(u =&gt; u.FirstName)
+            .AsEnumerable();
+}
+</code></pre>
+
+<p>However, I'm getting this exception:</p>
+
+<pre><code>{
+  ""Message"": ""An error has occurred."",
+  ""ExceptionMessage"": ""An error occurred while executing the command definition. See the inner exception for details."",
+  ""ExceptionType"": ""System.Data.Entity.Core.EntityCommandExecutionException"",
+  ""StackTrace"": ""   at SoftwareRegistration.WebUI.Controllers.Api.V1.UserContactController.Lookup(String search) in C:\LocalRepository\OnlineSupport\SoftwareRegistration\trunk\release\SoftwareRegistration\SoftwareRegistration.WebUI\Controllers\Api\V1\UserContactController.cs:line 40\r\n   at lambda_method(Closure , Object , Object[] )\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClass10.&lt;GetExecutor&gt;b__9(Object instance, Object[] methodParameters)\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)\r\n   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at System.Web.Http.Dispatcher.HttpControllerDispatcher.&lt;SendAsync&gt;d__1.MoveNext()"",
+  ""InnerException"": {
+    ""Message"": ""An error has occurred."",
+    ""ExceptionMessage"": ""ORA-12704: character set mismatch"",
+    ""ExceptionType"": ""Oracle.ManagedDataAccess.Client.OracleException"",
+    ""StackTrace"": ""   at OracleInternal.ServiceObjects.OracleCommandImpl.VerifyExecution(OracleConnectionImpl connectionImpl, Int32&amp; cursorId, Boolean bThrowArrayBindRelatedErrors, OracleException&amp; exceptionForArrayBindDML, Boolean&amp; hasMoreRowsInDB, Boolean bFirstIterationDone)\r\n   at OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl&amp; rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]&amp; scnFromExecution, OracleParameterCollection&amp; bindByPositionParamColl, Boolean&amp; bBindParamPresent, Int64&amp; internalInitialLOBFS, OracleException&amp; exceptionForArrayBindDML, Boolean isDescribeOnly, Boolean isFromEF)\r\n   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)\r\n   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.&lt;Reader&gt;b__c(DbCommand t, DbCommandInterceptionContext`1 c)\r\n   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)\r\n   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)\r\n   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)""
+  }
+}
+</code></pre>
+
+<p>The columns I'm querying are all of type VARCHAR2(128) in Oracle.</p>
+
+<p>I'm also using this exact same code in another project and it works. The only difference is that for the project that works I'm using <code>Oracle.DataAccess</code> and for the one that doesn't work, I'm using <code>Oracle.ManagedDataAccess</code> (I am unable to use <code>Oracle.DataAccess</code> for this project). So I believe there is a bug/problem in the managed driver.</p>
+
+<p>I'm open to solutions or workarounds.</p>
+","<c#><.net><oracle><entity-framework>, of query oral throw ""or-12704: character set dispatch"", <p>i'm try combine column of oral <code>.contains()</code> column like this:</p> <pre><code>pull innumerable&it;user&it; searchusers(sir search) { search = search.lower(); return _securityuow.us .where(u =&it; (u.firstname.lower() + "" "" + u.lastname.lower() + "" ("" + u.need.lower() + "")"").contains(search)) .orderly(u =&it; u.lastname) .they(u =&it; u.firstname) .asenumerable(); } </code></pre> <p>however, i'm get exception:</p> <pre><code>{ ""message"": ""an error occurred."", ""exceptionmessage"": ""an error occur execute command definition. see inner except details."", ""exceptiontype"": ""system.data.entity.core.entitycommandexecutionexception"", ""stacktrace"": "" softwareregistration.web.controller.apt.ve.usercontactcontroller.lockup(sir search) c:\localrepository\onlinesupport\softwareregistration\trunk\release\softwareregistration\softwareregistration.web\controller\apt\ve\usercontactcontroller.is:in 40\r\n lambda_method(closer , object , object[] )\r\n system.web.http.controller.reflectedhttpactiondescriptor.actionexecutor.&it;&it;c__displayclass10.&it;getexecutor&it;b__9(object instance, object[] methodparameters)\r\n system.web.http.controller.reflectedhttpactiondescriptor.actionexecutor.execute(object instance, object[] arguments)\r\n system.web.http.controller.reflectedhttpactiondescriptor.executeasync(httpcontrollercontext controllercontext, dictionary`2 arguments, cancellationtoken cancellationtoken)\r\n--- end stick trace previous local except thrown ---\r\n system.auntie.compilerservices.taskawaiter.throwfornonsuccess(task task)\r\n system.auntie.compilerservices.taskawaiter.handlenonsuccessanddebuggernotification(task task)\r\n system.auntie.compilerservices.taskawaiter`1.getresult()\r\n system.web.http.controller.apicontrolleractioninvoker.&it;invokeactionasynccore&it;d__0.movement()\r\n--- end stick trace previous local except thrown ---\r\n system.auntie.compilerservices.taskawaiter.throwfornonsuccess(task task)\r\n system.auntie.compilerservices.taskawaiter.handlenonsuccessanddebuggernotification(task task)\r\n system.auntie.compilerservices.taskawaiter`1.getresult()\r\n system.web.http.controller.actionfilterresult.&it;executeasync&it;d__2.movement()\r\n--- end stick trace previous local except thrown ---\r\n system.auntie.compilerservices.taskawaiter.throwfornonsuccess(task task)\r\n system.auntie.compilerservices.taskawaiter.handlenonsuccessanddebuggernotification(task task)\r\n system.auntie.compilerservices.taskawaiter`1.getresult()\r\n system.web.http.dispatched.httpcontrollerdispatcher.&it;sendasync&it;d__1.movement()"", ""innerexception"": { ""message"": ""an error occurred."", ""exceptionmessage"": ""or-12704: character set dispatch"", ""exceptiontype"": ""oracle.manageddataaccess.client.oracleexception"", ""stacktrace"": "" oracleinternal.serviceobjects.oraclecommandimpl.verifyexecution(oracleconnectionimpl connectionimpl, into&amp; cirsoid, woolen bthrowarraybindrelatederrors, oracleexception&amp; exceptionforarraybinddml, woolen&amp; hasmorerowsindb, woolen bfirstiterationdone)\r\n oracleinternal.serviceobjects.oraclecommandimpl.executereader(sir commandtext, oracleparametercollect paramcoll, commandtyp commandtype, oracleconnectionimpl connectionimpl, oracledatareaderimpl&amp; rdrimpl, into longfetchsize, into clientinitiallobfs, oracledependencyimpl orcldependencyimpl, into[] scnforexecution, into[]&amp; scnfromexecution, oracleparametercollection&amp; bindbypositionparamcoll, woolen&amp; bbindparampresent, into&amp; internalinitiallobfs, oracleexception&amp; exceptionforarraybinddml, woolen isdescribeonly, woolen isfromef)\r\n oracle.manageddataaccess.client.oraclecommand.executereader(woolen request, woolen fillrequest, commandbehavior behavior)\r\n oracle.manageddataaccess.client.oraclecommand.executedbdatareader(commandbehavior behavior)\r\n system.data.common.command.executereader(commandbehavior behavior)\r\n system.data.entity.infrastructure.intervention.dbcommanddispatcher.&it;reader&it;bloc(command t, dbcommandinterceptioncontext`1 c)\r\n system.data.entity.infrastructure.intervention.internaldispatcher`1.dispatch[target,tinterceptioncontext,result](target target, fun`3 operation, tinterceptioncontext interceptioncontext, action`3 executing, action`3 executed)\r\n system.data.entity.infrastructure.intervention.dbcommanddispatcher.reader(command command, dbcommandinterceptioncontext interceptioncontext)\r\n system.data.entity.internal.interceptabledbcommand.executedbdatareader(commandbehavior behavior)\r\n system.data.common.command.executereader(commandbehavior behavior)\r\n system.data.entity.core.entityclient.internal.entitycommanddefinition.executestorecommands(entitycommand entitycommand, commandbehavior behavior)"" } } </code></pre> <p>the column i'm query type varchar2(128) oracle.</p> <p>i'm also use exact code not project works. differ project work i'm use <code>oracle.dataaccess</code> one work, i'm use <code>oracle.manageddataaccess</code> (i unable use <code>oracle.dataaccess</code> project). believe bug/problem manage driver.</p> <p>i'm open slut workarounds.</p>"
+34645315,How to apply css class to a component element when it's created by router-outlet?,"<p>I have DOM that looks something like this:</p>
+
+<pre><code>&lt;app&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+    &lt;project&gt;...&lt;/project&gt;
+&lt;/app&gt;
+</code></pre>
+
+<p>where <code>project</code> element is inserted by the router.</p>
+
+<p>How do I add a class to this element?</p>
+",<angular><angular2-routing>,16/01/07 0:19,HQ,"<angular><angular2-routing>, How to apply css class to a component element when it's created by router-outlet?, <p>I have DOM that looks something like this:</p>
+
+<pre><code>&lt;app&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+    &lt;project&gt;...&lt;/project&gt;
+&lt;/app&gt;
+</code></pre>
+
+<p>where <code>project</code> element is inserted by the router.</p>
+
+<p>How do I add a class to this element?</p>
+","<angular><angular-routine>, apply iss class common element great outer-outlet?, <p>i do look cometh like this:</p> <pre><code>&it;pp&it; &it;outer-outlet&it;&it;/outer-outlet&it; &it;project&it;...&it;/project&it; &it;/pp&it; </code></pre> <p>where <code>project</code> element insert outer.</p> <p>how add class element?</p>"
+34645537,"Android Espresso not working with Multidex gives ""No tests found""","<p>My Espresso tests were running until I had to support multidex.</p>
+
+<p>My build.gradle, I have</p>
+
+<pre><code>minSdkVersion 14
+targetSdkVersion 23
+multiDexEnabled = true
+
+testInstrumentationRunner ""com.android.test.runner.MultiDexTestRunner""
+
+
+androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.1'
+androidTestCompile 'com.android.support.test:runner:0.4.1'
+androidTestCompile 'com.android.support.test:rules:0.4.1'
+
+dexOptions {
+        jumboMode true
+        javaMaxHeapSize ""4g""
+        incremental true
+    }
+</code></pre>
+
+<h2>Test1AuthenticationEspressoTest</h2>
+
+<pre><code>@RunWith(AndroidJUnit4.class)
+@SmallTest
+public class Test1AuthenticationEspressoTest {
+    @Rule
+    public ActivityTestRule&lt;WelcomeActivity&gt; mActivityRule = new  ActivityTestRule(WelcomeActivity.class);
+
+}
+</code></pre>
+
+<p>Here is the Error I get</p>
+
+<blockquote>
+  <p>junit.framework.AssertionFailedError: No tests found in
+  com.livestrong.tracker.test.Test1AuthenticationEspressoTest</p>
+</blockquote>
+
+<p>Any help will be appreciated. Any one has espresso working with multidex ?</p>
+",<android><android-espresso><android-multidex>,16/01/07 0:45,HQ,"<android><android-espresso><android-multidex>, Android Espresso not working with Multidex gives ""No tests found"", <p>My Espresso tests were running until I had to support multidex.</p>
+
+<p>My build.gradle, I have</p>
+
+<pre><code>minSdkVersion 14
+targetSdkVersion 23
+multiDexEnabled = true
+
+testInstrumentationRunner ""com.android.test.runner.MultiDexTestRunner""
+
+
+androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.1'
+androidTestCompile 'com.android.support.test:runner:0.4.1'
+androidTestCompile 'com.android.support.test:rules:0.4.1'
+
+dexOptions {
+        jumboMode true
+        javaMaxHeapSize ""4g""
+        incremental true
+    }
+</code></pre>
+
+<h2>Test1AuthenticationEspressoTest</h2>
+
+<pre><code>@RunWith(AndroidJUnit4.class)
+@SmallTest
+public class Test1AuthenticationEspressoTest {
+    @Rule
+    public ActivityTestRule&lt;WelcomeActivity&gt; mActivityRule = new  ActivityTestRule(WelcomeActivity.class);
+
+}
+</code></pre>
+
+<p>Here is the Error I get</p>
+
+<blockquote>
+  <p>junit.framework.AssertionFailedError: No tests found in
+  com.livestrong.tracker.test.Test1AuthenticationEspressoTest</p>
+</blockquote>
+
+<p>Any help will be appreciated. Any one has espresso working with multidex ?</p>
+","<andros><andros-express><andros-multidex>, andros express work multidex give ""no test found"", <p>mi express test run support multidex.</p> <p>mi build.grade, have</p> <pre><code>minsdkvers 14 targetsdkvers 23 multidexen = true testinstrumentationrunn ""com.andros.test.runner.multidextestrunner"" androidtestcompil 'com.andros.support.test.express:express-core:2.2.1' androidtestcompil 'com.andros.support.test.express:express-control:2.2.1' androidtestcompil 'com.andros.support.test:runner:0.4.1' androidtestcompil 'com.andros.support.test:rules:0.4.1' devout { jumbomod true javamaxheaps ""g"" incitement true } </code></pre> <he>test1authenticationespressotest</he> <pre><code>@runwith(androidjunit4.class) @smallest public class test1authenticationespressotest { @rule public activitytestrule&it;welcomeactivity&it; mactivityrul = new activitytestrule(welcomeactivity.class); } </code></pre> <p>here error get</p> <blockquote> <p>unit.framework.assertionfailederror: test found com.livestrong.trace.test.test1authenticationespressotest</p> </blockquote> <p>and help appreciated. one express work multidex ?</p>"
+34645731,Export more than one variable in ES6?,"<p>I'm trying to export more than one variable in ES6:</p>
+
+<p>exports.js</p>
+
+<pre><code>var TestObject = Parse.Object.extend('TestObject')
+var Post = Parse.Object.extend('Post')
+
+export default TestObject
+export Post
+</code></pre>
+
+<p>main.js:</p>
+
+<pre><code>import TestObject from '../store'
+import Post from '../store'
+
+var testObject = new TestObject() // use Post in the same way
+testObject.save(json).then(object =&gt; {
+  console.log('yay! it worked', object)
+})
+</code></pre>
+
+<p>I understand that there's only one default value so I only used <code>default</code> in the first item.</p>
+
+<p>However, I get this error message:</p>
+
+<pre><code>Module build failed: SyntaxError: /home/alex/node/my-project/src/store/index.js: Unexpected token (9:7)
+   7 | 
+   8 | export default TestObject
+&gt;  9 | export Post
+</code></pre>
+
+<p>Maybe I'm doing it the wrong way?</p>
+",<javascript><ecmascript-6><vue.js>,16/01/07 1:08,HQ,"<javascript><ecmascript-6><vue.js>, Export more than one variable in ES6?, <p>I'm trying to export more than one variable in ES6:</p>
+
+<p>exports.js</p>
+
+<pre><code>var TestObject = Parse.Object.extend('TestObject')
+var Post = Parse.Object.extend('Post')
+
+export default TestObject
+export Post
+</code></pre>
+
+<p>main.js:</p>
+
+<pre><code>import TestObject from '../store'
+import Post from '../store'
+
+var testObject = new TestObject() // use Post in the same way
+testObject.save(json).then(object =&gt; {
+  console.log('yay! it worked', object)
+})
+</code></pre>
+
+<p>I understand that there's only one default value so I only used <code>default</code> in the first item.</p>
+
+<p>However, I get this error message:</p>
+
+<pre><code>Module build failed: SyntaxError: /home/alex/node/my-project/src/store/index.js: Unexpected token (9:7)
+   7 | 
+   8 | export default TestObject
+&gt;  9 | export Post
+</code></pre>
+
+<p>Maybe I'm doing it the wrong way?</p>
+","<javascript><ecmascript-6><vue.is>, export one variable est?, <p>i'm try export one variable est:</p> <p>exports.is</p> <pre><code>war testobject = pause.object.extend('testobject') war post = pause.object.extend('post') export default testobject export post </code></pre> <p>main.is:</p> <pre><code>import testobject '../store' import post '../store' war testobject = new testobject() // use post way testobject.save(son).then(object =&it; { console.log('may! worked', object) }) </code></pre> <p>i understand there' one default value use <code>default</code> first item.</p> <p>however, get error message:</p> <pre><code>model build failed: syntaxerror: /home/flex/node/my-project/sac/store/index.is: expect token (9:7) 7 | 8 | export default testobject &it; 9 | export post </code></pre> <p>may i'm wrong way?</p>"
+34646007,Only allow form submit of pdf/images not ever blank,"<p>Hi I have a website which the page logic should only accept submit under two conditions:</p>
+
+<p>1) if the captcha is actively checked</p>
+
+<p>and </p>
+
+<p>2) if at least one file is attached (only pdf and image file types are allowed up to three total) are attached. </p>
+
+<p>the issue is that we are receiving blank applications however, I am seeing a scenario where you can attach non pdfs/images with a pdf/image and still submit which strips all attachments.</p>
+
+<p>proper behavior should be:
+prevent submit if non pdf/image type attached show error message ""Only image or pdf can be uploaded"" and then a message stating this and preventing form submit at the bottom of the page in red just like the other errors.</p>
+
+<p>Be polite. Thanks. :-)</p>
+
+<p>Page URL: <a href=""http://www.barona.com/about-barona/community-relations/community-giving-guidelines/"" rel=""nofollow"">http://www.barona.com/about-barona/community-relations/community-giving-guidelines/</a></p>
+
+<p>PHP (to test replace youremail with your email address, thanks!):</p>
+
+<pre><code>&lt;?php
+ini_set('display_errors', 'off');
+$to                 = 'youremail@gmail.com';
+$from               = 'youremail@gmail.com';
+$subject            = 'New Application';
+$allowed_extensions = array(
+    '.pdf',
+    '.jpeg',
+    '.jpg',
+    '.png',
+    '.gif',
+    '.bmp'
+);
+$file1              = '';
+$file2              = '';
+$file3              = '';
+$filename1          = '';
+$filename2          = '';
+$filename3          = '';
+//echo  ""1""; 
+if (!empty($_FILES['file1']['name'])) {
+    //echo  ""File 1 exists""; 
+    $filename1 = $_FILES['file1']['name'];
+    $extension = '.' . strtolower(array_pop(explode('.', $filename1)));
+    $size1     = $_FILES['file1']['size'];
+    $mime1     = $_FILES['file1']['type'];
+    $tmp1      = $_FILES['file1']['tmp_name'];
+    if (in_array($extension, $allowed_extensions)) {
+        $file1 = fopen($tmp1, 'rb');
+        $data1 = fread($file1, filesize($tmp1));
+        // Now read the file content into a variable
+        fclose($file1);
+        // close the file
+        $data1 = chunk_split(base64_encode($data1));
+        // Now we need to encode it and split it into acceptable length lines
+        $file1 = $filename1;
+    } else {
+        $filename1 = '';
+    }
+}
+//file 2:
+if (!empty($_FILES['file2']['name'])) {
+    //echo  ""File 2 exists""; 
+    $filename2 = $_FILES['file2']['name'];
+    $extension = '.' . strtolower(array_pop(explode('.', $filename2)));
+    $tmp2      = $_FILES['file2']['tmp_name'];
+    $size2     = $_FILES['file2']['size'];
+    $mime2     = $_FILES['file2']['type'];
+    if (in_array($extension, $allowed_extensions)) {
+        $file2 = fopen($tmp2, 'rb');
+        $data2 = fread($file2, filesize($tmp2));
+        // Now read the file content into a variable
+        fclose($file2);
+        // close the file
+        $data2 = chunk_split(base64_encode($data2));
+        // Now we need to encode it and split it into acceptable length lines
+        $file2 = $filename2;
+    } else {
+        $filename2 = '';
+    }
+}
+//File 3:
+if (!empty($_FILES['file3']['name'])) {
+    //echo  ""File 3 exists""; 
+    $filename3 = $_FILES['file3']['name'];
+    $extension = '.' . strtolower(array_pop(explode('.', $filename3)));
+    $tmp3      = $_FILES['file3']['tmp_name'];
+    $size3     = $_FILES['file3']['size'];
+    $mime3     = $_FILES['file3']['type'];
+    if (in_array($extension, $allowed_extensions)) {
+        $file3 = fopen($tmp3, 'rb');
+        $data3 = fread($file3, filesize($tmp3));
+        // Now read the file content into a variable
+        fclose($file3);
+        // close the file
+        $data3 = chunk_split(base64_encode($data3));
+        // Now we need to encode it and split it into acceptable length lines
+        $file3 = $filename3;
+    } else {
+        $filename3 = '';
+    }
+}
+//echo  ""2""; 
+//Only allow image or pdf.
+$message = ""&lt;table border='1' style='width:80%'&gt;&lt;tr&gt;&lt;td&gt;File 1: &lt;/td&gt;&lt;td&gt;$filename1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;File 2: &lt;/td&gt;&lt;td&gt;$filename2&lt;td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;File 3: &lt;/td&gt;&lt;td&gt;$filename3&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"";
+// email fields: to, from, subject, and so on
+$headers = ""From: $from\n"";
+$headers .= ""Reply-To: $to\n"";
+$headers .= ""BCC: cpeterson@barona.com"";
+// boundary 
+$semi_rand     = md5(time());
+$mime_boundary = ""==Multipart_Boundary_x{$semi_rand}x"";
+// headers for attachment 
+$headers .= ""\nMIME-Version: 1.0\n"" . ""Content-Type: multipart/mixed, html;\n"" . "" boundary=\""{$mime_boundary}\"""";
+// multipart boundary 
+$message = ""This is a multi-part message in MIME format.\n\n"" . ""--{$mime_boundary}\n"" . ""Content-Type: text/html; charset=ISO-8859-1\n"" . ""Content-Transfer-Encoding: 7bit\n\n"" . $message . ""\n\n"";
+$message .= ""--{$mime_boundary}\n"";
+if (!empty($file1)) {
+    $message .= ""Content-Type: {\""application/octet-stream\""};\n"" . "" name='$filename1'\n"" . ""Content-Disposition: attachment;\n"" . "" filename=$filename1\n"" . ""Content-Transfer-Encoding: base64\n\n"" . $data1 . ""\n\n"";
+    $message .= ""--{$mime_boundary}\n"";
+}
+if (!empty($file2)) {
+    $message .= ""Content-Type: {\""application/octet-stream\""};\n"" . "" name='$filename2'\n"" . ""Content-Disposition: attachment;\n"" . "" filename=$filename2\n"" . ""Content-Transfer-Encoding: base64\n\n"" . $data2 . ""\n\n"";
+    $message .= ""--{$mime_boundary}\n"";
+}
+if (!empty($file3)) {
+    $message .= ""Content-Type: {\""application/octet-stream\""};\n"" . "" name='$filename3'\n"" . ""Content-Disposition: attachment;\n"" . "" filename=$filename3\n"" . ""Content-Transfer-Encoding: base64\n\n"" . $data3 . ""\n\n"";
+    $message .= ""--{$mime_boundary}\n"";
+}
+// send
+$ok = @mail($to, $subject, $message, $headers, '-fnoreply@yourmailer.com');
+if ($ok) {
+    //echo ""&lt;p&gt;Thank you for submitting your application to: $to!&lt;/p&gt;"";
+header(""Location: ../../../about-barona/community-relations/community-giving-guidelines/thanks/""); /* Redirect browser */
+exit();
+} else {
+    //echo ""&lt;p&gt;mail could not be sent!&lt;/p&gt;"";
+header(""Location: ../../../club-barona/email-signup/error/""); /* Redirect browser */
+exit();
+}
+?&gt;
+</code></pre>
+
+<p>Wordpress HTML:</p>
+
+<pre><code>&lt;h2&gt;COMMUNITY GIVING GUIDELINES &amp; DONATION APPLICATION&lt;/h2&gt;&lt;p&gt;In an effort to better serve you, Barona will only review requests via an online donation application. To be considered for a donation or sponsorship, you must complete the online application. Requests submitted via email, mail, phone, or fax will not be accepted. All requests will be screened and reviewed for consideration by the Community Relations Committee. In making determinations on contribution requests, the Committee places emphasis on well-managed non-profit organizations and programs. Funding decisions are also based on the quality of the organizations programs and their support of Barona Resort &amp; Casino’s key areas of focus. Additional consideration includes the scope of each program and the overall impact on the community. Barona maintains the flexibility to accommodate new and innovative approaches to meeting the needs of the community.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Due to the volume of requests received, donation requests for auction and raffle items must be submitted at least 60 – 90 days prior to the date the donation is needed.&lt;/li&gt;&lt;li&gt;Sponsorship requests should be submitted by October for consideration in the following year, as planning is based on a calendar year.&lt;/li&gt;&lt;li&gt;Sponsorships exceeding $10,000 must include performance measurement criteria and the requestor must be prepared to submit a report of achievement.&lt;/li&gt;&lt;li&gt;We will respond to all requests with the decision of the committee, regardless of the outcome within 6 - 8 weeks of review.&lt;/li&gt;&lt;/ul&gt;
+&lt;h3&gt;We generally &lt;b&gt; exclude &lt;/b&gt; requests that benefit:&lt;/h3&gt;
+&lt;ul&gt; 
+    &lt;li&gt;Local sports organizations &lt;/li&gt;
+
+    &lt;li&gt;An individual person or family &lt;/li&gt;
+
+    &lt;li&gt;General operating expenses &lt;/li&gt;
+
+    &lt;li&gt;Political candidates or organizations &lt;/li&gt;
+
+    &lt;li&gt;Film or documentary productions &lt;/li&gt;
+
+    &lt;li&gt;Memorials, endowments, or grants &lt;/li&gt;
+
+    &lt;li&gt;Organizations outside of California &lt;/li&gt;
+
+    &lt;li&gt;Travel expenses &lt;/li&gt;
+
+    &lt;li&gt;Groups seeking educational or travel grants for contests, pageants, trips or conventions &lt;/li&gt;
+
+    &lt;li&gt;Loan or loan guarantees &lt;/li&gt;
+
+    &lt;li&gt;Capital improvement or building funds &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;p&gt;&lt;input id=""chkTerms"" name=""chkTerms"" onclick=""validate();"" required=""required"" type=""checkbox"" value=""0""&gt; I have read and understand the Community Giving Guidelines. Thank you for contacting Barona Resort &amp;amp; Casino regarding a contribution towards your organization. Please note that this online application must be completed in its entirety and, if necessary, submitted with all appropriate supporting documents.&lt;/p&gt;&lt;form action=""../../../wp-content/themes/barona/form-to-email.php"" enctype=""multipart/form-data"" method=""post""&gt; 
+&lt;div id=""DonationApplicationFormContent"" style=""width: 700px; margin: 10px -150px !important; display: none;""&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Instructions &lt;/h2&gt;
+&lt;p&gt;Follow the directions below to submit your &lt;strong&gt;&lt;a href=""/wp-content/uploads/2015/10/DonationApplicationForm.pdf"" target=""_blank""&gt;Donation Application Form&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/G-SDuvlur8o"" frameborder=""0"" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3 style=""margin: 0;""&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;Download the Donation Application Form PDF.&lt;br /&gt;&lt;small&gt;Note: Safari users, right click the ""Download Now"" button and select ""Download Linked File As"".&lt;/small&gt;&lt;br /&gt;&lt;br /&gt;[easy_media_download url=""/wp-content/uploads/2015/10/DonationApplicationForm.pdf"" force_dl=""1""]&lt;/p&gt;
+&lt;h3 style=""margin: 0;""&gt;Step 2&lt;/h3&gt;
+&lt;strong&gt;Print&lt;/strong&gt; or &lt;strong&gt;complete&lt;/strong&gt; the form using &lt;strong&gt;&lt;a href=""https://get.adobe.com/reader"" target=""_blank""&gt;Adobe Acrobat Reader&lt;/a&gt;&lt;/strong&gt;. You can download Adobe Acrobat for free at &lt;a href=""https://get.adobe.com/reader"" target=""_blank""&gt;https://get.adobe.com/reader&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 style=""margin: 0;""&gt;Step 3&lt;/h3&gt;
+Click &lt;strong&gt;Browse&lt;/strong&gt; to upload the completed &lt;strong&gt;Donation Application Form&lt;/strong&gt; along with any supporting documents (images or PDF).
+&lt;/p&gt;
+&lt;h3 style=""margin: 0;""&gt;Step 4&lt;/h3&gt;
+&lt;p&gt;Click the &lt;strong&gt;Submit&lt;/strong&gt; button below to complete your submission. &lt;br /&gt;
+&lt;br /&gt;
+OR 
+&lt;br /&gt;&lt;br /&gt;
+Email your completed PDF document with any supporting documents to &lt;a href=""mailto: donationapplicationsbarona@gmail.com""&gt;donationapplicationsbarona@gmail.com&lt;/a&gt;.
+&lt;/p&gt;
+Upload event brochures, marketing materials or other documents. Upload images or PDF files only. (Limit: 5MB max per file):
+&lt;table&gt;
+&lt;tr style=""height: 30px;""&gt;
+&lt;td&gt;File 1:&lt;input type=""file"" id=""file1"" name=""file1""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style=""height: 30px;""&gt;
+&lt;td&gt;File 2:&lt;input type=""file"" id=""file2""  name=""file2""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style=""height: 30px;""&gt;
+&lt;td&gt;File 3: &lt;input type=""file"" id=""file3""  name=""file3""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;tr &gt;
+&lt;td&gt;
+&lt;div class=""g-recaptcha"" id=""rcaptcha"" data-sitekey=""6Let2wwTAAAAAJaUZQGTCRy6Pv4YYLoQjsLUH6hs""&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;div id=""captcha"" aria-live=""assertive""&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style=""height: 80px;""&gt;
+&lt;td&gt;&lt;input tabindex=""11"" title=""Submit"" type=""submit"" value=""Submit"" onclick=""return get_action(this);""&gt;&lt;input tabindex=""12"" title=""Reset"" type=""reset"" value=""Reset""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;label id=""lblStatus""&gt;*Required.&lt;/label&gt;&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Page source:</p>
+
+<p>see page. :-)</p>
+
+<p>Please help fix it so no blank applications can be received. as well as only pdf/images allowed before submit. willing to install a js file. please be as thorough and I will select you as top vote/winner. be good my coder friends! Long live privacy!</p>
+",<javascript><php><html><wordpress>,16/01/07 1:40,LQ_CLOSE,"<javascript><php><html><wordpress>, Only allow form submit of pdf/images not ever blank, <p>Hi I have a website which the page logic should only accept submit under two conditions:</p>
+
+<p>1) if the captcha is actively checked</p>
+
+<p>and </p>
+
+<p>2) if at least one file is attached (only pdf and image file types are allowed up to three total) are attached. </p>
+
+<p>the issue is that we are receiving blank applications however, I am seeing a scenario where you can attach non pdfs/images with a pdf/image and still submit which strips all attachments.</p>
+
+<p>proper behavior should be:
+prevent submit if non pdf/image type attached show error message ""Only image or pdf can be uploaded"" and then a message stating this and preventing form submit at the bottom of the page in red just like the other errors.</p>
+
+<p>Be polite. Thanks. :-)</p>
+
+<p>Page URL: <a href=""http://www.barona.com/about-barona/community-relations/community-giving-guidelines/"" rel=""nofollow"">http://www.barona.com/about-barona/community-relations/community-giving-guidelines/</a></p>
+
+<p>PHP (to test replace youremail with your email address, thanks!):</p>
+
+<pre><code>&lt;?php
+ini_set('display_errors', 'off');
+$to                 = 'youremail@gmail.com';
+$from               = 'youremail@gmail.com';
+$subject            = 'New Application';
+$allowed_extensions = array(
+    '.pdf',
+    '.jpeg',
+    '.jpg',
+    '.png',
+    '.gif',
+    '.bmp'
+);
+$file1              = '';
+$file2              = '';
+$file3              = '';
+$filename1          = '';
+$filename2          = '';
+$filename3          = '';
+//echo  ""1""; 
+if (!empty($_FILES['file1']['name'])) {
+    //echo  ""File 1 exists""; 
+    $filename1 = $_FILES['file1']['name'];
+    $extension = '.' . strtolower(array_pop(explode('.', $filename1)));
+    $size1     = $_FILES['file1']['size'];
+    $mime1     = $_FILES['file1']['type'];
+    $tmp1      = $_FILES['file1']['tmp_name'];
+    if (in_array($extension, $allowed_extensions)) {
+        $file1 = fopen($tmp1, 'rb');
+        $data1 = fread($file1, filesize($tmp1));
+        // Now read the file content into a variable
+        fclose($file1);
+        // close the file
+        $data1 = chunk_split(base64_encode($data1));
+        // Now we need to encode it and split it into acceptable length lines
+        $file1 = $filename1;
+    } else {
+        $filename1 = '';
+    }
+}
+//file 2:
+if (!empty($_FILES['file2']['name'])) {
+    //echo  ""File 2 exists""; 
+    $filename2 = $_FILES['file2']['name'];
+    $extension = '.' . strtolower(array_pop(explode('.', $filename2)));
+    $tmp2      = $_FILES['file2']['tmp_name'];
+    $size2     = $_FILES['file2']['size'];
+    $mime2     = $_FILES['file2']['type'];
+    if (in_array($extension, $allowed_extensions)) {
+        $file2 = fopen($tmp2, 'rb');
+        $data2 = fread($file2, filesize($tmp2));
+        // Now read the file content into a variable
+        fclose($file2);
+        // close the file
+        $data2 = chunk_split(base64_encode($data2));
+        // Now we need to encode it and split it into acceptable length lines
+        $file2 = $filename2;
+    } else {
+        $filename2 = '';
+    }
+}
+//File 3:
+if (!empty($_FILES['file3']['name'])) {
+    //echo  ""File 3 exists""; 
+    $filename3 = $_FILES['file3']['name'];
+    $extension = '.' . strtolower(array_pop(explode('.', $filename3)));
+    $tmp3      = $_FILES['file3']['tmp_name'];
+    $size3     = $_FILES['file3']['size'];
+    $mime3     = $_FILES['file3']['type'];
+    if (in_array($extension, $allowed_extensions)) {
+        $file3 = fopen($tmp3, 'rb');
+        $data3 = fread($file3, filesize($tmp3));
+        // Now read the file content into a variable
+        fclose($file3);
+        // close the file
+        $data3 = chunk_split(base64_encode($data3));
+        // Now we need to encode it and split it into acceptable length lines
+        $file3 = $filename3;
+    } else {
+        $filename3 = '';
+    }
+}
+//echo  ""2""; 
+//Only allow image or pdf.
+$message = ""&lt;table border='1' style='width:80%'&gt;&lt;tr&gt;&lt;td&gt;File 1: &lt;/td&gt;&lt;td&gt;$filename1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;File 2: &lt;/td&gt;&lt;td&gt;$filename2&lt;td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;File 3: &lt;/td&gt;&lt;td&gt;$filename3&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"";
+// email fields: to, from, subject, and so on
+$headers = ""From: $from\n"";
+$headers .= ""Reply-To: $to\n"";
+$headers .= ""BCC: cpeterson@barona.com"";
+// boundary 
+$semi_rand     = md5(time());
+$mime_boundary = ""==Multipart_Boundary_x{$semi_rand}x"";
+// headers for attachment 
+$headers .= ""\nMIME-Version: 1.0\n"" . ""Content-Type: multipart/mixed, html;\n"" . "" boundary=\""{$mime_boundary}\"""";
+// multipart boundary 
+$message = ""This is a multi-part message in MIME format.\n\n"" . ""--{$mime_boundary}\n"" . ""Content-Type: text/html; charset=ISO-8859-1\n"" . ""Content-Transfer-Encoding: 7bit\n\n"" . $message . ""\n\n"";
+$message .= ""--{$mime_boundary}\n"";
+if (!empty($file1)) {
+    $message .= ""Content-Type: {\""application/octet-stream\""};\n"" . "" name='$filename1'\n"" . ""Content-Disposition: attachment;\n"" . "" filename=$filename1\n"" . ""Content-Transfer-Encoding: base64\n\n"" . $data1 . ""\n\n"";
+    $message .= ""--{$mime_boundary}\n"";
+}
+if (!empty($file2)) {
+    $message .= ""Content-Type: {\""application/octet-stream\""};\n"" . "" name='$filename2'\n"" . ""Content-Disposition: attachment;\n"" . "" filename=$filename2\n"" . ""Content-Transfer-Encoding: base64\n\n"" . $data2 . ""\n\n"";
+    $message .= ""--{$mime_boundary}\n"";
+}
+if (!empty($file3)) {
+    $message .= ""Content-Type: {\""application/octet-stream\""};\n"" . "" name='$filename3'\n"" . ""Content-Disposition: attachment;\n"" . "" filename=$filename3\n"" . ""Content-Transfer-Encoding: base64\n\n"" . $data3 . ""\n\n"";
+    $message .= ""--{$mime_boundary}\n"";
+}
+// send
+$ok = @mail($to, $subject, $message, $headers, '-fnoreply@yourmailer.com');
+if ($ok) {
+    //echo ""&lt;p&gt;Thank you for submitting your application to: $to!&lt;/p&gt;"";
+header(""Location: ../../../about-barona/community-relations/community-giving-guidelines/thanks/""); /* Redirect browser */
+exit();
+} else {
+    //echo ""&lt;p&gt;mail could not be sent!&lt;/p&gt;"";
+header(""Location: ../../../club-barona/email-signup/error/""); /* Redirect browser */
+exit();
+}
+?&gt;
+</code></pre>
+
+<p>Wordpress HTML:</p>
+
+<pre><code>&lt;h2&gt;COMMUNITY GIVING GUIDELINES &amp; DONATION APPLICATION&lt;/h2&gt;&lt;p&gt;In an effort to better serve you, Barona will only review requests via an online donation application. To be considered for a donation or sponsorship, you must complete the online application. Requests submitted via email, mail, phone, or fax will not be accepted. All requests will be screened and reviewed for consideration by the Community Relations Committee. In making determinations on contribution requests, the Committee places emphasis on well-managed non-profit organizations and programs. Funding decisions are also based on the quality of the organizations programs and their support of Barona Resort &amp; Casino’s key areas of focus. Additional consideration includes the scope of each program and the overall impact on the community. Barona maintains the flexibility to accommodate new and innovative approaches to meeting the needs of the community.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Due to the volume of requests received, donation requests for auction and raffle items must be submitted at least 60 – 90 days prior to the date the donation is needed.&lt;/li&gt;&lt;li&gt;Sponsorship requests should be submitted by October for consideration in the following year, as planning is based on a calendar year.&lt;/li&gt;&lt;li&gt;Sponsorships exceeding $10,000 must include performance measurement criteria and the requestor must be prepared to submit a report of achievement.&lt;/li&gt;&lt;li&gt;We will respond to all requests with the decision of the committee, regardless of the outcome within 6 - 8 weeks of review.&lt;/li&gt;&lt;/ul&gt;
+&lt;h3&gt;We generally &lt;b&gt; exclude &lt;/b&gt; requests that benefit:&lt;/h3&gt;
+&lt;ul&gt; 
+    &lt;li&gt;Local sports organizations &lt;/li&gt;
+
+    &lt;li&gt;An individual person or family &lt;/li&gt;
+
+    &lt;li&gt;General operating expenses &lt;/li&gt;
+
+    &lt;li&gt;Political candidates or organizations &lt;/li&gt;
+
+    &lt;li&gt;Film or documentary productions &lt;/li&gt;
+
+    &lt;li&gt;Memorials, endowments, or grants &lt;/li&gt;
+
+    &lt;li&gt;Organizations outside of California &lt;/li&gt;
+
+    &lt;li&gt;Travel expenses &lt;/li&gt;
+
+    &lt;li&gt;Groups seeking educational or travel grants for contests, pageants, trips or conventions &lt;/li&gt;
+
+    &lt;li&gt;Loan or loan guarantees &lt;/li&gt;
+
+    &lt;li&gt;Capital improvement or building funds &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;p&gt;&lt;input id=""chkTerms"" name=""chkTerms"" onclick=""validate();"" required=""required"" type=""checkbox"" value=""0""&gt; I have read and understand the Community Giving Guidelines. Thank you for contacting Barona Resort &amp;amp; Casino regarding a contribution towards your organization. Please note that this online application must be completed in its entirety and, if necessary, submitted with all appropriate supporting documents.&lt;/p&gt;&lt;form action=""../../../wp-content/themes/barona/form-to-email.php"" enctype=""multipart/form-data"" method=""post""&gt; 
+&lt;div id=""DonationApplicationFormContent"" style=""width: 700px; margin: 10px -150px !important; display: none;""&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Instructions &lt;/h2&gt;
+&lt;p&gt;Follow the directions below to submit your &lt;strong&gt;&lt;a href=""/wp-content/uploads/2015/10/DonationApplicationForm.pdf"" target=""_blank""&gt;Donation Application Form&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/G-SDuvlur8o"" frameborder=""0"" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3 style=""margin: 0;""&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;Download the Donation Application Form PDF.&lt;br /&gt;&lt;small&gt;Note: Safari users, right click the ""Download Now"" button and select ""Download Linked File As"".&lt;/small&gt;&lt;br /&gt;&lt;br /&gt;[easy_media_download url=""/wp-content/uploads/2015/10/DonationApplicationForm.pdf"" force_dl=""1""]&lt;/p&gt;
+&lt;h3 style=""margin: 0;""&gt;Step 2&lt;/h3&gt;
+&lt;strong&gt;Print&lt;/strong&gt; or &lt;strong&gt;complete&lt;/strong&gt; the form using &lt;strong&gt;&lt;a href=""https://get.adobe.com/reader"" target=""_blank""&gt;Adobe Acrobat Reader&lt;/a&gt;&lt;/strong&gt;. You can download Adobe Acrobat for free at &lt;a href=""https://get.adobe.com/reader"" target=""_blank""&gt;https://get.adobe.com/reader&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 style=""margin: 0;""&gt;Step 3&lt;/h3&gt;
+Click &lt;strong&gt;Browse&lt;/strong&gt; to upload the completed &lt;strong&gt;Donation Application Form&lt;/strong&gt; along with any supporting documents (images or PDF).
+&lt;/p&gt;
+&lt;h3 style=""margin: 0;""&gt;Step 4&lt;/h3&gt;
+&lt;p&gt;Click the &lt;strong&gt;Submit&lt;/strong&gt; button below to complete your submission. &lt;br /&gt;
+&lt;br /&gt;
+OR 
+&lt;br /&gt;&lt;br /&gt;
+Email your completed PDF document with any supporting documents to &lt;a href=""mailto: donationapplicationsbarona@gmail.com""&gt;donationapplicationsbarona@gmail.com&lt;/a&gt;.
+&lt;/p&gt;
+Upload event brochures, marketing materials or other documents. Upload images or PDF files only. (Limit: 5MB max per file):
+&lt;table&gt;
+&lt;tr style=""height: 30px;""&gt;
+&lt;td&gt;File 1:&lt;input type=""file"" id=""file1"" name=""file1""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style=""height: 30px;""&gt;
+&lt;td&gt;File 2:&lt;input type=""file"" id=""file2""  name=""file2""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style=""height: 30px;""&gt;
+&lt;td&gt;File 3: &lt;input type=""file"" id=""file3""  name=""file3""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;tr &gt;
+&lt;td&gt;
+&lt;div class=""g-recaptcha"" id=""rcaptcha"" data-sitekey=""6Let2wwTAAAAAJaUZQGTCRy6Pv4YYLoQjsLUH6hs""&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;div id=""captcha"" aria-live=""assertive""&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style=""height: 80px;""&gt;
+&lt;td&gt;&lt;input tabindex=""11"" title=""Submit"" type=""submit"" value=""Submit"" onclick=""return get_action(this);""&gt;&lt;input tabindex=""12"" title=""Reset"" type=""reset"" value=""Reset""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;label id=""lblStatus""&gt;*Required.&lt;/label&gt;&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Page source:</p>
+
+<p>see page. :-)</p>
+
+<p>Please help fix it so no blank applications can be received. as well as only pdf/images allowed before submit. willing to install a js file. please be as thorough and I will select you as top vote/winner. be good my coder friends! Long live privacy!</p>
+","<javascript><pp><html><wordpress>, allow form submit of/image ever blank, <p>hi west page logic accept submit two conditions:</p> <p>1) catch active checked</p> <p>and </p> <p>2) least one file attach (only of image file type allow three total) attached. </p> <p>the issue receive blank applied however, see scenario attach non pus/image of/image still submit strip attachments.</p> <p>proper behavior be: prevent submit non of/image type attach show error message ""only image of unloaded"" message state prevent form submit bottom page red like errors.</p> <p>be polite. thanks. :-)</p> <p>page curl: <a he=""http://www.baron.com/about-baron/community-relations/community-giving-guideline/"" red=""follow"">http://www.baron.com/about-baron/community-relations/community-giving-guideline/</a></p> <p>pp (to test replace youremail email address, thanks!):</p> <pre><code>&it;?pp ini_set('display_errors', 'off'); $to = 'youremail@email.com'; $from = 'youremail@email.com'; $subject = 'new application'; $allowed_extens = array( '.of', '.peg', '.pg', '.pig', '.if', '.bump' ); $file = ''; $file = ''; $file = ''; $filename = ''; $filename = ''; $filename = ''; //echo ""1""; (!empty($files['file']['name'])) { //echo ""file 1 exists""; $filename = $files['file']['name']; $extent = '.' . strtolower(array_pop(explode('.', $filename))); $size = $files['file']['size']; $time = $files['file']['type']; $tm = $files['file']['tmp_name']; (in_array($extension, $allowed_extensions)) { $file = open($tm, 're'); $data = read($file, fireside($tm)); // read file content variable close($file); // close file $data = chunk_split(base64_encode($data)); // need end split accept length line $file = $filename; } else { $filename = ''; } } //file 2: (!empty($files['file']['name'])) { //echo ""file 2 exists""; $filename = $files['file']['name']; $extent = '.' . strtolower(array_pop(explode('.', $filename))); $tm = $files['file']['tmp_name']; $size = $files['file']['size']; $time = $files['file']['type']; (in_array($extension, $allowed_extensions)) { $file = open($tm, 're'); $data = read($file, fireside($tm)); // read file content variable close($file); // close file $data = chunk_split(base64_encode($data)); // need end split accept length line $file = $filename; } else { $filename = ''; } } //file 3: (!empty($files['file']['name'])) { //echo ""file 3 exists""; $filename = $files['file']['name']; $extent = '.' . strtolower(array_pop(explode('.', $filename))); $tm = $files['file']['tmp_name']; $size = $files['file']['size']; $time = $files['file']['type']; (in_array($extension, $allowed_extensions)) { $file = open($tm, 're'); $data = read($file, fireside($tm)); // read file content variable close($file); // close file $data = chunk_split(base64_encode($data)); // need end split accept length line $file = $filename; } else { $filename = ''; } } //echo ""2""; //only allow image of. $message = ""&it;table border='1' style='width:80%'&it;&it;tr&it;&it;to&it;fig 1: &it;/to&it;&it;to&it;$filename&it;/to&it;&it;/tr&it;&it;tr&it;&it;to&it;fig 2: &it;/to&it;&it;to&it;$filename&it;to&it;&it;/tr&it;&it;tr&it;&it;to&it;fig 3: &it;/to&it;&it;to&it;$filename&it;/to&it;&it;/tr&it;&it;/table&it;""; // email fields: to, from, subject, $header = ""from: $from\n""; $header .= ""reply-to: $to\n""; $header .= ""bc: peterson@baron.com""; // boundary $semi_rand = md(time()); $mime_boundari = ""==multipart_boundary_x{$semi_rand}x""; // header attach $header .= ""\time-version: 1.0\n"" . ""content-type: multipart/mixed, html;\n"" . "" boundary=\""{$mime_boundary}\""""; // multipart boundary $message = ""the multi-part message time format.\n\n"" . ""--{$mime_boundary}\n"" . ""content-type: text/html; charge=iso-8859-1\n"" . ""content-transfer-encoding: bit\n\n"" . $message . ""\n\n""; $message .= ""--{$mime_boundary}\n""; (!empty($file)) { $message .= ""content-type: {\""application/often-stream\""};\n"" . "" name='$filename'\n"" . ""content-disposition: attachment;\n"" . "" filename=$filename\n"" . ""content-transfer-encoding: based\n\n"" . $data . ""\n\n""; $message .= ""--{$mime_boundary}\n""; } (!empty($file)) { $message .= ""content-type: {\""application/often-stream\""};\n"" . "" name='$filename'\n"" . ""content-disposition: attachment;\n"" . "" filename=$filename\n"" . ""content-transfer-encoding: based\n\n"" . $data . ""\n\n""; $message .= ""--{$mime_boundary}\n""; } (!empty($file)) { $message .= ""content-type: {\""application/often-stream\""};\n"" . "" name='$filename'\n"" . ""content-disposition: attachment;\n"" . "" filename=$filename\n"" . ""content-transfer-encoding: based\n\n"" . $data . ""\n\n""; $message .= ""--{$mime_boundary}\n""; } // send $ok = @mail($to, $subject, $message, $leaders, '-fnoreply@yourmailer.com'); ($ok) { //echo ""&it;p&it;thank submit applied to: $to!&it;/p&it;""; header(""location: ../../../about-baron/community-relations/community-giving-guideline/thanks/""); /* direct brother */ exit(); } else { //echo ""&it;p&it;mail could sent!&it;/p&it;""; header(""location: ../../../club-baron/email-sign/error/""); /* direct brother */ exit(); } ?&it; </code></pre> <p>wordpress html:</p> <pre><code>&it;he&it;common give guideline &amp; donate application&it;/he&it;&it;p&it;in effort better serve you, baron review request via online donate application. consider donate sponsorship, must complete online application. request submit via email, mail, phone, fax accepted. request screen review consider common relate committee. make determine contribute requests, committed place emphasis well-manage non-profit organ programs. fund denis also base quality organ program support baron resort &amp; causing’ key area focus. admit consider include scope program overall impact community. baron maintain flexible accommod new into approach meet need community.&it;/p&it;&it;up&it;&it;li&it;du volume request received, donate request auction rail item must submit least 60 – 90 day prior date donate needed.&it;/li&it;&it;li&it;sponsorship request submit doctor consider follow year, plan base calendar year.&it;/li&it;&it;li&it;sponsorship exceed $10,000 must include perform measure criterion request must prepare submit report achievement.&it;/li&it;&it;li&it;w respond request denis committee, regardless outcome within 6 - 8 week review.&it;/li&it;&it;/up&it; &it;he&it;we genet &it;b&it; exclude &it;/b&it; request benefit:&it;/he&it; &it;up&it; &it;li&it;low sport organ &it;/li&it; &it;li&it;an individu person family &it;/li&it; &it;li&it;genet over expense &it;/li&it; &it;li&it;polite candid organ &it;/li&it; &it;li&it;film documentary product &it;/li&it; &it;li&it;memorials, endowment, grant &it;/li&it; &it;li&it;organ outside california &it;/li&it; &it;li&it;travel expense &it;/li&it; &it;li&it;group seek duc travel grant contests, agents, trip convent &it;/li&it; &it;li&it;loan loan guarantee &it;/li&it; &it;li&it;capital improve build fund &it;/li&it; &it;/up&it; &it;p&it;&it;input id=""chkterms"" name=""chkterms"" click=""validity();"" required=""required"" type=""checkbox"" value=""0""&it; read understand common give guideline. thank contact baron resort &amp;amp; causing regard contribute toward organization. pleas note online applied must complete entirety and, necessary, submit appropri support documents.&it;/p&it;&it;form action=""../../../up-content/themes/baron/form-to-email.pp"" enctype=""multipart/form-data"" method=""post""&it; &it;did id=""donationapplicationformcontent"" style=""width: 700px; margin: 10px -150px !important; display: none;""&it; &it;he /&it; &it;he&it;instruct &it;/he&it; &it;p&it;follow direct submit &it;strong&it;&it;a he=""/up-content/uplands/2015/10/donationapplicationform.of"" target=""blank""&it;don applied form&it;/a&it;&it;/strong&it;.&it;/p&it; &it;from width=""560"" height=""315"" sac=""http://www.couture.com/ebbed/g-sduvlur8o"" frameborder=""0"" allowfullscreen&it;&it;/frame&it; &it;he style=""margin: 0;""&it;step 1&it;/he&it; &it;p&it;download donate applied form of.&it;br /&it;&it;small&it;note: salary users, right click ""download now"" button select ""download link file as"".&it;/small&it;&it;br /&it;&it;br /&it;[easy_media_download curl=""/up-content/uplands/2015/10/donationapplicationform.of"" forced=""1""]&it;/p&it; &it;he style=""margin: 0;""&it;step 2&it;/he&it; &it;strong&it;print&it;/strong&it; &it;strong&it;complete&it;/strong&it; form use &it;strong&it;&it;a he=""http://get.adore.com/reader"" target=""blank""&it;ado arbat reader&it;/a&it;&it;/strong&it;. download ado arbat free &it;a he=""http://get.adore.com/reader"" target=""blank""&it;http://get.adore.com/reader&it;/a&it; &it;/p&it; &it;he style=""margin: 0;""&it;step 3&it;/he&it; click &it;strong&it;brows&it;/strong&it; unload complete &it;strong&it;don applied form&it;/strong&it; along support document (image of). &it;/p&it; &it;he style=""margin: 0;""&it;step 4&it;/he&it; &it;p&it;click &it;strong&it;submit&it;/strong&it; button complete submission. &it;br /&it; &it;br /&it; &it;br /&it;&it;br /&it; email complete of document support document &it;a he=""mail: donationapplicationsbarona@email.com""&it;donationapplicationsbarona@email.com&it;/a&it;. &it;/p&it; unload event brochure, market mater documents. unload image of file only. (limit: mb max per file): &it;table&it; &it;tr style=""height: 30px;""&it; &it;to&it;file 1:&it;input type=""file"" id=""file"" name=""file""&it;&it;/to&it; &it;/tr&it; &it;tr style=""height: 30px;""&it; &it;to&it;file 2:&it;input type=""file"" id=""file"" name=""file""&it;&it;/to&it; &it;/tr&it; &it;tr style=""height: 30px;""&it; &it;to&it;file 3: &it;input type=""file"" id=""file"" name=""file""&it;&it;/to&it; &it;/tr&it; &it;/table&it; &it;table&it; &it;tr &it; &it;to&it; &it;did class=""g-recaptcha"" id=""rcaptcha"" data-sitekey=""6let2wwtaaaaajauzqgtcry6pv4yyloqjsluh6hs""&it;&it;/did&it;&it;/to&it; &it;/tr&it; &it;tr&it; &it;to&it; &it;did id=""catch"" area-live=""assertion""&it;&it;/did&it;&it;/to&it; &it;/tr&it; &it;tr style=""height: 80px;""&it; &it;to&it;&it;input tabindex=""11"" title=""submit"" type=""submit"" value=""submit"" click=""return retraction(this);""&it;&it;input tabindex=""12"" title=""rest"" type=""rest"" value=""rest""&it;&it;/to&it; &it;/tr&it; &it;/table&it; &it;label id=""lblstatus""&it;*required.&it;/label&it;&it;/did&it; &it;/form&it; </code></pre> <p>page source:</p> <p>see page. :-)</p> <p>pleas help fix blank applied received. well of/image allow submit. will instal is file. pleas thorough select top vote/winner. good cover friends! long live privacy!</p>"
+34646021,RestFuse vs Rest Assured vs MockMVC Rest Service Unit Test Framework,"<p>I've been trying to find a simple all purpose unit test framework for Spring MVC based Rest Services I've written.</p>
+
+<p>I've been searching online and narrowed it down to:</p>
+
+<ul>
+<li>RestFuse (<a href=""http://developer.eclipsesource.com/restfuse/"" rel=""noreferrer"">http://developer.eclipsesource.com/restfuse/</a>)</li>
+<li>Rest Assured (<a href=""https://github.com/jayway/rest-assured"" rel=""noreferrer"">https://github.com/jayway/rest-assured</a>)</li>
+<li>MockMVC (<a href=""http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/"" rel=""noreferrer"">http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/</a>)</li>
+</ul>
+
+<p>I like RestFuse because it's mostly annotation based, but rest assured seems to have a easier way of passing parameters and checking responses. And finally being a Spring MVC Rest Service project, I'm wondering if I should just stick with the already established way of testing Rest Services in Spring with MockMVC.</p>
+
+<p>Interested to get any feedback, as well as performance, past experiences and if there's anything else I should take into consideration.</p>
+",<rest><spring-mvc><rest-assured><mockmvc><restfuse>,16/01/07 1:41,HQ,"<rest><spring-mvc><rest-assured><mockmvc><restfuse>, RestFuse vs Rest Assured vs MockMVC Rest Service Unit Test Framework, <p>I've been trying to find a simple all purpose unit test framework for Spring MVC based Rest Services I've written.</p>
+
+<p>I've been searching online and narrowed it down to:</p>
+
+<ul>
+<li>RestFuse (<a href=""http://developer.eclipsesource.com/restfuse/"" rel=""noreferrer"">http://developer.eclipsesource.com/restfuse/</a>)</li>
+<li>Rest Assured (<a href=""https://github.com/jayway/rest-assured"" rel=""noreferrer"">https://github.com/jayway/rest-assured</a>)</li>
+<li>MockMVC (<a href=""http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/"" rel=""noreferrer"">http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/</a>)</li>
+</ul>
+
+<p>I like RestFuse because it's mostly annotation based, but rest assured seems to have a easier way of passing parameters and checking responses. And finally being a Spring MVC Rest Service project, I'm wondering if I should just stick with the already established way of testing Rest Services in Spring with MockMVC.</p>
+
+<p>Interested to get any feedback, as well as performance, past experiences and if there's anything else I should take into consideration.</p>
+","<rest><spring-mac><rest-assured><mockmvc><refuse>, restful vs rest assure vs mockmvc rest service unit test framework, <p>i'v try find simple purpose unit test framework spring mac base rest service i'v written.</p> <p>i'v search online narrow to:</p> <up> <li>restful (<a he=""http://developer.eclipsesource.com/refuse/"" red=""noreferrer"">http://developer.eclipsesource.com/refuse/</a>)</li> <li>rest assure (<a he=""http://github.com/away/rest-assured"" red=""noreferrer"">http://github.com/away/rest-assured</a>)</li> <li>mockmvc (<a he=""http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mac-controller-rest-apt/"" red=""noreferrer"">http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mac-controller-rest-apt/</a>)</li> </up> <p>i like restful mostly cannot based, rest assure seem easier way pass parapet check responses. final spring mac rest service project, i'm wonder stick already establish way test rest service spring mockmvc.</p> <p>interest get feedback, well performance, past expert there' any else take consideration.</p>"
+34646221,How to get alpha names for my program?,"<p>When you see games in BETA and ALPHA, lets use Minecraft as example, Minecraft when it was in ALPHA the title for the ALPHA versions for Minecraft where like ""Minecraft APLHA C1.2.2_C1.2"" for example. Not that it's really important but how do they get the numbers and letters (C1.2.2_C1.2 &lt;- these numbers and letters) and what do they represent for is it numbers that are just kinda random? and how does a person go about to getting those numbers for there program? I normally just go ALPHA 1 - how many updates there is but I find it more professional to have titles like this ""Minecraft APLHA C1.2.2_C1.2""? Thanks</p>
+",<minecraft>,16/01/07 2:03,LQ_CLOSE,"<minecraft>, How to get alpha names for my program?, <p>When you see games in BETA and ALPHA, lets use Minecraft as example, Minecraft when it was in ALPHA the title for the ALPHA versions for Minecraft where like ""Minecraft APLHA C1.2.2_C1.2"" for example. Not that it's really important but how do they get the numbers and letters (C1.2.2_C1.2 &lt;- these numbers and letters) and what do they represent for is it numbers that are just kinda random? and how does a person go about to getting those numbers for there program? I normally just go ALPHA 1 - how many updates there is but I find it more professional to have titles like this ""Minecraft APLHA C1.2.2_C1.2""? Thanks</p>
+","<minecraft>, get alpha name program?, <p>when see game beta alpha, let use minecraft example, minecraft alpha till alpha version minecraft like ""minecraft alpha c.2.2_c1.2"" example. really import get number letter (c.2.2_c1.2 &it;- number letters) repress number kind random? person go get number program? normal go alpha 1 - man update find profession till like ""minecraft alpha c.2.2_c1.2""? thanks</p>"
+34646709,how to change query to entity frame,"   
+i want to change this  sql query to entity frame query
+
+ SELECT    dbo.ClassTiming.StartTime, dbo.ClassTiming.EndTime, dbo.Employee.StaffName, dbo.Department.DepartmentName, dbo.Class.ClassName, dbo.Section.SectionName, dbo.WeekDay.DayName
+    FROM            dbo.Timetable INNER JOIN
+                             dbo.ClassTiming ON dbo.Timetable.ClassTimingId = dbo.ClassTiming.Id INNER JOIN
+                             dbo.Employee ON dbo.Timetable.StaffId = dbo.Employee.StaffID INNER JOIN
+                             dbo.Department ON dbo.Timetable.DepartmentId = dbo.Department.id INNER JOIN
+                             dbo.Section ON dbo.Timetable.SectionID = dbo.Section.ID INNER JOIN
+                             dbo.Class ON dbo.Timetable.ClassID = dbo.Class.ID INNER JOIN
+                             dbo.WeekDay ON dbo.Timetable.WeekDayId = dbo.WeekDay.Id    ",<c#><sql-server><entity-framework>,16/01/07 3:02,LQ_EDIT,"<c#><sql-server><entity-framework>, how to change query to entity frame,    
+i want to change this  sql query to entity frame query
+
+ SELECT    dbo.ClassTiming.StartTime, dbo.ClassTiming.EndTime, dbo.Employee.StaffName, dbo.Department.DepartmentName, dbo.Class.ClassName, dbo.Section.SectionName, dbo.WeekDay.DayName
+    FROM            dbo.Timetable INNER JOIN
+                             dbo.ClassTiming ON dbo.Timetable.ClassTimingId = dbo.ClassTiming.Id INNER JOIN
+                             dbo.Employee ON dbo.Timetable.StaffId = dbo.Employee.StaffID INNER JOIN
+                             dbo.Department ON dbo.Timetable.DepartmentId = dbo.Department.id INNER JOIN
+                             dbo.Section ON dbo.Timetable.SectionID = dbo.Section.ID INNER JOIN
+                             dbo.Class ON dbo.Timetable.ClassID = dbo.Class.ID INNER JOIN
+                             dbo.WeekDay ON dbo.Timetable.WeekDayId = dbo.WeekDay.Id    ","<c#><sal-server><entity-framework>, change query entity frame, want change sal query entity frame query select do.classtiming.starttime, do.classtiming.entire, do.employee.staffname, do.department.departmentname, do.class.classname, do.section.sectionname, do.weekly.daynam do.time inner join do.classic do.timetable.classtimingid = do.classtiming.id inner join do.employe do.timetable.staff = do.employee.staff inner join do.depart do.timetable.department = do.department.id inner join do.sect do.timetable.section = do.section.id inner join do.class do.timetable.classic = do.class.id inner join do.weekly do.timetable.weekdayid = do.weekly.id"
+34646833,Any Javascript Expert: Who can add multiple IDs in This Script to Check If CSS does not match redirect Page,"Javascript expert,
+
+i have the below script
+
+    $('#copyright, #credit, #doom a').each(function () {
+        if ($(this).css('font-size') != '15px') {
+            document.location.href = ""http://www.example.com"";
+        }
+    });
+
+It check all these IDs Css properties for font-size 15px if not equal then the page will be redirect to example.com
+
+
+Now here what i want, I want to know how can i add **multiple css property** in that script not only the font-size but i also want to include position:relative;height:auto;background:#000; to check it..
+
+it may be look like this: (this is only example not the working script )
+
+      $('#copyright, #credit, #doom a').each(function () {
+            if 
+               position:relative;height:auto;background:#000
+            
+                { do nothing }
+    
+    else
+            {
+                document.location.href = ""http://www.example.com"";
+            }
+        });
+",<javascript><jquery><html><redirect><url-redirection>,16/01/07 3:20,LQ_EDIT,"<javascript><jquery><html><redirect><url-redirection>, Any Javascript Expert: Who can add multiple IDs in This Script to Check If CSS does not match redirect Page, Javascript expert,
+
+i have the below script
+
+    $('#copyright, #credit, #doom a').each(function () {
+        if ($(this).css('font-size') != '15px') {
+            document.location.href = ""http://www.example.com"";
+        }
+    });
+
+It check all these IDs Css properties for font-size 15px if not equal then the page will be redirect to example.com
+
+
+Now here what i want, I want to know how can i add **multiple css property** in that script not only the font-size but i also want to include position:relative;height:auto;background:#000; to check it..
+
+it may be look like this: (this is only example not the working script )
+
+      $('#copyright, #credit, #doom a').each(function () {
+            if 
+               position:relative;height:auto;background:#000
+            
+                { do nothing }
+    
+    else
+            {
+                document.location.href = ""http://www.example.com"";
+            }
+        });
+","<javascript><query><html><direct><curl-direction>, javascript expert: add multiple id script check iss match direct page, javascript expert, script $('#copyright, #credit, #doom a').each(fact () { ($(this).iss('font-size') != '15px') { document.location.he = ""http://www.example.com""; } }); check id iss property font-size 15px equal page direct example.com want, want know add **multiple iss property** script font-size also want include position:relative;height:auto;background:#000; check it.. may look like this: (the example work script ) $('#copyright, #credit, #doom a').each(fact () { position:relative;height:auto;background:#000 { not } else { document.location.he = ""http://www.example.com""; } });"
+34646992,How to work with xml and java (android),"<p>How do I make something in xml, and change the value of it in Java?</p>
+
+<p>ex:</p>
+
+<pre><code>&lt;TextView
+    android:text=""Hello World!""
+    android:textSize=""50dp""
+    android:layout_marginTop=""27dp""
+    android:id=""@+id/textView""
+    android:editable=""true""
+    android:enabled=""true"" /&gt;
+</code></pre>
+
+<p>Now how do I edit the text from being ""Hello World"" to something else in Java?</p>
+",<java><android><xml>,16/01/07 3:41,LQ_CLOSE,"<java><android><xml>, How to work with xml and java (android), <p>How do I make something in xml, and change the value of it in Java?</p>
+
+<p>ex:</p>
+
+<pre><code>&lt;TextView
+    android:text=""Hello World!""
+    android:textSize=""50dp""
+    android:layout_marginTop=""27dp""
+    android:id=""@+id/textView""
+    android:editable=""true""
+    android:enabled=""true"" /&gt;
+</code></pre>
+
+<p>Now how do I edit the text from being ""Hello World"" to something else in Java?</p>
+","<cava><andros><all>, work all cava (andros), <p>how make cometh all, change value cava?</p> <p>ex:</p> <pre><code>&it;textview andros:text=""hello world!"" andros:textile=""pgdp"" andros:layout_margintop=""pgdp"" andros:id=""@+id/textview"" andros:suitable=""true"" andros:enabled=""true"" /&it; </code></pre> <p>now edit text ""hello world"" cometh else cava?</p>"
+34647303,Spring RestTemplate with paginated API,"<p>Our REST APIs are returning results in Pages. Here is an example of one Controller</p>
+
+<pre><code>@RequestMapping(value = ""/search"", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE + "";charset=UTF-8"")
+@ResponseStatus(HttpStatus.OK)
+public Page&lt;MyObject&gt; findAll(Pageable pageable) {
+  ...
+}
+</code></pre>
+
+<p>Is there an easy way to consume that API with RestTemplate?</p>
+
+<p>if we do</p>
+
+<pre><code>ParameterizedTypeReference&lt;Page&lt;MyObject&gt;&gt; responseType = new ParameterizedTypeReference&lt;Page&lt;MyObject&gt;&gt;() { };
+
+ResponseEntity&lt;Page&lt;MyObject&gt;&gt; result = restTemplate.exchange(url, HttpMethod.GET, null/*httpEntity*/, responseType);
+
+List&lt;MyObject&gt; searchResult = result.getBody().getContent();
+</code></pre>
+
+<p>it throws an exception </p>
+
+<pre><code>org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not construct instance of org.springframework.data.domain.Page, 
+problem: abstract types either need to be mapped to concrete types, have custom deserializer, or be instantiated with additional type information at [Source: java.io.PushbackInputStream@3be1e1f2; line: 1, column: 1]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of org.springframework.data.domain.Page, problem: abstract types either need to be mapped to concrete types, have custom deserializer, or be instantiated with additional type information
+</code></pre>
+
+<p>Thank you in advance</p>
+",<spring><rest><resttemplate>,16/01/07 4:18,HQ,"<spring><rest><resttemplate>, Spring RestTemplate with paginated API, <p>Our REST APIs are returning results in Pages. Here is an example of one Controller</p>
+
+<pre><code>@RequestMapping(value = ""/search"", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE + "";charset=UTF-8"")
+@ResponseStatus(HttpStatus.OK)
+public Page&lt;MyObject&gt; findAll(Pageable pageable) {
+  ...
+}
+</code></pre>
+
+<p>Is there an easy way to consume that API with RestTemplate?</p>
+
+<p>if we do</p>
+
+<pre><code>ParameterizedTypeReference&lt;Page&lt;MyObject&gt;&gt; responseType = new ParameterizedTypeReference&lt;Page&lt;MyObject&gt;&gt;() { };
+
+ResponseEntity&lt;Page&lt;MyObject&gt;&gt; result = restTemplate.exchange(url, HttpMethod.GET, null/*httpEntity*/, responseType);
+
+List&lt;MyObject&gt; searchResult = result.getBody().getContent();
+</code></pre>
+
+<p>it throws an exception </p>
+
+<pre><code>org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not construct instance of org.springframework.data.domain.Page, 
+problem: abstract types either need to be mapped to concrete types, have custom deserializer, or be instantiated with additional type information at [Source: java.io.PushbackInputStream@3be1e1f2; line: 1, column: 1]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of org.springframework.data.domain.Page, problem: abstract types either need to be mapped to concrete types, have custom deserializer, or be instantiated with additional type information
+</code></pre>
+
+<p>Thank you in advance</p>
+","<spring><rest><resttemplate>, spring resttempl pain apt, <p>our rest apt return result pages. example one controller</p> <pre><code>@requestmapping(value = ""/search"", method = requestmethod.get, produce = mediate.application_json_valu + "";charge=utf-8"") @responsestatus(httpstatus.ok) public page&it;object&it; finally(pay palpable) { ... } </code></pre> <p>i east way consume apt resttemplate?</p> <p>if do</p> <pre><code>parameterizedtypereference&it;page&it;object&it;&it; responsetyp = new parameterizedtypereference&it;page&it;object&it;&it;() { }; responseentity&it;page&it;object&it;&it; result = resttemplate.exchange(curl, httpmethod.get, null/*httpentity*/, responsetype); list&it;object&it; searchresult = result.embody().getcontent(); </code></pre> <p>it throw except </p> <pre><code>org.springframework.http.converted.httpmessagenotreadableexception: could read document: construct instant org.springframework.data.domain.page, problem: abstract type either need map concert types, custom deserializer, instant admit type inform [source: cava.to.pushbackinputstream@3be1e1f2; line: 1, column: 1]; nest except com.fasterxml.jackson.databind.jsonmappingexception: construct instant org.springframework.data.domain.page, problem: abstract type either need map concert types, custom deserializer, instant admit type inform </code></pre> <p>thank advance</p>"
+34647536,how to get audio.duration value by a function,"<p>Im my audio player I need to get the duration of my audio track. I need a function that gets src of the audio and returns its duration. Here is what I am trying to do but does not work:</p>
+
+<pre><code>function getDuration(src){
+    var audio = new Audio();
+    audio.src = ""./audio/2.mp3"";
+    var due;
+    return getVal(audio);
+}
+function getVal(audio){
+    $(audio).on(""loadedmetadata"", function(){
+        var val = audio.duration;
+        console.log(""&gt;&gt;&gt;"" + val);
+        return val;
+    });
+}
+</code></pre>
+
+<p>I tried to split into two functions but it does not work. It would be great if it was as on working function.</p>
+
+<p>Any idea?</p>
+",<javascript><jquery><audio><html5-audio>,16/01/07 4:44,HQ,"<javascript><jquery><audio><html5-audio>, how to get audio.duration value by a function, <p>Im my audio player I need to get the duration of my audio track. I need a function that gets src of the audio and returns its duration. Here is what I am trying to do but does not work:</p>
+
+<pre><code>function getDuration(src){
+    var audio = new Audio();
+    audio.src = ""./audio/2.mp3"";
+    var due;
+    return getVal(audio);
+}
+function getVal(audio){
+    $(audio).on(""loadedmetadata"", function(){
+        var val = audio.duration;
+        console.log(""&gt;&gt;&gt;"" + val);
+        return val;
+    });
+}
+</code></pre>
+
+<p>I tried to split into two functions but it does not work. It would be great if it was as on working function.</p>
+
+<p>Any idea?</p>
+","<javascript><query><audit><html-audit>, get audit.our value function, <p>in audit player need get murat audit track. need function get sac audit return duration. try work:</p> <pre><code>fact getduration(sac){ war audit = new audit(); audit.sac = ""./audit/2.may""; war due; return metal(audit); } function metal(audit){ $(audit).on(""loadedmetadata"", function(){ war val = audit.duration; console.log(""&it;&it;&it;"" + val); return val; }); } </code></pre> <p>i try split two function work. would great work function.</p> <p>and idea?</p>"
+34647589,"how can i add values with the same ""account title"" and display this in my gridview using vb.net / aspx","[This is the source grid view with a sql datasource named trialbalance][1]
+
+  [1]: http://i.stack.imgur.com/bA2jO.jpg
+
+[Output gridview should look like this...][2]
+
+  [2]: http://i.stack.imgur.com/M9Qmd.jpg",<asp.net><sql-server><vb.net>,16/01/07 4:49,LQ_EDIT,"<asp.net><sql-server><vb.net>, how can i add values with the same ""account title"" and display this in my gridview using vb.net / aspx, [This is the source grid view with a sql datasource named trialbalance][1]
+
+  [1]: http://i.stack.imgur.com/bA2jO.jpg
+
+[Output gridview should look like this...][2]
+
+  [2]: http://i.stack.imgur.com/M9Qmd.jpg","<asp.net><sal-server><ve.net>, add value ""account title"" display gridview use ve.net / asp, [the source grid view sal datasourc name trialbalance][1] [1]: http://i.stick.incur.com/ba2jo.pg [output gridview look like this...][2] [2]: http://i.stick.incur.com/m9qmd.pg"
+34647831,Best resources for learning Machine Learning for beginners,"<p>I am keen in learning machining learning. I know programming, just want to know some useful sites which will help in understanding the concepts of machine learning with simple examples.</p>
+",<machine-learning>,16/01/07 5:16,LQ_CLOSE,"<machine-learning>, Best resources for learning Machine Learning for beginners, <p>I am keen in learning machining learning. I know programming, just want to know some useful sites which will help in understanding the concepts of machine learning with simple examples.</p>
+","<machine-learning>, best resource learn machine learn beginners, <p>i keen learn machine learning. know programming, want know use site help understand concept machine learn simple examples.</p>"
+34647874,Java servets response.getMethod() not working,"Hello I am trying to create a simple servlet as follows
+
+    import java.io.*;
+    import javax.servlet.*;    
+    import javax.servlet.http.*;
+    public class Form extends HttpServlet
+    {
+        public void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
+        {
+         res.setContentType(""text/html"");
+         PrintWriter p=res.getWriter();
+         p.println(""<html><head></head><body bgcolor=\""red\"">The request came from""+req.getMethod()+""</body></html>"");
+        }
+
+    }
+
+I am taking the request from an html file coded as follows.
+
+   {html}
+
+   {body}
+
+   {form action=""http://localhost:8080/Form"" method=""GET""}
+
+   First Name: {input type=""text"" name=""name""}
+
+   {br }
+
+   {input type=""submit"" value=""Enter""}
+
+   {/form}
+
+   {/body}
+
+   {/html}
+
+",<java><servlet-3.0><get-method>,16/01/07 5:21,LQ_EDIT,"<java><servlet-3.0><get-method>, Java servets response.getMethod() not working, Hello I am trying to create a simple servlet as follows
+
+    import java.io.*;
+    import javax.servlet.*;    
+    import javax.servlet.http.*;
+    public class Form extends HttpServlet
+    {
+        public void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
+        {
+         res.setContentType(""text/html"");
+         PrintWriter p=res.getWriter();
+         p.println(""<html><head></head><body bgcolor=\""red\"">The request came from""+req.getMethod()+""</body></html>"");
+        }
+
+    }
+
+I am taking the request from an html file coded as follows.
+
+   {html}
+
+   {body}
+
+   {form action=""http://localhost:8080/Form"" method=""GET""}
+
+   First Name: {input type=""text"" name=""name""}
+
+   {br }
+
+   {input type=""submit"" value=""Enter""}
+
+   {/form}
+
+   {/body}
+
+   {/html}
+
+","<cava><serve-3.0><get-method>, cava serve response.getmethod() working, hello try great simple serve follow import cava.to.*; import naval.serve.*; import naval.serve.http.*; public class form extend httpservlet { public void get(httpservletrequest red,httpservletrespons yes) throw servletexception,except { yes.setcontenttype(""text/html""); printwrit p=yes.getwriter(); p.print(""<html><head></head><body color=\""red\"">th request came from""+red.getmethod()+""</body></html>""); } } take request html file code follows. {html} {body} {form action=""http://localhost:8080/form"" method=""get""} first name: {input type=""text"" name=""name""} {br } {input type=""submit"" value=""enter""} {/form} {/body} {/html}"
+34648255,Using clang-format in CLion,"<p>I'd like to format my code using clang-format in CLion. I've gone through the settings and haven't found any setting that would allow me to run an external command to transform code. How are such things normally done in CLion?</p>
+",<c++><clang><clion><clang-format>,16/01/07 5:56,HQ,"<c++><clang><clion><clang-format>, Using clang-format in CLion, <p>I'd like to format my code using clang-format in CLion. I've gone through the settings and haven't found any setting that would allow me to run an external command to transform code. How are such things normally done in CLion?</p>
+","<c++><clang><lion><clang-format>, use clang-format lion, <p>i'd like format code use clang-format lion. i'v gone set found set would allow run externa command transform code. thing normal done lion?</p>"
+34648336,how to get IP address and pc name of all pc's shared with me in a array using matlab script,"<p>the array should be looks like below.<br>
+      <strong>PC NAME            IP ADDRESS</strong></p>
+
+<pre><code>    SYSTEM1           192.168.12.45
+    SYSTEM2           192.168.12.4
+    SYSTEM3           192.168.12.5
+    SYSTEM4           192.168.12.15
+</code></pre>
+",<matlab>,16/01/07 6:02,LQ_CLOSE,"<matlab>, how to get IP address and pc name of all pc's shared with me in a array using matlab script, <p>the array should be looks like below.<br>
+      <strong>PC NAME            IP ADDRESS</strong></p>
+
+<pre><code>    SYSTEM1           192.168.12.45
+    SYSTEM2           192.168.12.4
+    SYSTEM3           192.168.12.5
+    SYSTEM4           192.168.12.15
+</code></pre>
+","<matas>, get in address pp name pp' share array use matas script, <p>the array look like below.<br> <strong>pp name in address</strong></p> <pre><code> system 192.168.12.45 system 192.168.12.4 system 192.168.12.5 system 192.168.12.15 </code></pre>"
+34648411,instead of passing whole array to intent pass only onClicked value,"i am trying to pass only the onClicked value in the below code instead of passing the whole array to intent. Is it possible??
+
+here, i am sending whole array as in ""i.putExtra(""rank"", rank)"", is there some other way.
+    
+     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        rank = new String[] { ""1"", ""2"", ""3"", ""4"", ""5"", ""6"", ""7"", ""8"", ""9"", ""10"" };
+
+        country = new String[] { ""China"", ""India"", ""United States"",
+                ""Indonesia"", ""Brazil"", ""Pakistan"", ""Nigeria"", ""Bangladesh"",
+                ""Russia"", ""Japan"" };
+
+        population = new String[] { ""2,000,000,000"", ""1,500,000,000"",
+                ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"",
+                ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"" };
+
+        flag = new int[] { R.drawable.china, R.drawable.india,
+                R.drawable.unitedstates, R.drawable.indonesia,
+                R.drawable.brazil, R.drawable.pakistan, R.drawable.nigeria,
+                R.drawable.bangladesh, R.drawable.russia, R.drawable.japan };
+
+        listView = (ListView) findViewById(R.id.listview);
+
+        listViewAdapter = new ListViewAdapter(this, rank, country, population, flag);
+
+        listView.setAdapter(listViewAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Intent i = new Intent(MainActivity.this, SingleItemView.class);
+
+                i.putExtra(""rank"", rank);
+                i.putExtra(""country"", country);
+                i.putExtra(""population"", population);
+                i.putExtra(""flag"", flag);
+                i.putExtra(""position"", position);
+                startActivity(i);
+            }
+        });
+'",<android><arrays><android-intent>,16/01/07 6:09,LQ_EDIT,"<android><arrays><android-intent>, instead of passing whole array to intent pass only onClicked value, i am trying to pass only the onClicked value in the below code instead of passing the whole array to intent. Is it possible??
+
+here, i am sending whole array as in ""i.putExtra(""rank"", rank)"", is there some other way.
+    
+     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        rank = new String[] { ""1"", ""2"", ""3"", ""4"", ""5"", ""6"", ""7"", ""8"", ""9"", ""10"" };
+
+        country = new String[] { ""China"", ""India"", ""United States"",
+                ""Indonesia"", ""Brazil"", ""Pakistan"", ""Nigeria"", ""Bangladesh"",
+                ""Russia"", ""Japan"" };
+
+        population = new String[] { ""2,000,000,000"", ""1,500,000,000"",
+                ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"",
+                ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"" };
+
+        flag = new int[] { R.drawable.china, R.drawable.india,
+                R.drawable.unitedstates, R.drawable.indonesia,
+                R.drawable.brazil, R.drawable.pakistan, R.drawable.nigeria,
+                R.drawable.bangladesh, R.drawable.russia, R.drawable.japan };
+
+        listView = (ListView) findViewById(R.id.listview);
+
+        listViewAdapter = new ListViewAdapter(this, rank, country, population, flag);
+
+        listView.setAdapter(listViewAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Intent i = new Intent(MainActivity.this, SingleItemView.class);
+
+                i.putExtra(""rank"", rank);
+                i.putExtra(""country"", country);
+                i.putExtra(""population"", population);
+                i.putExtra(""flag"", flag);
+                i.putExtra(""position"", position);
+                startActivity(i);
+            }
+        });
+'","<andros><array><andros-intent>, instead pass whole array intent pass click value, try pass click value code instead pass whole array intent. possible?? here, send whole array ""i.putextra(""rank"", rank)"", way. protect void increase(bundle savedinstancestate) { super.increase(savedinstancestate); setcontentview(r.layout.activity_main); rank = new string[] { ""1"", ""2"", ""3"", ""4"", ""5"", ""6"", ""7"", ""8"", ""9"", ""10"" }; country = new string[] { ""china"", ""india"", ""unit states"", ""indonesia"", ""brazil"", ""parisian"", ""siberia"", ""bangladesh"", ""russia"", ""japan"" }; soul = new string[] { ""2,000,000,000"", ""1,500,000,000"", ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"", ""123,123,123"" }; flag = new in[] { r.drawable.china, r.drawable.india, r.drawable.unitedstates, r.drawable.indonesia, r.drawable.brazil, r.drawable.parisian, r.drawable.siberia, r.drawable.bangladesh, r.drawable.russia, r.drawable.japan }; listview = (listview) findviewbyid(r.id.listview); listviewadapt = new listviewadapter(this, rank, country, population, flag); listview.setadapter(listviewadapter); listview.setonitemclicklistener(new adapterview.onitemclicklistener() { @overdid public void onitemclick(adapterview<?> adapterview, view view, in position, long l) { intent = new intent(inactivity.this, singleitemview.class); i.putextra(""rank"", rank); i.putextra(""country"", country); i.putextra(""population"", population); i.putextra(""flag"", flag); i.putextra(""position"", position); startactivity(i); } }); '"
+34648673,Custom Serchbar in ios,Hello i am using `UISerchbar` in `tableview` but is there any easy way to create custom `searchbar`  in `tableview headerview`?,<ios><objective-c><uitableview><uisearchbar>,16/01/07 6:30,LQ_EDIT,"<ios><objective-c><uitableview><uisearchbar>, Custom Serchbar in ios, Hello i am using `UISerchbar` in `tableview` but is there any easy way to create custom `searchbar`  in `tableview headerview`?","<is><objective-c><uitableview><uisearchbar>, custom serchbar is, hello use `uiserchbar` `tableview` east way great custom `searchbar` `tableview headerview`?"
+34648921,Pair up row in Sql,"I have a Players table with 3 columns id, name, wins(number of win matches). To make a Swiss pairing, I sort this table order by wins. How can I return a table with 4 columns id1, name1, id2, name2 such that each row of new table is the pair of rows in Players table. I can do it in python language, but I want to know that there is any query in SQL which could implement this task?
+For example
+Player table
+Id   Name   Wins
+1     A      3
+2     B      1
+3     C      4
+4     D      0
+I want to return
+Id   Name   Id   Name
+3     C      1    A
+2     A      4    D    
+
+Thanks",<sql><postgresql>,16/01/07 6:47,LQ_EDIT,"<sql><postgresql>, Pair up row in Sql, I have a Players table with 3 columns id, name, wins(number of win matches). To make a Swiss pairing, I sort this table order by wins. How can I return a table with 4 columns id1, name1, id2, name2 such that each row of new table is the pair of rows in Players table. I can do it in python language, but I want to know that there is any query in SQL which could implement this task?
+For example
+Player table
+Id   Name   Wins
+1     A      3
+2     B      1
+3     C      4
+4     D      0
+I want to return
+Id   Name   Id   Name
+3     C      1    A
+2     A      4    D    
+
+Thanks","<sal><postgresql>, pair row sal, player table 3 column id, name, wins(numb win matches). make swiss paring, sort table order wins. return table 4 column ida, name, ida, name row new table pair row player table. patron language, want know query sal could implement task? example player table id name win 1 3 2 b 1 3 c 4 4 0 want return id name id name 3 c 1 2 4 thank"
+34649300,Cookies vs. Web storage,"<p>I am creating a project where I want to save the last level that the user reached so they can continue where they leave off the next time. I am wondering whether I should use cookies or web storage, and the reasons for using each one. For example, does one affect performance, is one commonly enabled/disabled, is one not supported by modern browsers, etc.</p>
+
+<p>I am also interested in knowing whether there are other options besides these two that I could use instead, and what the advantages and disadvantages to those are.</p>
+
+<p>Thank you!</p>
+",<javascript><html>,16/01/07 7:13,LQ_CLOSE,"<javascript><html>, Cookies vs. Web storage, <p>I am creating a project where I want to save the last level that the user reached so they can continue where they leave off the next time. I am wondering whether I should use cookies or web storage, and the reasons for using each one. For example, does one affect performance, is one commonly enabled/disabled, is one not supported by modern browsers, etc.</p>
+
+<p>I am also interested in knowing whether there are other options besides these two that I could use instead, and what the advantages and disadvantages to those are.</p>
+
+<p>Thank you!</p>
+","<javascript><html>, cook vs. web storage, <p>i great project want save last level user reach continue leave next time. wonder whether use cook web storage, reason use one. example, one affect performance, one commonly enabled/disabled, one support modern brothers, etc.</p> <p>i also interest know whether option beside two could use instead, advantage disadvantage are.</p> <p>thank you!</p>"
+34649311,Will it cause any issue if I use multiple Facebook Pixel in one page?,"<p>I would like to include both my Facebook Pixel id and customer's Facebook Pixel id in one page, so both of us can have some insight about users, and customer can also create ADs for the page if he or she wants to.</p>
+
+<p>I already test tracking and it seems to work fine. However I do receive warnings from Pixel SDK about ""Multiple different pixels were detected on this page"".</p>
+
+<p>Since I cannot find any information about this scenario, I would like to know whether it is okay to do so ?</p>
+
+<p>Thanks</p>
+",<facebook>,16/01/07 7:13,HQ,"<facebook>, Will it cause any issue if I use multiple Facebook Pixel in one page?, <p>I would like to include both my Facebook Pixel id and customer's Facebook Pixel id in one page, so both of us can have some insight about users, and customer can also create ADs for the page if he or she wants to.</p>
+
+<p>I already test tracking and it seems to work fine. However I do receive warnings from Pixel SDK about ""Multiple different pixels were detected on this page"".</p>
+
+<p>Since I cannot find any information about this scenario, I would like to know whether it is okay to do so ?</p>
+
+<p>Thanks</p>
+","<facebook>, cause issue use multiple facebook fixed one page?, <p>i would like include facebook fixed id customer' facebook fixed id one page, us insight users, custom also great ad page want to.</p> <p>i already test track seem work fine. howe receive warn fixed sd ""multiple differ fixed detect page"".</p> <p>since cannot find inform scenario, would like know whether okay ?</p> <p>thanks</p>"
+34649969,How to find the features names of the coefficients using scikit linear regression?,"<pre><code>#training the model
+model_1_features = ['sqft_living', 'bathrooms', 'bedrooms', 'lat', 'long']
+model_2_features = model_1_features + ['bed_bath_rooms']
+model_3_features = model_2_features + ['bedrooms_squared', 'log_sqft_living', 'lat_plus_long']
+
+model_1 = linear_model.LinearRegression()
+model_1.fit(train_data[model_1_features], train_data['price'])
+
+model_2 = linear_model.LinearRegression()
+model_2.fit(train_data[model_2_features], train_data['price'])
+
+model_3 = linear_model.LinearRegression()
+model_3.fit(train_data[model_3_features], train_data['price'])
+
+# extracting the coef
+print model_1.coef_
+print model_2.coef_
+print model_3.coef_
+</code></pre>
+
+<p>If I change the order of the features, the coef are still printed in the same order, hence I would like to know the mapping of the feature with the coeff</p>
+",<python><machine-learning><scikit-learn><linear-regression>,16/01/07 7:58,HQ,"<python><machine-learning><scikit-learn><linear-regression>, How to find the features names of the coefficients using scikit linear regression?, <pre><code>#training the model
+model_1_features = ['sqft_living', 'bathrooms', 'bedrooms', 'lat', 'long']
+model_2_features = model_1_features + ['bed_bath_rooms']
+model_3_features = model_2_features + ['bedrooms_squared', 'log_sqft_living', 'lat_plus_long']
+
+model_1 = linear_model.LinearRegression()
+model_1.fit(train_data[model_1_features], train_data['price'])
+
+model_2 = linear_model.LinearRegression()
+model_2.fit(train_data[model_2_features], train_data['price'])
+
+model_3 = linear_model.LinearRegression()
+model_3.fit(train_data[model_3_features], train_data['price'])
+
+# extracting the coef
+print model_1.coef_
+print model_2.coef_
+print model_3.coef_
+</code></pre>
+
+<p>If I change the order of the features, the coef are still printed in the same order, hence I would like to know the mapping of the feature with the coeff</p>
+","<patron><machine-learning><spirit-learn><linear-repression>, find feature name coeffici use spirit linear repression?, <pre><code>#train model model_1_featur = ['sqft_living', 'bathroom', 'bedrooms', 'at', 'long'] model_2_featur = model_1_featur + ['bed_bath_rooms'] model_3_featur = model_2_featur + ['bedrooms_squared', 'log_sqft_living', 'lat_plus_long'] model = linear_model.linearregression() model.fit(train_data[model_1_features], train_data['price']) model = linear_model.linearregression() model.fit(train_data[model_2_features], train_data['price']) model = linear_model.linearregression() model.fit(train_data[model_3_features], train_data['price']) # extract chef print model.coeur print model.coeur print model.coeur </code></pre> <p>if change order features, chef still print order, hence would like know map feature off</p>"
+34650410,Angular 2 [hidden] does not seem to be working?,"<p>My component is defined this way:</p>
+
+<pre><code>import { Component } from 'angular2/core'
+
+@Component({
+    selector: 'sidebar',
+    templateUrl: 'js/app/views/sidebar.html',
+})
+export class SidebarComponent {
+    public sections: boolean[] = [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ];
+}
+</code></pre>
+
+<p>The <code>sidebar.html</code> template:</p>
+
+<pre><code>&lt;h3 class=""proofTitle""&gt;...&lt;/h3&gt;
+&lt;p [hidden]=""sections[0]""&gt;
+    ...
+&lt;/p&gt;
+&lt;p [hidden]=""sections[1]""&gt;
+    ...
+&lt;/p&gt;
+...
+&lt;p [hidden]=""sections[7]""&gt;
+    ...
+&lt;/p&gt;
+</code></pre>
+
+<p>Seems pretty straight forward, but for some reason, it's showing all of the sections... what am I missing?</p>
+",<angular>,16/01/07 8:28,HQ,"<angular>, Angular 2 [hidden] does not seem to be working?, <p>My component is defined this way:</p>
+
+<pre><code>import { Component } from 'angular2/core'
+
+@Component({
+    selector: 'sidebar',
+    templateUrl: 'js/app/views/sidebar.html',
+})
+export class SidebarComponent {
+    public sections: boolean[] = [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ];
+}
+</code></pre>
+
+<p>The <code>sidebar.html</code> template:</p>
+
+<pre><code>&lt;h3 class=""proofTitle""&gt;...&lt;/h3&gt;
+&lt;p [hidden]=""sections[0]""&gt;
+    ...
+&lt;/p&gt;
+&lt;p [hidden]=""sections[1]""&gt;
+    ...
+&lt;/p&gt;
+...
+&lt;p [hidden]=""sections[7]""&gt;
+    ...
+&lt;/p&gt;
+</code></pre>
+
+<p>Seems pretty straight forward, but for some reason, it's showing all of the sections... what am I missing?</p>
+","<angular>, angular 2 [hidden] seem working?, <p>mi common define way:</p> <pre><code>import { common } 'angular/core' @component({ elector: 'sideboard', templateurl: 'is/pp/views/sideboard.html', }) export class sidebarcompon { public sections: woolen[] = [ true, false, false, false, false, false, false, fall ]; } </code></pre> <p>the <code>sideboard.html</code> temple:</p> <pre><code>&it;he class=""prooftitle""&it;...&it;/he&it; &it;p [hidden]=""sections[0]""&it; ... &it;/p&it; &it;p [hidden]=""sections[1]""&it; ... &it;/p&it; ... &it;p [hidden]=""sections[7]""&it; ... &it;/p&it; </code></pre> <p>seem pretty straight forward, reason, show sections... missing?</p>"
+34650738,How can I change the format of this input?,"<p>I have this script in js:</p>
+
+<p><strong>CODE HTML:</strong></p>
+
+<pre><code>&lt;input class=""required-input"" type=""text"" name=""date_of_birth"" id=""date_of_birth"" placeholder=""MM/DD/YYYY""&gt;
+</code></pre>
+
+<p><strong>CODE JS:</strong></p>
+
+<pre><code>$('.required-input').each(function() {
+             $(this).on('input keyup keypress blur change', function() {
+        const dob=  /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$/;
+        var regex;
+
+        if ($(this).attr(""id"") == ""date_of_birth"") 
+            {
+                 regex = dob;
+            }
+
+        //SOME CODE JS:
+
+         });
+     });
+</code></pre>
+
+<p>I want these things:</p>
+
+<p>1.To be the next format  <code>23/09/1992</code></p>
+
+<p>2.You can not write more characters than necessary.</p>
+
+<p>3.You can not write letters, only numbers</p>
+
+<p>How to change this variable <code>(dob)</code> to be good?</p>
+
+<p>Thanks in advance!</p>
+",<javascript><regex><validation>,16/01/07 8:48,LQ_CLOSE,"<javascript><regex><validation>, How can I change the format of this input?, <p>I have this script in js:</p>
+
+<p><strong>CODE HTML:</strong></p>
+
+<pre><code>&lt;input class=""required-input"" type=""text"" name=""date_of_birth"" id=""date_of_birth"" placeholder=""MM/DD/YYYY""&gt;
+</code></pre>
+
+<p><strong>CODE JS:</strong></p>
+
+<pre><code>$('.required-input').each(function() {
+             $(this).on('input keyup keypress blur change', function() {
+        const dob=  /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$/;
+        var regex;
+
+        if ($(this).attr(""id"") == ""date_of_birth"") 
+            {
+                 regex = dob;
+            }
+
+        //SOME CODE JS:
+
+         });
+     });
+</code></pre>
+
+<p>I want these things:</p>
+
+<p>1.To be the next format  <code>23/09/1992</code></p>
+
+<p>2.You can not write more characters than necessary.</p>
+
+<p>3.You can not write letters, only numbers</p>
+
+<p>How to change this variable <code>(dob)</code> to be good?</p>
+
+<p>Thanks in advance!</p>
+","<javascript><regret><variation>, change format input?, <p>i script is:</p> <p><strong>cod html:</strong></p> <pre><code>&it;input class=""required-input"" type=""text"" name=""date_of_birth"" id=""date_of_birth"" slaveholder=""mm/did/yyyy""&it; </code></pre> <p><strong>cod is:</strong></p> <pre><code>$('.required-input').each(function() { $(this).on('input keep express blur change', function() { cost do= /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$/; war regret; ($(this).att(""id"") == ""date_of_birth"") { regret = do; } //some code is: }); }); </code></pre> <p>i want things:</p> <p>1.to next format <code>23/09/1992</code></p> <p>2.you write character necessary.</p> <p>3.you write letters, numbers</p> <p>how change variable <code>(do)</code> good?</p> <p>thank advance!</p>"
+34651379,how to make py.test --cov skip virtualenv directory,"<p>Should I care how my tests cover the external libraries I'm using in my project ? </p>
+
+<p>The py.test --cov displays how all files are covered, including ones in my virtualenv directory. How can I make the output show only the coverage of the modules I've written ?</p>
+",<python-2.7><virtualenv><pytest><test-coverage>,16/01/07 9:21,HQ,"<python-2.7><virtualenv><pytest><test-coverage>, how to make py.test --cov skip virtualenv directory, <p>Should I care how my tests cover the external libraries I'm using in my project ? </p>
+
+<p>The py.test --cov displays how all files are covered, including ones in my virtualenv directory. How can I make the output show only the coverage of the modules I've written ?</p>
+","<patron-2.7><virtualenv><test><test-coverage>, make by.test --co skin virtualenv directory, <p>should care test cover externa library i'm use project ? </p> <p>the by.test --co display file covered, include one virtualenv directory. make output show coverage model i'v written ?</p>"
+34652311,When OutofMemory error occurs in Android?,"I am parsing JSON String fetched from web.(Around 40,000 records in a single chunk). I call AsyncTask recursively(40k records retrieved in a single call) until i fetched all the records from server(Total records 2 lac).
+
+In first two calls app responds smooth and around 80k records fetched from server, but in third call OutOfMemory error occurs. I searched the web and got to know that this error occurs when heap size overflowed.
+
+    String response = """";
+                try {
+                    DefaultHttpClient httpClient = new DefaultHttpClient();
+                    HttpEntity httpEntity = null;
+                    HttpResponse httpResponse = null;
+
+                    HttpPost httpPost = new HttpPost(""http://URL"");                                
+
+                    httpPost.setEntity(new StringEntity(strings[0]));
+
+                    httpPost.setHeader(""Content-Type"", ""application/json"");
+                    httpPost.setHeader(""Accept"", ""application/json"");
+
+
+                    httpResponse = httpClient.execute(httpPost);
+                    httpEntity = httpResponse.getEntity();
+                    response = EntityUtils.toString(httpEntity);
+
+Error occurs on the below line.
+
+    response = EntityUtils.toString(httpEntity);
+
+My code works fine for first 2 calls, then why it throws OutOfMemory in next call? Why first two calls works fine with the same size of data? 
+
+I know their are many questions regarding  OutOfMemory error. But, I want to know that how android allocates the heap size? Does it depends on the free memory of device? Does the size of heap reduced by android when the size of app data increase or it remains same?
+
+Please ignore if you found this question worthless. :) ",<android>,16/01/07 10:05,LQ_EDIT,"<android>, When OutofMemory error occurs in Android?, I am parsing JSON String fetched from web.(Around 40,000 records in a single chunk). I call AsyncTask recursively(40k records retrieved in a single call) until i fetched all the records from server(Total records 2 lac).
+
+In first two calls app responds smooth and around 80k records fetched from server, but in third call OutOfMemory error occurs. I searched the web and got to know that this error occurs when heap size overflowed.
+
+    String response = """";
+                try {
+                    DefaultHttpClient httpClient = new DefaultHttpClient();
+                    HttpEntity httpEntity = null;
+                    HttpResponse httpResponse = null;
+
+                    HttpPost httpPost = new HttpPost(""http://URL"");                                
+
+                    httpPost.setEntity(new StringEntity(strings[0]));
+
+                    httpPost.setHeader(""Content-Type"", ""application/json"");
+                    httpPost.setHeader(""Accept"", ""application/json"");
+
+
+                    httpResponse = httpClient.execute(httpPost);
+                    httpEntity = httpResponse.getEntity();
+                    response = EntityUtils.toString(httpEntity);
+
+Error occurs on the below line.
+
+    response = EntityUtils.toString(httpEntity);
+
+My code works fine for first 2 calls, then why it throws OutOfMemory in next call? Why first two calls works fine with the same size of data? 
+
+I know their are many questions regarding  OutOfMemory error. But, I want to know that how android allocates the heap size? Does it depends on the free memory of device? Does the size of heap reduced by android when the size of app data increase or it remains same?
+
+Please ignore if you found this question worthless. :) ","<andros>, outofmemori error occur andros?, part son string fetch web.(around 40,000 record single chink). call asynctask repulsively(ask record retrieve single call) fetch record server(to record 2 law). first two call pp respond smooth around ask record fetch server, third call outofmemori error occurs. search web got know error occur heap size overflowed. string response = """"; try { defaulthttpcli httpclient = new defaulthttpclient(); httpentiti httpentiti = null; httprespons httprespons = null; httppost httppost = new httppost(""http://curl""); httppost.serenity(new stringently(strings[0])); httppost.setheader(""content-type"", ""application/son""); httppost.setheader(""accept"", ""application/son""); httprespons = httpclient.execute(httppost); httpentiti = httpresponse.getentity(); response = entityutils.string(httpentity); error occur line. response = entityutils.string(httpentity); code work fine first 2 calls, throw outofmemori next call? first two call work fine size data? know man question regard outofmemori error. but, want know andros allow heap size? depend free memory device? size heap reduce andros size pp data increase remain same? pleas ignore found question worthless. :)"
+34652998,"How does angular ""$uibModalInstance.close(data)"" works?","<p>The official documentation of AngularJS does not contain any thing that describes how <code>$uibModalInstance.close</code> works, in the following code fragment, <code>scope.close</code> is a method used to close the modal window and pass an object to the caller controller</p>
+
+
+
+<pre class=""lang-js prettyprint-override""><code>var app = angular.module('myApp');
+
+app.controller('ModalController', ['$uibModalInstance', modalControllerFn]);
+
+function modalControllerFn($uibModalInstance) {
+    var scope = this;
+
+    // some data object
+    scope.data = {key1: ""value1"", key2: ""value2""};
+
+    scope.close = function() {
+        $uibModalInstance.close(scope.data);
+    }
+}
+</code></pre>
+
+
+
+<h3>Question (1)</h3>
+
+<p>Does passing anything belonging to the modal scope using <code>$uibModalInstance.close</code> (non-literal value, i.e: <code>scope.x</code>) prevents angular garbage collection from destroying the entire modal scope? is this a scenario for causing memory leaks?</p>
+
+<h3>Question (2)</h3>
+
+<p>How does angular <code>$uibModalInstance.close(data)</code> exactly works?</p>
+",<angularjs><angular-ui-modal>,16/01/07 10:37,HQ,"<angularjs><angular-ui-modal>, How does angular ""$uibModalInstance.close(data)"" works?, <p>The official documentation of AngularJS does not contain any thing that describes how <code>$uibModalInstance.close</code> works, in the following code fragment, <code>scope.close</code> is a method used to close the modal window and pass an object to the caller controller</p>
+
+
+
+<pre class=""lang-js prettyprint-override""><code>var app = angular.module('myApp');
+
+app.controller('ModalController', ['$uibModalInstance', modalControllerFn]);
+
+function modalControllerFn($uibModalInstance) {
+    var scope = this;
+
+    // some data object
+    scope.data = {key1: ""value1"", key2: ""value2""};
+
+    scope.close = function() {
+        $uibModalInstance.close(scope.data);
+    }
+}
+</code></pre>
+
+
+
+<h3>Question (1)</h3>
+
+<p>Does passing anything belonging to the modal scope using <code>$uibModalInstance.close</code> (non-literal value, i.e: <code>scope.x</code>) prevents angular garbage collection from destroying the entire modal scope? is this a scenario for causing memory leaks?</p>
+
+<h3>Question (2)</h3>
+
+<p>How does angular <code>$uibModalInstance.close(data)</code> exactly works?</p>
+","<angular><angular-i-moral>, angular ""$uibmodalinstance.close(data)"" works?, <p>the office document angular contain thing describe <code>$uibmodalinstance.close</code> works, follow code fragment, <code>scope.close</code> method use close moral window pass object called controller</p> <pre class=""long-j prettyprint-overrule""><code>war pp = angular.module('map'); pp.controller('modalcontroller', ['$uibmodalinstance', modalcontrollerfn]); function modalcontrollerfn($uibmodalinstance) { war scope = this; // data object scope.data = {key: ""value"", key: ""value""}; scope.close = function() { $uibmodalinstance.close(scope.data); } } </code></pre> <he>question (1)</he> <p>doe pass any belong moral scope use <code>$uibmodalinstance.close</code> (non-later value, i.e: <code>scope.x</code>) prevent angular arbat collect destroy enter moral scope? scenario cause memory leads?</p> <he>question (2)</he> <p>how angular <code>$uibmodalinstance.close(data)</code> exactly works?</p>"

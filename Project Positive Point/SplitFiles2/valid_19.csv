@@ -1,0 +1,113 @@
+Id,Title,Body,Tags,CreationDate,Y
+34767272,How to organize casperjs test with es6 modules,"<p>Is there a way to use ES6 modules to organise the test for CasperJS, and if not what is the normal way to organise the tests?</p>
+",<phantomjs><casperjs>,16/01/13 12:52,HQ
+34767684,create a migration file with role admin rails app,"How to create a migration file which will create a user with role admin in rails?
+
+    rails g migration User
+
+But How can I give it a role of admin to this user?
+
+",<ruby-on-rails><activerecord><migration>,16/01/13 13:13,LQ_EDIT
+34770802,ld: -bundle and -bitcode_bundle (Xcode setting ENABLE_BITCODE=YES) cannot be used together,"<p>I want to build my app <strong>with</strong> Bitcode enabled. As far as I know all my 3rd party library dependencies are Bitcode enabled. But when I do a build, I get this error:</p>
+
+<p><code>ld: -bundle and -bitcode_bundle (Xcode setting ENABLE_BITCODE=YES) cannot be used together</code></p>
+
+<p>How do I fix this?</p>
+",<xcode><swift><bitcode>,16/01/13 15:39,HQ
+34771191,matplotlib taking time when being imported,"<p>I just upgraded to the latest stable release of <code>matplotlib</code> (1.5.1) and everytime I import matplotlib I get this message:</p>
+
+<pre><code>/usr/local/lib/python2.7/dist-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+</code></pre>
+
+<p>... which always stalls for a few seconds.</p>
+
+<p>Is this the expected behaviour? Was it the same also before, but just without the printed message?</p>
+",<python><matplotlib>,16/01/13 15:54,HQ
+34772012,Capturing panic() in golang,"<p>We have a large-ish golang application that uses the logger (actually, a custom logger), to write output to a log file that is periodically rotated.</p>
+
+<p>However, when an application crashes or panic()'s, those messages go to standard error.</p>
+
+<p>Is there any way to override the panic functionality to use our logger?</p>
+",<logging><go><panic>,16/01/13 16:32,HQ
+34772320,JS framework for dividing the code into categories,"<p>I'm looking for a JS framework, which would help me to divide the code into categories. Whenever I do any apps, I don't use any framework and even tho it's working, my code looks really untidy, it lacks a nice structure. Can you advise any nicely formatted, object oriented, MVC framework which works well with node.js apps and EJS? (besides express.js)</p>
+",<javascript><node.js><frameworks>,16/01/13 16:46,LQ_CLOSE
+34772755,Detect Mobile or Windows PHP,"<p>I want to make a website and I messed something up. I want to make two versions, one for desktops and one for mobile, but do not know how to redirect people .. I want to have two folders, mobile and web and file index.php. If they use mobile phones i want to redirect in mobile folder if they use PC redirect to web folder.</p>
+
+<p>How could I do this? Thanks</p>
+
+<p>Sorry for english</p>
+",<php><redirect><mobile><web>,16/01/13 17:06,LQ_CLOSE
+34773317,Python Pandas removing substring using another column,"<p>I've tried searching around and can't figure out an easy way to do this, so I'm hoping your expertise can help.</p>
+
+<p>I have a pandas data frame with two columns</p>
+
+<pre><code>import numpy as np
+import pandas as pd
+
+pd.options.display.width = 1000
+testing = pd.DataFrame({'NAME':[
+    'FIRST', np.nan, 'NAME2', 'NAME3', 
+    'NAME4', 'NAME5', 'NAME6'], 'FULL_NAME':['FIRST LAST', np.nan, 'FIRST LAST', 'FIRST NAME3', 'FIRST NAME4 LAST', 'ANOTHER NAME', 'LAST NAME']})
+</code></pre>
+
+<p>which gives me</p>
+
+<pre><code>          FULL_NAME   NAME
+0        FIRST LAST  FIRST
+1               NaN    NaN
+2        FIRST LAST  NAME2
+3       FIRST NAME3  NAME3
+4  FIRST NAME4 LAST  NAME4
+5      ANOTHER NAME  NAME5
+6         LAST NAME  NAME6
+</code></pre>
+
+<p>what I'd like to do is take the values from the 'NAME' column and remove then from the 'FULL NAME' column if it's there. So the function would then return</p>
+
+<pre><code>          FULL_NAME   NAME           NEW
+0        FIRST LAST  FIRST          LAST
+1               NaN    NaN           NaN
+2        FIRST LAST  NAME2    FIRST LAST
+3       FIRST NAME3  NAME3         FIRST
+4  FIRST NAME4 LAST  NAME4    FIRST LAST
+5      ANOTHER NAME  NAME5  ANOTHER NAME
+6         LAST NAME  NAME6     LAST NAME
+</code></pre>
+
+<p>So far, I've defined a function below and am using the apply method. This runs rather slow on my large data set though and I'm hoping there's a more efficient way to do it. Thanks!</p>
+
+<pre><code>def address_remove(x):
+    try:
+        newADDR1 = re.sub(x['NAME'], '', x[-1])
+        newADDR1 = newADDR1.rstrip()
+        newADDR1 = newADDR1.lstrip()
+        return newADDR1
+    except:
+        return x[-1]
+</code></pre>
+",<python><string><pandas><replace><series>,16/01/13 17:35,HQ
+34775308,Leaflet: How to add a text label to a custom marker icon?,"<p>Is it possible to add text to a custom icon marker? I want to avoid having to edit the icon in an image editor just to add the text. </p>
+
+<p>I've created my custom icon marker like so:</p>
+
+<pre><code>var airfieldIcon = L.icon({
+        iconUrl: 'images/airfield.png',
+        iconSize: [48,48]
+});
+
+var airfield = L.geoJson (airfield, {
+    pointToLayer: function(feature,latlng){
+        return L.marker(latlng, {
+            icon: airfieldIcon
+        })
+    }
+}).addTo(map);
+</code></pre>
+
+<p>How would I add the text ""Banff Airfield"" as a label to this icon? Is the easiest and most efficient way through using an image editor? if so, I will do that method, but wondering if there was a better way. Thanks!</p>
+",<leaflet><mapbox>,16/01/13 19:23,HQ
+34775543,Add an a tag using css or javascript,"<p>Is it possible to make an html tag a link to another page on website using either css or javascript?  I am trying to edit a wordpress site but it only gives options for custom css and javascipt.  </p>
+
+<p>Thanks</p>
+",<javascript><css>,16/01/13 19:37,LQ_CLOSE

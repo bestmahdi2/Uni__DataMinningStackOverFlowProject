@@ -1,0 +1,1591 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34826736,Running TensorFlow on a Slurm Cluster?,"<p>I could get access to a computing cluster, specifically one node with two 12-Core CPUs, which is running with <a href=""https://en.wikipedia.org/wiki/Slurm_Workload_Manager"" rel=""noreferrer"">Slurm Workload Manager</a>.</p>
+
+<p>I would like to run <a href=""https://en.wikipedia.org/wiki/TensorFlow"" rel=""noreferrer"">TensorFlow</a> on that system but unfortunately I were not able to find any information about how to do this or if this is even possible. I am new to this but as far as I understand it, I would have to run TensorFlow by creating a Slurm job and can not directly execute python/tensorflow via ssh. </p>
+
+<p>Has anyone an idea, tutorial or any kind of source on this topic?</p>
+",<python><python-2.7><cluster-computing><tensorflow><slurm>,16/01/16 12:03,HQ,"<python><python-2.7><cluster-computing><tensorflow><slurm>, Running TensorFlow on a Slurm Cluster?, <p>I could get access to a computing cluster, specifically one node with two 12-Core CPUs, which is running with <a href=""https://en.wikipedia.org/wiki/Slurm_Workload_Manager"" rel=""noreferrer"">Slurm Workload Manager</a>.</p>
+
+<p>I would like to run <a href=""https://en.wikipedia.org/wiki/TensorFlow"" rel=""noreferrer"">TensorFlow</a> on that system but unfortunately I were not able to find any information about how to do this or if this is even possible. I am new to this but as far as I understand it, I would have to run TensorFlow by creating a Slurm job and can not directly execute python/tensorflow via ssh. </p>
+
+<p>Has anyone an idea, tutorial or any kind of source on this topic?</p>
+","<patron><patron-2.7><cluster-computing><tensorflow><slur>, run tensorflow slur cluster?, <p>i could get access compute cluster, specie one node two 12-core pus, run <a he=""http://en.wikipedia.org/wiki/slurm_workload_manager"" red=""noreferrer"">slur workload manager</a>.</p> <p>i would like run <a he=""http://en.wikipedia.org/wiki/tensorflow"" red=""noreferrer"">tensorflow</a> system unfortun all find inform even possible. new far understand it, would run tensorflow great slur job directly execute patron/tensorflow via ash. </p> <p>ha anyone idea, tutor kind source topic?</p>"
+34827293,How is the output of this simple java code 6 and not 4?,"How is the output of this simple java code 6 and not 4? Also since int x = 10 and int y = 15, how come they are able to declare int x and int y again to be 5 and x-2? I thought you can only declare the value of an int once? thanks, sorry I'm new to java.
+
+here's the code:
+
+    public class shortq
+    {
+	 public static void main (String args[])
+	 {
+	 int x = 10 , y =15;
+	 x = 5;
+	 y = x-2;
+	 System.out.println(x+1);
+	    }
+   } ",<java>,16/01/16 13:04,LQ_EDIT,"<java>, How is the output of this simple java code 6 and not 4?, How is the output of this simple java code 6 and not 4? Also since int x = 10 and int y = 15, how come they are able to declare int x and int y again to be 5 and x-2? I thought you can only declare the value of an int once? thanks, sorry I'm new to java.
+
+here's the code:
+
+    public class shortq
+    {
+	 public static void main (String args[])
+	 {
+	 int x = 10 , y =15;
+	 x = 5;
+	 y = x-2;
+	 System.out.println(x+1);
+	    }
+   } ","<cava>, output simple cava code 6 4?, output simple cava code 6 4? also since in x = 10 in = 15, come all declare in x in 5 x-2? thought declare value in once? thanks, sorry i'm new cava. here' code: public class short { public static void main (string arms[]) { in x = 10 , =15; x = 5; = x-2; system.out.print(x+1); } }"
+34827441,google chrome app offline database,"I'm building starting to learn how to build an app in google chrome.. but if I have this problem which really complicates my way.. I want to my app to be operated offline only and its database is offline, this is because I will just use my app inside our office... is there a database is very simple way to connect to a database(eg: like I'll just copy paste it in my app folder)?I would prefer that the database has a very simple documentation on how to use it.. your recomendations would be of great help . . ",<database><google-chrome>,16/01/16 13:20,LQ_EDIT,"<database><google-chrome>, google chrome app offline database, I'm building starting to learn how to build an app in google chrome.. but if I have this problem which really complicates my way.. I want to my app to be operated offline only and its database is offline, this is because I will just use my app inside our office... is there a database is very simple way to connect to a database(eg: like I'll just copy paste it in my app folder)?I would prefer that the database has a very simple documentation on how to use it.. your recomendations would be of great help . . ","<database><goose-come>, good come pp coffin database, i'm build start learn build pp good come.. problem really complex way.. want pp over coffin database office, use pp inside office... database simple way connect database(eg: like i'll copy past pp older)?i would prefer database simple document use it.. recommend would great help . ."
+34827969,joining strings in a table according to values in another column,"<p>I got a table like this:</p>
+
+<pre><code>id     words
+1     I like school.
+2     I hate school.
+3     I like cakes.
+1     I like cats.
+</code></pre>
+
+<p>Here's what I want to do, joining the strings in each row according to id. </p>
+
+<pre><code>id    words
+1    I like school. I like cats.
+2    I hate school.
+3    I like cakes.
+</code></pre>
+
+<p>Is there a package to do that in R?</p>
+",<r><string>,16/01/16 14:17,LQ_CLOSE,"<r><string>, joining strings in a table according to values in another column, <p>I got a table like this:</p>
+
+<pre><code>id     words
+1     I like school.
+2     I hate school.
+3     I like cakes.
+1     I like cats.
+</code></pre>
+
+<p>Here's what I want to do, joining the strings in each row according to id. </p>
+
+<pre><code>id    words
+1    I like school. I like cats.
+2    I hate school.
+3    I like cakes.
+</code></pre>
+
+<p>Is there a package to do that in R?</p>
+","<r><string>, join string table accord value not column, <p>i got table like this:</p> <pre><code>id word 1 like school. 2 hate school. 3 like cakes. 1 like cats. </code></pre> <p>here' want do, join string row accord id. </p> <pre><code>id word 1 like school. like cats. 2 hate school. 3 like cakes. </code></pre> <p>i package r?</p>"
+34828161,Can virtual functions be constexpr?,"<p>Can virtual functions like <code>X::f()</code> in the following code</p>
+
+<pre><code>struct X 
+{
+    constexpr virtual int f() const 
+    {
+        return 0;
+    }
+};
+</code></pre>
+
+<p>be <code>constexpr</code>?</p>
+",<c++><c++11><virtual-functions><constexpr>,16/01/16 14:34,HQ,"<c++><c++11><virtual-functions><constexpr>, Can virtual functions be constexpr?, <p>Can virtual functions like <code>X::f()</code> in the following code</p>
+
+<pre><code>struct X 
+{
+    constexpr virtual int f() const 
+    {
+        return 0;
+    }
+};
+</code></pre>
+
+<p>be <code>constexpr</code>?</p>
+","<c++><c++11><virtual-functions><constexpr>, virtual function constexpr?, <p>can virtual function like <code>x::f()</code> follow code</p> <pre><code>struck x { constexpr virtual in f() cost { return 0; } }; </code></pre> <p>be <code>constexpr</code>?</p>"
+34828267,PHP bug? Two functions with different names announced as redeclaration,"<p>I need to declare two functions with different names (small 'i' and big ""I"").</p>
+
+<pre><code>function i() {
+    echo 'Small i';
+}
+
+function I() {
+    echo 'Big I';
+}
+</code></pre>
+
+<p>PHP's output is:</p>
+
+<pre><code>PHP Fatal error:  Cannot redeclare I()
+</code></pre>
+
+<p>Why? Small ""i"" is not big ""I"".</p>
+
+<p>I tested it in Linux and in Windows.</p>
+",<php>,16/01/16 14:47,LQ_CLOSE,"<php>, PHP bug? Two functions with different names announced as redeclaration, <p>I need to declare two functions with different names (small 'i' and big ""I"").</p>
+
+<pre><code>function i() {
+    echo 'Small i';
+}
+
+function I() {
+    echo 'Big I';
+}
+</code></pre>
+
+<p>PHP's output is:</p>
+
+<pre><code>PHP Fatal error:  Cannot redeclare I()
+</code></pre>
+
+<p>Why? Small ""i"" is not big ""I"".</p>
+
+<p>I tested it in Linux and in Windows.</p>
+","<pp>, pp bug? two function differ name announce declaration, <p>i need declare two function differ name (small 'i' big ""i"").</p> <pre><code>fact i() { echo 'small i'; } function i() { echo 'big i'; } </code></pre> <p>pp' output is:</p> <pre><code>pp fatal error: cannot redeclar i() </code></pre> <p>why? small ""i"" big ""i"".</p> <p>i test line windows.</p>"
+34828418,What do 3 dots/periods/ellipsis in a relay/graphql query mean?,"<p>The <a href=""https://facebook.github.io/relay/docs/graphql-object-identification.html#content"" rel=""noreferrer"">relay docs</a> contain this fragment:</p>
+
+<pre><code>query RebelsRefetchQuery {
+  node(id: ""RmFjdGlvbjox"") {
+    id
+    ... on Faction {
+      name
+    }
+  }
+}
+</code></pre>
+
+<p>What does this <code>... on Faction</code> on syntax mean?</p>
+",<relayjs><graphql>,16/01/16 15:02,HQ,"<relayjs><graphql>, What do 3 dots/periods/ellipsis in a relay/graphql query mean?, <p>The <a href=""https://facebook.github.io/relay/docs/graphql-object-identification.html#content"" rel=""noreferrer"">relay docs</a> contain this fragment:</p>
+
+<pre><code>query RebelsRefetchQuery {
+  node(id: ""RmFjdGlvbjox"") {
+    id
+    ... on Faction {
+      name
+    }
+  }
+}
+</code></pre>
+
+<p>What does this <code>... on Faction</code> on syntax mean?</p>
+","<relays><graph>, 3 dots/periods/ellipse relay/graph query mean?, <p>the <a he=""http://facebook.github.to/relay/docs/graph-object-identification.html#content"" red=""noreferrer"">relay docs</a> contain fragment:</p> <pre><code>query rebelsrefetchqueri { node(id: ""rmfjdglvbjox"") { id ... faction { name } } } </code></pre> <p>what <code>... faction</code> santa mean?</p>"
+34828768,Is NodeJS required for a build Electron App?,"<p>I have created my own app using electron and now built it using electron-packager to an .app file.</p>
+
+<p>Of course on my Mac — with NodeJS installed — it works. Now I wonder if it would work if I sent my app to a friend who doesn't have NodeJS installed.
+So my question is: <strong>Is NodeJS required to run a packaged electron app?</strong></p>
+
+<p>Thank you!</p>
+",<javascript><node.js><electron>,16/01/16 15:35,HQ,"<javascript><node.js><electron>, Is NodeJS required for a build Electron App?, <p>I have created my own app using electron and now built it using electron-packager to an .app file.</p>
+
+<p>Of course on my Mac — with NodeJS installed — it works. Now I wonder if it would work if I sent my app to a friend who doesn't have NodeJS installed.
+So my question is: <strong>Is NodeJS required to run a packaged electron app?</strong></p>
+
+<p>Thank you!</p>
+","<javascript><node.is><electron>, nodes require build electron pp?, <p>i great pp use electron built use electron-package .pp file.</p> <p>of course mac — nodes instal — works. wonder would work sent pp friend nodes installed. question is: <strong>i nodes require run package electron pp?</strong></p> <p>thank you!</p>"
+34829488,Unable to work with React Native Async Storage,"<p>I am having difficulty working with react native async storage.
+Most of the time my code jumps off the current execution and goes to the next line without getting the results from the current line. I am getting errors most of the time.</p>
+
+<p>I tried this example-</p>
+
+<pre><code>'use strict';
+
+var React = require('react-native');
+var {
+  AsyncStorage,
+  PickerIOS,
+  Text,
+  View
+} = React;
+var PickerItemIOS = PickerIOS.Item;
+
+var STORAGE_KEY = '@AsyncStorageExample:key';
+var COLORS = ['red', 'orange', 'yellow', 'green', 'blue'];
+
+var BasicStorageExample = React.createClass({
+  componentDidMount() {
+    this._loadInitialState().done();
+  },
+
+  async _loadInitialState() {
+    try {
+      var value = await AsyncStorage.getItem(STORAGE_KEY);
+      if (value !== null){
+        this.setState({selectedValue: value});
+        this._appendMessage('Recovered selection from disk: ' + value);
+      } else {
+        this._appendMessage('Initialized with no selection on disk.');
+      }
+    } catch (error) {
+      this._appendMessage('AsyncStorage error: ' + error.message);
+    }
+  },
+
+  getInitialState() {
+    return {
+      selectedValue: COLORS[0],
+      messages: [],
+    };
+  },
+
+  render() {
+    var color = this.state.selectedValue;
+    return (
+      &lt;View&gt;
+        &lt;PickerIOS
+          selectedValue={color}
+          onValueChange={this._onValueChange}&gt;
+          {COLORS.map((value) =&gt; (
+            &lt;PickerItemIOS
+              key={value}
+              value={value}
+              label={value}
+            /&gt;
+          ))}
+        &lt;/PickerIOS&gt;
+        &lt;Text&gt;
+          {'Selected: '}
+          &lt;Text style={{color}}&gt;
+            {this.state.selectedValue}
+          &lt;/Text&gt;
+        &lt;/Text&gt;
+        &lt;Text&gt;{' '}&lt;/Text&gt;
+        &lt;Text onPress={this._removeStorage}&gt;
+          Press here to remove from storage.
+        &lt;/Text&gt;
+        &lt;Text&gt;{' '}&lt;/Text&gt;
+        &lt;Text&gt;Messages:&lt;/Text&gt;
+        {this.state.messages.map((m) =&gt; &lt;Text key={m}&gt;{m}&lt;/Text&gt;)}
+      &lt;/View&gt;
+    );
+  },
+
+  async _onValueChange(selectedValue) {
+    this.setState({selectedValue});
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, selectedValue);
+      this._appendMessage('Saved selection to disk: ' + selectedValue);
+    } catch (error) {
+      this._appendMessage('AsyncStorage error: ' + error.message);
+    }
+  },
+
+  async _removeStorage() {
+    try {
+      await AsyncStorage.removeItem(STORAGE_KEY);
+      this._appendMessage('Selection removed from disk.');
+    } catch (error) {
+      this._appendMessage('AsyncStorage error: ' + error.message);
+    }
+  },
+
+  _appendMessage(message) {
+    this.setState({messages: this.state.messages.concat(message)});
+  },
+});
+
+exports.title = 'AsyncStorage';
+exports.description = 'Asynchronous local disk storage.';
+exports.examples = [
+  {
+    title: 'Basics - getItem, setItem, removeItem',
+    render(): ReactElement { return &lt;BasicStorageExample /&gt;; }
+  },
+];
+</code></pre>
+
+<p>This works. But, my functions doesn't work as expected. I am getting <code>undefined</code>.</p>
+",<react-native>,16/01/16 16:47,HQ,"<react-native>, Unable to work with React Native Async Storage, <p>I am having difficulty working with react native async storage.
+Most of the time my code jumps off the current execution and goes to the next line without getting the results from the current line. I am getting errors most of the time.</p>
+
+<p>I tried this example-</p>
+
+<pre><code>'use strict';
+
+var React = require('react-native');
+var {
+  AsyncStorage,
+  PickerIOS,
+  Text,
+  View
+} = React;
+var PickerItemIOS = PickerIOS.Item;
+
+var STORAGE_KEY = '@AsyncStorageExample:key';
+var COLORS = ['red', 'orange', 'yellow', 'green', 'blue'];
+
+var BasicStorageExample = React.createClass({
+  componentDidMount() {
+    this._loadInitialState().done();
+  },
+
+  async _loadInitialState() {
+    try {
+      var value = await AsyncStorage.getItem(STORAGE_KEY);
+      if (value !== null){
+        this.setState({selectedValue: value});
+        this._appendMessage('Recovered selection from disk: ' + value);
+      } else {
+        this._appendMessage('Initialized with no selection on disk.');
+      }
+    } catch (error) {
+      this._appendMessage('AsyncStorage error: ' + error.message);
+    }
+  },
+
+  getInitialState() {
+    return {
+      selectedValue: COLORS[0],
+      messages: [],
+    };
+  },
+
+  render() {
+    var color = this.state.selectedValue;
+    return (
+      &lt;View&gt;
+        &lt;PickerIOS
+          selectedValue={color}
+          onValueChange={this._onValueChange}&gt;
+          {COLORS.map((value) =&gt; (
+            &lt;PickerItemIOS
+              key={value}
+              value={value}
+              label={value}
+            /&gt;
+          ))}
+        &lt;/PickerIOS&gt;
+        &lt;Text&gt;
+          {'Selected: '}
+          &lt;Text style={{color}}&gt;
+            {this.state.selectedValue}
+          &lt;/Text&gt;
+        &lt;/Text&gt;
+        &lt;Text&gt;{' '}&lt;/Text&gt;
+        &lt;Text onPress={this._removeStorage}&gt;
+          Press here to remove from storage.
+        &lt;/Text&gt;
+        &lt;Text&gt;{' '}&lt;/Text&gt;
+        &lt;Text&gt;Messages:&lt;/Text&gt;
+        {this.state.messages.map((m) =&gt; &lt;Text key={m}&gt;{m}&lt;/Text&gt;)}
+      &lt;/View&gt;
+    );
+  },
+
+  async _onValueChange(selectedValue) {
+    this.setState({selectedValue});
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, selectedValue);
+      this._appendMessage('Saved selection to disk: ' + selectedValue);
+    } catch (error) {
+      this._appendMessage('AsyncStorage error: ' + error.message);
+    }
+  },
+
+  async _removeStorage() {
+    try {
+      await AsyncStorage.removeItem(STORAGE_KEY);
+      this._appendMessage('Selection removed from disk.');
+    } catch (error) {
+      this._appendMessage('AsyncStorage error: ' + error.message);
+    }
+  },
+
+  _appendMessage(message) {
+    this.setState({messages: this.state.messages.concat(message)});
+  },
+});
+
+exports.title = 'AsyncStorage';
+exports.description = 'Asynchronous local disk storage.';
+exports.examples = [
+  {
+    title: 'Basics - getItem, setItem, removeItem',
+    render(): ReactElement { return &lt;BasicStorageExample /&gt;; }
+  },
+];
+</code></pre>
+
+<p>This works. But, my functions doesn't work as expected. I am getting <code>undefined</code>.</p>
+","<react-native>, unable work react native async storage, <p>i difficult work react native async storage. time code jump current execute go next line without get result current line. get error time.</p> <p>i try example-</p> <pre><code>'us strict'; war react = require('react-native'); war { asyncstorage, pickerios, text, view } = react; war pickeritemio = pickerios.item; war storage_key = '@asyncstorageexample:key'; war color = ['red', 'orange', 'yellow', 'green', 'blue']; war basicstorageexampl = react.createclass({ componentdidmount() { this._loadinitialstate().done(); }, async _loadinitialstate() { try { war value = await asyncstorage.petite(storage_key); (value !== null){ this.estate({selectedvalue: value}); this._appendmessage('remove select disk: ' + value); } else { this._appendmessage('into select disk.'); } } catch (error) { this._appendmessage('asyncstorag error: ' + error.message); } }, getinitialstate() { return { selectedvalue: colors[0], messages: [], }; }, render() { war color = this.state.selectedvalue; return ( &it;view&it; &it;pickerio selectedvalue={color} onvaluechange={this._onvaluechange}&it; {colors.map((value) =&it; ( &it;pickeritemio key={value} value={value} label={value} /&it; ))} &it;/pickerios&it; &it;text&it; {'selected: '} &it;text style={{color}}&it; {this.state.selectedvalue} &it;/text&it; &it;/text&it; &it;text&it;{' '}&it;/text&it; &it;text oppress={this._removestorage}&it; press remove storage. &it;/text&it; &it;text&it;{' '}&it;/text&it; &it;text&it;messages:&it;/text&it; {this.state.messages.map((m) =&it; &it;text key={m}&it;{m}&it;/text&it;)} &it;/view&it; ); }, async _onvaluechange(selectedvalue) { this.estate({selectedvalue}); try { await asyncstorage.setter(storage_key, selectedvalue); this._appendmessage('say select disk: ' + selectedvalue); } catch (error) { this._appendmessage('asyncstorag error: ' + error.message); } }, async _removestorage() { try { await asyncstorage.removeitem(storage_key); this._appendmessage('select remove disk.'); } catch (error) { this._appendmessage('asyncstorag error: ' + error.message); } }, _appendmessage(message) { this.estate({messages: this.state.messages.coat(message)}); }, }); exports.till = 'asyncstorage'; exports.rescript = 'asynchron local disk storage.'; exports.example = [ { title: 'basic - petite, setter, removeitem', render(): reacted { return &it;basicstorageexampl /&it;; } }, ]; </code></pre> <p>the works. but, function work expected. get <code>undefined</code>.</p>"
+34829600,Why is the maximal path length allowed for unix-sockets on linux 108?,"<p>When creating a unix socket, the path name (<code>man 7 unix</code>) is allowed to be maximally 108 chars long. For a friend this caused a bug in his program because his path was longer. Now we wonder how exactly that number was determined.</p>
+
+<p>I have the suspicion that the number was determined so that <code>sizeof</code> of that struct <code>sockaddr_un</code> is unambiguous compared to the sizeof of other sockaddresses like <code>sockaddr_in</code>. But if they wanted to avoid clashes with other sizeof values, why not use a prime number for example? Can someone please provide an authorative source for that?</p>
+",<c><linux><sockets><unix-socket>,16/01/16 16:58,HQ,"<c><linux><sockets><unix-socket>, Why is the maximal path length allowed for unix-sockets on linux 108?, <p>When creating a unix socket, the path name (<code>man 7 unix</code>) is allowed to be maximally 108 chars long. For a friend this caused a bug in his program because his path was longer. Now we wonder how exactly that number was determined.</p>
+
+<p>I have the suspicion that the number was determined so that <code>sizeof</code> of that struct <code>sockaddr_un</code> is unambiguous compared to the sizeof of other sockaddresses like <code>sockaddr_in</code>. But if they wanted to avoid clashes with other sizeof values, why not use a prime number for example? Can someone please provide an authorative source for that?</p>
+","<c><line><sockets><unit-socket>, maxim path length allow unit-socket line 108?, <p>when great unit socket, path name (<code>man 7 unit</code>) allow maxim 108 chair long. friend cause bug program path longer. wonder exactly number determined.</p> <p>i suspicion number determine <code>size</code> struck <code>sockaddr_un</code> unambigu compare size sockaddress like <code>sockaddr_in</code>. want avoid clash size values, use prime number example? someone pleas proved author source that?</p>"
+34829673,build script in package.json using webpack with --config flag as,"<p>In my package.json I'm trying to use <code>webpack</code> in a script but it keeps failing.</p>
+
+<pre><code>  ""scripts"": {
+    ""start"": ""node server.js"",
+    ""test"": ""mocha 'src/**/test*.coffee' --watch --compilers coffee:coffee-script/register"",
+    ""build"": ""webpack --config webpack.dist.config.js""
+  },
+</code></pre>
+
+<p>the scripts <code>start</code> and <code>test</code> works as expected but when running <code>npm build</code> in terminal I'm getting nothing:</p>
+
+<pre><code>➜  client git:(master) ✗ npm build
+➜  client git:(master) ✗ 
+</code></pre>
+
+<p>When running the command manually, things happen:</p>
+
+<pre><code>➜  client git:(master) ✗ webpack --config webpack.dist.config.js
+Hash: 9274a04acd39605afc25
+Version: webpack 1.9.10
+Time: 5206ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  5.23 MB       0  [emitted]  main
+   [0] multi main 28 bytes {0} [built]
+ [349] ../config.js 181 bytes {0} [built]
+    + 413 hidden modules
+➜  client git:(master) ✗ 
+</code></pre>
+
+<p>Have I miss understod how npm scripts are suppose to work?</p>
+",<npm>,16/01/16 17:06,HQ,"<npm>, build script in package.json using webpack with --config flag as, <p>In my package.json I'm trying to use <code>webpack</code> in a script but it keeps failing.</p>
+
+<pre><code>  ""scripts"": {
+    ""start"": ""node server.js"",
+    ""test"": ""mocha 'src/**/test*.coffee' --watch --compilers coffee:coffee-script/register"",
+    ""build"": ""webpack --config webpack.dist.config.js""
+  },
+</code></pre>
+
+<p>the scripts <code>start</code> and <code>test</code> works as expected but when running <code>npm build</code> in terminal I'm getting nothing:</p>
+
+<pre><code>➜  client git:(master) ✗ npm build
+➜  client git:(master) ✗ 
+</code></pre>
+
+<p>When running the command manually, things happen:</p>
+
+<pre><code>➜  client git:(master) ✗ webpack --config webpack.dist.config.js
+Hash: 9274a04acd39605afc25
+Version: webpack 1.9.10
+Time: 5206ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  5.23 MB       0  [emitted]  main
+   [0] multi main 28 bytes {0} [built]
+ [349] ../config.js 181 bytes {0} [built]
+    + 413 hidden modules
+➜  client git:(master) ✗ 
+</code></pre>
+
+<p>Have I miss understod how npm scripts are suppose to work?</p>
+","<nom>, build script package.son use webpack --confirm flag as, <p>in package.son i'm try use <code>webpack</code> script keep failing.</p> <pre><code> ""script"": { ""start"": ""node server.is"", ""test"": ""much 'sac/**/test*.coffee' --watch --compel coffee:coffee-script/register"", ""build"": ""webpack --confirm webpack.list.confirm.is"" }, </code></pre> <p>the script <code>start</code> <code>test</code> work expect run <code>nom build</code> german i'm get nothing:</p> <pre><code>➜ client git:(master) ✗ nom build ➜ client git:(master) ✗ </code></pre> <p>when run command mentally, thing happen:</p> <pre><code>➜ client git:(master) ✗ webpack --confirm webpack.list.confirm.j has: 9274a04acd39605afc25 version: webpack 1.9.10 time: 5206m asset size chink chink name bundle.j 5.23 mb 0 [emitted] main [0] multi main 28 bite {0} [built] [349] ../confirm.j 181 bite {0} [built] + 413 hidden model ➜ client git:(master) ✗ </code></pre> <p>have miss understood nom script suppose work?</p>"
+34829955,What is causing this: Cannot jump from switch statement to this case label,"<p>This is a switch statement that I am getting errors on:</p>
+
+<pre><code>        switch (transaction.transactionState) {
+
+        case SKPaymentTransactionStatePurchasing:
+
+            // show wait view here
+            statusLabel.text = @""Processing..."";
+            break;
+
+        case SKPaymentTransactionStatePurchased:
+
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+
+            // remove wait view and unlock iClooud Syncing
+            statusLabel.text = @""Done!"";
+
+            NSError *error = nil;
+            [SFHFKeychainUtils storeUsername:@""IAPNoob01"" andPassword:@""whatever"" forServiceName: kStoredData updateExisting:YES error:&amp;error];
+
+            // apply purchase action  - hide lock overlay and
+            [oStockLock setBackgroundImage:nil forState:UIControlStateNormal];
+
+            // do other thing to enable the features
+
+            break;
+
+        case SKPaymentTransactionStateRestored:
+
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+
+            // remove wait view here
+            statusLabel.text = @"""";
+            break;
+
+        case SKPaymentTransactionStateFailed:
+
+            if (transaction.error.code != SKErrorPaymentCancelled) {
+                NSLog(@""Error payment cancelled"");
+            }
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+            // remove wait view here
+            statusLabel.text = @""Purchase Error!"";
+            break;
+
+        default:
+            break;
+    }
+</code></pre>
+
+<p>The last two cases, plus the default, are giving me the following error:</p>
+
+<blockquote>
+  <p>Cannot jump from switch statement to this case label</p>
+</blockquote>
+
+<p>I have used the switch statement many, many times; this is the first time I have seen this.   The code has been copied from a tutorial (<a href=""http://xcodenoobies.blogspot.com/2012/04/implementing-inapp-purchase-in-xcode.html"" rel=""noreferrer"">here</a>), which I am trying to adapt for my app.  Would appreciate the help on this one.  SD</p>
+",<objective-c><switch-statement><ios9>,16/01/16 17:33,HQ,"<objective-c><switch-statement><ios9>, What is causing this: Cannot jump from switch statement to this case label, <p>This is a switch statement that I am getting errors on:</p>
+
+<pre><code>        switch (transaction.transactionState) {
+
+        case SKPaymentTransactionStatePurchasing:
+
+            // show wait view here
+            statusLabel.text = @""Processing..."";
+            break;
+
+        case SKPaymentTransactionStatePurchased:
+
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+
+            // remove wait view and unlock iClooud Syncing
+            statusLabel.text = @""Done!"";
+
+            NSError *error = nil;
+            [SFHFKeychainUtils storeUsername:@""IAPNoob01"" andPassword:@""whatever"" forServiceName: kStoredData updateExisting:YES error:&amp;error];
+
+            // apply purchase action  - hide lock overlay and
+            [oStockLock setBackgroundImage:nil forState:UIControlStateNormal];
+
+            // do other thing to enable the features
+
+            break;
+
+        case SKPaymentTransactionStateRestored:
+
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+
+            // remove wait view here
+            statusLabel.text = @"""";
+            break;
+
+        case SKPaymentTransactionStateFailed:
+
+            if (transaction.error.code != SKErrorPaymentCancelled) {
+                NSLog(@""Error payment cancelled"");
+            }
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+            // remove wait view here
+            statusLabel.text = @""Purchase Error!"";
+            break;
+
+        default:
+            break;
+    }
+</code></pre>
+
+<p>The last two cases, plus the default, are giving me the following error:</p>
+
+<blockquote>
+  <p>Cannot jump from switch statement to this case label</p>
+</blockquote>
+
+<p>I have used the switch statement many, many times; this is the first time I have seen this.   The code has been copied from a tutorial (<a href=""http://xcodenoobies.blogspot.com/2012/04/implementing-inapp-purchase-in-xcode.html"" rel=""noreferrer"">here</a>), which I am trying to adapt for my app.  Would appreciate the help on this one.  SD</p>
+","<objective-c><switch-statement><is>, cause this: cannot jump switch statement case label, <p>the switch statement get error on:</p> <pre><code> switch (transaction.transactionstate) { case skpaymenttransactionstatepurchasing: // show wait view statuslabel.text = @""processing...""; break; case skpaymenttransactionstatepurchased: [[skpaymentqueu defaultqueue] finishtransaction:transaction]; // remove wait view clock cloud son statuslabel.text = @""done!""; terror *error = nail; [sfhfkeychainutil storeusername:@""iapnoob01"" andpassword:@""whatever"" forservicename: kstoreddata updateexisting:y error:&amp;error]; // apply purchase action - hide lock overlay [ostocklock setbackgroundimage:nail prostate:uicontrolstatenormal]; // thing enable feature break; case skpaymenttransactionstaterestored: [[skpaymentqueu defaultqueue] finishtransaction:transaction]; // remove wait view statuslabel.text = @""""; break; case skpaymenttransactionstatefailed: (transaction.error.cod != skerrorpaymentcancelled) { slow(@""error payment canceled""); } [[skpaymentqueu defaultqueue] finishtransaction:transaction]; // remove wait view statuslabel.text = @""purchase error!""; break; default: break; } </code></pre> <p>the last two cases, plus default, give follow error:</p> <blockquote> <p>cannot jump switch statement case label</p> </blockquote> <p>i use switch statement many, man times; first time seen this. code copy tutor (<a he=""http://xcodenoobies.blogspot.com/2012/04/implementing-inapt-purchase-in-code.html"" red=""noreferrer"">here</a>), try adapt pp. would appreci help one. sd</p>"
+34830092,GH pages deploy via admin interface,"<p>The video on 
+<a href=""https://www.getlektor.com/docs/deployment/travisci/"" rel=""nofollow"">https://www.getlektor.com/docs/deployment/travisci/</a></p>
+
+<p>describes the set-up nicely.</p>
+
+<p>Is there an option to make run the whole local git committing &amp; pushing via the publish link in the admin interface?</p>
+",<github><deployment><publishing><github-pages><lektor>,16/01/16 17:45,LQ_CLOSE,"<github><deployment><publishing><github-pages><lektor>, GH pages deploy via admin interface, <p>The video on 
+<a href=""https://www.getlektor.com/docs/deployment/travisci/"" rel=""nofollow"">https://www.getlektor.com/docs/deployment/travisci/</a></p>
+
+<p>describes the set-up nicely.</p>
+
+<p>Is there an option to make run the whole local git committing &amp; pushing via the publish link in the admin interface?</p>
+","<github><employment><publishing><github-pages><letter>, go page deploy via admit interface, <p>the video <a he=""http://www.getlektor.com/docs/employment/travisci/"" red=""follow"">http://www.getlektor.com/docs/employment/travisci/</a></p> <p>describe set-up nicely.</p> <p>i option make run whole local git commit &amp; push via publish link admit interface?</p>"
+34830796,I'm brand new to coding,"   I am having a problem getting this code to work.  When ever I input anything 249 or lower it works as it should.  But anything else gets me the *else* statement.  My experience level with code is almost zero.  This is my first class and it's only week two.
+
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace ILAB02
+    {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double salesAmount, shippingAmount;
+            salesAmount = 0.00;
+            shippingAmount = 0.00;
+            Console.WriteLine(""What is the total amount of sales?"");
+            salesAmount = Convert.ToDouble(Console.ReadLine());
+            if (salesAmount > 5000.00)
+            {
+                shippingAmount = 20.00;
+            }
+            if (salesAmount > 1000.00 && salesAmount <= 5000.00)
+            {
+                shippingAmount = 15.00;
+            }
+            if (salesAmount > 500.00 && salesAmount<=1000.00)
+            {
+                shippingAmount = 10.00;
+            }
+            if (salesAmount > 250.00 && salesAmount <=500.00)
+            {
+                shippingAmount = 8.00;
+            }
+            if (salesAmount > 0.00 && salesAmount <=250.00)
+            {
+                shippingAmount = 5.00;
+            }
+            else
+            {
+                shippingAmount = 0.00;
+                Console.WriteLine(""Error incorrect input!"");
+            }
+            Console.WriteLine(""Total sales amount is {0:C}"",salesAmount);
+            Console.WriteLine(""Shipping charges is {0:C}"", shippingAmount);
+            Console.ReadLine();
+        }
+    }
+    }
+",<c#><if-statement>,16/01/16 18:52,LQ_EDIT,"<c#><if-statement>, I'm brand new to coding,    I am having a problem getting this code to work.  When ever I input anything 249 or lower it works as it should.  But anything else gets me the *else* statement.  My experience level with code is almost zero.  This is my first class and it's only week two.
+
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace ILAB02
+    {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double salesAmount, shippingAmount;
+            salesAmount = 0.00;
+            shippingAmount = 0.00;
+            Console.WriteLine(""What is the total amount of sales?"");
+            salesAmount = Convert.ToDouble(Console.ReadLine());
+            if (salesAmount > 5000.00)
+            {
+                shippingAmount = 20.00;
+            }
+            if (salesAmount > 1000.00 && salesAmount <= 5000.00)
+            {
+                shippingAmount = 15.00;
+            }
+            if (salesAmount > 500.00 && salesAmount<=1000.00)
+            {
+                shippingAmount = 10.00;
+            }
+            if (salesAmount > 250.00 && salesAmount <=500.00)
+            {
+                shippingAmount = 8.00;
+            }
+            if (salesAmount > 0.00 && salesAmount <=250.00)
+            {
+                shippingAmount = 5.00;
+            }
+            else
+            {
+                shippingAmount = 0.00;
+                Console.WriteLine(""Error incorrect input!"");
+            }
+            Console.WriteLine(""Total sales amount is {0:C}"",salesAmount);
+            Console.WriteLine(""Shipping charges is {0:C}"", shippingAmount);
+            Console.ReadLine();
+        }
+    }
+    }
+","<c#><if-statement>, i'm brand new coming, problem get code work. ever input any 249 lower work should. any else get *else* statement. expert level code almost zero. first class week two. use system; use system.collections.genetic; use system.line; use system.text; use system.treading.tasks; namespac ilab02 { class program { static void main(string[] arms) { doubt salesamount, shippingamount; salesamount = 0.00; shippingamount = 0.00; console.writeline(""what total amount sales?""); salesamount = convert.trouble(console.headline()); (salesamount > 5000.00) { shippingamount = 20.00; } (salesamount > 1000.00 && salesamount <= 5000.00) { shippingamount = 15.00; } (salesamount > 500.00 && salesamount<=1000.00) { shippingamount = 10.00; } (salesamount > 250.00 && salesamount <=500.00) { shippingamount = 8.00; } (salesamount > 0.00 && salesamount <=250.00) { shippingamount = 5.00; } else { shippingamount = 0.00; console.writeline(""error incorrect input!""); } console.writeline(""to sale amount {0:c}"",salesamount); console.writeline(""ship charge {0:c}"", shippingamount); console.headline(); } } }"
+34830882,How to submit login form in Rvest package w/o button argument,"<p>I am trying to scrape a web page that requires authentication using html_session() &amp; html_form() from the rvest package.
+I found this e.g. provided by Hadley Wickham, but am not able to customize it to my case.</p>
+
+<pre><code>united &lt;- html_session(""http://www.united.com/"")
+account &lt;- united %&gt;% follow_link(""Account"")
+login &lt;- account %&gt;%
+         html_nodes(""form"") %&gt;%
+         extract2(1) %&gt;%
+         html_form() %&gt;%
+         set_values(
+                `ctl00$ContentInfo$SignIn$onepass$txtField` = ""GY797363"",
+                `ctl00$ContentInfo$SignIn$password$txtPassword` = password)
+account &lt;- account %&gt;% 
+submit_form(login, ""ctl00$ContentInfo$SignInSecure"")
+</code></pre>
+
+<p>In my case, I can't find the values to set in the form, hence I am trying to give the user and pass directly:
+    set_values(""email"",""password"")</p>
+
+<p>I also don't know how to refer to submit button, so I tried:
+    submit_form(account,login)</p>
+
+<p>The error I got for the submit_form function is:
+    Error in names(submits)[[1]] : subscript out of bounds</p>
+
+<p>Any idea on how to go about this is appreciated. 
+Thank you</p>
+",<r><web-scraping><forms><rvest>,16/01/16 18:59,HQ,"<r><web-scraping><forms><rvest>, How to submit login form in Rvest package w/o button argument, <p>I am trying to scrape a web page that requires authentication using html_session() &amp; html_form() from the rvest package.
+I found this e.g. provided by Hadley Wickham, but am not able to customize it to my case.</p>
+
+<pre><code>united &lt;- html_session(""http://www.united.com/"")
+account &lt;- united %&gt;% follow_link(""Account"")
+login &lt;- account %&gt;%
+         html_nodes(""form"") %&gt;%
+         extract2(1) %&gt;%
+         html_form() %&gt;%
+         set_values(
+                `ctl00$ContentInfo$SignIn$onepass$txtField` = ""GY797363"",
+                `ctl00$ContentInfo$SignIn$password$txtPassword` = password)
+account &lt;- account %&gt;% 
+submit_form(login, ""ctl00$ContentInfo$SignInSecure"")
+</code></pre>
+
+<p>In my case, I can't find the values to set in the form, hence I am trying to give the user and pass directly:
+    set_values(""email"",""password"")</p>
+
+<p>I also don't know how to refer to submit button, so I tried:
+    submit_form(account,login)</p>
+
+<p>The error I got for the submit_form function is:
+    Error in names(submits)[[1]] : subscript out of bounds</p>
+
+<p>Any idea on how to go about this is appreciated. 
+Thank you</p>
+","<r><web-scraping><forms><rest>, submit login form rest package w/o button argument, <p>i try scrape web page require authentic use html_session() &amp; html_form() rest package. found e.g. proved handley wickham, all custom case.</p> <pre><code>unit &it;- html_session(""http://www.united.com/"") account &it;- unit %&it;% follow_link(""account"") login &it;- account %&it;% html_nodes(""form"") %&it;% extract(1) %&it;% html_form() %&it;% set_values( `ctl00$contention$signing$onepass$oatfield` = ""gy797363"", `ctl00$contention$signing$password$txtpassword` = password) account &it;- account %&it;% submit_form(login, ""ctl00$contention$signinsecure"") </code></pre> <p>in case, can't find value set form, hence try give user pass directly: set_values(""email"",""password"")</p> <p>i also know refer submit button, tried: submit_form(account,login)</p> <p>the error got submit_form function is: error names(submits)[[1]] : subscribe bounds</p> <p>and idea go appreciated. thank you</p>"
+34830908,Make the `drop` argument in `dcast` only look at the RHS of the formula,"<p>The <code>drop</code> argument in <code>dcast</code> (from ""reshape2"" or ""dplyr"") can be useful when going from a ""long"" to a ""wide"" dataset and you want to create columns even for combinations that do not exist in the long form.</p>
+
+<p>It turns out that using <code>drop</code> also affects combinations the left hand side (LHS) of the formula as well as the right hand side (RHS). Thus, it also creates extra <em>rows</em> based on the combinations of LHS values.</p>
+
+<p>Is there a way to override this behavior?</p>
+
+<hr>
+
+<p>Here's some sample data:</p>
+
+<pre><code>library(data.table)
+DT &lt;- data.table(v1 = c(1.105, 1.105, 1.105, 2.012, 2.012, 2.012),
+                 ID = c(1L, 1L, 1L, 2L, 2L, 2L), 
+                 v2 = structure(c(2L, 3L, 5L, 1L, 2L, 6L), 
+                                .Label = c(""1"", ""2"", ""3"", ""4"", ""5"", ""6""), 
+                                class = ""factor""),
+                 v3 = c(3L, 2L, 2L, 5L, 4L, 3L)) 
+</code></pre>
+
+<p>Notice that ""v2"" is a <code>factor</code> column with 6 levels. I essentially want to go from ""long"" to wide"", but add in columns for any missing factor levels (in this case ""4"").</p>
+
+<p><code>reshape</code> handles the shape, but not the missing columns:</p>
+
+<pre><code>reshape(DT, direction = ""wide"", idvar = c(""ID"", ""v1""), timevar = ""v2"")
+#       v1 ID v3.2 v3.3 v3.5 v3.1 v3.6
+# 1: 1.105  1    3    2    2   NA   NA
+# 2: 2.012  2    4   NA   NA    5    3
+</code></pre>
+
+<p><code>dcast</code> handles adding the missing columns, but only if there's one value on the LHS:</p>
+
+<pre><code>dcast(DT, ID ~ v2, value.var = ""v3"", drop = FALSE)
+#    ID  1 2  3  4  5  6
+# 1:  1 NA 3  2 NA  2 NA
+# 2:  2  5 4 NA NA NA  3
+</code></pre>
+
+<p>If there are multiple values on the LHS, the combinations of the values on the LHS are also expanded out, as if we had used <code>CJ</code> or <code>expand.grid</code>, but rows 2 and 3 are not at all of interest to me:</p>
+
+<pre><code>dcast(DT, ... ~ v2, value.var = ""v3"", drop = FALSE)
+#       v1 ID  1  2  3  4  5  6
+# 1: 1.105  1 NA  3  2 NA  2 NA
+# 2: 1.105  2 NA NA NA NA NA NA
+# 3: 2.012  1 NA NA NA NA NA NA
+# 4: 2.012  2  5  4 NA NA NA  3
+</code></pre>
+
+<p>This is similar to using <code>xtabs</code> in base R: <code>ftable(xtabs(v3 ~ ID + v1 + v2, DT))</code>.</p>
+
+<hr>
+
+<p>Is there a way to let <code>dcast</code> know that essentially, ""Hey. The combination of values on the LHS are the IDs. Don't try to fill them in for me.""</p>
+
+<p>My current approach is to do three steps, one for collapsing down the LHS values, another for spreading out the RHS values, and then one for merging the result.</p>
+
+<pre><code>merge(DT[, list(v1 = unique(v1)), .(ID)],  ## or unique(DT[, c(""ID"", ""v1""), with = FALSE])
+      dcast(DT, ID ~ v2, value.var = ""v3"", drop = FALSE), 
+      by = ""ID"")[]
+#    ID    v1  1 2  3  4  5  6
+# 1:  1 1.105 NA 3  2 NA  2 NA
+# 2:  2 2.012  5 4 NA NA NA  3
+</code></pre>
+
+<p>Is there a better approach that I'm missing?</p>
+",<r><data.table><reshape><reshape2>,16/01/16 19:01,HQ,"<r><data.table><reshape><reshape2>, Make the `drop` argument in `dcast` only look at the RHS of the formula, <p>The <code>drop</code> argument in <code>dcast</code> (from ""reshape2"" or ""dplyr"") can be useful when going from a ""long"" to a ""wide"" dataset and you want to create columns even for combinations that do not exist in the long form.</p>
+
+<p>It turns out that using <code>drop</code> also affects combinations the left hand side (LHS) of the formula as well as the right hand side (RHS). Thus, it also creates extra <em>rows</em> based on the combinations of LHS values.</p>
+
+<p>Is there a way to override this behavior?</p>
+
+<hr>
+
+<p>Here's some sample data:</p>
+
+<pre><code>library(data.table)
+DT &lt;- data.table(v1 = c(1.105, 1.105, 1.105, 2.012, 2.012, 2.012),
+                 ID = c(1L, 1L, 1L, 2L, 2L, 2L), 
+                 v2 = structure(c(2L, 3L, 5L, 1L, 2L, 6L), 
+                                .Label = c(""1"", ""2"", ""3"", ""4"", ""5"", ""6""), 
+                                class = ""factor""),
+                 v3 = c(3L, 2L, 2L, 5L, 4L, 3L)) 
+</code></pre>
+
+<p>Notice that ""v2"" is a <code>factor</code> column with 6 levels. I essentially want to go from ""long"" to wide"", but add in columns for any missing factor levels (in this case ""4"").</p>
+
+<p><code>reshape</code> handles the shape, but not the missing columns:</p>
+
+<pre><code>reshape(DT, direction = ""wide"", idvar = c(""ID"", ""v1""), timevar = ""v2"")
+#       v1 ID v3.2 v3.3 v3.5 v3.1 v3.6
+# 1: 1.105  1    3    2    2   NA   NA
+# 2: 2.012  2    4   NA   NA    5    3
+</code></pre>
+
+<p><code>dcast</code> handles adding the missing columns, but only if there's one value on the LHS:</p>
+
+<pre><code>dcast(DT, ID ~ v2, value.var = ""v3"", drop = FALSE)
+#    ID  1 2  3  4  5  6
+# 1:  1 NA 3  2 NA  2 NA
+# 2:  2  5 4 NA NA NA  3
+</code></pre>
+
+<p>If there are multiple values on the LHS, the combinations of the values on the LHS are also expanded out, as if we had used <code>CJ</code> or <code>expand.grid</code>, but rows 2 and 3 are not at all of interest to me:</p>
+
+<pre><code>dcast(DT, ... ~ v2, value.var = ""v3"", drop = FALSE)
+#       v1 ID  1  2  3  4  5  6
+# 1: 1.105  1 NA  3  2 NA  2 NA
+# 2: 1.105  2 NA NA NA NA NA NA
+# 3: 2.012  1 NA NA NA NA NA NA
+# 4: 2.012  2  5  4 NA NA NA  3
+</code></pre>
+
+<p>This is similar to using <code>xtabs</code> in base R: <code>ftable(xtabs(v3 ~ ID + v1 + v2, DT))</code>.</p>
+
+<hr>
+
+<p>Is there a way to let <code>dcast</code> know that essentially, ""Hey. The combination of values on the LHS are the IDs. Don't try to fill them in for me.""</p>
+
+<p>My current approach is to do three steps, one for collapsing down the LHS values, another for spreading out the RHS values, and then one for merging the result.</p>
+
+<pre><code>merge(DT[, list(v1 = unique(v1)), .(ID)],  ## or unique(DT[, c(""ID"", ""v1""), with = FALSE])
+      dcast(DT, ID ~ v2, value.var = ""v3"", drop = FALSE), 
+      by = ""ID"")[]
+#    ID    v1  1 2  3  4  5  6
+# 1:  1 1.105 NA 3  2 NA  2 NA
+# 2:  2 2.012  5 4 NA NA NA  3
+</code></pre>
+
+<p>Is there a better approach that I'm missing?</p>
+","<r><data.table><escape><reshape2>, make `drop` argument `cast` look oh formula, <p>the <code>drop</code> argument <code>cast</code> (from ""reshape2"" ""duly"") use go ""long"" ""wide"" dataset want great column even combine exist long form.</p> <p>it turn use <code>drop</code> also affect combine left hand side (les) formula well right hand side (ras). thus, also great extra <em>rows</em> base combine ll values.</p> <p>i way overdid behavior?</p> <he> <p>here' sample data:</p> <pre><code>library(data.table) it &it;- data.table(ve = c(1.105, 1.105, 1.105, 2.012, 2.012, 2.012), id = c(ll, ll, ll, ll, ll, ll), ve = structure(c(ll, ll, ll, ll, ll, ll), .label = c(""1"", ""2"", ""3"", ""4"", ""5"", ""6""), class = ""factor""), ve = c(ll, ll, ll, ll, ll, ll)) </code></pre> <p>notice ""ve"" <code>factor</code> column 6 levels. essential want go ""long"" wide"", add column miss factor level (in case ""4"").</p> <p><code>escape</code> hand shape, miss columns:</p> <pre><code>escape(it, direct = ""wide"", dear = c(""id"", ""ve""), timevar = ""ve"") # ve id ve.2 ve.3 ve.5 ve.1 ve.6 # 1: 1.105 1 3 2 2 na na # 2: 2.012 2 4 na na 5 3 </code></pre> <p><code>cast</code> hand ad miss columns, there' one value les:</p> <pre><code>cast(it, id ~ ve, value.war = ""ve"", drop = false) # id 1 2 3 4 5 6 # 1: 1 na 3 2 na 2 na # 2: 2 5 4 na na na 3 </code></pre> <p>if multiple value les, combine value ll also expand out, use <code>c</code> <code>expand.grid</code>, row 2 3 interest me:</p> <pre><code>cast(it, ... ~ ve, value.war = ""ve"", drop = false) # ve id 1 2 3 4 5 6 # 1: 1.105 1 na 3 2 na 2 na # 2: 1.105 2 na na na na na na # 3: 2.012 1 na na na na na na # 4: 2.012 2 5 4 na na na 3 </code></pre> <p>the similar use <code>stabs</code> base r: <code>table(stabs(ve ~ id + ve + ve, it))</code>.</p> <he> <p>i way let <code>cast</code> know essentially, ""hey. combine value ll is. try fill me.""</p> <p>mi current approach three steps, one collapse ll values, not spread oh values, one berg result.</p> <pre><code>merge(it[, list(ve = unique(ve)), .(id)], ## unique(it[, c(""id"", ""ve""), = false]) cast(it, id ~ ve, value.war = ""ve"", drop = false), = ""id"")[] # id ve 1 2 3 4 5 6 # 1: 1 1.105 na 3 2 na 2 na # 2: 2 2.012 5 4 na na na 3 </code></pre> <p>i better approach i'm missing?</p>"
+34830981,Foreach as in array without looping php,"i have code :
+
+    <?php
+        foreach($this->params as $key=>$val)
+        {
+          $this->rawRequest .= ""&$key=$val"";
+        }
+    ?>
+
+how to $this->params as $key=>$val without looping?",<php>,16/01/16 19:10,LQ_EDIT,"<php>, Foreach as in array without looping php, i have code :
+
+    <?php
+        foreach($this->params as $key=>$val)
+        {
+          $this->rawRequest .= ""&$key=$val"";
+        }
+    ?>
+
+how to $this->params as $key=>$val without looping?","<pp>, french array without loop pp, code : <?pp french($this->parma $key=>$val) { $this->rawrequest .= ""&$key=$val""; } ?> $this->parma $key=>$val without looking?"
+34831102,Andrioid request to Server,"<p>I am working on android application.
+In that app i want, Application request the server on that time also if the application is not connected with the internet.</p>
+
+<p>Is there any way to connect the server in offline time also.</p>
+",<android><api><android-activity><android-api-levels>,16/01/16 19:21,LQ_CLOSE,"<android><api><android-activity><android-api-levels>, Andrioid request to Server, <p>I am working on android application.
+In that app i want, Application request the server on that time also if the application is not connected with the internet.</p>
+
+<p>Is there any way to connect the server in offline time also.</p>
+","<andros><apt><andros-activity><andros-apt-levels>, andrioid request server, <p>i work andros application. pp want, applied request server time also applied connect internet.</p> <p>i way connect server coffin time also.</p>"
+34831328,Save Time (NSDate) in NSUserDefaults [Swift 2],"please excuse my bad english skills. I am trying to save the time once the ""user"" reachs the Limit. So the limit is 10 for example and once he reachs this limit, i want to save the current time. Then he has to wait 1 hour to continue playing. I started doing this, but I already get an error, when I try this:
+
+    var CurrentTime = NSDate()
+    CurrentTime = NSUserDefaults.standardUserDefaults()
+
+Error: Cannot assign value of type 'NSUserDefaults' to type 'NSDate'
+
+It seems like swift cannot save a 'NSDate' as a 'NSUserDefault'. I would be happy if you could help me out :)
+",<ios><swift><time><nsdate><nsuserdefaults>,16/01/16 19:45,LQ_EDIT,"<ios><swift><time><nsdate><nsuserdefaults>, Save Time (NSDate) in NSUserDefaults [Swift 2], please excuse my bad english skills. I am trying to save the time once the ""user"" reachs the Limit. So the limit is 10 for example and once he reachs this limit, i want to save the current time. Then he has to wait 1 hour to continue playing. I started doing this, but I already get an error, when I try this:
+
+    var CurrentTime = NSDate()
+    CurrentTime = NSUserDefaults.standardUserDefaults()
+
+Error: Cannot assign value of type 'NSUserDefaults' to type 'NSDate'
+
+It seems like swift cannot save a 'NSDate' as a 'NSUserDefault'. I would be happy if you could help me out :)
+","<is><swift><time><state><nsuserdefaults>, save time (state) nsuserdefault [swift 2], pleas excuse bad english skill. try save time ""user"" reach limit. limit 10 example reach limit, want save current time. wait 1 hour continue playing. start this, already get error, try this: war currenttim = state() currenttim = nsuserdefaults.standarduserdefaults() error: cannot assign value type 'nsuserdefaults' type 'state' seem like swift cannot save 'state' 'nsuserdefault'. would happy could help :)"
+34831700,change select value when press button,"<p>i'm still Beginner at this
+i have table and i select data between two date range using this code and its working fine for me</p>
+
+<pre><code>$StartDate = ""2016-01-01"";
+$EndDate =  ""2016-12-30"";
+$result = mysql_query(""SELECT *FROM users where submit_date BETWEEN '$StartDate' AND '$EndDate'"") or die(mysql_error());
+</code></pre>
+
+<p>then i added 2 data picker and button</p>
+
+<pre><code>echo ""&lt;form method=post action=&gt;&lt;table&gt;"".
+""&lt;tr&gt;&lt;td&gt;Start Date : &lt;/td&gt;&lt;td&gt;&lt;input type=date name=StartDate value=$StartDate&gt;&lt;/td&gt;&lt;/tr&gt;"".
+""&lt;tr&gt;&lt;td&gt;End Date : &lt;/td&gt;&lt;td&gt;&lt;input type=date name=EndDate value=$EndDate&gt;&lt;/td&gt;&lt;/tr&gt;"".
+""&lt;tr&gt;&lt;td colspan=2&gt;&lt;input type=submit name=UpdateSelect value=Set&gt;&lt;/td&gt;&lt;/tr&gt;"".
+""&lt;/table&gt;&lt;/form&gt;"";
+</code></pre>
+
+<p>now i need help with this
+how to update the page when i press the sumbit button 
+to start selecting from the new start date and end date.</p>
+
+<p>i'm sorry for my bad english. 
+and thanks</p>
+",<php><html><mysql><sql>,16/01/16 20:20,LQ_CLOSE,"<php><html><mysql><sql>, change select value when press button, <p>i'm still Beginner at this
+i have table and i select data between two date range using this code and its working fine for me</p>
+
+<pre><code>$StartDate = ""2016-01-01"";
+$EndDate =  ""2016-12-30"";
+$result = mysql_query(""SELECT *FROM users where submit_date BETWEEN '$StartDate' AND '$EndDate'"") or die(mysql_error());
+</code></pre>
+
+<p>then i added 2 data picker and button</p>
+
+<pre><code>echo ""&lt;form method=post action=&gt;&lt;table&gt;"".
+""&lt;tr&gt;&lt;td&gt;Start Date : &lt;/td&gt;&lt;td&gt;&lt;input type=date name=StartDate value=$StartDate&gt;&lt;/td&gt;&lt;/tr&gt;"".
+""&lt;tr&gt;&lt;td&gt;End Date : &lt;/td&gt;&lt;td&gt;&lt;input type=date name=EndDate value=$EndDate&gt;&lt;/td&gt;&lt;/tr&gt;"".
+""&lt;tr&gt;&lt;td colspan=2&gt;&lt;input type=submit name=UpdateSelect value=Set&gt;&lt;/td&gt;&lt;/tr&gt;"".
+""&lt;/table&gt;&lt;/form&gt;"";
+</code></pre>
+
+<p>now i need help with this
+how to update the page when i press the sumbit button 
+to start selecting from the new start date and end date.</p>
+
+<p>i'm sorry for my bad english. 
+and thanks</p>
+","<pp><html><myself><sal>, change select value press button, <p>i'm still begin table select data two date rang use code work fine me</p> <pre><code>$started = ""2016-01-01""; $enddat = ""2016-12-30""; $result = mysql_query(""select *from user submit '$startdate' '$exudate'"") die(mysql_error()); </code></pre> <p>then ad 2 data picked button</p> <pre><code>echo ""&it;form method=post action=&it;&it;table&it;"". ""&it;tr&it;&it;to&it;start date : &it;/to&it;&it;to&it;&it;input type=d name=started value=$startdate&it;&it;/to&it;&it;/tr&it;"". ""&it;tr&it;&it;to&it;end date : &it;/to&it;&it;to&it;&it;input type=d name=end value=$exudate&it;&it;/to&it;&it;/tr&it;"". ""&it;tr&it;&it;to colspan=2&it;&it;input type=submit name=updateselect value=set&it;&it;/to&it;&it;/tr&it;"". ""&it;/table&it;&it;/form&it;""; </code></pre> <p>now need help update page press submit button start select new start date end date.</p> <p>i'm sorry bad english. thanks</p>"
+34831782,"im creating windows form application, how can i ask user to enter name in block letters?","i have started windows form application. i want that when a registration form runs,  it should ask user to enter name in block letters, any text box should not be left NULL, and how to create a text which should alpha numeric? please help soon.",<c#><winforms><visual-studio>,16/01/16 20:27,LQ_EDIT,"<c#><winforms><visual-studio>, im creating windows form application, how can i ask user to enter name in block letters?, i have started windows form application. i want that when a registration form runs,  it should ask user to enter name in block letters, any text box should not be left NULL, and how to create a text which should alpha numeric? please help soon.","<c#><informs><visual-studio>, in great window form application, ask user enter name block letters?, start window form application. want register form runs, ask user enter name block letters, text box left null, great text alpha numerical? pleas help soon."
+34832405,Cant get ASP.NET MVC 6 Controller to return JSON,"<p>I have an MVC 6 project in which i am using Fiddler to test out Web API. If i take the following controller action which uses EntityFramework 7 to return a List. Then the html will render fine.</p>
+
+<pre><code>[HttpGet(""/"")]
+public IActionResult Index()
+{
+    var model = orderRepository.GetAll();
+
+    return View(model);
+}
+</code></pre>
+
+<p>But when i try to return a Json response instead i get a 502 error.</p>
+
+<pre><code>[HttpGet(""/"")]
+public JsonResult Index()
+{
+    var model = orderRepository.GetAll();
+
+    return Json(model);
+}
+</code></pre>
+
+<p>Any Idea on why the object isnt serialized into json correctly?</p>
+",<c#><json><asp.net-web-api><asp.net-core-mvc><entity-framework-core>,16/01/16 21:36,HQ,"<c#><json><asp.net-web-api><asp.net-core-mvc><entity-framework-core>, Cant get ASP.NET MVC 6 Controller to return JSON, <p>I have an MVC 6 project in which i am using Fiddler to test out Web API. If i take the following controller action which uses EntityFramework 7 to return a List. Then the html will render fine.</p>
+
+<pre><code>[HttpGet(""/"")]
+public IActionResult Index()
+{
+    var model = orderRepository.GetAll();
+
+    return View(model);
+}
+</code></pre>
+
+<p>But when i try to return a Json response instead i get a 502 error.</p>
+
+<pre><code>[HttpGet(""/"")]
+public JsonResult Index()
+{
+    var model = orderRepository.GetAll();
+
+    return Json(model);
+}
+</code></pre>
+
+<p>Any Idea on why the object isnt serialized into json correctly?</p>
+","<c#><son><asp.net-web-apt><asp.net-core-mac><entity-framework-core>, can get asp.net mac 6 control return son, <p>i mac 6 project use fiddle test web apt. take follow control action use entityframework 7 return list. html render fine.</p> <pre><code>[httpget(""/"")] public iactionresult index() { war model = orderrepository.tall(); return view(model); } </code></pre> <p>but try return son response instead get 502 error.</p> <pre><code>[httpget(""/"")] public jsonresult index() { war model = orderrepository.tall(); return son(model); } </code></pre> <p>and idea object isn aerial son correctly?</p>"
+34832578,Android databinding - How to get dimensions from dimens.xml,"<p>I want to set margins based on dimensions i have created in dimens.xml  The dimensions it sself works fine, its just data binding cant find it in the case below:</p>
+
+<pre><code>&lt;TextView
+           android:id=""@+id/title_main""
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+        android:layout_centerHorizontal=""true""
+        android:layout_below=""@+id/disableButton""
+*************
+        android:layout_marginBottom=""@{@bool/showAds ? 
+@dimen/frontpage_margin_ads: @dimen/frontpage_margin_noads}""
+*************        
+android:gravity=""center_horizontal""
+        android:text=""@string/app_name""
+        android:textColor=""@android:color/holo_orange_dark""
+        android:contentDescription=""@string/app_name""
+        android:textSize=""64sp""
+        android:textStyle=""bold"" /&gt;
+</code></pre>
+
+<p>it did find it but it says that marginbottom cannot take type float. How can i fix this? I tried casting both dimens to int but then it complains that it cannot be casted to int.   </p>
+
+<p>My dimensions xml file looks like this:</p>
+
+<pre><code>    &lt;resources&gt;
+
+    &lt;!-- Default screen margins, per the Android Design guidelines. --&gt;
+    &lt;dimen name=""activity_horizontal_margin""&gt;16dp&lt;/dimen&gt;
+    &lt;dimen name=""activity_vertical_margin""&gt;16dp&lt;/dimen&gt;
+    &lt;dimen name=""bigText""&gt;44sp&lt;/dimen&gt;
+    &lt;dimen name=""littleText""&gt;44sp&lt;/dimen&gt;
+    &lt;dimen name=""mediumText""&gt;40sp&lt;/dimen&gt;
+        &lt;dimen name=""smallText""&gt;24sp&lt;/dimen&gt;
+    &lt;dimen name=""fab_margin""&gt;16dp&lt;/dimen&gt;
+    &lt;dimen name=""frontpage_margin_noads""&gt;0dp&lt;/dimen&gt;
+    &lt;dimen name=""frontpage_margin_ads""&gt;13dp&lt;/dimen&gt;
+
+
+&lt;/resources&gt;
+</code></pre>
+",<android><data-binding>,16/01/16 21:55,HQ,"<android><data-binding>, Android databinding - How to get dimensions from dimens.xml, <p>I want to set margins based on dimensions i have created in dimens.xml  The dimensions it sself works fine, its just data binding cant find it in the case below:</p>
+
+<pre><code>&lt;TextView
+           android:id=""@+id/title_main""
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+        android:layout_centerHorizontal=""true""
+        android:layout_below=""@+id/disableButton""
+*************
+        android:layout_marginBottom=""@{@bool/showAds ? 
+@dimen/frontpage_margin_ads: @dimen/frontpage_margin_noads}""
+*************        
+android:gravity=""center_horizontal""
+        android:text=""@string/app_name""
+        android:textColor=""@android:color/holo_orange_dark""
+        android:contentDescription=""@string/app_name""
+        android:textSize=""64sp""
+        android:textStyle=""bold"" /&gt;
+</code></pre>
+
+<p>it did find it but it says that marginbottom cannot take type float. How can i fix this? I tried casting both dimens to int but then it complains that it cannot be casted to int.   </p>
+
+<p>My dimensions xml file looks like this:</p>
+
+<pre><code>    &lt;resources&gt;
+
+    &lt;!-- Default screen margins, per the Android Design guidelines. --&gt;
+    &lt;dimen name=""activity_horizontal_margin""&gt;16dp&lt;/dimen&gt;
+    &lt;dimen name=""activity_vertical_margin""&gt;16dp&lt;/dimen&gt;
+    &lt;dimen name=""bigText""&gt;44sp&lt;/dimen&gt;
+    &lt;dimen name=""littleText""&gt;44sp&lt;/dimen&gt;
+    &lt;dimen name=""mediumText""&gt;40sp&lt;/dimen&gt;
+        &lt;dimen name=""smallText""&gt;24sp&lt;/dimen&gt;
+    &lt;dimen name=""fab_margin""&gt;16dp&lt;/dimen&gt;
+    &lt;dimen name=""frontpage_margin_noads""&gt;0dp&lt;/dimen&gt;
+    &lt;dimen name=""frontpage_margin_ads""&gt;13dp&lt;/dimen&gt;
+
+
+&lt;/resources&gt;
+</code></pre>
+","<andros><data-binding>, andros databind - get times times.all, <p>i want set margin base times great times.all times self work fine, data bind can find case below:</p> <pre><code>&it;textview andros:id=""@+id/title_main"" andros:layout_width=""wrap_content"" andros:layout_height=""wrap_content"" andros:layout_centerhorizontal=""true"" andros:layout_below=""@+id/disablebutton"" ************* andros:layout_marginbottom=""@{@book/showed ? @time/frontpage_margin_ads: @time/frontpage_margin_noads}"" ************* andros:gravity=""center_horizontal"" andros:text=""@string/app_name"" andros:textcolor=""@andros:color/holo_orange_dark"" andros:contentdescription=""@string/app_name"" andros:textile=""wisp"" andros:textstyle=""bold"" /&it; </code></pre> <p>it find say marginbottom cannot take type float. fix this? try cast time in complain cannot cast in. </p> <p>mi times all file look like this:</p> <pre><code> &it;resources&it; &it;!-- default screen margins, per andros design guideline. --&it; &it;time name=""activity_horizontal_margin""&it;pgdp&it;/time&it; &it;time name=""activity_vertical_margin""&it;pgdp&it;/time&it; &it;time name=""biggest""&it;wisp&it;/time&it; &it;time name=""littletext""&it;wisp&it;/time&it; &it;time name=""mediumtext""&it;wisp&it;/time&it; &it;time name=""smallest""&it;wisp&it;/time&it; &it;time name=""fab_margin""&it;pgdp&it;/time&it; &it;time name=""frontpage_margin_noads""&it;gdp&it;/time&it; &it;time name=""frontpage_margin_ads""&it;pgdp&it;/time&it; &it;/resources&it; </code></pre>"
+34832712,how to derive cluster properties,"I have clustered ~40000 points into 79 clusters. Each point is a vector of 18 features. I want to 'derive' the characteristics of each cluster - the prominent features/characteristics of the clusters. Are there machine-learning algorithms to derive this?
+
+Thanks.",<machine-learning><cluster-analysis><data-mining>,16/01/16 22:10,LQ_EDIT,"<machine-learning><cluster-analysis><data-mining>, how to derive cluster properties, I have clustered ~40000 points into 79 clusters. Each point is a vector of 18 features. I want to 'derive' the characteristics of each cluster - the prominent features/characteristics of the clusters. Are there machine-learning algorithms to derive this?
+
+Thanks.","<machine-learning><cluster-analysis><data-mining>, derive cluster properties, cluster ~40000 point 79 clusters. point vector 18 features. want 'derive' characterise cluster - promise features/characterise clusters. machine-learn algorithm derive this? thanks."
+34832755,Nested Touchable with absolute position,"<p>I need to implement an interface where an object is clickable, but an area of this object does another action, like this:</p>
+
+<pre><code>|-----------|
+|        |  | -&gt; clicking on this small area does an action
+|        ---|
+|           |
+|           |
+|           | -&gt; clicking on this area does another action
+|           |
+|-----------|
+</code></pre>
+
+<p>I did an implementation similar this structure:</p>
+
+<pre><code>&lt;View&gt; // Container
+  &lt;Touchable onPress={do X}&gt; // Large area
+  &lt;Touchable onPress={do Y} style={{position: absolute, top: 0, right: 0}}&gt; // Small area
+&lt;/View&gt;
+</code></pre>
+
+<p>The problem is that the small area never activate the onPress props. The event is always triggered on the large area.</p>
+
+<p>Can someone help me with this?</p>
+
+<p>Thanks!</p>
+",<reactjs><react-native>,16/01/16 22:16,HQ,"<reactjs><react-native>, Nested Touchable with absolute position, <p>I need to implement an interface where an object is clickable, but an area of this object does another action, like this:</p>
+
+<pre><code>|-----------|
+|        |  | -&gt; clicking on this small area does an action
+|        ---|
+|           |
+|           |
+|           | -&gt; clicking on this area does another action
+|           |
+|-----------|
+</code></pre>
+
+<p>I did an implementation similar this structure:</p>
+
+<pre><code>&lt;View&gt; // Container
+  &lt;Touchable onPress={do X}&gt; // Large area
+  &lt;Touchable onPress={do Y} style={{position: absolute, top: 0, right: 0}}&gt; // Small area
+&lt;/View&gt;
+</code></pre>
+
+<p>The problem is that the small area never activate the onPress props. The event is always triggered on the large area.</p>
+
+<p>Can someone help me with this?</p>
+
+<p>Thanks!</p>
+","<reacts><react-native>, nest touchabl absolute position, <p>i need implement interface object clickable, area object not action, like this:</p> <pre><code>|-----------| | | | -&it; click small area action | ---| | | | | | | -&it; click area not action | | |-----------| </code></pre> <p>i implement similar structure:</p> <pre><code>&it;view&it; // contain &it;touchabl oppress={do x}&it; // large area &it;touchabl oppress={do y} style={{position: absolute, top: 0, right: 0}}&it; // small area &it;/view&it; </code></pre> <p>the problem small area never active oppress drops. event away trigger large area.</p> <p>can someone help this?</p> <p>thanks!</p>"
+34832893,Jquery Ajax method POST does not work on hosting,"I've been working on a website for quite some time, but it was all done on localhost. After making login form work properly I decided to upload it to hosting.  
+Issue is that callback functions of ajax don't seem to work if I use method: ""POST"".  
+If I change POST to GET it will work...  
+  
+Ajax code:
+  
+
+    $.ajax({
+          method: 'POST',
+          url: ""php/login.php"",
+          data: { username: val_username, password: val_password },
+          success: function(response) {
+            if (response == 0) {
+              location.reload();
+            } else {
+              alert(""Wrong username or password. Error #""+response);
+            }
+          }
+        });
+
+login.php
+
+    <?php
+
+    session_start();
+
+    require ""../php_includes/mysql.php"";
+
+    // Create connection
+	$conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
+	// Check connection
+	if ($conn->connect_error) {
+	  die(""Connection failed: "" . $conn->connect_error);
+	}
+
+	// escape your parameters to prevent sql injection
+	$username = mysqli_real_escape_string($conn, $_POST['username']);
+	$password = mysqli_real_escape_string($conn, $_POST['password']);
+
+	$sql = ""SELECT * FROM korisnici WHERE username='$username'"";
+	$sql_result = $conn->query($sql);
+
+	if ($sql_result->num_rows > 0) {
+		$row = $sql_result->fetch_assoc();
+		if (password_verify($password, $row[""password""])) {
+			$_SESSION[""loggedin""] = true;
+			$_SESSION[""userid""] = $row[""id""];
+			echo 0;
+		} else echo 2;
+	} else echo 1;
+
+	?>
+
+
+I have checked all the file locations, no issue there, since everything works if I change method to GET. I tried changing datatypes in ajax, tried adding some headers to php file that I've found searching around stackoverflow, but nothing helps...",<javascript><php><jquery><ajax><post>,16/01/16 22:34,LQ_EDIT,"<javascript><php><jquery><ajax><post>, Jquery Ajax method POST does not work on hosting, I've been working on a website for quite some time, but it was all done on localhost. After making login form work properly I decided to upload it to hosting.  
+Issue is that callback functions of ajax don't seem to work if I use method: ""POST"".  
+If I change POST to GET it will work...  
+  
+Ajax code:
+  
+
+    $.ajax({
+          method: 'POST',
+          url: ""php/login.php"",
+          data: { username: val_username, password: val_password },
+          success: function(response) {
+            if (response == 0) {
+              location.reload();
+            } else {
+              alert(""Wrong username or password. Error #""+response);
+            }
+          }
+        });
+
+login.php
+
+    <?php
+
+    session_start();
+
+    require ""../php_includes/mysql.php"";
+
+    // Create connection
+	$conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
+	// Check connection
+	if ($conn->connect_error) {
+	  die(""Connection failed: "" . $conn->connect_error);
+	}
+
+	// escape your parameters to prevent sql injection
+	$username = mysqli_real_escape_string($conn, $_POST['username']);
+	$password = mysqli_real_escape_string($conn, $_POST['password']);
+
+	$sql = ""SELECT * FROM korisnici WHERE username='$username'"";
+	$sql_result = $conn->query($sql);
+
+	if ($sql_result->num_rows > 0) {
+		$row = $sql_result->fetch_assoc();
+		if (password_verify($password, $row[""password""])) {
+			$_SESSION[""loggedin""] = true;
+			$_SESSION[""userid""] = $row[""id""];
+			echo 0;
+		} else echo 2;
+	} else echo 1;
+
+	?>
+
+
+I have checked all the file locations, no issue there, since everything works if I change method to GET. I tried changing datatypes in ajax, tried adding some headers to php file that I've found searching around stackoverflow, but nothing helps...","<javascript><pp><query><ajar><post>, query ajar method post work costing, i'v work west quit time, done localhost. make login form work properly decide unload costing. issue callback function ajar seem work use method: ""post"". change post get work... ajar code: $.ajar({ method: 'post', curl: ""pp/login.pp"", data: { surname: val_username, password: val_password }, success: function(response) { (response == 0) { location.reload(); } else { alert(""wrong usernam password. error #""+response); } } }); login.pp <?pp session_start(); require ""../php_includes/myself.pp""; // great connect $corn = new myself($observer, $db_user, $db_pass, $db_name); // check connect ($corn->connect_error) { die(""connect failed: "" . $corn->connect_error); } // escape parapet prevent sal inject $usernam = mysqli_real_escape_string($corn, $post['surname']); $password = mysqli_real_escape_string($corn, $post['password']); $sal = ""select * korisnici surname='$surname'""; $sql_result = $corn->query($sal); ($sql_result->num_row > 0) { $row = $sql_result->fetch_assoc(); (password_verify($password, $row[""password""])) { $session[""loggedin""] = true; $session[""used""] = $row[""id""]; echo 0; } else echo 2; } else echo 1; ?> check file locations, issue there, since every work change method get. try change datatyp ajar, try ad header pp file i'v found search around stackoverflow, not helps..."
+34833000,Django: change the value of a field for all objects in a queryset,"<p>I have a model <code>MyModel</code> with a boolean field <code>active</code></p>
+
+<p>Elsewhere, I am retrieving a queryset:</p>
+
+<pre><code>qs = MyModel.Objects.filter(....) 
+</code></pre>
+
+<p>how can I set <code>active=False</code> for all objects in this <code>qs</code>?</p>
+",<python><django><django-queryset>,16/01/16 22:46,HQ,"<python><django><django-queryset>, Django: change the value of a field for all objects in a queryset, <p>I have a model <code>MyModel</code> with a boolean field <code>active</code></p>
+
+<p>Elsewhere, I am retrieving a queryset:</p>
+
+<pre><code>qs = MyModel.Objects.filter(....) 
+</code></pre>
+
+<p>how can I set <code>active=False</code> for all objects in this <code>qs</code>?</p>
+","<patron><django><django-queryset>, django: change value field object queryset, <p>i model <code>model</code> woolen field <code>active</code></p> <p>elsewhere, retrieve queryset:</p> <pre><code>q = model.objects.filter(....) </code></pre> <p>how set <code>active=false</code> object <code>is</code>?</p>"
+34833044,Remove trailing zeros from string java,"<p>Although I have seen a question similar to this one asked quite a few times, I actually mean remove all trailing zeroes.</p>
+
+<p>I would like to convert something like</p>
+
+<pre><code>""1903895810000""
+</code></pre>
+
+<p>to</p>
+
+<pre><code>""190389581""
+</code></pre>
+
+<p>I am looking for a String.replace() solution</p>
+",<java>,16/01/16 22:51,LQ_CLOSE,"<java>, Remove trailing zeros from string java, <p>Although I have seen a question similar to this one asked quite a few times, I actually mean remove all trailing zeroes.</p>
+
+<p>I would like to convert something like</p>
+
+<pre><code>""1903895810000""
+</code></pre>
+
+<p>to</p>
+
+<pre><code>""190389581""
+</code></pre>
+
+<p>I am looking for a String.replace() solution</p>
+","<cava>, remove trail zero string cava, <p>although seen question similar one ask quit times, actual mean remove trail heroes.</p> <p>i would like convert cometh like</p> <pre><code>""1903895810000"" </code></pre> <p>to</p> <pre><code>""190389581"" </code></pre> <p>i look string.replace() solution</p>"
+34833120,Azure Web Apps : How to access specific instance directly via URL?,"<p>We have deployed our Sitecore CMS on to Azure Web Apps and having some indexing issues or similar. i.e. the updated changes is reflected for some users and not for all.</p>
+
+<p>We have a scale turned on to 2. </p>
+
+<p>I would like to troubleshoot by accessing the instance 1 and 2 directly via URL to make sure both instances have index built 100%. </p>
+
+<p>How do I access each Azure Web Role instances directly via URL?</p>
+
+<p>Thanks.</p>
+",<azure><azure-web-sites>,16/01/16 23:01,HQ,"<azure><azure-web-sites>, Azure Web Apps : How to access specific instance directly via URL?, <p>We have deployed our Sitecore CMS on to Azure Web Apps and having some indexing issues or similar. i.e. the updated changes is reflected for some users and not for all.</p>
+
+<p>We have a scale turned on to 2. </p>
+
+<p>I would like to troubleshoot by accessing the instance 1 and 2 directly via URL to make sure both instances have index built 100%. </p>
+
+<p>How do I access each Azure Web Role instances directly via URL?</p>
+
+<p>Thanks.</p>
+","<azure><azure-web-sites>, azur web pp : access specie instant directly via curl?, <p>we deploy sitecor cm azur web pp index issue similar. i.e. update change reflect user all.</p> <p>we scale turn 2. </p> <p>i would like troubleshoot access instant 1 2 directly via curl make sure instant index built 100%. </p> <p>how access azur web role instant directly via curl?</p> <p>thanks.</p>"
+34833627,"Error ""You must not call setTag() on a view Glide is targeting"" when use Glide","<p>I use <a href=""https://github.com/bumptech/glide"">Glide</a> library inner custom adapter view in my apps. But I have Error :</p>
+
+<pre><code>""You must not call setTag() on a view Glide is targeting"" 
+</code></pre>
+
+<p>This part of my code :</p>
+
+<pre><code> @Override
+    public View getView(int position, View view, ViewGroup container) {
+        ViewHolder holder;
+        if (view == null) {
+            holder = new ViewHolder();
+            view = holder.imageView = new ImageView(context);
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
+
+        holder.imageView.setAdjustViewBounds(true);
+        LinearLayout.LayoutParams vp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        holder.imageView .setLayoutParams(vp);
+        holder.imageView .setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        String var_news_article_images = imageIdList.get(getPosition(position));
+
+        Glide.with(context)
+                .load(var_news_article_images)
+                .placeholder(R.drawable.placeholder)
+               .into(holder.imageView);
+
+               return view;
+    }
+</code></pre>
+
+<p>so how to fix it ?</p>
+",<android><android-glide>,16/01/17 0:12,HQ,"<android><android-glide>, Error ""You must not call setTag() on a view Glide is targeting"" when use Glide, <p>I use <a href=""https://github.com/bumptech/glide"">Glide</a> library inner custom adapter view in my apps. But I have Error :</p>
+
+<pre><code>""You must not call setTag() on a view Glide is targeting"" 
+</code></pre>
+
+<p>This part of my code :</p>
+
+<pre><code> @Override
+    public View getView(int position, View view, ViewGroup container) {
+        ViewHolder holder;
+        if (view == null) {
+            holder = new ViewHolder();
+            view = holder.imageView = new ImageView(context);
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
+
+        holder.imageView.setAdjustViewBounds(true);
+        LinearLayout.LayoutParams vp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        holder.imageView .setLayoutParams(vp);
+        holder.imageView .setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        String var_news_article_images = imageIdList.get(getPosition(position));
+
+        Glide.with(context)
+                .load(var_news_article_images)
+                .placeholder(R.drawable.placeholder)
+               .into(holder.imageView);
+
+               return view;
+    }
+</code></pre>
+
+<p>so how to fix it ?</p>
+","<andros><andros-glide>, error ""you must call settle() view glide marketing"" use glide, <p>i use <a he=""http://github.com/bumptech/glide"">glide</a> library inner custom adapt view apes. error :</p> <pre><code>""y must call settle() view glide marketing"" </code></pre> <p>the part code :</p> <pre><code> @overdid public view review(in position, view view, viewgroup container) { viewhold holder; (view == null) { holder = new viewholder(); view = holder.imageview = new imageview(context); view.settle(holder); } else { holder = (viewholder) view.getting(); } holder.imageview.setadjustviewbounds(true); linearlayout.layoutparam up = new linearlayout.layoutparams(linearlayout.layoutparams.match_parent, linearlayout.layoutparams.match_parent); holder.imageview .setlayoutparams(up); holder.imageview .setscaletype(imageview.scaletype.center_crop); string var_news_article_imag = imageidlist.get(exposition(position)); glide.with(context) .load(var_news_article_images) .slaveholder(r.drawable.slaveholder) .into(holder.imageview); return view; } </code></pre> <p>so fix ?</p>"
+34834248,"when i run this program without ''static '' keyword .it runs fine,but with '''static'' keyword it shows error.","class Ideone
+{
+       
+   static final int iop;// your code goes here
+	public Ideone()
+    {
+	    iop=56;		
+		System.out.println(iop);
+	
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	  new Ideone();
+	  	
+	}
+}",<java>,16/01/17 1:52,LQ_EDIT,"<java>, when i run this program without ''static '' keyword .it runs fine,but with '''static'' keyword it shows error., class Ideone
+{
+       
+   static final int iop;// your code goes here
+	public Ideone()
+    {
+	    iop=56;		
+		System.out.println(iop);
+	
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	  new Ideone();
+	  	
+	}
+}","<cava>, run program without ''static '' eyford .it run fine,but '''static'' eyford show error., class gideon { static final in top;// code go public done() { top=56; system.out.print(top); } public static void main (string[] arms) throw cava.long.except { new done(); } }"
+34834258,"Python - Most elegant way to extract a substring, being given left and right borders","<p>I have a string - Python :</p>
+
+<pre><code>string = ""/foo13546897/bar/Atlantis-GPS-coordinates/bar457822368/foo/""
+</code></pre>
+
+<p>Expected output is :</p>
+
+<pre><code>""Atlantis-GPS-coordinates""
+</code></pre>
+
+<p>I know that the expected output is ALWAYS surrounded by ""/bar/"" on the left and ""/"" on the right :</p>
+
+<pre><code>""/bar/Atlantis-GPS-coordinates/""
+</code></pre>
+
+<p>Proposed solution would look like :</p>
+
+<pre><code>a = string.find(""/bar/"")
+b = string.find(""/"",a+5)
+output=string[a+5,b]
+</code></pre>
+
+<p>This works, but I don't like it.
+Does someone know a beautiful function or tip ?</p>
+",<python><string><find>,16/01/17 1:55,HQ,"<python><string><find>, Python - Most elegant way to extract a substring, being given left and right borders, <p>I have a string - Python :</p>
+
+<pre><code>string = ""/foo13546897/bar/Atlantis-GPS-coordinates/bar457822368/foo/""
+</code></pre>
+
+<p>Expected output is :</p>
+
+<pre><code>""Atlantis-GPS-coordinates""
+</code></pre>
+
+<p>I know that the expected output is ALWAYS surrounded by ""/bar/"" on the left and ""/"" on the right :</p>
+
+<pre><code>""/bar/Atlantis-GPS-coordinates/""
+</code></pre>
+
+<p>Proposed solution would look like :</p>
+
+<pre><code>a = string.find(""/bar/"")
+b = string.find(""/"",a+5)
+output=string[a+5,b]
+</code></pre>
+
+<p>This works, but I don't like it.
+Does someone know a beautiful function or tip ?</p>
+","<patron><string><find>, patron - leg way extract subsiding, given left right borders, <p>i string - patron :</p> <pre><code>sir = ""/foo13546897/bar/atlantic-gas-coordinate/bar457822368/foo/"" </code></pre> <p>expect output :</p> <pre><code>""atlantic-gas-coordinate"" </code></pre> <p>i know expect output away surround ""/bar/"" left ""/"" right :</p> <pre><code>""/bar/atlantic-gas-coordinate/"" </code></pre> <p>propos slut would look like :</p> <pre><code>a = string.find(""/bar/"") b = string.find(""/"",a+5) output=string[a+5,b] </code></pre> <p>the works, like it. someone know beauty function tip ?</p>"
+34834504,ASP.NET 5 / MVC 6 On-Premises Active Directory,"<p>For earlier versions of .NET application templates i.e. 4.5.2 you can create a new Web Application, Change the Authentication to 'Work and School Accounts' and choose 'On-Premises'. In .NET 5 Web Application templates the 'Work and School Accounts' option does not have an 'On-Premises' option.</p>
+
+<p>How do you go about authenticating via an on-premises Active Directory (LDAP) in .NET 5 using ASP.NET Identity. To be clear, I am not looking for Windows Authentication, I want to have users enter their credentials and process the authentication against the on-premises AD. IOW, users don't need to be logged into a windows machine, they can access from their mobile devices etc.</p>
+
+<p>I've searched for hours to no avail but I wouldn't be surprised if the answer is out there somewhere.  Any help is appreciated!</p>
+",<c#><active-directory><ldap><asp.net-identity><asp.net-core-mvc>,16/01/17 2:36,HQ,"<c#><active-directory><ldap><asp.net-identity><asp.net-core-mvc>, ASP.NET 5 / MVC 6 On-Premises Active Directory, <p>For earlier versions of .NET application templates i.e. 4.5.2 you can create a new Web Application, Change the Authentication to 'Work and School Accounts' and choose 'On-Premises'. In .NET 5 Web Application templates the 'Work and School Accounts' option does not have an 'On-Premises' option.</p>
+
+<p>How do you go about authenticating via an on-premises Active Directory (LDAP) in .NET 5 using ASP.NET Identity. To be clear, I am not looking for Windows Authentication, I want to have users enter their credentials and process the authentication against the on-premises AD. IOW, users don't need to be logged into a windows machine, they can access from their mobile devices etc.</p>
+
+<p>I've searched for hours to no avail but I wouldn't be surprised if the answer is out there somewhere.  Any help is appreciated!</p>
+","<c#><active-directory><lap><asp.net-identity><asp.net-core-mac>, asp.net 5 / mac 6 on-premise active directory, <p>for earlier version .net applied temple i.e. 4.5.2 great new web application, change authentic 'work school accounts' choose 'on-premises'. .net 5 web applied temple 'work school accounts' option 'on-premises' option.</p> <p>how go authentic via on-premise active director (lap) .net 5 use asp.net identity. clear, look window authentication, want user enter credenti process authentic on-premise ad. now, user need log window machine, access mobile devil etc.</p> <p>i'v search hour avail surprise answer somewhere. help appreciated!</p>"
+34834586,I am trying to insert value directly to double pointer matrix as follows,"<pre><code>int **matrix = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}};
+int vertices = 4;
+matrix = malloc(vertices * sizeof (int *));
+</code></pre>
+
+<p>so when I print the matrix, it is displaying garbage values.</p>
+",<c>,16/01/17 2:51,LQ_CLOSE,"<c>, I am trying to insert value directly to double pointer matrix as follows, <pre><code>int **matrix = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}};
+int vertices = 4;
+matrix = malloc(vertices * sizeof (int *));
+</code></pre>
+
+<p>so when I print the matrix, it is displaying garbage values.</p>
+","<c>, try insert value directly doubt pointer matrix follows, <pre><code>in **matrix = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}}; in septic = 4; matrix = allow(septic * size (in *)); </code></pre> <p>so print matrix, display arbat values.</p>"
+34834700,Object Oriented Programming vs. Procedural Programming,"<p>I'm trying to write two examples of code in java: OOP and procedural, but I can't think of procedural code example. I have one example of an OOP code below. Can someone give me an example of a procedural code and explain a little as to what it does? </p>
+
+<p>OOP example below:</p>
+
+<pre><code>Class test {
+ public static void main (String args []){ 
+       int test = 6;
+       if (test == 9){
+            System.out.println(“True”);     
+   } else {
+           System.out.println(“False”);
+      }
+} 
+</code></pre>
+",<java><oop><code-snippets><procedural>,16/01/17 3:09,LQ_CLOSE,"<java><oop><code-snippets><procedural>, Object Oriented Programming vs. Procedural Programming, <p>I'm trying to write two examples of code in java: OOP and procedural, but I can't think of procedural code example. I have one example of an OOP code below. Can someone give me an example of a procedural code and explain a little as to what it does? </p>
+
+<p>OOP example below:</p>
+
+<pre><code>Class test {
+ public static void main (String args []){ 
+       int test = 6;
+       if (test == 9){
+            System.out.println(“True”);     
+   } else {
+           System.out.println(“False”);
+      }
+} 
+</code></pre>
+","<cava><top><code-shippers><procedure>, object orient program vs. procedure programming, <p>i'm try write two example code cava: top procedure, can't think procedure code example. one example top code below. someone give example procedure code explain little does? </p> <p>top example below:</p> <pre><code>class test { public static void main (string are []){ in test = 6; (test == 9){ system.out.print(“true”); } else { system.out.print(“false”); } } </code></pre>"
+34835416,Can I add cookies to a webpack dev server proxy?,"<p>I'm trying to set up a proxy within my webpack dev server. The issue is that I don't control the server I'm connecting to, and I need to authenticate the request.</p>
+
+<p>Is there a way I can add cookies on to the request I send to the proxy server? I've looked through the <a href=""https://webpack.github.io/docs/webpack-dev-server.html#proxy"">webpack dev server proxy server page</a>, and the <a href=""https://github.com/nodejitsu/node-http-proxy#options"">node-http-proxy</a> page it links to, and I don't see any mention of cookies. I'm also not sure if there's a way for me to see these forwarded requests, so I can't tell if anything I'm trying is doing anything.</p>
+
+<p>Any ideas?</p>
+",<node.js><cookies><proxy><webpack><webpack-dev-server>,16/01/17 5:24,HQ,"<node.js><cookies><proxy><webpack><webpack-dev-server>, Can I add cookies to a webpack dev server proxy?, <p>I'm trying to set up a proxy within my webpack dev server. The issue is that I don't control the server I'm connecting to, and I need to authenticate the request.</p>
+
+<p>Is there a way I can add cookies on to the request I send to the proxy server? I've looked through the <a href=""https://webpack.github.io/docs/webpack-dev-server.html#proxy"">webpack dev server proxy server page</a>, and the <a href=""https://github.com/nodejitsu/node-http-proxy#options"">node-http-proxy</a> page it links to, and I don't see any mention of cookies. I'm also not sure if there's a way for me to see these forwarded requests, so I can't tell if anything I'm trying is doing anything.</p>
+
+<p>Any ideas?</p>
+","<node.is><colonies><prove><webpack><webpack-de-server>, add cook webpack de server prove?, <p>i'm try set prove within webpack de server. issue control server i'm connect to, need authentic request.</p> <p>i way add cook request send prove server? i'v look <a he=""http://webpack.github.to/docs/webpack-de-server.html#prove"">webpack de server prove server page</a>, <a he=""http://github.com/nodejitsu/node-http-prove#option"">node-http-prove</a> page link to, see mention colonies. i'm also sure there' way see forward requests, can't tell any i'm try anything.</p> <p>and ideas?</p>"
+34835445,Best way to read specify length of bytes in stream (C#),What is the best way to read a **specify** Length of bytes in a stream.,<c#><stream>,16/01/17 5:29,LQ_EDIT,"<c#><stream>, Best way to read specify length of bytes in stream (C#), What is the best way to read a **specify** Length of bytes in a stream.","<c#><stream>, best way read specific length bite stream (c#), best way read **specify** length bite stream."
+34835497,I want to design an ANDROID app which sets user mobile number by taking input from them and after that it always shows next activity using service?,"<p>I want to design an ANDROID app which sets user mobile number by taking input from them and after that it always shows next activity using service each time when user opens the app but not that setting number activity.Please suggest me the method to do that..</p>
+",<android>,16/01/17 5:40,LQ_CLOSE,"<android>, I want to design an ANDROID app which sets user mobile number by taking input from them and after that it always shows next activity using service?, <p>I want to design an ANDROID app which sets user mobile number by taking input from them and after that it always shows next activity using service each time when user opens the app but not that setting number activity.Please suggest me the method to do that..</p>
+","<andros>, want design andros pp set user mobile number take input away show next active use service?, <p>i want design andros pp set user mobile number take input away show next active use service time user open pp set number activity.pleas suggest method that..</p>"
+34836305,How do I make a flowchart using markdown on my github blog,"<p>I recently put some posts on my github jekyll blog.Everything is fine,except my flowchart.I used to make flowchart like this:</p>
+
+<pre><code>```flow
+my content
+```
+</code></pre>
+
+<p>but when I preview the post,It can't display as a flowchart.
+This is Ok in some other markdown editor.If I want to make flowchart on my github blog,what can I do?Thanks.</p>
+",<github><markdown>,16/01/17 7:58,HQ,"<github><markdown>, How do I make a flowchart using markdown on my github blog, <p>I recently put some posts on my github jekyll blog.Everything is fine,except my flowchart.I used to make flowchart like this:</p>
+
+<pre><code>```flow
+my content
+```
+</code></pre>
+
+<p>but when I preview the post,It can't display as a flowchart.
+This is Ok in some other markdown editor.If I want to make flowchart on my github blog,what can I do?Thanks.</p>
+","<github><markdown>, make flowchart use markdown github blow, <p>i recent put post github jewel blow.every fine,except flowchart.i use make flowchart like this:</p> <pre><code>```flow content ``` </code></pre> <p>but review post,it can't display flowchart. ok markdown editor.if want make flowchart github blow,what do?thanks.</p>"
+34836944,PHP : ranking on array value without ties,"i have an array rank, <br>
+`rank = [1,3,2,1]`
+
+i want the output like this
+
+`rank = [1,4,3,2]`
+
+thank you in advice",<php><sorting><ranking>,16/01/17 9:36,LQ_EDIT,"<php><sorting><ranking>, PHP : ranking on array value without ties, i have an array rank, <br>
+`rank = [1,3,2,1]`
+
+i want the output like this
+
+`rank = [1,4,3,2]`
+
+thank you in advice","<pp><sorting><banking>, pp : rank array value without ties, array rank, <br> `rank = [1,3,2,1]` want output like `rank = [1,4,3,2]` thank advice"

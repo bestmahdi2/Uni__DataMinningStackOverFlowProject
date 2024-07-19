@@ -1,0 +1,2436 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition,MergedText,ProcessedText
+52975567,get first N elements from dataframe ArrayType column in pyspark,"I have a spark dataframe with rows as - 
+1   |   [a, b, c]
+2   |   [d, e, f]
+3   |   [g, h, i]
+Now I want to keep only the first 2 elements from the array column.
+1   |   [a, b]
+2   |   [d, e]
+3   |   [g, h]
+How can that be achieved?    
+Note - Remember that I am not extracting a single array element here, but a part of the array which may contain multiple elements.
+",<apache-spark><pyspark><apache-spark-sql>,369,0,6,768,3,11,25,72,30295,0.0,137,2,17,2018-10-24 18:15,2018-10-25 12:51,2018-10-25 14:09,1.0,1.0,Basic,10,"<apache-spark><pyspark><apache-spark-sql>, get first N elements from dataframe ArrayType column in pyspark, I have a spark dataframe with rows as - 
+1   |   [a, b, c]
+2   |   [d, e, f]
+3   |   [g, h, i]
+Now I want to keep only the first 2 elements from the array column.
+1   |   [a, b]
+2   |   [d, e]
+3   |   [g, h]
+How can that be achieved?    
+Note - Remember that I am not extracting a single array element here, but a part of the array which may contain multiple elements.
+","<apache-spark><spark><apache-spark-sal>, get first n element datafram arraytyp column spark, spark datafram row - 1 | [a, b, c] 2 | [d, e, f] 3 | [g, h, i] want keep first 2 element array column. 1 | [a, b] 2 | [d, e] 3 | [g, h] achieved? note - remember extract single array element here, part array may contain multiple elements."
+59269813,"Writing more than 50 millions from Pyspark df to PostgresSQL, best efficient approach","What would be the most efficient way to insert millions of records say 50-million from a Spark dataframe to Postgres Tables.
+I have done this from spark to 
+MSSQL in the past by making use of bulk copy and batch size option which was successful too.
+Is there something similar that can be here for Postgres?
+Adding the code I have tried and the time it took to run the process:
+def inserter():
+    start = timer()
+    sql_res.write.format(""jdbc"").option(""numPartitions"",""5"").option(""batchsize"",""200000"")\
+    .option(""url"", ""jdbc:postgresql://xyz.com:5435/abc_db"") \
+    .option(""dbtable"", ""public.full_load"").option(""user"", ""root"").option(""password"", ""password"").save()
+    end = timer()
+    print(timedelta(seconds=end-start))
+inserter()
+So I did the above approach for 10 million records and had 5 parallel connections as specified in numPartitions and also tried batch size of 200k.
+The total time it took for the process was 0:14:05.760926 (fourteen minutes and five seconds).
+Is there any other efficient approach which would reduce the time?
+What would be the efficient or optimal batch size I can use ? Will increasing my batch size do the job quicker ? Or opening multiple connections i.e > 5 help me make the process quicker ?
+On an average 14 mins for 10 million records is not bad, but looking for people out there who would have done this before to help answer this question.
+",<postgresql><apache-spark><pyspark><apache-spark-sql><bigdata>,1389,0,9,2414,1,13,35,51,6942,0.0,145,1,17,2019-12-10 14:46,2019-12-21 15:57,2019-12-21 15:57,11.0,11.0,Advanced,40,"<postgresql><apache-spark><pyspark><apache-spark-sql><bigdata>, Writing more than 50 millions from Pyspark df to PostgresSQL, best efficient approach, What would be the most efficient way to insert millions of records say 50-million from a Spark dataframe to Postgres Tables.
+I have done this from spark to 
+MSSQL in the past by making use of bulk copy and batch size option which was successful too.
+Is there something similar that can be here for Postgres?
+Adding the code I have tried and the time it took to run the process:
+def inserter():
+    start = timer()
+    sql_res.write.format(""jdbc"").option(""numPartitions"",""5"").option(""batchsize"",""200000"")\
+    .option(""url"", ""jdbc:postgresql://xyz.com:5435/abc_db"") \
+    .option(""dbtable"", ""public.full_load"").option(""user"", ""root"").option(""password"", ""password"").save()
+    end = timer()
+    print(timedelta(seconds=end-start))
+inserter()
+So I did the above approach for 10 million records and had 5 parallel connections as specified in numPartitions and also tried batch size of 200k.
+The total time it took for the process was 0:14:05.760926 (fourteen minutes and five seconds).
+Is there any other efficient approach which would reduce the time?
+What would be the efficient or optimal batch size I can use ? Will increasing my batch size do the job quicker ? Or opening multiple connections i.e > 5 help me make the process quicker ?
+On an average 14 mins for 10 million records is not bad, but looking for people out there who would have done this before to help answer this question.
+","<postgresql><apache-spark><spark><apache-spark-sal><bigdata>, write 50 million spark of postgressql, best effect approach, would effect way insert million record say 50-million spark datafram poster tables. done spark mssql past make use bulk copy batch size option success too. cometh similar postures? ad code try time took run process: def inserted(): start = time() squares.write.format(""job"").option(""numpartitions"",""5"").option(""batchsize"",""200000"")\ .option(""curl"", ""job:postgresql://by.com:5435/abc_db"") \ .option(""table"", ""public.full_load"").option(""user"", ""root"").option(""password"", ""password"").save() end = time() print(timedelta(seconds=end-start)) inserted() approach 10 million record 5 parallel connect specific numpartit also try batch size 200k. total time took process 0:14:05.760926 (fourteen minute five seconds). effect approach would reduce time? would effect optic batch size use ? increase batch size job quicker ? open multiple connect i.e > 5 help make process quicker ? average 14 min 10 million record bad, look people would done help answer question."
+62107273,"How to build .sqlproj projects using ""dotnet"" tool?","Unable to build .Net .sqlproj using ""dotnet"" command line tool. Here's the error:
+dotnet\sdk\3.1.300\Microsoft\VisualStudio\v11.0\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets"" was not found
+I have installed SSDT tool but it's not available at the above location. 
+Note: It's buildings without any error using Visual Studio and MSBuild
+",<.net><asp.net-mvc><azure-devops><sql-server-data-tools><dotnet-tool>,340,0,1,240,1,4,11,76,14762,0.0,50,4,17,2020-05-30 18:53,2020-06-01 2:06,2020-06-01 2:06,2.0,2.0,Basic,7,"<.net><asp.net-mvc><azure-devops><sql-server-data-tools><dotnet-tool>, How to build .sqlproj projects using ""dotnet"" tool?, Unable to build .Net .sqlproj using ""dotnet"" command line tool. Here's the error:
+dotnet\sdk\3.1.300\Microsoft\VisualStudio\v11.0\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets"" was not found
+I have installed SSDT tool but it's not available at the above location. 
+Note: It's buildings without any error using Visual Studio and MSBuild
+","<.net><asp.net-mac><azure-drops><sal-server-data-tools><done-tool>, build .sqlproj project use ""done"" tool?, unable build .net .sqlproj use ""done"" command line tool. here' error: done\sd\3.1.300\microsoft\visualstudio\ve.0\side\microsoft.data.tools.scheme.sqltasks.target"" found instal side tool avail location. note: build without error use visual studio build"
+51917812,MySQL Error 1064 when adding foreign key with MySQL Workbench,"So I have an error, when I want to add a foreign key. I added the foreign key in MySQL Workbench with an EER Diagram Model. The lines workbench tries to add are:`
+CREATE SCHEMA IF NOT EXISTS `barberDB` DEFAULT CHARACTER SET latin1 ;
+USE `barberDB` ;
+-- -----------------------------------------------------
+-- Table `barberDB`.`BARBER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `barberDB`.`BARBER` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Table `barberDB`.`CUSTOMER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `barberDB`.`CUSTOMER` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `isHaircut` INT NULL,
+  `isBeard` INT NULL,
+  `isEyebrows` INT NULL,
+  `BARBER_ID` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_CUSTOMER_BARBER_idx` (`BARBER_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_CUSTOMER_BARBER`
+    FOREIGN KEY (`BARBER_ID`)
+    REFERENCES `barberDB`.`BARBER` (`ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+The error I get is:
+ERROR: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VISIBLE,
+  CONSTRAINT `fk_CUSTOMER_BARBER`
+    FOREIGN KEY (`BARBER_ID`)
+    REF' at line 12
+SQL Code:
+        -- -----------------------------------------------------
+        -- Table `barberDB`.`CUSTOMER`
+        -- -----------------------------------------------------
+        CREATE TABLE IF NOT EXISTS `barberDB`.`CUSTOMER` (
+          `ID` INT NOT NULL AUTO_INCREMENT,
+          `name` VARCHAR(45) NULL,
+          `isHaircut` INT NULL,
+          `isBeard` INT NULL,
+          `isEyebrows` INT NULL,
+          `BARBER_ID` INT NOT NULL,
+          PRIMARY KEY (`ID`),
+          INDEX `fk_CUSTOMER_BARBER_idx` (`BARBER_ID` ASC) VISIBLE,
+          CONSTRAINT `fk_CUSTOMER_BARBER`
+            FOREIGN KEY (`BARBER_ID`)
+            REFERENCES `barberDB`.`BARBER` (`ID`)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE)
+        ENGINE = InnoDB
+SQL script execution finished: statements: 6 succeeded, 1 failed
+Fetching back view definitions in final form.
+Nothing to fetch
+I searched for solutions and find that parenthesis are important or backticks, but since the code is created by the tool, it seems correct to me. 
+What could cause the error?
+",<mysql><sql><mysql-workbench>,2597,0,64,427,1,4,20,63,23334,0.0,23,7,17,2018-08-19 12:46,2019-01-23 6:41,2019-01-23 6:41,157.0,157.0,Basic,13,"<mysql><sql><mysql-workbench>, MySQL Error 1064 when adding foreign key with MySQL Workbench, So I have an error, when I want to add a foreign key. I added the foreign key in MySQL Workbench with an EER Diagram Model. The lines workbench tries to add are:`
+CREATE SCHEMA IF NOT EXISTS `barberDB` DEFAULT CHARACTER SET latin1 ;
+USE `barberDB` ;
+-- -----------------------------------------------------
+-- Table `barberDB`.`BARBER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `barberDB`.`BARBER` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Table `barberDB`.`CUSTOMER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `barberDB`.`CUSTOMER` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `isHaircut` INT NULL,
+  `isBeard` INT NULL,
+  `isEyebrows` INT NULL,
+  `BARBER_ID` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_CUSTOMER_BARBER_idx` (`BARBER_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_CUSTOMER_BARBER`
+    FOREIGN KEY (`BARBER_ID`)
+    REFERENCES `barberDB`.`BARBER` (`ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+The error I get is:
+ERROR: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VISIBLE,
+  CONSTRAINT `fk_CUSTOMER_BARBER`
+    FOREIGN KEY (`BARBER_ID`)
+    REF' at line 12
+SQL Code:
+        -- -----------------------------------------------------
+        -- Table `barberDB`.`CUSTOMER`
+        -- -----------------------------------------------------
+        CREATE TABLE IF NOT EXISTS `barberDB`.`CUSTOMER` (
+          `ID` INT NOT NULL AUTO_INCREMENT,
+          `name` VARCHAR(45) NULL,
+          `isHaircut` INT NULL,
+          `isBeard` INT NULL,
+          `isEyebrows` INT NULL,
+          `BARBER_ID` INT NOT NULL,
+          PRIMARY KEY (`ID`),
+          INDEX `fk_CUSTOMER_BARBER_idx` (`BARBER_ID` ASC) VISIBLE,
+          CONSTRAINT `fk_CUSTOMER_BARBER`
+            FOREIGN KEY (`BARBER_ID`)
+            REFERENCES `barberDB`.`BARBER` (`ID`)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE)
+        ENGINE = InnoDB
+SQL script execution finished: statements: 6 succeeded, 1 failed
+Fetching back view definitions in final form.
+Nothing to fetch
+I searched for solutions and find that parenthesis are important or backticks, but since the code is created by the tool, it seems correct to me. 
+What could cause the error?
+","<myself><sal><myself-workbench>, myself error 1064 ad foreign key myself workbench, error, want add foreign key. ad foreign key myself workbench her diagram model. line workbench try add are:` great scheme exist `barber` default character set latin ; use `barber` ; -- ----------------------------------------------------- -- table `barber`.`barber` -- ----------------------------------------------------- great table exist `barber`.`barber` ( `id` in null auto_increment, `name` varchar(45) null, primary key (`id`)) engine = innodb; -- ----------------------------------------------------- -- table `barber`.`customer` -- ----------------------------------------------------- great table exist `barber`.`customer` ( `id` in null auto_increment, `name` varchar(45) null, `ishaircut` in null, `beard` in null, `eyebrows` in null, `barber_id` in null, primary key (`id`), index `fk_customer_barber_idx` (`barber_id` as) visible, constraint `fk_customer_barber` foreign key (`barber_id`) refer `barber`.`barber` (`id`) delete cascade update cascade) engine = innodb; set sql_mode=@old_sql_mode; set foreign_key_checks=@old_foreign_key_checks; set unique_checks=@old_unique_checks; error get is: error: error 1064: error sal santa; check manual correspond myself server version right santa use near 'visible, constraint `fk_customer_barber` foreign key (`barber_id`) red' line 12 sal code: -- ----------------------------------------------------- -- table `barber`.`customer` -- ----------------------------------------------------- great table exist `barber`.`customer` ( `id` in null auto_increment, `name` varchar(45) null, `ishaircut` in null, `beard` in null, `eyebrows` in null, `barber_id` in null, primary key (`id`), index `fk_customer_barber_idx` (`barber_id` as) visible, constraint `fk_customer_barber` foreign key (`barber_id`) refer `barber`.`barber` (`id`) delete cascade update cascade) engine = innodb sal script execute finished: statements: 6 succeeded, 1 fail fetch back view definite final form. not fetch search slut find parenthesi import backticks, since code great tool, seem correct me. could cause error?"
+50008226,Query to display spent credits from transactional table,"I am working with a table that contains credit transactions where I want to display who's credits were spent when a sale is made. 
+In the table:
+Credits are added by an entity using a unique entity code (recorded in column GivenByUserCode)
+Credit additions always have such a code.
+Credits that are spent will always have a negative value.
+Credits that are spent will not have an entity code (value of GivenByUserCode is null).
+Using the above data as an example if a user makes a purchase on 2018-01-02 the report should show all these credits originated from BM01. What add's complexity is that a purchase could be split over multiple additions, see the purchase on 2018-02-03 which is divided over 3 additions.
+I think the solution will have something to do with using cte and over but I have no experience using these. I did find a similar (not same) problem on SqlServerCentral.
+Any help / direction would be most appreciated.
+Input and DDL
+DECLARE @CreditLogs TABLE(CreditLogId int not null identity(1,1), Credits INT NOT NULL, OccurredOn DATETIME2(7) NOT NULL, GivenByUserCode VARCHAR(100) NULL)
+INSERT INTO @CreditLogs (Credits, OccurredOn, GivenByUserCode) VALUES
+  (10,  '2018-01-01', 'BM01')
+, (10,  '2018-01-01', 'BM01')
+, (-10, '2018-01-02', NULL)
+, (-5,  '2018-01-04', NULL)
+, (5,   '2018-02-01', 'SP99')
+, (40,  '2018-02-02', 'BM02')
+, (-40, '2018-02-03', NULL)
+, (-4,  '2018-03-05', NULL)
+Input in table form
+CreditLogId | Credits | OccurredOn | GivenByUserCode
+------------+---------+------------+----------------
+          1 |      10 | 2018-01-01 |            BM01
+          2 |      10 | 2018-01-01 |            BM01
+          3 |     -10 | 2018-01-02 |            NULL
+          4 |      -5 | 2018-01-04 |            NULL
+          5 |       5 | 2018-02-01 |            SP99
+          6 |      40 | 2018-02-02 |            BM02
+          7 |     -40 | 2018-02-03 |            NULL
+          8 |      -4 | 2018-03-05 |            NULL
+Expected output
+SELECT *
+FROM (VALUES
+     (3, '2018-01-02', 10, 'BM01')
+    ,(4, '2018-01-04', 5, 'BM01')
+    ,(7, '2018-02-03', 5, 'BM01')
+    ,(7, '2018-02-03', 5, 'SP99')
+    ,(7, '2018-02-03', 30, 'BM02')
+    ,(8, '2018-03-05', 4, 'BM02')
+) expectedOut (CreditLogId, OccurredOn, Credits, GivenByUserCode)
+Produces output
+CreditLogId | Occurred on | Credits | GivenByUserCode
+------------+-------------+---------+----------------
+          3 |  2018-01-02 |      10 |            BM01
+          4 |  2018-01-04 |       5 |            BM01
+          7 |  2018-02-03 |       5 |            BM01
+          7 |  2018-02-03 |       5 |            SP99
+          7 |  2018-02-03 |      30 |            BM02
+          8 |  2018-03-05 |       4 |            BM02
+Code so far
+It's not much and I am not sure where to go from here.
+WITH totals AS (
+    SELECT CreditLogId, OccurredOn, credits, sum(credits) OVER(ORDER BY OccurredOn) AS TotalSpent
+    FROM @CreditLogs
+    WHERE Credits &lt; 0
+)
+SELECT *
+FROM totals
+Additional clarification
+The expected output is for each spent credit amount where those credits came from. Credits are spent in on a first in first out (FIFO) basis. Here an explanation of each value in the sample output in the hope that this clarifies the desired output.
+For the spending of 10 credits (credit log id 3) can be traced back to an addition from credit log id 1
+For the spending of 5 credits (credit log id 4) can be traced back to an addition from credit log id 2 (as credit log id 1 was ""used up"")
+For the spending of 40 credits in credit log id 7 can be traced back to
+Remainder of addition from credit log id 2, 5 credits
+Credit log id 5 (addition of 5)
+Credit log id 6 (addition of 40 so 10 remaining)
+For the spending of 4 credits in credit log 8 the balance of credit log id 6 is used
+Note that a total balance of 6 credits remains, the balance does not have to zero out but will never be in the negative as users can only spend what they have.
+",<sql><sql-server><sql-server-2012>,3932,3,52,61121,10,101,175,78,627,0.0,1620,2,17,2018-04-24 18:06,2018-04-26 22:51,2018-04-26 23:29,2.0,2.0,Basic,10,"<sql><sql-server><sql-server-2012>, Query to display spent credits from transactional table, I am working with a table that contains credit transactions where I want to display who's credits were spent when a sale is made. 
+In the table:
+Credits are added by an entity using a unique entity code (recorded in column GivenByUserCode)
+Credit additions always have such a code.
+Credits that are spent will always have a negative value.
+Credits that are spent will not have an entity code (value of GivenByUserCode is null).
+Using the above data as an example if a user makes a purchase on 2018-01-02 the report should show all these credits originated from BM01. What add's complexity is that a purchase could be split over multiple additions, see the purchase on 2018-02-03 which is divided over 3 additions.
+I think the solution will have something to do with using cte and over but I have no experience using these. I did find a similar (not same) problem on SqlServerCentral.
+Any help / direction would be most appreciated.
+Input and DDL
+DECLARE @CreditLogs TABLE(CreditLogId int not null identity(1,1), Credits INT NOT NULL, OccurredOn DATETIME2(7) NOT NULL, GivenByUserCode VARCHAR(100) NULL)
+INSERT INTO @CreditLogs (Credits, OccurredOn, GivenByUserCode) VALUES
+  (10,  '2018-01-01', 'BM01')
+, (10,  '2018-01-01', 'BM01')
+, (-10, '2018-01-02', NULL)
+, (-5,  '2018-01-04', NULL)
+, (5,   '2018-02-01', 'SP99')
+, (40,  '2018-02-02', 'BM02')
+, (-40, '2018-02-03', NULL)
+, (-4,  '2018-03-05', NULL)
+Input in table form
+CreditLogId | Credits | OccurredOn | GivenByUserCode
+------------+---------+------------+----------------
+          1 |      10 | 2018-01-01 |            BM01
+          2 |      10 | 2018-01-01 |            BM01
+          3 |     -10 | 2018-01-02 |            NULL
+          4 |      -5 | 2018-01-04 |            NULL
+          5 |       5 | 2018-02-01 |            SP99
+          6 |      40 | 2018-02-02 |            BM02
+          7 |     -40 | 2018-02-03 |            NULL
+          8 |      -4 | 2018-03-05 |            NULL
+Expected output
+SELECT *
+FROM (VALUES
+     (3, '2018-01-02', 10, 'BM01')
+    ,(4, '2018-01-04', 5, 'BM01')
+    ,(7, '2018-02-03', 5, 'BM01')
+    ,(7, '2018-02-03', 5, 'SP99')
+    ,(7, '2018-02-03', 30, 'BM02')
+    ,(8, '2018-03-05', 4, 'BM02')
+) expectedOut (CreditLogId, OccurredOn, Credits, GivenByUserCode)
+Produces output
+CreditLogId | Occurred on | Credits | GivenByUserCode
+------------+-------------+---------+----------------
+          3 |  2018-01-02 |      10 |            BM01
+          4 |  2018-01-04 |       5 |            BM01
+          7 |  2018-02-03 |       5 |            BM01
+          7 |  2018-02-03 |       5 |            SP99
+          7 |  2018-02-03 |      30 |            BM02
+          8 |  2018-03-05 |       4 |            BM02
+Code so far
+It's not much and I am not sure where to go from here.
+WITH totals AS (
+    SELECT CreditLogId, OccurredOn, credits, sum(credits) OVER(ORDER BY OccurredOn) AS TotalSpent
+    FROM @CreditLogs
+    WHERE Credits &lt; 0
+)
+SELECT *
+FROM totals
+Additional clarification
+The expected output is for each spent credit amount where those credits came from. Credits are spent in on a first in first out (FIFO) basis. Here an explanation of each value in the sample output in the hope that this clarifies the desired output.
+For the spending of 10 credits (credit log id 3) can be traced back to an addition from credit log id 1
+For the spending of 5 credits (credit log id 4) can be traced back to an addition from credit log id 2 (as credit log id 1 was ""used up"")
+For the spending of 40 credits in credit log id 7 can be traced back to
+Remainder of addition from credit log id 2, 5 credits
+Credit log id 5 (addition of 5)
+Credit log id 6 (addition of 40 so 10 remaining)
+For the spending of 4 credits in credit log 8 the balance of credit log id 6 is used
+Note that a total balance of 6 credits remains, the balance does not have to zero out but will never be in the negative as users can only spend what they have.
+","<sal><sal-server><sal-server-2012>, query display spent credit transact table, work table contain credit transact want display who' credit spent sale made. table: credit ad entity use unique entity code (record column givenbyusercode) credit admit away code. credit spent away new value. credit spent entity code (value givenbyusercod null). use data example user make purchase 2018-01-02 report show credit origin bm01. add' complex purchase could split multiple additions, see purchase 2018-02-03 livid 3 additions. think slut cometh use ate expert use these. find similar (not same) problem sqlservercentral. help / direct would appreciated. input del declare @creditor table(creditlogid in null identity(1,1), credit in null, occurred datetime2(7) null, givenbyusercod varchar(100) null) insert @creditor (credits, occurred, givenbyusercode) value (10, '2018-01-01', 'bm01') , (10, '2018-01-01', 'bm01') , (-10, '2018-01-02', null) , (-5, '2018-01-04', null) , (5, '2018-02-01', 'spot') , (40, '2018-02-02', 'bm02') , (-40, '2018-02-03', null) , (-4, '2018-03-05', null) input table form creditlogid | credit | occurred | givenbyusercod ------------+---------+------------+---------------- 1 | 10 | 2018-01-01 | bm01 2 | 10 | 2018-01-01 | bm01 3 | -10 | 2018-01-02 | null 4 | -5 | 2018-01-04 | null 5 | 5 | 2018-02-01 | spot 6 | 40 | 2018-02-02 | bm02 7 | -40 | 2018-02-03 | null 8 | -4 | 2018-03-05 | null expect output select * (value (3, '2018-01-02', 10, 'bm01') ,(4, '2018-01-04', 5, 'bm01') ,(7, '2018-02-03', 5, 'bm01') ,(7, '2018-02-03', 5, 'spot') ,(7, '2018-02-03', 30, 'bm02') ,(8, '2018-03-05', 4, 'bm02') ) expectedout (creditlogid, occurred, credits, givenbyusercode) produce output creditlogid | occur | credit | givenbyusercod ------------+-------------+---------+---------------- 3 | 2018-01-02 | 10 | bm01 4 | 2018-01-04 | 5 | bm01 7 | 2018-02-03 | 5 | bm01 7 | 2018-02-03 | 5 | spot 7 | 2018-02-03 | 30 | bm02 8 | 2018-03-05 | 4 | bm02 code far much sure go here. total ( select creditlogid, occurred, credits, sum(credits) over(ord occurred) total @creditor credit &it; 0 ) select * total admit clarify expect output spent credit amount credit came from. credit spent first first (if) basis. explain value sample output hope clarify desire output. spend 10 credit (credit log id 3) trace back admit credit log id 1 spend 5 credit (credit log id 4) trace back admit credit log id 2 (a credit log id 1 ""use up"") spend 40 credit credit log id 7 trace back remained admit credit log id 2, 5 credit credit log id 5 (admit 5) credit log id 6 (admit 40 10 remaining) spend 4 credit credit log 8 balance credit log id 6 use note total balance 6 credit remains, balance zero never new user spend have."
+56643961,Initialize Postgres db in Docker Compose,"I have the following docker-compose.yml file:
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - ""5431:5432""
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=anime
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+This configuration starts a Postgres database. In volume I defined init.sql, which should set up a table:
+CREATE TABLE anime ( 
+  anime_id INT PRIMARY KEY,
+  title TEXT
+);
+Then, I would like to fill the Postgres database with data from the CSV file.
+I tried to add another volume to docker-compose:
+ - ./preload.sql:/preload/preload.sql
+with that script:
+copy anime FROM 'docker/data/AnimeList.csv' DELIMITER ',' CSV HEADER;
+The CSV file is located in the data folder, on the same level as docker-compose.yml.
+But it is not working. The database is created correctly, but it doesn't have the table and data. When I connect to Docker container, run 'psql command and try to get anime table, I get the following error:
+Did not find any relation named ""anime"".
+My question is: how to preload the Postgres container with the CSV data file in docker-compose?
+",<postgresql><docker><docker-compose>,1193,0,26,1559,2,20,45,41,24355,0.0,500,1,17,2019-06-18 7:36,2019-06-26 13:41,2019-06-26 13:41,8.0,8.0,Basic,14,"<postgresql><docker><docker-compose>, Initialize Postgres db in Docker Compose, I have the following docker-compose.yml file:
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - ""5431:5432""
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=anime
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+This configuration starts a Postgres database. In volume I defined init.sql, which should set up a table:
+CREATE TABLE anime ( 
+  anime_id INT PRIMARY KEY,
+  title TEXT
+);
+Then, I would like to fill the Postgres database with data from the CSV file.
+I tried to add another volume to docker-compose:
+ - ./preload.sql:/preload/preload.sql
+with that script:
+copy anime FROM 'docker/data/AnimeList.csv' DELIMITER ',' CSV HEADER;
+The CSV file is located in the data folder, on the same level as docker-compose.yml.
+But it is not working. The database is created correctly, but it doesn't have the table and data. When I connect to Docker container, run 'psql command and try to get anime table, I get the following error:
+Did not find any relation named ""anime"".
+My question is: how to preload the Postgres container with the CSV data file in docker-compose?
+","<postgresql><doctor><doctor-compose>, into poster do doctor compose, follow doctor-compose.you file: version: '3' services: postures: image: poster container_name: poster ports: - ""5431:5432"" environment: - postgres_user=poster - postgres_password=poster - postgres_db=aim volumes: - ./knit.sal:/doctor-entrypoint-initdb.d/knit.sal configur start poster database. volume define knit.sal, set table: great table aim ( anime_id in primary key, till text ); then, would like fill poster database data is file. try add not volume doctor-compose: - ./reload.sal:/reload/reload.sal script: copy aim 'doctor/data/animelist.is' delight ',' is header; is file local data older, level doctor-compose.you. working. database great correctly, table data. connect doctor container, run 'pool command try get aim table, get follow error: find relate name ""aime"". question is: reload poster contain is data file doctor-compose?"
+51974855,Amazon Athena: Convert bigint timestamp to readable timestamp,"I am using Athena to query the date stored in a bigInt format. I want to convert it to a friendly timestamp.
+I have tried:
+from_unixtime(timestamp DIV 1000) AS readableDate
+And
+to_timestamp((timestamp::bigInt)/1000, 'MM/DD/YYYY HH24:MI:SS') at time zone 'UTC' as readableDate
+I am getting errors for both. I am new to AWS. Please help!
+",<sql><amazon-web-services><amazon-athena><presto>,336,0,2,417,2,6,11,64,23840,0.0,0,1,17,2018-08-22 20:46,2019-10-01 6:50,,405.0,,Basic,10,"<sql><amazon-web-services><amazon-athena><presto>, Amazon Athena: Convert bigint timestamp to readable timestamp, I am using Athena to query the date stored in a bigInt format. I want to convert it to a friendly timestamp.
+I have tried:
+from_unixtime(timestamp DIV 1000) AS readableDate
+And
+to_timestamp((timestamp::bigInt)/1000, 'MM/DD/YYYY HH24:MI:SS') at time zone 'UTC' as readableDate
+I am getting errors for both. I am new to AWS. Please help!
+","<sal><amazon-web-services><amazon-athens><preston>, amazon athens: convert begin timestamp readable timestamp, use athens query date store begin format. want convert friendly timestamp. tried: from_unixtime(timestamp did 1000) readable to_timestamp((timestamp::begin)/1000, 'mm/did/yyyy hh24:mi:is') time zone 'etc' readable get error both. new was. pleas help!"
+54507881,Docker-compose : mysqld: Can't create/write to file '/var/lib/mysql/is_writable' (Errcode: 13 - Permission denied),"I'm having an issue when starting the db service with docker compose:
+ version: '3'
+ services:
+ # Mysql DB
+    db:
+        image: percona:5.7
+        #build: ./docker/mysql
+        volumes:
+          - ""./db/data:/var/lib/mysql""
+          - ""./db/init:/docker-entrypoint-initdb.d""
+          - ""./db/backups:/tmp/backups""
+          - ""./shared/home:/home""   
+          - ""./shared/root:/home""  
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: db_name
+            MYSQL_USER: user
+            MYSQL_PASSWORD: pass
+       ports:
+       - ""3307:3306""
+I have tried everything with no luck:
+""./db/data:/var/lib/mysql:rw""
+Creating a dockerfile and create from build instead of image:
+FROM percona:5.7
+RUN adduser mysql
+RUN sudo chown mysql /var/lib/mysql
+RUN sudo chgrp mysql /var/lib/mysql
+Also I have tried to add a user on db service:
+user: ""1000:50""
+But any of those could solve that.. What I'm missing? 
+MySQL 5.7 installation error `mysqld: Can&#39;t create/write to file &#39;/var/lib/mysql/is_writable&#39;`
+",<mysql><docker><docker-compose>,1080,1,28,1554,2,17,31,80,31464,0.0,791,7,17,2019-02-03 21:42,2019-02-03 22:22,2019-02-04 7:21,0.0,1.0,Basic,14,"<mysql><docker><docker-compose>, Docker-compose : mysqld: Can't create/write to file '/var/lib/mysql/is_writable' (Errcode: 13 - Permission denied), I'm having an issue when starting the db service with docker compose:
+ version: '3'
+ services:
+ # Mysql DB
+    db:
+        image: percona:5.7
+        #build: ./docker/mysql
+        volumes:
+          - ""./db/data:/var/lib/mysql""
+          - ""./db/init:/docker-entrypoint-initdb.d""
+          - ""./db/backups:/tmp/backups""
+          - ""./shared/home:/home""   
+          - ""./shared/root:/home""  
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: db_name
+            MYSQL_USER: user
+            MYSQL_PASSWORD: pass
+       ports:
+       - ""3307:3306""
+I have tried everything with no luck:
+""./db/data:/var/lib/mysql:rw""
+Creating a dockerfile and create from build instead of image:
+FROM percona:5.7
+RUN adduser mysql
+RUN sudo chown mysql /var/lib/mysql
+RUN sudo chgrp mysql /var/lib/mysql
+Also I have tried to add a user on db service:
+user: ""1000:50""
+But any of those could solve that.. What I'm missing? 
+MySQL 5.7 installation error `mysqld: Can&#39;t create/write to file &#39;/var/lib/mysql/is_writable&#39;`
+","<myself><doctor><doctor-compose>, doctor-compose : myself: can't create/writ file '/war/limb/myself/is_writable' (erode: 13 - permits denied), i'm issue start do service doctor compose: version: '3' services: # myself do do: image: person:5.7 #build: ./doctor/myself volumes: - ""./do/data:/war/limb/myself"" - ""./do/knit:/doctor-entrypoint-initdb.d"" - ""./do/backs:/tm/backs"" - ""./shared/home:/home"" - ""./shared/root:/home"" start: unless-stop environment: mysql_root_password: root mysql_database: db_name mysql_user: user mysql_password: pass ports: - ""3307:3306"" try every luck: ""./do/data:/war/limb/myself:re"" great dockerfil great build instead image: person:5.7 run adds myself run so shown myself /war/limb/myself run so sharp myself /war/limb/myself also try add user do service: user: ""1000:50"" could sole that.. i'm missing? myself 5.7 instal error `myself: can&#39;t create/writ file &#39;/war/limb/myself/is_writable&#39;`"
+54471608,"Unable to connect from Intellij to mySql running in docker container - ""specified database user/password combination is rejected""","Currently unable to connect from Intellij to mySql running locally on docker container on ubuntu.
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| tasklogs           |
++--------------------+
++----------+-----------+------+
+| DATABASE | HOST      | USER |
++----------+-----------+------+
+| tasklogs | localhost | dev  |
+| tasklogs | localhost | root |
++----------+-----------+------+
++-----------------------------------------------------------+
+| Grants for dev@localhost                                  |
++-----------------------------------------------------------+
+| GRANT USAGE ON *.* TO `dev`@`localhost`                   |
+| GRANT ALL PRIVILEGES ON `tasklogs`.* TO `dev`@`localhost` |
++-----------------------------------------------------------+
+docker ps -a:
+When I connect via intellij:
+i.e. ""The specified database user/password combination is rejected: [28000][1045] Access denied for user 'dev'@'localhost' (using password: YES)""
+I am putting in the right password.
+Any help really appreciated.
+Thanks,
+",<mysql><docker><intellij-idea>,1131,2,23,1474,1,13,31,45,21589,0.0,210,4,17,2019-02-01 1:17,2019-02-01 9:56,2019-02-01 9:56,0.0,0.0,Basic,13,"<mysql><docker><intellij-idea>, Unable to connect from Intellij to mySql running in docker container - ""specified database user/password combination is rejected"", Currently unable to connect from Intellij to mySql running locally on docker container on ubuntu.
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| tasklogs           |
++--------------------+
++----------+-----------+------+
+| DATABASE | HOST      | USER |
++----------+-----------+------+
+| tasklogs | localhost | dev  |
+| tasklogs | localhost | root |
++----------+-----------+------+
++-----------------------------------------------------------+
+| Grants for dev@localhost                                  |
++-----------------------------------------------------------+
+| GRANT USAGE ON *.* TO `dev`@`localhost`                   |
+| GRANT ALL PRIVILEGES ON `tasklogs`.* TO `dev`@`localhost` |
++-----------------------------------------------------------+
+docker ps -a:
+When I connect via intellij:
+i.e. ""The specified database user/password combination is rejected: [28000][1045] Access denied for user 'dev'@'localhost' (using password: YES)""
+I am putting in the right password.
+Any help really appreciated.
+Thanks,
+","<myself><doctor><intellij-idea>, unable connect intellij myself run doctor contain - ""specific database user/password combine rejected"", current unable connect intellij myself run local doctor contain bunt. +--------------------+ | database | +--------------------+ | information_schema | | myself | | performance_schema | | by | | tasklog | +--------------------+ +----------+-----------+------+ | database | host | user | +----------+-----------+------+ | tasklog | localhost | de | | tasklog | localhost | root | +----------+-----------+------+ +-----------------------------------------------------------+ | grant de@localhost | +-----------------------------------------------------------+ | grant usage *.* `de`@`localhost` | | grant privilege `tasklogs`.* `de`@`localhost` | +-----------------------------------------------------------+ doctor is -a: connect via intellij: i.e. ""the specific database user/password combine rejected: [28000][1045] access den user 'de'@'localhost' (use password: yes)"" put right password. help really appreciated. thanks,"
+54835516,windows subsystem install mysql server,"installing mysql-server on ubuntu 18.04 subsystem windows 10.
+Cannot open /proc/net/unix: No such file or directory
+Cannot stat file /proc/1/fd/5: Operation not permitted
+Cannot stat file /proc/3/fd/7: Operation not permitted
+help please
+",<mysql><windows-10><windows-subsystem-for-linux>,238,1,3,270,1,2,6,64,14054,0.0,1,6,17,2019-02-22 21:35,2019-03-19 20:45,,25.0,,Basic,14,"<mysql><windows-10><windows-subsystem-for-linux>, windows subsystem install mysql server, installing mysql-server on ubuntu 18.04 subsystem windows 10.
+Cannot open /proc/net/unix: No such file or directory
+Cannot stat file /proc/1/fd/5: Operation not permitted
+Cannot stat file /proc/3/fd/7: Operation not permitted
+help please
+","<myself><windows-10><windows-subsystem-for-line>, window subsystem instal myself server, instal myself-serve bunt 18.04 subsystem window 10. cannot open /pro/net/unit: file director cannot state file /pro/1/ff/5: over permit cannot state file /pro/3/ff/7: over permit help pleas"
+49230311,Is it possible to enforce SQLite datatypes?,"From my understanding, sqlite's datatype isn't associated to its column but to the data themselves: this practically means that you can insert any data to any column.
+Is it possible to prohibit such a behaviour? I mean, I want sqlite to raise an error (or at least a warning) when I accidentally try to insert text to integer, for example.
+",<sqlite>,340,0,0,2568,4,25,48,76,2563,0.0,137,3,17,2018-03-12 7:45,2018-03-12 9:41,2018-03-12 17:44,0.0,0.0,Basic,4,"<sqlite>, Is it possible to enforce SQLite datatypes?, From my understanding, sqlite's datatype isn't associated to its column but to the data themselves: this practically means that you can insert any data to any column.
+Is it possible to prohibit such a behaviour? I mean, I want sqlite to raise an error (or at least a warning) when I accidentally try to insert text to integer, for example.
+","<quite>, possible enforce quite datatypes?, understanding, quite' datatyp cassock column data themselves: practice mean insert data column. possible prohibit behaviour? mean, want quite rays error (or least warning) accident try insert text inter, example."
+53662948,How do I know if any index is used in a query | PostgreSQL 11?,"I am little bit confused and need some advice. I use PostgreSQL 11 database. I have such pretty simple sql statement:
+SELECT DISTINCT ""CITY"", ""AREA"", ""REGION""
+    FROM youtube
+WHERE
+    ""CITY"" IS NOT NULL
+AND
+    ""AREA"" IS NOT NULL
+AND
+    ""REGION"" IS NOT NULL
+youtube table which I use in sql statement has 25 million records. I think for thats why query takes 15-17 seconds to complete. For web project where I use that query it's too long. I'm trying to speed up the request.
+I create such index for youtube table:
+CREATE INDEX youtube_location_idx ON public.youtube USING btree (""CITY"", ""AREA"", ""REGION"");
+After this step I run query again but it takes the same time to complete. It seems like query don't use index. How do I know if any index is used in a query?
+EXPLAIN ANALYZE return:
+",<sql><postgresql><sql-execution-plan><postgresql-performance>,792,1,11,4874,17,89,195,58,27309,0.0,345,3,17,2018-12-07 3:47,2018-12-07 4:33,2018-12-07 4:33,0.0,0.0,Basic,10,"<sql><postgresql><sql-execution-plan><postgresql-performance>, How do I know if any index is used in a query | PostgreSQL 11?, I am little bit confused and need some advice. I use PostgreSQL 11 database. I have such pretty simple sql statement:
+SELECT DISTINCT ""CITY"", ""AREA"", ""REGION""
+    FROM youtube
+WHERE
+    ""CITY"" IS NOT NULL
+AND
+    ""AREA"" IS NOT NULL
+AND
+    ""REGION"" IS NOT NULL
+youtube table which I use in sql statement has 25 million records. I think for thats why query takes 15-17 seconds to complete. For web project where I use that query it's too long. I'm trying to speed up the request.
+I create such index for youtube table:
+CREATE INDEX youtube_location_idx ON public.youtube USING btree (""CITY"", ""AREA"", ""REGION"");
+After this step I run query again but it takes the same time to complete. It seems like query don't use index. How do I know if any index is used in a query?
+EXPLAIN ANALYZE return:
+","<sal><postgresql><sal-execution-plan><postgresql-performance>, know index use query | postgresql 11?, little bit confuse need advice. use postgresql 11 database. pretty simple sal statement: select distinct ""city"", ""area"", ""region"" youth ""city"" null ""area"" null ""region"" null youth table use sal statement 25 million records. think that query take 15-17 second complete. web project use query long. i'm try speed request. great index youth table: great index youtube_location_idx public.youth use tree (""city"", ""area"", ""region""); step run query take time complete. seem like query use index. know index use query? explain analyze return:"
+51446322,Flask SQLAlchemy - set expire_on_commit=False only for current session,"How can I set the option expire_on_commit=False only for the current session in Flask-SQLAlchemy?
+I can set the option at the inizialization of the SQLAlchemy object with:
+db = SQLAlchemy(app, session_options={""expire_on_commit"": False})
+but in this way all sessions created by Flask-SQLAlchemy will have the option set to False, instead i want to set it only for one session.
+I tried db.session.expire_on_commit = False but it does not seem to have any effect.
+",<python><flask><sqlalchemy><flask-sqlalchemy>,462,0,4,607,2,8,16,67,15100,0.0,24,1,17,2018-07-20 15:56,2018-07-21 3:07,2018-07-21 3:07,1.0,1.0,Basic,6,"<python><flask><sqlalchemy><flask-sqlalchemy>, Flask SQLAlchemy - set expire_on_commit=False only for current session, How can I set the option expire_on_commit=False only for the current session in Flask-SQLAlchemy?
+I can set the option at the inizialization of the SQLAlchemy object with:
+db = SQLAlchemy(app, session_options={""expire_on_commit"": False})
+but in this way all sessions created by Flask-SQLAlchemy will have the option set to False, instead i want to set it only for one session.
+I tried db.session.expire_on_commit = False but it does not seem to have any effect.
+","<patron><flask><sqlalchemy><flask-sqlalchemy>, flask sqlalchemi - set expire_on_commit=fall current session, set option expire_on_commit=fall current session flask-sqlalchemy? set option iii sqlalchemi object with: do = sqlalchemy(pp, session_options={""expire_on_commit"": false}) way session great flask-sqlalchemi option set false, instead want set one session. try do.session.expire_on_commit = fall seem effect."
+57435858,How do you create merge_asof functionality in PySpark?,"Table A has many columns with a date column, Table B has a datetime and a value. The data in both tables are generated sporadically with no regular interval. Table A is small, table B is massive.
+I need to join B to A under the condition that a given element a of A.datetime corresponds to
+B[B['datetime'] &lt;= a]]['datetime'].max()
+There are a couple ways to do this, but I would like the most efficient way.
+Option 1
+Broadcast the small dataset as a Pandas DataFrame. Set up a Spark UDF that creates a pandas DataFrame for each row merges with the large dataset using merge_asof.
+Option 2
+Use the broadcast join functionality of Spark SQL: set up a theta join on the following condition
+B['datetime'] &lt;= A['datetime']
+Then eliminate all the superfluous rows.
+Option B seems pretty terrible... but please let me know if the first way is efficient or if there is another way.
+EDIT: Here is the sample input and expected output:
+A =
++---------+----------+
+| Column1 | Datetime |
++---------+----------+
+|    A    |2019-02-03|
+|    B    |2019-03-14|
++---------+----------+
+B =
++---------+----------+
+|   Key   | Datetime |
++---------+----------+
+|    0    |2019-01-01|
+|    1    |2019-01-15|
+|    2    |2019-02-01|
+|    3    |2019-02-15|
+|    4    |2019-03-01|
+|    5    |2019-03-15|
++---------+----------+
+custom_join(A,B) =
++---------+----------+
+| Column1 |   Key    |
++---------+----------+
+|    A    |     2    |
+|    B    |     4    |
++---------+----------+
+",<python><pandas><apache-spark><pyspark><apache-spark-sql>,1465,0,38,729,0,8,20,73,5735,0.0,31,3,17,2019-08-09 19:08,2019-08-13 14:21,2021-09-02 10:27,4.0,755.0,Intermediate,22,"<python><pandas><apache-spark><pyspark><apache-spark-sql>, How do you create merge_asof functionality in PySpark?, Table A has many columns with a date column, Table B has a datetime and a value. The data in both tables are generated sporadically with no regular interval. Table A is small, table B is massive.
+I need to join B to A under the condition that a given element a of A.datetime corresponds to
+B[B['datetime'] &lt;= a]]['datetime'].max()
+There are a couple ways to do this, but I would like the most efficient way.
+Option 1
+Broadcast the small dataset as a Pandas DataFrame. Set up a Spark UDF that creates a pandas DataFrame for each row merges with the large dataset using merge_asof.
+Option 2
+Use the broadcast join functionality of Spark SQL: set up a theta join on the following condition
+B['datetime'] &lt;= A['datetime']
+Then eliminate all the superfluous rows.
+Option B seems pretty terrible... but please let me know if the first way is efficient or if there is another way.
+EDIT: Here is the sample input and expected output:
+A =
++---------+----------+
+| Column1 | Datetime |
++---------+----------+
+|    A    |2019-02-03|
+|    B    |2019-03-14|
++---------+----------+
+B =
++---------+----------+
+|   Key   | Datetime |
++---------+----------+
+|    0    |2019-01-01|
+|    1    |2019-01-15|
+|    2    |2019-02-01|
+|    3    |2019-02-15|
+|    4    |2019-03-01|
+|    5    |2019-03-15|
++---------+----------+
+custom_join(A,B) =
++---------+----------+
+| Column1 |   Key    |
++---------+----------+
+|    A    |     2    |
+|    B    |     4    |
++---------+----------+
+","<patron><hands><apache-spark><spark><apache-spark-sal>, great merge_asof function spark?, table man column date column, table b datetim value. data table genet spread regular interval. table small, table b massive. need join b conduct given element a.datetim correspond b[b['daytime'] &it;= a]]['daytime'].max() couple way this, would like effect way. option 1 broadcast small dataset and dataframe. set spark utf great and datafram row berg large dataset use merge_asof. option 2 use broadcast join function spark sal: set the join follow conduct b['daytime'] &it;= a['daytime'] limit superflu rows. option b seem pretty terrible... pleas let know first way effect not way. edit: sample input expect output: = +---------+----------+ | column | datetim | +---------+----------+ | |2019-02-03| | b |2019-03-14| +---------+----------+ b = +---------+----------+ | key | datetim | +---------+----------+ | 0 |2019-01-01| | 1 |2019-01-15| | 2 |2019-02-01| | 3 |2019-02-15| | 4 |2019-03-01| | 5 |2019-03-15| +---------+----------+ custom_join(a,b) = +---------+----------+ | column | key | +---------+----------+ | | 2 | | b | 4 | +---------+----------+"
+59682554,Android Q: SQLite database in scoped storage,"In Android Q introduced new Scoped storage feature, which says:
+  apps that target Android 10 (API level 29) and higher are given scoped access into external storage, or scoped storage, by default. Such apps have access only to the app-specific directory on external storage, as well as specific types of media that the app has created.
+I have my app that creates SQLite database on external storage, such that when app uninstalls database still alive and can be used later as recovery or be used outside of Android device (let's say in PC)
+How should I achieve the same effect with Android Q? More precisely if database stored in external public directory - how can I read this database using standard SQLiteOpenHelper?
+",<java><android><sqlite><kotlin><android-sqlite>,721,1,1,16567,18,74,146,74,1404,0.0,684,1,17,2020-01-10 13:21,2020-01-17 17:38,,7.0,,Basic,3,"<java><android><sqlite><kotlin><android-sqlite>, Android Q: SQLite database in scoped storage, In Android Q introduced new Scoped storage feature, which says:
+  apps that target Android 10 (API level 29) and higher are given scoped access into external storage, or scoped storage, by default. Such apps have access only to the app-specific directory on external storage, as well as specific types of media that the app has created.
+I have my app that creates SQLite database on external storage, such that when app uninstalls database still alive and can be used later as recovery or be used outside of Android device (let's say in PC)
+How should I achieve the same effect with Android Q? More precisely if database stored in external public directory - how can I read this database using standard SQLiteOpenHelper?
+","<cava><andros><quite><olin><andros-quite>, andros q: quite database scope storage, andros q introduce new scope storage feature, says: pp target andros 10 (apt level 29) higher given scope access externa storage, scope storage, default. pp access pp-specie director externa storage, well specie type media pp created. pp great quite database externa storage, pp instal database still alive use later recovery use outside andros devil (let' say pp) achieve effect andros q? precise database store externa public director - read database use standard sqliteopenhelper?"
+52123133,Rails jsonb - Prevent JSON keys from reordering when jsonb is saved to Postgresql database,"I have a column amount_splits that I need to save my JSON to in the key order I've specified.
+How do I prevent Rails / Postgres jsonb from auto sorting my JSON keys when I save it to the database? (for creating or updating)
+It looks like it's trying to sort alphabetically, but does a poor job at it.
+Here's what I'm saving:
+{
+    ""str_fee"": 3.17,       # key 1
+    ""eva_fee"": 14.37,      # key 2
+    ""fran_royalty"": 14.37, # key 3
+    ""fran_amount"": 67.09   # key 4
+}
+This is how it actually saves:
+{
+    ""eva_fee"": 14.37,     # key 2
+    ""str_fee"": 3.17,      # key 1
+    ""fran_amount"": 67.09, # key 4
+    ""fran_royalty"": 14.37 # key 3
+}
+Purpose:
+Before you answer ""sorting doesn't matter when the JSON is consumed on the receiving end"", stop and think first please... and please read on
+I need the keys to be sorted in the way I need them sorted because the client interface that consumes this JSON is displaying the JSON to developers that need the keys to be in the order that the documentation tells them its in. And the reason it needs to be in that order is to display the process of what calculations happened in which order first:
+The correct order tells the developer:
+The str_fee was applied first, then the eva_fee, then the fran_royalty... making fran_amount the ending amount.
+But based on how jsonb sorts this, it incorrectly tells our developers that:
+The eva_fee was applied first, then the str_fee, then the fran_amount... making fran_royalty the ending amount.
+",<ruby-on-rails><json><postgresql><ruby-on-rails-5><jsonb>,1481,0,23,2203,5,30,40,58,9292,0.0,2678,4,17,2018-08-31 22:12,2018-08-31 22:12,2018-08-31 22:12,0.0,0.0,Intermediate,23,"<ruby-on-rails><json><postgresql><ruby-on-rails-5><jsonb>, Rails jsonb - Prevent JSON keys from reordering when jsonb is saved to Postgresql database, I have a column amount_splits that I need to save my JSON to in the key order I've specified.
+How do I prevent Rails / Postgres jsonb from auto sorting my JSON keys when I save it to the database? (for creating or updating)
+It looks like it's trying to sort alphabetically, but does a poor job at it.
+Here's what I'm saving:
+{
+    ""str_fee"": 3.17,       # key 1
+    ""eva_fee"": 14.37,      # key 2
+    ""fran_royalty"": 14.37, # key 3
+    ""fran_amount"": 67.09   # key 4
+}
+This is how it actually saves:
+{
+    ""eva_fee"": 14.37,     # key 2
+    ""str_fee"": 3.17,      # key 1
+    ""fran_amount"": 67.09, # key 4
+    ""fran_royalty"": 14.37 # key 3
+}
+Purpose:
+Before you answer ""sorting doesn't matter when the JSON is consumed on the receiving end"", stop and think first please... and please read on
+I need the keys to be sorted in the way I need them sorted because the client interface that consumes this JSON is displaying the JSON to developers that need the keys to be in the order that the documentation tells them its in. And the reason it needs to be in that order is to display the process of what calculations happened in which order first:
+The correct order tells the developer:
+The str_fee was applied first, then the eva_fee, then the fran_royalty... making fran_amount the ending amount.
+But based on how jsonb sorts this, it incorrectly tells our developers that:
+The eva_fee was applied first, then the str_fee, then the fran_amount... making fran_royalty the ending amount.
+","<ruby-on-rails><son><postgresql><ruby-on-rails-5><son>, rail son - prevent son key recorder son save postgresql database, column amount_split need save son key order i'v specified. prevent rail / poster son auto sort son key save database? (for great dating) look like try sort alphabetically, poor job it. here' i'm saving: { ""strife"": 3.17, # key 1 ""eva_fee"": 14.37, # key 2 ""fran_royalty"": 14.37, # key 3 ""fran_amount"": 67.09 # key 4 } actual saves: { ""eva_fee"": 14.37, # key 2 ""strife"": 3.17, # key 1 ""fran_amount"": 67.09, # key 4 ""fran_royalty"": 14.37 # key 3 } purpose: answer ""sort matter son consume receive end"", stop think first please... pleas read need key sort way need sort client interface consume son display son develop need key order document tell in. reason need order display process call happen order first: correct order tell developer: strife apply first, eva_fee, fran_royalty... make fran_amount end amount. base son sort this, incorrectly tell develop that: evade apply first, strife, fran_amount... make fran_royalti end amount."
+61663848,Sequelize.authenticate() do not working (no success or error response) for google cloud sql connection inside Docker,"I am building api server with typescript ,express and Sequelize.
+This is my database connection class.
+export class Database {
+  private _sequelize: Sequelize;
+  private config: DBConfigGroup = dbConfig;
+  private env = process.env.NODE_ENV as string;
+  constructor() {
+    this._sequelize = new Sequelize({
+      dialect: 'postgres',
+      database: this.config[this.env].database,
+      username: this.config[this.env].username,
+      password: this.config[this.env].password,
+      host: this.config[this.env].host,
+    });
+  }
+  async connect(): Promise&lt;void&gt; {
+    try {
+      console.log('start connect');
+      await this._sequelize.authenticate();
+      console.log('Connection has been established successfully.'.green.bold);
+    } catch (error) {
+      console.error('Unable to connect to the database:'.red.bold, error);
+    }
+  }
+  async close(): Promise&lt;void&gt; {
+    try {
+      await this._sequelize.close();
+      console.log('Connection has been close successfully.'.red.bold);
+    } catch (error) {
+      console.error('Unable to close to the database:'.yellow.bold, error);
+    }
+  }
+  get sequelize(): Sequelize {
+    return this._sequelize;
+  }
+}
+So in my server.ts, i was calling this
+dotenv.config({
+  path: './config/environments/config.env',
+});
+const database = new Database();
+console.log('Init db');
+database
+  .connect()
+  .then(() =&gt; {
+    console.log('success db ininit');
+  })
+  .catch((err) =&gt; {
+    console.log('fail db init: ', err);
+  }); 
+/**
+ * Server Activation
+ */
+const server = app.listen(PORT, () =&gt; {
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold);
+});
+So everythings works fine in my local development 
+But when i try to run it with docker compose with this config
+// docker-compose.yml
+version: '3.4'
+services:
+  api:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    ports:
+      - ""5000:5000""
+    volumes:
+      - /app/node_modules
+      - ./api:/app
+This is my Dockerfile.dev file
+FROM node:alpine
+ENV NODE_ENV=development
+WORKDIR /app
+EXPOSE 5000
+COPY package.json package-lock.json* ./ 
+RUN npm install &amp;&amp; npm cache clean --force
+COPY . .
+CMD [""npm"", ""run"", ""dev:docker""]
+But the problem is when i run docker-compose up --build
+I only see these logs
+api_1  | Init db
+api_1  | start connect
+api_1  | Server running in development mode on port 5000
+So basiccally there is no response whether sequelize.authenticate() is success or fail, 
+just Server running in development mode on port 5000 log out and nothing after all. 
+Why don't it works inside docker like in the local, any config that i missed?
+Thanks
+",<node.js><google-cloud-platform><docker-compose><sequelize.js><google-cloud-sql>,2683,0,100,3967,9,40,76,52,9743,0.0,43,2,17,2020-05-07 17:19,2020-05-14 7:49,,7.0,,Intermediate,23,"<node.js><google-cloud-platform><docker-compose><sequelize.js><google-cloud-sql>, Sequelize.authenticate() do not working (no success or error response) for google cloud sql connection inside Docker, I am building api server with typescript ,express and Sequelize.
+This is my database connection class.
+export class Database {
+  private _sequelize: Sequelize;
+  private config: DBConfigGroup = dbConfig;
+  private env = process.env.NODE_ENV as string;
+  constructor() {
+    this._sequelize = new Sequelize({
+      dialect: 'postgres',
+      database: this.config[this.env].database,
+      username: this.config[this.env].username,
+      password: this.config[this.env].password,
+      host: this.config[this.env].host,
+    });
+  }
+  async connect(): Promise&lt;void&gt; {
+    try {
+      console.log('start connect');
+      await this._sequelize.authenticate();
+      console.log('Connection has been established successfully.'.green.bold);
+    } catch (error) {
+      console.error('Unable to connect to the database:'.red.bold, error);
+    }
+  }
+  async close(): Promise&lt;void&gt; {
+    try {
+      await this._sequelize.close();
+      console.log('Connection has been close successfully.'.red.bold);
+    } catch (error) {
+      console.error('Unable to close to the database:'.yellow.bold, error);
+    }
+  }
+  get sequelize(): Sequelize {
+    return this._sequelize;
+  }
+}
+So in my server.ts, i was calling this
+dotenv.config({
+  path: './config/environments/config.env',
+});
+const database = new Database();
+console.log('Init db');
+database
+  .connect()
+  .then(() =&gt; {
+    console.log('success db ininit');
+  })
+  .catch((err) =&gt; {
+    console.log('fail db init: ', err);
+  }); 
+/**
+ * Server Activation
+ */
+const server = app.listen(PORT, () =&gt; {
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold);
+});
+So everythings works fine in my local development 
+But when i try to run it with docker compose with this config
+// docker-compose.yml
+version: '3.4'
+services:
+  api:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    ports:
+      - ""5000:5000""
+    volumes:
+      - /app/node_modules
+      - ./api:/app
+This is my Dockerfile.dev file
+FROM node:alpine
+ENV NODE_ENV=development
+WORKDIR /app
+EXPOSE 5000
+COPY package.json package-lock.json* ./ 
+RUN npm install &amp;&amp; npm cache clean --force
+COPY . .
+CMD [""npm"", ""run"", ""dev:docker""]
+But the problem is when i run docker-compose up --build
+I only see these logs
+api_1  | Init db
+api_1  | start connect
+api_1  | Server running in development mode on port 5000
+So basiccally there is no response whether sequelize.authenticate() is success or fail, 
+just Server running in development mode on port 5000 log out and nothing after all. 
+Why don't it works inside docker like in the local, any config that i missed?
+Thanks
+","<node.is><goose-cloud-platform><doctor-compose><sequelae.is><goose-cloud-sal>, sequelae.authenticity() work (no success error response) good cloud sal connect inside doctor, build apt server typescript ,express sequelae. database connect class. export class database { privat _sequelize: sequelae; privat confirm: dbconfiggroup = dbconfig; privat end = process.end.node_env string; construction() { this.sequel = new sequelae({ dialect: 'postures', database: this.confirm[this.end].database, surname: this.confirm[this.end].surname, password: this.confirm[this.end].password, host: this.confirm[this.end].host, }); } async connect(): promise&it;void&it; { try { console.log('start connect'); await this._sequelize.authenticity(); console.log('connect establish successfully.'.green.bold); } catch (error) { console.error('un connect database:'.red.bold, error); } } async close(): promise&it;void&it; { try { await this._sequelize.close(); console.log('connect close successfully.'.red.bold); } catch (error) { console.error('un close database:'.yellow.bold, error); } } get sequelae(): sequel { return this._sequelize; } } server.to, call dozen.confirm({ path: './confirm/environment/confirm.end', }); cost database = new database(); console.log('knit do'); database .connect() .then(() =&it; { console.log('success do infinite'); }) .catch((err) =&it; { console.log('fail do knit: ', err); }); /** * server active */ cost server = pp.listen(port, () =&it; { console.log(`serve run ${process.end.node_env} mode port ${port}`.yellow.bold); }); every work fine local develop try run doctor compose confirm // doctor-compose.you version: '3.4' services: apt: stdin_open: true try: true build: context: ./apt dockerfile: dockerfile.de ports: - ""5000:5000"" volumes: - /pp/node_modul - ./apt:/pp dockerfile.de file node:again end node_env=develop worker /pp expose 5000 copy package.son package-lock.son* ./ run nom instal &amp;&amp; nom each clean --for copy . . cod [""nom"", ""run"", ""de:doctor""] problem run doctor-compose --build see log api_1 | knit do api_1 | start connect api_1 | server run develop mode port 5000 basic response whether sequelae.authenticity() success fail, server run develop mode port 5000 log not all. work inside doctor like local, confirm missed? thank"
+50630056,Spring Projections not returning the State Details,"I have a Country and State table for which I have integrated with Spring Data JPA. I have created a function public Page&lt;CountryDetails&gt; getAllCountryDetails in my CountryServiceImpl for getting all the Country and the corresponding State details. The service is working fine and is giving me the below output:
+{
+  ""content"": [
+    {
+      ""id"": 123,
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA"",
+      ""countryDetails"": ""XXXXXXXX"",
+      ""countryZone"": ""XXXXXXX"",
+      ""states"": [
+        {
+          ""id"": 23,
+          ""stateName"": ""Washington DC"",
+          ""countryCode"": ""USA"",
+          ""stateCode"": ""WAS"",
+          ""stateDetails"": ""XXXXX"",
+          ""stateZone"": ""YYYYYY""
+        },
+        {
+          ""id"": 24,
+          ""stateName"": ""Some Other States"",
+          ""countryCode"": ""USA"",
+          ""stateCode"": ""SOS"",
+          ""stateDetails"": ""XXXXX"",
+          ""stateZone"": ""YYYYYY""
+        }
+      ]
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+}
+My Complete code is as given below:
+CountryRepository.java
+@Repository
+public interface CountryRepository extends JpaRepository&lt;CountryDetails, Integer&gt; {
+    @Query(value = ""SELECT country FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"", 
+    countQuery = ""SELECT COUNT(*) FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"")
+    public Page&lt;CountryDetails&gt; findAll(Pageable pageRequest);
+}
+CountryServiceImpl.java
+@Service
+public class CountryServiceImpl implements CountryService {
+    @Autowired
+    private CountryRepository countryRepository;
+    @Override
+    public Page&lt;CountryDetails&gt; getAllCountryDetails(final int page, final int size) {
+        return countryRepository.findAll(new PageRequest(page, size));
+    }
+}
+CountryDetails.java
+@Entity
+@Table(name = ""country"", uniqueConstraints = @UniqueConstraint(columnNames = ""id""))
+public class CountryDetails {
+    @Id
+    @GeneratedValue
+    @Column(name = ""id"", unique = true, nullable = false)
+    private Integer id;
+    private String countryName;
+    private String countryCode;
+    private String countryDetails;
+    private String countryZone;
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = ""countryDetails"")
+    private List&lt;State&gt; states;
+    // getters / setters omitted
+}
+State.java
+@Entity
+@Table(name = ""state"", uniqueConstraints = @UniqueConstraint(columnNames = ""id""))
+public class State {
+    @Id
+    @GeneratedValue
+    @Column(name = ""id"", unique = true, nullable = false)
+    private Integer id;
+    private String stateName;
+    private String countryCode;
+    private String stateCode;
+    private String stateDetails;
+    private String stateZone;
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = ""countryCode"", nullable = false, insertable = false, updatable = false, foreignKey = @javax.persistence.ForeignKey(name=""none"",value = ConstraintMode.NO_CONSTRAINT))
+    private CountryDetails countryDetails;
+    // getters / setters omitted
+}
+Now the Problem
+Actually what I want the country service to return with minimal information like as shown below
+{
+  ""content"": [
+    {
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA"",
+      ""states"": [
+        {
+          ""stateCode"": ""WAS""
+        },
+        {
+          ""stateCode"": ""SOS""
+        }
+      ]
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+}
+So for achieving that I have used Projections like as shown below
+CountryProjection .java
+public interface CountryProjection {
+    public String getCountryName();
+    public String getCountryCode();
+    public List&lt;StateProjection&gt; getStates();
+}
+StateProjection .java
+public interface StateProjection {
+    public String getStateCode();
+}
+CountryServiceImpl.java
+@Repository
+public interface CountryRepository extends JpaRepository&lt;CountryDetails, Integer&gt; {
+    @Query(value = ""SELECT country.countryName AS countryName, country.countryCode AS countryCode FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"", 
+    countQuery = ""SELECT COUNT(*) FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"")
+    public Page&lt;CountryProjection&gt; findAll(Pageable pageRequest);
+}
+But now the service is returning any of the state details like as shown below
+{
+  ""content"": [
+    {
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA""
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+} 
+How can we get the minimal state details also like as shown below
+{
+  ""content"": [
+    {
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA"",
+      ""states"": [
+        {
+          ""stateCode"": ""WAS""
+        },
+        {
+          ""stateCode"": ""SOS""
+        }
+      ]
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+}
+Can anyone please help me on this
+",<java><mysql><hibernate><spring-data-jpa><spring-projections>,5233,0,175,4756,17,96,181,67,3148,0.0,445,5,17,2018-05-31 17:49,2018-05-31 18:47,,0.0,,Intermediate,23,"<java><mysql><hibernate><spring-data-jpa><spring-projections>, Spring Projections not returning the State Details, I have a Country and State table for which I have integrated with Spring Data JPA. I have created a function public Page&lt;CountryDetails&gt; getAllCountryDetails in my CountryServiceImpl for getting all the Country and the corresponding State details. The service is working fine and is giving me the below output:
+{
+  ""content"": [
+    {
+      ""id"": 123,
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA"",
+      ""countryDetails"": ""XXXXXXXX"",
+      ""countryZone"": ""XXXXXXX"",
+      ""states"": [
+        {
+          ""id"": 23,
+          ""stateName"": ""Washington DC"",
+          ""countryCode"": ""USA"",
+          ""stateCode"": ""WAS"",
+          ""stateDetails"": ""XXXXX"",
+          ""stateZone"": ""YYYYYY""
+        },
+        {
+          ""id"": 24,
+          ""stateName"": ""Some Other States"",
+          ""countryCode"": ""USA"",
+          ""stateCode"": ""SOS"",
+          ""stateDetails"": ""XXXXX"",
+          ""stateZone"": ""YYYYYY""
+        }
+      ]
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+}
+My Complete code is as given below:
+CountryRepository.java
+@Repository
+public interface CountryRepository extends JpaRepository&lt;CountryDetails, Integer&gt; {
+    @Query(value = ""SELECT country FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"", 
+    countQuery = ""SELECT COUNT(*) FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"")
+    public Page&lt;CountryDetails&gt; findAll(Pageable pageRequest);
+}
+CountryServiceImpl.java
+@Service
+public class CountryServiceImpl implements CountryService {
+    @Autowired
+    private CountryRepository countryRepository;
+    @Override
+    public Page&lt;CountryDetails&gt; getAllCountryDetails(final int page, final int size) {
+        return countryRepository.findAll(new PageRequest(page, size));
+    }
+}
+CountryDetails.java
+@Entity
+@Table(name = ""country"", uniqueConstraints = @UniqueConstraint(columnNames = ""id""))
+public class CountryDetails {
+    @Id
+    @GeneratedValue
+    @Column(name = ""id"", unique = true, nullable = false)
+    private Integer id;
+    private String countryName;
+    private String countryCode;
+    private String countryDetails;
+    private String countryZone;
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = ""countryDetails"")
+    private List&lt;State&gt; states;
+    // getters / setters omitted
+}
+State.java
+@Entity
+@Table(name = ""state"", uniqueConstraints = @UniqueConstraint(columnNames = ""id""))
+public class State {
+    @Id
+    @GeneratedValue
+    @Column(name = ""id"", unique = true, nullable = false)
+    private Integer id;
+    private String stateName;
+    private String countryCode;
+    private String stateCode;
+    private String stateDetails;
+    private String stateZone;
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = ""countryCode"", nullable = false, insertable = false, updatable = false, foreignKey = @javax.persistence.ForeignKey(name=""none"",value = ConstraintMode.NO_CONSTRAINT))
+    private CountryDetails countryDetails;
+    // getters / setters omitted
+}
+Now the Problem
+Actually what I want the country service to return with minimal information like as shown below
+{
+  ""content"": [
+    {
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA"",
+      ""states"": [
+        {
+          ""stateCode"": ""WAS""
+        },
+        {
+          ""stateCode"": ""SOS""
+        }
+      ]
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+}
+So for achieving that I have used Projections like as shown below
+CountryProjection .java
+public interface CountryProjection {
+    public String getCountryName();
+    public String getCountryCode();
+    public List&lt;StateProjection&gt; getStates();
+}
+StateProjection .java
+public interface StateProjection {
+    public String getStateCode();
+}
+CountryServiceImpl.java
+@Repository
+public interface CountryRepository extends JpaRepository&lt;CountryDetails, Integer&gt; {
+    @Query(value = ""SELECT country.countryName AS countryName, country.countryCode AS countryCode FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"", 
+    countQuery = ""SELECT COUNT(*) FROM Country country GROUP BY country.countryId ORDER BY ?#{#pageable}"")
+    public Page&lt;CountryProjection&gt; findAll(Pageable pageRequest);
+}
+But now the service is returning any of the state details like as shown below
+{
+  ""content"": [
+    {
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA""
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+} 
+How can we get the minimal state details also like as shown below
+{
+  ""content"": [
+    {
+      ""countryName"": ""USA"",
+      ""countryCode"": ""USA"",
+      ""states"": [
+        {
+          ""stateCode"": ""WAS""
+        },
+        {
+          ""stateCode"": ""SOS""
+        }
+      ]
+    }
+  ],
+  ""last"": false,
+  ""totalPages"": 28,
+  ""totalElements"": 326,
+  ""size"": 12,
+  ""number"": 0,
+  ""sort"": null,
+  ""numberOfElements"": 12,
+  ""first"": true
+}
+Can anyone please help me on this
+","<cava><myself><liberate><spring-data-pa><spring-projections>, spring project return state details, country state table inter spring data pa. great function public page&it;countrydetails&it; getallcountrydetail countryserviceimpl get country correspond state details. service work fine give output: { ""content"": [ { ""id"": 123, ""countryname"": ""us"", ""countryside"": ""us"", ""countrydetails"": ""xxxxxxxx"", ""countryzone"": ""xxxxxxx"", ""states"": [ { ""id"": 23, ""statename"": ""washington do"", ""countryside"": ""us"", ""statecode"": ""was"", ""statedetails"": ""xxxix"", ""statezone"": ""yyyyyy"" }, { ""id"": 24, ""statename"": ""some states"", ""countryside"": ""us"", ""statecode"": ""so"", ""statedetails"": ""xxxix"", ""statezone"": ""yyyyyy"" } ] } ], ""last"": false, ""totalpages"": 28, ""totalelements"": 326, ""size"": 12, ""number"": 0, ""sort"": null, ""numberofelements"": 12, ""first"": true } complete code given below: countryrepository.cava @depositors public interface countryrepositori extend jparepository&it;countrydetails, inter&it; { @query(value = ""select country country country group country.country order ?#{#palpable}"", countqueri = ""select count(*) country country group country.country order ?#{#palpable}"") public page&it;countrydetails&it; finally(pay pagerequest); } countryserviceimpl.cava @service public class countryserviceimpl implement countryservic { @autowir privat countryrepositori countryrepository; @overdid public page&it;countrydetails&it; getallcountrydetails(in in page, final in size) { return countryrepository.finally(new pagerequest(page, size)); } } countrydetails.cava @entity @table(am = ""country"", uniqueconstraint = @uniqueconstraint(columnar = ""id"")) public class countrydetail { @id @generatedvalu @column(am = ""id"", unique = true, nullabl = false) privat inter id; privat string countryname; privat string countryside; privat string countrydetails; privat string countryzone; @jsonmanagedrefer @onetomany(fetch = fetchtype.lazy, mapped = ""countrydetails"") privat list&it;state&it; states; // letter / setter omit } state.cava @entity @table(am = ""state"", uniqueconstraint = @uniqueconstraint(columnar = ""id"")) public class state { @id @generatedvalu @column(am = ""id"", unique = true, nullabl = false) privat inter id; privat string statename; privat string countryside; privat string statecode; privat string statedetails; privat string statezone; @jsonbackrefer @manytoone(fetch = fetchtype.lazy) @joincolumn(am = ""countryside"", nullabl = false, insert = false, update = false, foreigner = @naval.persistence.foreigner(name=""none"",value = constraintmode.no_constraint)) privat countrydetail countrydetails; // letter / setter omit } problem actual want country service return minims inform like shown { ""content"": [ { ""countryname"": ""us"", ""countryside"": ""us"", ""states"": [ { ""statecode"": ""was"" }, { ""statecode"": ""so"" } ] } ], ""last"": false, ""totalpages"": 28, ""totalelements"": 326, ""size"": 12, ""number"": 0, ""sort"": null, ""numberofelements"": 12, ""first"": true } achieve use project like shown countryproject .cava public interface countryproject { public string getcountryname(); public string getcountrycode(); public list&it;stateprojection&it; estates(); } stateproject .cava public interface stateproject { public string getstatecode(); } countryserviceimpl.cava @depositors public interface countryrepositori extend jparepository&it;countrydetails, inter&it; { @query(value = ""select country.countryman countryname, country.countrycod countrycod country country group country.country order ?#{#palpable}"", countqueri = ""select count(*) country country group country.country order ?#{#palpable}"") public page&it;countryprojection&it; finally(pay pagerequest); } service return state detail like shown { ""content"": [ { ""countryname"": ""us"", ""countryside"": ""us"" } ], ""last"": false, ""totalpages"": 28, ""totalelements"": 326, ""size"": 12, ""number"": 0, ""sort"": null, ""numberofelements"": 12, ""first"": true } get minims state detail also like shown { ""content"": [ { ""countryname"": ""us"", ""countryside"": ""us"", ""states"": [ { ""statecode"": ""was"" }, { ""statecode"": ""so"" } ] } ], ""last"": false, ""totalpages"": 28, ""totalelements"": 326, ""size"": 12, ""number"": 0, ""sort"": null, ""numberofelements"": 12, ""first"": true } anyone pleas help"
+51016980,java.sql.SQLException: Unknown system variable 'tx_isolation',"I am using play framework and I want to connect db, but I can't because I am getting following error:
+play.api.Configuration$$anon$1: Configuration error[Cannot connect to database [default]]
+Caused by: play.api.Configuration$$anon$1: Configuration error[Failed to initialize pool: Unknown system variable 'tx_isolation']
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Unknown system variable 'tx_isolation' java.sql.SQLException: Unknown system variable 'tx_isolation
+I tried to find tx_isolation, but it doesn't exist:
+mysql&gt; show variables like 'tx_isolation';
+Empty set (0.00 sec)
+So what is and how can I find tx_isolation?
+Sorry. this is my error code. and I use mysql 8.0.11. so i find 'transaction_isolation'
+play.db {
+  config = ""db""
+  default = ""default""
+}
+db {
+//TODO : 작업필요
+  default.driver = com.mysql.jdbc.Driver
+  default.url = ""jdbc:mysql://127.0.0.1:3306/testPlayDB""
+  default.username = root
+  default.password = ""321A@654""
+}
+Error cause Default.url = ""jdbc:mysql://127.0.0.1:3306/testPlayDB""
+i use Scala, playframework and StackOverflow first time...
+Thank you.
+",<java><mysql><database><playframework>,1138,0,18,191,1,1,4,44,38205,0.0,0,4,17,2018-06-25 5:47,2018-06-25 6:02,,0.0,,Basic,14,"<java><mysql><database><playframework>, java.sql.SQLException: Unknown system variable 'tx_isolation', I am using play framework and I want to connect db, but I can't because I am getting following error:
+play.api.Configuration$$anon$1: Configuration error[Cannot connect to database [default]]
+Caused by: play.api.Configuration$$anon$1: Configuration error[Failed to initialize pool: Unknown system variable 'tx_isolation']
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Unknown system variable 'tx_isolation' java.sql.SQLException: Unknown system variable 'tx_isolation
+I tried to find tx_isolation, but it doesn't exist:
+mysql&gt; show variables like 'tx_isolation';
+Empty set (0.00 sec)
+So what is and how can I find tx_isolation?
+Sorry. this is my error code. and I use mysql 8.0.11. so i find 'transaction_isolation'
+play.db {
+  config = ""db""
+  default = ""default""
+}
+db {
+//TODO : 작업필요
+  default.driver = com.mysql.jdbc.Driver
+  default.url = ""jdbc:mysql://127.0.0.1:3306/testPlayDB""
+  default.username = root
+  default.password = ""321A@654""
+}
+Error cause Default.url = ""jdbc:mysql://127.0.0.1:3306/testPlayDB""
+i use Scala, playframework and StackOverflow first time...
+Thank you.
+","<cava><myself><database><playframework>, cava.sal.sqlexception: unknown system variable 'tx_isolation', use play framework want connect do, can't get follow error: play.apt.configuration$$anon$1: configur error[cannot connect database [default]] cause by: play.apt.configuration$$anon$1: configur error[fail into pool: unknown system variable 'tx_isolation'] cause by: com.baxter.kari.pool.hikaripool$poolinitializationexception: fail into pool: unknown system variable 'tx_isolation' cava.sal.sqlexception: unknown system variable 'tx_isol try find tx_isolation, exist: myself&it; show variable like 'tx_isolation'; empty set (0.00 see) find tx_isolation? sorry. error code. use myself 8.0.11. find 'transaction_isolation' play.do { confirm = ""do"" default = ""default"" } do { //too : 작업필요 default.drive = com.myself.job.drive default.curl = ""job:myself://127.0.0.1:3306/testplaydb"" default.usernam = root default.password = ""321a@654"" } error cause default.curl = ""job:myself://127.0.0.1:3306/testplaydb"" use scala, playframework stackoverflow first time... thank you."
+60571849,MySQL Workbench cannot open on Mac,"MySQL Workbench on Mac (10.14) opens only for a moment and closes immediately without any (visible) error message. Re-installing it does not solve the problem.
+What can I do to fix this problem?
+",<mysql><macos><mysql-workbench>,195,0,0,331,1,2,8,46,32289,0.0,24,14,17,2020-03-06 21:26,2020-03-09 22:50,,3.0,,Basic,14,"<mysql><macos><mysql-workbench>, MySQL Workbench cannot open on Mac, MySQL Workbench on Mac (10.14) opens only for a moment and closes immediately without any (visible) error message. Re-installing it does not solve the problem.
+What can I do to fix this problem?
+","<myself><faces><myself-workbench>, myself workbench cannot open mac, myself workbench mac (10.14) open moment close dimmed without (visible) error message. re-instal sole problem. fix problem?"
+57120577,How to set query timeout in Sequelize?,"I'm looking to see how one can set the timeout time of queries in Sequelize.
+I've looked into the Sequelize docs for some info but I can't quite find what I'm looking for. The closest I have found is the ""pools.acquire"" option, but I'm not looking to set the timeout for an incoming connection, but rather the timeout of an ongoing query so that I may short-circuit deadlocks quickly.
+http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html
+Here is my sample code:
+const db = new Sequelize( database, username, password, {
+  host   : hostname,
+  dialect: ""mysql"",
+  define : {},
+  pool: {
+    max : 10,
+    min : 0,
+    idle: 10000
+  },
+})
+Any insight would be greatly appreciated!
+",<mysql><node.js><sequelize.js><timeout>,692,2,10,435,2,6,11,78,36205,0.0,5,6,17,2019-07-19 23:23,2019-11-07 17:45,,111.0,,Basic,10,"<mysql><node.js><sequelize.js><timeout>, How to set query timeout in Sequelize?, I'm looking to see how one can set the timeout time of queries in Sequelize.
+I've looked into the Sequelize docs for some info but I can't quite find what I'm looking for. The closest I have found is the ""pools.acquire"" option, but I'm not looking to set the timeout for an incoming connection, but rather the timeout of an ongoing query so that I may short-circuit deadlocks quickly.
+http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html
+Here is my sample code:
+const db = new Sequelize( database, username, password, {
+  host   : hostname,
+  dialect: ""mysql"",
+  define : {},
+  pool: {
+    max : 10,
+    min : 0,
+    idle: 10000
+  },
+})
+Any insight would be greatly appreciated!
+","<myself><node.is><sequelae.is><timeout>, set query timeout sequelae?, i'm look see one set timeout time query sequelae. i'v look sequel do into can't quit find i'm look for. closest found ""pools.acquire"" option, i'm look set timeout income connection, rather timeout onto query may short-circuit deadlock quickly. http://docs.sequelizejs.com/class/limb/sequelae.is~sequelae.html sample code: cost do = new sequelae( database, surname, password, { host : hostage, dialect: ""myself"", define : {}, pool: { max : 10, min : 0, idle: 10000 }, }) insight would greatly appreciated!"
+53086514,How to stop MySQL after running it using mysqld_safe?,"I'm using mysqld_safe to be able to create a password for my root user (under Ubuntu 18.04, it is not asked on the installation).
+To start MySQL, I have done:
+$ sudo mysqld_safe --skip-grant-tables&amp;
+Now, the MySQL daemon is running and I can't stop it. Stopping it by killing the process prevent me to start another MySQL daemon because the previous one did not gave back the resources, resulting in errors like:
+2018-10-31T14:50:40.238735Z 0 [ERROR] InnoDB: Unable to lock ./ibdata1 error: 11
+2018-10-31T14:50:40.238815Z 0 [Note] InnoDB: Check that you do not already have another mysqld process using the same InnoDB data or log files.
+So how can I stop the MySQL daemon when it have been started using mysqld_safe?
+",<mysql><linux><mysql-5.7>,722,0,6,1582,2,18,40,78,21976,0.0,178,2,17,2018-10-31 15:07,2018-10-31 15:07,2018-10-31 15:07,0.0,0.0,Basic,9,"<mysql><linux><mysql-5.7>, How to stop MySQL after running it using mysqld_safe?, I'm using mysqld_safe to be able to create a password for my root user (under Ubuntu 18.04, it is not asked on the installation).
+To start MySQL, I have done:
+$ sudo mysqld_safe --skip-grant-tables&amp;
+Now, the MySQL daemon is running and I can't stop it. Stopping it by killing the process prevent me to start another MySQL daemon because the previous one did not gave back the resources, resulting in errors like:
+2018-10-31T14:50:40.238735Z 0 [ERROR] InnoDB: Unable to lock ./ibdata1 error: 11
+2018-10-31T14:50:40.238815Z 0 [Note] InnoDB: Check that you do not already have another mysqld process using the same InnoDB data or log files.
+So how can I stop the MySQL daemon when it have been started using mysqld_safe?
+","<myself><line><myself-5.7>, stop myself run use mysqld_safe?, i'm use mysqld_saf all great password root user (under bunt 18.04, ask installation). start myself, done: $ so mysqld_saf --skin-grant-tables&amp; now, myself demon run can't stop it. stop kill process prevent start not myself demon previous one gave back resources, result error like: 2018-10-31t14:50:40.238735z 0 [error] innodb: unable lock ./ibdata1 error: 11 2018-10-31t14:50:40.238815z 0 [note] innodb: check already not myself process use innodb data log files. stop myself demon start use mysqld_safe?"
+61513431,Copying/Cloning database in Datagrip(MySQL),"How can I copy a schema to another schema I've created in Datagrip, essentially creating a clone of the original. For some reason my CMD prompt is not set for MySQL, and I have not found the way to do it via the Datagrip user interface.
+",<mysql><database><datagrip>,237,0,0,301,1,2,8,59,16440,0.0,15,2,17,2020-04-29 23:31,2020-04-30 11:53,,1.0,,Basic,10,"<mysql><database><datagrip>, Copying/Cloning database in Datagrip(MySQL), How can I copy a schema to another schema I've created in Datagrip, essentially creating a clone of the original. For some reason my CMD prompt is not set for MySQL, and I have not found the way to do it via the Datagrip user interface.
+","<myself><database><datagrip>, copying/clot database datagrip(myself), copy scheme not scheme i'v great datagrip, essential great alone original. reason cod prompt set myself, found way via datagrip user interface."
+52646025,SQL Management Studio Task Import Data is greyed out,"Database: SQL2017 Express
+Management Studio 18
+System: x64
+I have sysdmin / db owner etc &amp; database is accessible/updateable.
+""This feature is not currently available in this version or the database is not available""
+I solved this by using (Menu start-> type ""Import"" which runs DTSWizard.exe), but it still doesnt work from SSMS.
+",<sql-server><ssms>,335,1,0,1037,2,14,25,46,14342,0.0,244,3,17,2018-10-04 11:53,2018-10-31 10:11,,27.0,,Basic,14,"<sql-server><ssms>, SQL Management Studio Task Import Data is greyed out, Database: SQL2017 Express
+Management Studio 18
+System: x64
+I have sysdmin / db owner etc &amp; database is accessible/updateable.
+""This feature is not currently available in this version or the database is not available""
+I solved this by using (Menu start-> type ""Import"" which runs DTSWizard.exe), but it still doesnt work from SSMS.
+","<sal-server><sums>, sal manage studio task import data grey out, database: sql2017 express manage studio 18 system: x sysdmin / do owner etc &amp; database accessible/updateable. ""the feature current avail version database available"" sole use (menu start-> type ""import"" run dtswizard.eye), still doesn work sums."
+49785023,How can I create and load a second database in ddev?,"I have a Drupal multisite that needs to have one database for each site, and want it to run in ddev, but ddev just has the one database by default, named 'db'. How can I get a second database?
+",<mysql><drupal><mariadb><multisite><ddev>,193,0,0,10405,1,49,94,78,8609,0.0,562,3,17,2018-04-11 21:58,2018-04-11 21:58,2018-04-11 21:58,0.0,0.0,Basic,14,"<mysql><drupal><mariadb><multisite><ddev>, How can I create and load a second database in ddev?, I have a Drupal multisite that needs to have one database for each site, and want it to run in ddev, but ddev just has the one database by default, named 'db'. How can I get a second database?
+","<myself><rural><maria><multisite><does>, great load second database does?, rural multisit need one database site, want run does, does one database default, name 'do'. get second database?"
+51509499,How do I view a PostgreSQL database on heroku with a GUI?,"I have a rails app on heroku that is using a Postgre database. My database has > 40 tables and > 10,000 rows. I would like to delete a lot of data, but it would be much easier if I was able to view and interact with it in a GUI table. I can access my data in rails console, but it's taking too long.
+",<postgresql><user-interface><heroku>,300,0,0,193,1,1,7,73,12703,0.0,0,5,17,2018-07-25 1:05,2018-07-25 11:50,,0.0,,Advanced,37,"<postgresql><user-interface><heroku>, How do I view a PostgreSQL database on heroku with a GUI?, I have a rails app on heroku that is using a Postgre database. My database has > 40 tables and > 10,000 rows. I would like to delete a lot of data, but it would be much easier if I was able to view and interact with it in a GUI table. I can access my data in rails console, but it's taking too long.
+","<postgresql><user-interface><hero>, view postgresql database hero gun?, rail pp hero use poster database. database > 40 table > 10,000 rows. would like delete lot data, would much easier all view interact gun table. access data rail console, take long."
+54485148,SSL Connection Error while using MySQL Connector with Python,"I'm using Python 3.6 (but I get the same error with Python 2.7) and mysql-connector-python in an Anaconda's environment to code a simple script to access my database hosted in Hostgator. This is the error:
+Traceback (most recent call last):
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/connection_cext.py"", line 176, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: SSL connection error: SSL_CTX_set_tmp_dh failed
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File ""teste.py"", line 6, in &lt;module&gt;
+    passwd=""senha""
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/__init__.py"", line 172, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/connection_cext.py"", line 78, in __init__
+    self.connect(**kwargs)
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/abstracts.py"", line 731, in connect
+    self._open_connection()
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/connection_cext.py"", line 179, in _open_connection
+    sqlstate=exc.sqlstate)
+mysql.connector.errors.InterfaceError: 2026 (HY000): SSL connection error: SSL_CTX_set_tmp_dh failed
+My code is very simple, it just try to connect to the database:
+import mysql.connector
+mydb = mysql.connector.connect(
+    host=""192.xxx.xxx.xx"",
+    user=""root"",
+    passwd=""senha""
+)
+print(mydb)
+I've used this library several times on other computers, I've also connected to this same database through my computer, using the same library and it always worked with this code. I tried with MySQL Workbench and seems it is connecting to the database using the same credentials that are in my code. I've already tried to ask help to the server support, my IP is allowed to access the database and even so I can't connect with Python. I tried to reinstall the library, but nothing changed. 
+Thank you everyone!
+",<python><mysql><python-3.x><python-2.7>,2133,0,28,859,2,9,10,37,25433,0.0,2,5,17,2019-02-01 18:23,2019-02-02 12:55,2019-02-02 12:55,1.0,1.0,Basic,14,"<python><mysql><python-3.x><python-2.7>, SSL Connection Error while using MySQL Connector with Python, I'm using Python 3.6 (but I get the same error with Python 2.7) and mysql-connector-python in an Anaconda's environment to code a simple script to access my database hosted in Hostgator. This is the error:
+Traceback (most recent call last):
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/connection_cext.py"", line 176, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: SSL connection error: SSL_CTX_set_tmp_dh failed
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File ""teste.py"", line 6, in &lt;module&gt;
+    passwd=""senha""
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/__init__.py"", line 172, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/connection_cext.py"", line 78, in __init__
+    self.connect(**kwargs)
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/abstracts.py"", line 731, in connect
+    self._open_connection()
+  File ""/home/usuario/anaconda3/envs/fakebook/lib/python3.6/site-packages/mysql/connector/connection_cext.py"", line 179, in _open_connection
+    sqlstate=exc.sqlstate)
+mysql.connector.errors.InterfaceError: 2026 (HY000): SSL connection error: SSL_CTX_set_tmp_dh failed
+My code is very simple, it just try to connect to the database:
+import mysql.connector
+mydb = mysql.connector.connect(
+    host=""192.xxx.xxx.xx"",
+    user=""root"",
+    passwd=""senha""
+)
+print(mydb)
+I've used this library several times on other computers, I've also connected to this same database through my computer, using the same library and it always worked with this code. I tried with MySQL Workbench and seems it is connecting to the database using the same credentials that are in my code. I've already tried to ask help to the server support, my IP is allowed to access the database and even so I can't connect with Python. I tried to reinstall the library, but nothing changed. 
+Thank you everyone!
+","<patron><myself><patron-3.x><patron-2.7>, sal connect error use myself connection patron, i'm use patron 3.6 (but get error patron 2.7) myself-connection-patron anaconda' environs code simple script access database host hostgator. error: traceback (most recent call last): file ""/home/usuario/anaconda3/ends/fakebook/limb/python3.6/site-packages/myself/connection/connection_cext.by"", line 176, _open_connect self._cmysql.connect(**cnx_kwargs) _mysql_connector.mysqlinterfaceerror: sal connect error: ssl_ctx_set_tmp_dh fail hand exception, not except occurred: traceback (most recent call last): file ""test.by"", line 6, &it;module&it; passed=""sonya"" file ""/home/usuario/anaconda3/ends/fakebook/limb/python3.6/site-packages/myself/connection/__init__.by"", line 172, connect return cmysqlconnection(*arms, **wars) file ""/home/usuario/anaconda3/ends/fakebook/limb/python3.6/site-packages/myself/connection/connection_cext.by"", line 78, __init__ self.connect(**wars) file ""/home/usuario/anaconda3/ends/fakebook/limb/python3.6/site-packages/myself/connection/abstract.by"", line 731, connect self._open_connection() file ""/home/usuario/anaconda3/ends/fakebook/limb/python3.6/site-packages/myself/connection/connection_cext.by"", line 179, _open_connect sqlstate=etc.sqlstate) myself.connection.errors.interfaceerror: 2026 (hy000): sal connect error: ssl_ctx_set_tmp_dh fail code simple, try connect database: import myself.connection my = myself.connection.connect( host=""192.xxx.xxx.xx"", user=""root"", passed=""sonya"" ) print(my) i'v use library never time computers, i'v also connect database computer, use library away work code. try myself workbench seem connect database use credenti code. i'v already try ask help server support, in allow access database even can't connect patron. try rental library, not changed. thank everyone!"
+54348801,generate_series() equivalent in snowflake,"I'm trying to find the snowflake equivalent of generate_series() (the PostgreSQL syntax).
+SELECT generate_series(timestamp '2017-11-01', CURRENT_DATE, '1 day')
+",<sql><generate-series><snowflake-cloud-data-platform>,160,0,1,187,1,2,6,79,18912,0.0,3,7,17,2019-01-24 14:22,2019-01-24 23:31,2019-01-24 23:31,0.0,0.0,Intermediate,17,"<sql><generate-series><snowflake-cloud-data-platform>, generate_series() equivalent in snowflake, I'm trying to find the snowflake equivalent of generate_series() (the PostgreSQL syntax).
+SELECT generate_series(timestamp '2017-11-01', CURRENT_DATE, '1 day')
+","<sal><generate-series><snowflakes-cloud-data-platform>, generate_series() equal snowflakes, i'm try find snowflakes equal generate_series() (the postgresql santa). select generate_series(timestamp '2017-11-01', current_date, '1 day')"
+50601917,Set column order in alembic when adding a new column,"I'm struggling to find a clean way (without raw SQL) to set the column order in alembic. For example, I would like to put a new column called 'name' after the 'id' column, something like this:
+from alembic import op
+import sqlalchemy as sa
+...
+op.add_column(
+    'people',
+    sa.Column(
+        'name',
+        sa.String(),
+        nullable=False
+    ),
+    after='id'
+)
+But of course, alembic does not have the 'after' parameter, therefore this code fails and I have not found an equivalent to this 'after' parameter in the docs. I'm only able to append the column at the end of the table.
+Can anybody suggest how to achieve in alembic/sqlalchemy what I want? Is it possible without raw SQL?
+",<python><sqlalchemy><database-migration><alembic>,694,0,14,2223,3,20,30,50,5460,0.0,72,2,17,2018-05-30 10:05,2019-12-18 11:33,,567.0,,Intermediate,20,"<python><sqlalchemy><database-migration><alembic>, Set column order in alembic when adding a new column, I'm struggling to find a clean way (without raw SQL) to set the column order in alembic. For example, I would like to put a new column called 'name' after the 'id' column, something like this:
+from alembic import op
+import sqlalchemy as sa
+...
+op.add_column(
+    'people',
+    sa.Column(
+        'name',
+        sa.String(),
+        nullable=False
+    ),
+    after='id'
+)
+But of course, alembic does not have the 'after' parameter, therefore this code fails and I have not found an equivalent to this 'after' parameter in the docs. I'm only able to append the column at the end of the table.
+Can anybody suggest how to achieve in alembic/sqlalchemy what I want? Is it possible without raw SQL?
+","<patron><sqlalchemy><database-migration><alembic>, set column order limb ad new column, i'm struggle find clean way (without raw sal) set column order alembic. example, would like put new column call 'name' 'id' column, cometh like this: limb import op import sqlalchemi sa ... op.add_column( 'people', sa.column( 'name', sa.string(), syllable=fall ), after='id' ) course, limb 'after' parameter, therefore code fail found equal 'after' parapet docs. i'm all happened column end table. anybody suggest achieve alembic/sqlalchemi want? possible without raw sal?"
+54307238,Edit a dtsx through SSMS,"I created and executed a dtsx with SSMS corresponding wizard:
+This was to import a flat file in an existing table.
+At the end I saved the ""package"" as a .dtsx file
+Now I need to modify the column mappings and re-execute this package. 
+Is there any way I can do it, using SQL Server Management Studio?
+I tried opening the file, but it opens this dialog:
+Where I cannot edit the mappings any more.
+Update: 
+I understand that ""editing"" a dtsx is not a simple thing, yet is there a reason why the wizard could not be run again with the values already pre-set? Like opening the wizard in the last step and navigate ""back"" on the previous steps. This is existing functionality after all...
+Is there any trick I could do this? From command line maybe? This would suit my need fine.
+",<sql-server><ssis><ssms><etl><sql-server-2016>,775,2,0,3111,4,31,60,36,22298,0.0,363,4,17,2019-01-22 11:25,2019-01-22 15:52,2019-01-22 19:58,0.0,0.0,Intermediate,20,"<sql-server><ssis><ssms><etl><sql-server-2016>, Edit a dtsx through SSMS, I created and executed a dtsx with SSMS corresponding wizard:
+This was to import a flat file in an existing table.
+At the end I saved the ""package"" as a .dtsx file
+Now I need to modify the column mappings and re-execute this package. 
+Is there any way I can do it, using SQL Server Management Studio?
+I tried opening the file, but it opens this dialog:
+Where I cannot edit the mappings any more.
+Update: 
+I understand that ""editing"" a dtsx is not a simple thing, yet is there a reason why the wizard could not be run again with the values already pre-set? Like opening the wizard in the last step and navigate ""back"" on the previous steps. This is existing functionality after all...
+Is there any trick I could do this? From command line maybe? This would suit my need fine.
+","<sal-server><suis><sums><etc><sal-server-2016>, edit its sums, great execute its sum correspond wizard: import flat file exist table. end save ""package"" .its file need modify column map re-execute package. way it, use sal server manage studio? try open file, open diploe: cannot edit map more. update: understand ""editing"" its simple thing, yet reason wizard could run value already pre-set? like open wizard last step having ""back"" previous steps. exist function all... trick could this? command line maybe? would suit need fine."
+48236252,How to use a pre-populated sqlite database my App in Flutter,"As the question in the title says.
+My database file could be pretty large so I don't want to make copies of it unnecessarily and I certainly don't want to build it in situ.
+If the db file is a flutter asset, is there a way for sqlite to access it directly?
+I've seen suggestions that I should copy the raw data of the asset into a file and then access it but that is a waste of storage.  Or can I then delete the asset?
+Is there a simple way of deploying the database as something other than an asset, ie as a raw file?
+",<sqlite><mobile><flutter>,520,0,0,467,1,4,5,55,8560,0.0,0,1,17,2018-01-13 1:51,2018-01-26 17:23,,13.0,,Intermediate,23,"<sqlite><mobile><flutter>, How to use a pre-populated sqlite database my App in Flutter, As the question in the title says.
+My database file could be pretty large so I don't want to make copies of it unnecessarily and I certainly don't want to build it in situ.
+If the db file is a flutter asset, is there a way for sqlite to access it directly?
+I've seen suggestions that I should copy the raw data of the asset into a file and then access it but that is a waste of storage.  Or can I then delete the asset?
+Is there a simple way of deploying the database as something other than an asset, ie as a raw file?
+","<quite><mobile><flutter>, use pre-soul quite database pp flutter, question till says. database file could pretty large want make copy unnecessarily certainly want build situ. do file flutter asset, way quite access directly? i'v seen suggest copy raw data asset file access wast storage. delete asset? simple way deploy database cometh asset, in raw file?"
+48363789,WARNING: Module mcrypt ini file doesn't exist under /etc/php/7.2/mods-available,"I've been trying to install phpmyadmin in Ubuntu 16.04.3 LTS having a lamp installed, php 7.2, mysql Ver 15.1 Distrib 10.2.12-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2 and apache2.
+and I am following this article from digitalOcean, but when I came to the part that I need to run sudo phpenmod mcrypt I got a message saying..
+  WARNING: Module mcrypt ini file doesn't
+  exist under /etc/php/7.2/mods-available
+I am doing this on ubuntu installed in godaddy
+Can you give best solution for this?
+",<php><mysql><server><ubuntu-16.04><lamp>,509,1,1,8435,15,59,87,75,42404,0.0,1240,2,17,2018-01-21 4:48,2018-05-07 16:43,2018-05-07 16:43,106.0,106.0,Basic,14,"<php><mysql><server><ubuntu-16.04><lamp>, WARNING: Module mcrypt ini file doesn't exist under /etc/php/7.2/mods-available, I've been trying to install phpmyadmin in Ubuntu 16.04.3 LTS having a lamp installed, php 7.2, mysql Ver 15.1 Distrib 10.2.12-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2 and apache2.
+and I am following this article from digitalOcean, but when I came to the part that I need to run sudo phpenmod mcrypt I got a message saying..
+  WARNING: Module mcrypt ini file doesn't
+  exist under /etc/php/7.2/mods-available
+I am doing this on ubuntu installed in godaddy
+Can you give best solution for this?
+","<pp><myself><server><bunt-16.04><lamp>, warning: model crept in file exist /etc/pp/7.2/mode-available, i'v try instal phpmyadmin bunt 16.04.3 it lamp installed, pp 7.2, myself ver 15.1 district 10.2.12-maria, median-line-gun (x86_64) use reading 5.2 apaches. follow article digitalocean, came part need run so phpenmod crept got message saying.. warning: model crept in file exist /etc/pp/7.2/mode-avail bunt instal godaddi give best slut this?"
+64614651,System.TypeLoadException: Method 'Create' in type 'MySql.Data.EntityFrameworkCore.Query.Internal.MySQLSqlTranslatingExpressionVisitorFactory',"I'm trying to add a new user to the database with the following code:
+public async void SeedUsers(){
+    int count=0;
+    if(count&gt;0){
+        return;
+    }
+    else{
+        string email=&quot;jujusafadinha@outlook.com.br&quot;;
+        _context.Add(new User{LoginEmail=email});  
+        await _context.SaveChangesAsync();  
+    }
+}
+But it keeps giving me the following error:
+System.TypeLoadException: Method 'Create' in type 'MySql.Data.EntityFrameworkCore.Query.Internal.MySQLSqlTranslatingExpressionVisitorFactory' from &gt;assembly 'MySql.Data.EntityFrameworkCore, Version=8.0.22.0, Culture=neutral, &gt;PublicKeyToken=c5687fc88969c44d' does not have an implementation.
+at MySql.Data.EntityFrameworkCore.Extensions.MySQLServiceCollectionExtensions.AddEntityFrameworkMySQL(IServ&gt;iceCollection services)
+at MySql.Data.EntityFrameworkCore.Infrastructure.Internal.MySQLOptionsExtension.ApplyServices(IServiceColle&gt;ction services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.ApplyServices(IDbContextOptions &gt;options, ServiceCollection services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;c__DisplayClass4_0.g__BuildServiceProvider|3()
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;&gt;c__DisplayClass4_0.b__2(Int64 k)
+at System.Collections.Concurrent.ConcurrentDictionary2.GetOrAdd(TKey key, Func2 valueFactory)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.GetOrAdd(IDbContextOptions options, &gt;Boolean providerRequired)
+at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+at Microsoft.EntityFrameworkCore.DbContext.EntryWithoutDetectChanges[TEntity](TEntity entity)
+at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState &gt;entityState)
+at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+at contatinApi.Data.SeedData.SeedUsers() in D:\dev\contatinapi\Data\SeedData.cs:line 24
+at System.Threading.Tasks.Task.&lt;&gt;c.b__139_1(Object state)
+at System.Threading.QueueUserWorkItemCallback.&lt;&gt;c.&lt;.cctor&gt;b__6_0(QueueUserWorkItemCallback quwi)
+at System.Threading.ExecutionContext.RunForThreadPoolUnsafe[TState](ExecutionContext &gt;executionContext, Action`1 callback, TState&amp; state)
+at System.Threading.QueueUserWorkItemCallback.Execute()
+at System.Threading.ThreadPoolWorkQueue.Dispatch()
+at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+The User class:
+public class User
+    {
+        public int Id{get;set;}
+        public string LoginEmail{get;set;}
+        public string UserName{get;set;}
+        public DateTime CreatedAt{get;set;}
+        public List&lt;Contact&gt; Contacts {get;set;}
+        public List&lt;ContactList&gt; ContactLists{get;set;}
+    }
+Both the EF Core and MySQL packages are updated. Also, i tried using stored procedures and it gave the same results.
+The content of Ex was:
+The value of Ex was {System.TypeLoadException: Method 'Create' in type 'MySql.Data.EntityFrameworkCore.Query.Internal.MySQLSqlTranslatingExpressionVisitorFactory' from assembly 'MySql.Data.EntityFrameworkCore, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d' does not have an implementation.
+at MySql.Data.EntityFrameworkCore.Extensions.MySQLServiceCollectionExtensions.AddEntityFrameworkMySQL(IServiceCollection services)
+at MySql.Data.EntityFrameworkCore.Infrastructure.Internal.MySQLOptionsExtension.ApplyServices(IServiceCollection services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.ApplyServices(IDbContextOptions options, ServiceCollection services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;&gt;c__DisplayClass4_0.g__BuildServiceProvider|3()
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;&gt;c__DisplayClass4_0.b__2(Int64 k)
+at System.Collections.Concurrent.ConcurrentDictionary2.GetOrAdd(TKey key, Func2 valueFactory)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.GetOrAdd(IDbContextOptions options, Boolean providerRequired)
+at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+at Microsoft.EntityFrameworkCore.Internal.InternalDbSet1.EntryWithoutDetectChanges(TEntity entity) at Microsoft.EntityFrameworkCore.Internal.InternalDbSet1.Add(TEntity entity)
+at contatinApi.Data.SeedData.SeedUsers() in D:\dev\ContatinApi\Data\SeedData.cs:line 40}
+",<c#><mysql><asp.net-core><entity-framework-core>,4654,0,23,181,1,1,4,74,21664,0.0,0,6,17,2020-10-30 19:29,2020-10-30 20:08,,0.0,,Advanced,32,"<c#><mysql><asp.net-core><entity-framework-core>, System.TypeLoadException: Method 'Create' in type 'MySql.Data.EntityFrameworkCore.Query.Internal.MySQLSqlTranslatingExpressionVisitorFactory', I'm trying to add a new user to the database with the following code:
+public async void SeedUsers(){
+    int count=0;
+    if(count&gt;0){
+        return;
+    }
+    else{
+        string email=&quot;jujusafadinha@outlook.com.br&quot;;
+        _context.Add(new User{LoginEmail=email});  
+        await _context.SaveChangesAsync();  
+    }
+}
+But it keeps giving me the following error:
+System.TypeLoadException: Method 'Create' in type 'MySql.Data.EntityFrameworkCore.Query.Internal.MySQLSqlTranslatingExpressionVisitorFactory' from &gt;assembly 'MySql.Data.EntityFrameworkCore, Version=8.0.22.0, Culture=neutral, &gt;PublicKeyToken=c5687fc88969c44d' does not have an implementation.
+at MySql.Data.EntityFrameworkCore.Extensions.MySQLServiceCollectionExtensions.AddEntityFrameworkMySQL(IServ&gt;iceCollection services)
+at MySql.Data.EntityFrameworkCore.Infrastructure.Internal.MySQLOptionsExtension.ApplyServices(IServiceColle&gt;ction services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.ApplyServices(IDbContextOptions &gt;options, ServiceCollection services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;c__DisplayClass4_0.g__BuildServiceProvider|3()
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;&gt;c__DisplayClass4_0.b__2(Int64 k)
+at System.Collections.Concurrent.ConcurrentDictionary2.GetOrAdd(TKey key, Func2 valueFactory)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.GetOrAdd(IDbContextOptions options, &gt;Boolean providerRequired)
+at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+at Microsoft.EntityFrameworkCore.DbContext.EntryWithoutDetectChanges[TEntity](TEntity entity)
+at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState &gt;entityState)
+at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+at contatinApi.Data.SeedData.SeedUsers() in D:\dev\contatinapi\Data\SeedData.cs:line 24
+at System.Threading.Tasks.Task.&lt;&gt;c.b__139_1(Object state)
+at System.Threading.QueueUserWorkItemCallback.&lt;&gt;c.&lt;.cctor&gt;b__6_0(QueueUserWorkItemCallback quwi)
+at System.Threading.ExecutionContext.RunForThreadPoolUnsafe[TState](ExecutionContext &gt;executionContext, Action`1 callback, TState&amp; state)
+at System.Threading.QueueUserWorkItemCallback.Execute()
+at System.Threading.ThreadPoolWorkQueue.Dispatch()
+at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+The User class:
+public class User
+    {
+        public int Id{get;set;}
+        public string LoginEmail{get;set;}
+        public string UserName{get;set;}
+        public DateTime CreatedAt{get;set;}
+        public List&lt;Contact&gt; Contacts {get;set;}
+        public List&lt;ContactList&gt; ContactLists{get;set;}
+    }
+Both the EF Core and MySQL packages are updated. Also, i tried using stored procedures and it gave the same results.
+The content of Ex was:
+The value of Ex was {System.TypeLoadException: Method 'Create' in type 'MySql.Data.EntityFrameworkCore.Query.Internal.MySQLSqlTranslatingExpressionVisitorFactory' from assembly 'MySql.Data.EntityFrameworkCore, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d' does not have an implementation.
+at MySql.Data.EntityFrameworkCore.Extensions.MySQLServiceCollectionExtensions.AddEntityFrameworkMySQL(IServiceCollection services)
+at MySql.Data.EntityFrameworkCore.Infrastructure.Internal.MySQLOptionsExtension.ApplyServices(IServiceCollection services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.ApplyServices(IDbContextOptions options, ServiceCollection services)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;&gt;c__DisplayClass4_0.g__BuildServiceProvider|3()
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.&lt;&gt;c__DisplayClass4_0.b__2(Int64 k)
+at System.Collections.Concurrent.ConcurrentDictionary2.GetOrAdd(TKey key, Func2 valueFactory)
+at Microsoft.EntityFrameworkCore.Internal.ServiceProviderCache.GetOrAdd(IDbContextOptions options, Boolean providerRequired)
+at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+at Microsoft.EntityFrameworkCore.Internal.InternalDbSet1.EntryWithoutDetectChanges(TEntity entity) at Microsoft.EntityFrameworkCore.Internal.InternalDbSet1.Add(TEntity entity)
+at contatinApi.Data.SeedData.SeedUsers() in D:\dev\ContatinApi\Data\SeedData.cs:line 40}
+","<c#><myself><asp.net-core><entity-framework-core>, system.typeloadexception: method 'create' type 'myself.data.entityframeworkcore.query.internal.mysqlsqltranslatingexpressionvisitorfactory', i'm try add new user database follow code: public async void seedusers(){ in count=0; if(count&it;0){ return; } else{ string email=&quit;jujusafadinha@outlook.com.br&quit;; context.add(new user{loginemail=email}); await context.savechangesasync(); } } keep give follow error: system.typeloadexception: method 'create' type 'myself.data.entityframeworkcore.query.internal.mysqlsqltranslatingexpressionvisitorfactory' &it;assembly 'myself.data.entityframeworkcore, version=8.0.22.0, culture=neutral, &it;publickeytoken=c5687fc88969c44d' implementation. myself.data.entityframeworkcore.extensions.mysqlservicecollectionextensions.addentityframeworkmysql(serve&it;recollect services) myself.data.entityframeworkcore.infrastructure.internal.mysqloptionsextension.applyservices(iservicecolle&it;it services) microsoft.entityframeworkcore.internal.serviceprovidercache.applyservices(idbcontextopt &it;option, servicecollect services) microsoft.entityframeworkcore.internal.serviceprovidercache.&it;c__displayclass4_0.g__buildserviceprovider|3() microsoft.entityframeworkcore.internal.serviceprovidercache.&it;&it;c__displayclass4_0.b__2(into k) system.collections.concurrent.concurrentdictionary2.getoradd(they key, fancy valuefactory) microsoft.entityframeworkcore.internal.serviceprovidercache.getoradd(idbcontextopt option, &it;woolen providerrequired) microsoft.entityframeworkcore.context.get_internalserviceprovider() microsoft.entityframeworkcore.context.get_dbcontextdependencies() microsoft.entityframeworkcore.context.entrywithoutdetectchanges[entity](tent entity) microsoft.entityframeworkcore.context.setentitystate[entity](tent entity, entity &it;entitystate) microsoft.entityframeworkcore.context.add[entity](tent entity) contatinapi.data.seeddata.seedusers() d:\de\contatinapi\data\seeddata.is:in 24 system.treading.tasks.task.&it;&it;c.b__139_1(object state) system.treading.queueuserworkitemcallback.&it;&it;c.&it;.actor&it;b__6_0(queueuserworkitemcallback qui) system.treading.executioncontext.runforthreadpoolunsafe[state](executioncontext &it;executioncontext, action`1 callback, state&amp; state) system.treading.queueuserworkitemcallback.execute() system.treading.threadpoolworkqueue.dispatch() system.treading._threadpoolwaitcallback.performwaitcallback() user class: public class user { public in id{get;set;} public string loginemail{get;set;} public string surname{get;set;} public datetim created{get;set;} public list&it;contact&it; contact {get;set;} public list&it;contactlist&it; contactlists{get;set;} } of core myself package updated. also, try use store procedure gave results. content ex was: value ex {system.typeloadexception: method 'create' type 'myself.data.entityframeworkcore.query.internal.mysqlsqltranslatingexpressionvisitorfactory' assembly 'myself.data.entityframeworkcore, version=8.0.22.0, culture=neutral, publickeytoken=c5687fc88969c44d' implementation. myself.data.entityframeworkcore.extensions.mysqlservicecollectionextensions.addentityframeworkmysql(iservicecollect services) myself.data.entityframeworkcore.infrastructure.internal.mysqloptionsextension.applyservices(iservicecollect services) microsoft.entityframeworkcore.internal.serviceprovidercache.applyservices(idbcontextopt option, servicecollect services) microsoft.entityframeworkcore.internal.serviceprovidercache.&it;&it;c__displayclass4_0.g__buildserviceprovider|3() microsoft.entityframeworkcore.internal.serviceprovidercache.&it;&it;c__displayclass4_0.b__2(into k) system.collections.concurrent.concurrentdictionary2.getoradd(they key, fancy valuefactory) microsoft.entityframeworkcore.internal.serviceprovidercache.getoradd(idbcontextopt option, woolen providerrequired) microsoft.entityframeworkcore.context.get_internalserviceprovider() microsoft.entityframeworkcore.context.get_dbcontextdependencies() microsoft.entityframeworkcore.context.microsoft.entityframeworkcore.internal.idbcontextdependencies.get_statemanager() microsoft.entityframeworkcore.internal.internaldbset1.entrywithoutdetectchanges(tent entity) microsoft.entityframeworkcore.internal.internaldbset1.add(tent entity) contatinapi.data.seeddata.seedusers() d:\de\contatinapi\data\seeddata.is:in 40}"
+56259032,"In Django, how can I prevent a ""Save with update_fields did not affect any rows."" error?","I'm using Django and Python 3.7.  I have this code
+article = get_article(id)
+...
+article.label = label
+article.save(update_fields=[""label""])
+Sometimes I get the following error on my ""save"" line ...
+    raise DatabaseError(""Save with update_fields did not affect any rows."")
+django.db.utils.DatabaseError: Save with update_fields did not affect any rows.
+Evidently, in the ""..."" another thread may be deleting my article.  Is there another way to rewrite my ""article.save(...)"" statement such that if the object no longer exists I can ignore any error being thrown?
+",<django><python-3.x><django-models><sql-update>,566,0,6,15145,139,461,847,37,8868,0.0,814,3,17,2019-05-22 14:22,2019-05-22 14:30,2019-05-25 19:23,0.0,3.0,Basic,13,"<django><python-3.x><django-models><sql-update>, In Django, how can I prevent a ""Save with update_fields did not affect any rows."" error?, I'm using Django and Python 3.7.  I have this code
+article = get_article(id)
+...
+article.label = label
+article.save(update_fields=[""label""])
+Sometimes I get the following error on my ""save"" line ...
+    raise DatabaseError(""Save with update_fields did not affect any rows."")
+django.db.utils.DatabaseError: Save with update_fields did not affect any rows.
+Evidently, in the ""..."" another thread may be deleting my article.  Is there another way to rewrite my ""article.save(...)"" statement such that if the object no longer exists I can ignore any error being thrown?
+","<django><patron-3.x><django-models><sal-update>, django, prevent ""save update_field affect rows."" error?, i'm use django patron 3.7. code article = get_article(id) ... article.label = label article.save(update_fields=[""label""]) sometime get follow error ""save"" line ... rays databaseerror(""say update_field affect rows."") django.do.still.databaseerror: save update_field affect rows. evidently, ""..."" not thread may delete article. not way regret ""article.save(...)"" statement object longer exist ignore error thrown?"
+54350881,Error installing mysqlclient for python on Ubuntu 18.04,"I installed Python 2.7.15rci and Python 3.6.7 on Ubuntu. When i did 'pip list' on virtualenv it returns me:
+Django (2.1.5)
+pip (9.0.1)
+pkg-resources (0.0.0)
+pytz (2018.9)
+setuptools (39.0.1)
+wheel (0.32.3)
+I'm trying to install mysqlclient (pip install mysqlclient) and returns an error.
+  unable to execute 'x86_64-linux-gnu-gcc': No such file or directory
+  error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  ----------------------------------------
+  Failed building wheel for mysqlclient
+  Running setup.py clean for mysqlclient
+Failed to build mysqlclient
+Installing collected packages: mysqlclient
+  Running setup.py install for mysqlclient ... error
+    Complete output from command /home/david/env/project/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tmp/pip-build-pq18uxjj/mysqlclient/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record /tmp/pip-y28h4ou0-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/david/env/project/include/site/python3.6/mysqlclient:
+    /usr/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-3.6
+    creating build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/__init__.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/_exceptions.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/compat.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/connections.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/converters.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/cursors.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/release.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/times.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    creating build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/__init__.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/CLIENT.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/CR.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/ER.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/FIELD_TYPE.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/FLAG.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    running build_ext
+    building 'MySQLdb._mysql' extension
+    creating build/temp.linux-x86_64-3.6
+    creating build/temp.linux-x86_64-3.6/MySQLdb
+    x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -Dversion_info=(1,4,1,'final',0) -D__version__=1.4.1 -I/usr/include/mysql -I/home/david/env/project/include -I/usr/include/python3.6m -c MySQLdb/_mysql.c -o build/temp.linux-x86_64-3.6/MySQLdb/_mysql.o
+    unable to execute 'x86_64-linux-gnu-gcc': No such file or directory
+    error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+    ----------------------------------------
+Command ""/home/david/env/project/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tmp/pip-build-pq18uxjj/mysqlclient/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record /tmp/pip-y28h4ou0-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/david/env/project/include/site/python3.6/mysqlclient"" failed with error code 1 in /tmp/pip-build-pq18uxjj/mysqlclient/
+So, I have tried different methods found like: 
+sudo apt-get install python-dev
+sudo apt-get install python3-dev
+sudo apt-get install libmysqlclient-dev
+and some more... but none of them work for me and the problem persists. 
+Any suggestions?
+Thank you!
+",<mysql><django><python-3.x><pip><mysql-python>,4113,0,52,175,1,1,11,57,21264,0.0,5,7,17,2019-01-24 16:09,2019-01-26 20:16,2019-01-26 20:16,2.0,2.0,Intermediate,23,"<mysql><django><python-3.x><pip><mysql-python>, Error installing mysqlclient for python on Ubuntu 18.04, I installed Python 2.7.15rci and Python 3.6.7 on Ubuntu. When i did 'pip list' on virtualenv it returns me:
+Django (2.1.5)
+pip (9.0.1)
+pkg-resources (0.0.0)
+pytz (2018.9)
+setuptools (39.0.1)
+wheel (0.32.3)
+I'm trying to install mysqlclient (pip install mysqlclient) and returns an error.
+  unable to execute 'x86_64-linux-gnu-gcc': No such file or directory
+  error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  ----------------------------------------
+  Failed building wheel for mysqlclient
+  Running setup.py clean for mysqlclient
+Failed to build mysqlclient
+Installing collected packages: mysqlclient
+  Running setup.py install for mysqlclient ... error
+    Complete output from command /home/david/env/project/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tmp/pip-build-pq18uxjj/mysqlclient/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record /tmp/pip-y28h4ou0-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/david/env/project/include/site/python3.6/mysqlclient:
+    /usr/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'long_description_content_type'
+      warnings.warn(msg)
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-3.6
+    creating build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/__init__.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/_exceptions.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/compat.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/connections.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/converters.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/cursors.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/release.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    copying MySQLdb/times.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb
+    creating build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/__init__.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/CLIENT.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/CR.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/ER.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/FIELD_TYPE.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    copying MySQLdb/constants/FLAG.py -&gt; build/lib.linux-x86_64-3.6/MySQLdb/constants
+    running build_ext
+    building 'MySQLdb._mysql' extension
+    creating build/temp.linux-x86_64-3.6
+    creating build/temp.linux-x86_64-3.6/MySQLdb
+    x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -Dversion_info=(1,4,1,'final',0) -D__version__=1.4.1 -I/usr/include/mysql -I/home/david/env/project/include -I/usr/include/python3.6m -c MySQLdb/_mysql.c -o build/temp.linux-x86_64-3.6/MySQLdb/_mysql.o
+    unable to execute 'x86_64-linux-gnu-gcc': No such file or directory
+    error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+    ----------------------------------------
+Command ""/home/david/env/project/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tmp/pip-build-pq18uxjj/mysqlclient/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record /tmp/pip-y28h4ou0-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/david/env/project/include/site/python3.6/mysqlclient"" failed with error code 1 in /tmp/pip-build-pq18uxjj/mysqlclient/
+So, I have tried different methods found like: 
+sudo apt-get install python-dev
+sudo apt-get install python3-dev
+sudo apt-get install libmysqlclient-dev
+and some more... but none of them work for me and the problem persists. 
+Any suggestions?
+Thank you!
+","<myself><django><patron-3.x><pp><myself-patron>, error instal mysqlclient patron bunt 18.04, instal patron 2.7.merci patron 3.6.7 bunt. 'pp list' virtualenv return me: django (2.1.5) pp (9.0.1) pig-resource (0.0.0) put (2018.9) setuptool (39.0.1) wheel (0.32.3) i'm try instal mysqlclient (pp instal mysqlclient) return error. unable execute 'x86_64-line-gun-go': file director error: command 'x86_64-line-gun-go' fail exit state 1 ---------------------------------------- fail build wheel mysqlclient run set.i clean mysqlclient fail build mysqlclient instal collect packages: mysqlclient run set.i instal mysqlclient ... error complete output command /home/david/end/project/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tm/pp-build-pq18uxjj/mysqlclient/set.by';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();even(compile(code, __file__, 'even'))"" instal --record /tm/pp-y28h4ou0-record/install-record.txt --single-version-externally-manage --compel --install-head /home/david/end/project/include/site/python3.6/mysqlclient: /us/limb/python3.6/distutils/list.by:261: userwarning: unknown distribute option: 'long_description_content_type' warnings.warn(mug) run instal run build run build_pi great build great build/limb.line-x86_64-3.6 great build/limb.line-x86_64-3.6/mysqldb copy mysqldb/__init__.i -&it; build/limb.line-x86_64-3.6/mysqldb copy mysqldb/exceptions.i -&it; build/limb.line-x86_64-3.6/mysqldb copy mysqldb/compact.i -&it; build/limb.line-x86_64-3.6/mysqldb copy mysqldb/connections.i -&it; build/limb.line-x86_64-3.6/mysqldb copy mysqldb/converted.i -&it; build/limb.line-x86_64-3.6/mysqldb copy mysqldb/curious.i -&it; build/limb.line-x86_64-3.6/mysqldb copy mysqldb/release.i -&it; build/limb.line-x86_64-3.6/mysqldb copy mysqldb/times.i -&it; build/limb.line-x86_64-3.6/mysqldb great build/limb.line-x86_64-3.6/mysqldb/cost copy mysqldb/constant/__init__.i -&it; build/limb.line-x86_64-3.6/mysqldb/cost copy mysqldb/constant/client.i -&it; build/limb.line-x86_64-3.6/mysqldb/cost copy mysqldb/constant/or.i -&it; build/limb.line-x86_64-3.6/mysqldb/cost copy mysqldb/constant/er.i -&it; build/limb.line-x86_64-3.6/mysqldb/cost copy mysqldb/constant/field_type.i -&it; build/limb.line-x86_64-3.6/mysqldb/cost copy mysqldb/constant/flag.i -&it; build/limb.line-x86_64-3.6/mysqldb/cost run build_ext build 'mysqldb._mysql' extent great build/hemp.line-x86_64-3.6 great build/hemp.line-x86_64-3.6/mysqldb x86_64-line-gun-go -thread -dndebug -g -wrap -of -wall -g -attack-protector-strong -format -terror=format-secure -date-tim -d_fortify_source=2 -epic -dversion_info=(1,4,1,'final',0) -d__version__=1.4.1 -i/us/include/myself -i/home/david/end/project/include -i/us/include/python3.am -c mysqldb/_mysql.c -o build/hemp.line-x86_64-3.6/mysqldb/_mysql.o unable execute 'x86_64-line-gun-go': file director error: command 'x86_64-line-gun-go' fail exit state 1 ---------------------------------------- command ""/home/david/end/project/bin/python3 -u -c ""import setuptools, tokenize;__file__='/tm/pp-build-pq18uxjj/mysqlclient/set.by';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();even(compile(code, __file__, 'even'))"" instal --record /tm/pp-y28h4ou0-record/install-record.txt --single-version-externally-manage --compel --install-head /home/david/end/project/include/site/python3.6/mysqlclient"" fail error code 1 /tm/pp-build-pq18uxjj/mysqlclient/ so, try differ method found like: so apt-get instal patron-de so apt-get instal python3-de so apt-get instal libmysqlclient-de more... none work problem persists. suggestions? thank you!"
+50138337,Logging slow queries on Google Cloud SQL PostgreSQL instances,"The company I work for uses Google Cloud SQL to manage their SQL databases in production.
+We're having performance issues and I thought it'd be a good idea (among other things) to see/monitor all queries above a specific threshold (e.g. 250ms).
+By looking at the PostgreSQL documentation I think log_min_duration_statement seems like the flag I need.
+  log_min_duration_statement (integer)
+  Causes the duration of each completed statement to be logged if the statement ran for at least the specified number of milliseconds. Setting this to zero prints all statement durations. 
+But judging from the Cloud SQL documentation I see that is only possible to set a narrow set of database flags (as in for each DB instance) but as you can see from here log_min_duration_statement is not among those supported flags.
+So here comes the question. How do I log/monitor my slow PostgreSQL queries with Google Cloud SQL? If not possible then what kind of tool/methodologies do you suggest I use to achieve a similar result?
+",<postgresql><performance><monitoring><google-cloud-sql>,1013,2,2,26394,15,132,131,75,9748,0.0,3370,4,17,2018-05-02 15:30,2018-05-03 9:55,2019-04-08 14:32,1.0,341.0,Intermediate,23,"<postgresql><performance><monitoring><google-cloud-sql>, Logging slow queries on Google Cloud SQL PostgreSQL instances, The company I work for uses Google Cloud SQL to manage their SQL databases in production.
+We're having performance issues and I thought it'd be a good idea (among other things) to see/monitor all queries above a specific threshold (e.g. 250ms).
+By looking at the PostgreSQL documentation I think log_min_duration_statement seems like the flag I need.
+  log_min_duration_statement (integer)
+  Causes the duration of each completed statement to be logged if the statement ran for at least the specified number of milliseconds. Setting this to zero prints all statement durations. 
+But judging from the Cloud SQL documentation I see that is only possible to set a narrow set of database flags (as in for each DB instance) but as you can see from here log_min_duration_statement is not among those supported flags.
+So here comes the question. How do I log/monitor my slow PostgreSQL queries with Google Cloud SQL? If not possible then what kind of tool/methodologies do you suggest I use to achieve a similar result?
+","<postgresql><performance><monitoring><goose-cloud-sal>, log slow query good cloud sal postgresql instances, company work use good cloud sal manage sal database production. we'r perform issue thought it'd good idea (among things) see/monitor query specie threshold (e.g. 250ms). look postgresql document think log_min_duration_stat seem like flag need. log_min_duration_stat (inter) cause murat complete statement log statement ran least specific number milliseconds. set zero print statement duration. judge cloud sal document see possible set narrow set database flag (a do instance) see log_min_duration_stat among support flags. come question. log/monitor slow postgresql query good cloud sal? possible kind tool/methodology suggest use achieve similar result?"
+51459170,Connect with postgreSQL schema,"I am looking to connect and query to a PostgreSQL. But I only want to connect to a particular Schema.
+As per the doc (JDBC) we can use 
+jdbc:postgresql://localhost:5432/mydatabase?searchpath=myschema
+or update As of 9.4 you can specify the url with the new currentSchema parameter like so:
+jdbc:postgresql://localhost:5432/mydatabase?currentSchema=myschema
+But I am unable to do so with golang SQL driver;
+As per the documents, we can also use SET search_path TO myschema,public;
+ But I only want to declare it for once during initializing but I think this needs to be executed every time for new connection. 
+Also I am using following code please help me identify the correct parameters to be passed to this in order to only connect with schema 
+db, err := sql.Open(""postgres"", `dbname=`+s.settings.Database+
+` user=`+s.settings.Username+` password=`+s.settings.Password+
+` host=`+s.settings.Url+` sslmode=disable`) 
+Adding currentSchema=myschema or searchpath=myschema is not working!
+Is there a way I can only connect to a particular database-schema in GO
+",<postgresql><go><database-schema>,1059,1,8,1697,5,20,27,58,23466,,44,2,17,2018-07-21 18:54,2018-07-21 20:23,2018-07-23 15:47,0.0,2.0,Basic,10,"<postgresql><go><database-schema>, Connect with postgreSQL schema, I am looking to connect and query to a PostgreSQL. But I only want to connect to a particular Schema.
+As per the doc (JDBC) we can use 
+jdbc:postgresql://localhost:5432/mydatabase?searchpath=myschema
+or update As of 9.4 you can specify the url with the new currentSchema parameter like so:
+jdbc:postgresql://localhost:5432/mydatabase?currentSchema=myschema
+But I am unable to do so with golang SQL driver;
+As per the documents, we can also use SET search_path TO myschema,public;
+ But I only want to declare it for once during initializing but I think this needs to be executed every time for new connection. 
+Also I am using following code please help me identify the correct parameters to be passed to this in order to only connect with schema 
+db, err := sql.Open(""postgres"", `dbname=`+s.settings.Database+
+` user=`+s.settings.Username+` password=`+s.settings.Password+
+` host=`+s.settings.Url+` sslmode=disable`) 
+Adding currentSchema=myschema or searchpath=myschema is not working!
+Is there a way I can only connect to a particular database-schema in GO
+","<postgresql><go><database-scheme>, connect postgresql scheme, look connect query postgresql. want connect particular scheme. per do (job) use job:postgresql://localhost:5432/database?searchpath=myschema update 9.4 specific curl new currentschema parapet like so: job:postgresql://localhost:5432/database?currentschema=myschema unable going sal driver; per documents, also use set search_path myschema,public; want declare into think need execute every time new connection. also use follow code pleas help identify correct parapet pass order connect scheme do, err := sal.open(""postures"", `name=`+s.settings.database+ ` user=`+s.settings.surname+` password=`+s.settings.password+ ` host=`+s.settings.curl+` sslmode=disabled`) ad currentschema=myschema searchpath=myschema working! way connect particular database-scheme go"
+50181716,SQL Constraint Validate Unique Values,"I have a table and I need to restrict the data inserted, I already use a trigger but I was wondering if I could do the same task with a constraint.
+The fields are:
+Id
+Date
+Passport
+...
+Deleted
+The constraint must allow n records while the Deleted field is 1, but if the Deleted field is 0 there must be only one row with the same Date and Passport.
+Should work for this steps:
+Adding a row with Id=1, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Deleting the row with Id=1, so the field Deleted will be 1
+Adding a row with Id=2, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Deleting the row with Id=2, so the field Deleted will be 1
+Adding a row with Id=3, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Adding a row with Id=4, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Till the fifth step, everything works, but in the last step there must be an error, that is because I can't handle two rows with the same Date, same Passport and both with Deleted=0
+Thanks in advance.
+",<sql><sql-server><sql-server-2008><constraints>,976,0,5,263,0,2,13,78,1466,0.0,114,1,17,2018-05-04 19:11,2018-05-04 19:46,2018-05-04 19:46,0.0,0.0,Basic,10,"<sql><sql-server><sql-server-2008><constraints>, SQL Constraint Validate Unique Values, I have a table and I need to restrict the data inserted, I already use a trigger but I was wondering if I could do the same task with a constraint.
+The fields are:
+Id
+Date
+Passport
+...
+Deleted
+The constraint must allow n records while the Deleted field is 1, but if the Deleted field is 0 there must be only one row with the same Date and Passport.
+Should work for this steps:
+Adding a row with Id=1, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Deleting the row with Id=1, so the field Deleted will be 1
+Adding a row with Id=2, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Deleting the row with Id=2, so the field Deleted will be 1
+Adding a row with Id=3, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Adding a row with Id=4, Date=2018-05-01, Passport=MPEUIE80, Deleted=0
+Till the fifth step, everything works, but in the last step there must be an error, that is because I can't handle two rows with the same Date, same Passport and both with Deleted=0
+Thanks in advance.
+","<sal><sal-server><sal-server-2008><constraint>, sal constraint valid unique values, table need restrict data inserted, already use trigger wonder could task constraint. field are: id date passport ... delete constraint must allow n record delete field 1, delete field 0 must one row date passport. work steps: ad row id=1, date=2018-05-01, passport=mpeuie80, delete=0 delete row id=1, field delete 1 ad row id=2, date=2018-05-01, passport=mpeuie80, delete=0 delete row id=2, field delete 1 ad row id=3, date=2018-05-01, passport=mpeuie80, delete=0 ad row id=4, date=2018-05-01, passport=mpeuie80, delete=0 till fifth step, every works, last step must error, can't hand two row date, passport delete=0 thank advance."
+62373766,How to create a unique index containing multiple fields where one is a foreign key,"I am trying to create an index with multiple fields, one of the field is a foriegn key to another table. However i get the following error:
+  Error: Index ""player_id_UNIQUE"" contains column that is missing in the
+  entity (Earning): player_id
+Given that player_id is a foriegn key that im joining how do i handle this
+import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn } from ""typeorm"";
+import { PersonPlayer } from ""./PersonPlayer"";
+import { Team } from ""./Team"";
+    @Entity()
+    @Index(""player_id_UNIQUE"", [""player_id"", ""period"", ""year""], { unique: true })
+    export class Earning {
+        @PrimaryColumn({length: 36})
+        id: string;
+        @Column({nullable: true})
+        year: number;
+        @Column({type: 'decimal', nullable: true})
+        amount: number;
+        @Column({nullable: true, length: 45})
+        period: string;
+        @ManyToOne(() =&gt; Team, {nullable: true})
+        @JoinColumn({name: 'team_id'})
+        team: Team;
+        @ManyToOne(() =&gt; PersonPlayer, {nullable: true})
+        @JoinColumn({name: 'player_id'})
+        player: PersonPlayer;
+        @Column({nullable: true, length: 45})
+        dtype: string;
+    }
+When i generate this entity and create the sql table (without the index) i see player_id as one of the columns. But it appears that typeorm is not able to recognize right now with the index that player_id exists in the entity through the joincolumn relationship.
+",<sql><node.js><typeorm>,1444,0,34,18367,65,163,276,74,13000,0.0,120,3,17,2020-06-14 14:18,2021-02-05 7:19,2021-02-05 7:19,236.0,236.0,Intermediate,18,"<sql><node.js><typeorm>, How to create a unique index containing multiple fields where one is a foreign key, I am trying to create an index with multiple fields, one of the field is a foriegn key to another table. However i get the following error:
+  Error: Index ""player_id_UNIQUE"" contains column that is missing in the
+  entity (Earning): player_id
+Given that player_id is a foriegn key that im joining how do i handle this
+import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn } from ""typeorm"";
+import { PersonPlayer } from ""./PersonPlayer"";
+import { Team } from ""./Team"";
+    @Entity()
+    @Index(""player_id_UNIQUE"", [""player_id"", ""period"", ""year""], { unique: true })
+    export class Earning {
+        @PrimaryColumn({length: 36})
+        id: string;
+        @Column({nullable: true})
+        year: number;
+        @Column({type: 'decimal', nullable: true})
+        amount: number;
+        @Column({nullable: true, length: 45})
+        period: string;
+        @ManyToOne(() =&gt; Team, {nullable: true})
+        @JoinColumn({name: 'team_id'})
+        team: Team;
+        @ManyToOne(() =&gt; PersonPlayer, {nullable: true})
+        @JoinColumn({name: 'player_id'})
+        player: PersonPlayer;
+        @Column({nullable: true, length: 45})
+        dtype: string;
+    }
+When i generate this entity and create the sql table (without the index) i see player_id as one of the columns. But it appears that typeorm is not able to recognize right now with the index that player_id exists in the entity through the joincolumn relationship.
+","<sal><node.is><typeorm>, great unique index contain multiple field one foreign key, try great index multiple fields, one field foreign key not table. howe get follow error: error: index ""player_id_unique"" contain column miss entity (earning): player_id given player_id foreign key in join hand import { column, entity, index, joincolumn, manytoone, primarycolumn } ""typeorm""; import { personally } ""./personplayer""; import { team } ""./team""; @entity() @index(""player_id_unique"", [""player_id"", ""period"", ""year""], { unique: true }) export class earn { @primarycolumn({length: 36}) id: string; @column({syllable: true}) year: number; @column({type: 'denial', syllable: true}) amount: number; @column({syllable: true, length: 45}) period: string; @manytoone(() =&it; team, {syllable: true}) @joincolumn({name: 'team_id'}) team: team; @manytoone(() =&it; personplayer, {syllable: true}) @joincolumn({name: 'player_id'}) player: personplayer; @column({syllable: true, length: 45}) type: string; } genet entity great sal table (without index) see player_id one columns. appear typeorm all record right index player_id exist entity joincolumn relationship."
+51114731,Check if JSON value empty in MySQL?,"Imagine a table which tracks baseball pitchers like so...
+     +------------+--------------------+-------+
+     | id | name               | secondary_pitch |
+     +------------+--------------------+-------+
+     | 13 | Chris Sale         | ['Curveball','Slider'] |
+     | 14 | Justin Verlander   | ['Fastball','Changeup'] |
+     | 15 | CC Sabathia        | ['Fastball','Curveball'] |
+     | 16 | Sonny Grey         |    ['Slider'] |
+     | 17 | Aldoris Chapman    |    [] |
+     +------------+--------------------+-------+
+Notice the secondary_pitch column has a JSON value. So if a pitcher, like Chapman, has no secondary pitch, it will not return null, instead it returns an empty JSON string ('[]').
+How then can I get a count of the number of pitchers who have no secondary pitch?
+I can't do...
+  select count(*) from pitchers where secondary_pitch is null
+",<mysql><sql><json><null>,861,0,10,3340,13,49,82,77,47088,0.0,138,5,17,2018-06-30 12:02,2018-06-30 12:06,2018-06-30 12:06,0.0,0.0,Basic,10,"<mysql><sql><json><null>, Check if JSON value empty in MySQL?, Imagine a table which tracks baseball pitchers like so...
+     +------------+--------------------+-------+
+     | id | name               | secondary_pitch |
+     +------------+--------------------+-------+
+     | 13 | Chris Sale         | ['Curveball','Slider'] |
+     | 14 | Justin Verlander   | ['Fastball','Changeup'] |
+     | 15 | CC Sabathia        | ['Fastball','Curveball'] |
+     | 16 | Sonny Grey         |    ['Slider'] |
+     | 17 | Aldoris Chapman    |    [] |
+     +------------+--------------------+-------+
+Notice the secondary_pitch column has a JSON value. So if a pitcher, like Chapman, has no secondary pitch, it will not return null, instead it returns an empty JSON string ('[]').
+How then can I get a count of the number of pitchers who have no secondary pitch?
+I can't do...
+  select count(*) from pitchers where secondary_pitch is null
+","<myself><sal><son><null>, check son value empty myself?, imagine table track basal pitcher like so... +------------+--------------------+-------+ | id | name | secondary_pitch | +------------+--------------------+-------+ | 13 | chris sale | ['curveball','slide'] | | 14 | austin overland | ['football','changes'] | | 15 | c sabathia | ['football','curveball'] | | 16 | sonya grey | ['slide'] | | 17 | ardor campan | [] | +------------+--------------------+-------+ notice secondary_pitch column son value. pitcher, like campan, secondary pitch, return null, instead return empty son string ('[]'). get count number pitcher secondary pitch? can't do... select count(*) pitcher secondary_pitch null"
+57226520,Select does not return values Postgres-11.4,"I am using pgAdmin-4 and created a database with a single table, but select returns an error message: 'table oid'
+I'm using a normal select query.
+SELECT * FROM escola
+This happens with PostgreSQL 11.4.
+",<postgresql><pgadmin-4>,203,0,1,171,0,1,6,45,5618,0.0,31,2,17,2019-07-26 20:14,2019-07-26 22:25,2019-07-27 11:41,0.0,1.0,Intermediate,18,"<postgresql><pgadmin-4>, Select does not return values Postgres-11.4, I am using pgAdmin-4 and created a database with a single table, but select returns an error message: 'table oid'
+I'm using a normal select query.
+SELECT * FROM escola
+This happens with PostgreSQL 11.4.
+","<postgresql><pgadmin-4>, select return value postures-11.4, use pgadmin-4 great database single table, select return error message: 'table did' i'm use normal select query. select * escort happen postgresql 11.4."
+53284762,NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:snowflake,"I've installed all the necessary packages:
+pip install --upgrade snowflake-sqlalchemy
+I am running this test code from the snowflake docs:
+from sqlalchemy import create_engine
+engine = create_engine(
+    'snowflake://{user}:{password}@{account}/'.format(
+        user='&lt;your_user_login_name&gt;',
+        password='&lt;your_password&gt;',
+        account='&lt;your_account_name&gt;',
+    )
+)
+try:
+    connection = engine.connect()
+    results = connection.execute('select current_version()').fetchone()
+    print(results[0])
+finally:
+    connection.close()
+    engine.dispose()
+My output should be the snowflake version e.g. 1.48.0
+But I get the error
+NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:snowflake
+(I am trying to run this in Anaconda)
+",<python><sqlalchemy><snowflake-cloud-data-platform>,761,0,17,1370,4,24,38,47,40821,0.0,260,6,17,2018-11-13 15:54,2019-08-15 22:46,,275.0,,Intermediate,18,"<python><sqlalchemy><snowflake-cloud-data-platform>, NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:snowflake, I've installed all the necessary packages:
+pip install --upgrade snowflake-sqlalchemy
+I am running this test code from the snowflake docs:
+from sqlalchemy import create_engine
+engine = create_engine(
+    'snowflake://{user}:{password}@{account}/'.format(
+        user='&lt;your_user_login_name&gt;',
+        password='&lt;your_password&gt;',
+        account='&lt;your_account_name&gt;',
+    )
+)
+try:
+    connection = engine.connect()
+    results = connection.execute('select current_version()').fetchone()
+    print(results[0])
+finally:
+    connection.close()
+    engine.dispose()
+My output should be the snowflake version e.g. 1.48.0
+But I get the error
+NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:snowflake
+(I am trying to run this in Anaconda)
+","<patron><sqlalchemy><snowflakes-cloud-data-platform>, nosuchmoduleerror: can't load plain: sqlalchemy.dialect:snowflakes, i'v instal necessary packages: pp instal --upgrade snowflakes-sqlalchemi run test code snowflakes docs: sqlalchemi import create_engin engine = create_engine( 'snowflakes://{user}:{password}@{account}/'.format( user='&it;your_user_login_name&it;', password='&it;your_password&it;', account='&it;your_account_name&it;', ) ) try: connect = engine.connect() result = connection.execute('select current_version()').fetching() print(results[0]) finally: connection.close() engine.dispose() output snowflakes version e.g. 1.48.0 get error nosuchmoduleerror: can't load plain: sqlalchemy.dialect:snowflakes (i try run anaconda)"
+53564839,CodeIgniter Transactions - trans_status and trans_complete return true but nothing being committed,"Problem:
+I have written a function in my model to insert an order into my database. I am using transactions to make sure that everything commits or else it will be rolled back. 
+My problem is that CodeIgniter is not showing any database errors, however it is rolling back the transaction but then returning TRUE for trans_status. However, this only happens if there is a discount on the order. If there is no discount on the order, everything commits and works properly.
+I am currently using CodeIgniter 3.19, PHP (7.2), mySQL (5.7), and Apache 2.4. (Working on Ubuntu 18.04)
+The function logic works as such:
+Inserts the order array into tbl_orders
+Saves order_id, and goes through each of the order products (attaches order_id) and inserts the product in tbl_order_products, 
+Saves order_product_id and attaches it to an array of users attendance options and inserts that into tbl_order_attendance
+Takes the payment transaction array (attaches the order_id) and inserts that into tbl_transactions
+IF there is a discount on the order, it decreases the discount_redeem_count (number of redeemable discount codes) by 1.
+Actual Function
+[Function]: 
+public function add_order(Order $order, array $order_products, Transaction $transaction = NULL){
+  $this-&gt;db-&gt;trans_start();
+  $order-&gt;create_order_code();
+  $order_array = $order-&gt;create_order_array();
+  $this-&gt;db-&gt;insert('tbl_orders', $order_array);
+  $order_id = $this-&gt;db-&gt;insert_id();
+  $new_order = new Order($order_id);
+  foreach($order_products as $key=&gt;$value){
+    $order_products[$key]-&gt;set_order($new_order);
+    $order_product_array = $order_products[$key]-&gt;create_order_product_array();
+    $this-&gt;db-&gt;insert('tbl_order_products', $order_product_array);
+    $order_product_id = $this-&gt;db-&gt;insert_id();
+    $product = $order_products[$key]-&gt;get_product();
+    switch ($product-&gt;get_product_class()){
+        case 'Iteration':
+            $this-&gt;db-&gt;select('module_id, webcast_capacity, in_person_capacity');
+            $this-&gt;db-&gt;from('tbl_modules');
+            $this-&gt;db-&gt;where('iteration_id', $product-&gt;get_product_class_id());
+            $results = $this-&gt;db-&gt;get()-&gt;result_array();
+            break;
+        case 'Module':
+            $this-&gt;db-&gt;select('module_id, webcast_capacity, in_person_capacity');
+            $this-&gt;db-&gt;from('tbl_modules');
+            $this-&gt;db-&gt;where('module_id', $product-&gt;get_product_class_id());
+            $results = $this-&gt;db-&gt;get-&gt;result_array();
+            break;
+      }
+      if(!empty($results)){
+        foreach($results as $result){
+        $module_id = $result['module_id'];
+        if($result['webcast_capacity'] !== NULL &amp;&amp; $result['in_person_capacity'] !== NULL){
+          $attendance_method = $order_products[$key]-&gt;get_attendance_method();
+        }elseif($result['webcast_capacity'] !== NULL &amp;&amp; $result['in_person_capacity'] === NULL){
+          $attendance_method = 'webcast';
+        }elseif($result['webcast_capacity'] === NULL &amp;&amp; $result['in_person_capacity'] !== NULL){
+          $attendance_method = 'in-person';
+        }
+        $order_product_attendance_array = array(
+          'order_product_id' =&gt; $order_product_id,
+          'user_id' =&gt; $order_products[$key]-&gt;get_customer(true),
+          'module_id' =&gt; $module_id,
+          'attendance_method' =&gt; $attendance_method,
+        );
+        $order_product_attendance[] = $order_product_attendance_array;
+      }
+      $this-&gt;db-&gt;insert_batch('tbl_order_product_attendance', $order_product_attendance);
+    }
+    if(!empty($order_products[$key]-&gt;get_discount())){
+      $discount = $order_products[$key]-&gt;get_discount();
+    }
+  }
+  if(!empty($transaction)){
+    $transaction-&gt;set_order($new_order);
+    $transaction_array = $transaction-&gt;create_transaction_array();
+    $this-&gt;db-&gt;insert('tbl_transactions', $transaction_array);
+    $transaction_id = $this-&gt;db-&gt;insert_id();
+  }
+  if(!empty($discount)){
+    $this-&gt;db-&gt;set('discount_redeem_count', 'discount_redeem_count-1', false);
+    $this-&gt;db-&gt;where('discount_id', $discount-&gt;get_discount_id());
+    $this-&gt;db-&gt;update('tbl_discounts');
+  }
+  if($this-&gt;db-&gt;trans_status() !== false){
+    $result['outcome'] = true;
+    $result['insert_id'] = $order_id;
+    return $result;
+  }else{
+    $result['outcome'] = false;
+    return $result;
+  }
+}
+When this function completes with a discount, both trans_complete and trans_status return TRUE. However the transaction is never committed.
+What I've tried:
+I have dumped the contents of $this-&gt;db-&gt;error() after each query and there are no errors in any of the queries.
+I have used this-&gt;db-&gt;last_query() to print out each query and then checked the syntax online to see if there were any problems, there were none.
+I also tried changing to using CodeIgniters Manual Transactions like:
+[Example]
+$this-&gt;db-&gt;trans_begin();
+ // all the queries
+if($this-&gt;db-&gt;trans_status() !== false){
+    $this-&gt;db-&gt;trans_commit();
+    $result['outcome'] = true;
+    $result['insert_id'] = $order_id;
+    return $result;
+}else{
+    $this-&gt;db-&gt;trans_rollback();
+    $result['outcome'] = false;
+    return $result;
+}
+I have tried echoing and var_dumping all of the return insert_ids and they all work, I have also outputted the affected_rows() of the UPDATE query and it is showing that 1 row was updated. However, still nothing being committed:
+[Values Dumped]
+int(10) // order_id
+int(10) // order_product_id
+array(3) { 
+    [""module_id""]=&gt; string(1) ""1"" 
+    [""webcast_capacity""]=&gt; string(3) ""250"" 
+    [""in_person_capacity""]=&gt; string(3) ""250"" } // $results array (modules)
+array(1) { 
+    [0]=&gt; array(4) { 
+        [""order_product_id""]=&gt; int(10 
+        [""user_id""]=&gt; string(1) ""5"" 
+        [""module_id""]=&gt; string(1) ""1"" 
+        [""attendance_method""]=&gt; string(7) ""webcast"" } } // order_product_attendance array
+int(9) // transaction_id
+int(1) // affected rows
+string(99) ""UPDATE `tbl_discounts` 
+            SET discount_redeem_count = discount_redeem_count- 1 
+            WHERE `discount_id` = 1"" // UPDATE query
+- I have also tried replacing the last UPDATE query with a completely different one that tries to update a different table with different values. That query ALSO did not work, which makes me think that I am hitting some sort of memory limit with the transaction. However, when monitoring mysqld processes, none of them seem to spike or have difficulty.
+I have tried submitting an order that doesn't have a discount and the entire process works! Which leads me to believe that my problem is with my UPDATE query. [After Update:] But it seems that the update query is working as well.
+Suggestions Tried:
+We have tried setting log_threshold to 4, and looked through the CodeIgniter Log Files which shows no history of a rollback. 
+We have checked the mySQL Query Log:
+[Query Log]
+2018-12-03T15:20:09.452725Z         3 Query     UPDATE `tbl_discounts` SET discount_redeem_count = discount_redeem_count-1 WHERE `discount_id` = '1'
+2018-12-03T15:20:09.453673Z         3 Quit
+It shows that a QUIT command is being sent directly after the UPDATE query. This would initiate a rollback, however the trans_status is returning TRUE.
+I also changed my my.cnf file for mySQL to have innodb_buffer_pool_size=256M and innodb_log_file_size=64M. There was no change in the outcome. 
+As @ebcode recommended, I changed UPDATE query to use a simple_query() instead of using default methods from CodeIgniter's Query Builder Class:
+[Simple Query]
+if(!empty($discount)){
+    $this-&gt;db-&gt;simple_query('UPDATE `tbl_discounts` SET '.
+    'discount_redeem_count = discount_redeem_count-1 WHERE '.
+    '`discount_id` = \''.$discount['discount_id'].'\'');
+}
+However, this produced did not affect the outcome any differently.
+If you have an idea that I haven't tried yet, or need more information from me, please comment and I will reply promptly.
+Question:
+Why does trans_status return TRUE if none of my transaction is being committed?
+In order to try and bring some clarity to users just finding this question now, the latest updates to the post will appear in italics *
+",<php><mysql><codeigniter>,8291,0,158,639,0,6,22,55,4507,,71,6,17,2018-11-30 21:00,2018-12-04 4:47,2018-12-14 19:05,4.0,14.0,Advanced,33,"<php><mysql><codeigniter>, CodeIgniter Transactions - trans_status and trans_complete return true but nothing being committed, Problem:
+I have written a function in my model to insert an order into my database. I am using transactions to make sure that everything commits or else it will be rolled back. 
+My problem is that CodeIgniter is not showing any database errors, however it is rolling back the transaction but then returning TRUE for trans_status. However, this only happens if there is a discount on the order. If there is no discount on the order, everything commits and works properly.
+I am currently using CodeIgniter 3.19, PHP (7.2), mySQL (5.7), and Apache 2.4. (Working on Ubuntu 18.04)
+The function logic works as such:
+Inserts the order array into tbl_orders
+Saves order_id, and goes through each of the order products (attaches order_id) and inserts the product in tbl_order_products, 
+Saves order_product_id and attaches it to an array of users attendance options and inserts that into tbl_order_attendance
+Takes the payment transaction array (attaches the order_id) and inserts that into tbl_transactions
+IF there is a discount on the order, it decreases the discount_redeem_count (number of redeemable discount codes) by 1.
+Actual Function
+[Function]: 
+public function add_order(Order $order, array $order_products, Transaction $transaction = NULL){
+  $this-&gt;db-&gt;trans_start();
+  $order-&gt;create_order_code();
+  $order_array = $order-&gt;create_order_array();
+  $this-&gt;db-&gt;insert('tbl_orders', $order_array);
+  $order_id = $this-&gt;db-&gt;insert_id();
+  $new_order = new Order($order_id);
+  foreach($order_products as $key=&gt;$value){
+    $order_products[$key]-&gt;set_order($new_order);
+    $order_product_array = $order_products[$key]-&gt;create_order_product_array();
+    $this-&gt;db-&gt;insert('tbl_order_products', $order_product_array);
+    $order_product_id = $this-&gt;db-&gt;insert_id();
+    $product = $order_products[$key]-&gt;get_product();
+    switch ($product-&gt;get_product_class()){
+        case 'Iteration':
+            $this-&gt;db-&gt;select('module_id, webcast_capacity, in_person_capacity');
+            $this-&gt;db-&gt;from('tbl_modules');
+            $this-&gt;db-&gt;where('iteration_id', $product-&gt;get_product_class_id());
+            $results = $this-&gt;db-&gt;get()-&gt;result_array();
+            break;
+        case 'Module':
+            $this-&gt;db-&gt;select('module_id, webcast_capacity, in_person_capacity');
+            $this-&gt;db-&gt;from('tbl_modules');
+            $this-&gt;db-&gt;where('module_id', $product-&gt;get_product_class_id());
+            $results = $this-&gt;db-&gt;get-&gt;result_array();
+            break;
+      }
+      if(!empty($results)){
+        foreach($results as $result){
+        $module_id = $result['module_id'];
+        if($result['webcast_capacity'] !== NULL &amp;&amp; $result['in_person_capacity'] !== NULL){
+          $attendance_method = $order_products[$key]-&gt;get_attendance_method();
+        }elseif($result['webcast_capacity'] !== NULL &amp;&amp; $result['in_person_capacity'] === NULL){
+          $attendance_method = 'webcast';
+        }elseif($result['webcast_capacity'] === NULL &amp;&amp; $result['in_person_capacity'] !== NULL){
+          $attendance_method = 'in-person';
+        }
+        $order_product_attendance_array = array(
+          'order_product_id' =&gt; $order_product_id,
+          'user_id' =&gt; $order_products[$key]-&gt;get_customer(true),
+          'module_id' =&gt; $module_id,
+          'attendance_method' =&gt; $attendance_method,
+        );
+        $order_product_attendance[] = $order_product_attendance_array;
+      }
+      $this-&gt;db-&gt;insert_batch('tbl_order_product_attendance', $order_product_attendance);
+    }
+    if(!empty($order_products[$key]-&gt;get_discount())){
+      $discount = $order_products[$key]-&gt;get_discount();
+    }
+  }
+  if(!empty($transaction)){
+    $transaction-&gt;set_order($new_order);
+    $transaction_array = $transaction-&gt;create_transaction_array();
+    $this-&gt;db-&gt;insert('tbl_transactions', $transaction_array);
+    $transaction_id = $this-&gt;db-&gt;insert_id();
+  }
+  if(!empty($discount)){
+    $this-&gt;db-&gt;set('discount_redeem_count', 'discount_redeem_count-1', false);
+    $this-&gt;db-&gt;where('discount_id', $discount-&gt;get_discount_id());
+    $this-&gt;db-&gt;update('tbl_discounts');
+  }
+  if($this-&gt;db-&gt;trans_status() !== false){
+    $result['outcome'] = true;
+    $result['insert_id'] = $order_id;
+    return $result;
+  }else{
+    $result['outcome'] = false;
+    return $result;
+  }
+}
+When this function completes with a discount, both trans_complete and trans_status return TRUE. However the transaction is never committed.
+What I've tried:
+I have dumped the contents of $this-&gt;db-&gt;error() after each query and there are no errors in any of the queries.
+I have used this-&gt;db-&gt;last_query() to print out each query and then checked the syntax online to see if there were any problems, there were none.
+I also tried changing to using CodeIgniters Manual Transactions like:
+[Example]
+$this-&gt;db-&gt;trans_begin();
+ // all the queries
+if($this-&gt;db-&gt;trans_status() !== false){
+    $this-&gt;db-&gt;trans_commit();
+    $result['outcome'] = true;
+    $result['insert_id'] = $order_id;
+    return $result;
+}else{
+    $this-&gt;db-&gt;trans_rollback();
+    $result['outcome'] = false;
+    return $result;
+}
+I have tried echoing and var_dumping all of the return insert_ids and they all work, I have also outputted the affected_rows() of the UPDATE query and it is showing that 1 row was updated. However, still nothing being committed:
+[Values Dumped]
+int(10) // order_id
+int(10) // order_product_id
+array(3) { 
+    [""module_id""]=&gt; string(1) ""1"" 
+    [""webcast_capacity""]=&gt; string(3) ""250"" 
+    [""in_person_capacity""]=&gt; string(3) ""250"" } // $results array (modules)
+array(1) { 
+    [0]=&gt; array(4) { 
+        [""order_product_id""]=&gt; int(10 
+        [""user_id""]=&gt; string(1) ""5"" 
+        [""module_id""]=&gt; string(1) ""1"" 
+        [""attendance_method""]=&gt; string(7) ""webcast"" } } // order_product_attendance array
+int(9) // transaction_id
+int(1) // affected rows
+string(99) ""UPDATE `tbl_discounts` 
+            SET discount_redeem_count = discount_redeem_count- 1 
+            WHERE `discount_id` = 1"" // UPDATE query
+- I have also tried replacing the last UPDATE query with a completely different one that tries to update a different table with different values. That query ALSO did not work, which makes me think that I am hitting some sort of memory limit with the transaction. However, when monitoring mysqld processes, none of them seem to spike or have difficulty.
+I have tried submitting an order that doesn't have a discount and the entire process works! Which leads me to believe that my problem is with my UPDATE query. [After Update:] But it seems that the update query is working as well.
+Suggestions Tried:
+We have tried setting log_threshold to 4, and looked through the CodeIgniter Log Files which shows no history of a rollback. 
+We have checked the mySQL Query Log:
+[Query Log]
+2018-12-03T15:20:09.452725Z         3 Query     UPDATE `tbl_discounts` SET discount_redeem_count = discount_redeem_count-1 WHERE `discount_id` = '1'
+2018-12-03T15:20:09.453673Z         3 Quit
+It shows that a QUIT command is being sent directly after the UPDATE query. This would initiate a rollback, however the trans_status is returning TRUE.
+I also changed my my.cnf file for mySQL to have innodb_buffer_pool_size=256M and innodb_log_file_size=64M. There was no change in the outcome. 
+As @ebcode recommended, I changed UPDATE query to use a simple_query() instead of using default methods from CodeIgniter's Query Builder Class:
+[Simple Query]
+if(!empty($discount)){
+    $this-&gt;db-&gt;simple_query('UPDATE `tbl_discounts` SET '.
+    'discount_redeem_count = discount_redeem_count-1 WHERE '.
+    '`discount_id` = \''.$discount['discount_id'].'\'');
+}
+However, this produced did not affect the outcome any differently.
+If you have an idea that I haven't tried yet, or need more information from me, please comment and I will reply promptly.
+Question:
+Why does trans_status return TRUE if none of my transaction is being committed?
+In order to try and bring some clarity to users just finding this question now, the latest updates to the post will appear in italics *
+","<pp><myself><codeigniter>, codeignit transact - trans_statu trans_complet return true not committed, problem: written function model insert order database. use transact make sure every commit else roll back. problem codeignit show database errors, howe roll back transact return true trans_status. however, happen discount order. discount order, every commit work properly. current use codeignit 3.19, pp (7.2), myself (5.7), apace 2.4. (work bunt 18.04) function logic work such: insert order array tbl_order save ordered, go order product (attach ordered) insert product tbl_order_products, save order_product_id attach array user attend option insert tbl_order_attend take payment transact array (attach ordered) insert tbl_transact discount order, decrees discount_redeem_count (number redeem discount codes) 1. actual function [function]: public function add_order(ord $order, array $order_products, transact $transact = null){ $this-&it;do-&it;trans_start(); $order-&it;create_order_code(); $order_array = $order-&it;create_order_array(); $this-&it;do-&it;insert('tbl_orders', $order_array); $ordered = $this-&it;do-&it;inserted(); $newport = new order($ordered); french($order_product $key=&it;$value){ $order_products[$key]-&it;set_order($new_order); $order_product_array = $order_products[$key]-&it;create_order_product_array(); $this-&it;do-&it;insert('tbl_order_products', $order_product_array); $order_product_id = $this-&it;do-&it;inserted(); $product = $order_products[$key]-&it;get_product(); switch ($product-&it;get_product_class()){ case 'operation': $this-&it;do-&it;select('module_id, webcast_capacity, in_person_capacity'); $this-&it;do-&it;from('tbl_modules'); $this-&it;do-&it;where('iteration_id', $product-&it;get_product_class_id()); $result = $this-&it;do-&it;get()-&it;result_array(); break; case 'module': $this-&it;do-&it;select('module_id, webcast_capacity, in_person_capacity'); $this-&it;do-&it;from('tbl_modules'); $this-&it;do-&it;where('module_id', $product-&it;get_product_class_id()); $result = $this-&it;do-&it;get-&it;result_array(); break; } if(!empty($results)){ french($result $result){ $module_id = $result['module_id']; if($result['webcast_capacity'] !== null &amp;&amp; $result['in_person_capacity'] !== null){ $attendance_method = $order_products[$key]-&it;get_attendance_method(); }else($result['webcast_capacity'] !== null &amp;&amp; $result['in_person_capacity'] === null){ $attendance_method = 'recast'; }else($result['webcast_capacity'] === null &amp;&amp; $result['in_person_capacity'] !== null){ $attendance_method = 'in-person'; } $order_product_attendance_array = array( 'order_product_id' =&it; $order_product_id, 'user_id' =&it; $order_products[$key]-&it;get_customer(true), 'module_id' =&it; $module_id, 'attendance_method' =&it; $attendance_method, ); $order_product_attendance[] = $order_product_attendance_array; } $this-&it;do-&it;insert_batch('tbl_order_product_attendance', $order_product_attendance); } if(!empty($order_products[$key]-&it;get_discount())){ $discount = $order_products[$key]-&it;get_discount(); } } if(!empty($transaction)){ $transaction-&it;set_order($new_order); $transaction_array = $transaction-&it;create_transaction_array(); $this-&it;do-&it;insert('tbl_transactions', $transaction_array); $transaction_id = $this-&it;do-&it;inserted(); } if(!empty($discount)){ $this-&it;do-&it;set('discount_redeem_count', 'discount_redeem_count-1', false); $this-&it;do-&it;where('discount_id', $discount-&it;get_discount_id()); $this-&it;do-&it;update('tbl_discounts'); } if($this-&it;do-&it;trans_status() !== false){ $result['outcome'] = true; $result['inserted'] = $ordered; return $result; }else{ $result['outcome'] = false; return $result; } } function complete discount, trans_complet trans_statu return true. howe transact never committed. i'v tried: dump content $this-&it;do-&it;error() query error queried. use this-&it;do-&it;last_query() print query check santa online see problems, none. also try change use codeignit manual transact like: [example] $this-&it;do-&it;trans_begin(); // query if($this-&it;do-&it;trans_status() !== false){ $this-&it;do-&it;trans_commit(); $result['outcome'] = true; $result['inserted'] = $ordered; return $result; }else{ $this-&it;do-&it;trans_rollback(); $result['outcome'] = false; return $result; } try echo var_dump return inserted work, also output affected_rows() update query show 1 row updated. however, still not committed: [value dumped] in(10) // ordered in(10) // order_product_id array(3) { [""module_id""]=&it; string(1) ""1"" [""webcast_capacity""]=&it; string(3) ""250"" [""in_person_capacity""]=&it; string(3) ""250"" } // $result array (nodules) array(1) { [0]=&it; array(4) { [""order_product_id""]=&it; in(10 [""user_id""]=&it; string(1) ""5"" [""module_id""]=&it; string(1) ""1"" [""attendance_method""]=&it; string(7) ""recast"" } } // order_product_attend array in(9) // transaction_id in(1) // affect row string(99) ""update `tbl_discounts` set discount_redeem_count = discount_redeem_count- 1 `discount_id` = 1"" // update query - also try replace last update query complete differ one try update differ table differ values. query also work, make think hit sort memory limit transaction. however, monitor myself processes, none seem spike difficulty. try submit order discount enter process works! lead believe problem update query. [after update:] seem update query work well. suggest tried: try set log_threshold 4, look codeignit log file show history rollback. check myself query log: [query log] 2018-12-03t15:20:09.452725z 3 query update `tbl_discounts` set discount_redeem_count = discount_redeem_count-1 `discount_id` = '1' 2018-12-03t15:20:09.453673z 3 quit show quit command sent directly update query. would into rollback, howe trans_statu return true. also change my.cf file myself innodb_buffer_pool_size=256m innodb_log_file_size=him. change outcome. @ebook recommended, change update query use simple_query() instead use default method codeigniter' query builder class: [simple query] if(!empty($discount)){ $this-&it;do-&it;simple_query('up `tbl_discounts` set '. 'discount_redeem_count = discount_redeem_count-1 '. '`discount_id` = \''.$discount['discount_id'].'\''); } however, produce affect outcome differently. idea try yet, need inform me, pleas comment reply promptly. question: trans_statu return true none transact committed? order try bring clarity user find question now, latest update post appear vital *"
+52952734,How to perform date_trunc query in Postgres using SQLAlchemy,"I can't seem to be able to translate the following query into SQLAlchemy. 
+I would like to translate the following query: 
+SELECT date_trunc('day', time), ""PositionReport"".callsign FROM tvh_aircraft.""PositionReport"" WHERE ""PositionReport"".reg = 'PH-BVA'
+GROUP BY 1, ""PositionReport"".callsign
+I've tried the following, but with no luck. 
+flight_days = session\
+        .query(PositionReport)\
+        .filter(PositionReport.reg == reg) \
+        .group_by(func.date_trunc('day', PositionReport.time))\
+        .group_by('1')\
+        .all()
+    trunc_date = func.date_trunc('day', PositionReport.time)
+    flight_days = session.query(trunc_date, PositionReport.callsign) \
+        .filter(PositionReport.reg == reg) \
+        .group_by(""date_trunc_1"")
+Thanks in advance for your help. 
+",<python><sql><postgresql><sqlalchemy>,785,0,13,415,2,5,19,59,7882,0.0,11,1,17,2018-10-23 15:27,2018-10-26 11:20,2018-10-26 11:20,3.0,3.0,Basic,10,"<python><sql><postgresql><sqlalchemy>, How to perform date_trunc query in Postgres using SQLAlchemy, I can't seem to be able to translate the following query into SQLAlchemy. 
+I would like to translate the following query: 
+SELECT date_trunc('day', time), ""PositionReport"".callsign FROM tvh_aircraft.""PositionReport"" WHERE ""PositionReport"".reg = 'PH-BVA'
+GROUP BY 1, ""PositionReport"".callsign
+I've tried the following, but with no luck. 
+flight_days = session\
+        .query(PositionReport)\
+        .filter(PositionReport.reg == reg) \
+        .group_by(func.date_trunc('day', PositionReport.time))\
+        .group_by('1')\
+        .all()
+    trunc_date = func.date_trunc('day', PositionReport.time)
+    flight_days = session.query(trunc_date, PositionReport.callsign) \
+        .filter(PositionReport.reg == reg) \
+        .group_by(""date_trunc_1"")
+Thanks in advance for your help. 
+","<patron><sal><postgresql><sqlalchemy>, perform date_trunc query poster use sqlalchemy, can't seem all translate follow query sqlalchemy. would like translate follow query: select date_trunc('day', time), ""positionreport"".calling tvh_aircraft.""positionreport"" ""positionreport"".red = 'oh-va' group 1, ""positionreport"".calling i'v try following, luck. flight_day = session\ .query(positionreport)\ .filter(positionreport.red == red) \ .group_by(fun.date_trunc('day', positionreport.time))\ .group_by('1')\ .all() trunc_dat = fun.date_trunc('day', positionreport.time) flight_day = session.query(trunc_date, positionreport.calling) \ .filter(positionreport.red == red) \ .group_by(""date_trunc_1"") thank advance help."
+52190109,How to query JSON Array in Postgres with SqlAlchemy?,"I have a SqlAlchemy model defined
+from sqlalchemy.dialects.postgresql import JSONB
+class User(db.Model):
+    __tablename__ = ""user""
+    id = db.Column(db.Integer, primary_key=True)
+    nickname = db.Column(db.String(255), nullable=False)
+    city = db.Column(db.String(255))
+    contact_list = db.Column(JSONB)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+def add_user():
+    user = User(nickname=""Mike"")
+    user.contact_list = [{""name"": ""Sam"", ""phone"": [""123456"", ""654321""]}, 
+                         {""name"": ""John"", ""phone"": [""159753""]},
+                         {""name"": ""Joe"", ""phone"": [""147889"", ""98741""]}]
+    db.session.add(user)
+    db.session.commit()
+if __name__ == ""__main__"":
+    add_user()
+How can I retrieve the name from my contact_list using phone? For example, I have the 147889, how can I retrieve Joe?
+I have tried this
+User.query.filter(User.contact_list.contains({""phone"": [""147889""]})).all()
+But, it returns me an empty list, []
+How can I do this?
+",<sqlalchemy><flask-sqlalchemy>,993,0,22,332,1,2,8,55,17978,0.0,44,1,17,2018-09-05 16:54,2018-09-05 17:06,2018-09-05 17:06,0.0,0.0,Basic,10,"<sqlalchemy><flask-sqlalchemy>, How to query JSON Array in Postgres with SqlAlchemy?, I have a SqlAlchemy model defined
+from sqlalchemy.dialects.postgresql import JSONB
+class User(db.Model):
+    __tablename__ = ""user""
+    id = db.Column(db.Integer, primary_key=True)
+    nickname = db.Column(db.String(255), nullable=False)
+    city = db.Column(db.String(255))
+    contact_list = db.Column(JSONB)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+def add_user():
+    user = User(nickname=""Mike"")
+    user.contact_list = [{""name"": ""Sam"", ""phone"": [""123456"", ""654321""]}, 
+                         {""name"": ""John"", ""phone"": [""159753""]},
+                         {""name"": ""Joe"", ""phone"": [""147889"", ""98741""]}]
+    db.session.add(user)
+    db.session.commit()
+if __name__ == ""__main__"":
+    add_user()
+How can I retrieve the name from my contact_list using phone? For example, I have the 147889, how can I retrieve Joe?
+I have tried this
+User.query.filter(User.contact_list.contains({""phone"": [""147889""]})).all()
+But, it returns me an empty list, []
+How can I do this?
+","<sqlalchemy><flask-sqlalchemy>, query son array poster sqlalchemy?, sqlalchemi model define sqlalchemy.dialect.postgresql import son class user(do.model): __tablename__ = ""user"" id = do.column(do.inter, primary_key=true) nickname = do.column(do.string(255), syllable=false) city = do.column(do.string(255)) contact_list = do.column(son) created_at = do.column(do.daytime, default=daytime.utcnow) def add_user(): user = user(nickname=""mike"") user.contact_list = [{""name"": ""sam"", ""phone"": [""123456"", ""654321""]}, {""name"": ""john"", ""phone"": [""159753""]}, {""name"": ""joe"", ""phone"": [""147889"", ""98741""]}] do.session.add(user) do.session.commit() __name__ == ""__main__"": add_user() retrieve name contact_list use phone? example, 147889, retrieve joe? try user.query.filter(user.contact_list.contains({""phone"": [""147889""]})).all() but, return empty list, [] this?"
+56185746,DISTINCT NULL return single NULL in SQL Server,"In Sql Server, NULL IS NOT EQUAL TO NULL.(Why does NULL = NULL evaluate to false in SQL server)
+Then why the following code returns single NULL.
+CREATE TABLE #TEMP1
+    (ID INT)
+INSERT INTO #TEMP1
+SELECT NULL
+UNION ALL
+SELECT NULL
+SELECT DISTINCT ID FROM #TEMP1
+DROP TABLE #TEMP1
+ID
+------
+NULL
+I expected 
+ID
+------
+NULL
+NULL
+",<sql-server>,327,1,16,187,0,1,6,38,1642,0.0,23,2,17,2019-05-17 11:43,2019-05-17 11:51,2019-05-17 11:51,0.0,0.0,Basic,2,"<sql-server>, DISTINCT NULL return single NULL in SQL Server, In Sql Server, NULL IS NOT EQUAL TO NULL.(Why does NULL = NULL evaluate to false in SQL server)
+Then why the following code returns single NULL.
+CREATE TABLE #TEMP1
+    (ID INT)
+INSERT INTO #TEMP1
+SELECT NULL
+UNION ALL
+SELECT NULL
+SELECT DISTINCT ID FROM #TEMP1
+DROP TABLE #TEMP1
+ID
+------
+NULL
+I expected 
+ID
+------
+NULL
+NULL
+","<sal-server>, distinct null return single null sal server, sal server, null equal null.(who null = null value fall sal server) follow code return single null. great table #temps (id in) insert #temps select null union select null select distinct id #temps drop table #temps id ------ null expect id ------ null null"
+51051440,"""Server sent charset (255) unknown to the client"" Set MySQL charset to utf8 w/o /etc/my.cnf?","I'm trying to connect to a MySQL database from phpMyAdmin. But when I put in username and password I get two error messages saying:
+mysqli_real_connect(): Server sent charset (255) unknown to the client. Please, report to the developers
+mysqli_real_connect(): (HY000/2054): Server sent charset unknown to the client. Please, report to the developers
+I'm using MySQL 8.0.11 and phpMyAdmin 4.8.2 
+I found this answer for a similar problem: 
+ PDO::__construct(): Server sent charset (255) unknown to the client. Please, report to the developers
+Here is the important part: ""MySQL 8 changed the default charset to utfmb4. But some clients don't know this charset. Hence when the server reports its default charset to the client, and the client doesn't know what the server means, it throws this error.""
+The solution given is to change the default charset back to utf8 by adding a few lines to /etc/my.cnf and restart mysqld.
+My problem is that /etc/my.cnf doesn't exist anywhere in my files so I can't change the default charset there. All of the other places I've looked end up referring to /my.cnf or reference older versions.
+So, how do I change the default charset to utf8 without a /etc/my.cnf for MySQL 8?
+",<php><mysql><pdo><utf-8>,1208,1,3,171,1,1,6,54,33527,0.0,0,3,17,2018-06-26 21:13,2019-01-06 4:53,,194.0,,Basic,14,"<php><mysql><pdo><utf-8>, ""Server sent charset (255) unknown to the client"" Set MySQL charset to utf8 w/o /etc/my.cnf?, I'm trying to connect to a MySQL database from phpMyAdmin. But when I put in username and password I get two error messages saying:
+mysqli_real_connect(): Server sent charset (255) unknown to the client. Please, report to the developers
+mysqli_real_connect(): (HY000/2054): Server sent charset unknown to the client. Please, report to the developers
+I'm using MySQL 8.0.11 and phpMyAdmin 4.8.2 
+I found this answer for a similar problem: 
+ PDO::__construct(): Server sent charset (255) unknown to the client. Please, report to the developers
+Here is the important part: ""MySQL 8 changed the default charset to utfmb4. But some clients don't know this charset. Hence when the server reports its default charset to the client, and the client doesn't know what the server means, it throws this error.""
+The solution given is to change the default charset back to utf8 by adding a few lines to /etc/my.cnf and restart mysqld.
+My problem is that /etc/my.cnf doesn't exist anywhere in my files so I can't change the default charset there. All of the other places I've looked end up referring to /my.cnf or reference older versions.
+So, how do I change the default charset to utf8 without a /etc/my.cnf for MySQL 8?
+","<pp><myself><do><utf-8>, ""server sent charge (255) unknown client"" set myself charge utf w/o /etc/my.cf?, i'm try connect myself database phpmyadmin. put usernam password get two error message saying: mysqli_real_connect(): server sent charge (255) unknown client. please, report develop mysqli_real_connect(): (hy000/2054): server sent charge unknown client. please, report develop i'm use myself 8.0.11 phpmyadmin 4.8.2 found answer similar problem: do::construct(): server sent charge (255) unknown client. please, report develop import part: ""myself 8 change default charge utfmb4. client know charge. hence server report default charge client, client know server means, throw error."" slut given change default charge back utf ad line /etc/my.cf start myself. problem /etc/my.cf exist anywhere file can't change default charge there. place i'v look end refer /my.cf refer older versions. so, change default charge utf without /etc/my.cf myself 8?"
+59668237,Disable AutoDetectChanges on Entity Framework Core,"someone knows how to disable the AutoDetectChanges on EFCore?
+I need to do it because I have to make an huge import in my database, and can't find information on web.
+Tried this but it's not working:
+_context.Configuration.AutoDetectChangesEnabled = false;
+Say configuration does not exist.
+Thanks a lot.
+",<c#><sql><asp.net-core><entity-framework-core><record>,305,0,1,491,2,10,23,49,18033,0.0,60,3,17,2020-01-09 16:24,2020-01-09 16:27,2020-01-09 18:45,0.0,0.0,Basic,14,"<c#><sql><asp.net-core><entity-framework-core><record>, Disable AutoDetectChanges on Entity Framework Core, someone knows how to disable the AutoDetectChanges on EFCore?
+I need to do it because I have to make an huge import in my database, and can't find information on web.
+Tried this but it's not working:
+_context.Configuration.AutoDetectChangesEnabled = false;
+Say configuration does not exist.
+Thanks a lot.
+","<c#><sal><asp.net-core><entity-framework-core><record>, distal autodetectchang entity framework core, someone know distal autodetectchang before? need make huge import database, can't find inform web. try working: context.configuration.autodetectchangesen = false; say configur exist. thank lot."
+50439029,How to execute a raw sql query with multiple statement with laravel,"Is there anyway I can execute a query with multiple statement like the one below, using laravel framework.
+I have tried using DB::statement but returned a sql syntax error, but when I execute the same query on phpmyadmin I works, its so frustrating.
+Please help me.
+EG
+LOCK TABLE topics WRITE;
+SELECT @pRgt := rgt FROM topics WHERE id = ?;
+UPDATE topics SET lft = lft + 2 WHERE rgt &gt; @pRgt;
+UPDATE topics SET rgt = rgt + 2 WHERE rgt &gt;= @pRgt;
+INSERT INTO topics (title, overview, article, image, lft, rgt)
+VALUES (?, ?, ?, ?, @pRgt, @pRgt + 1);
+UNLOCK TABLES;
+",<php><mysql><laravel>,566,0,12,1350,3,13,22,57,13810,0.0,197,2,17,2018-05-20 20:21,2018-05-20 21:04,2018-05-20 21:04,0.0,0.0,Basic,10,"<php><mysql><laravel>, How to execute a raw sql query with multiple statement with laravel, Is there anyway I can execute a query with multiple statement like the one below, using laravel framework.
+I have tried using DB::statement but returned a sql syntax error, but when I execute the same query on phpmyadmin I works, its so frustrating.
+Please help me.
+EG
+LOCK TABLE topics WRITE;
+SELECT @pRgt := rgt FROM topics WHERE id = ?;
+UPDATE topics SET lft = lft + 2 WHERE rgt &gt; @pRgt;
+UPDATE topics SET rgt = rgt + 2 WHERE rgt &gt;= @pRgt;
+INSERT INTO topics (title, overview, article, image, lft, rgt)
+VALUES (?, ?, ?, ?, @pRgt, @pRgt + 1);
+UNLOCK TABLES;
+","<pp><myself><travel>, execute raw sal query multiple statement travel, anyway execute query multiple statement like one below, use travel framework. try use do::statement return sal santa error, execute query phpmyadmin works, frustration. pleas help me. eg lock table topic write; select @part := rat topic id = ?; update topic set left = left + 2 rat &it; @part; update topic set rat = rat + 2 rat &it;= @part; insert topic (title, overview, article, image, left, rat) value (?, ?, ?, ?, @part, @part + 1); clock tables;"

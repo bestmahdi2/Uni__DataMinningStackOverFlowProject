@@ -1,0 +1,1616 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+52207233,Hibernate saves/retrieves date minus day if application uses another timezone than MySQL,"I have an application started on tomcat on MACHINE_A with timezone GMT+3.
+I use remote MySQL server started on MACHINE_B with timezone UTC.
+We use spring-data-jpa for persistence.
+As an example of the problem, I will show the repository:
+public interface MyRepository extends JpaRepository&lt;MyInstance, Long&gt; {
+    Optional&lt;MyInstance&gt; findByDate(LocalDate localDate);
+}
+If I pass localDate for 2018-09-06, I get entities where the date is 2018-09-05(previous day)
+In the logs I see:  
+2018-09-06 18:17:27.783 TRACE 13676 --- [nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [DATE] - [2018-09-06]
+I googled that question a lot and found several articles with the same content(for example https://moelholm.com/2016/11/09/spring-boot-controlling-timezones-with-hibernate/)
+So, I have the following application.yml:
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/MYDB?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC
+    username: root
+    password: *****
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        type: trace
+        jdbc:
+          time_zone: UTC
+But it doesn't help.
+We use the following connector:
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;8.0.12&lt;/version&gt;
+&lt;/dependency&gt;
+How can I resolve my problem?
+P.S.
+I tried to run both applications with the same time zone. In this case, everything works as expected.
+P.S.2
+I tried to use MySQL driver 6.0.6 version but it doesn't change anything.
+",<java><mysql><hibernate><spring-boot><timezone>,1834,2,29,36992,119,374,727,78,9947,0.0,3581,8,19,2018-09-06 15:11,2018-09-06 19:54,,0.0,,Intermediate,23
+64320136,ERROR 2002 (HY000): Can't connect to MySQL server on '192.168.1.15' (115),"I'm trying to make a MySQL database on my Raspberry Pi 4, but it isn't going very well, using localhost instead works perfectly but I want to remote control it from my Windows 10 computer on the same internet. When I create a user with the address of 192.168.1.15 by doing this:
+sudo mysql -u root
+CREATE USER 'lasse'@'192.168.1.15' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'lasse'@'192.168.1.15';
+FLUSH PRIVILEGES
+exit
+I try to login again using this:
+mysql -u lasse -h 192.168.1.15 -ppassword // didnt work, error: ERROR 2002 (HY000): Can't connect to MySQL server on '192.168.1.15' (115)
+mysql -u user -h 192.168.1.2 -P 3306 -ppassword // didnt work either, same error.
+I have these packages installed:
+mariadb-client
+mariadb-server
+default-mysql-server
+",<mysql><mariadb>,773,0,10,191,1,1,3,75,66630,0.0,0,6,19,2020-10-12 14:49,2020-10-12 14:54,,0.0,,Basic,9
+48261997,room migration using existing boolean column types,"What i found out so far 
+All the @entity annotated classes are processed during compiletime and an Implementation for Database class is generated. Then before accessing the db, validateMigration method of this generated class is called. This validateMigration method verifies with the existing db schema via raw query
+PRAGMA table_info mytable name 
+(see L208 of android.arch.persistence.room.util.TableInfo.java)
+Now the problem 
+My sqlite3 db has some columns with column type as BOOLEAN. (which slqite internally handles to int). Now when i create room entities say 
+public someEntity {
+     @columnInfo(name=""someName"")
+     public Boolean myValue;
+}
+The room's create table query will be
+Create Table someEntity ( myValue INTEGER)
+Where as when we query the existing db with PRAGMA table_info someEntity we get
+1|myValue|BOOLEAN|0||0
+As explained above room verifies the ( sqlite to room ) migration by comparing field name, column type etc. And since the column types dont match (BOOLEAN and INTEGER) it throws an error saying migration failed.
+Can anyone suggest a workaround to this ? Can we make room create BOOLEAN column type in sqlite ? (Also afaik we can't change/alter column types of existing tables.)
+PS: I also see a similar issue with VARCHAR - Using an existing VARCHAR column with Room
+",<java><android><sqlite><android-room>,1306,1,8,491,1,4,12,43,13150,0.0,45,2,19,2018-01-15 11:23,2019-03-22 17:29,2019-03-22 17:29,431.0,431.0,Basic,9
+62708607,How to fix diesel_cli link libpq.lib error with Postgres tools installed in Docker?,"I'm trying (for hours now) to install the cargo crate diesel_cli for postgres. However, every time I run the recommended cargo command:
+cargo install diesel_cli --no-default-features --features postgres
+I wait a few minutes just to see the same build fail with this message:
+note: LINK : fatal error LNK1181: cannot open input file 'libpq.lib'
+error: aborting due to previous error
+error: failed to compile `diesel_cli v1.4.1`, intermediate artifacts can be found at `C:\Users\&lt;user name here&gt;\AppData\Local\Temp\cargo-installUU2DtT`
+Caused by:
+  could not compile `diesel_cli`.
+I'm running postgres in a docker container and have the binaries on my C:\pgsql with the lib and bin directories both on the PATH so I can't figure out why it's not linking. What else could be required they didn't mention in the docs?
+",<postgresql><rust><rust-cargo><libpq><rust-diesel>,820,1,13,3137,4,26,57,56,11733,0.0,342,8,19,2020-07-03 4:38,2020-08-18 8:36,2020-08-18 8:36,46.0,46.0,Basic,9
+55976471,How can I use AWS's Dynamo Db with Django?,"I am developing web applications, APIs, and backends using the Django MVC framework. A major aspect of Django is its implementation of an ORM for models. It is an exceptionally good ORM. Typically when using Django, one utilizes an existing interface that maps one's Django model to a specific DBMS like Postgres, MySQL, or Oracle for example.
+I have some specific needs, requirements regarding performance and scalability, so I really want to use AWS's Dynamo DB because it is highly cost efficient, very performant, and scales really well.
+While I think Django allows one to implement their own interface for a DBMS if one wishes to do so, it is clearly advantageous to be able to use an existing DBMS interface when constructing one's Django models if one exists.
+Can someone recommend a Django model interface to use so I can construct a model in Django that uses AWS's Dynamo DB?
+How about one using MongoDB?
+",<python><django><orm><nosql><amazon-dynamodb>,914,0,0,773,3,7,15,65,26399,0.0,139,5,19,2019-05-03 20:08,2019-11-22 6:35,,203.0,,Intermediate,20
+56239790,Update SQL Query with populated variables from AJAX functions over multiple PHP Pages,"i try to get help with that question. 
+All in all Q: It doesnt Update my DB entry like this Step by Step Order how i think it could be done.
+its a bit difficult to explain, but i try to explain it step by step with minimal and readable Code. I use the original code, its hard to convert it in reproducible Examples.
+A.1 Page ma_aktuelle_ReadOut.php
+ There is a php Part
+ &lt;?php echo ""&lt;a href='ma_Testende.php?TestergebnisID=&amp;TestaufstellungID="". $row['TestaufstellungID'].""&amp;TesterID="".$row['TesterID'].""' title='Test stoppen' data-toggle='tooltip' class='stoppen'&gt;   &lt;span class='glyphicon glyphicon-stop'&gt;&lt;/span&gt;&lt;/a&gt;"";
+?&gt;
+When i click this link the following javascript function is called and ask me ""really stop?""
+&lt;script language=""JavaScript"" type=""text/javascript""&gt;
+$(document).ready(function(){
+  $(""a.stoppen"").click(function(e){
+   if(!confirm('Wirklich stoppen?')){
+    e.preventDefault();
+    $('.alert').show()
+    return false;
+    }
+    return true;
+            });
+        });
+&lt;/script&gt;
+&lt;style&gt;
+ .alert {
+  display: none;
+    }
+&lt;/style&gt;
+When i cklick ""yes"" it opens the second Page.
+A 2 Page ma_Testende.php
+On this Page are 2 AJAX JS Functions.
+The first Ajax is asking for ""Datum"" via type:get from the following next page and wait till success (see Page B 3):
+&lt;script src=""https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js""&gt;
+/* function to get Stoptime for Cycle from DB.TesterCycleCount zu erhalten  */ 
+$(document).ready(async function(){
+var Datum;
+var TesterID = ""&lt;?php echo $_GET['TesterID']; ?&gt;""; /* value from TesterID */ 
+await $.ajax({ /* First Ajax function */
+            url: 'ma_get-TesterID_Testende.php',
+            type: 'get', 
+            data: {TesterID:TesterID}, 
+            dataType: 'json',
+            success:function(response){ 
+                var CID = response['CID'];
+                Datum = response['Datum'];
+                console.log(response);
+            },
+             error: function(jqxhtt, status, exception) {
+                 console.log(exception);
+         alert('Exception:', exception)
+            }
+        });
+console.log();
+        var TestaufstellungID = ""&lt;?php echo $_GET['TestaufstellungID']; ?&gt;"";
+         $.ajax({ /* Second Ajax function */
+            url: 'ma_TestendeSQL.php',
+            type: 'get', 
+            data: {TestaufstellungID:TestaufstellungID, Datum: Datum}, 
+            dataType: 'json',
+            success:function(data){ 
+            alert('Successfully called');
+     },
+     error: function(jqxhr, status, exception) {
+         console.log(exception);
+         alert('Exception:', exception)
+            }
+        });
+        });
+&lt;/script&gt;
+B 3 Page ma_get-TesterID_Testende.php
+&lt;?php
+$cinfo = array(
+    ""Database"" =&gt; $database,
+    ""UID"" =&gt; $username,
+    ""PWD"" =&gt; $password
+);
+$conn = sqlsrv_connect($server, $cinfo);
+                $sqlreadZeit = ""Select TOP 1 CID,Datum from DB.dbo.TesterCycleCount where TesterID = '"".$_GET['TesterID'].""' order by Datum DESC"";
+                $result1 = sqlsrv_query($conn, $sqlreadZeit);
+                $zeiten_arr = array();
+                while ($row = sqlsrv_fetch_array($result1, SQLSRV_FETCH_ASSOC)) {
+                $CID = $row['CID'];
+                $Datum = $row['Datum']-&gt;format('d.m.Y h:m:s');
+                $zeiten_arr[] = array(""CID"" =&gt; $CID, ""Datum"" =&gt; $Datum);
+                                }
+    header('Content-type: application/json');
+  echo json_encode($zeiten_arr); 
+?&gt;
+Back with the ""Datum"" the second AJAX is called (see Page A 2) 
+With the ""Datum"" and ""TestaufstellungID"" as variable it should be call the next Page and Update the DB entry with the populated variablles.
+B. 4 Page ma_TestendeSQL.php
+&lt;?php
+$cinfo = array(
+    ""Database"" =&gt; $database,
+    ""UID"" =&gt; $username,
+    ""PWD"" =&gt; $password
+);
+$conn = sqlsrv_connect($server, $cinfo);
+$TestaufstellungID = $_GET['TestaufstellungID'];
+$Testende= $_GET['Datum'];
+$Testdatum = date('Y-d-m');
+$stop = $connection-&gt;prepare(""WITH UpdateTestende AS (
+  SELECT TOP 1  * from DB.dbo.Testergebnisse 
+  WHERE TestaufstellungID = :TestaufstellungID
+  ORDER BY TestergebnisID DESC 
+)
+update UpdateTestende 
+set Testende = :Testende,
+Datum = :Testdatum"");
+$stop-&gt;execute(array(':TestaufstellungID' =&gt; $TestaufstellungID, ':Testdatum' =&gt; $Testdatum, ':Testende' =&gt; $Testende));
+    header('Content-type: application/json');
+?&gt;
+The php variable $Testende get the populated ""Datum"" from the Ajax functions. All in all at the end it should be Update, when i click on the link the ( Page A 1) my DB entry with the populated ""Datum"" which i get from the first Ajax call ( Page A 2 ) from the SQL Query ( Page B 3) back to the second AJAX Call ( Page A 2 )  than with the data: {TestaufstellungID:TestaufstellungID, Datum: Datum}  to the last page ( Page B 4) 
+But it doesnt Update my DB entry like this Step by Step Order how i think it could be done. 
+Encapsulated is the SQL-Code working fine. With the Code header('Content-type: application/json'); the browser tell me the following when i click on the link from ( Page A 1 )
+SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+Thats why i posted all the Step i think on one point the variables are not passed right to the next page or they are empty becasue the code is not executed in the right order Server/Client PHP/JS or Asynchronous problem... 
+The console.log tell me nothing. At the moment i have no idea where to start with the debugging?
+Hope someone can help me. thx
+Edit: iam pretty sure the ajax call is empty, but i dont see it in which step the values getting empty
+Edit2:
+AJAX Call is empty or is not starting.
+Further invstigation:  The Ajax alert me the error part with empty exception and dont alert me the success part. So it doesnt  go to the page ma_get-TesterID_Testende.php or it doesnt  return back the Datum .
+Could be not enabled Cross-Site-Scripting be the Problem? 
+But in another Page is a similiar Ajax Call working fine.
+$(document).ready(function(){
+var TesterID = ""&lt;?php echo $_GET['TesterID']; ?&gt;""; /* value der Tester erhalten */ 
+        $.ajax({ /* AJAX aufrufen */
+            url: 'ma_get-TesterID.php',
+            type: 'get', /* Methode zum übertragen der Daten */
+            data: {TesterID:TesterID}, /* Daten zu übermitteln */
+            dataType: 'json',
+            success:function(response){ /* Die zurückgegebenene Daten erhalten */
+                var len = response.length;
+                $(""#Teststart"").empty(); /* Die erhaltenden Daten werden bei der ID angezeigt */
+                for( var i = 0; i&lt;len; i++){
+                    var CID = response[i]['CID'];
+                    var Datum = response[i]['Datum'];
+                    $(""#Teststart"").append(""&lt;option value='""+Datum+""'&gt;""+Datum+""&lt;/option&gt;"");
+                }
+            }
+        });
+    $(""#TesterID"").change(function(){ /* Wenn du änderst und vom Select Feld auswählst */
+        var TesterID = $(this).val(); /* value der Tester erhalten */ 
+        $.ajax({ /* AJAX aufrufen */
+            url: 'ma_get-TesterID.php',
+            type: 'get', /* Methode zum übertragen der Daten */
+            data: {TesterID:TesterID}, /* Daten zu übermitteln */
+            dataType: 'json',
+            success:function(response){ /* Die zurückgegebenene Daten erhalten */
+                var len = response.length;
+                $(""#Teststart"").empty(); /* Die erhaltenden Daten werden bei der ID angezeigt */
+                for( var i = 0; i&lt;len; i++){
+                    var CID = response[i]['CID'];
+                    var Datum = response[i]['Datum'];
+                    $(""#Teststart"").append(""&lt;option value='""+Datum+""'&gt;""+Datum+""&lt;/option&gt;"");
+                }
+            }
+        });
+    });
+});
+In this example the Ajax Call starts when i change the value from a Dropdown selection Form.    Is there a difference? 
+How this Ajax should work i try to explain in my other question step by step, how it my application should be execute.
+Update SQL Query with populated variables from AJAX functions over multiple PHP Pages
+Edit 3:
+JQuery Version:
+https://code.jquery.com/jquery-3.4.1.js
+",<javascript><php><jquery><sql-server><ajax>,8300,5,155,668,0,4,17,42,777,,18,1,19,2019-05-21 13:48,2019-05-28 23:31,,7.0,,Intermediate,31
+63684133,prisma can't connect to postgresql,"I've tried to connect Prisma with postgreSQL several times.
+prisma show this error message : &quot;Error: undefined: invalid port number in &quot;postgresql://postgres:password@localhost:5432/linker&quot;)&quot;.
+-error
+-prisma/.env
+DATABASE_URL=postgresql://postgres:password@localhost:5432/linker
+-schema.prisma
+datasource db {
+  provider = &quot;postgresql&quot;
+  url      = env(&quot;DATABASE_URL&quot;)
+}
+So, first, I checked the port number to see if it was right and 5432 is right because I use the default port number. I also checked the postgresql.conf file, which is set to &quot;listen_address=&quot;*&quot;&quot; , &quot;port=5432&quot;.
+And I went into pgAdmin4 and saw server's properties. the port number was 5432 as shown below image, and the username was set &quot;postgres&quot;.
+I don't know why prisma can't connect
+Did i something missed?
+",<postgresql><prisma>,861,3,5,345,1,3,10,66,15046,0.0,28,5,19,2020-09-01 8:36,2021-06-02 8:09,2021-07-01 16:23,274.0,303.0,Basic,6
+65409104,What does Room return if a query had no results,"Having a difficult time finding this answer and the documentation doesn't seem to answer the question.
+If I have a basic ROOM query,
+@Query(&quot;SELECT * FROM geotable WHERE geohash = :geohash&quot;)
+abstract suspend fun getGeoTable(geohash: String) : GeoTable
+and there is no such item that uses this primary key, what happens?  Android studio says that the DAO object will never return a null.  It seems that EmptyResultSetException only gets thrown when you have Single using RxJava which I am not using.  So what does plain old ROOM throw when it finds nothing?
+",<android><sqlite><android-room>,567,0,2,1073,2,12,21,73,5379,0.0,16,4,19,2020-12-22 12:53,2021-04-21 9:24,,120.0,,Basic,13
+64474420,PostgreSQL authentication method 10 not supported,"I'm trying to follow the diesel.rs tutorial using PostgreSQL. When I get to the Diesel setup step, I get an &quot;authentication method 10 not supported&quot; error. How do I resolve it?
+",<postgresql><rust><rust-diesel>,187,1,0,393,1,4,11,41,100878,0.0,0,3,19,2020-10-22 2:34,2020-10-22 6:04,,0.0,,Basic,14
+58033899,Why is Spark broadcast exchange data size bigger than raw size on join?,"I am doing a broadcast join of two tables A and B.
+B is a cached table created with the following Spark SQL:
+create table B as select segment_ids_hash from  stb_ranker.c3po_segments
+      where
+        from_unixtime(unix_timestamp(string(dayid), 'yyyyMMdd')) &gt;= CAST('2019-07-31 00:00:00.000000000' AS TIMESTAMP)
+      and
+        segmentid_check('(6|8|10|12|14|371|372|373|374|375|376|582|583|585|586|587|589|591|592|594|596|597|599|601|602|604|606|607|609|610|611|613|615|616)', seg_ids) = true
+cache table B
+The column 'segment_ids_hash' is of integer type and the result contains 36.4 million records.
+The cached table size is about 140 MB, as shown below
+Then I did the join as follows:
+select count(*) from A broadcast join B on A.segment_ids_hash = B.segment_ids_hash
+Here broadcast exchange data size is about 3.2 GB.
+My question is why the broadcast exchange data size (3.2GB) is so much bigger than the raw data size (~140 MB). What are the overheads? Is there any way to reduce the broadcast exchange data size?
+Thanks
+",<apache-spark><apache-spark-sql>,1033,2,7,1497,3,17,26,37,5192,0.0,39,2,19,2019-09-20 19:02,2020-02-24 11:20,2020-02-24 11:20,157.0,157.0,Intermediate,23
+60457719,Query without WHILE Loop,"We have appointment table as shown below. Each appointment need to be categorized as ""New"" or ""Followup"". Any appointment (for a patient) within 30 days of first appointment (of that patient) is Followup.  After 30 days, appointment is again ""New"". Any appointment within 30 days become ""Followup"".
+I am currently doing this by typing while loop.
+How to achieve this without WHILE loop?
+Table
+CREATE TABLE #Appt1 (ApptID INT, PatientID INT, ApptDate DATE)
+INSERT INTO #Appt1
+SELECT  1,101,'2020-01-05' UNION
+SELECT  2,505,'2020-01-06' UNION
+SELECT  3,505,'2020-01-10' UNION
+SELECT  4,505,'2020-01-20' UNION
+SELECT  5,101,'2020-01-25' UNION
+SELECT  6,101,'2020-02-12'  UNION
+SELECT  7,101,'2020-02-20'  UNION
+SELECT  8,101,'2020-03-30'  UNION
+SELECT  9,303,'2020-01-28' UNION
+SELECT  10,303,'2020-02-02' 
+",<sql><sql-server><t-sql><sql-server-2016>,804,1,12,22285,67,261,420,56,1312,0.0,5076,10,19,2020-02-28 18:58,2020-02-28 19:13,2020-03-02 16:58,0.0,3.0,Basic,10
+64414030,How to use nested pydantic models for sqlalchemy in a flexible way,"from fastapi import Depends, FastAPI, HTTPException, Body, Request
+from sqlalchemy import create_engine, Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import Session, sessionmaker, relationship
+from sqlalchemy.inspection import inspect
+from typing import List, Optional
+from pydantic import BaseModel
+import json
+SQLALCHEMY_DATABASE_URL = &quot;sqlite:///./test.db&quot;
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={&quot;check_same_thread&quot;: False}
+)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+app = FastAPI()
+# sqlalchemy models
+class RootModel(Base):
+    __tablename__ = &quot;root_table&quot;
+    id = Column(Integer, primary_key=True, index=True)
+    someRootText = Column(String)
+    subData = relationship(&quot;SubModel&quot;, back_populates=&quot;rootData&quot;)
+class SubModel(Base):
+    __tablename__ = &quot;sub_table&quot;
+    id = Column(Integer, primary_key=True, index=True)
+    someSubText = Column(String)
+    root_id = Column(Integer, ForeignKey(&quot;root_table.id&quot;))
+    rootData = relationship(&quot;RootModel&quot;, back_populates=&quot;subData&quot;)
+# pydantic models/schemas
+class SchemaSubBase(BaseModel):
+    someSubText: str
+    class Config:
+        orm_mode = True
+class SchemaSub(SchemaSubBase):
+    id: int
+    root_id: int
+    class Config:
+        orm_mode = True
+class SchemaRootBase(BaseModel):
+    someRootText: str
+    subData: List[SchemaSubBase] = []
+    class Config:
+        orm_mode = True
+class SchemaRoot(SchemaRootBase):
+    id: int
+    class Config:
+        orm_mode = True
+class SchemaSimpleBase(BaseModel):
+    someRootText: str
+    class Config:
+        orm_mode = True
+class SchemaSimple(SchemaSimpleBase):
+    id: int
+    class Config:
+        orm_mode = True
+Base.metadata.create_all(bind=engine)
+# database functions (CRUD)
+def db_add_simple_data_pydantic(db: Session, root: SchemaRootBase):
+    db_root = RootModel(**root.dict())
+    db.add(db_root)
+    db.commit()
+    db.refresh(db_root)
+    return db_root
+def db_add_nested_data_pydantic_generic(db: Session, root: SchemaRootBase):
+    # this fails:
+    db_root = RootModel(**root.dict())
+    db.add(db_root)
+    db.commit()
+    db.refresh(db_root)
+    return db_root
+def db_add_nested_data_pydantic(db: Session, root: SchemaRootBase):
+    # start: hack: i have to manually generate the sqlalchemy model from the pydantic model
+    root_dict = root.dict()
+    sub_dicts = []
+    # i have to remove the list form root dict in order to fix the error from above
+    for key in list(root_dict):
+        if isinstance(root_dict[key], list):
+            sub_dicts = root_dict[key]
+            del root_dict[key]
+    # now i can do it
+    db_root = RootModel(**root_dict)
+    for sub_dict in sub_dicts:
+        db_root.subData.append(SubModel(**sub_dict))
+    # end: hack
+    db.add(db_root)
+    db.commit()
+    db.refresh(db_root)
+    return db_root
+def db_add_nested_data_nopydantic(db: Session, root):
+    print(root)
+    sub_dicts = root.pop(&quot;subData&quot;)
+    print(sub_dicts)
+    db_root = RootModel(**root)
+    for sub_dict in sub_dicts:
+        db_root.subData.append(SubModel(**sub_dict))
+    db.add(db_root)
+    db.commit()
+    db.refresh(db_root)
+    # problem
+    &quot;&quot;&quot;
+    if I would now &quot;return db_root&quot;, the answer would be of this:
+    {
+        &quot;someRootText&quot;: &quot;string&quot;,
+        &quot;id&quot;: 24
+    }
+    and not containing &quot;subData&quot;
+    therefore I have to do the following.
+    Why?
+    &quot;&quot;&quot;
+    from sqlalchemy.orm import joinedload
+    db_root = (
+        db.query(RootModel)
+            .options(joinedload(RootModel.subData))
+            .filter(RootModel.id == db_root.id)
+            .all()
+    )[0]
+    return db_root
+# Dependency
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+@app.post(&quot;/addNestedModel_pydantic_generic&quot;, response_model=SchemaRootBase)
+def addSipleModel_pydantic_generic(root: SchemaRootBase, db: Session = Depends(get_db)):
+    data = db_add_simple_data_pydantic(db=db, root=root)
+    return data
+@app.post(&quot;/addSimpleModel_pydantic&quot;, response_model=SchemaSimpleBase)
+def add_simple_data_pydantic(root: SchemaSimpleBase, db: Session = Depends(get_db)):
+    data = db_add_simple_data_pydantic(db=db, root=root)
+    return data
+@app.post(&quot;/addNestedModel_nopydantic&quot;)
+def add_nested_data_nopydantic(root=Body(...), db: Session = Depends(get_db)):
+    data = db_add_nested_data_nopydantic(db=db, root=root)
+    return data
+@app.post(&quot;/addNestedModel_pydantic&quot;, response_model=SchemaRootBase)
+def add_nested_data_pydantic(root: SchemaRootBase, db: Session = Depends(get_db)):
+    data = db_add_nested_data_pydantic(db=db, root=root)
+    return data
+Description
+My Question is:
+How to make nested sqlalchemy models from nested pydantic models (or python dicts)  in a generic way and write them to the database in &quot;one shot&quot;.
+My example model is called RootModel and has a list of submodels called &quot;sub models&quot; in subData key.
+Please see above for pydantic and sqlalchemy definitions.
+Example:
+The user provides a nested json string:
+{
+  &quot;someRootText&quot;: &quot;string&quot;,
+  &quot;subData&quot;: [
+    {
+      &quot;someSubText&quot;: &quot;string&quot;
+    }
+  ]
+}
+Open the browser and call the endpoint /docs.
+You can play around with all endpoints and POST the json string from above.
+/addNestedModel_pydantic_generic
+When you call the endpoint /addNestedModel_pydantic_generic it will fail, because sqlalchemy cannot create the nested model from pydantic nested model directly:
+AttributeError: 'dict' object has no attribute '_sa_instance_state' 
+​/addSimpleModel_pydantic
+With a non-nested model  it works.
+The remaining endpoints are showing &quot;hacks&quot; to solve the problem of nested models.
+/addNestedModel_pydantic
+In this endpoint is generate the root model and andd the submodels with a loop in a non-generic way with pydantic models.
+/addNestedModel_pydantic
+In this endpoint is generate the root model and andd the submodels with a loop in a non-generic way with python dicts.
+My solutions are only hacks, I want a generic way to create nested sqlalchemy models either from pydantic (preferred) or from a python dict.
+Environment
+OS: Windows,
+FastAPI Version : 0.61.1
+Python version: Python 3.8.5
+sqlalchemy: 1.3.19
+pydantic : 1.6.1
+",<sqlalchemy><fastapi><pydantic>,6555,0,207,191,1,1,4,81,18993,0.0,1,4,19,2020-10-18 13:41,2021-04-30 11:29,,194.0,,Intermediate,17
+52177610,How to create auto incrementing / SERIAL id columns using DBeaver with PostgreSQL?,"I am a new user for both PostgreSQL and DBeaver (Community edition ver. 5.1.6) and was looking for a way to create an auto incrementing ID column in a table through the DBeaver GUI.
+From my research I can see that:
+You can set this up easily using SQL eg. id SERIAL NOT_NULL
+The underlying problem is that there is no such thing as a 'Serial data type', and that SERIAL equates to nextval('table_name_id_seq').
+When I create a table using the SERIAL command in SQL the resulting id column has a nextval('exampletable_id_seq'::regclass') value in the 'Default' attribute.
+I have attempted to manually input the nextval() command within the 'Default' attribute for the column in DBeaver in a new table, for example. nextval('mytable_id_seq') with and without the '::regclass;. However this is not working.
+I appreciate that doing this in SQL would be easier, and that there is a previously asked question at: Problems de Serial data type in DBeaver &amp; PostgreSQL.
+However, I could not find a satisfactory answer and the option of being able to do this through the GUI would be useful, especially if other setup is being done through the DBeaver GUI.
+Specifically, my question is:
+Is there a functionality for DBeaver to add auto incrementing id's through the GUI?
+If so, what would be the steps to do this.
+",<postgresql><dbeaver>,1308,1,0,703,2,7,13,77,65316,0.0,58,1,19,2018-09-05 5:24,2018-09-05 22:15,2018-09-05 22:15,0.0,0.0,Basic,3
+48804649,how to perform a SELECT on a JSON column in mysql/mariaDB,"how to apply WHERE clause on JSON column to perform a SELECT query on a table which is having two columns (id Integer, attr JSON). The JSON is nested and in the filter condition there is only one key value pair of json is allowed. This key value pair can be anywhere in the Josn.
++----+-----------------------------------------------------------------
+| id | attr                                                                                          
+|
++----+-----------------------------------------------------------------
+|  1 | {""id"":""0001"",""type"":""donut"",""name"":""Cake"",""ppu"":0.55}                                         
+|
+|  2 | {""id"":""0002"",""type"":""donut"",""name"":""Cake"",""ppu"":0.55,""batters"":
+       {""batter1"":100,""batter2"":200}} 
++----+-----------------------------------------------------------------
+",<mysql><mariadb><mysql-python>,814,0,9,471,1,6,14,76,41449,0.0,18,3,19,2018-02-15 10:13,2018-02-15 12:12,2018-02-15 12:12,0.0,0.0,Basic,10
+52657760,Android Room: How to Migrate Column Renaming?,"Issue
+My app is crashing because I am not handling migration properly. I'm looking for a solution to migrate the name of 1 column in my table. 
+In my project I a have a room table named 'content' with a Double attribute 'archivedCount'. In the latest version of the app the attribute archivedCount attribute is re-named to dismissCount, still as type Double.
+Original Content model
+@Entity(tableName = ""content"")
+data class Content(@PrimaryKey var id: String, var archiveCount: Double) : Parcelable {...}
+New Content model
+@Entity(tableName = ""content"")
+data class Content(@PrimaryKey var id: String, var dismissCount: Double) : Parcelable {...}
+Attempted Solution
+After reading a Google Developer Advocate's explanation Understanding migrations with Room, I attempted her solution outlined in the post's section Migrations with complex schema changes which entails making a copy of the original table, deleting the old table, then renaming the newly created table.
+With the following approach below there is a runtime error on this line: database.execSQL(""INSERT INTO content_new (id, dismissCount) SELECT id, archiveCount FROM users""); because I already cleared my app's cache so the old table no longer exists. 
+Can I update a single column without re-creating the entire table?
+static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+@Override
+public void migrate(SupportSQLiteDatabase database) {
+    // Create the new table
+    database.execSQL(
+            ""CREATE TABLE content_new (id TEXT, dismissCount REAL, PRIMARY KEY(id))"");
+    // Copy the data
+    database.execSQL(""INSERT INTO content_new (id, dismissCount) SELECT id, archiveCount FROM users"");
+    // Remove the old table
+    database.execSQL(""DROP TABLE content"");
+    // Change the table name to the correct one
+    database.execSQL(""ALTER TABLE content_new RENAME TO content"");
+  }
+};
+",<android><sql><android-sqlite><android-room>,1862,1,19,9836,12,72,137,58,12753,0.0,1581,2,19,2018-10-05 2:55,2018-10-05 7:01,2018-10-07 3:56,0.0,2.0,Basic,10
+56355516,"How to resolve the ""psycopg2.errors.UndefinedTable: relation ""auth_user"" does not exist"" when running django unittests on Travis","I'm using Travis for CI/CD as part of my Django app, with a postgresql database. (Django 2.1.4)
+The build consistently fails on Travis as soon as the tests run. I receive this error:
+psycopg2.errors.UndefinedTable: relation ""auth_user"" does not exist
+I have tried: makemigrations, migrate auth, migrate myapp, migrate --run-syncdb.  All of which fail with the same error.
+The tests run locally with a sqlite3 database, and on a prod-like heroku environment with a postgresql database.
+.travis.yml
+...
+before script:
+-psql -c 'create database travis_ci_test;' -U postgres
+services:
+-postgresql
+script:
+-yes | python3 manage.py makemigrations
+-python3 manage.py migrate auth
+-python3 manage.py migrate --run-syncdb
+-python3 manage.py tests test/unit_tests
+settings.py
+...
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'travis_ci_test',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        }
+    }
+...
+INSTALLED_APPS = [...
+        'django.contrib.auth',
+        ]
+Here is the output from the failing build on Travis.  'migrate auth' is successful (I think this is the crucial line for auth_user : Applying auth.0001_initial... OK)
+0.22s$ psql -c 'create database travis_ci_test;' -U postgres
+CREATE DATABASE
+1.50s$ yes | python3 manage.py makemigrations
+TEST_ENV...
+AWS_INTEGRATION...
+Databases ... {'ENGINE': 'django.db.backends.postgresql_psycopg2', 'NAME': 'travis_ci_test', 'USER': 'postgres', 'PASSWORD': '', 'HOST': 'localhost'}
+Installed Apps ... ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'races.apps.RacesConfig', 'storages']
+No changes detected
+The command ""yes | python3 manage.py makemigrations"" exited with 0.
+1.68s$ python3 manage.py migrate auth
+TEST_ENV...
+AWS_INTEGRATION...
+Databases ... {'ENGINE': 'django.db.backends.postgresql_psycopg2', 'NAME': 'travis_ci_test', 'USER': 'postgres', 'PASSWORD': '', 'HOST': 'localhost'}
+Installed Apps ... ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'races.apps.RacesConfig', 'storages']
+Operations to perform:
+  Apply all migrations: auth
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+The command ""python3 manage.py migrate auth"" exited with 0.
+1.57s$ python3 manage.py migrate --run-syncdb
+TEST_ENV...
+AWS_INTEGRATION...
+Databases ... {'ENGINE': 'django.db.backends.postgresql_psycopg2', 'NAME': 'travis_ci_test', 'USER': 'postgres', 'PASSWORD': '', 'HOST': 'localhost'}
+Installed Apps ... ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'myapp.apps.MyAppConfig', 'storages']
+Operations to perform:
+  Synchronize unmigrated apps: messages, myapp, staticfiles, storages
+  Apply all migrations: admin, auth, contenttypes, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table myapp_model1
+    Creating table myapp_model2
+    Creating table myapp_model3
+    Creating table myapp_model4
+    Creating table myapp_model5
+    Running deferred SQL...
+Running migrations:
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sessions.0001_initial... OK
+The command ""python3 manage.py migrate --run-syncdb"" exited with 0.
+1.40s$ python3 manage.py test tests/unit_tests
+TEST_ENV...
+AWS_INTEGRATION...
+Databases ... {'ENGINE': 'django.db.backends.postgresql_psycopg2', 'NAME': 'travis_ci_test', 'USER': 'postgres', 'PASSWORD': '', 'HOST': 'localhost'}
+Installed Apps ... ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'app.apps.MyAppConfig', 'storages']
+Creating test database for alias 'default'...
+Traceback (most recent call last):
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/utils.py"", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation ""auth_user"" does not exist
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File ""manage.py"", line 10, in &lt;module&gt;
+    execute_from_command_line(sys.argv)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/__init__.py"", line 381, in execute_from_command_line
+    utility.execute()
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/__init__.py"", line 375, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/commands/test.py"", line 26, in run_from_argv
+    super().run_from_argv(argv)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/base.py"", line 316, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/base.py"", line 353, in execute
+    output = self.handle(*args, **options)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/commands/test.py"", line 56, in handle
+    failures = test_runner.run_tests(test_labels)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/test/runner.py"", line 604, in run_tests
+    old_config = self.setup_databases()
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/test/runner.py"", line 551, in setup_databases
+    self.parallel, **kwargs
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/test/utils.py"", line 174, in setup_databases
+    serialize=connection.settings_dict.get('TEST', {}).get('SERIALIZE', True),
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/base/creation.py"", line 68, in create_test_db
+    run_syncdb=True,
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/__init__.py"", line 148, in call_command
+    return command.execute(*args, **defaults)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/base.py"", line 353, in execute
+    output = self.handle(*args, **options)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/base.py"", line 83, in wrapped
+    res = handle_func(*args, **kwargs)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/commands/migrate.py"", line 172, in handle
+    self.sync_apps(connection, executor.loader.unmigrated_apps)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/core/management/commands/migrate.py"", line 310, in sync_apps
+    self.stdout.write(""    Running deferred SQL...\n"")
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/base/schema.py"", line 106, in __exit__
+    self.execute(sql)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/base/schema.py"", line 133, in execute
+    cursor.execute(sql, params)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/utils.py"", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/utils.py"", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/utils.py"", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/utils.py"", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File ""/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/django/db/backends/utils.py"", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation ""auth_user"" does not exist
+The command ""python3 manage.py test tests/unit_tests"" exited with 1.
+",<django><python-3.x><postgresql><travis-ci><psycopg2>,9076,0,142,519,1,5,18,81,36847,0.0,28,3,19,2019-05-29 7:49,2019-12-03 18:47,2019-12-03 18:47,188.0,188.0,Advanced,32
+58085851,Access denied for user 'root'@'localhost' with mariadb 10.4.8 docker container using docker compose and issue while attaching external volume,"I am new to Docker, I was trying to crate docker container of mariadb for my application but when I start running mariadb container it shows Access denied for user 'root'@'localhost' (using password: YES) dockerfile 
+Following is the docker compose I am using.
+version: '3'
+services:
+  mysql:
+    image: mariadb
+    container_name: mariadb
+    volumes:
+      - dbvolume:/var/lib/mysql
+      - ./AppDatabase.sql:/docker-entrypoint-initdb.d/AppDatabase.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_ROOT_USER: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
+      MYSQL_DATABASE: appdata
+    ports:
+      - ""3333:3306""
+volumes:
+  dbvolume:
+After trying for multiple times by referring few links I was able to connect my application to docker container but it failed to import AppDatabase.sql script at the time of creating docker container.
+But now by using same docker compose file I am not able to connect mariadb to my application and I think even it's not importing SQL script to the database (based on logs I have observed).
+Following is the docker log generated while running docker compose:
+$ docker logs 3fde358ff015
+2019-09-24 17:40:37 0 [Note] mysqld (mysqld 10.4.8-MariaDB-1:10.4.8+maria~bionic) starting as process 1 ...
+2019-09-24 17:40:37 0 [Note] InnoDB: Using Linux native AIO
+2019-09-24 17:40:37 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2019-09-24 17:40:37 0 [Note] InnoDB: Uses event mutexes
+2019-09-24 17:40:37 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-09-24 17:40:37 0 [Note] InnoDB: Number of pools: 1
+2019-09-24 17:40:37 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-09-24 17:40:37 0 [Note] mysqld: O_TMPFILE is not supported on /tmp (disabling future attempts)
+2019-09-24 17:40:37 0 [Note] InnoDB: Initializing buffer pool, total size = 256M, instances = 1, chunk size = 128M
+2019-09-24 17:40:37 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-09-24 17:40:37 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2019-09-24 17:40:37 0 [Note] InnoDB: Upgrading redo log: 2*50331648 bytes; LSN=21810033
+2019-09-24 17:40:38 0 [Note] InnoDB: Starting to delete and rewrite log files.
+2019-09-24 17:40:38 0 [Note] InnoDB: Setting log file ./ib_logfile101 size to 50331648 bytes
+2019-09-24 17:40:38 0 [Note] InnoDB: Setting log file ./ib_logfile1 size to 50331648 bytes
+2019-09-24 17:40:38 0 [Note] InnoDB: Renaming log file ./ib_logfile101 to ./ib_logfile0
+2019-09-24 17:40:38 0 [Note] InnoDB: New log files created, LSN=21810033
+2019-09-24 17:40:38 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-09-24 17:40:38 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-09-24 17:40:38 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-09-24 17:40:38 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2019-09-24 17:40:38 0 [Note] InnoDB: Waiting for purge to start
+2019-09-24 17:40:38 0 [Note] InnoDB: 10.4.8 started; log sequence number 21810033; transaction id 14620
+2019-09-24 17:40:38 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2019-09-24 17:40:38 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-09-24 17:40:38 0 [Note] Server socket created on IP: '::'.
+2019-09-24 17:40:38 0 [Warning] 'proxies_priv' entry '@% root@c980daa43351' ignored in --skip-name-resolve mode.
+2019-09-24 17:40:38 0 [Note] InnoDB: Buffer pool(s) load completed at 190924 17:40:38
+2019-09-24 17:40:38 0 [Note] Reading of all Master_info entries succeeded
+2019-09-24 17:40:38 0 [Note] Added new Master_info '' to hash table
+2019-09-24 17:40:38 0 [Note] mysqld: ready for connections.
+Version: '10.4.8-MariaDB-1:10.4.8+maria~bionic'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  mariadb.org binary distribution
+SQL Script I am trying to import:
+create database appdata;
+use appdata;
+CREATE TABLE `appdatadetails` (
+  `Name` varchar(8) NOT NULL,
+  `appIndex` int(11) NOT NULL,
+  `connector` varchar(16) DEFAULT NULL,
+  `intName` varchar(12) DEFAULT NULL,
+  `intIndex` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Name`,`appIndex`)
+) 
+Please help me to understand what I am doing wrong, I have tried all possible solution posted on different blogs. 
+Update:
+Latest Update:
+I was able to up and running mariadb docker image with 10.1. But if I attach volume then still I am facing issue.
+Docker Compose:
+version: '3'
+services:
+  mysql:
+    image: mariadb:10.1
+    container_name: mariadb
+    volumes:
+      - container-volume:/var/lib/mysql
+      - ./AppDatabase.sql:/docker-entrypoint-initdb.d/AppDatabase.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: appdata
+    ports:
+      - ""3333:3306""
+volumes:
+  container-volume:
+And the log error message, If I attach container-volume volume.
+Creating mariadb ... done
+Attaching to mariadb
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] mysqld (mysqld 10.1.41-MariaDB-1~bionic) starting as process 1 ...
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: The InnoDB memory heap is disabled
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Compressed tables use zlib 1.2.11
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Using Linux native AIO
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Using SSE crc32 instructions
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Initializing buffer pool, size = 256.0M
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Completed initialization of buffer pool
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] InnoDB: Highest supported file format is Barracuda.
+mariadb  | InnoDB: No valid checkpoint found.
+mariadb  | InnoDB: A downgrade from MariaDB 10.2.2 or later is not supported.
+mariadb  | InnoDB: If this error appears when you are creating an InnoDB database,
+mariadb  | InnoDB: the problem may be that during an earlier attempt you managed
+mariadb  | InnoDB: to create the InnoDB data files, but log file creation failed.
+mariadb  | InnoDB: If that is the case, please refer to
+mariadb  | InnoDB: http://dev.mysql.com/doc/refman/5.6/en/error-creating-innodb.html
+mariadb  | 2019-09-25  6:56:26 140542855440384 [ERROR] Plugin 'InnoDB' init function returned error.
+mariadb  | 2019-09-25  6:56:26 140542855440384 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+mariadb  | 2019-09-25  6:56:26 140542855440384 [Note] Plugin 'FEEDBACK' is disabled.
+mariadb  | 2019-09-25  6:56:26 140542855440384 [ERROR] Unknown/unsupported storage engine: InnoDB
+mariadb  | 2019-09-25  6:56:26 140542855440384 [ERROR] Aborting
+mariadb  | 
+mariadb exited with code 1
+If I remove container-volume then It is importing .sql script and running well and good.
+Updated with working script: Before I was using mariadb 10.4.8 or latest and facing issue(s) to access DB and attaching external volume.
+Now I have downgraded (As suggested by @Adiii) and tried. It runs perfectlly and we no need to specify external: true in volumes service
+version: '3'
+services:
+  mysql:
+    image: mariadb:10.1
+    container_name: mariadb
+    volumes:
+      - ./dbvolume:/var/lib/mysql
+      - ./AppDatabase.sql:/docker-entrypoint-initdb.d/AppDatabase.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: appdata
+    ports:
+      - ""3333:3306""
+",<mysql><docker><docker-compose><mariadb>,7774,2,122,1863,6,41,58,80,40726,0.0,101,1,19,2019-09-24 17:58,2019-09-24 18:13,2019-09-24 18:13,0.0,0.0,Advanced,32
+53885511,"pq: sorry, too many clients already","I am getting pq: sorry, too many clients already error when I am calling the GetMessages() multiple times. 
+Please find the updated code:
+main() code
+func main() {
+  dbConn, err := InitDB()
+  if err != nil {
+    Log.Error(""Connection Error: "", err.Error())
+    return
+  }
+  defer dbConn.Close()
+  go run()
+  var input string
+  fmt.Scanln(&amp;input)
+}
+Database connection code is:
+func InitDB()(*sql.DB, error) {
+  connectionString := fmt.Sprintf(""user=%v password='%v' dbname=%v sslmode=disable"", USER, PASSWORD, DATABASE)
+  db, err = sql.Open(DRIVER, connectionString)
+  return db, err
+}
+run goroutine:
+func run() {
+  for {
+    messages, err := GetMessages()
+    if err != nil {
+      Log.Error(""Connection Error: "", err.Error())
+      return
+    }
+    log.Info(messages)
+  }
+}
+GetMessages() function code: 
+func GetMessages() (messages []string, err error) {
+    rows, err := db.Query(`SELECT message1, message2, message3, message4, message5,
+            message6, message7, message8, message9, message10, message11, message12, message13, 
+            message14, message15, message16, message17, message18, message19, message20, message21,
+            message22, message23, message24, message25, message26, message27, message28, message29,
+            message30, message31, message32, message33, message34, message35, message36, message37,
+            message38, message39, message40, message41, message42, message43, message44, message45,
+            message46, message47, message48 FROM table1 WHERE id=1`)
+    if err != nil {
+        Log.Error(""Query error"", err)
+        return messages, err
+    }
+    var pointers []interface{}
+    defer rows.Close()
+    for rows.Next() {
+        pointers = make([]interface{}, 48)
+        messages = make([]string, 48)
+        for i, _ := range pointers {
+            pointers[i] = &amp;messages[i]
+        }
+        err = rows.Scan(pointers...)
+        if err != nil {
+            Log.Error(""Failed to scan row"", err)
+            return messages, err
+        }
+    }
+    return messages, nil
+}
+I checked this answer and I have used scan but still it isn't working
+UPDATE
+Issue was in another function. I was using db.Query without closing the returned rows object and was repeatedly calling that function. I've updated my code; used db.Exec instead of db.Query and it's working now. Thank you so much @mkopriva for this answer. :)
+",<postgresql><go>,2375,3,68,1034,4,17,27,80,18829,0.0,828,2,19,2018-12-21 13:21,2021-08-24 18:13,,977.0,,Advanced,32
+51109440,Parameter must be an array or an object that implements Countable in phpmyadmin,"When I try and view the wp_posts table in phpmyadmin, I see this error message, but have no idea what it means and have never seen it before.
+Can someone help me try and get rid of this somehow?
+Warning in ./libraries/sql.lib.php#613
+count(): Parameter must be an array or an object that implements Countable
+Backtrace
+./libraries/sql.lib.php#2128: PMA_isRememberSortingOrder(array)
+./libraries/sql.lib.php#2079: PMA_executeQueryAndGetQueryResponse(
+array,
+boolean true,
+string 'afterhours',
+string 'wp_posts',
+NULL,
+NULL,
+NULL,
+NULL,
+NULL,
+NULL,
+string '',
+string './themes/original/img/',
+NULL,
+NULL,
+NULL,
+string 'SELECT * FROM `wp_posts`',
+NULL,
+NULL,
+)
+./sql.php#221: PMA_executeQueryAndSendQueryResponse(
+array,
+boolean true,
+string 'afterhours',
+string 'wp_posts',
+NULL,
+NULL,
+NULL,
+NULL,
+NULL,
+NULL,
+string '',
+string './themes/original/img/',
+NULL,
+NULL,
+NULL,
+string 'SELECT * FROM `wp_posts`',
+NULL,
+NULL,
+)
+",<sql><wordpress>,919,0,46,4196,7,25,71,59,80218,0.0,142,2,19,2018-06-29 21:10,2018-06-29 22:16,,0.0,,Advanced,32
+53885749,Query method parameters should either be a type that can be converted into a database column or a List / Array that contains such type,"I have a DB which has a custom data type FollowEntityType as a column.
+@Entity(primaryKeys = arrayOf(&quot;id&quot;, &quot;type&quot;), tableName = &quot;follow_info&quot;)
+data class FollowInfoEntity(
+        @ColumnInfo(name = &quot;id&quot;) var id: String,
+        @ColumnInfo(name = &quot;type&quot;) var type: FollowEntityType,
+)
+Since it is a custom data type, I have defined a type converter.
+class FollowDatabaseTypeConverter {
+    @TypeConverter
+    fun toFollowEntity(entityType: String?): FollowEntityType? {
+        return FollowEntityType.from(entityType ?: Constants.EMPTY_STRING)
+    }
+    @TypeConverter
+    fun toString(entityType: FollowEntityType?): String? {
+        return entityType?.name
+    }
+}
+This works fine and I am able to store/retrieve values in the DB. However, in one of the queries, the build fails.
+This is the query.
+@Query(&quot;select * from follow_info where type in (:entityTypeList)&quot;)
+fun getFollowedEntitiesByType(entityTypeList: List&lt;FollowEntityType&gt;) : List&lt;FollowInfoEntity&gt;
+The build fails with the following error.
+Query method parameters should either be a type that can be converted into a database column or a List / Array that contains such type. You can consider adding a Type Adapter for this.
+    java.util.List&lt;? extends FollowEntityType&gt; entityTypeList, @org.jetbrains.annotations.NotNull()
+The error is for entityTypeList field, and according to the error, this type should be one of the columns in the DB. I already have FollowEntityType as one of the column types. I don't understand why it is failing. Please help me out as I am not finding any solution to solve this problem.
+",<android><sqlite><kotlin><android-room>,1662,0,22,7198,3,38,62,75,15646,0.0,359,7,19,2018-12-21 13:39,2021-06-20 5:31,,912.0,,Basic,7
+57008781,How to execute large amount of sql queries asynchronous and in threads,"Problem: I have huge amount of sql queries (around 10k-20k) and I want to run them asynchronous in 50 (or more) threads. 
+I wrote a powershell script for this job, but it is very slow (It took about 20 hours to execute all). Desired result is 3-4 hours max.
+Question: How can I optimize this powershell script? Should I reconsider and use another technology like python or c#?
+I think it's powershell issue, because when I check with whoisactive the queries are executing fast. Creating, exiting and unloading jobs takes a lot of time, because for each thread is created separate PS instances.
+My code:
+$NumberOfParallerThreads = 50;
+$Arr_AllQueries = @('Exec [mystoredproc] @param1=1, @param2=2',
+                    'Exec [mystoredproc] @param1=11, @param2=22',
+                    'Exec [mystoredproc] @param1=111, @param2=222')
+#Creating the batches
+$counter = [pscustomobject] @{ Value = 0 };
+$Batches_AllQueries = $Arr_AllQueries | Group-Object -Property { 
+    [math]::Floor($counter.Value++ / $NumberOfParallerThreads) 
+};
+forEach ($item in $Batches_AllQueries) {
+    $tmpBatch = $item.Group;
+    $tmpBatch | % {
+        $ScriptBlock = {
+            # accept the loop variable across the job-context barrier
+            param($query) 
+            # Execute a command
+            Try 
+            {
+                Write-Host ""[processing '$query']""
+                $objConnection = New-Object System.Data.SqlClient.SqlConnection;
+                $objConnection.ConnectionString = 'Data Source=...';
+                $ObjCmd = New-Object System.Data.SqlClient.SqlCommand;
+                $ObjCmd.CommandText = $query;
+                $ObjCmd.Connection = $objConnection;
+                $ObjCmd.CommandTimeout = 0;
+                $objAdapter = New-Object System.Data.SqlClient.SqlDataAdapter;
+                $objAdapter.SelectCommand = $ObjCmd;
+                $objDataTable = New-Object System.Data.DataTable;
+                $objAdapter.Fill($objDataTable)  | Out-Null;
+                $objConnection.Close();
+                $objConnection = $null;
+            } 
+            Catch 
+            { 
+                $ErrorMessage = $_.Exception.Message
+                $FailedItem = $_.Exception.ItemName
+                Write-Host ""[Error processing: $($query)]"" -BackgroundColor Red;
+                Write-Host $ErrorMessage 
+            }
+        }
+        # pass the loop variable across the job-context barrier
+        Start-Job $ScriptBlock -ArgumentList $_ | Out-Null
+    }
+    # Wait for all to complete
+    While (Get-Job -State ""Running"") { Start-Sleep 2 }
+    # Display output from all jobs
+    Get-Job | Receive-Job | Out-Null
+    # Cleanup
+    Remove-Job *
+}
+UPDATE:
+Resources: The DB server is on a remote machine with: 
+24GB RAM, 
+8 cores, 
+500GB Storage, 
+SQL Server 2016
+We want to use the maximum cpu power.
+Framework limitation: The only limitation is not to use SQL Server to execute the queries. The requests should come from outside source like: Powershell, C#, Python, etc. 
+",<sql><multithreading><powershell><asynchronous><parallel-processing>,3007,0,69,1731,2,27,42,46,5273,0.0,1616,6,19,2019-07-12 14:14,2019-07-13 7:37,2019-07-25 13:37,1.0,13.0,Intermediate,23
+57193597,Mocking a Sqlalchemy session for pytest,"I don't know if this can be done but I'm trying to mock my db.session.save.
+I'm using flask and flask-alchemy.
+db.py
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
+The unit test
+def test_post(self):
+    with app.app_context():
+        with app.test_client() as client:
+            with mock.patch('models.db.session.save') as mock_save:
+                with mock.patch('models.db.session.commit') as mock_commit:
+                    data = self.gen_legend_data()
+                    response = client.post('/legends', data=json.dumps([data]), headers=access_header)
+                    assert response.status_code == 200
+                    mock_save.assert_called()
+                    mock_commit.assert_called_once()
+And the method:
+def post(cls):
+    legends = schemas.Legends(many=True).load(request.get_json())
+    for legend in legends:
+        db.session.add(legend)
+    db.session.commit()
+    return {'message': 'legends saved'}, 200
+I'm trying to mock the db.session.add and db.session.commit. I've tried db.session.save and legends.models.db.session.save and models.db.session.save. They all came back with the save error:
+ModuleNotFoundError: No module named 'models.db.session'; 'models.db' is not a package
+I don't get the error and I'm not sure how to solve it.
+Or am I doing something that is totally wrong in wanting to mock a db.session?
+Thanks.
+Desmond
+",<python><sqlalchemy><mocking><flask-sqlalchemy><pytest>,1384,0,28,755,2,7,26,76,32620,0.0,8,1,19,2019-07-25 2:44,2019-07-25 14:19,2019-07-25 14:19,0.0,0.0,Intermediate,30
+49890142,Is it possible to change the background color of the Object Explorer and the Result Menu in SQL Server Management Studio 2017,"Pretty much what the title says. Just started learning SQL server. I found how to 'unlock' the dark theme and how to change the fonts and sizes but i still can't change the color in the Object Explorer and the Result Menu in SQL Server Management Studio 2017. Is it possible that this is all we got till now... Cause it is hard for me to believe that there is no working full dark theme for SQL Server Management Studio 2017 or the possibility to change it manualy. Any help would be much appreciated. Also is there another IDE or editor for SQL server 2017 other than SQL Server Management Studio 2017, like there are a LOT diffirent editors for programing languages like Sublime, NotePad++, VS Code etc...
+",<sql-server>,708,0,0,973,4,15,33,44,20862,,65,3,19,2018-04-18 2:16,2020-10-12 8:56,2020-10-12 8:56,908.0,908.0,Basic,14
+50643007,What is the difference between fetch Next and fetch First in the Order By [...] OFFSET [..] FETCH [...] clause?,"I executed two sample queries on AdventureWorks2016 and gave me the same result.
+When should I use NEXT or FIRST keyword then?
+select LastName + ' ' + FirstName 
+from person.person
+order by LastName asc OFFSET 10 rows **Fetch next** 10 rows only
+select LastName + ' ' + FirstName
+from person.person
+order by LastName asc OFFSET 10 rows **Fetch first** 10 rows only
+",<sql><sql-server>,365,0,7,973,3,12,26,59,10751,,163,2,19,2018-06-01 12:02,2018-06-01 12:12,2018-06-01 12:12,0.0,0.0,Basic,10
+49198831,sqlite3.dylib: illegal multi-threaded access to database connection,"I have an iOS app that uses sqlite3 and I'm facing issues with multi-threading crashing the app with the illegal multi-threaded access to database connection message. Of course, it's because I'm using multi-threading; the problem is, my sqlite3 instance is configured to use multi-thread:
+sqlite3_config(SQLITE_CONFIG_MULTITHREAD);
+Even though I'm using multi-threading (sqlite3 build was also compiled with the multi-threading flag), it causes my app to crash when multiple threads write or read the database simultaneously.
+Crash report
+Application Specific Information:
+BUG IN CLIENT OF sqlite3.dylib: illegal multi-threaded access to database connection
+Exception Type:  EXC_BREAKPOINT (SIGTRAP)
+Exception Codes: 0x0000000000000001, 0x00000001823ed2fc
+Termination Signal: Trace/BPT trap: 5
+Termination Reason: Namespace SIGNAL, Code 0x5
+Terminating Process: exc handler [0]
+Triggered by Thread:  12
+Thread 12 Crashed:
+0   libsqlite3.dylib                0x00000001823ed2fc sqlite3MutexMisuseAssert + 144 (sqlite3.c:23788)
+1   libsqlite3.dylib                0x00000001823ed2ec sqlite3MutexMisuseAssert + 128 (once.h:84)
+2   libsqlite3.dylib                0x000000018235248c sqlite3LockAndPrepare + 320 (sqlite3.c:23801)
+3   MyCodeCall.m ...........
+I've been struggling with this issue for a while and I couldn't find any reference to this on google unfortunately.
+UPDATE
++(sqlite3*) getInstance {
+  if (instance == NULL) {
+    sqlite3_shutdown();
+    sqlite3_config(SQLITE_CONFIG_MULTITHREAD);
+    sqlite3_initialize();
+    NSLog(@&quot;isThreadSafe %d&quot;, sqlite3_threadsafe());
+    const char *path = [@&quot;./path/to/db/db.sqlite&quot; cStringUsingEncoding:NSUTF8StringEncoding];
+    if (sqlite3_open_v2(path, &amp;database, SQLITE_OPEN_READWRITE|SQLITE_OPEN_CREATE, NULL) != SQLITE_OK) {
+      NSLog(@&quot;Database opening failed!&quot;);
+    }
+  }
+  return instance;
+}
+",<ios><sqlite>,1885,0,36,9650,3,25,40,79,10254,0.0,79,4,19,2018-03-09 17:11,2018-03-12 12:08,2018-03-12 12:08,3.0,3.0,Intermediate,23
+48112363,Rails migration - add unique index allowing skipping null values,"I wanted like to add unique constraint to column name in existing table psql
+created table (PostgreSQL) :
+class CreateRequests &lt; ActiveRecord::Migration
+  def change
+    create_table :requests do |t|
+      t.integer :user_id
+      t.string :name
+      t.string :address
+      t.timestamps null: true
+    end
+    add_index :requests, :user_id
+  end
+end
+So I added validation uniqueness in model
+class Request &lt; ModelBase
+  belongs_to :user
+  validates :user, presence: true
+  validates :name, uniqueness: true, allow_blank: true
+  ...
+and migration like this:
+def change
+    add_index :user_requests, :name, unique: true
+end
+but I noticed that in some cases name can be empty can I add_index with condition were :name is null / not null?
+Edit: yes, I want those empty values to stay in the database (I don't need to modify past request). I think that I need to edit migration to be more accurate to the actual state of db.
+",<ruby-on-rails><psql>,928,0,21,1456,1,15,29,57,9766,0.0,70,5,19,2018-01-05 11:09,2018-01-05 11:15,2018-01-08 9:23,0.0,3.0,Intermediate,23
+54300263,Connect to AWS RDS Postgres database with python,"I have an existing postgres table in RDS with a database name my-rds-table-name
+I've connected to it using pgAdmin4 with the following configs of a read-only user:
+host_name = ""my-rds-table-name.123456.us-east-1.rds.amazonaws.com""
+user_name = ""my_user_name""
+password = ""abc123def345""
+I have verified that I can query against the table.
+However, I cannot connect to it using python:
+SQLAlchemy==1.2.16
+psycopg2-binary==2.7.6.1
+mysqlclient==1.4.1
+With:
+import psycopg2
+engine = psycopg2.connect(
+    database=""my-rds-table-name"",
+    user=""my_user_name"",
+    password=""abc123def345"",
+    host=""my-rds-table-name.123456.us-east-1.rds.amazonaws.com"",
+    port='5432'
+)
+It fails with 
+psycopg2.OperationalError: FATAL:  database ""my-rds-table-name"" does not exist
+Similarly, if I try to connect to it with sqlalchemy:
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  database ""my-rds-table-name"" does not exist
+What am I missing?
+",<python-3.x><postgresql><amazon-web-services><amazon-rds>,945,0,17,8955,10,64,103,38,36512,0.0,2868,2,19,2019-01-22 2:06,2019-01-22 17:54,2019-01-22 17:54,0.0,0.0,Basic,3
+49361286,Unittesting with Pyspark: unclosed socket warnings,"I want to do unittesting with PySpark. The tests itself work, however for each test I get
+ResourceWarning: unclosed &lt;socket.socket [...]&gt; and
+ResourceWarning: unclosed file &lt;_io.BufferedWriter [...]&gt; warnings and
+DeprecationWarnings regarding invalid escape sequences. 
+I'd like to understand why / how to solve this to not clutter my unittest output with these warnings.
+Here is a MWE:
+# filename: pyspark_unittesting.py
+# -*- coding: utf-8 -*-
+import unittest
+def insert_and_collect(val_in):
+    from pyspark.sql import SparkSession
+    with SparkSession.builder.getOrCreate() as spark:
+        col = 'column_x'
+        df = spark.createDataFrame([(val_in,)], [col])
+        print('one')
+        print(df.count())
+        print('two')
+        collected = df.collect()
+        print('three')
+        return collected[0][col]
+class MyTest(unittest.TestCase):
+    def test(self):
+        val = 1
+        self.assertEqual(insert_and_collect(val), val)
+        print('four')
+if __name__ == '__main__':
+    val = 1
+    print('inserted and collected is equal to original: {}'
+          .format(insert_and_collect(val) == val))
+    print('five')
+If I call this with python pyspark_unittesting.py the output is:
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to ""WARN"".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+one
+1  
+two
+three
+inserted and collected is equal to original: True
+five
+If I call this with python -m unittest pyspark_unittesting however, the output is:
+/opt/spark/current/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py:1890: DeprecationWarning: invalid escape sequence \*
+/opt/spark/current/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py:1890: DeprecationWarning: invalid escape sequence \*
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/readwriter.py:398: DeprecationWarning: invalid escape sequence \`
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/readwriter.py:759: DeprecationWarning: invalid escape sequence \`
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/readwriter.py:398: DeprecationWarning: invalid escape sequence \`
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/readwriter.py:759: DeprecationWarning: invalid escape sequence \`
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/streaming.py:618: DeprecationWarning: invalid escape sequence \`
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/streaming.py:618: DeprecationWarning: invalid escape sequence \`
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/functions.py:1519: DeprecationWarning: invalid escape sequence \d
+/opt/spark/current/python/lib/pyspark.zip/pyspark/sql/functions.py:1519: DeprecationWarning: invalid escape sequence \d
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to ""WARN"".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/usr/lib/python3.6/subprocess.py:766: ResourceWarning: subprocess 10219 is still running
+  ResourceWarning, source=self)
+/usr/lib/python3.6/importlib/_bootstrap.py:219: ImportWarning: can't resolve package from __spec__ or __package__, falling back on __name__ and __path__
+  return f(*args, **kwds)
+one
+1                                                                               
+two
+/usr/lib/python3.6/socket.py:657: ResourceWarning: unclosed &lt;socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 49330), raddr=('127.0.0.1', 44169)&gt;
+  self._sock = None
+three
+four
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.394s
+OK
+sys:1: ResourceWarning: unclosed file &lt;_io.BufferedWriter name=5&gt;
+Edit 2018-03-29
+Regarding @acue's answer, I tried out calling the script using subprocess.Popen - very much like it is done within the unittest module:
+In [1]: import pathlib
+      : import subprocess
+      : import sys
+      : 
+      : here = pathlib.Path('.').absolute()
+      : args = [sys.executable, str(here / 'pyspark_unittesting.py')]
+      : opts = dict(stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd='/tmp')
+      : p = subprocess.Popen(args, **opts)
+      : out, err = [b.splitlines() for b in p.communicate()]
+      : print(out)
+      : print(err)
+      : 
+      : 
+[b'one',
+ b'1',
+ b'two',
+ b'three',
+ b'inserted and collected is equal to original: True',
+ b'five']
+[b""Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties"",
+ b'Setting default log level to ""WARN"".',
+ b'To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).',
+ b'',
+ b'[Stage 0:&gt;                                                          (0 + 0) / 8]',
+ b'[Stage 0:&gt;                                                          (0 + 8) / 8]',
+ b'                                                                                ']
+The Resource Warnings do not appear...
+",<python><python-3.x><pyspark><python-unittest><apache-spark-sql>,5017,0,106,1671,3,19,34,80,3559,0.0,100,1,19,2018-03-19 10:57,2020-12-13 11:38,,1000.0,,Intermediate,30
+55685341,"Django testing: Got an error creating the test database: database ""database_name"" already exists","I have a problem with testing. It's my first time writing tests and I have a problem.
+I just created a test folder inside my app users, and test_urls.py for testing the urls.
+When I type:
+python manage.py test users
+It says:
+  Creating test database for alias 'default'... Got an error creating
+  the test database: database ""database_name"" already exists
+  Type 'yes' if you would like to try deleting the test database
+  'database_name', or 'no' to cancel:
+What does it mean? What happens if I type yes? Do I lose all my data in database?
+",<python><django><database><postgresql>,541,0,3,400,1,8,17,37,19713,0.0,42,2,19,2019-04-15 8:37,2019-04-15 8:41,2019-04-15 8:41,0.0,0.0,Intermediate,30
+50450162,"PostgreSQL ""tuple already updated by self""","Our database seems to be broken, normally it uses about 1-2% of cpu, but if we run some additional backend services making UPDATE and INSERT queries for 10M rows table (about 1 query per 3 second) everything is going to hell (including CPU increase from 2% to 98% usage).
+We have decided to debug what's going on, run VACUUM and ANALYZE to learn what's wrong with db but...
+production=# ANALYZE VERBOSE users_user;
+INFO:  analyzing ""public.users_user""
+INFO:  ""users_user"": scanned 280 of 280 pages, containing 23889 live rows and 57 dead rows; 23889 rows in sample, 23889 estimated total rows
+INFO:  analyzing ""public.users_user""
+INFO:  ""users_user"": scanned 280 of 280 pages, containing 23889 live rows and 57 dead rows; 23889 rows in sample, 23889 estimated total rows
+ERROR:  tuple already updated by self
+we are not able to finish ANALYZE on ANY of the tables and could not find any information about this issue. Any suggestions what can be wrong?
+ PostgreSQL 9.6.8 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-16), 64-bit
+Additional info as requested in comments:
+  Maybe you have a corrupted pg_class
+SELECT * FROM pg_class WHERE relname = 'users_user';
+Output: https://pastebin.com/WhmkH34U
+  So the first thing to do would be to kick out all other sessions and
+  try again
+There are no additional sessions, we have dumped the whole DB on the new testing server, issue still occur, there are no clients connected to this DB
+",<postgresql><postgresql-9.6>,1462,2,8,925,1,9,12,55,3858,,12,1,19,2018-05-21 13:37,2018-05-29 17:16,,8.0,,Intermediate,23
+52344453,"""Loading class com.mysql.jdbc.Driver ... is deprecated"" message","I got an error
+Loading class com.mysql.jdbc.Driver. This is deprecated. The new
+driver class is com.mysql.cj.jdbc.Driver. The driver is
+automatically registered via the SPI and manual loading of the driver
+class is generally unnecessary.
+Could someone explain why?
+",<java><mysql><jdbc>,265,0,0,383,2,5,14,58,26754,0.0,15,2,19,2018-09-15 11:52,2018-09-15 12:43,2018-09-15 12:43,0.0,0.0,Advanced,38
+50421670,Mysql ERROR : not connected,"I am trying to connect to MySQL database from MySQL shell on windows. 
+No matter what I type in MySQL shell, it keeps giving me error : 'Not connected'. 
+Query eg 1 : mysql --host=localhost --port=3306 --user=root -p;
+Query eg 2 : mysql -u root -p
+O/P : ERROR: Not connected
+I have MySQL server installed on my machine. Also MySQL service is running in the background.
+Also, I was able to connect from MySQL workbench. 
+ERROR MESSAGE
+MySQL Workbench Connection
+",<mysql><sql><database><command-line><mysql-workbench>,461,2,3,827,1,6,11,63,72960,0.0,18,5,19,2018-05-19 4:07,2018-05-19 4:24,2018-05-19 6:31,0.0,0.0,Intermediate,30
+48558005,PostgreSQL 9.6. Issue dropping index,"In a legacy PostgreSQL DB I tried to drop an existing index issuing the command:
+DROP INDEX testing.idx_testing_data_model_output_data_id;
+and see the error:
+ERROR:  index ""&lt;index name&gt;"" does not exist
+But I can see the index using the \d &lt;table name&gt; command:
+leg=# \d testing.data_model
+                                           Table ""testing.data_model""
+     Column     |            Type             |                                 Modifiers
+----------------+-----------------------------+---------------------------------------------------------------------------
+ id             | bigint                      | not null default nextval('testing.data_model_id_seq'::regclass) 
+ input_data     | text                        | 
+ output_data_id | bigint                      | 
+Indexes:
+    ""pk_testing_data_model"" PRIMARY KEY, btree (id)
+    ""idx_testing_data_model_output_data_id"" btree (output_data_id)
+Ok, when I try to create the index I receive the following error:
+ERROR:  relation ""&lt;index name&gt;"" already exists
+It seems that somehow the index creation or index dropping was not successfully complete. How can I resolve this issue?
+",<postgresql><ddl>,1162,0,14,737,1,11,31,59,9138,,339,1,19,2018-02-01 8:07,2022-03-17 12:06,,1505.0,,Advanced,32
+51149902,Sql Table data type for email address?,"What data type should I use for an email? Just started to learn SQL, and I tried to make some columns, here's table for ID, Username, Password, Money, and Email.
+Did I make that correctly?
+",<sql><sql-server><database>,189,1,0,223,1,2,15,67,85221,,12,4,19,2018-07-03 8:25,2018-07-03 8:38,2018-07-03 9:41,0.0,0.0,Basic,4
+57978671,SSMS crashes when try to modify database diagram (v18.2),"When I try to modify a database diagram created before the application restart and crashes when trying to access.
+It happen only when I save the diagram and close the application. When I try to reopen it throws me an error then restart the SSMS.
+I'm running SQL Server 14.0.100 Express Edition.
+I reviewed the Microsoft Event Viewer and I get this:
+  Faulting application name: Ssms.exe, version: 2019.150.18142.0, time stamp: 0x5d3573be
+  Faulting module name: DataDesigners.dll, version: 2019.150.18142.0, time stamp: 0x5d3573f0
+  Exception code: 0xc0000005
+  Fault offset: 0x00004be8
+  Faulting process id: 0x5ec8
+  Faulting application start time: 0x01d56d761e232f6c
+  Faulting application path: C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\Ssms.exe
+  Faulting module path: C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\Tools\VDT\DataDesigners.dll
+  Report Id: e797c8be-6448-4547-9f6f-146cd92d8178
+  Faulting package full name: 
+  Faulting package-relative application ID: 
+",<sql-server><database><ssms><diagram><designer>,1041,0,0,781,1,5,22,50,12240,0.0,223,2,19,2019-09-17 16:45,2019-09-20 1:02,2019-09-20 1:02,3.0,3.0,Advanced,32
+50003906,Storing UUID as string in mysql using JPA,"I came across a blog of using UUID with Hibernate and MySql. Now the problem is, whenever I take a look at the database the ID's will be non-readable format (binary-16). How can I store UUID as a readable format like 7feb24af-fc38-44de-bc38-04defc3804fe instead of ¡7ôáßEN¹º}ÅÑs
+I was using this code 
+@Id
+@GeneratedValue( generator = ""uuid2"" )
+@GenericGenerator( name = ""uuid2"", strategy = ""uuid2"" )
+@Column( name = ""id"", columnDefinition = ""BINARY(16)"" )
+private UUID id;
+And the result is ¡7ôáßEN¹º}ÅÑs. But I want it as readable UUID so I used the following code which didn't help me
+@Id
+@GeneratedValue( generator = ""uuid2"" )
+@GenericGenerator( name = ""uuid2"", strategy = ""uuid2"" )
+@Column( name = ""id"", columnDefinition = ""CHAR(32)"" )
+private UUID id;
+How to save the UUID as a string instead of binary(16) without changing the java type UUID
+",<java><mysql><hibernate><spring-data-jpa><uuid>,851,0,12,810,2,7,23,53,27624,0.0,57,4,19,2018-04-24 14:13,2018-07-19 16:42,2018-07-19 16:42,86.0,86.0,Basic,10
+48576847,"How to combine first name, middle name and last name in SQL server","you can refer the below queries to get the same-
+1
+select FirstName +' '+ MiddleName +' ' + Lastname as Name from TableName.
+2
+select CONCAT(FirstName , ' ' , MiddleName , ' ' , Lastname) as Name from 
+  TableName
+3
+select Isnull(FirstName,' ') +' '+ Isnull(MiddleName,' ')+' '+ Isnull(Lastname,' ') 
+from TableName.
+Note: Point 1 query return if all columns have some value if anyone is null or empty then it will return null for all, means Name will return &quot;NULL&quot; value.
+To avoid the point number 1, you can use point number 2 or point number 3 -
+We can use IsNull or CONCAT keyword to get the same.
+If anyone containing null value then ' ' (blank space) will add with next value.
+",<sql-server>,693,0,7,301,1,3,8,63,199946,0.0,4,15,19,2018-02-02 6:24,2018-02-02 6:28,,0.0,,Basic,10
+50346326,"ProgrammingError: relation ""django_session"" does not exist","Got this error after changing my database from sqlite to postgresql. I've made all my settings changes: 
+Here's my settings:
+DATABASES = {
+    'default': {
+        'ENGINE': ""django.db.backends.postgresql_psycopg2"",
+        'NAME': ""postr1"",
+        'USER': ""zorgan"",
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': ""localhost"",
+        'PORT': '',
+    }
+}
+as well as performing makemigrations and migrations which were all successful. So I'm able to succesfully start my local server:
+System check identified no issues (0 silenced).
+May 15, 2018 - 08:59:39
+Django version 1.11.8, using settings 'draft1.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+however when I go to the site it returns this error:
+ProgrammingError at /news/
+relation ""django_session"" does not exist
+LINE 1: ...ession_data"", ""django_session"".""expire_date"" FROM ""django_se...
+Any idea what the problem is?
+",<python><django><postgresql>,937,1,20,8357,27,108,215,59,31004,0.0,258,3,19,2018-05-15 9:09,2018-05-15 9:33,2018-05-15 9:33,0.0,0.0,Basic,10
+55018986,Postgresql select count query takes long time,"I have a table named events in my Postgresql 9.5 database. And this table has about 6 million records.
+I am runnig a select count(event_id) from events query. But this query takes 40seconds. This is very long time for a database. My event_id field of table is primary key and indexed. Why this takes very long time? (Server is ubuntu vm on vmware has 4cpu)
+Explain:
+""Aggregate  (cost=826305.19..826305.20 rows=1 width=0) (actual time=24739.306..24739.306 rows=1 loops=1)""
+""  Buffers: shared hit=13 read=757739 dirtied=53 written=48""
+""  -&gt;  Seq Scan on event_source  (cost=0.00..812594.55 rows=5484255 width=0) (actual time=0.014..24087.050 rows=6320689 loops=1)""
+""        Buffers: shared hit=13 read=757739 dirtied=53 written=48""
+""Planning time: 0.369 ms""
+""Execution time: 24739.364 ms""
+",<sql><postgresql><postgresql-9.5>,790,0,8,6499,14,83,181,79,17848,0.0,141,2,19,2019-03-06 8:53,2019-03-06 11:24,,0.0,,Intermediate,23
+57048744,Checking Concurrency on an Entity without updating the Row Version,"I have a parent entity that I need to do a concurrency check (as annotated as below) 
+[Timestamp]
+public byte[] RowVersion { get; set; }
+I have a bunch of client processes that access readonly values out of this parent entity and primarily update its child entities.
+The constraint
+Clients should not interfere with each other's work, (e.g. updating child records should not throw a concurrency exception on the parent entity). 
+I have a server process that does update this parent entity, and in this case the client process needs to throw if the parent entity has been changed. 
+ Note : The client's concurrency check is sacrificial, the server's workflow is mission critical. 
+The problem
+I need to check (from the client process) if the parent entity has changed without updating the parents entity's row version. 
+It's easy enough to do a concurrency check on the parent entity in EF:
+// Update the row version's original value
+_db.Entry(dbManifest)
+      .Property(b =&gt; b.RowVersion)
+      .OriginalValue = dbManifest.RowVersion; // the row version the client originally read
+// Mark the row version as modified
+_db.Entry(dbManifest)
+       .Property(x =&gt; x.RowVersion)
+       .IsModified = true;
+The IsModified = true is the deal breaker because it forces the row version to change. Or, said in context, this check from the client process will cause a row version change in the parent entity, which interferes needlessly with the other client processes' workflows.
+ A work around : I could potentially wrap the SaveChanges from the client process in a Transaction and then a subsequent read of the parent entity's row version, in-turn, rolling back if the row version has changed.
+Summary 
+Is there an out-of-the-box way with Entity Framework where I can SaveChanges (in the client process for the child entities) yet also check if the parent entity's row version has changed (without updating the parent entities row version).
+",<c#><sql-server><entity-framework><entity-framework-6><database-concurrency>,1941,0,14,79780,9,103,142,41,5504,0.0,2181,3,19,2019-07-16 0:48,2019-07-20 20:10,2019-07-23 14:01,4.0,7.0,Advanced,32
+59710811,NOT LIKE ANY query in Snowflake,"I am trying to run the following query in Snowflake:
+SELECT * FROM chapters 
+WHERE
+title NOT LIKE ANY ('Summary%', 'Appendix%')
+but it errors out. I know Snowflake support LIKE ANY query syntax. But I am not sure why my query is not working.
+",<sql-like><snowflake-cloud-data-platform>,242,0,3,3973,11,58,101,52,29218,0.0,394,3,19,2020-01-13 5:04,2020-01-13 5:29,2020-01-13 5:29,0.0,0.0,Basic,9
+50546500,How to connect to docker mysql container on remote machine,"I have two machines. My machine with IP1(Europe), and other machine with public IP2(USA). On IP2 I have mysql container running with volume /var/lib/mysql set to be replicated in some folder on the host machine ~/mysqldatabase. Firewall rule for port 3306 is added. Also I have ssh connection to the machine. So I'm not sure where to start. Usually when there is not docker I add just 
+bind-address = 0.0.0.0
+as configuration in mysql and I open the firewall port 3306 (or an other one that points to mysql) and the things work.
+So probably I can install mysql-server package (the host is ubuntu16.04) outside of docker on the IP2 machine and to set it to point to the ~/mysqldatabase folder, but is it really necessary to do that? 
+Is there way to connect directly from IP1 to IP2:mysql_container:mysql_database
+I run the mysql docker container in two ways. One is with docker file. And the other one is with systemctl service.
+Part of the docker-compose.yml:
+version: ""3""
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - /home/username/mysqldatabase:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+        MYSQL_ROOT_PASSWORD: rootpass
+        MYSQL_DATABASE: somedb
+        MYSQL_USER: someuser
+        MYSQL_PASSWORD: someuserpassword
+mysql.service 
+[Unit]
+Description=Run %p
+Requires=docker.service
+After=docker.service
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm -f %p
+docker run --rm --name mysql -v /home/username/mysqldatabase:/var/lib/mysql -p 3306:3306 \
+-e MYSQL_ROOT_PASSWORD=rootpass -e MYSQL_DATABASE=somedb -e MYSQL_USER=someuser -e MYSQL_PASSWORD=someuserpassword \
+mysql:5.7
+ExecStop=/usr/bin/docker stop %p
+[Install]
+WantedBy=multi-user.target
+To make the things more simple lets say that I use only the second approach.
+I DON""T have :
+1.mysql-client, mysql-server or mysql on the IP2 machine
+2.and I haven't set anywhere to bind to 0.0.0.0 because I want to connnect directly to the mysql container. Probably I have to set it
+to bind to 0.0.0.0 inside this container.
+Result for the firewall 
+sudo netstat -tunlp | grep 3306
+tcp6       0      0 :::3306                 :::*                    LISTEN      24717/docker-proxy
+",<mysql><docker><remote-access><ports>,2223,0,42,6598,4,46,61,39,49403,0.0,1797,6,19,2018-05-26 19:52,2018-05-26 23:57,2021-05-09 18:31,0.0,1079.0,Advanced,39
+52120182,Bigquery - json_extract all elements from an array,"i'm trying to extract two key from every json in an arry of jsons(using sql legacy)
+currently i am using json extract function :
+json_extract(json_column , '$[1].X') AS X,
+json_extract(json_column , '$[1].Y') AS Y,
+how can i make it run on every json at the 'json arry column', and not just [1] (for example)?
+An example json:
+[
+{""blabla"":000,""X"":1,""blabla"":000,""blabla"":000,""blabla"":000,,""Y"":""2""},
+{""blabla"":000,""X"":3,""blabla"":000,""blabla"":000,""blabla"":000,,""Y"":""4""},
+]   
+thanks in advance!
+",<sql><arrays><json><google-bigquery><legacy-sql>,493,0,9,219,1,2,7,52,50180,0.0,0,2,19,2018-08-31 17:23,2018-08-31 21:03,,0.0,,Basic,10
+52494572,"SQL Alchemy Parametrized Query , binding table name as parameter gives error","I am using parametrized query utilizing Text object in SQL alchemy and are getting different result.
+Working example:     
+import sqlalchemy as sqlal
+from sqlalchemy.sql import text
+    db_table = 'Cars'
+    id_cars = 8
+    query = text(""""""SELECT * 
+                    FROM Cars 
+                    WHERE idCars = :p2
+                 """""")
+    self.engine.execute(query, {'p2': id_cars})
+Example that produces sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, ""You have an error in your SQL syntax)
+import sqlalchemy as sqlal
+from sqlalchemy.sql import text
+    db_table = 'Cars'
+    id_cars = 8
+    query = text(""""""SELECT * 
+                    FROM :p1 
+                    WHERE idCars = :p2
+                 """""")
+    self.engine.execute(query, {'p1': db_table, 'p2': id_cars})
+Any idea on how I can run the query with a dynamic table name that are also protected from sql injection?
+",<python><sql><prepared-statement>,910,0,20,237,0,2,9,66,4842,0.0,8,2,19,2018-09-25 9:15,2019-04-29 2:08,,216.0,,Basic,10
+51844616,High number of live/dead tuples in postgresql/ Vacuum not working,"There is a table , which has 200 rows . But number of live tuples showing there is more than that (around 60K) .
+select count(*) from subscriber_offset_manager;
+ count 
+-------
+   200
+(1 row)
+ SELECT schemaname,relname,n_live_tup,n_dead_tup FROM pg_stat_user_tables  where relname='subscriber_offset_manager' ORDER BY n_dead_tup
+;
+ schemaname |          relname          | n_live_tup | n_dead_tup 
+------------+---------------------------+------------+------------
+ public     | subscriber_offset_manager |      61453 |          5
+(1 row)
+But as seen from pg_stat_activity and pg_locks , we are not able to track any open connection .
+SELECT query, state,locktype,mode
+FROM pg_locks
+JOIN pg_stat_activity
+  USING (pid)
+WHERE relation::regclass = 'subscriber_offset_manager'::regclass
+  ;
+ query | state | locktype | mode 
+-------+-------+----------+------
+(0 rows)
+I also tried  full vacuum on this table  , Below are results : 
+All the times no rows are removed 
+some times all the live tuples become dead tuples . 
+Here is output .
+vacuum FULL VERBOSE ANALYZE subscriber_offset_manager;
+INFO:  vacuuming ""public.subscriber_offset_manager""
+INFO:  ""subscriber_offset_manager"": found 0 removable, 67920 nonremovable row versions in 714 pages
+DETAIL:  67720 dead row versions cannot be removed yet.
+CPU 0.01s/0.06u sec elapsed 0.13 sec.
+INFO:  analyzing ""public.subscriber_offset_manager""
+INFO:  ""subscriber_offset_manager"": scanned 710 of 710 pages, containing 200 live rows and 67720 dead rows; 200 rows in sample, 200 estimated total rows
+VACUUM
+ SELECT schemaname,relname,n_live_tup,n_dead_tup FROM pg_stat_user_tables  where relname='subscriber_offset_manager' ORDER BY n_dead_tup
+;
+ schemaname |          relname          | n_live_tup | n_dead_tup 
+------------+---------------------------+------------+------------
+ public     | subscriber_offset_manager |        200 |      67749
+and after 10 sec 
+SELECT schemaname,relname,n_live_tup,n_dead_tup FROM pg_stat_user_tables  where relname='subscriber_offset_manager' ORDER BY n_dead_tup
+;
+ schemaname |          relname          | n_live_tup | n_dead_tup 
+------------+---------------------------+------------+------------
+ public     | subscriber_offset_manager |      68325 |        132
+How Our App query to this table . 
+Our application generally select some rows and based on some business calculation, update the row  . 
+select  query --  select based on some id 
+select * from subscriber_offset_manager where shard_id=1 ;
+update query --  update some other column  for this selected shard id
+around 20 threads do this in parallel  and One thread works on only one row .
+app is writen in java and we are using hibernate to do db operations . 
+Postgresql version is 9.3.24
+One more interesting observation : 
+ -  when i stop my java app and then do full vacuum , it works fine (number of rows and live tuples become equal). So there is something wrong if we select and update continuously from java app . – 
+Problem/Issue 
+These live tuples some times go to dead tuples and after some times again comes to live . 
+Due to above behaviour select from the table taking time and increasing load on server as lots of live/deadtuples are there ..
+",<postgresql><performance><hibernate><postgresql-9.3>,3198,0,41,1311,1,12,29,52,18315,0.0,71,3,19,2018-08-14 15:09,2018-08-14 15:47,2018-08-14 20:41,0.0,0.0,Intermediate,23
+60377396,Postgresql connection marked as broken by Hikari,"I have Spring application that regularly inserts records in a PostgreSQL-DB. Now, after a scheduled set of imports is done it takes a few seconds until I get the following warning:
+com.zaxxer.hikari.pool.ProxyConnection   : HikariPool-1 - Connection org.postgresql.jdbc.PgConnection@7d18a7dc marked as broken because of SQLSTATE(08006), ErrorCode(0)
+followed by the this exception:
+org.postgresql.util.PSQLException: An I/O error occurred while sending to the backend.
+    at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:335) ~[postgresql-42.2.5.jar:42.2.5]
+    at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+    at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+    at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+    at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:132) ~[postgresql-42.2.5.jar:42.2.5]
+    at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.2.0.jar:na]
+    at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-3.2.0.jar:na]
+    at org.jooq.tools.jdbc.DefaultPreparedStatement.execute(DefaultPreparedStatement.java:209) ~[jooq-3.11.9.jar:na]
+    at org.jooq.impl.AbstractQuery.execute(AbstractQuery.java:432) ~[jooq-3.11.9.jar:na]
+    at org.jooq.impl.AbstractDMLQuery.execute(AbstractDMLQuery.java:613) ~[jooq-3.11.9.jar:na]
+    at org.jooq.impl.AbstractQuery.execute(AbstractQuery.java:350) ~[jooq-3.11.9.jar:na]
+    at org.jooq.impl.Tools$10$1.block(Tools.java:4377) ~[jooq-3.11.9.jar:na]
+    at java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3118) ~[na:na]
+    at org.jooq.impl.Tools$10.get(Tools.java:4374) ~[jooq-3.11.9.jar:na]
+    at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700) ~[na:na]
+    at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1692) ~[na:na]
+    at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290) ~[na:na]
+    at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020) ~[na:na]
+    at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656) ~[na:na]
+    at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594) ~[na:na]
+    at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177) ~[na:na]
+Caused by: java.io.EOFException: null
+    at org.postgresql.core.PGStream.receiveChar(PGStream.java:308) ~[postgresql-42.2.5.jar:42.2.5]
+    at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1952) ~[postgresql-42.2.5.jar:42.2.5]
+    at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:308) ~[postgresql-42.2.5.jar:42.2.5]
+On most occurrences this also sets my database in recovery mode.
+On the next run of the scheduler the hikari pool warns about the connections that could not be validated:
+HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@389c2816 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+I fiddled around with the validation-timeout and max-lifetime settings of hikari but none of the changes seemed to have any effect.
+",<spring><postgresql><kotlin><jooq><hikaricp>,3480,0,30,609,0,5,16,38,8229,0.0,15,0,19,2020-02-24 13:54,,,,,Intermediate,23
+56564410,Tables could not be fetched - Error loading schema content,"I open workbench and connect to a local database on XAMPP and when open the connection the schema show the error message:
+  ""tables could not be fetched""
+",<mysql-workbench><workbench><kie-workbench><sql-workbench-j>,154,0,0,161,1,2,7,38,54009,0.0,1,13,19,2019-06-12 14:20,2020-02-22 20:37,,255.0,,Intermediate,15
+51136693,how to check HikariCP connection pooling is working or not in Java?,"I have written following properties in my configuration files I am using Log4j 
+in my application When I am running a project.
+I am getting following message.does that mean connection pooling is configured in my project? if not then how it will be?
+INFO: internal.ConnectionProviderInitiator - HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+I have referred following link also
+link here
+Datasource settings
+hibernate.datasource.driver-class-name=com.mysql.jdbc.Driver
+hibernate.datasource.url=jdbc:mysql://localhost:3306/mydb
+hibernate.datasource.username=root
+hibernate.datasource.password=root
+HikariCP Settings
+hibernate.hikari.dataSource.url=jdbc:mysql://localhost:3306/mydb
+hibernate.hikari.idleTimeout=10
+hibernate.hikari.maximumPoolSize=30
+hibernate.hikari.minimumIdle=15
+hibernate.connection.provider_class=com.zaxxer.hikari.hibernate.HikariConnectionProvider
+hibernate.hikari.dataSourceClassName=com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+",<java><mysql><hibernate><connection-pooling><hikaricp>,1012,1,11,774,1,10,40,51,28351,0.0,531,4,19,2018-07-02 12:52,2018-07-02 12:59,,0.0,,Intermediate,15
+59675402,Django Full Text SearchVectorField obsolete in PostgreSQL,"I'm using Django's inbuilt full text search with PostgreSQL.
+The Django docs say that performance can be improved by using a SearchVectorField. That field keeps a pre-generated ts_vector column with all the relevant lexemes alongside the model, rather than generating it on the fly during every search.
+However, with this approach the ts_vector must be updated whenever the model is updated. To keep it synchronised, the Django docs suggest using &quot;triggers&quot;, and refer us to the PostgreSQL documentation for more details.
+However, the PostgreSQL docs themselves say that the trigger approach is now obsolete. Instead of manually updating the ts_vector column, it is better to keep the column automatically up-to-date by using a stored generated column.
+How can I use PostgreSQL's recommended approach with Django?
+",<django><postgresql><full-text-search>,824,4,4,1178,2,14,28,73,2348,0.0,2151,2,18,2020-01-10 4:08,2020-01-10 5:30,,0.0,,Basic,3

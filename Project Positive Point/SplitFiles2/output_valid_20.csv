@@ -1,0 +1,547 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34775810,What's the purpose of the || [] operator,"<p>I'm looking at this Javascript class:</p>
+
+<pre><code>'use strict';
+class Account {
+  constructor(a, b, c) {
+    this.a = a
+    this.b = b || []
+    this.c = c || []
+  }
+}
+</code></pre>
+
+<p>What is <code>b || []</code> saying?</p>
+",<javascript>,16/01/13 19:51,LQ_CLOSE,"<javascript>, What's the purpose of the || [] operator, <p>I'm looking at this Javascript class:</p>
+
+<pre><code>'use strict';
+class Account {
+  constructor(a, b, c) {
+    this.a = a
+    this.b = b || []
+    this.c = c || []
+  }
+}
+</code></pre>
+
+<p>What is <code>b || []</code> saying?</p>
+","<javascript>, what' purpose || [] operator, <p>i'm look javascript class:</p> <pre><code>'us strict'; class account { construction(a, b, c) { this.a = this.b = b || [] this.c = c || [] } } </code></pre> <p>what <code>b || []</code> saying?</p>"
+34776282,Type mysteries. Why does this code compile?,"<p>This code does not compile:</p>
+
+<pre><code>default ()
+
+f :: RealFloat a =&gt; a
+f = 1.0
+
+g :: RealFloat a =&gt; a
+g = 1.0
+
+h :: Bool
+h = f &lt; g --Error. Ambiguous.
+</code></pre>
+
+<p>This is expected because it's ambiguous. The two possibilities are <code>Float</code> and <code>Double</code> and the compiler doesn't know which <code>&lt;</code> to pick.</p>
+
+<p>However, this code <em>does</em> compile:</p>
+
+<pre><code>default ()
+
+f :: RealFloat a =&gt; a
+f = 1.0
+
+g :: RealFloat a =&gt; a
+g = 1.0
+
+h :: RealFloat a =&gt; a
+h = f + g --Why does this compile?
+</code></pre>
+
+<p>Why? Why isn't Haskell confused here, in a similar manner as in the example above, about which <code>+</code> to pick (for <code>Float</code> or <code>Double</code>)?</p>
+",<haskell>,16/01/13 20:20,HQ,"<haskell>, Type mysteries. Why does this code compile?, <p>This code does not compile:</p>
+
+<pre><code>default ()
+
+f :: RealFloat a =&gt; a
+f = 1.0
+
+g :: RealFloat a =&gt; a
+g = 1.0
+
+h :: Bool
+h = f &lt; g --Error. Ambiguous.
+</code></pre>
+
+<p>This is expected because it's ambiguous. The two possibilities are <code>Float</code> and <code>Double</code> and the compiler doesn't know which <code>&lt;</code> to pick.</p>
+
+<p>However, this code <em>does</em> compile:</p>
+
+<pre><code>default ()
+
+f :: RealFloat a =&gt; a
+f = 1.0
+
+g :: RealFloat a =&gt; a
+g = 1.0
+
+h :: RealFloat a =&gt; a
+h = f + g --Why does this compile?
+</code></pre>
+
+<p>Why? Why isn't Haskell confused here, in a similar manner as in the example above, about which <code>+</code> to pick (for <code>Float</code> or <code>Double</code>)?</p>
+","<haskell>, type mysteries. code compile?, <p>the code compile:</p> <pre><code>default () f :: realfloat =&it; f = 1.0 g :: realfloat =&it; g = 1.0 h :: book h = f &it; g --error. ambiguous. </code></pre> <p>the expect ambiguous. two possible <code>float</code> <code>double</code> compel know <code>&it;</code> pick.</p> <p>however, code <em>does</em> compile:</p> <pre><code>default () f :: realfloat =&it; f = 1.0 g :: realfloat =&it; g = 1.0 h :: realfloat =&it; h = f + g --who compile? </code></pre> <p>why? asked confuse here, similar manner example above, <code>+</code> pick (for <code>float</code> <code>double</code>)?</p>"
+34777184,Regax to extract consent form response data?,"i am new to jmeter and i am using regular expression extractor to extract document number which is between 
+
+  
+
+    <showDocument>t 834446$$$$1601Consentt </showDocument>t
+
+which field should i check Body or Response Header 
+",<regex><jmeter>,16/01/13 21:16,LQ_EDIT,"<regex><jmeter>, Regax to extract consent form response data?, i am new to jmeter and i am using regular expression extractor to extract document number which is between 
+
+  
+
+    <showDocument>t 834446$$$$1601Consentt </showDocument>t
+
+which field should i check Body or Response Header 
+","<regret><peter>, relax extract consent form response data?, new peter use regular express extract extract document number <showdocument>t 834446$$$$1601consentt </showdocument>t field check body response header"
+34779436,C# - Textbox Issues,"<p>So I'm building my first application and I want to make it so the person using the app cannot put text in any of the text boxes. Also I'd like to put some built in barriers so the program doesn't crash when they put nothing in the TextBox's.</p>
+
+<p>Please help! Much appreciated!</p>
+
+<p><em>Below is a picture.</em></p>
+
+<p><a href=""https://i.stack.imgur.com/6UDJr.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/6UDJr.png"" alt=""What my application currently looks like.""></a></p>
+",<c#><visual-studio>,16/01/14 0:05,LQ_CLOSE,"<c#><visual-studio>, C# - Textbox Issues, <p>So I'm building my first application and I want to make it so the person using the app cannot put text in any of the text boxes. Also I'd like to put some built in barriers so the program doesn't crash when they put nothing in the TextBox's.</p>
+
+<p>Please help! Much appreciated!</p>
+
+<p><em>Below is a picture.</em></p>
+
+<p><a href=""https://i.stack.imgur.com/6UDJr.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/6UDJr.png"" alt=""What my application currently looks like.""></a></p>
+","<c#><visual-studio>, c# - textbook issues, <p>so i'm build first applied want make person use pp cannot put text text boxes. also i'd like put built barrier program crash put not textbook's.</p> <p>pleas help! much appreciated!</p> <p><em>below picture.</em></p> <p><a he=""http://i.stick.incur.com/tudor.pig"" red=""follow noreferrer""><ing sac=""http://i.stick.incur.com/tudor.pig"" at=""what applied current look like.""></a></p>"
+34779894,Executing SQL scripts on docker container,"<p>I have a docker container running mysql and I want to push a .sql file to the container and then have mysql execute the commands in it.  The first step is fairly straightforward:</p>
+
+<pre><code>docker cp ./dummy.sql &lt;container_id&gt;:/
+</code></pre>
+
+<p>From there I am trying to run mysql from the command line and point it to the file that I just pushed to the container.</p>
+
+<pre><code>docker exec &lt;container_id&gt; mysql -u root -ppassword &lt; /dummy.sql
+</code></pre>
+
+<p>This command appears to be trying to use /sample.sql as stdin locally rather than on the container.  I also tried wrapping quotes around everything after the container ID which also seems to not work.</p>
+
+<p>I also tried pushing a .sh file with the command in it to the docker container and then just executing that, but that is less ideal and also not working.  Any advice?</p>
+",<mysql><docker>,16/01/14 0:56,HQ,"<mysql><docker>, Executing SQL scripts on docker container, <p>I have a docker container running mysql and I want to push a .sql file to the container and then have mysql execute the commands in it.  The first step is fairly straightforward:</p>
+
+<pre><code>docker cp ./dummy.sql &lt;container_id&gt;:/
+</code></pre>
+
+<p>From there I am trying to run mysql from the command line and point it to the file that I just pushed to the container.</p>
+
+<pre><code>docker exec &lt;container_id&gt; mysql -u root -ppassword &lt; /dummy.sql
+</code></pre>
+
+<p>This command appears to be trying to use /sample.sql as stdin locally rather than on the container.  I also tried wrapping quotes around everything after the container ID which also seems to not work.</p>
+
+<p>I also tried pushing a .sh file with the command in it to the docker container and then just executing that, but that is less ideal and also not working.  Any advice?</p>
+","<myself><doctor>, execute sal script doctor container, <p>i doctor contain run myself want push .sal file contain myself execute command it. first step fairly straightforward:</p> <pre><code>dock up ./dummy.sal &it;container_id&it;:/ </code></pre> <p>from try run myself command line point file push container.</p> <pre><code>dock even &it;container_id&it; myself -u root -password &it; /dummy.sal </code></pre> <p>the command appear try use /sample.sal stain local rather container. also try wrap quit around every contain id also seem work.</p> <p>i also try push .s file command doctor contain execute that, less ideal also working. advice?</p>"
+34781422,Is it possible to install a package from a repository on Gitlab using Composer?,"<p>I am trying to get composer to download a library from my repository on Gitlab, however, it does not have a composer.json file in it so I'm not sure if this is possible.</p>
+
+<pre><code>    ""require"": {
+        ""username/repository-name""
+    },
+    ""repositories"": [{
+        ""type"": ""package"",
+        ""package"": {
+            ""version"": ""dev-master"",
+            ""name"": ""username/repository-name"",
+            ""source"": {
+                ""url"": ""https://gitlab.com/username/repository.git"",
+                ""type"": ""git"",
+                ""reference"": ""master""
+            }
+        }
+    }],
+</code></pre>
+",<php><composer-php><gitlab>,16/01/14 3:50,HQ,"<php><composer-php><gitlab>, Is it possible to install a package from a repository on Gitlab using Composer?, <p>I am trying to get composer to download a library from my repository on Gitlab, however, it does not have a composer.json file in it so I'm not sure if this is possible.</p>
+
+<pre><code>    ""require"": {
+        ""username/repository-name""
+    },
+    ""repositories"": [{
+        ""type"": ""package"",
+        ""package"": {
+            ""version"": ""dev-master"",
+            ""name"": ""username/repository-name"",
+            ""source"": {
+                ""url"": ""https://gitlab.com/username/repository.git"",
+                ""type"": ""git"",
+                ""reference"": ""master""
+            }
+        }
+    }],
+</code></pre>
+","<pp><composer-pp><gitlab>, possible instal package depositors gitlab use composer?, <p>i try get compose download library depositors gitlab, however, composer.son file i'm sure possible.</p> <pre><code> ""require"": { ""surname/depositors-name"" }, ""depositaries"": [{ ""type"": ""package"", ""package"": { ""version"": ""de-master"", ""name"": ""surname/depositors-name"", ""source"": { ""curl"": ""http://gitlab.com/surname/depositors.git"", ""type"": ""git"", ""reference"": ""master"" } } }], </code></pre>"
+34781645,I have to write orcale query here is the scenior,"i have have table with column call_no, status, sub_staus
+for ex: records are like this.
+call_no status sub_staus
+123      2       null
+123      79      null
+123      null    119 
+231       5      null
+231       null    78
+
+i need to fectch a call_no whoses status is 79 and sub_status is 119",<sql><oracle>,16/01/14 4:14,LQ_EDIT,"<sql><oracle>, I have to write orcale query here is the scenior, i have have table with column call_no, status, sub_staus
+for ex: records are like this.
+call_no status sub_staus
+123      2       null
+123      79      null
+123      null    119 
+231       5      null
+231       null    78
+
+i need to fectch a call_no whoses status is 79 and sub_status is 119","<sal><oracle>, write oral query senior, table column calling, status, sub_stau ex: record like this. calling state sub_stau 123 2 null 123 79 null 123 null 119 231 5 null 231 null 78 need fetch calling whose state 79 sub_statu 119"
+34781651,How to organize large amounts of state in Haskell projects,"<p>I'm writing my first real Haskell project, and I'm having trouble organizing state in the program. It's a Gameboy Color emulator, so there are a lot of little flags, and the entire state looks like </p>
+
+<pre><code>data Memory s = Memory { memory :: STUArray s Word16 Word8
+                       , registers :: STUArray s Word8 Word8
+                       , sp :: STRef s Word16
+                       , pc :: STRef s Word16
+                       , cycles :: STRef s Word16
+                       , ime :: STRef s Bool --Interrupt Master Enable Flag
+                       , halt :: STRef s Bool --Are we halted or not
+                       , mode :: STRef s GPUMode -- GPU mode
+                       , line :: STRef s Word8 -- GPU line
+                       , transferred :: STRef s Bool
+                       , gpuCycles :: STRef s Word16
+                       , window :: Window
+                       , renderer :: Renderer
+                       }
+</code></pre>
+
+<p>And I do all read/write of the state like : </p>
+
+<pre><code> data Address = OneRegister Register
+          | TwoRegister {registerA :: Register, registerB :: Register}
+          | MemAddr Word16
+          | SP
+          | PC
+          | CYCLES
+          | IME
+          | HALT_STATE
+          | GPU_MODE
+          | GPU_LINE
+          | GPU_TRANSFERRED_LINE
+          | GPU_CYCLES
+
+  data MemVal = MemVal8 Word8
+          | MemVal16 Word16
+          | Flag Bool
+          | Mode GPUMode
+
+  read :: Memory s -&gt; Address -&gt; ST s MemVal
+  write :: Memory s -&gt; Address -&gt; MemVal -&gt; ST s ()
+</code></pre>
+
+<p>You can see : <a href=""https://github.com/nikhilunni/HaskellBoy/blob/master/src/Memory.hs"">https://github.com/nikhilunni/HaskellBoy/blob/master/src/Memory.hs</a></p>
+
+<p>Is there any cleaner way for me to organize everything? I'd like to split up the state between the various components (CPU, GPU, cartridge bank switching, etc), if possible. Is it idiomatic to have a big monolithic state type in Haskell?</p>
+
+<p>It's a pretty big pain to add new state to the program. The Control.Lens package seems to be up the right alley, but I'm not sure if I can combine it with ST very easily.</p>
+
+<p>Thanks!</p>
+",<haskell><emulation>,16/01/14 4:15,HQ,"<haskell><emulation>, How to organize large amounts of state in Haskell projects, <p>I'm writing my first real Haskell project, and I'm having trouble organizing state in the program. It's a Gameboy Color emulator, so there are a lot of little flags, and the entire state looks like </p>
+
+<pre><code>data Memory s = Memory { memory :: STUArray s Word16 Word8
+                       , registers :: STUArray s Word8 Word8
+                       , sp :: STRef s Word16
+                       , pc :: STRef s Word16
+                       , cycles :: STRef s Word16
+                       , ime :: STRef s Bool --Interrupt Master Enable Flag
+                       , halt :: STRef s Bool --Are we halted or not
+                       , mode :: STRef s GPUMode -- GPU mode
+                       , line :: STRef s Word8 -- GPU line
+                       , transferred :: STRef s Bool
+                       , gpuCycles :: STRef s Word16
+                       , window :: Window
+                       , renderer :: Renderer
+                       }
+</code></pre>
+
+<p>And I do all read/write of the state like : </p>
+
+<pre><code> data Address = OneRegister Register
+          | TwoRegister {registerA :: Register, registerB :: Register}
+          | MemAddr Word16
+          | SP
+          | PC
+          | CYCLES
+          | IME
+          | HALT_STATE
+          | GPU_MODE
+          | GPU_LINE
+          | GPU_TRANSFERRED_LINE
+          | GPU_CYCLES
+
+  data MemVal = MemVal8 Word8
+          | MemVal16 Word16
+          | Flag Bool
+          | Mode GPUMode
+
+  read :: Memory s -&gt; Address -&gt; ST s MemVal
+  write :: Memory s -&gt; Address -&gt; MemVal -&gt; ST s ()
+</code></pre>
+
+<p>You can see : <a href=""https://github.com/nikhilunni/HaskellBoy/blob/master/src/Memory.hs"">https://github.com/nikhilunni/HaskellBoy/blob/master/src/Memory.hs</a></p>
+
+<p>Is there any cleaner way for me to organize everything? I'd like to split up the state between the various components (CPU, GPU, cartridge bank switching, etc), if possible. Is it idiomatic to have a big monolithic state type in Haskell?</p>
+
+<p>It's a pretty big pain to add new state to the program. The Control.Lens package seems to be up the right alley, but I'm not sure if I can combine it with ST very easily.</p>
+
+<p>Thanks!</p>
+","<haskell><emulation>, organ large amount state asked projects, <p>i'm write first real asked project, i'm trouble organ state program. pageboy color emulation, lot little flags, enter state look like </p> <pre><code>data memory = memory { memory :: starry words words , resist :: starry words words , s :: street words , pp :: street words , cycle :: street words , me :: street book --interrupt master enable flag , halt :: street book --are halt , mode :: street gpumod -- you mode , line :: street words -- you line , transfer :: street book , gpucycl :: street words , window :: window , render :: render } </code></pre> <p>and read/writ state like : </p> <pre><code> data address = oneregist resist | tworegist {register :: register, register :: register} | memaddr words | s | pp | cycle | me | halt_stat | gpu_mod | gpu_lin | gpu_transferred_lin | gpu_cycl data removal = memval8 words | memval16 words | flag book | mode gpumod read :: memory -&it; address -&it; st removal write :: memory -&it; address -&it; removal -&it; st () </code></pre> <p>you see : <a he=""http://github.com/nikhilunni/haskellboy/blow/master/sac/memory.he"">http://github.com/nikhilunni/haskellboy/blow/master/sac/memory.he</a></p> <p>i cleaner way organ everything? i'd like split state various common (cup, you, cartridge bank twitching, etc), possible. idiot big monolith state type haskell?</p> <p>it' pretty big pain add new state program. control.len package seem right alley, i'm sure combine st easily.</p> <p>thanks!</p>"
+34781934,PHP random image from folder,"I have couple of images in the folder like 20-25. I want unique random image when I run that PHP script. I have coded in which on every run it takes random image but some images are not displayed and gets repeated. Any solution for this ?
+
+Thanks!",<php><image>,16/01/14 4:48,LQ_EDIT,"<php><image>, PHP random image from folder, I have couple of images in the folder like 20-25. I want unique random image when I run that PHP script. I have coded in which on every run it takes random image but some images are not displayed and gets repeated. Any solution for this ?
+
+Thanks!","<pp><image>, pp random image older, couple image older like 20-25. want unique random image run pp script. code every run take random image image display get repeated. slut ? thanks!"
+34782382,Finding out how many words appear in all 5 files,"<p>I have this program that prints out as such:      </p>
+
+<pre><code>Max number files any word is in: 5  
+Total words in all files: 880  
+Total words in five files: 880  
+caesar.txt  
+hamlet.txt  
+likeit.txt  
+macbeth.txt  
+romeo.txt  
+
+List of words that appear in most files: [A, I, turn, O, after, a, time,, good, faithful, gone, etc...
+</code></pre>
+
+<p>I would like to know how many words there are that are in all 5 Shakespeare files (files used for testing can be found here: <a href=""http://www.dukelearntoprogram.com/course3/archives/PracticeGladLibsData.zip"" rel=""nofollow"">http://www.dukelearntoprogram.com/course3/archives/PracticeGladLibsData.zip</a>). I get a long list of words, which is not helpful at all for this problem.</p>
+
+<p>Here's my code in which this problem occurs:</p>
+
+<pre><code>import edu.duke.*;
+import java.util.*;
+import java.io.*;
+
+public class WordsInFiles {
+    private HashMap&lt;String,ArrayList&lt;String&gt;&gt; wordInFilesMap;
+
+    public WordsInFiles() {
+        wordInFilesMap = new HashMap&lt;String,ArrayList&lt;String&gt;&gt;();
+    }
+    private void addWordsFromFile(File file) {
+        //This method should add all the words from file into the map.
+        //If a word is not in the map, then you must create a new ArrayList of
+        // type String with this word, and have the word map to this ArrayList.
+        //If a word is already in the map, then add the current filename to its
+        // ArrayList, unless the filename is already in the ArrayList.
+        FileResource fileResource = new FileResource(file);
+        String fileName = file.getName();
+        for (String word : fileResource.words()) {
+            if (!wordInFilesMap.containsKey(word)) {
+                ArrayList&lt;String&gt; newList = new ArrayList&lt;String&gt;();
+                newList.add(fileName);
+                wordInFilesMap.put(word, newList);
+            }
+            else if (wordInFilesMap.containsKey(word) 
+                        &amp;&amp; !wordInFilesMap.get(word).contains(fileName)) {
+                ArrayList&lt;String&gt; currentList = wordInFilesMap.get(word);
+                currentList.add(fileName);
+                wordInFilesMap.put(word,currentList);
+            }
+        }
+    }
+    private void buildWordFileMap() {
+        wordInFilesMap.clear();
+        DirectoryResource dirResource = new DirectoryResource();
+        for (File file : dirResource.selectedFiles()) {
+            addWordsFromFile(file);
+        }
+    }
+    private int maxNumber() {
+        //returns the maximum number of files any word appears in, considering
+        // all words from a group of files.
+        int highest = 0;
+        for (String word : wordInFilesMap.keySet()) {
+            ArrayList&lt;String&gt; currentFileList = wordInFilesMap.get(word);
+            int currentNum = currentFileList.size();
+            if (currentNum &gt; highest) {
+                highest = currentNum;
+            }
+        }
+        return highest;
+    }
+    private ArrayList&lt;String&gt; wordsInNumFiles(int number) {
+        //returns an ArrayList of words that appear in exactly number files
+        ArrayList&lt;String&gt; wordList = new ArrayList&lt;String&gt;();
+        for (String word : wordInFilesMap.keySet()) {
+            ArrayList&lt;String&gt; currentList = wordInFilesMap.get(word);
+            int currentFileCount = currentList.size();
+            if (currentFileCount == number) {
+                wordList.add(word);
+            }
+        }
+        return wordList;
+    }
+    private void printFilesIn(String word) {
+        //prints the names of the files this word appears in, one filename per line
+        ArrayList&lt;String&gt; fileNames = wordInFilesMap.get(word);
+        for (int index=0; index &lt; fileNames.size(); index++) {
+            System.out.println(fileNames.get(index));
+
+        }
+       }
+    public void tester() {
+        //call buildWordFileMap to select files and build HashMap of words
+        buildWordFileMap();
+        //determine maximum number of files any word is in, considering all words
+        int fileNum = maxNumber();
+        System.out.println(""Max number files any word is in: ""+fileNum);
+
+        ArrayList&lt;String&gt; wordsInFiles = wordsInNumFiles(fileNum);
+        System.out.println(""Total words in all files: ""+wordsInFiles.size());
+        wordsInFiles = wordsInNumFiles(5);
+        System.out.println(""Total words in five files: ""+wordsInFiles.size());
+        printFilesIn(""to"");
+        System.out.println(""\n"");
+        printFilesIn(""and"");
+        System.out.println(""\nList of words that appear in most files: ""+wordsInFiles);
+
+        /*for (int index=0; index &lt; wordsInFiles.size(); index++) {
+            System.out.println(""Files where ""+wordsInFiles.get(index)+"" appear:"");
+            printFilesIn(wordsInFiles.get(index));
+        }
+
+        for (String key : wordInFilesMap.keySet()) {
+            System.out.println(""\nWord: ""+key+""\tAppears in files: ""
+                                +wordInFilesMap.get(key));
+        }*/
+
+    }
+} 
+</code></pre>
+",<java>,16/01/14 5:35,LQ_CLOSE,"<java>, Finding out how many words appear in all 5 files, <p>I have this program that prints out as such:      </p>
+
+<pre><code>Max number files any word is in: 5  
+Total words in all files: 880  
+Total words in five files: 880  
+caesar.txt  
+hamlet.txt  
+likeit.txt  
+macbeth.txt  
+romeo.txt  
+
+List of words that appear in most files: [A, I, turn, O, after, a, time,, good, faithful, gone, etc...
+</code></pre>
+
+<p>I would like to know how many words there are that are in all 5 Shakespeare files (files used for testing can be found here: <a href=""http://www.dukelearntoprogram.com/course3/archives/PracticeGladLibsData.zip"" rel=""nofollow"">http://www.dukelearntoprogram.com/course3/archives/PracticeGladLibsData.zip</a>). I get a long list of words, which is not helpful at all for this problem.</p>
+
+<p>Here's my code in which this problem occurs:</p>
+
+<pre><code>import edu.duke.*;
+import java.util.*;
+import java.io.*;
+
+public class WordsInFiles {
+    private HashMap&lt;String,ArrayList&lt;String&gt;&gt; wordInFilesMap;
+
+    public WordsInFiles() {
+        wordInFilesMap = new HashMap&lt;String,ArrayList&lt;String&gt;&gt;();
+    }
+    private void addWordsFromFile(File file) {
+        //This method should add all the words from file into the map.
+        //If a word is not in the map, then you must create a new ArrayList of
+        // type String with this word, and have the word map to this ArrayList.
+        //If a word is already in the map, then add the current filename to its
+        // ArrayList, unless the filename is already in the ArrayList.
+        FileResource fileResource = new FileResource(file);
+        String fileName = file.getName();
+        for (String word : fileResource.words()) {
+            if (!wordInFilesMap.containsKey(word)) {
+                ArrayList&lt;String&gt; newList = new ArrayList&lt;String&gt;();
+                newList.add(fileName);
+                wordInFilesMap.put(word, newList);
+            }
+            else if (wordInFilesMap.containsKey(word) 
+                        &amp;&amp; !wordInFilesMap.get(word).contains(fileName)) {
+                ArrayList&lt;String&gt; currentList = wordInFilesMap.get(word);
+                currentList.add(fileName);
+                wordInFilesMap.put(word,currentList);
+            }
+        }
+    }
+    private void buildWordFileMap() {
+        wordInFilesMap.clear();
+        DirectoryResource dirResource = new DirectoryResource();
+        for (File file : dirResource.selectedFiles()) {
+            addWordsFromFile(file);
+        }
+    }
+    private int maxNumber() {
+        //returns the maximum number of files any word appears in, considering
+        // all words from a group of files.
+        int highest = 0;
+        for (String word : wordInFilesMap.keySet()) {
+            ArrayList&lt;String&gt; currentFileList = wordInFilesMap.get(word);
+            int currentNum = currentFileList.size();
+            if (currentNum &gt; highest) {
+                highest = currentNum;
+            }
+        }
+        return highest;
+    }
+    private ArrayList&lt;String&gt; wordsInNumFiles(int number) {
+        //returns an ArrayList of words that appear in exactly number files
+        ArrayList&lt;String&gt; wordList = new ArrayList&lt;String&gt;();
+        for (String word : wordInFilesMap.keySet()) {
+            ArrayList&lt;String&gt; currentList = wordInFilesMap.get(word);
+            int currentFileCount = currentList.size();
+            if (currentFileCount == number) {
+                wordList.add(word);
+            }
+        }
+        return wordList;
+    }
+    private void printFilesIn(String word) {
+        //prints the names of the files this word appears in, one filename per line
+        ArrayList&lt;String&gt; fileNames = wordInFilesMap.get(word);
+        for (int index=0; index &lt; fileNames.size(); index++) {
+            System.out.println(fileNames.get(index));
+
+        }
+       }
+    public void tester() {
+        //call buildWordFileMap to select files and build HashMap of words
+        buildWordFileMap();
+        //determine maximum number of files any word is in, considering all words
+        int fileNum = maxNumber();
+        System.out.println(""Max number files any word is in: ""+fileNum);
+
+        ArrayList&lt;String&gt; wordsInFiles = wordsInNumFiles(fileNum);
+        System.out.println(""Total words in all files: ""+wordsInFiles.size());
+        wordsInFiles = wordsInNumFiles(5);
+        System.out.println(""Total words in five files: ""+wordsInFiles.size());
+        printFilesIn(""to"");
+        System.out.println(""\n"");
+        printFilesIn(""and"");
+        System.out.println(""\nList of words that appear in most files: ""+wordsInFiles);
+
+        /*for (int index=0; index &lt; wordsInFiles.size(); index++) {
+            System.out.println(""Files where ""+wordsInFiles.get(index)+"" appear:"");
+            printFilesIn(wordsInFiles.get(index));
+        }
+
+        for (String key : wordInFilesMap.keySet()) {
+            System.out.println(""\nWord: ""+key+""\tAppears in files: ""
+                                +wordInFilesMap.get(key));
+        }*/
+
+    }
+} 
+</code></pre>
+","<cava>, find man word appear 5 files, <p>i program print such: </p> <pre><code>max number file word in: 5 total word files: 880 total word five files: 880 caesar.txt hamlet.txt like.txt maketh.txt rome.txt list word appear files: [a, i, turn, o, after, a, time,, good, faithful, gone, etc... </code></pre> <p>i would like know man word 5 shakespeare file (file use test found here: <a he=""http://www.dukelearntoprogram.com/course/archives/practicegladlibsdata.zip"" red=""follow"">http://www.dukelearntoprogram.com/course/archives/practicegladlibsdata.zip</a>). get long list words, help problem.</p> <p>here' code problem occurs:</p> <pre><code>import ed.duke.*; import cava.until.*; import cava.to.*; public class wordsinfil { privat hashmap&it;string,arraylist&it;string&it;&it; wordinfilesmap; public wordsinfiles() { wordinfilesmap = new hashmap&it;string,arraylist&it;string&it;&it;(); } privat void addwordsfromfile(fig file) { //the method add word file map. //if word map, must great new arraylist // type string word, word map arraylist. //if word already map, add current filename // arraylist, unless filename already arraylist. fileresourc fileresourc = new fileresource(file); string filename = file.getname(); (string word : fileresource.words()) { (!wordinfilesmap.containskey(word)) { arraylist&it;string&it; enlist = new arraylist&it;string&it;(); enlist.add(filename); wordinfilesmap.put(word, enlist); } else (wordinfilesmap.containskey(word) &amp;&amp; !wordinfilesmap.get(word).contains(filename)) { arraylist&it;string&it; currentlist = wordinfilesmap.get(word); currentlist.add(filename); wordinfilesmap.put(word,currentlist); } } } privat void buildwordfilemap() { wordinfilesmap.clear(); directoryresourc dirresourc = new directoryresource(); (file file : dirresource.selectedfiles()) { addwordsfromfile(file); } } privat in maxnumber() { //return maximum number file word appear in, consider // word group files. in highest = 0; (string word : wordinfilesmap.keys()) { arraylist&it;string&it; currentfilelist = wordinfilesmap.get(word); in currentnum = currentfilelist.size(); (currentnum &it; highest) { highest = currentnum; } } return highest; } privat arraylist&it;string&it; wordsinnumfiles(in number) { //return arraylist word appear exactly number file arraylist&it;string&it; wordlist = new arraylist&it;string&it;(); (string word : wordinfilesmap.keys()) { arraylist&it;string&it; currentlist = wordinfilesmap.get(word); in currentfilecount = currentlist.size(); (currentfilecount == number) { wordlist.add(word); } } return wordlist; } privat void printfilesin(sir word) { //print name file word appear in, one filename per line arraylist&it;string&it; filename = wordinfilesmap.get(word); (in index=0; index &it; filename.size(); index++) { system.out.print(filename.get(index)); } } public void tested() { //call buildwordfilemap select file build hashmap word buildwordfilemap(); //determine maximum number file word in, consider word in filename = maxnumber(); system.out.print(""max number file word in: ""+filename); arraylist&it;string&it; wordsinfil = wordsinnumfiles(filename); system.out.print(""to word files: ""+wordsinfiles.size()); wordsinfil = wordsinnumfiles(5); system.out.print(""to word five files: ""+wordsinfiles.size()); printfilesin(""to""); system.out.print(""\n""); printfilesin(""and""); system.out.print(""\list word appear files: ""+wordsinfiles); /*for (in index=0; index &it; wordsinfiles.size(); index++) { system.out.print(""fig ""+wordsinfiles.get(index)+"" appear:""); printfilesin(wordsinfiles.get(index)); } (string key : wordinfilesmap.keys()) { system.out.print(""\word: ""+key+""\appear files: "" +wordinfilesmap.get(key)); }*/ } } </code></pre>"

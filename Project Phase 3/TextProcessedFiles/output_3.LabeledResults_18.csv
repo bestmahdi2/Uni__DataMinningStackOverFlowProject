@@ -1,0 +1,2424 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition,MergedText,ProcessedText
+53554458,SQLAlchemy: Get database name from engine,"After creating an SQLALchemy engine like this
+engine = create_engine('mssql+pyodbc://user:pass@dbserver:port/db_name?driver=ODBC+Driver+13+for+SQL+Server)
+Is there a way to get db_name from the engine-object? I know I can parse the name from the connection string but is there a better way of doing this? I had a look at the SQLAlchemy-API but couldn't find an answer.
+",<python><sql-server>,369,1,3,317,1,2,13,72,13350,0.0,18,1,13,2018-11-30 9:13,2019-04-22 15:35,2019-04-22 15:35,143.0,143.0,Basic,3,"<python><sql-server>, SQLAlchemy: Get database name from engine, After creating an SQLALchemy engine like this
+engine = create_engine('mssql+pyodbc://user:pass@dbserver:port/db_name?driver=ODBC+Driver+13+for+SQL+Server)
+Is there a way to get db_name from the engine-object? I know I can parse the name from the connection string but is there a better way of doing this? I had a look at the SQLAlchemy-API but couldn't find an answer.
+","<patron><sal-server>, sqlalchemy: get database name engine, great sqlalchemi engine like engine = create_engine('mssql+pyodbc://user:pass@observer:port/db_name?driver=duc+driver+13+for+sal+server) way get db_name engine-object? know part name connect string better way this? look sqlalchemy-apt find answer."
+48308826,Wamp Server Error [Local Server - 2 of 3 services running],"I am new to wamp servers and trying to install wampServer 3.1.0 on my windows 10 machine . 
+Somehow it is not installed properly and is having configuration error .
+At present ""Wamp server is still in orange state and is throwing the error"" 
+  2 of 3 services running
+As of my understanding either of Apache,MySQl orPHP is not working .
+On further investigation I found that Apache is ok.
+But on running mysql.exe(C:\wamp64\bin\mysql\mysql5.7.19\bin) it is throwing :
+  ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost'
+  (10061)
+which lands me to SO-32519474 ,
+I tried following the steps ,but it looks good to me in my case .
+On further searching I find that wampmysqld64 is stopped in the services.
+when I am trying to restart it I am getting the error 
+I am stuck up here and have no further clue how to get it fixed 
+Any help is highly appreciated.
+",<mysql><windows-services><wamp><wampserver>,869,2,0,553,1,10,29,61,126418,0.0,43,18,13,2018-01-17 19:44,2018-01-18 18:00,2018-01-18 18:00,1.0,1.0,Basic,14,"<mysql><windows-services><wamp><wampserver>, Wamp Server Error [Local Server - 2 of 3 services running], I am new to wamp servers and trying to install wampServer 3.1.0 on my windows 10 machine . 
+Somehow it is not installed properly and is having configuration error .
+At present ""Wamp server is still in orange state and is throwing the error"" 
+  2 of 3 services running
+As of my understanding either of Apache,MySQl orPHP is not working .
+On further investigation I found that Apache is ok.
+But on running mysql.exe(C:\wamp64\bin\mysql\mysql5.7.19\bin) it is throwing :
+  ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost'
+  (10061)
+which lands me to SO-32519474 ,
+I tried following the steps ,but it looks good to me in my case .
+On further searching I find that wampmysqld64 is stopped in the services.
+when I am trying to restart it I am getting the error 
+I am stuck up here and have no further clue how to get it fixed 
+Any help is highly appreciated.
+","<myself><windows-services><camp><wampserver>, camp server error [local server - 2 3 service running], new camp server try instal wampserv 3.1.0 window 10 machine . somehow instal properly configur error . present ""camp server still rang state throw error"" 2 3 service run understand either apache,myself orsha work . investing found apace ok. run myself.eye(c:\wamp64\bin\myself\myself.7.19\bin) throw : error 2003 (hy000): can't connect myself server 'localhost' (10061) land so-32519474 , try follow step ,but look good case . search find wampmysqld64 stop services. try start get error stuck clue get fix help highly appreciated."
+53763417,Number of unique elements in all columns of a pyspark dataframe,"How it is possible to calculate the number of unique elements in each column of a pyspark dataframe:
+import pandas as pd
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
+df = pd.DataFrame([[1, 100], [1, 200], [2, 300], [3, 100], [4, 100], [4, 300]], columns=['col1', 'col2'])
+df_spark = spark.createDataFrame(df)
+print(df_spark.show())
+# +----+----+
+# |col1|col2|
+# +----+----+
+# |   1| 100|
+# |   1| 200|
+# |   2| 300|
+# |   3| 100|
+# |   4| 100|
+# |   4| 300|
+# +----+----+
+# Some transformations on df_spark here
+# How to get a number of unique elements (just a number) in each columns?
+I know only the following solution which is very slow, both of these lines are calculated in the same amount of time:
+col1_num_unique = df_spark.select('col1').distinct().count()
+col2_num_unique = df_spark.select('col2').distinct().count()
+There are about 10 millions rows in df_spark.
+",<python><apache-spark><dataframe><pyspark><apache-spark-sql>,907,0,24,3017,10,41,60,72,19737,,5507,3,13,2018-12-13 13:53,2018-12-13 15:08,2018-12-13 15:08,0.0,0.0,Basic,9,"<python><apache-spark><dataframe><pyspark><apache-spark-sql>, Number of unique elements in all columns of a pyspark dataframe, How it is possible to calculate the number of unique elements in each column of a pyspark dataframe:
+import pandas as pd
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
+df = pd.DataFrame([[1, 100], [1, 200], [2, 300], [3, 100], [4, 100], [4, 300]], columns=['col1', 'col2'])
+df_spark = spark.createDataFrame(df)
+print(df_spark.show())
+# +----+----+
+# |col1|col2|
+# +----+----+
+# |   1| 100|
+# |   1| 200|
+# |   2| 300|
+# |   3| 100|
+# |   4| 100|
+# |   4| 300|
+# +----+----+
+# Some transformations on df_spark here
+# How to get a number of unique elements (just a number) in each columns?
+I know only the following solution which is very slow, both of these lines are calculated in the same amount of time:
+col1_num_unique = df_spark.select('col1').distinct().count()
+col2_num_unique = df_spark.select('col2').distinct().count()
+There are about 10 millions rows in df_spark.
+","<patron><apache-spark><dataframe><spark><apache-spark-sal>, number unique element column spark dataframe, possible call number unique element column spark dataframe: import and pp spark.sal import sparkles spark = sparksession.builder.getorcreate() of = pp.dataframe([[1, 100], [1, 200], [2, 300], [3, 100], [4, 100], [4, 300]], columns=['cold', 'cold']) df_spark = spark.createdataframe(of) print(df_spark.show()) # +----+----+ # |cold|cold| # +----+----+ # | 1| 100| # | 1| 200| # | 2| 300| # | 3| 100| # | 4| 100| # | 4| 300| # +----+----+ # transform df_spark # get number unique element (just number) columns? know follow slut slow, line call amount time: col1_num_uniqu = df_spark.select('cold').distinct().count() col2_num_uniqu = df_spark.select('cold').distinct().count() 10 million row df_spark."
+51038591,Error installing mysql,"Beginning configuration step: Initializing Database
+Attempting to run MySQL Server with --initialize-insecure option...
+Starting process for MySQL Server 8.0.11...
+Starting process with command: C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe --defaults-file=""C:\ProgramData\MySQL\MySQL Server 8.0\my.ini"" --console --initialize-insecure=on...
+2018-06-26T08:44:42.036600Z 0 [ERROR] [MY-011071] [Server] Unknown suffix '.' used for variable 'lower_case_table_names' (value '0.0')
+2018-06-26T08:44:42.036600Z 0 [ERROR] [MY-011071] [Server] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe: Error while setting value '0.0' to 'lower_case_table_names'
+2018-06-26T08:44:42.036600Z 0 [ERROR] [MY-010119] [Server] Aborting
+2018-06-26T08:44:42.036600Z 0 [Note] [MY-010120] [Server] Binlog end
+Process for mysqld, with ID 3232, was run successfully and exited with code 1.
+Failed to start process for MySQL Server 8.0.11.
+Database initialization failed.
+Ended configuration step: Initializing Database
+I am having this error in log during the installing of MySQL on the application configuration part.
+",<mysql><installation>,1106,0,12,351,1,2,12,54,36564,0.0,4,12,13,2018-06-26 8:45,2018-07-03 15:15,,7.0,,Basic,13,"<mysql><installation>, Error installing mysql, Beginning configuration step: Initializing Database
+Attempting to run MySQL Server with --initialize-insecure option...
+Starting process for MySQL Server 8.0.11...
+Starting process with command: C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe --defaults-file=""C:\ProgramData\MySQL\MySQL Server 8.0\my.ini"" --console --initialize-insecure=on...
+2018-06-26T08:44:42.036600Z 0 [ERROR] [MY-011071] [Server] Unknown suffix '.' used for variable 'lower_case_table_names' (value '0.0')
+2018-06-26T08:44:42.036600Z 0 [ERROR] [MY-011071] [Server] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe: Error while setting value '0.0' to 'lower_case_table_names'
+2018-06-26T08:44:42.036600Z 0 [ERROR] [MY-010119] [Server] Aborting
+2018-06-26T08:44:42.036600Z 0 [Note] [MY-010120] [Server] Binlog end
+Process for mysqld, with ID 3232, was run successfully and exited with code 1.
+Failed to start process for MySQL Server 8.0.11.
+Database initialization failed.
+Ended configuration step: Initializing Database
+I am having this error in log during the installing of MySQL on the application configuration part.
+","<myself><installation>, error instal myself, begin configur step: into database attempt run myself server --initiative-insecure option... start process myself server 8.0.11... start process command: c:\program files\myself\myself server 8.0\bin\myself.ex --default-file=""c:\programdata\myself\myself server 8.0\my.in"" --console --initiative-insecure=on... 2018-06-26t08:44:42.036600z 0 [error] [my-011071] [server] unknown suffer '.' use variable 'lower_case_table_names' (value '0.0') 2018-06-26t08:44:42.036600z 0 [error] [my-011071] [server] c:\program files\myself\myself server 8.0\bin\myself.eye: error set value '0.0' 'lower_case_table_names' 2018-06-26t08:44:42.036600z 0 [error] [my-010119] [server] abort 2018-06-26t08:44:42.036600z 0 [note] [my-010120] [server] billon end process myself, id 3232, run success exit code 1. fail start process myself server 8.0.11. database into failed. end configur step: into database error log instal myself applied configur part."
+57943166,Flutter Syncing LocalDB With RemoteDB,"I have data stored locally in sqlite.  I have a remote MySql server.  In android I could setup SyncAdapter to handle the syncing between the localdb and the remotedb.
+When a record is saved locally and there is an internet connection it should push the data to the server in the background.  It should also periodically update the data stored in SqLite.
+Now I'm trying to find the equivalent of SyncAdapter in flutter to do this but I can't seem to find one.  How would I implement this functionality in flutter without having to use firebase?
+",<mysql><flutter><sqlite><android-syncadapter>,544,0,0,7999,17,66,124,77,1345,0.0,520,2,13,2019-09-15 10:19,2021-09-16 0:07,,732.0,,Basic,9,"<mysql><flutter><sqlite><android-syncadapter>, Flutter Syncing LocalDB With RemoteDB, I have data stored locally in sqlite.  I have a remote MySql server.  In android I could setup SyncAdapter to handle the syncing between the localdb and the remotedb.
+When a record is saved locally and there is an internet connection it should push the data to the server in the background.  It should also periodically update the data stored in SqLite.
+Now I'm trying to find the equivalent of SyncAdapter in flutter to do this but I can't seem to find one.  How would I implement this functionality in flutter without having to use firebase?
+","<myself><flutter><quite><andros-syncadapter>, flutter son local removed, data store local quite. remote myself server. andros could set syncadapt hand son local removed. record save local internet connect push data server background. also period update data store quite. i'm try find equal syncadapt flutter can't seem find one. would implement function flutter without use firebase?"
+50967722,room error: The columns returned by the query does not have the fields fieldname,"Here is a sample POJO
+public class Product{
+  private long id;
+  private String name;
+  private double price;
+ ... constructor for all fields
+ ... getters and setters
+}
+Now, in my productDAO if I have a query like this
+@Query(select id, name from products)
+LiveData&lt;List&lt;Product&gt;&gt; getProducts()
+I get an error like:
+  The columns returned by the query does not have the fields [price] in
+  ... Product even though they are annotated as non-null or primitive.
+  Columns returned by the query: [id,name]
+a) If I go in my Products and set
+@Nullable
+private double price;
+the error remains.
+b) If I go in my Products and set
+@Ignore
+private double price;
+the error goes away but if I have another query for instance
+ @Query(select p.id, p.name, p.price, t.someField from products p inner join table t)
+    LiveData&lt;List&lt;Product&gt;&gt; getJoinQueryResponse()
+because @Ignore is set the price is returned as 0.0. 
+So how to solve this? Hopefully I don't need to make a POJO for each different response from room...
+",<android><android-sqlite><android-room><android-architecture-components>,1028,0,17,14879,40,131,218,43,14673,,908,1,13,2018-06-21 11:41,2018-06-21 11:54,2018-06-21 11:54,0.0,0.0,Basic,1,"<android><android-sqlite><android-room><android-architecture-components>, room error: The columns returned by the query does not have the fields fieldname, Here is a sample POJO
+public class Product{
+  private long id;
+  private String name;
+  private double price;
+ ... constructor for all fields
+ ... getters and setters
+}
+Now, in my productDAO if I have a query like this
+@Query(select id, name from products)
+LiveData&lt;List&lt;Product&gt;&gt; getProducts()
+I get an error like:
+  The columns returned by the query does not have the fields [price] in
+  ... Product even though they are annotated as non-null or primitive.
+  Columns returned by the query: [id,name]
+a) If I go in my Products and set
+@Nullable
+private double price;
+the error remains.
+b) If I go in my Products and set
+@Ignore
+private double price;
+the error goes away but if I have another query for instance
+ @Query(select p.id, p.name, p.price, t.someField from products p inner join table t)
+    LiveData&lt;List&lt;Product&gt;&gt; getJoinQueryResponse()
+because @Ignore is set the price is returned as 0.0. 
+So how to solve this? Hopefully I don't need to make a POJO for each different response from room...
+","<andros><andros-quite><andros-room><andros-architecture-components>, room error: column return query field filename, sample too public class product{ privat long id; privat string name; privat doubt price; ... construction field ... letter setter } now, productdao query like @query(select id, name products) livedata&it;list&it;product&it;&it; getproducts() get error like: column return query field [price] ... product even though cannot non-null primitive. column return query: [id,name] a) go product set @nullabl privat doubt price; error remains. b) go product set @ignore privat doubt price; error go away not query instant @query(select p.id, p.name, p.price, t.somefield product p inner join table t) livedata&it;list&it;product&it;&it; getjoinqueryresponse() @ignore set price return 0.0. sole this? hope need make too differ response room..."
+52722671,How to make GROUP BY in a cypher query?,"I want to translate a SQL query to cypher. Please, is there any solution to make GROUP BY in cypher?
+    SELECT dt.d_year, 
+           item.i_brand_id          brand_id, 
+           item.i_brand             brand, 
+           Sum(ss_ext_discount_amt) sum_agg 
+    FROM   date_dim dt, 
+   store_sales, 
+   item 
+    WHERE  dt.d_date_sk = store_sales.ss_sold_date_sk 
+    AND store_sales.ss_item_sk = item.i_item_sk 
+    AND item.i_manufact_id = 427 
+    AND dt.d_moy = 11 
+    GROUP  BY dt.d_year, 
+      item.i_brand, 
+      item.i_brand_id 
+   ORDER  BY dt.d_year, 
+      sum_agg DESC, 
+      brand_id;
+",<sql><neo4j><group-by><cypher>,604,0,17,135,1,1,6,50,16169,0.0,0,2,13,2018-10-09 13:47,2018-10-09 16:32,2018-10-09 16:32,0.0,0.0,Basic,10,"<sql><neo4j><group-by><cypher>, How to make GROUP BY in a cypher query?, I want to translate a SQL query to cypher. Please, is there any solution to make GROUP BY in cypher?
+    SELECT dt.d_year, 
+           item.i_brand_id          brand_id, 
+           item.i_brand             brand, 
+           Sum(ss_ext_discount_amt) sum_agg 
+    FROM   date_dim dt, 
+   store_sales, 
+   item 
+    WHERE  dt.d_date_sk = store_sales.ss_sold_date_sk 
+    AND store_sales.ss_item_sk = item.i_item_sk 
+    AND item.i_manufact_id = 427 
+    AND dt.d_moy = 11 
+    GROUP  BY dt.d_year, 
+      item.i_brand, 
+      item.i_brand_id 
+   ORDER  BY dt.d_year, 
+      sum_agg DESC, 
+      brand_id;
+","<sal><neo><group-by><copper>, make group copper query?, want translate sal query copper. please, slut make group copper? select it.dear, item.i_brand_id branded, item.brand brand, sum(ss_ext_discount_amt) sum_agg date_dim it, store_sales, item it.d_date_sk = store_sales.ss_sold_date_sk store_sales.ss_item_sk = item.i_item_sk item.i_manufact_id = 427 it.dimly = 11 group it.dear, item.brand, item.i_brand_id order it.dear, sum_agg desk, branded;"
+53378568,SSIS vs. Oracle Data Integrator,"Currently I am a Data Engineer that works mainly with SSIS. While reading about the ETL tools available in the market, i found that Oracle has its own ETL tool called ODI (Oracle Data integrator). I searched for an unbiased comparison between the Oracle Data Integrator and SSIS. I didn't find any article about that. There are some biased article such as :
+ETL Tools Comparison of Oracle ODI &amp; Microsoft SSIS Tool -Dec 2014
+Competitive Comparison of SQL Server 2008 Integration Services
+Based on Stackoverflow questions, there are about 16000 questions about SSIS while ODI has about 200 questions. Which mean that SSIS is more popular.
+Is there any unbiased comparison between both technologies? And what are the services that ODI provides and that are not found in SSIS?
+Please I am not looking for personal opinions, I need an unbiased answer
+",<sql-server><oracle><ssis><etl><oracle-data-integrator>,851,2,0,36491,13,67,124,52,4754,0.0,4879,1,13,2018-11-19 16:07,2018-11-20 6:59,2018-11-20 6:59,1.0,1.0,Intermediate,19,"<sql-server><oracle><ssis><etl><oracle-data-integrator>, SSIS vs. Oracle Data Integrator, Currently I am a Data Engineer that works mainly with SSIS. While reading about the ETL tools available in the market, i found that Oracle has its own ETL tool called ODI (Oracle Data integrator). I searched for an unbiased comparison between the Oracle Data Integrator and SSIS. I didn't find any article about that. There are some biased article such as :
+ETL Tools Comparison of Oracle ODI &amp; Microsoft SSIS Tool -Dec 2014
+Competitive Comparison of SQL Server 2008 Integration Services
+Based on Stackoverflow questions, there are about 16000 questions about SSIS while ODI has about 200 questions. Which mean that SSIS is more popular.
+Is there any unbiased comparison between both technologies? And what are the services that ODI provides and that are not found in SSIS?
+Please I am not looking for personal opinions, I need an unbiased answer
+","<sal-server><oracle><suis><etc><oracle-data-integration>, si vs. oral data integration, current data engine work mainly suis. read etc tool avail market, found oral etc tool call odd (oral data integration). search units comparison oral data inter suis. find article that. bias article : etc tool comparison oral odd &amp; microsoft si tool -dec 2014 competent comparison sal server 2008 inter service base stackoverflow questions, 16000 question si odd 200 questions. mean si popular. units comparison technologies? service odd proved found suis? pleas look person opinions, need units answer"
+53462775,How to determine if postgis is enabled on a database?,"I wanted to know if there is a way to determine that PostGis was enabled on a database. 
+I am trying to replicate my production server with my dev machine and I am not sure if the database on my dev machine had either PostGIS or postgis_topology enabled or both. 
+I tried looking around for a solution but could not come up with anything. 
+Any suggestions in this regard would be helpful.
+",<postgresql><postgis>,389,0,0,16573,40,141,245,63,13297,0.0,503,5,13,2018-11-24 22:09,2018-11-24 23:59,2018-11-24 23:59,0.0,0.0,Basic,10,"<postgresql><postgis>, How to determine if postgis is enabled on a database?, I wanted to know if there is a way to determine that PostGis was enabled on a database. 
+I am trying to replicate my production server with my dev machine and I am not sure if the database on my dev machine had either PostGIS or postgis_topology enabled or both. 
+I tried looking around for a solution but could not come up with anything. 
+Any suggestions in this regard would be helpful.
+","<postgresql><posts>, determine post enable database?, want know way determine post enable database. try relic product server de machine sure database de machine either post postgis_topolog enable both. try look around slut could come anything. suggest regard would helpful."
+50973091,Exploding column with index,"I know that I can ""explode"" a column of type array like this:
+import org.apache.spark.sql._
+import org.apache.spark.sql.functions.explode
+val explodedDf = 
+    payloadLegsDf.withColumn(""legs"", explode(payloadLegsDf.col(""legs"")))
+Now I have multiple rows; one for each item in the array.
+Is there a way I can ""explode with index""?  So that there will be a new column that contains the index of the item in the original array?
+(I can think of hacks to do this.  First make the array field into an array of tuples of the original value and the index.  Then do the explode.  Then unpack the tuples.  But is there a more elegant way?)
+",<scala><apache-spark-sql>,630,0,4,8646,33,119,206,54,6767,0.0,723,1,13,2018-06-21 16:09,2018-06-21 16:40,2018-06-21 16:40,0.0,0.0,Basic,10,"<scala><apache-spark-sql>, Exploding column with index, I know that I can ""explode"" a column of type array like this:
+import org.apache.spark.sql._
+import org.apache.spark.sql.functions.explode
+val explodedDf = 
+    payloadLegsDf.withColumn(""legs"", explode(payloadLegsDf.col(""legs"")))
+Now I have multiple rows; one for each item in the array.
+Is there a way I can ""explode with index""?  So that there will be a new column that contains the index of the item in the original array?
+(I can think of hacks to do this.  First make the array field into an array of tuples of the original value and the index.  Then do the explode.  Then unpack the tuples.  But is there a more elegant way?)
+","<scala><apache-spark-sal>, explode column index, know ""explode"" column type array like this: import org.apache.spark.sal._ import org.apache.spark.sal.functions.explode val exploded = payloadlegsdf.withcolumn(""legs"", explode(payloadlegsdf.col(""legs""))) multiple rows; one item array. way ""explode index""? new column contain index item origin array? (i think hack this. first make array field array up origin value index. explode. unpack rubles. leg way?)"
+63760689,Estimating size of Postgres indexes,"I'm trying to get a better understanding of the tradeoffs involved in creating Postgres indexes. As part of that, I'd love to understand how much space indexes usually use. I've read through the docs, but can't find any information on this. I've been doing my own little experiments creating tables and indexes, but it would be amazing if someone could offer an explanation of why the size is what it is. Assume a common table like this with 1M rows, where each row has a unique id and a unique outstanding.
+CREATE TABLE account (
+    id integer,
+    active boolean NOT NULL,
+    outstanding double precision NOT NULL,
+);
+and the indexes created by
+CREATE INDEX id_idx ON account(id)
+CREATE INDEX outstanding_idx ON account(outstanding)
+CREATE INDEX id_outstanding_idx ON account(id, outstanding)
+CREATE INDEX active_idx ON account(active)
+CREATE INDEX partial_id_idx ON account(id) WHERE active
+What would you estimate the index sizes to be in bytes and more importantly, why?
+",<postgresql><indexing><storage>,978,1,12,5483,14,63,104,53,6478,0.0,1781,2,13,2020-09-06 4:24,2020-09-06 12:00,2020-09-11 1:57,0.0,5.0,Basic,10,"<postgresql><indexing><storage>, Estimating size of Postgres indexes, I'm trying to get a better understanding of the tradeoffs involved in creating Postgres indexes. As part of that, I'd love to understand how much space indexes usually use. I've read through the docs, but can't find any information on this. I've been doing my own little experiments creating tables and indexes, but it would be amazing if someone could offer an explanation of why the size is what it is. Assume a common table like this with 1M rows, where each row has a unique id and a unique outstanding.
+CREATE TABLE account (
+    id integer,
+    active boolean NOT NULL,
+    outstanding double precision NOT NULL,
+);
+and the indexes created by
+CREATE INDEX id_idx ON account(id)
+CREATE INDEX outstanding_idx ON account(outstanding)
+CREATE INDEX id_outstanding_idx ON account(id, outstanding)
+CREATE INDEX active_idx ON account(active)
+CREATE INDEX partial_id_idx ON account(id) WHERE active
+What would you estimate the index sizes to be in bytes and more importantly, why?
+","<postgresql><indexing><storage>, estime size poster indexes, i'm try get better understand tradeoff involve great poster indexes. part that, i'd love understand much space index usual use. i'v read docs, can't find inform this. i'v little expert great table indexes, would may someone could offer explain size is. assume common table like am rows, row unique id unique outstanding. great table account ( id inter, active woolen null, outstand doubt precise null, ); index great great index id_idx account(id) great index outstanding_idx account(outstanding) great index id_outstanding_idx account(id, outstanding) great index active_idx account(active) great index partial_id_idx account(id) active would estime index size bite importantly, why?"
+49991865,Node.js & MySQL - Error: 1251 - Client does not support authentication protocol requested by server; consider upgrading MySQL client,"Right now I have only this code:
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('database', 'root', 'passwd', {
+  host: 'localhost',
+  dialect: 'mysql',
+    // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
+  operatorsAliases: false
+});
+sequelize
+  .authenticate()
+  .then(() =&gt; {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err =&gt; {
+    console.error('Unable to connect to the database:', err);
+  });
+But when I try to run the .js I get this error. I have already tried a lot of solutions out there, including the one I found more often but it didn't work. So right now I don't know what to do. Can somebody help me?
+Thank you
+",<javascript><mysql><node.js><sequelize.js>,716,3,16,409,1,5,10,80,23565,0.0,23,4,13,2018-04-24 0:48,2018-04-24 11:41,,0.0,,Basic,9,"<javascript><mysql><node.js><sequelize.js>, Node.js & MySQL - Error: 1251 - Client does not support authentication protocol requested by server; consider upgrading MySQL client, Right now I have only this code:
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('database', 'root', 'passwd', {
+  host: 'localhost',
+  dialect: 'mysql',
+    // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
+  operatorsAliases: false
+});
+sequelize
+  .authenticate()
+  .then(() =&gt; {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err =&gt; {
+    console.error('Unable to connect to the database:', err);
+  });
+But when I try to run the .js I get this error. I have already tried a lot of solutions out there, including the one I found more often but it didn't work. So right now I don't know what to do. Can somebody help me?
+Thank you
+","<javascript><myself><node.is><sequelae.is>, node.j & myself - error: 1251 - client support authentic protocol request server; consider upgrade myself client, right code: cost sequel = require('sequelae'); cost sequel = new sequelae('database', 'root', 'passed', { host: 'localhost', dialect: 'myself', // http://docs.sequelizejs.com/manual/tutoring/hurrying.html#over operatorsaliases: fall }); sequel .authenticity() .then(() =&it; { console.log('connect establish successfully.'); }) .catch(err =&it; { console.error('un connect database:', err); }); try run .j get error. already try lot slut there, include one found often work. right know do. somebody help me? thank"
+60228723,Cannot connect to local postgresql DB using DBeaver,"I'm trying to connect to a postgresql database which is in localhost:5432 but I keep getting the error: 
+FATAL: Ident authentication failed for user """".
+I installed Postgres11 on virtual machine running Centos7. Created a database through command line, with the name business_db.
+I've checked and postgresql is running in localhost:5432.
+My pg_hba.conf file is like this:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+local   all             all                                     peer
+host    all             all             127.0.0.1/32           ident
+host    all             all             ::1/128                 ident
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            ident
+host    replication     all             ::1/128                 ident
+The pg_ident.conf file doesn't hold any configurations:
+# Put your actual configuration here
+# ----------------------------------
+# MAPNAME       SYSTEM-USERNAME         PG-USERNAME
+The database exists as shown by the command:
+I'm logged into the system as ""dev"" user but., whatever I try while testing connection whit DBeaver, I allways get the error:
+I also tried to set User as postgres and use my system password but get the same error. What am I missing?
+",<postgresql><jdbc><dbeaver>,1320,2,11,187,1,1,9,57,32946,,6,4,13,2020-02-14 14:59,2020-02-14 15:19,2020-02-14 15:19,0.0,0.0,Basic,14,"<postgresql><jdbc><dbeaver>, Cannot connect to local postgresql DB using DBeaver, I'm trying to connect to a postgresql database which is in localhost:5432 but I keep getting the error: 
+FATAL: Ident authentication failed for user """".
+I installed Postgres11 on virtual machine running Centos7. Created a database through command line, with the name business_db.
+I've checked and postgresql is running in localhost:5432.
+My pg_hba.conf file is like this:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+local   all             all                                     peer
+host    all             all             127.0.0.1/32           ident
+host    all             all             ::1/128                 ident
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            ident
+host    replication     all             ::1/128                 ident
+The pg_ident.conf file doesn't hold any configurations:
+# Put your actual configuration here
+# ----------------------------------
+# MAPNAME       SYSTEM-USERNAME         PG-USERNAME
+The database exists as shown by the command:
+I'm logged into the system as ""dev"" user but., whatever I try while testing connection whit DBeaver, I allways get the error:
+I also tried to set User as postgres and use my system password but get the same error. What am I missing?
+","<postgresql><job><beaver>, cannot connect local postgresql do use beaver, i'm try connect postgresql database localhost:5432 keep get error: fatal: went authentic fail user """". instal postgres11 virtual machine run cents. great database command line, name business_db. i'v check postgresql run localhost:5432. pg_hba.cone file like this: # type database user address method local peer host 127.0.0.1/32 went host ::1/128 went local relic peer host relic 127.0.0.1/32 went host relic ::1/128 went pg_ident.cone file hold configuration: # put actual configur # ---------------------------------- # madam system-usernam pg-usernam database exist shown command: i'm log system ""de"" user but., what try test connect whit beaver, allay get error: also try set user poster use system password get error. missing?"
+60278766,Best way to Insert Python NumPy array into PostgreSQL database,"Our team uses software that is heavily reliant on dumping NumPy data into files, which slows our code quite a lot. If we could store our NumPy arrays directly in PostgreSQL we would get a major performance boost.
+Other performant methods of storing NumPy arrays in any database or searchable database-like structure are welcome, but PostgresSQL would be preferred.  
+My question is very similar to one asked previously. However, I am looking for a more robust and performant answer and I wish to store any arbitrary NumPy array. 
+",<python><sql><postgresql><numpy>,530,1,0,604,0,9,27,51,8284,0.0,198,2,13,2020-02-18 10:29,2020-02-21 16:45,2020-02-22 1:37,3.0,4.0,Intermediate,23,"<python><sql><postgresql><numpy>, Best way to Insert Python NumPy array into PostgreSQL database, Our team uses software that is heavily reliant on dumping NumPy data into files, which slows our code quite a lot. If we could store our NumPy arrays directly in PostgreSQL we would get a major performance boost.
+Other performant methods of storing NumPy arrays in any database or searchable database-like structure are welcome, but PostgresSQL would be preferred.  
+My question is very similar to one asked previously. However, I am looking for a more robust and performant answer and I wish to store any arbitrary NumPy array. 
+","<patron><sal><postgresql><jump>, best way insert patron jump array postgresql database, team use software heavily radiant dump jump data files, slow code quit lot. could store jump array directly postgresql would get major perform boost. perform method store jump array database searchabl database-like structure welcome, postgressql would preferred. question similar one ask previously. however, look robust perform answer wish store arbitrary jump array."
+63742915,EF: Passing a table valued parameter to a user-defined function from C#,"I have a user-defined function in SQL Server that accepts a TVP (table valued parameter) as parameter. In EF, how do I call such a function from C# ?
+I tried using the method ObjectContext.CreateQuery&lt;&gt; but got the following error:
+The parameter 'param' of function 'QueryByParam' is invalid. Parameters can only be of a type that can be converted to an Edm scalar type.
+Also tried method ObjectContext.ExecuteStoreQuery&lt;&gt; and got the same error. It doesn't return an IQueryable anyway.
+Sample code
+[DbFunction(nameof(SampleDbContext), &quot;QueryByParam&quot;)]
+public IQueryable&lt;SecurityQueryRow&gt; QueryByParam(IEnumerable&lt;ProfileType&gt; profiles, bool isActive = false)
+{
+    DataTable dataTable = ....
+    ObjectParameter profilesParam = new ObjectParameter(&quot;profileTypeIds&quot;, dataTable);
+    ObjectParameter isActiveParam = new ObjectParameter(&quot;isActive &quot;, isActive);
+    return ((IObjectContextAdapter)this).ObjectContext.CreateQuery&lt;SecurityQueryRow&gt;(
+            string.Format(&quot;[{0}].[{1}](@profileTypeIds, @isActive)&quot;, GetType().Name, &quot;QueryByParam&quot;),
+            profilesParam,
+            isActiveParam);
+}
+The requirement is that we need an IQueryable back, not the consumed result.
+",<c#><sql-server><entity-framework><entity-framework-6><table-valued-parameters>,1261,0,16,131,0,1,4,65,3967,0.0,0,1,13,2020-09-04 14:16,2020-09-07 17:09,,3.0,,Basic,9,"<c#><sql-server><entity-framework><entity-framework-6><table-valued-parameters>, EF: Passing a table valued parameter to a user-defined function from C#, I have a user-defined function in SQL Server that accepts a TVP (table valued parameter) as parameter. In EF, how do I call such a function from C# ?
+I tried using the method ObjectContext.CreateQuery&lt;&gt; but got the following error:
+The parameter 'param' of function 'QueryByParam' is invalid. Parameters can only be of a type that can be converted to an Edm scalar type.
+Also tried method ObjectContext.ExecuteStoreQuery&lt;&gt; and got the same error. It doesn't return an IQueryable anyway.
+Sample code
+[DbFunction(nameof(SampleDbContext), &quot;QueryByParam&quot;)]
+public IQueryable&lt;SecurityQueryRow&gt; QueryByParam(IEnumerable&lt;ProfileType&gt; profiles, bool isActive = false)
+{
+    DataTable dataTable = ....
+    ObjectParameter profilesParam = new ObjectParameter(&quot;profileTypeIds&quot;, dataTable);
+    ObjectParameter isActiveParam = new ObjectParameter(&quot;isActive &quot;, isActive);
+    return ((IObjectContextAdapter)this).ObjectContext.CreateQuery&lt;SecurityQueryRow&gt;(
+            string.Format(&quot;[{0}].[{1}](@profileTypeIds, @isActive)&quot;, GetType().Name, &quot;QueryByParam&quot;),
+            profilesParam,
+            isActiveParam);
+}
+The requirement is that we need an IQueryable back, not the consumed result.
+","<c#><sal-server><entity-framework><entity-framework-6><table-valued-parameter>, of: pass table value parapet user-define function c#, user-define function sal server accept top (table value parameter) parameter. of, call function c# ? try use method objectcontext.createquery&it;&it; got follow error: parapet 'parma' function 'querybyparam' invalid. parapet type convert ed scala type. also try method objectcontext.executestorequery&it;&it; got error. return query anyway. sample code [function(name(sampledbcontext), &quit;querybyparam&quit;)] public iqueryable&it;securityqueryrow&it; querybyparam(innumerable&it;profiletype&it; profile, book sat = false) { data data = .... objectparamet profilesparam = new objectparameter(&quit;profiletypeids&quit;, datatable); objectparamet isactiveparam = new objectparameter(&quit;sat &quit;, inactive); return ((iobjectcontextadapter)this).objectcontext.createquery&it;securityqueryrow&it;( string.format(&quit;[{0}].[{1}](@profiletypeids, @inactive)&quit;, gettype().name, &quit;querybyparam&quit;), profilesparam, isactiveparam); } require need query back, consume result."
+56382010,Why does MS SQL allow you to create an illegal column?,"I recently saw a tweet stating that you could prevent other developers from reading from a table using the SELECT * FROM TableName by building your table in the following way:
+CREATE TABLE [TableName]
+(
+   [ID] INT IDENTITY NOT NULL,
+   [Name] VARCHAR(50) NOT NULL,
+   [DontUseStar] AS (1 / 0)
+);
+It's easy to see that using the SELECT * here would try to read the blank column name as 1 divided by 0 (thus causing a divide by zero error), but without a datatype assigned to the column.
+Why does SQL allow you to create a column with no assigned data type, with a name it knows will be illegal?
+",<sql><sql-server>,595,0,8,1365,0,12,24,43,550,0.0,443,3,13,2019-05-30 16:21,2019-05-30 16:26,2019-05-30 16:26,0.0,0.0,Basic,9,"<sql><sql-server>, Why does MS SQL allow you to create an illegal column?, I recently saw a tweet stating that you could prevent other developers from reading from a table using the SELECT * FROM TableName by building your table in the following way:
+CREATE TABLE [TableName]
+(
+   [ID] INT IDENTITY NOT NULL,
+   [Name] VARCHAR(50) NOT NULL,
+   [DontUseStar] AS (1 / 0)
+);
+It's easy to see that using the SELECT * here would try to read the blank column name as 1 divided by 0 (thus causing a divide by zero error), but without a datatype assigned to the column.
+Why does SQL allow you to create a column with no assigned data type, with a name it knows will be illegal?
+","<sal><sal-server>, ms sal allow great killed column?, recent saw sweet state could prevent develop read table use select * tablenam build table follow way: great table [tablename] ( [id] in went null, [name] varchar(50) null, [dontusestar] (1 / 0) ); east see use select * would try read blank column name 1 livid 0 (the cause livid zero error), without datatyp assign column. sal allow great column assign data type, name know illegal?"
+52127228,"Docker, Flask, SQLAlchemy: ValueError: invalid literal for int() with base 10: 'None'","I have a flask app that can be initialized successfully and connects to Postgresql database. However, when i try to dockerize this app, i get the below error message. ""SQLALCHEMY_DATABASE_URI"" is correct and i can connect to it, so i can't figure where I have gone wrong. 
+docker-compose logs
+app_1       |   File ""/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/url.py"", line 60, in __init__
+app_1       |     self.port = int(port)
+app_1       | ValueError: invalid literal for int() with base 10: 'None'
+Postgres database connects successfully in Docker container 
+postgres_1  | LOG:  database system is ready to accept connections
+config.py
+from os import environ
+import os
+RDS_USERNAME = environ.get('RDS_USERNAME')
+RDS_PASSWORD = environ.get('RDS_PASSWORD')
+RDS_HOSTNAME = environ.get('RDS_HOSTNAME')
+RDS_PORT = environ.get('RDS_PORT')
+RDS_DB_NAME = environ.get('RDS_DB_NAME')
+SQLALCHEMY_DATABASE_URI = ""postgresql+psycopg2://{username}:{password}@{hostname}:{port}/{dbname}""\
+                          .format(username = RDS_USERNAME, password = RDS_PASSWORD, \
+                           hostname = RDS_HOSTNAME, port = RDS_PORT, dbname = RDS_DB_NAME)
+flask_app.py (entry point)
+def create_app():
+    app = Flask(__name__, static_folder=""./static"", template_folder=""./static"")
+    app.config.from_pyfile('./app/config.py', silent=True)
+    register_blueprint(app)
+    register_extension(app)
+    with app.app_context():
+        print(db) -&gt; This prints the correct path for SQLALCHEMY_DATABASE_URI
+        db.create_all()
+        db.session.commit()
+    return app
+def register_blueprint(app):
+    app.register_blueprint(view_blueprint)
+    app.register_blueprint(race_blueprint)
+def register_extension(app):
+    db.init_app(app)
+    migrate.init_app(app)
+app = create_app()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)
+Dockerfile
+FROM ubuntu
+RUN apt-get update &amp;&amp; apt-get -y upgrade
+RUN apt-get install -y python-pip &amp;&amp; pip install --upgrade pip
+RUN mkdir /home/ubuntu
+WORKDIR /home/ubuntu/celery-scheduler
+ADD requirements.txt /home/ubuntu/celery-scheduler/
+RUN pip install -r requirements.txt
+COPY . /home/ubuntu/celery-scheduler
+EXPOSE 5000
+CMD [""python"", ""flask_app.py"", ""--host"", ""0.0.0.0""]
+docker-compose.yml
+version: '2' 
+services:
+  app:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+  postgres:
+    restart: always
+      image: postgres:9.6
+    environment:
+      - POSTGRES_USER=${RDS_USERNAME}
+      - POSTGRES_PASSWORD=${RDS_PASSWORD}
+      - POSTGRES_HOSTNAME=${RDS_HOSTNAME}
+      - POSTGRES_DB=${RDS_DB_NAME}
+    ports:
+      - ""5432:5432""
+",<python><postgresql><docker><flask><sqlalchemy>,2717,0,85,896,2,18,43,35,4479,0.0,317,2,13,2018-09-01 10:30,2018-09-01 11:09,2018-09-15 7:22,0.0,14.0,Basic,9,"<python><postgresql><docker><flask><sqlalchemy>, Docker, Flask, SQLAlchemy: ValueError: invalid literal for int() with base 10: 'None', I have a flask app that can be initialized successfully and connects to Postgresql database. However, when i try to dockerize this app, i get the below error message. ""SQLALCHEMY_DATABASE_URI"" is correct and i can connect to it, so i can't figure where I have gone wrong. 
+docker-compose logs
+app_1       |   File ""/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/url.py"", line 60, in __init__
+app_1       |     self.port = int(port)
+app_1       | ValueError: invalid literal for int() with base 10: 'None'
+Postgres database connects successfully in Docker container 
+postgres_1  | LOG:  database system is ready to accept connections
+config.py
+from os import environ
+import os
+RDS_USERNAME = environ.get('RDS_USERNAME')
+RDS_PASSWORD = environ.get('RDS_PASSWORD')
+RDS_HOSTNAME = environ.get('RDS_HOSTNAME')
+RDS_PORT = environ.get('RDS_PORT')
+RDS_DB_NAME = environ.get('RDS_DB_NAME')
+SQLALCHEMY_DATABASE_URI = ""postgresql+psycopg2://{username}:{password}@{hostname}:{port}/{dbname}""\
+                          .format(username = RDS_USERNAME, password = RDS_PASSWORD, \
+                           hostname = RDS_HOSTNAME, port = RDS_PORT, dbname = RDS_DB_NAME)
+flask_app.py (entry point)
+def create_app():
+    app = Flask(__name__, static_folder=""./static"", template_folder=""./static"")
+    app.config.from_pyfile('./app/config.py', silent=True)
+    register_blueprint(app)
+    register_extension(app)
+    with app.app_context():
+        print(db) -&gt; This prints the correct path for SQLALCHEMY_DATABASE_URI
+        db.create_all()
+        db.session.commit()
+    return app
+def register_blueprint(app):
+    app.register_blueprint(view_blueprint)
+    app.register_blueprint(race_blueprint)
+def register_extension(app):
+    db.init_app(app)
+    migrate.init_app(app)
+app = create_app()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)
+Dockerfile
+FROM ubuntu
+RUN apt-get update &amp;&amp; apt-get -y upgrade
+RUN apt-get install -y python-pip &amp;&amp; pip install --upgrade pip
+RUN mkdir /home/ubuntu
+WORKDIR /home/ubuntu/celery-scheduler
+ADD requirements.txt /home/ubuntu/celery-scheduler/
+RUN pip install -r requirements.txt
+COPY . /home/ubuntu/celery-scheduler
+EXPOSE 5000
+CMD [""python"", ""flask_app.py"", ""--host"", ""0.0.0.0""]
+docker-compose.yml
+version: '2' 
+services:
+  app:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+  postgres:
+    restart: always
+      image: postgres:9.6
+    environment:
+      - POSTGRES_USER=${RDS_USERNAME}
+      - POSTGRES_PASSWORD=${RDS_PASSWORD}
+      - POSTGRES_HOSTNAME=${RDS_HOSTNAME}
+      - POSTGRES_DB=${RDS_DB_NAME}
+    ports:
+      - ""5432:5432""
+","<patron><postgresql><doctor><flask><sqlalchemy>, doctor, flask, sqlalchemy: valueerror: invalid later in() base 10: 'none', flask pp into success connect postgresql database. however, try doctor pp, get error message. ""sqlalchemy_database_uri"" correct connect it, can't figure gone wrong. doctor-compose log apply | file ""/us/local/limb/python2.7/list-packages/sqlalchemy/engine/curl.by"", line 60, __init__ apply | self.port = in(port) apply | valueerror: invalid later in() base 10: 'none' poster database connect success doctor contain postgres_1 | log: database system ready accept connect confirm.i os import environs import os rds_usernam = environs.get('rds_username') rds_password = environs.get('rds_password') rds_hostnam = environs.get('rds_hostname') rds_port = environs.get('rds_port') rds_db_name = environs.get('rds_db_name') sqlalchemy_database_uri = ""postgresql+psycopg2://{surname}:{password}@{hostage}:{port}/{name}""\ .format(usernam = rds_username, password = rds_password, \ hostnam = rds_hostname, port = rds_port, name = rds_db_name) flask_app.i (entry point) def create_app(): pp = flask(__name__, static_folder=""./static"", template_folder=""./static"") pp.confirm.from_pyfile('./pp/confirm.by', silent=true) register_blueprint(pp) register_extension(pp) pp.app_context(): print(do) -&it; print correct path sqlalchemy_database_uri do.create_all() do.session.commit() return pp def register_blueprint(pp): pp.register_blueprint(view_blueprint) pp.register_blueprint(race_blueprint) def register_extension(pp): do.init_app(pp) migrate.init_app(pp) pp = create_app() __name__ == '__main__': pp.run(host='0.0.0.0', port=8080, debut=true) dockerfil bunt run apt-get update &amp;&amp; apt-get -y upgrade run apt-get instal -y patron-pp &amp;&amp; pp instal --upgrade pp run media /home/bunt worker /home/bunt/every-schedule add requirements.txt /home/bunt/every-schedule/ run pp instal -r requirements.txt copy . /home/bunt/every-schedule expose 5000 cod [""patron"", ""flask_app.by"", ""--host"", ""0.0.0.0""] doctor-compose.you version: '2' services: pp: start: away build: context: . dockerfile: dockerfil volumes: - .:/pp depends_on: - poster postures: start: away image: postures:9.6 environment: - postgres_user=${rds_username} - postgres_password=${rds_password} - postgres_hostname=${rds_hostname} - postgres_db=${rds_db_name} ports: - ""5432:5432"""
+51264240,rake db:migrate error with mysql2 gem - Library not loaded: libssl.1.0.0.dylib,"Getting the following error after running rake db:migrate
+rake aborted!
+LoadError: dlopen(/Users/scott/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/mysql2-0.4.10/lib/mysql2/mysql2.bundle, 9): Library not loaded: libssl.1.0.0.dylib
+  Referenced from: /Users/scott/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/mysql2-0.4.10/lib/mysql2/mysql2.bundle
+  Reason: image not found - /Users/scott/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/mysql2-0.4.10/lib/mysql2/mysql2.bundle
+/Users/scott/Google Drive/playground/myApp/myApp/config/application.rb:21:in `&lt;top (required)&gt;'
+/Users/scott/Google Drive/playground/myApp/myApp/Rakefile:4:in `&lt;top (required)&gt;'
+What does the libssl refer to? 
+",<ruby-on-rails><ruby><rubygems><rake><mysql2>,700,0,6,1613,3,25,41,52,7385,0.0,50,7,13,2018-07-10 11:39,2018-07-10 15:34,2018-07-10 15:34,0.0,0.0,Basic,14,"<ruby-on-rails><ruby><rubygems><rake><mysql2>, rake db:migrate error with mysql2 gem - Library not loaded: libssl.1.0.0.dylib, Getting the following error after running rake db:migrate
+rake aborted!
+LoadError: dlopen(/Users/scott/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/mysql2-0.4.10/lib/mysql2/mysql2.bundle, 9): Library not loaded: libssl.1.0.0.dylib
+  Referenced from: /Users/scott/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/mysql2-0.4.10/lib/mysql2/mysql2.bundle
+  Reason: image not found - /Users/scott/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/mysql2-0.4.10/lib/mysql2/mysql2.bundle
+/Users/scott/Google Drive/playground/myApp/myApp/config/application.rb:21:in `&lt;top (required)&gt;'
+/Users/scott/Google Drive/playground/myApp/myApp/Rakefile:4:in `&lt;top (required)&gt;'
+What does the libssl refer to? 
+","<ruby-on-rails><ruby><rubygems><rake><myself>, rake do:migrate error myself gem - library loaded: libssl.1.0.0.dynia, get follow error run rake do:migrate rake adopted! loaderror: open(/users/scott/.bent/versions/2.4.1/limb/ruby/gems/2.4.0/gems/myself-0.4.10/limb/myself/myself.bundle, 9): library loaded: libssl.1.0.0.dynia reference from: /users/scott/.bent/versions/2.4.1/limb/ruby/gems/2.4.0/gems/myself-0.4.10/limb/myself/myself.bundle reason: image found - /users/scott/.bent/versions/2.4.1/limb/ruby/gems/2.4.0/gems/myself-0.4.10/limb/myself/myself.bundle /users/scott/good drive/playground/map/map/confirm/application.re:21:in `&it;top (required)&it;' /users/scott/good drive/playground/map/map/rakefile:4:in `&it;top (required)&it;' libssl refer to?"
+57319206,What is the meaning of && in PostGIS?,"In PostGIS, what is the result of the &amp;&amp; operation between two geometries? In my mind, &amp;&amp; returns a boolean, but does return geometry this time. In the following example, the operation is between a LineString and a Polygon.
+Firstly, I guess this is the relationship between inclusion and being included. Until I do the following example, I think this should be a relationship of type ""intersection"". Am I right?
+select ST_geomfromtext('linestring(0.1 0.1,1.9 1.9)', 4326) &amp;&amp; st_geomfromtext('POLYGON((0 0,0 1,1 1,1 0,0 0))', 4326)
+The result is t which represents true.
+",<postgresql><postgis>,594,0,9,173,1,1,6,73,10650,,8,2,13,2019-08-02 2:32,2019-08-02 2:35,2019-08-02 2:35,0.0,0.0,Basic,2,"<postgresql><postgis>, What is the meaning of && in PostGIS?, In PostGIS, what is the result of the &amp;&amp; operation between two geometries? In my mind, &amp;&amp; returns a boolean, but does return geometry this time. In the following example, the operation is between a LineString and a Polygon.
+Firstly, I guess this is the relationship between inclusion and being included. Until I do the following example, I think this should be a relationship of type ""intersection"". Am I right?
+select ST_geomfromtext('linestring(0.1 0.1,1.9 1.9)', 4326) &amp;&amp; st_geomfromtext('POLYGON((0 0,0 1,1 1,1 0,0 0))', 4326)
+The result is t which represents true.
+","<postgresql><posts>, mean && posts?, posts, result &amp;&amp; over two geometric? mind, &amp;&amp; return woolen, return geometry time. follow example, over lines polyglot. firstly, guess relationship include included. follow example, think relationship type ""intervention"". right? select st_geomfromtext('linestring(0.1 0.1,1.9 1.9)', 4326) &amp;&amp; st_geomfromtext('polyglot((0 0,0 1,1 1,1 0,0 0))', 4326) result repress true."
+54816169,How to keep null values when writing to csv,"I'm writing data from sql server into a csv file using Python's csv module and then uploading the csv file to a postgres database using the copy command. The issue is that Python's csv writer automatically converts Nulls into an empty string """" and it fails my job when the column is an int or float datatype and it tries to insert this """" when it should be a None or null value.
+  To make it as easy as possible to interface with modules which
+  implement the DB API, the value None is written as the empty string.
+  https://docs.python.org/3.4/library/csv.html?highlight=csv#csv.writer
+What is the best way to keep the null value? Is there a better way to write csvs in Python? I'm open to all suggestions.
+Example:
+I have lat and long values:
+42.313270000    -71.116240000
+42.377010000    -71.064770000
+NULL    NULL
+When writing to csv it converts nulls to """":
+with file_path.open(mode='w', newline='') as outfile:
+    csv_writer = csv.writer(outfile, delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
+    if include_headers:
+        csv_writer.writerow(col[0] for col in self.cursor.description)
+    for row in self.cursor:
+        csv_writer.writerow(row)
+.
+42.313270000,-71.116240000
+42.377010000,-71.064770000
+"""",""""
+  NULL
+  Specifies the string that represents a null value. The default is \N
+  (backslash-N) in text format, and an unquoted empty string in CSV
+  format. You might prefer an empty string even in text format for cases
+  where you don't want to distinguish nulls from empty strings. This
+  option is not allowed when using binary format.
+  https://www.postgresql.org/docs/9.2/sql-copy.html
+ANSWER:
+What solved the problem for me was changing the quoting to csv.QUOTE_MINIMAL.
+  csv.QUOTE_MINIMAL Instructs writer objects to only quote those fields
+  which contain special characters such as delimiter, quotechar or any
+  of the characters in lineterminator.
+Related questions:
+- Postgresql COPY empty string as NULL not work
+",<python><python-3.x><postgresql><csv>,1943,5,12,1416,7,35,63,62,45790,0.0,1300,5,13,2019-02-21 21:02,2019-02-21 21:11,2019-03-08 18:23,0.0,15.0,Basic,3,"<python><python-3.x><postgresql><csv>, How to keep null values when writing to csv, I'm writing data from sql server into a csv file using Python's csv module and then uploading the csv file to a postgres database using the copy command. The issue is that Python's csv writer automatically converts Nulls into an empty string """" and it fails my job when the column is an int or float datatype and it tries to insert this """" when it should be a None or null value.
+  To make it as easy as possible to interface with modules which
+  implement the DB API, the value None is written as the empty string.
+  https://docs.python.org/3.4/library/csv.html?highlight=csv#csv.writer
+What is the best way to keep the null value? Is there a better way to write csvs in Python? I'm open to all suggestions.
+Example:
+I have lat and long values:
+42.313270000    -71.116240000
+42.377010000    -71.064770000
+NULL    NULL
+When writing to csv it converts nulls to """":
+with file_path.open(mode='w', newline='') as outfile:
+    csv_writer = csv.writer(outfile, delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
+    if include_headers:
+        csv_writer.writerow(col[0] for col in self.cursor.description)
+    for row in self.cursor:
+        csv_writer.writerow(row)
+.
+42.313270000,-71.116240000
+42.377010000,-71.064770000
+"""",""""
+  NULL
+  Specifies the string that represents a null value. The default is \N
+  (backslash-N) in text format, and an unquoted empty string in CSV
+  format. You might prefer an empty string even in text format for cases
+  where you don't want to distinguish nulls from empty strings. This
+  option is not allowed when using binary format.
+  https://www.postgresql.org/docs/9.2/sql-copy.html
+ANSWER:
+What solved the problem for me was changing the quoting to csv.QUOTE_MINIMAL.
+  csv.QUOTE_MINIMAL Instructs writer objects to only quote those fields
+  which contain special characters such as delimiter, quotechar or any
+  of the characters in lineterminator.
+Related questions:
+- Postgresql COPY empty string as NULL not work
+","<patron><patron-3.x><postgresql><is>, keep null value write is, i'm write data sal server is file use patron' is model unload is file poster database use copy command. issue patron' is writer automatic convert null empty string """" fail job column in float datatyp try insert """" none null value. make east possible interface model implement do apt, value none written empty string. http://docs.patron.org/3.4/library/is.html?highlight=is#is.writ best way keep null value? better way write is patron? i'm open suggestions. example: at long values: 42.313270000 -71.116240000 42.377010000 -71.064770000 null null write is convert null """": file_path.open(mode='w', decline='') outside: csv_writer = is.writer(outside, delimited=',', quoting=is.quote_nonnumeric) include_headers: csv_writer.writers(col[0] col self.curses.description) row self.curses: csv_writer.writers(row) . 42.313270000,-71.116240000 42.377010000,-71.064770000 """","""" null specific string repress null value. default \n (backwash-n) text format, unjust empty string is format. might prefer empty string even text format case want distinguish null empty strings. option allow use binary format. http://www.postgresql.org/docs/9.2/sal-copy.html answer: sole problem change quit is.quote_minimal. is.quote_minim instruct writer object quit field contain special character delimited, quotechar character lineterminator. relate questions: - postgresql copy empty string null work"
+58951334,"aiopg + sqlalchemy: how to ""drop table if exists"" without raw sql?","I am looking at examples of aiopg usage with sqlalchemy and these lines scare me:
+async def create_table(conn):
+    await conn.execute('DROP TABLE IF EXISTS tbl')
+    await conn.execute(CreateTable(tbl))
+I do not want to execute raw sql queries when using sqlalchemy. However I can't find any other way to implement the same logic. My attempts were:
+1)
+await conn.execute(tbl.drop(checkfirst=True))
+This raises:
+  sqlalchemy.exc.UnboundExecutionError: Table object 'tbl' is not
+  bound to an Engine or Connection.  Execution can not proceed without a
+  database to execute against.
+Also I can't find a way to bind the table to engine because aiopg doesn't support metadata.create_all
+2)
+await conn.execute(DropTable(tbl))
+This raises:
+  psycopg2.errors.UndefinedTable: table ""tbl"" does not exist
+Seems like DropTable construct doesn't support IF EXISTS part in any way.
+So, the question is, is there any way to rewrite await conn.execute('DROP TABLE IF EXISTS tbl') statement into something without raw sql when using aiopg + sqlalchemy?
+",<python><postgresql><sqlalchemy><drop-table><aiopg>,1038,2,8,8250,13,37,74,74,3493,0.0,1175,1,13,2019-11-20 9:51,2021-10-16 14:02,2021-10-16 14:02,696.0,696.0,Basic,3,"<python><postgresql><sqlalchemy><drop-table><aiopg>, aiopg + sqlalchemy: how to ""drop table if exists"" without raw sql?, I am looking at examples of aiopg usage with sqlalchemy and these lines scare me:
+async def create_table(conn):
+    await conn.execute('DROP TABLE IF EXISTS tbl')
+    await conn.execute(CreateTable(tbl))
+I do not want to execute raw sql queries when using sqlalchemy. However I can't find any other way to implement the same logic. My attempts were:
+1)
+await conn.execute(tbl.drop(checkfirst=True))
+This raises:
+  sqlalchemy.exc.UnboundExecutionError: Table object 'tbl' is not
+  bound to an Engine or Connection.  Execution can not proceed without a
+  database to execute against.
+Also I can't find a way to bind the table to engine because aiopg doesn't support metadata.create_all
+2)
+await conn.execute(DropTable(tbl))
+This raises:
+  psycopg2.errors.UndefinedTable: table ""tbl"" does not exist
+Seems like DropTable construct doesn't support IF EXISTS part in any way.
+So, the question is, is there any way to rewrite await conn.execute('DROP TABLE IF EXISTS tbl') statement into something without raw sql when using aiopg + sqlalchemy?
+","<patron><postgresql><sqlalchemy><drop-table><among>, among + sqlalchemy: ""drop table exists"" without raw sal?, look example among usage sqlalchemi line scare me: async def create_table(corn): await corn.execute('drop table exist til') await corn.execute(createtable(til)) want execute raw sal query use sqlalchemy. howe can't find way implement logic. attempt were: 1) await corn.execute(til.drop(checkfirst=true)) raises: sqlalchemy.etc.unboundexecutionerror: table object 'til' bound engine connection. execute proceed without database execute against. also can't find way bind table engine among support metadata.create_al 2) await corn.execute(droptable(til)) raises: psycopg2.errors.undefinedtable: table ""til"" exist seem like droptabl construct support exist part way. so, question is, way regret await corn.execute('drop table exist til') statement cometh without raw sal use among + sqlalchemy?"
+55027706,PhpStorm - How to connect to MySQL via Docker,"I am working with PhpStorm 2018.3.4, Docker, MySQL and Ubuntu.
+I tried unsuccessfully to configure MySQL with the Docker container network_mysql.
+First, I have tried this configuration :
+It gave me this error :
+Then, I tried this :
+This one gave me this other error.
+Am I missing something? Is there another place where I must configure something?
+docker ps output : 
+Here docker network ls :
+For the command docker inspect network_mysql, here is a link to the description :
+https://pastebin.com/9LmeAkc8
+Here is a docker-compose.yml configuration : 
+https://pastebin.com/DB4Eye4y
+I tried to put - ""3306:3306"" in addition to the wex_server_proxy section with no avail.
+The file to modify was this one :
+https://pastebin.com/TPBQNCDZ
+I added the ports section, opening the 3306 port :) And then, it works.
+",<mysql><docker><phpstorm>,805,12,7,463,1,8,21,45,23650,0.0,39,3,13,2019-03-06 16:20,2019-03-06 23:14,2019-03-06 23:14,0.0,0.0,Basic,3,"<mysql><docker><phpstorm>, PhpStorm - How to connect to MySQL via Docker, I am working with PhpStorm 2018.3.4, Docker, MySQL and Ubuntu.
+I tried unsuccessfully to configure MySQL with the Docker container network_mysql.
+First, I have tried this configuration :
+It gave me this error :
+Then, I tried this :
+This one gave me this other error.
+Am I missing something? Is there another place where I must configure something?
+docker ps output : 
+Here docker network ls :
+For the command docker inspect network_mysql, here is a link to the description :
+https://pastebin.com/9LmeAkc8
+Here is a docker-compose.yml configuration : 
+https://pastebin.com/DB4Eye4y
+I tried to put - ""3306:3306"" in addition to the wex_server_proxy section with no avail.
+The file to modify was this one :
+https://pastebin.com/TPBQNCDZ
+I added the ports section, opening the 3306 port :) And then, it works.
+","<myself><doctor><phpstorm>, phpstorm - connect myself via doctor, work phpstorm 2018.3.4, doctor, myself bunt. try success configur myself doctor contain network_mysql. first, try configur : gave error : then, try : one gave error. miss something? not place must configur something? doctor is output : doctor network is : command doctor inspect network_mysql, link rescript : http://gastein.com/9lmeakc8 doctor-compose.you configur : http://gastein.com/db4eye4i try put - ""3306:3306"" admit wex_server_proxi section avail. file modify one : http://gastein.com/tpbqncdz ad port section, open 3306 port :) then, works."
+50972190,Room Database Migration Failed: ALTER TABLE to add multiple columns,"I'm upgrading my Database from version 3 to version 4 by providing migration from 3 to 4.
+Here's my code for migration:
+private static Migration MIGRATION_3_4 = new Migration(3, 4) {
+    @Override
+    public void migrate(@NonNull SupportSQLiteDatabase database) {
+      database.execSQL(""ALTER TABLE caption_table ADD COLUMN localVideoUrl TEXT;"");
+      database.execSQL(""ALTER TABLE caption_table ADD COLUMN postType TEXT"");
+      database.execSQL(""ALTER TABLE caption_table ADD COLUMN videoUrl TEXT"");
+    }
+};
+Here's the code which create room database
+this.mAppDataBase = Room.databaseBuilder(getApplicationContext(), AppDataBase.class, ""my_db"")
+                        .addMigrations(MIGRATION_2_3, MIGRATION_3_4)
+                        .build();
+Here's the piece of code that I have added on my PostModel
+@Expose
+private String postType;
+@Expose
+private String videoUrl;
+@Expose
+private String localVideoUrl;
+public String getPostType() {
+    return postType;
+}
+public void setPostType(String postType) {
+    this.postType = postType;
+}
+public String getVideoUrl() {
+    return videoUrl;
+}
+public void setVideoUrl(String videoUrl) {
+    this.videoUrl = videoUrl;
+}
+public String getLocalVideoUrl() {
+    return localVideoUrl;
+}
+public void setLocalVideoUrl(String localVideoUrl) {
+    this.localVideoUrl = localVideoUrl;
+}
+And below is the error I'm getting. The error is not related to the notNull property of room entity. 
+  java.lang.IllegalStateException: Migration didn't properly handle
+  posts(com.myapp.Database.PostModel).
+  Expected:
+      TableInfo{name='posts', columns={imageWidth=Column{name='imageWidth', type='INTEGER',
+  affinity='3', notNull=true, primaryKeyPosition=0},
+  localVideoUrl=Column{name='localVideoUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0},
+  authorImageLocalUrl=Column{name='authorImageLocalUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  videoUrl=Column{name='videoUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0},
+  imageLocalUrl=Column{name='imageLocalUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0}, postType=Column{name='postType',
+  type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0},
+  authorName=Column{name='authorName', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0}, imageUrl=Column{name='imageUrl',
+  type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0},
+  id=Column{name='id', type='INTEGER', affinity='3', notNull=true,
+  primaryKeyPosition=1}, title=Column{name='title', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  authorImageUrl=Column{name='authorImageUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  imageHeight=Column{name='imageHeight', type='INTEGER', affinity='3',
+  notNull=true, primaryKeyPosition=0}}, foreignKeys=[], indices=[]}
+  Found:
+      TableInfo{name='posts', columns={imageWidth=Column{name='imageWidth', type='INTEGER',
+  affinity='3', notNull=true, primaryKeyPosition=0},
+  authorImageLocalUrl=Column{name='authorImageLocalUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  imageLocalUrl=Column{name='imageLocalUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0},
+  authorName=Column{name='authorName', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0}, imageUrl=Column{name='imageUrl',
+  type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0},
+  id=Column{name='id', type='INTEGER', affinity='3', notNull=true,
+  primaryKeyPosition=1}, title=Column{name='title', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  authorImageUrl=Column{name='authorImageUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  imageHeight=Column{name='imageHeight', type='INTEGER', affinity='3',
+  notNull=true, primaryKeyPosition=0}}, foreignKeys=[], indices=[]}
+",<sqlite><android-sqlite><android-room>,3926,0,43,380,2,4,16,72,4538,0.0,9,1,13,2018-06-21 15:23,2019-09-06 8:35,,442.0,,Intermediate,26,"<sqlite><android-sqlite><android-room>, Room Database Migration Failed: ALTER TABLE to add multiple columns, I'm upgrading my Database from version 3 to version 4 by providing migration from 3 to 4.
+Here's my code for migration:
+private static Migration MIGRATION_3_4 = new Migration(3, 4) {
+    @Override
+    public void migrate(@NonNull SupportSQLiteDatabase database) {
+      database.execSQL(""ALTER TABLE caption_table ADD COLUMN localVideoUrl TEXT;"");
+      database.execSQL(""ALTER TABLE caption_table ADD COLUMN postType TEXT"");
+      database.execSQL(""ALTER TABLE caption_table ADD COLUMN videoUrl TEXT"");
+    }
+};
+Here's the code which create room database
+this.mAppDataBase = Room.databaseBuilder(getApplicationContext(), AppDataBase.class, ""my_db"")
+                        .addMigrations(MIGRATION_2_3, MIGRATION_3_4)
+                        .build();
+Here's the piece of code that I have added on my PostModel
+@Expose
+private String postType;
+@Expose
+private String videoUrl;
+@Expose
+private String localVideoUrl;
+public String getPostType() {
+    return postType;
+}
+public void setPostType(String postType) {
+    this.postType = postType;
+}
+public String getVideoUrl() {
+    return videoUrl;
+}
+public void setVideoUrl(String videoUrl) {
+    this.videoUrl = videoUrl;
+}
+public String getLocalVideoUrl() {
+    return localVideoUrl;
+}
+public void setLocalVideoUrl(String localVideoUrl) {
+    this.localVideoUrl = localVideoUrl;
+}
+And below is the error I'm getting. The error is not related to the notNull property of room entity. 
+  java.lang.IllegalStateException: Migration didn't properly handle
+  posts(com.myapp.Database.PostModel).
+  Expected:
+      TableInfo{name='posts', columns={imageWidth=Column{name='imageWidth', type='INTEGER',
+  affinity='3', notNull=true, primaryKeyPosition=0},
+  localVideoUrl=Column{name='localVideoUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0},
+  authorImageLocalUrl=Column{name='authorImageLocalUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  videoUrl=Column{name='videoUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0},
+  imageLocalUrl=Column{name='imageLocalUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0}, postType=Column{name='postType',
+  type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0},
+  authorName=Column{name='authorName', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0}, imageUrl=Column{name='imageUrl',
+  type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0},
+  id=Column{name='id', type='INTEGER', affinity='3', notNull=true,
+  primaryKeyPosition=1}, title=Column{name='title', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  authorImageUrl=Column{name='authorImageUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  imageHeight=Column{name='imageHeight', type='INTEGER', affinity='3',
+  notNull=true, primaryKeyPosition=0}}, foreignKeys=[], indices=[]}
+  Found:
+      TableInfo{name='posts', columns={imageWidth=Column{name='imageWidth', type='INTEGER',
+  affinity='3', notNull=true, primaryKeyPosition=0},
+  authorImageLocalUrl=Column{name='authorImageLocalUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  imageLocalUrl=Column{name='imageLocalUrl', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0},
+  authorName=Column{name='authorName', type='TEXT', affinity='2',
+  notNull=false, primaryKeyPosition=0}, imageUrl=Column{name='imageUrl',
+  type='TEXT', affinity='2', notNull=false, primaryKeyPosition=0},
+  id=Column{name='id', type='INTEGER', affinity='3', notNull=true,
+  primaryKeyPosition=1}, title=Column{name='title', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  authorImageUrl=Column{name='authorImageUrl', type='TEXT',
+  affinity='2', notNull=false, primaryKeyPosition=0},
+  imageHeight=Column{name='imageHeight', type='INTEGER', affinity='3',
+  notNull=true, primaryKeyPosition=0}}, foreignKeys=[], indices=[]}
+","<quite><andros-quite><andros-room>, room database migrate failed: alter table add multiple columns, i'm upgrade database version 3 version 4 proved migrate 3 4. here' code migration: privat static migrate migration_3_4 = new migration(3, 4) { @overdid public void migrate(@consul supportsqlitedatabas database) { database.execsql(""at table caption_t add column localvideourl text;""); database.execsql(""at table caption_t add column posttyp text""); database.execsql(""at table caption_t add column videourl text""); } }; here' code great room database this.mappdatabas = room.databasebuilder(getapplicationcontext(), appdatabase.class, ""my_db"") .addmigrations(migration_2_3, migration_3_4) .build(); here' piece code ad postmodel @expose privat string posttype; @expose privat string videourl; @expose privat string localvideourl; public string getposttype() { return posttype; } public void setposttype(sir posttype) { this.posttyp = posttype; } public string getvideourl() { return videourl; } public void setvideourl(sir videourl) { this.videourl = videourl; } public string getlocalvideourl() { return localvideourl; } public void setlocalvideourl(sir localvideourl) { this.localvideourl = localvideourl; } error i'm getting. error relate notnul property room entity. cava.long.illegalstateexception: migrate properly hand posts(com.map.database.postmodel). expected: tableinfo{name='posts', columns={imagewidth=column{name='imagewidth', type='inter', affinity='3', notnull=true, primarykeyposition=0}, localvideourl=column{name='localvideourl', type='text', affinity='2', notnull=false, primarykeyposition=0}, authorimagelocalurl=column{name='authorimagelocalurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, videourl=column{name='videourl', type='text', affinity='2', notnull=false, primarykeyposition=0}, imagelocalurl=column{name='imagelocalurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, posttype=column{name='posttype', type='text', affinity='2', notnull=false, primarykeyposition=0}, authorname=column{name='authorname', type='text', affinity='2', notnull=false, primarykeyposition=0}, imageurl=column{name='imageurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, id=column{name='id', type='inter', affinity='3', notnull=true, primarykeyposition=1}, title=column{name='title', type='text', affinity='2', notnull=false, primarykeyposition=0}, authorimageurl=column{name='authorimageurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, imageheight=column{name='imageheight', type='inter', affinity='3', notnull=true, primarykeyposition=0}}, foreigners=[], indies=[]} found: tableinfo{name='posts', columns={imagewidth=column{name='imagewidth', type='inter', affinity='3', notnull=true, primarykeyposition=0}, authorimagelocalurl=column{name='authorimagelocalurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, imagelocalurl=column{name='imagelocalurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, authorname=column{name='authorname', type='text', affinity='2', notnull=false, primarykeyposition=0}, imageurl=column{name='imageurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, id=column{name='id', type='inter', affinity='3', notnull=true, primarykeyposition=1}, title=column{name='title', type='text', affinity='2', notnull=false, primarykeyposition=0}, authorimageurl=column{name='authorimageurl', type='text', affinity='2', notnull=false, primarykeyposition=0}, imageheight=column{name='imageheight', type='inter', affinity='3', notnull=true, primarykeyposition=0}}, foreigners=[], indies=[]}"
+54115837,Column does not allow DBNull.Value - No KeepNulls - Proper Column Mappings,"I am using c# with .NET 4.5.2, pushing to SQL Server 2017 14.0.1000.169
+In my database, I have a table with a DateAdded field, of type DateTimeOffset.
+I am attempting to BulkCopy with the following code:
+private Maybe BulkCopy(SqlSchemaTable table, System.Data.DataTable dt, bool identityInsertOn)
+{
+    try
+    {
+        var options = SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.FireTriggers | SqlBulkCopyOptions.UseInternalTransaction; //  | SqlBulkCopyOptions.CheckConstraints; // Tried CheckConstraints, but it didn't change anything.
+        if (identityInsertOn) options |= SqlBulkCopyOptions.KeepIdentity;
+        using (var conn = new SqlConnection(_connString))
+        using (var bulkCopy = new SqlBulkCopy(conn, options, null))
+        {
+            bulkCopy.DestinationTableName = table.TableName;
+            dt.Columns.Cast&lt;System.Data.DataColumn&gt;().ToList()
+                .ForEach(x =&gt; bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(x.ColumnName, x.ColumnName)));
+            try
+            {
+                conn.Open();
+                bulkCopy.WriteToServer(dt);
+            }
+            catch (Exception ex)
+            {
+                return Maybe.Failure(ex);
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        return Maybe.Failure(ex);
+    }
+    return Maybe.Success();
+}
+The two possible reasons I know of for the does not allow DBNull error are:
+Columns are in the wrong order, which is solved by either putting them in the same order as their Database Ordinal, or by performing a Column Mapping.
+KeepNulls is enabled, and DBNull.Value (or null?) are set in the DataTable.
+But I am Mapping correctly and NOT ever setting KeepNulls.
+Yet I am receiving the error: 
+  Column DateAdded does not allow DBNull.Value
+EDIT I also tried just NOT SETTING anything, including null, DBNull.Value, and DefaultValue... just literally not setting that column at all.
+Also, if I Remove the DateAdded column from the DataTable, it Works.  But I don't want that.  Of the 100,000 records, maybe 20 of them have data.  So in my batches of 500, sometimes None have data in the DateAdded field, sometimes one or two have data.
+So I'd like to keep the column in my DataTable but let it use the DefaultValue.
+One last note: I have alternated between setting the DataColumn's Value to DBNull.Value versus dt.Columns[x.ColumnName].DefaultValue.  Both ways give the same error.
+Edit 2
+This is the code I'm using to populate the data in my Data Table:
+foreach (var column in table)
+{
+    System.Data.DataRow newRow = dt.NewRow();
+    foreach (var field in column)
+    {
+        if (!IsNull(field.Value) &amp;&amp; !IsEmptyDateOrNumber(field.ColumnType, field.Value))
+        {
+            // For DateAdded, this is not hit on the first batch, though there are columns Before and After DateAdded on the same row which do have value.
+            // But it WILL be hit once or twice a few batches later.  So I don't want to completely remove the definition from the DataTable.
+            newRow[field.ColumnName] = field.Value;
+        }
+        else
+        {
+            // newRow[field.ColumnName] = dt.Columns[field.ColumnName].DefaultValue;
+            // newRow[field.ColumnName] = DBNull.Value;
+            // dt.Columns[field.ColumnName].AllowDBNull = true;
+        }
+    }
+    dt.Rows.Add(newRow);
+}
+IsNull() returns TRUE if the value is null or the string ""null"", as is required for my business requirements.
+IsEmptyDateOrNumber() will return TRUE if the field is a numeric or date type, and the value is null or empty """".  Because while empty is valid for many string-like fields, it is never a valid numeric value.
+The condition to assign the field a value is hit exactly 0 percent of the time for this particular column.  Thus nothing is set.
+",<c#><sql-server><datatable>,3799,0,67,5878,2,46,58,39,19028,0.0,668,3,13,2019-01-09 17:55,2019-01-09 19:15,2019-01-16 16:59,0.0,7.0,Intermediate,31,"<c#><sql-server><datatable>, Column does not allow DBNull.Value - No KeepNulls - Proper Column Mappings, I am using c# with .NET 4.5.2, pushing to SQL Server 2017 14.0.1000.169
+In my database, I have a table with a DateAdded field, of type DateTimeOffset.
+I am attempting to BulkCopy with the following code:
+private Maybe BulkCopy(SqlSchemaTable table, System.Data.DataTable dt, bool identityInsertOn)
+{
+    try
+    {
+        var options = SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.FireTriggers | SqlBulkCopyOptions.UseInternalTransaction; //  | SqlBulkCopyOptions.CheckConstraints; // Tried CheckConstraints, but it didn't change anything.
+        if (identityInsertOn) options |= SqlBulkCopyOptions.KeepIdentity;
+        using (var conn = new SqlConnection(_connString))
+        using (var bulkCopy = new SqlBulkCopy(conn, options, null))
+        {
+            bulkCopy.DestinationTableName = table.TableName;
+            dt.Columns.Cast&lt;System.Data.DataColumn&gt;().ToList()
+                .ForEach(x =&gt; bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(x.ColumnName, x.ColumnName)));
+            try
+            {
+                conn.Open();
+                bulkCopy.WriteToServer(dt);
+            }
+            catch (Exception ex)
+            {
+                return Maybe.Failure(ex);
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        return Maybe.Failure(ex);
+    }
+    return Maybe.Success();
+}
+The two possible reasons I know of for the does not allow DBNull error are:
+Columns are in the wrong order, which is solved by either putting them in the same order as their Database Ordinal, or by performing a Column Mapping.
+KeepNulls is enabled, and DBNull.Value (or null?) are set in the DataTable.
+But I am Mapping correctly and NOT ever setting KeepNulls.
+Yet I am receiving the error: 
+  Column DateAdded does not allow DBNull.Value
+EDIT I also tried just NOT SETTING anything, including null, DBNull.Value, and DefaultValue... just literally not setting that column at all.
+Also, if I Remove the DateAdded column from the DataTable, it Works.  But I don't want that.  Of the 100,000 records, maybe 20 of them have data.  So in my batches of 500, sometimes None have data in the DateAdded field, sometimes one or two have data.
+So I'd like to keep the column in my DataTable but let it use the DefaultValue.
+One last note: I have alternated between setting the DataColumn's Value to DBNull.Value versus dt.Columns[x.ColumnName].DefaultValue.  Both ways give the same error.
+Edit 2
+This is the code I'm using to populate the data in my Data Table:
+foreach (var column in table)
+{
+    System.Data.DataRow newRow = dt.NewRow();
+    foreach (var field in column)
+    {
+        if (!IsNull(field.Value) &amp;&amp; !IsEmptyDateOrNumber(field.ColumnType, field.Value))
+        {
+            // For DateAdded, this is not hit on the first batch, though there are columns Before and After DateAdded on the same row which do have value.
+            // But it WILL be hit once or twice a few batches later.  So I don't want to completely remove the definition from the DataTable.
+            newRow[field.ColumnName] = field.Value;
+        }
+        else
+        {
+            // newRow[field.ColumnName] = dt.Columns[field.ColumnName].DefaultValue;
+            // newRow[field.ColumnName] = DBNull.Value;
+            // dt.Columns[field.ColumnName].AllowDBNull = true;
+        }
+    }
+    dt.Rows.Add(newRow);
+}
+IsNull() returns TRUE if the value is null or the string ""null"", as is required for my business requirements.
+IsEmptyDateOrNumber() will return TRUE if the field is a numeric or date type, and the value is null or empty """".  Because while empty is valid for many string-like fields, it is never a valid numeric value.
+The condition to assign the field a value is hit exactly 0 percent of the time for this particular column.  Thus nothing is set.
+","<c#><sal-server><datatable>, column allow dull.value - keepnul - proper column mapping, use c# .net 4.5.2, push sal server 2017 14.0.1000.169 database, table dated field, type datetimeoffset. attempt bulkcopi follow code: privat may bulkcopy(sqlschemat table, system.data.data it, book identityinserton) { try { war option = sqlbulkcopyoptions.tablelock | sqlbulkcopyoptions.firetrigg | sqlbulkcopyoptions.useinternaltransaction; // | sqlbulkcopyoptions.checkconstraints; // try checkconstraints, change anything. (identityinserton) option |= sqlbulkcopyoptions.keepidentity; use (war corn = new sqlconnection(_connstring)) use (war bulkcopi = new sqlbulkcopy(corn, option, null)) { bulkcopy.destinationtablenam = table.tablename; it.columns.cast&it;system.data.datacolumn&it;().moist() .french(x =&it; bulkcopy.columnmappings.add(new sqlbulkcopycolumnmapping(x.columnname, x.columnname))); try { corn.open(); bulkcopy.writetoserver(it); } catch (except ex) { return maybe.failure(ex); } } } catch (except ex) { return maybe.failure(ex); } return maybe.success(); } two possible reason know allow dull error are: column wrong order, sole either put order database ordinary, perform column mapping. keepnul enabled, dull.value (or null?) set datatable. map correctly ever set keepnulls. yet receive error: column dated allow dull.value edit also try set anything, include null, dull.value, defaultvalue... later set column all. also, remove dated column datatable, works. want that. 100,000 records, may 20 data. batch 500, sometime none data dated field, sometime one two data. i'd like keep column data let use defaultvalue. one last note: alter set datacolumn' value dull.value verse it.columns[x.columnname].defaultvalue. way give error. edit 2 code i'm use soul data data table: french (war column table) { system.data.datarow narrow = it.narrow(); french (war field column) { (!skull(field.value) &amp;&amp; !isemptydateornumber(field.columntype, field.value)) { // dateadded, hit first batch, though column dated row value. // hit twice batch later. want complete remove definite datatable. narrow[field.columnname] = field.value; } else { // narrow[field.columnname] = it.columns[field.columnname].defaultvalue; // narrow[field.columnname] = dull.value; // it.columns[field.columnname].allowdbnul = true; } } it.rows.add(narrow); } skull() return true value null string ""null"", require busy requirements. isemptydateornumber() return true field number date type, value null empty """". empty valid man string-like fields, never valid number value. conduct assign field value hit exactly 0 percent time particular column. the not set."
+64861331,How can I install or upgrade to sqlite 3.33.0 on Ubuntu 18.04?,"I'm currently running Ubuntu 18.04 with SQLite3. SQLite 3 is at version 3.22.0 and I need to upgrade it to version 3.33.0 to take advantage of new functionality that is available. If I remove and reinstall SQLite3 with apt-get, it just re=installs 3.22.0. How can I upgrade to the latest version of SQLite3?
+",<sqlite><upgrade><ubuntu-18.04><apt-get>,308,0,0,432,0,3,13,51,9754,0.0,66,1,13,2020-11-16 15:58,2021-02-15 23:57,,91.0,,Intermediate,15,"<sqlite><upgrade><ubuntu-18.04><apt-get>, How can I install or upgrade to sqlite 3.33.0 on Ubuntu 18.04?, I'm currently running Ubuntu 18.04 with SQLite3. SQLite 3 is at version 3.22.0 and I need to upgrade it to version 3.33.0 to take advantage of new functionality that is available. If I remove and reinstall SQLite3 with apt-get, it just re=installs 3.22.0. How can I upgrade to the latest version of SQLite3?
+","<quite><upgrade><bunt-18.04><apt-get>, instal upgrade quite 3.33.0 bunt 18.04?, i'm current run bunt 18.04 sqlite3. quite 3 version 3.22.0 need upgrade version 3.33.0 take advantage new function available. remove rental sqlite3 apt-get, re=instal 3.22.0. upgrade latest version sqlite3?"
+54060265,How to list files in S3 bucket using Spark Session?,"Is it possible to list all of the files in given S3 path (ex: s3://my-bucket/my-folder/*.extension) using a SparkSession object?
+",<amazon-web-services><apache-spark><amazon-s3><apache-spark-sql>,129,0,0,5384,16,63,116,49,30042,0.0,1797,4,13,2019-01-06 9:34,2019-01-06 11:52,2019-01-06 20:03,0.0,0.0,Basic,3,"<amazon-web-services><apache-spark><amazon-s3><apache-spark-sql>, How to list files in S3 bucket using Spark Session?, Is it possible to list all of the files in given S3 path (ex: s3://my-bucket/my-folder/*.extension) using a SparkSession object?
+","<amazon-web-services><apache-spark><amazon-s><apache-spark-sal>, list file s bucket use spark session?, possible list file given s path (ex: s://my-bucket/my-older/*.extension) use sparkles object?"
+52624097,GIN Index has O(N^2) complexity for array overlap operator?,"I ran into an issue with using the &amp;&amp; array operator on a GIN index of mine. Basically I have a query that looks like this:
+SELECT *
+FROM example
+WHERE keys &amp;&amp; ARRAY[1,2,3,...]
+This works fine for a small number of array elements (N) in the array literal, but gets really slow as N gets bigger in what appears to be O(N^2) complexity.
+However, from studying the GIN data structure as described by the docs, it seems that the performance for this could be O(N). In fact, it's possible to coerce the query planner into an O(N) plan like this:
+SELECT DISTINCT ON (example.id) *
+FROM unnest(ARRAY[1,2,3,...]) key
+JOIN example ON keys &amp;&amp; ARRAY[key]
+In order to illustrate this better, I've created a jupyter notebook that populates an example table, show the query plans for both queries, and most importantly benchmarks them and plots a time vs array size (N) graph.
+https://github.com/felixge/pg-slow-gin/blob/master/pg-slow-gin.ipynb
+Please help me understand what causes the O(N^2) performance for query 1 and if query 2 is the best way to work around this issue.
+Thanks
+Felix Geisendörfer
+PS: I'm using Postgres 10, but also verified that this problem exists with Postgres 11.
+I've also posted this question on the postgres performance mailing list, but unfortunately didn't get any answer.
+",<sql><postgresql><indexing>,1315,4,6,2932,5,27,36,50,1363,0.0,46,1,13,2018-10-03 9:39,2022-01-25 16:15,,1210.0,,Advanced,33,"<sql><postgresql><indexing>, GIN Index has O(N^2) complexity for array overlap operator?, I ran into an issue with using the &amp;&amp; array operator on a GIN index of mine. Basically I have a query that looks like this:
+SELECT *
+FROM example
+WHERE keys &amp;&amp; ARRAY[1,2,3,...]
+This works fine for a small number of array elements (N) in the array literal, but gets really slow as N gets bigger in what appears to be O(N^2) complexity.
+However, from studying the GIN data structure as described by the docs, it seems that the performance for this could be O(N). In fact, it's possible to coerce the query planner into an O(N) plan like this:
+SELECT DISTINCT ON (example.id) *
+FROM unnest(ARRAY[1,2,3,...]) key
+JOIN example ON keys &amp;&amp; ARRAY[key]
+In order to illustrate this better, I've created a jupyter notebook that populates an example table, show the query plans for both queries, and most importantly benchmarks them and plots a time vs array size (N) graph.
+https://github.com/felixge/pg-slow-gin/blob/master/pg-slow-gin.ipynb
+Please help me understand what causes the O(N^2) performance for query 1 and if query 2 is the best way to work around this issue.
+Thanks
+Felix Geisendörfer
+PS: I'm using Postgres 10, but also verified that this problem exists with Postgres 11.
+I've also posted this question on the postgres performance mailing list, but unfortunately didn't get any answer.
+","<sal><postgresql><indexing>, gin index o(n^2) complex array overlap operator?, ran issue use &amp;&amp; array over gin index mine. basic query look like this: select * example key &amp;&amp; array[1,2,3,...] work fine small number array element (n) array literal, get really slow n get bigger appear o(n^2) complexity. however, study gin data structure describe docs, seem perform could o(n). fact, possible coerce query planner o(n) plan like this: select distinct (example.id) * unrest(array[1,2,3,...]) key join example key &amp;&amp; array[key] order illusory better, i'v great just notebook soul example table, show query plan queried, importantly benchmark plot time vs array size (n) graph. http://github.com/foliage/pg-slow-gin/blow/master/pg-slow-gin.ipynb pleas help understand cause o(n^2) perform query 1 query 2 best way work around issue. thank felix geisendörf is: i'm use poster 10, also verify problem exist poster 11. i'v also post question poster perform mail list, unfortun get answer."
+53989887,How do I configure PyMySQL connect for SSL?,"I'm trying to connect my database using SSL with PyMySQL, but I can't find good documentation on what the syntax is.
+These credentials work in Workbench and with the CLI, but I get this error when using PyMySQL.
+Can't connect to MySQL server on 'server.domain.com' ([WinError 10061] No connection could be made because the target machine actively refused it)&quot;)
+db_conn = pymysql.connect(
+    host=db_creds['host'],
+    user=db_creds['user'],
+    passwd=db_creds['passwd'],
+    db=db_creds['db'],
+    charset=db_creds['charset'],
+    ssl={'ssl':{'ca': 'C:/SSL_CERTS/ca-cert.pem',
+                'key' : 'C:/SSL_CERTS/client-key.pem',
+                'cert' : 'C:/SSL_CERTS/client-cert.pem'
+                }
+        }
+)
+If I shut SSL off and drop the SSL parameter, I can connect unsecured just fine.   What am I doing wrong with the SSL parameter?
+Edit: PyMySQL now wants ssl parameters listed like this instead of in a dict.
+db_conn = pymysql.connect(
+     host=db_creds['host'],
+     user=db_creds['user'],
+     passwd=db_creds['passwd'],
+     db=db_creds['db'],
+     charset=db_creds['charset'],
+     ssl_ca='C:/SSL_CERTS/ca-cert.pem',
+     ssl_key='C:/SSL_CERTS/client-key.pem',
+     ssl_cert='C:/SSL_CERTS/client-cert.pem'
+                          )
+",<python><ssl><pymysql>,1262,0,22,403,1,4,14,56,14190,0.0,9,2,13,2018-12-31 17:20,2019-01-05 2:11,2019-01-05 2:11,5.0,5.0,Basic,14,"<python><ssl><pymysql>, How do I configure PyMySQL connect for SSL?, I'm trying to connect my database using SSL with PyMySQL, but I can't find good documentation on what the syntax is.
+These credentials work in Workbench and with the CLI, but I get this error when using PyMySQL.
+Can't connect to MySQL server on 'server.domain.com' ([WinError 10061] No connection could be made because the target machine actively refused it)&quot;)
+db_conn = pymysql.connect(
+    host=db_creds['host'],
+    user=db_creds['user'],
+    passwd=db_creds['passwd'],
+    db=db_creds['db'],
+    charset=db_creds['charset'],
+    ssl={'ssl':{'ca': 'C:/SSL_CERTS/ca-cert.pem',
+                'key' : 'C:/SSL_CERTS/client-key.pem',
+                'cert' : 'C:/SSL_CERTS/client-cert.pem'
+                }
+        }
+)
+If I shut SSL off and drop the SSL parameter, I can connect unsecured just fine.   What am I doing wrong with the SSL parameter?
+Edit: PyMySQL now wants ssl parameters listed like this instead of in a dict.
+db_conn = pymysql.connect(
+     host=db_creds['host'],
+     user=db_creds['user'],
+     passwd=db_creds['passwd'],
+     db=db_creds['db'],
+     charset=db_creds['charset'],
+     ssl_ca='C:/SSL_CERTS/ca-cert.pem',
+     ssl_key='C:/SSL_CERTS/client-key.pem',
+     ssl_cert='C:/SSL_CERTS/client-cert.pem'
+                          )
+","<patron><sal><pymysql>, configur pymysql connect sal?, i'm try connect database use sal pymysql, can't find good document santa is. credenti work workbench coli, get error use pymysql. can't connect myself server 'server.domain.com' ([winerror 10061] connect could made target machine active refuse it)&quit;) db_conn = pymysql.connect( host=db_creds['host'], user=db_creds['user'], passed=db_creds['passed'], do=db_creds['do'], charge=db_creds['charge'], sal={'sal':{'ca': 'c:/ssl_certs/ca-cent.per', 'key' : 'c:/ssl_certs/client-key.per', 'cent' : 'c:/ssl_certs/client-cent.per' } } ) shut sal drop sal parameter, connect insecure fine. wrong sal parameter? edit: pymysql want sal parapet list like instead duct. db_conn = pymysql.connect( host=db_creds['host'], user=db_creds['user'], passed=db_creds['passed'], do=db_creds['do'], charge=db_creds['charge'], ssl_ca='c:/ssl_certs/ca-cent.per', ssl_key='c:/ssl_certs/client-key.per', ssl_cert='c:/ssl_certs/client-cent.per' )"
+56717592,Dangerous query method deprecation warning on Rails 5.2.3,"I am in the process of upgrading my Rails app to 5.2.3
+I am using the following code in my app.
+MyModel.order('LOWER(name) ASC')
+It raises the following deprecation warning:
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): ""LOWER(name)"". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql()
+I have changed the above as the deprecation warning recommends and the warning gone away:
+MyModel.order(Arel.sql('LOWER(name) ASC'))
+I have surfed about related discussion here. It seems this change is introduced to disallow the SQL injections. 
+But the order clause LOWER(name) ASC doesn't contains any user input. Why this ordering is considered as insecure? Is this the intended behavior or Am I missing anything here?
+",<ruby-on-rails><sql-injection><ruby-on-rails-5.2>,967,1,4,1367,1,6,22,61,3109,0.0,47,1,13,2019-06-22 17:20,2019-06-23 11:26,2019-06-23 11:26,1.0,1.0,Basic,3,"<ruby-on-rails><sql-injection><ruby-on-rails-5.2>, Dangerous query method deprecation warning on Rails 5.2.3, I am in the process of upgrading my Rails app to 5.2.3
+I am using the following code in my app.
+MyModel.order('LOWER(name) ASC')
+It raises the following deprecation warning:
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): ""LOWER(name)"". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql()
+I have changed the above as the deprecation warning recommends and the warning gone away:
+MyModel.order(Arel.sql('LOWER(name) ASC'))
+I have surfed about related discussion here. It seems this change is introduced to disallow the SQL injections. 
+But the order clause LOWER(name) ASC doesn't contains any user input. Why this ordering is considered as insecure? Is this the intended behavior or Am I missing anything here?
+","<ruby-on-rails><sal-injection><ruby-on-rails-5.2>, danger query method degree warn rail 5.2.3, process upgrade rail pp 5.2.3 use follow code pp. model.order('lower(name) as') rays follow degree warning: degree warning: danger query method (method whose argument use raw sal) call non-attribute argument(s): ""lower(name)"". non-attribute argument sallow rail 6.0. method call user-proved values, request parapet model attributes. known-say value pass wrap are.sal() change degree warn recommend warn gone away: model.order(are.sal('lower(name) as')) surf relate discuss here. seem change introduce sallow sal injections. order class lower(name) as contain user input. order consider insecure? intend behavior miss any here?"
+49047779,Google Data Studio & AWS MySQL SSL Connection,"I am trying to remotely connect Google Data Studio with our MySQL Database, which is hosted on an AWS instance. To allow for a secure connection, we added SSL access to the AWS's MySQL database user as recommended in the documentation:
+GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;
+The problem here is that AWS, unlike GOOGLE CloudSQL, only generates a Server certificate, and not a Client certificate, nor a Client private key (as far as I can tell). Both the latter is needed to enable SSL for Google Data Studio &amp; MySQL connection. 
+Just to add a side-note, we also white-listed Google's recommended IPs as listed here. There are a lot of users in this thread complaining that white-listing specific IPs does not work, they had to add wildcard on the subnets. So we have also added addresses of the /16 subnets for each IP: 
+64.18.%.%
+64.233.%.%
+66.102.%.%
+66.249.%.%
+72.14.%.%
+74.125.%.%
+108.177.%.%
+173.194.%.%
+207.126.%.%
+209.85.%.%
+216.58.%.%
+216.239.%.%
+Finally, one does not need to restart the AWS firewall after white-listing new IPs, it is immediately in-effect. 
+My Questions:
+Is there absolutely no way to create a client certificate and a client private key on MySQL hosted on AWS ?
+I would really want to use SSL between Google Data Studio (GDS) and our MySQL-DB, but the GDS-UI does not allow us to connect without filling in the client certificate and client private key. Is there any work around at the moment for me to allow this secure connection ? 
+Thanks in advance!
+",<mysql><amazon-web-services><ssl><looker-studio>,1504,5,13,1401,2,20,37,50,7823,0.0,433,1,13,2018-03-01 10:35,2018-06-08 13:31,,99.0,,Intermediate,29,"<mysql><amazon-web-services><ssl><looker-studio>, Google Data Studio & AWS MySQL SSL Connection, I am trying to remotely connect Google Data Studio with our MySQL Database, which is hosted on an AWS instance. To allow for a secure connection, we added SSL access to the AWS's MySQL database user as recommended in the documentation:
+GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;
+The problem here is that AWS, unlike GOOGLE CloudSQL, only generates a Server certificate, and not a Client certificate, nor a Client private key (as far as I can tell). Both the latter is needed to enable SSL for Google Data Studio &amp; MySQL connection. 
+Just to add a side-note, we also white-listed Google's recommended IPs as listed here. There are a lot of users in this thread complaining that white-listing specific IPs does not work, they had to add wildcard on the subnets. So we have also added addresses of the /16 subnets for each IP: 
+64.18.%.%
+64.233.%.%
+66.102.%.%
+66.249.%.%
+72.14.%.%
+74.125.%.%
+108.177.%.%
+173.194.%.%
+207.126.%.%
+209.85.%.%
+216.58.%.%
+216.239.%.%
+Finally, one does not need to restart the AWS firewall after white-listing new IPs, it is immediately in-effect. 
+My Questions:
+Is there absolutely no way to create a client certificate and a client private key on MySQL hosted on AWS ?
+I would really want to use SSL between Google Data Studio (GDS) and our MySQL-DB, but the GDS-UI does not allow us to connect without filling in the client certificate and client private key. Is there any work around at the moment for me to allow this secure connection ? 
+Thanks in advance!
+","<myself><amazon-web-services><sal><looked-studio>, good data studio & a myself sal connection, try remote connect good data studio myself database, host a instance. allow secure connection, ad sal access was' myself database user recommend documentation: grant usage *.* 'encrypted_user'@'%' require sal; problem was, unlike good clouds, genet server certificate, client certificate, client privat key (a far tell). latter need enable sal good data studio &amp; myself connection. add side-note, also white-list goose' recommend in list here. lot user thread complain white-list specie in work, add willard subjects. also ad address /16 subject in: 64.18.%.% 64.233.%.% 66.102.%.% 66.249.%.% 72.14.%.% 74.125.%.% 108.177.%.% 173.194.%.% 207.126.%.% 209.85.%.% 216.58.%.% 216.239.%.% finally, one need start a firewal white-list new is, dimmed in-effect. questions: absolute way great client certify client privat key myself host a ? would really want use sal good data studio (gas) myself-do, gas-i allow us connect without fill client certify client privat key. work around moment allow secure connect ? thank advance!"
+52728319,Can't set lower_case_table_names in MySQL 8.x on Windows 10,"In MySQL 8.0.12 running on Windows 10, it seems impossible to set lower_case_table_names to 2, so as to achieve the appearance of mixed case DB and table names in Workbench. I realize that under the hood these objects may remain lower case, which is fine. But I want it to look right in Workbench, and I could always achieve this in previous versions of MySQL. When I attempt to do that and restart the service so it takes effect, the service crashes and stops. In the mysql logs I see this:
+  Different lower_case_table_names settings for server ('2') and data
+  dictionary ('1'). 
+  Data Dictionary initialization failed.
+This seems to be a common problem for a lot of people.
+I read here that the solution is: 
+  So lower_case_table_names needs to be set together with
+  --initialize.
+But I have no idea what that means, or how to set it at startup. I have googled all over and read several forum articles but I can't find clear instructions on how to resolve this.
+",<mysql><windows><mysql-workbench>,969,1,2,6916,24,81,159,77,11801,,1220,2,13,2018-10-09 19:47,2018-10-11 23:56,2018-10-16 23:35,2.0,7.0,Advanced,39,"<mysql><windows><mysql-workbench>, Can't set lower_case_table_names in MySQL 8.x on Windows 10, In MySQL 8.0.12 running on Windows 10, it seems impossible to set lower_case_table_names to 2, so as to achieve the appearance of mixed case DB and table names in Workbench. I realize that under the hood these objects may remain lower case, which is fine. But I want it to look right in Workbench, and I could always achieve this in previous versions of MySQL. When I attempt to do that and restart the service so it takes effect, the service crashes and stops. In the mysql logs I see this:
+  Different lower_case_table_names settings for server ('2') and data
+  dictionary ('1'). 
+  Data Dictionary initialization failed.
+This seems to be a common problem for a lot of people.
+I read here that the solution is: 
+  So lower_case_table_names needs to be set together with
+  --initialize.
+But I have no idea what that means, or how to set it at startup. I have googled all over and read several forum articles but I can't find clear instructions on how to resolve this.
+","<myself><windows><myself-workbench>, can't set lower_case_table_nam myself 8.x window 10, myself 8.0.12 run window 10, seem impose set lower_case_table_nam 2, achieve appear mix case do table name workbench. realize hood object may remain lower case, fine. want look right workbench, could away achieve previous version myself. attempt start service take effect, service crash stops. myself log see this: differ lower_case_table_nam set server ('2') data dictionary ('1'). data dictionary into failed. seem common problem lot people. read slut is: lower_case_table_nam need set together --initiative. idea means, set started. good read never forum article can't find clear instruct resolve this."
+50477946,Detect duplicate items in recursive CTE,"I have a set of dependencies stored in my database. I'm looking to find all the objects that depend on the current one, whether directly or indirectly.  Since objects can depend zero or more other objects, it's perfectly reasonable that object 1 is depended on by object 9 twice (9 depends on 4 and 5, both of which depend on 1).  I'd like to get the list of all the objects that depend on the current object without duplication.
+This gets more complex if there are loops.  Without loops, one could use DISTINCT, though going through long chains more than once only to cull them at the end is still a problem.  With loops, however, it becomes important that the RECURSIVE CTE doesn't union with something it has already seen.
+So what I have so far looks like this:
+WITH RECURSIVE __dependents AS (
+  SELECT object, array[object.id] AS seen_objects
+  FROM immediate_object_dependents(_objectid) object
+  UNION ALL
+  SELECT object, d.seen_objects || object.id
+  FROM __dependents d
+  JOIN immediate_object_dependents((d.object).id) object
+    ON object.id &lt;&gt; ALL (d.seen_objects)
+) SELECT (object).* FROM __dependents;
+(It's in a stored procedure, so I can pass in _objectid)
+Unfortunately, this just omits a given object when I've seen it before in the current chain, which would be fine if a recursive CTE was being done depth-first, but when it's breadth-first, it becomes problematic.
+Ideally, the solution would be in SQL rather than PLPGSQL, but either one works.
+As an example, I set this up in postgres:
+create table objectdependencies (
+  id int,
+  dependson int
+);
+create index on objectdependencies (dependson);
+insert into objectdependencies values (1, 2), (1, 4), (2, 3), (2, 4), (3, 4);
+And then I tried running this:
+with recursive rdeps as (
+  select dep
+  from objectdependencies dep
+  where dep.dependson = 4 -- starting point
+  union all
+  select dep
+  from objectdependencies dep
+  join rdeps r
+    on (r.dep).id = dep.dependson
+) select (dep).id from rdeps;
+I'm expecting ""1, 2, 3"" as output.
+However, this somehow goes on forever (which I also don't understand).  If I add in a level check (select dep, 0 as level, ... select dep, level + 1, on ... and level &lt; 3), I see that 2 and 3 are repeating.  Conversely, if I add a seen check:
+with recursive rdeps as (
+  select dep, array[id] as seen
+  from objectdependencies dep
+  where dep.dependson = 4 -- starting point
+  union all
+  select dep, r.seen || dep.id
+  from objectdependencies dep
+  join rdeps r
+    on (r.dep).id = dep.dependson and dep.id &lt;&gt; ALL (r.seen)
+) select (dep).id from rdeps;
+then I get 1, 2, 3, 2, 3, and it stops. I could use DISTINCT in the outer select, but that only reasonably works on this data because there is no loop. With a larger dataset and more loops, we will continue to grow the CTE's output only to have the DISTINCT pare it back down.  I would like the CTE to simply stop that branch when it's already seen that particular value somewhere else.
+Edit: this is not simply about cycle detection (though there can be cycles). It's about uncovering everything referenced by this object, directly and indirectly.  So if we have 1->2->3->5->6->7 and 2->4->5, we can start at 1, go to 2, from there we can go to 3 and 4, both of those branches will go to 5, but I don't need both branches to do so - the first one can go to 5, and the other can simply stop there. Then we go on to 6 and 7. Most cycle detection will find no cycles and return 5, 6, 7 all twice. Given that I expect most of my production data to have 0-3 immediate references, and most of those to be likewise, it will be very common for there to be multiple branches from one object to another, and going down those branches will be not only redundant but a huge waste of time and resource.
+",<sql><postgresql><common-table-expression>,3772,0,43,21814,5,42,69,76,3894,0.0,1133,4,13,2018-05-22 23:47,2018-05-25 23:35,2018-05-29 6:00,3.0,7.0,Intermediate,17,"<sql><postgresql><common-table-expression>, Detect duplicate items in recursive CTE, I have a set of dependencies stored in my database. I'm looking to find all the objects that depend on the current one, whether directly or indirectly.  Since objects can depend zero or more other objects, it's perfectly reasonable that object 1 is depended on by object 9 twice (9 depends on 4 and 5, both of which depend on 1).  I'd like to get the list of all the objects that depend on the current object without duplication.
+This gets more complex if there are loops.  Without loops, one could use DISTINCT, though going through long chains more than once only to cull them at the end is still a problem.  With loops, however, it becomes important that the RECURSIVE CTE doesn't union with something it has already seen.
+So what I have so far looks like this:
+WITH RECURSIVE __dependents AS (
+  SELECT object, array[object.id] AS seen_objects
+  FROM immediate_object_dependents(_objectid) object
+  UNION ALL
+  SELECT object, d.seen_objects || object.id
+  FROM __dependents d
+  JOIN immediate_object_dependents((d.object).id) object
+    ON object.id &lt;&gt; ALL (d.seen_objects)
+) SELECT (object).* FROM __dependents;
+(It's in a stored procedure, so I can pass in _objectid)
+Unfortunately, this just omits a given object when I've seen it before in the current chain, which would be fine if a recursive CTE was being done depth-first, but when it's breadth-first, it becomes problematic.
+Ideally, the solution would be in SQL rather than PLPGSQL, but either one works.
+As an example, I set this up in postgres:
+create table objectdependencies (
+  id int,
+  dependson int
+);
+create index on objectdependencies (dependson);
+insert into objectdependencies values (1, 2), (1, 4), (2, 3), (2, 4), (3, 4);
+And then I tried running this:
+with recursive rdeps as (
+  select dep
+  from objectdependencies dep
+  where dep.dependson = 4 -- starting point
+  union all
+  select dep
+  from objectdependencies dep
+  join rdeps r
+    on (r.dep).id = dep.dependson
+) select (dep).id from rdeps;
+I'm expecting ""1, 2, 3"" as output.
+However, this somehow goes on forever (which I also don't understand).  If I add in a level check (select dep, 0 as level, ... select dep, level + 1, on ... and level &lt; 3), I see that 2 and 3 are repeating.  Conversely, if I add a seen check:
+with recursive rdeps as (
+  select dep, array[id] as seen
+  from objectdependencies dep
+  where dep.dependson = 4 -- starting point
+  union all
+  select dep, r.seen || dep.id
+  from objectdependencies dep
+  join rdeps r
+    on (r.dep).id = dep.dependson and dep.id &lt;&gt; ALL (r.seen)
+) select (dep).id from rdeps;
+then I get 1, 2, 3, 2, 3, and it stops. I could use DISTINCT in the outer select, but that only reasonably works on this data because there is no loop. With a larger dataset and more loops, we will continue to grow the CTE's output only to have the DISTINCT pare it back down.  I would like the CTE to simply stop that branch when it's already seen that particular value somewhere else.
+Edit: this is not simply about cycle detection (though there can be cycles). It's about uncovering everything referenced by this object, directly and indirectly.  So if we have 1->2->3->5->6->7 and 2->4->5, we can start at 1, go to 2, from there we can go to 3 and 4, both of those branches will go to 5, but I don't need both branches to do so - the first one can go to 5, and the other can simply stop there. Then we go on to 6 and 7. Most cycle detection will find no cycles and return 5, 6, 7 all twice. Given that I expect most of my production data to have 0-3 immediate references, and most of those to be likewise, it will be very common for there to be multiple branches from one object to another, and going down those branches will be not only redundant but a huge waste of time and resource.
+","<sal><postgresql><common-table-expression>, detect public item recurs ate, set depend store database. i'm look find object depend current one, whether directly indirectly. since object depend zero objects, perfectly reason object 1 depend object 9 twice (9 depend 4 5, depend 1). i'd like get list object depend current object without application. get complex loops. without loops, one could use distinct, though go long chain full end still problem. loops, however, become import recurs ate union cometh already seen. far look like this: recurs depend ( select object, array[object.id] seen_object immediate_object_dependents(objected) object union select object, d.seen_object || object.id depend join immediate_object_dependents((d.object).id) object object.id &it;&it; (d.seen_objects) ) select (object).* dependents; (it' store procedure, pass objected) unfortunately, omit given object i'v seen current chain, would fine recurs ate done depth-first, breadth-first, become problematical. ideally, slut would sal rather plpgsql, either one works. example, set postures: great table objectdepend ( id in, depends in ); great index objectdepend (depends); insert objectdepend value (1, 2), (1, 4), (2, 3), (2, 4), (3, 4); try run this: recurs rep ( select de objectdepend de de.depends = 4 -- start point union select de objectdepend de join rep r (r.de).id = de.depends ) select (de).id orders; i'm expect ""1, 2, 3"" output. however, somehow go fore (which also understand). add level check (select de, 0 level, ... select de, level + 1, ... level &it; 3), see 2 3 repeating. conversely, add seen check: recurs rep ( select de, array[id] seen objectdepend de de.depends = 4 -- start point union select de, r.seen || de.id objectdepend de join rep r (r.de).id = de.depends de.id &it;&it; (r.seen) ) select (de).id orders; get 1, 2, 3, 2, 3, stops. could use distinct outer select, reason work data loop. larger dataset loops, continue grow ate' output distinct are back down. would like ate simple stop branch already seen particular value somewhere else. edit: simple cycle detect (though cycle). union every reference object, directly indirectly. 1->2->3->5->6->7 2->4->5, start 1, go 2, go 3 4, branch go 5, need branch - first one go 5, simple stop there. go 6 7. cycle detect find cycle return 5, 6, 7 twice. given expect product data 0-3 dimmed references, likewise, common multiple branch one object another, go branch refund huge wast time resource."
+53197922,Difference between .query() and .execute() in MySQL,"I'm having difficulty comprehending the implementation of prepared statements. I've done a fair amount of research but most of the information I found is either out of context or contain examples far more complex than what I'm trying to accomplish. Can anyone clarify for me why the execute method in the second example below is throwing a syntax error?
+NOTE: I'm using the node-mysql2 package here.
+controller.js  (using query mysql method)
+  const db = require(""../lib/database"");
+  async addNewThing(req, res, next) {
+    let data = req.body
+    const queryString = 'INSERT INTO table SET ?'
+    try {
+      await db.query(queryString, data)
+      res.status(201).json({
+        message: 'Record inserted',
+        data
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+Record is successfully inserted into the database
+controller.js    (using execute mysql method)
+  const db = require(""../lib/database"");
+  async addNewThing(req, res, next) {
+    let data = req.body
+    const queryString = 'INSERT INTO table SET ?'
+    try {
+      await db.execute(queryString, [data])
+      res.status(201).json({
+        message: 'Record inserted',
+        data
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+Results in the following error:
+  You have an error in your SQL syntax; check the manual that
+  corresponds to your MySQL server version for the right syntax to use
+  near '?' at line 1
+data
+{ thing_id: '987654', thing_name: 'thing' }
+",<mysql><node.js><express><syntax-error>,1457,0,37,472,1,4,13,69,13077,0.0,6,1,13,2018-11-07 21:15,2018-11-09 3:08,2018-11-09 3:08,2.0,2.0,Intermediate,19,"<mysql><node.js><express><syntax-error>, Difference between .query() and .execute() in MySQL, I'm having difficulty comprehending the implementation of prepared statements. I've done a fair amount of research but most of the information I found is either out of context or contain examples far more complex than what I'm trying to accomplish. Can anyone clarify for me why the execute method in the second example below is throwing a syntax error?
+NOTE: I'm using the node-mysql2 package here.
+controller.js  (using query mysql method)
+  const db = require(""../lib/database"");
+  async addNewThing(req, res, next) {
+    let data = req.body
+    const queryString = 'INSERT INTO table SET ?'
+    try {
+      await db.query(queryString, data)
+      res.status(201).json({
+        message: 'Record inserted',
+        data
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+Record is successfully inserted into the database
+controller.js    (using execute mysql method)
+  const db = require(""../lib/database"");
+  async addNewThing(req, res, next) {
+    let data = req.body
+    const queryString = 'INSERT INTO table SET ?'
+    try {
+      await db.execute(queryString, [data])
+      res.status(201).json({
+        message: 'Record inserted',
+        data
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+Results in the following error:
+  You have an error in your SQL syntax; check the manual that
+  corresponds to your MySQL server version for the right syntax to use
+  near '?' at line 1
+data
+{ thing_id: '987654', thing_name: 'thing' }
+","<myself><node.is><express><santa-error>, differ .query() .execute() myself, i'm difficult comprehend implement prepare statements. i'v done fair amount research inform found either context contain example far complex i'm try accomplish. anyone clarify execute method second example throw santa error? note: i'm use node-myself package here. controller.j (use query myself method) cost do = require(""../limb/database""); async addnewthing(red, yes, next) { let data = red.body cost querystr = 'insert table set ?' try { await do.query(querystring, data) yes.status(201).son({ message: 'record inserted', data }) } catch (error) { next(error) } } record success insert database controller.j (use execute myself method) cost do = require(""../limb/database""); async addnewthing(red, yes, next) { let data = red.body cost querystr = 'insert table set ?' try { await do.execute(querystring, [data]) yes.status(201).son({ message: 'record inserted', data }) } catch (error) { next(error) } } result follow error: error sal santa; check manual correspond myself server version right santa use near '?' line 1 data { thing_id: '987654', thing_name: 'thing' }"
+52791121,Is Java Spring JPA native query SQL injection proof?,"I'm writing this question because I didn't find any useful article about how to prevent SQL Injection in Spring Data JPA. All the tutorials are showing how to use these queries but they don't mentioned anything about these possible attacks.
+I'm having the following query:
+@Repository
+public interface UserRepository extends CrudRepository&lt;User, Integer&gt; {
+    @Query(nativeQuery = true, value = ""SELECT * FROM users WHERE email LIKE %:emailAddress%"")
+    public ResponseList&lt;User&gt; getUsers(@Param(""emailAddress"") String emailAddress);
+}
+The rest controller to deliver the request:
+@RequestMapping(value = ""/get-users"", method = RequestMethod.POST)
+public Response&lt;StringResponse&gt; getUsers(WebRequest request) {
+    return userService.getUsers(request.getParameter(""email""));
+}
+Are JPQL or native query parameters escaped before executing them?
+This is the query with SQL injection executed in my MySQL console which drops the users table:
+SELECT * FROM users WHERE email LIKE '%'; DROP TABLE users; -- %';
+I have tried to execute the SQL attack by sending a POST request to the server:
+http://localhost:8080/get-users
+POST: key/value: ""email"" : ""'; DROP TABLE users; --""
+I have enabled Hibernate's sql logging and this is what the above request produced:
+[http-nio-8080-exec-8] DEBUG org.hibernate.SQL - SELECT * FROM users WHERE email LIKE ?
+Hibernate: SELECT * FROM users WHERE email LIKE ?
+[http-nio-8080-exec-8] DEBUG org.hibernate.loader.Loader - bindNamedParameters() %'; DROP TABLE users; -- % -&gt; emailAddress [1]
+[http-nio-8080-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%'; DROP TABLE users; -- %]
+The table wasn't dropped (which is good) but why the parameter isn't escaped?
+What if I don't annotate the @Param(""emailAddress"") and I use indexed parameters?:
+@Query(nativeQuery = true, value = ""SELECT * FROM users WHERE email LIKE ?1"")
+public ResponseList&lt;User&gt; getUsers(String email);
+",<spring-data-jpa><sql-injection>,1971,1,21,9447,22,84,137,39,12261,0.0,261,1,13,2018-10-13 8:37,2018-10-14 12:42,2018-10-14 12:42,1.0,1.0,Advanced,43,"<spring-data-jpa><sql-injection>, Is Java Spring JPA native query SQL injection proof?, I'm writing this question because I didn't find any useful article about how to prevent SQL Injection in Spring Data JPA. All the tutorials are showing how to use these queries but they don't mentioned anything about these possible attacks.
+I'm having the following query:
+@Repository
+public interface UserRepository extends CrudRepository&lt;User, Integer&gt; {
+    @Query(nativeQuery = true, value = ""SELECT * FROM users WHERE email LIKE %:emailAddress%"")
+    public ResponseList&lt;User&gt; getUsers(@Param(""emailAddress"") String emailAddress);
+}
+The rest controller to deliver the request:
+@RequestMapping(value = ""/get-users"", method = RequestMethod.POST)
+public Response&lt;StringResponse&gt; getUsers(WebRequest request) {
+    return userService.getUsers(request.getParameter(""email""));
+}
+Are JPQL or native query parameters escaped before executing them?
+This is the query with SQL injection executed in my MySQL console which drops the users table:
+SELECT * FROM users WHERE email LIKE '%'; DROP TABLE users; -- %';
+I have tried to execute the SQL attack by sending a POST request to the server:
+http://localhost:8080/get-users
+POST: key/value: ""email"" : ""'; DROP TABLE users; --""
+I have enabled Hibernate's sql logging and this is what the above request produced:
+[http-nio-8080-exec-8] DEBUG org.hibernate.SQL - SELECT * FROM users WHERE email LIKE ?
+Hibernate: SELECT * FROM users WHERE email LIKE ?
+[http-nio-8080-exec-8] DEBUG org.hibernate.loader.Loader - bindNamedParameters() %'; DROP TABLE users; -- % -&gt; emailAddress [1]
+[http-nio-8080-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%'; DROP TABLE users; -- %]
+The table wasn't dropped (which is good) but why the parameter isn't escaped?
+What if I don't annotate the @Param(""emailAddress"") and I use indexed parameters?:
+@Query(nativeQuery = true, value = ""SELECT * FROM users WHERE email LIKE ?1"")
+public ResponseList&lt;User&gt; getUsers(String email);
+","<spring-data-pa><sal-injection>, cava spring pa native query sal inject proof?, i'm write question find use article prevent sal inject spring data pa. tutor show use query mention any possible attacks. i'm follow query: @depositors public interface userrepositori extend crudrepository&it;user, inter&it; { @query(nativequeri = true, value = ""select * user email like %:emailaddress%"") public responselist&it;user&it; getusers(@parma(""emailaddress"") string emailaddress); } rest control devil request: @requestmapping(value = ""/get-users"", method = requestmethod.post) public response&it;stringresponse&it; getusers(webrequest request) { return userservice.getusers(request.getparameter(""email"")); } jail native query parapet escape execute them? query sal inject execute myself console drop user table: select * user email like '%'; drop table users; -- %'; try execute sal attack send post request server: http://localhost:8080/get-us post: key/value: ""email"" : ""'; drop table users; --"" enable liberate' sal log request produced: [http-no-8080-even-8] debut org.liberate.sal - select * user email like ? liberate: select * user email like ? [http-no-8080-even-8] debut org.liberate.leader.load - bindnamedparameters() %'; drop table users; -- % -&it; emailaddress [1] [http-no-8080-even-8] trace o.h.type.description.sal.basicbind - bind parapet [1] [varchar] - [%'; drop table users; -- %] table drop (which good) parapet escaped? cannot @parma(""emailaddress"") use index parameter?: @query(nativequeri = true, value = ""select * user email like ?1"") public responselist&it;user&it; getusers(sir email);"
+50414906,"Why am I getting an ""Invalid use of Nulls"" error in my query?","I use a userform in Excel to run some internal queries between my spreadsheets.
+However I am getting Invalid Use of Null. I am aware of the nz null syntax (SQL MS Access - Invalid Use of Null), however my queries can be quite large, and I am wondering if there is anything I can add to my VBA code to allow nulls. 
+",<sql><excel><vba><ms-access>,315,1,2,1584,6,33,69,37,3362,,303,1,13,2018-05-18 15:40,2018-05-23 19:56,2018-05-23 19:56,5.0,5.0,Basic,13,"<sql><excel><vba><ms-access>, Why am I getting an ""Invalid use of Nulls"" error in my query?, I use a userform in Excel to run some internal queries between my spreadsheets.
+However I am getting Invalid Use of Null. I am aware of the nz null syntax (SQL MS Access - Invalid Use of Null), however my queries can be quite large, and I am wondering if there is anything I can add to my VBA code to allow nulls. 
+","<sal><expel><va><ms-access>, get ""invalid use null"" error query?, use perform expel run inter query spreadsheets. howe get invalid use null. war no null santa (sal ms access - invalid use null), howe query quit large, wonder any add va code allow null."
+52644981,Spark: Return empty column if column does not exist in dataframe,"As shown in the below code, I am reading a JSON file into a dataframe and then selecting some fields from that dataframe into another one.
+df_record = spark.read.json(""path/to/file.JSON"",multiLine=True)
+df_basicInfo = df_record.select(col(""key1"").alias(""ID""), \
+                                col(""key2"").alias(""Status""), \
+                                col(""key3.ResponseType"").alias(""ResponseType""), \
+                                col(""key3.someIndicator"").alias(""SomeIndicator"") \
+                                )
+Issue is that some times, the JSON file does not have some of the keys that I try to fetch - like ResponseType. So it ends up throwing errors like:
+org.apache.spark.sql.AnalysisException: No such struct field ResponseType
+How can I get around this issue without forcing a schema at the time of read? is it possible to make it return a NULL under that column when it is not available?
+how do I detect if a spark dataframe has a column Does mention how to detect if a column is available in a dataframe. This question, however, is about how to use that function. 
+",<apache-spark><pyspark><apache-spark-sql>,1086,1,9,833,3,10,26,39,32979,0.0,23,6,13,2018-10-04 10:55,2018-10-04 12:06,2018-10-04 12:06,0.0,0.0,Basic,9,"<apache-spark><pyspark><apache-spark-sql>, Spark: Return empty column if column does not exist in dataframe, As shown in the below code, I am reading a JSON file into a dataframe and then selecting some fields from that dataframe into another one.
+df_record = spark.read.json(""path/to/file.JSON"",multiLine=True)
+df_basicInfo = df_record.select(col(""key1"").alias(""ID""), \
+                                col(""key2"").alias(""Status""), \
+                                col(""key3.ResponseType"").alias(""ResponseType""), \
+                                col(""key3.someIndicator"").alias(""SomeIndicator"") \
+                                )
+Issue is that some times, the JSON file does not have some of the keys that I try to fetch - like ResponseType. So it ends up throwing errors like:
+org.apache.spark.sql.AnalysisException: No such struct field ResponseType
+How can I get around this issue without forcing a schema at the time of read? is it possible to make it return a NULL under that column when it is not available?
+how do I detect if a spark dataframe has a column Does mention how to detect if a column is available in a dataframe. This question, however, is about how to use that function. 
+","<apache-spark><spark><apache-spark-sal>, spark: return empty column column exist dataframe, shown code, read son file datafram select field datafram not one. df_record = spark.read.son(""path/to/file.son"",multiline=true) df_basicinfo = df_record.select(col(""key"").alias(""id""), \ col(""key"").alias(""status""), \ col(""key.responsetype"").alias(""responsetype""), \ col(""key.someindicator"").alias(""someindicator"") \ ) issue times, son file key try fetch - like responsetype. end throw error like: org.apache.spark.sal.analysisexception: struck field responsetyp get around issue without for scheme time read? possible make return null column available? detect spark datafram column mention detect column avail dataframe. question, however, use function."
+56776974,Connect to a database in cloud,"I have an SQLite database (110kb) in an S3 bucket. I want to connect to that database every time I run my Python application.
+An option is to download database everytime I run the Python application and connect it. But I want to know if there exists a way to connect to that SQLite database through memory, using S3FileSystem and open.
+I'm using SQLite3 library in Python 3.6.
+",<python><python-3.x><sqlite><amazon-s3><in-memory-database>,377,0,2,2063,3,15,26,71,18444,0.0,476,5,13,2019-06-26 16:04,2019-06-26 18:18,2019-12-21 6:48,0.0,178.0,Basic,3,"<python><python-3.x><sqlite><amazon-s3><in-memory-database>, Connect to a database in cloud, I have an SQLite database (110kb) in an S3 bucket. I want to connect to that database every time I run my Python application.
+An option is to download database everytime I run the Python application and connect it. But I want to know if there exists a way to connect to that SQLite database through memory, using S3FileSystem and open.
+I'm using SQLite3 library in Python 3.6.
+","<patron><patron-3.x><quite><amazon-s><in-memory-database>, connect database cloud, quite database (110kb) s bucket. want connect database every time run patron application. option download database everytim run patron applied connect it. want know exist way connect quite database memory, use s3filesystem open. i'm use sqlite3 library patron 3.6."
+54124262,"How to fix ""Illuminate\Database\QueryException: SQLSTATE[HY000] [1044] Access denied for user""","I tried to run: php artisan migrate
+Also to connect to MySQL using Xampp on Windows.
+I Got this error:
+Illuminate\Database\QueryException  : SQLSTATE[HY000] [1044] Access
+denied for user ''@'localhost' to database 'homestead' (SQL: select *
+from information_schema.tables where table_schema = homestead and
+table_name = migrations)
+  at
+C:\Users\harsh\Laravel1\vendor\laravel\framework\src\Illuminate\Database\Connection.php:664
+    660|         // If an exception occurs when attempting to run a query, we'll format the error
+    661|         // message to include the bindings with SQL, which will make this exception a
+    662|         // lot more helpful to the developer instead of just the database's errors.
+    663|         catch (Exception $e) {
+  &gt; 664|             throw new QueryException(
+    665|                 $query, $this-&gt;prepareBindings($bindings), $e
+    666|             );
+    667|         }
+    668|  Exception trace:
+  1   PDOException::(&quot;SQLSTATE[HY000] [1044] Access denied for user
+''@'localhost' to database 'homestead'&quot;)
+      C:\Users\harsh\Laravel1\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:70
+  2  
+PDO::__construct(&quot;mysql:host=127.0.0.1;port=3306;dbname=homestead&quot;,
+&quot;homestead&quot;, &quot;&quot;, [])
+      C:\Users\harsh\Laravel1\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:70
+  Please use the argument -v to see more details.
+.env file:
+DB_CONNECTION=mysql 
+DB_HOST=127.0.0.1 
+DB_PORT=3306 
+DB_DATABASE=homestead 
+DB_USERNAME=homestead 
+DB_PASSWORD=
+",<php><mysql><laravel><laravel-5>,1581,0,34,349,1,5,15,54,144061,0.0,5,10,13,2019-01-10 8:07,2019-01-10 8:38,2019-01-10 8:38,0.0,0.0,Basic,9,"<php><mysql><laravel><laravel-5>, How to fix ""Illuminate\Database\QueryException: SQLSTATE[HY000] [1044] Access denied for user"", I tried to run: php artisan migrate
+Also to connect to MySQL using Xampp on Windows.
+I Got this error:
+Illuminate\Database\QueryException  : SQLSTATE[HY000] [1044] Access
+denied for user ''@'localhost' to database 'homestead' (SQL: select *
+from information_schema.tables where table_schema = homestead and
+table_name = migrations)
+  at
+C:\Users\harsh\Laravel1\vendor\laravel\framework\src\Illuminate\Database\Connection.php:664
+    660|         // If an exception occurs when attempting to run a query, we'll format the error
+    661|         // message to include the bindings with SQL, which will make this exception a
+    662|         // lot more helpful to the developer instead of just the database's errors.
+    663|         catch (Exception $e) {
+  &gt; 664|             throw new QueryException(
+    665|                 $query, $this-&gt;prepareBindings($bindings), $e
+    666|             );
+    667|         }
+    668|  Exception trace:
+  1   PDOException::(&quot;SQLSTATE[HY000] [1044] Access denied for user
+''@'localhost' to database 'homestead'&quot;)
+      C:\Users\harsh\Laravel1\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:70
+  2  
+PDO::__construct(&quot;mysql:host=127.0.0.1;port=3306;dbname=homestead&quot;,
+&quot;homestead&quot;, &quot;&quot;, [])
+      C:\Users\harsh\Laravel1\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:70
+  Please use the argument -v to see more details.
+.env file:
+DB_CONNECTION=mysql 
+DB_HOST=127.0.0.1 
+DB_PORT=3306 
+DB_DATABASE=homestead 
+DB_USERNAME=homestead 
+DB_PASSWORD=
+","<pp><myself><travel><travel-5>, fix ""illuminate\database\queryexception: sqlstate[hy000] [1044] access den user"", try run: pp artisans migrate also connect myself use camp windows. got error: illuminate\database\queryexcept : sqlstate[hy000] [1044] access den user ''@'localhost' database 'homestead' (sal: select * information_schema.t table_schema = homestead table_nam = migrations) c:\users\harsh\laravel1\vendor\travel\framework\sac\illuminate\database\connection.pp:664 660| // except occur attempt run query, we'll format error 661| // message include bind sal, make except 662| // lot help develop instead database' errors. 663| catch (except $e) { &it; 664| throw new queryexception( 665| $query, $this-&it;preparebindings($binding), $e 666| ); 667| } 668| except trace: 1 pdoexception::(&quit;sqlstate[hy000] [1044] access den user ''@'localhost' database 'homestead'&quit;) c:\users\harsh\laravel1\vendor\travel\framework\sac\illuminate\database\connections\connection.pp:70 2 do::construct(&quit;myself:host=127.0.0.1;port=3306;name=homestead&quit;, &quit;homestead&quit;, &quit;&quit;, []) c:\users\harsh\laravel1\vendor\travel\framework\sac\illuminate\database\connections\connection.pp:70 pleas use argument -v see details. .end file: db_connection=myself db_host=127.0.0.1 duport=3306 db_database=homestead db_username=homestead db_password="
+53382161,"message -""could not read a hi value - you need to populate the table: hibernate_sequence""","My problem is as follows: When i create POST request in ""Postman"" app. This is what i try to POST 
+  {""name"": ""John Doe"", ""email"":""jdoe@test.com"", ""city"": ""London""}
+I am getting the following error:
+{
+""timestamp"": ""2018-11-19T20:16:00.486+0000"",
+""status"": 500,
+""error"": ""Internal Server Error"",
+""message"": ""could not read a hi value - you need to populate the table: hibernate_sequence; nested exception is org.hibernate.id.IdentifierGenerationException: could not read a hi value - you need to populate the table: hibernate_sequence"",
+""path"": ""/api/ver01/product""
+}
+I was looking for answer in search box but none of them helped me. So i think that the problem is in sql code but I am not sure. Whole project is written in intelliJ IDE.
+This is my Product class.
+package com.hubertkulas.webstore.store.archetype;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.math.BigDecimal;
+import java.sql.Date;
+@Entity
+@JsonIgnoreProperties({""hibernateLazyInitializer"", ""handler""})
+public class Product {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+private Long id;
+private boolean contact;
+private String email;
+private String category;
+private String name;
+private String city;
+private String model;
+private BigDecimal price;
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = ""MM-dd-yyyy"")
+private Date date;
+public String getName() {
+    return name;
+}
+public void setName(String name) {
+    this.name = name;
+}
+public String getEmail() {
+    return email;
+}
+public void setEmail(String email) {
+    this.email = email;
+}
+public String getCity() {
+    return city;
+}
+public void setCity(String city) {
+    this.city = city;
+}
+public String getCategory() {
+    return category;
+}
+public void setCategory(String category) {
+    this.category = category;
+}
+public String getModel() {
+    return model;
+}
+public void setModel(String model) {
+    this.model = model;
+}
+public BigDecimal getPrice() {
+    return price;
+}
+public void setPrice(BigDecimal price) {
+    this.price = price;
+}
+public Date getDate() {
+    return date;
+}
+public void setDate(Date date) {
+    this.date = date;
+}
+public boolean isContact() {
+    return contact;
+}
+public void setContact(boolean contact) {
+    this.contact = contact;
+}
+public Long getId() {
+    return id;
+}
+// setter for id because Jackson will use it
+public void setId(Long id) {
+    this.id = id;
+}
+}
+This is my ProductController class
+package com.hubertkulas.webstore.store.controllers;
+import com.hubertkulas.webstore.store.archetype.Product;
+import com.hubertkulas.webstore.store.jparepository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+@RestController
+@RequestMapping(""api/ver01/product"")
+public class ProductController {
+//injecting ProductRepository when ProductController is called
+@Autowired
+private ProductRepository productRepository;
+@GetMapping
+public List&lt;Product&gt; list() {
+    //finds all of the records and returns it
+   return productRepository.findAll();
+}
+@PostMapping
+@ResponseStatus(HttpStatus.OK)
+public void create(@RequestBody Product product){
+    productRepository.save(product);
+}
+@GetMapping(""/{id}"")
+public Product get(@PathVariable(""id"") long id){
+    // return specific record with added id
+    return productRepository.getOne(id);
+}
+}
+This is my ProductRepository Interface
+package com.hubertkulas.webstore.store.jparepository;
+import com.hubertkulas.webstore.store.archetype.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+//Using Jpa for CRUD operations
+public interface ProductRepository extends JpaRepository&lt;Product, Long&gt; {
+}
+And this is my database
+CREATE TABLE
+product
+(
+    id BIGINT NOT NULL,
+    contact BOOLEAN NOT NULL,
+    email VARCHAR,
+    category VARCHAR,
+    name VARCHAR,
+    city VARCHAR,
+    date DATETIME,
+    price NUMERIC,
+    model VARCHAR,
+    PRIMARY KEY (id)
+);
+CREATE TABLE
+hibernate_sequence
+(
+    next_val BIGINT
+);
+INSERT INTO product (id, contact, email, category, name, city, date, price)
+VALUES (1, 1, 'abraham@site.com', 'Electronics', 'Abraham Westbrom', 'New 
+York', 4419619200000, '3250');
+INSERT INTO product (id, contact, email, category, name, city, date, price)
+VALUES (2, 1, 'udon@site.com', 'Electronics', 'Udon Hon', 'London', 
+4419619200000, '799');
+INSERT INTO product (id, contact, email, category, name, city, date, price)
+VALUES (3, 0, 'mateuszsinus@site.com', 'Software', 'Mateusz Sinus', 
+'Warsaw', 4419619200000, '10000');
+INSERT INTO hibernate_sequence (next_val) VALUES (4);
+",<java><sql><hibernate><spring-boot><postman>,4821,0,193,168,1,2,10,47,25192,0.0,8,4,13,2018-11-19 20:28,2018-11-19 20:40,2018-11-19 20:40,0.0,0.0,Basic,9,"<java><sql><hibernate><spring-boot><postman>, message -""could not read a hi value - you need to populate the table: hibernate_sequence"", My problem is as follows: When i create POST request in ""Postman"" app. This is what i try to POST 
+  {""name"": ""John Doe"", ""email"":""jdoe@test.com"", ""city"": ""London""}
+I am getting the following error:
+{
+""timestamp"": ""2018-11-19T20:16:00.486+0000"",
+""status"": 500,
+""error"": ""Internal Server Error"",
+""message"": ""could not read a hi value - you need to populate the table: hibernate_sequence; nested exception is org.hibernate.id.IdentifierGenerationException: could not read a hi value - you need to populate the table: hibernate_sequence"",
+""path"": ""/api/ver01/product""
+}
+I was looking for answer in search box but none of them helped me. So i think that the problem is in sql code but I am not sure. Whole project is written in intelliJ IDE.
+This is my Product class.
+package com.hubertkulas.webstore.store.archetype;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.math.BigDecimal;
+import java.sql.Date;
+@Entity
+@JsonIgnoreProperties({""hibernateLazyInitializer"", ""handler""})
+public class Product {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+private Long id;
+private boolean contact;
+private String email;
+private String category;
+private String name;
+private String city;
+private String model;
+private BigDecimal price;
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = ""MM-dd-yyyy"")
+private Date date;
+public String getName() {
+    return name;
+}
+public void setName(String name) {
+    this.name = name;
+}
+public String getEmail() {
+    return email;
+}
+public void setEmail(String email) {
+    this.email = email;
+}
+public String getCity() {
+    return city;
+}
+public void setCity(String city) {
+    this.city = city;
+}
+public String getCategory() {
+    return category;
+}
+public void setCategory(String category) {
+    this.category = category;
+}
+public String getModel() {
+    return model;
+}
+public void setModel(String model) {
+    this.model = model;
+}
+public BigDecimal getPrice() {
+    return price;
+}
+public void setPrice(BigDecimal price) {
+    this.price = price;
+}
+public Date getDate() {
+    return date;
+}
+public void setDate(Date date) {
+    this.date = date;
+}
+public boolean isContact() {
+    return contact;
+}
+public void setContact(boolean contact) {
+    this.contact = contact;
+}
+public Long getId() {
+    return id;
+}
+// setter for id because Jackson will use it
+public void setId(Long id) {
+    this.id = id;
+}
+}
+This is my ProductController class
+package com.hubertkulas.webstore.store.controllers;
+import com.hubertkulas.webstore.store.archetype.Product;
+import com.hubertkulas.webstore.store.jparepository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+@RestController
+@RequestMapping(""api/ver01/product"")
+public class ProductController {
+//injecting ProductRepository when ProductController is called
+@Autowired
+private ProductRepository productRepository;
+@GetMapping
+public List&lt;Product&gt; list() {
+    //finds all of the records and returns it
+   return productRepository.findAll();
+}
+@PostMapping
+@ResponseStatus(HttpStatus.OK)
+public void create(@RequestBody Product product){
+    productRepository.save(product);
+}
+@GetMapping(""/{id}"")
+public Product get(@PathVariable(""id"") long id){
+    // return specific record with added id
+    return productRepository.getOne(id);
+}
+}
+This is my ProductRepository Interface
+package com.hubertkulas.webstore.store.jparepository;
+import com.hubertkulas.webstore.store.archetype.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+//Using Jpa for CRUD operations
+public interface ProductRepository extends JpaRepository&lt;Product, Long&gt; {
+}
+And this is my database
+CREATE TABLE
+product
+(
+    id BIGINT NOT NULL,
+    contact BOOLEAN NOT NULL,
+    email VARCHAR,
+    category VARCHAR,
+    name VARCHAR,
+    city VARCHAR,
+    date DATETIME,
+    price NUMERIC,
+    model VARCHAR,
+    PRIMARY KEY (id)
+);
+CREATE TABLE
+hibernate_sequence
+(
+    next_val BIGINT
+);
+INSERT INTO product (id, contact, email, category, name, city, date, price)
+VALUES (1, 1, 'abraham@site.com', 'Electronics', 'Abraham Westbrom', 'New 
+York', 4419619200000, '3250');
+INSERT INTO product (id, contact, email, category, name, city, date, price)
+VALUES (2, 1, 'udon@site.com', 'Electronics', 'Udon Hon', 'London', 
+4419619200000, '799');
+INSERT INTO product (id, contact, email, category, name, city, date, price)
+VALUES (3, 0, 'mateuszsinus@site.com', 'Software', 'Mateusz Sinus', 
+'Warsaw', 4419619200000, '10000');
+INSERT INTO hibernate_sequence (next_val) VALUES (4);
+","<cava><sal><liberate><spring-boot><potman>, message -""could read hi value - need soul table: hibernate_sequence"", problem follows: great post request ""potman"" pp. try post {""name"": ""john doe"", ""email"":""joe@test.com"", ""city"": ""london""} get follow error: { ""timestamp"": ""2018-11-19t20:16:00.486+0000"", ""status"": 500, ""error"": ""inter server error"", ""message"": ""could read hi value - need soul table: hibernate_sequence; nest except org.liberate.id.identifiergenerationexception: could read hi value - need soul table: hibernate_sequence"", ""path"": ""/apt/very/product"" } look answer search box none help me. think problem sal code sure. whole project written intellij side. product class. package com.hubertkulas.webster.store.archetype; import com.fasterxml.jackson.annexation.jsonformat; import com.fasterxml.jackson.annexation.jsonignoreproperties; import naval.persistence.entity; import naval.persistence.generatedvalue; import naval.persistence.generationtype; import naval.persistence.id; import cava.path.bigdecimal; import cava.sal.date; @entity @jsonignoreproperties({""hibernatelazyinitializer"", ""handle""}) public class product { @id @generatedvalue(strategic = generationtype.auto) privat long id; privat woolen contact; privat string email; privat string category; privat string name; privat string city; privat string model; privat bigdecim price; @jsonformat(sharp = jsonformat.shape.string, pattern = ""mm-did-yyyy"") privat date date; public string getname() { return name; } public void senate(sir name) { this.am = name; } public string getemail() { return email; } public void setemail(sir email) { this.email = email; } public string getcity() { return city; } public void setcity(sir city) { this.city = city; } public string getcategory() { return category; } public void setcategory(sir category) { this.category = category; } public string getmodel() { return model; } public void setmodel(sir model) { this.model = model; } public bigdecim getprice() { return price; } public void setprice(bigdecim price) { this.price = price; } public date sedate() { return date; } public void sedate(d date) { this.dat = date; } public woolen contact() { return contact; } public void setcontact(woolen contact) { this.contact = contact; } public long get() { return id; } // setter id jackson use public void said(long id) { this.id = id; } } productcontrol class package com.hubertkulas.webster.store.controller; import com.hubertkulas.webster.store.archetype.product; import com.hubertkulas.webster.store.jparepository.productrepository; import org.springframework.beans.factory.annexation.autowired; import org.springframework.http.httpstatus; import org.springframework.web.bind.annexation.*; import cava.until.list; @restcontrol @requestmapping(""apt/very/product"") public class productcontrol { //inject productrepositori productcontrol call @autowir privat productrepositori productrepository; @german public list&it;product&it; list() { //find record return return productrepository.finally(); } @postmark @responsestatus(httpstatus.ok) public void create(@requestbodi product product){ productrepository.save(product); } @getmapping(""/{id}"") public product get(@pathvariable(""id"") long id){ // return specie record ad id return productrepository.gone(id); } } productrepositori interface package com.hubertkulas.webster.store.jparepository; import com.hubertkulas.webster.store.archetype.product; import org.springframework.data.pa.depositors.jparepository; //use pa crude over public interface productrepositori extend jparepository&it;product, long&it; { } database great table product ( id begin null, contact woolen null, email varchar, category varchar, name varchar, city varchar, date daytime, price numerical, model varchar, primary key (id) ); great table hibernate_sequ ( next_val begin ); insert product (id, contact, email, category, name, city, date, price) value (1, 1, 'abraham@site.com', 'electronics', 'abraham westbrom', 'new york', 4419619200000, '3250'); insert product (id, contact, email, category, name, city, date, price) value (2, 1, 'upon@site.com', 'electronics', 'upon hon', 'london', 4419619200000, '799'); insert product (id, contact, email, category, name, city, date, price) value (3, 0, 'mateuszsinus@site.com', 'software', 'mates sinus', 'warsaw', 4419619200000, '10000'); insert hibernate_sequ (next_val) value (4);"
+54781017,How to Map Input and Output Columns dynamically in SSIS?,"I Have to Upload Data in SQL Server from .dbf Files through SSIS.
+My Output Column is fixed but the input column is not fixed because the files come from the client and the client may have updated data by his own style. there may be some unused columns too or the input column name can be different from the output column.
+One idea I had in my mind was to map files input column with output column in SQL Database table and use only those column which is present in the row for file id.
+But I am not getting how to do that. Any idea?
+Table Example
+FileID
+InputColumn
+OutputColumn
+Active
+1
+CustCd
+CustCode
+1
+1
+CName
+CustName
+1
+1
+Address
+CustAdd
+1
+2
+Cust_Code
+CustCode
+1
+2
+Customer Name
+CustName
+1
+2
+Location
+CustAdd
+1
+",<sql><sql-server><ssis><etl><ssis-2012>,717,0,0,623,3,11,25,46,14738,0.0,57,1,13,2019-02-20 7:33,2019-02-20 23:59,2019-02-20 23:59,0.0,0.0,Basic,9,"<sql><sql-server><ssis><etl><ssis-2012>, How to Map Input and Output Columns dynamically in SSIS?, I Have to Upload Data in SQL Server from .dbf Files through SSIS.
+My Output Column is fixed but the input column is not fixed because the files come from the client and the client may have updated data by his own style. there may be some unused columns too or the input column name can be different from the output column.
+One idea I had in my mind was to map files input column with output column in SQL Database table and use only those column which is present in the row for file id.
+But I am not getting how to do that. Any idea?
+Table Example
+FileID
+InputColumn
+OutputColumn
+Active
+1
+CustCd
+CustCode
+1
+1
+CName
+CustName
+1
+1
+Address
+CustAdd
+1
+2
+Cust_Code
+CustCode
+1
+2
+Customer Name
+CustName
+1
+2
+Location
+CustAdd
+1
+","<sal><sal-server><suis><etc><suis-2012>, map input output column dream suis?, unload data sal server .def file suis. output column fix input column fix file come client client may update data style. may anus column input column name differ output column. one idea mind map file input column output column sal database table use column present row file id. get that. idea? table example filed inputcolumn outputcolumn active 1 custom custom 1 1 came custom 1 1 address mustard 1 2 cust_cod custom 1 2 custom name custom 1 2 local mustard 1"
+59389911,sqlalchemy.exc.InvalidRequestError: Could not reflect: requested table(s) not available in Engine,"I am trying to push the excel xlsx data to mySQl Alchemy by using this simple code...
+import pandas as pd
+import os
+import sqlalchemy
+mydir = (os.getcwd()).replace('\\', '/') + '/'
+# MySQL Connection
+MYSQL_USER = 'xxxxxxx'
+MYSQL_PASSWORD = 'xxxxxxxx'
+MYSQL_HOST_IP = '127.0.0.1'
+MYSQL_PORT = 3306
+MYSQL_DATABASE = 'xlsx_test_db'
+# connect db
+engine = sqlalchemy.create_engine('mysql+mysqlconnector://' + MYSQL_USER + ':' + MYSQL_PASSWORD + '@' + MYSQL_HOST_IP + ':' + str(
+    MYSQL_PORT) + '/' + MYSQL_DATABASE, echo=False)
+engine.connect()
+# reading and insert one file at a time
+for file in os.listdir('.'):
+    # only process excels files
+    file_basename, extension = file.split('.')
+    if extension == 'xlsx':
+        df = pd.read_excel(r'' + mydir + 'MNM_Rotterdam_5_Daily_Details-20191216081027.xlsx', sheet_name='Report')
+        df.to_sql(file_basename, con=engine, if_exists='replace')
+But I found this error
+Traceback (most recent call last):
+  File ""C:/Users/DELL/PycharmProjects/automateDB/myWatchDog.py"", line 28, in &lt;module&gt;
+    df.to_sql(file_basename, con=engine, if_exists='replace')
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\core\generic.py"", line 2532, in to_sql
+    dtype=dtype, method=method)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 460, in to_sql
+    chunksize=chunksize, dtype=dtype, method=method)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 1173, in to_sql
+    table.create()
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 577, in create
+    self.pd_sql.drop_table(self.name, self.schema)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 1222, in drop_table
+    self.meta.reflect(only=[table_name], schema=schema)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\sqlalchemy\sql\schema.py"", line 3956, in reflect
+    (bind.engine, s, ', '.join(missing)))
+sqlalchemy.exc.InvalidRequestError: Could not reflect: requested table(s) not available in Engine(mysql+mysqlconnector://root:***@127.0.0.1:3306/xlsx_test_db): (MNM_Rotterdam_5_Daily_Details-20191216081027)
+So any one could me to solve this...
+Thank you...
+I hope it would be clear enough....
+",<python><pandas><sqlalchemy>,2358,0,45,2279,7,36,80,37,16097,0.0,328,4,13,2019-12-18 10:23,2020-03-28 19:39,,101.0,,Basic,9,"<python><pandas><sqlalchemy>, sqlalchemy.exc.InvalidRequestError: Could not reflect: requested table(s) not available in Engine, I am trying to push the excel xlsx data to mySQl Alchemy by using this simple code...
+import pandas as pd
+import os
+import sqlalchemy
+mydir = (os.getcwd()).replace('\\', '/') + '/'
+# MySQL Connection
+MYSQL_USER = 'xxxxxxx'
+MYSQL_PASSWORD = 'xxxxxxxx'
+MYSQL_HOST_IP = '127.0.0.1'
+MYSQL_PORT = 3306
+MYSQL_DATABASE = 'xlsx_test_db'
+# connect db
+engine = sqlalchemy.create_engine('mysql+mysqlconnector://' + MYSQL_USER + ':' + MYSQL_PASSWORD + '@' + MYSQL_HOST_IP + ':' + str(
+    MYSQL_PORT) + '/' + MYSQL_DATABASE, echo=False)
+engine.connect()
+# reading and insert one file at a time
+for file in os.listdir('.'):
+    # only process excels files
+    file_basename, extension = file.split('.')
+    if extension == 'xlsx':
+        df = pd.read_excel(r'' + mydir + 'MNM_Rotterdam_5_Daily_Details-20191216081027.xlsx', sheet_name='Report')
+        df.to_sql(file_basename, con=engine, if_exists='replace')
+But I found this error
+Traceback (most recent call last):
+  File ""C:/Users/DELL/PycharmProjects/automateDB/myWatchDog.py"", line 28, in &lt;module&gt;
+    df.to_sql(file_basename, con=engine, if_exists='replace')
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\core\generic.py"", line 2532, in to_sql
+    dtype=dtype, method=method)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 460, in to_sql
+    chunksize=chunksize, dtype=dtype, method=method)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 1173, in to_sql
+    table.create()
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 577, in create
+    self.pd_sql.drop_table(self.name, self.schema)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\pandas\io\sql.py"", line 1222, in drop_table
+    self.meta.reflect(only=[table_name], schema=schema)
+  File ""C:\Users\DELL\PycharmProjects\MyALLRefProf\venv\lib\site-packages\sqlalchemy\sql\schema.py"", line 3956, in reflect
+    (bind.engine, s, ', '.join(missing)))
+sqlalchemy.exc.InvalidRequestError: Could not reflect: requested table(s) not available in Engine(mysql+mysqlconnector://root:***@127.0.0.1:3306/xlsx_test_db): (MNM_Rotterdam_5_Daily_Details-20191216081027)
+So any one could me to solve this...
+Thank you...
+I hope it would be clear enough....
+","<patron><hands><sqlalchemy>, sqlalchemy.etc.invalidrequesterror: could reflect: request table(s) avail engine, try push expel also data myself alchemi use simple code... import and pp import os import sqlalchemi ryder = (os.getcwd()).replace('\\', '/') + '/' # myself connect mysql_us = 'xxxxxxx' mysql_password = 'xxxxxxxx' mysql_host_ip = '127.0.0.1' mysql_port = 3306 mysql_databas = 'xlsx_test_db' # connect do engine = sqlalchemy.create_engine('myself+mysqlconnector://' + mysql_us + ':' + mysql_password + '@' + mysql_host_ip + ':' + sir( mysql_port) + '/' + mysql_database, echo=false) engine.connect() # read insert one file time file os.lister('.'): # process expel file file_basename, extent = file.split('.') extent == 'also': of = pp.read_excel(r'' + ryder + 'mnm_rotterdam_5_daily_details-20191216081027.also', sheet_name='report') of.tonsil(file_basename, con=engine, if_exists='replace') found error traceback (most recent call last): file ""c:/users/well/pycharmprojects/automatedb/watchdog.by"", line 28, &it;module&it; of.tonsil(file_basename, con=engine, if_exists='replace') file ""c:\users\well\pycharmprojects\myallrefprof\vent\limb\site-packages\hands\core\genetic.by"", line 2532, tonsil type=type, method=method) file ""c:\users\well\pycharmprojects\myallrefprof\vent\limb\site-packages\hands\to\sal.by"", line 460, tonsil chunksize=chunksize, type=type, method=method) file ""c:\users\well\pycharmprojects\myallrefprof\vent\limb\site-packages\hands\to\sal.by"", line 1173, tonsil table.create() file ""c:\users\well\pycharmprojects\myallrefprof\vent\limb\site-packages\hands\to\sal.by"", line 577, great self.pd_sql.drop_table(self.name, self.scheme) file ""c:\users\well\pycharmprojects\myallrefprof\vent\limb\site-packages\hands\to\sal.by"", line 1222, drop_tabl self.met.reflect(only=[table_name], scheme=scheme) file ""c:\users\well\pycharmprojects\myallrefprof\vent\limb\site-packages\sqlalchemy\sal\scheme.by"", line 3956, reflect (bind.engine, s, ', '.join(missing))) sqlalchemy.etc.invalidrequesterror: could reflect: request table(s) avail engine(myself+mysqlconnector://root:***@127.0.0.1:3306/xlsx_test_db): (mnm_rotterdam_5_daily_details-20191216081027) one could sole this... thank you... hope would clear enough...."
+57822113,More than 24 hours in a day in postgreSQL,"Assuming I have this schema:
+create table rental (
+    id           integer,
+    rental_date  timestamp,
+    customer_id  smallint,
+    return_date  timestamp,
+);
+Running this query returns strange results:
+select customer_id, avg(return_date - rental_date) as ""avg""
+from rental
+group by customer_id
+order by ""avg"" DESC
+It displays:
+customer_id|avg_rent_duration     |
+-----------|----------------------|
+        315|     6 days 14:13:22.5|
+        187|5 days 34:58:38.571428|
+        321|5 days 32:56:32.727273|
+        539|5 days 31:39:57.272727|
+        436|       5 days 31:09:46|
+        532|5 days 30:59:34.838709|
+        427|       5 days 29:27:05|
+        555|5 days 26:48:35.294118|
+...
+599 rows
+Why is there values like 5 days 34:58:38, 5 days 32:56:32 and so on? I thought there where only 24 hours in a day, maybe I'm wrong.
+EDIT
+Demo here: http://sqlfiddle.com/#!17/caa7a/1/0
+Sample data:
+insert into rental (rental_date, customer_id, return_date)
+values
+('2007-01-02 13:10:06', 1, '2007-01-03 01:01:01'),
+('2007-01-02 01:01:01', 1, '2007-01-09 15:10:06'),
+('2007-01-10 22:10:06', 1, '2007-01-11 01:01:01'),
+('2007-01-30 01:01:01', 1, '2007-02-03 22:10:06');
+",<sql><postgresql><intervals>,1173,2,31,30632,39,173,267,73,2400,0.0,1001,2,13,2019-09-06 12:31,2019-09-06 14:43,2019-09-06 14:43,0.0,0.0,Basic,1,"<sql><postgresql><intervals>, More than 24 hours in a day in postgreSQL, Assuming I have this schema:
+create table rental (
+    id           integer,
+    rental_date  timestamp,
+    customer_id  smallint,
+    return_date  timestamp,
+);
+Running this query returns strange results:
+select customer_id, avg(return_date - rental_date) as ""avg""
+from rental
+group by customer_id
+order by ""avg"" DESC
+It displays:
+customer_id|avg_rent_duration     |
+-----------|----------------------|
+        315|     6 days 14:13:22.5|
+        187|5 days 34:58:38.571428|
+        321|5 days 32:56:32.727273|
+        539|5 days 31:39:57.272727|
+        436|       5 days 31:09:46|
+        532|5 days 30:59:34.838709|
+        427|       5 days 29:27:05|
+        555|5 days 26:48:35.294118|
+...
+599 rows
+Why is there values like 5 days 34:58:38, 5 days 32:56:32 and so on? I thought there where only 24 hours in a day, maybe I'm wrong.
+EDIT
+Demo here: http://sqlfiddle.com/#!17/caa7a/1/0
+Sample data:
+insert into rental (rental_date, customer_id, return_date)
+values
+('2007-01-02 13:10:06', 1, '2007-01-03 01:01:01'),
+('2007-01-02 01:01:01', 1, '2007-01-09 15:10:06'),
+('2007-01-10 22:10:06', 1, '2007-01-11 01:01:01'),
+('2007-01-30 01:01:01', 1, '2007-02-03 22:10:06');
+","<sal><postgresql><intervals>, 24 hour day postgresql, assume scheme: great table rental ( id inter, rental timestamp, customer_id smallest, returned timestamp, ); run query return strange results: select customer_id, ave(returned - rental_date) ""ave"" rental group customer_id order ""ave"" desk displays: customer_id|avg_rent_dur | -----------|----------------------| 315| 6 day 14:13:22.5| 187|5 day 34:58:38.571428| 321|5 day 32:56:32.727273| 539|5 day 31:39:57.272727| 436| 5 day 31:09:46| 532|5 day 30:59:34.838709| 427| 5 day 29:27:05| 555|5 day 26:48:35.294118| ... 599 row value like 5 day 34:58:38, 5 day 32:56:32 on? thought 24 hour day, may i'm wrong. edit domo here: http://sqlfiddle.com/#!17/canada/1/0 sample data: insert rental (rental_date, customer_id, return_date) value ('2007-01-02 13:10:06', 1, '2007-01-03 01:01:01'), ('2007-01-02 01:01:01', 1, '2007-01-09 15:10:06'), ('2007-01-10 22:10:06', 1, '2007-01-11 01:01:01'), ('2007-01-30 01:01:01', 1, '2007-02-03 22:10:06');"
+49408290,Django + Docker + SQLite3 How to mount database to the container?,"I had sqlite database with some sort of tables on my localhost and i wanted to copy and paste that database to my server which runs on docker. I created paths like this:
+db_data: there is my sqlite database which i want to run in my django project.
+web: there is my whole django project
+in my docker-compose.yml i writed this volume:
+version: ""3""
+services:
+  web:
+    build: ./web/
+    ports:
+      - ""8001:8001""
+    volumes:
+      - ./web:/code
+      - /home/cosmo/db_data/db.sqlite3:/code/db.sqlite3
+    command: python manage.py runserver 0.0.0.0:8001
+So i thik that docker will get database in my db_data and will make volume inside my web folder (in my project. There i had database on my localhost so it wouldnt be problem.) But i will paste here settings.py:
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+So when i will open my db.sqlite3 inside db_data every tables and content are there, but when i will run container the db.sqlite3 in my project folder (web) is empty.
+When i will run docker ps command there is no database container maybe this is the problem i dont know. I have there only:
+in the red circle is my django container. So when i will run my server and try to login every account from the database is unknown. So I think that container works with that empty db in my project. Someone please has any solution? Thanks.
+",<django><sqlite><docker><mount>,1654,3,25,491,0,7,23,49,9856,0.0,25,1,13,2018-03-21 13:56,2021-02-17 4:36,2021-02-17 4:36,1064.0,1064.0,Basic,9,"<django><sqlite><docker><mount>, Django + Docker + SQLite3 How to mount database to the container?, I had sqlite database with some sort of tables on my localhost and i wanted to copy and paste that database to my server which runs on docker. I created paths like this:
+db_data: there is my sqlite database which i want to run in my django project.
+web: there is my whole django project
+in my docker-compose.yml i writed this volume:
+version: ""3""
+services:
+  web:
+    build: ./web/
+    ports:
+      - ""8001:8001""
+    volumes:
+      - ./web:/code
+      - /home/cosmo/db_data/db.sqlite3:/code/db.sqlite3
+    command: python manage.py runserver 0.0.0.0:8001
+So i thik that docker will get database in my db_data and will make volume inside my web folder (in my project. There i had database on my localhost so it wouldnt be problem.) But i will paste here settings.py:
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+So when i will open my db.sqlite3 inside db_data every tables and content are there, but when i will run container the db.sqlite3 in my project folder (web) is empty.
+When i will run docker ps command there is no database container maybe this is the problem i dont know. I have there only:
+in the red circle is my django container. So when i will run my server and try to login every account from the database is unknown. So I think that container works with that empty db in my project. Someone please has any solution? Thanks.
+","<django><quite><doctor><mount>, django + doctor + sqlite3 mount database container?, quite database sort table localhost want copy past database server run doctor. great path like this: db_data: quite database want run django project. web: whole django project doctor-compose.you write volume: version: ""3"" services: web: build: ./web/ ports: - ""8001:8001"" volumes: - ./web:/cod - /home/costo/db_data/do.sqlite3:/code/do.sqlite3 command: patron manage.i runners 0.0.0.0:8001 this doctor get database db_data make volume inside web older (in project. database localhost wouldn problem.) past settings.by: # build path inside project like this: os.path.join(base_dir, ...) base_dir = os.path.surname(os.path.surname(os.path.abspath(__file__))) # database # http://docs.djangoproject.com/en/2.0/red/settings/#database database = { 'default': { 'engine': 'django.do.backed.sqlite3', 'name': os.path.join(base_dir, 'do.sqlite3'), } } open do.sqlite3 inside db_data every table content there, run contain do.sqlite3 project older (web) empty. run doctor is command database contain may problem dont know. only: red circle django container. run server try login every account database unknown. think contain work empty do project. someone pleas solution? thanks."
+62911496,postgresql-client-13 : Depends: libpq5 (>= 13~beta2) but 12.3-1.pgdg18.04+1 is to be installed,"I want to try new PostgreSQL and follow this instruction. But installation fails:
+$ sudo apt install postgresql-client-13
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+The following packages have unmet dependencies:
+ postgresql-client-13 : Depends: libpq5 (&gt;= 13~beta2) but 12.3-1.pgdg18.04+1 is to be installed
+E: Unable to correct problems, you have held broken packages.
+I also tried this instruction to resolve unmet dependencies
+What did I wrong and how to install psql 13?
+UPD
+Content of my sources.list.d:
+kes@kes-X751SA /etc/apt/sources.list.d $ cat pgdg.list 
+deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+kes@kes-X751SA /etc/apt/sources.list.d $ cat pgdg-testing.list 
+deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg-testing main 13
+Also:
+$ sudo apt-cache policy postgresql-13
+postgresql-13:
+  Installed: (none)
+  Candidate: 13~beta2-1.pgdg18.04+1
+  Version table:
+     13~beta2-1.pgdg18.04+1 100
+        100 http://apt.postgresql.org/pub/repos/apt bionic-pgdg-testing/13 amd64 Packages
+",<postgresql><linux-mint-19><postgresql-13>,1367,4,28,22762,17,111,163,43,12564,0.0,4593,3,13,2020-07-15 9:15,2020-08-07 9:51,2020-08-07 9:51,23.0,23.0,Basic,9,"<postgresql><linux-mint-19><postgresql-13>, postgresql-client-13 : Depends: libpq5 (>= 13~beta2) but 12.3-1.pgdg18.04+1 is to be installed, I want to try new PostgreSQL and follow this instruction. But installation fails:
+$ sudo apt install postgresql-client-13
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+The following packages have unmet dependencies:
+ postgresql-client-13 : Depends: libpq5 (&gt;= 13~beta2) but 12.3-1.pgdg18.04+1 is to be installed
+E: Unable to correct problems, you have held broken packages.
+I also tried this instruction to resolve unmet dependencies
+What did I wrong and how to install psql 13?
+UPD
+Content of my sources.list.d:
+kes@kes-X751SA /etc/apt/sources.list.d $ cat pgdg.list 
+deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+kes@kes-X751SA /etc/apt/sources.list.d $ cat pgdg-testing.list 
+deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg-testing main 13
+Also:
+$ sudo apt-cache policy postgresql-13
+postgresql-13:
+  Installed: (none)
+  Candidate: 13~beta2-1.pgdg18.04+1
+  Version table:
+     13~beta2-1.pgdg18.04+1 100
+        100 http://apt.postgresql.org/pub/repos/apt bionic-pgdg-testing/13 amd64 Packages
+","<postgresql><line-mint-19><postgresql-13>, postgresql-client-13 : depends: libpq5 (>= 13~beta) 12.3-1.pgdg18.04+1 installed, want try new postgresql follow instruction. instal fails: $ so apt instal postgresql-client-13 read package lists... done build depend tree read state information... done package could installed. may mean request impose situate use unstable distribute require package yet great move oncoming. follow inform may help resolve situation: follow package under dependencies: postgresql-client-13 : depends: libpq5 (&it;= 13~beta) 12.3-1.pgdg18.04+1 instal e: unable correct problems, held broken packages. also try instruct resolve under depend wrong instal pool 13? up content sources.list.d: yes@yes-x751sa /etc/apt/sources.list.d $ cat pgdp.list de http://apt.postgresql.org/pub/repose/apt/ ironic-pgdp main yes@yes-x751sa /etc/apt/sources.list.d $ cat pgdp-testing.list de http://apt.postgresql.org/pub/repose/apt/ ironic-pgdp-test main 13 also: $ so apt-each policy postgresql-13 postgresql-13: installed: (none) candidate: 13~beta-1.pgdg18.04+1 version table: 13~beta-1.pgdg18.04+1 100 100 http://apt.postgresql.org/pub/repose/apt ironic-pgdp-testing/13 amd64 package"
+58562024,"Docker password authentication failed for user ""postgres""","I'm writing a docker-compose file to launch some services. But the db service is a trouble maker, I always get this error:
+FATAL:  password authentication failed for user ""postgres""
+DETAIL:  Password does not match for user ""postgres"".
+Connection matched pg_hba.conf line 95: ""host all all all md5""
+I've read a lot of threads, and I've correctly set the POSTGRES_USER and POSTGRES_PASSWORD. I have also remove the previous volumes and container to force postgresql to re-init the password. But I can't figure out why it's still not working.
+So what is the correct way to force the re-initialization of the postgresql image. So I would be able to connect to my database.
+I've seen that this error: Connection matched pg_hba.conf line 95: ""host all all all md5"", and I've heard about the postgres conf file. But it's an official container it's supposed to work, isn't it ?
+version: '3'
+services:
+  poll:
+    build: poll
+    container_name: ""poll""
+    ports:
+      - ""5000:80""
+    networks:
+      - poll-tier
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+  worker:
+    build: worker
+    container_name: ""worker""
+    networks:
+      - back-tier
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    depends_on:
+      - redis
+      - db
+  redis:
+    image: ""redis:alpine""
+    container_name: ""redis""
+    networks:
+      - poll-tier
+      - back-tier
+  result:
+    build: result
+    container_name: ""result""
+    ports:
+      - ""5001:80""
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_HOST=db
+      - RESULT_PORT=80
+    networks:
+      - result-tier
+    depends_on:
+      - db
+  db:
+    image: ""postgres:alpine""
+    container_name: ""db""
+    restart: always
+    networks:
+      - back-tier
+      - result-tier
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=postgres
+volumes:
+  db-data:
+    driver: local
+networks:
+  poll-tier: {}
+  back-tier: {}
+  result-tier: {}
+I'm expected to get the db connected, and not password authentication failed for user ""postgres"".
+",<postgresql><docker><docker-compose>,2189,0,76,991,1,8,22,68,26693,0.0,173,2,13,2019-10-25 16:00,2019-10-25 19:41,2019-10-25 19:41,0.0,0.0,Basic,9,"<postgresql><docker><docker-compose>, Docker password authentication failed for user ""postgres"", I'm writing a docker-compose file to launch some services. But the db service is a trouble maker, I always get this error:
+FATAL:  password authentication failed for user ""postgres""
+DETAIL:  Password does not match for user ""postgres"".
+Connection matched pg_hba.conf line 95: ""host all all all md5""
+I've read a lot of threads, and I've correctly set the POSTGRES_USER and POSTGRES_PASSWORD. I have also remove the previous volumes and container to force postgresql to re-init the password. But I can't figure out why it's still not working.
+So what is the correct way to force the re-initialization of the postgresql image. So I would be able to connect to my database.
+I've seen that this error: Connection matched pg_hba.conf line 95: ""host all all all md5"", and I've heard about the postgres conf file. But it's an official container it's supposed to work, isn't it ?
+version: '3'
+services:
+  poll:
+    build: poll
+    container_name: ""poll""
+    ports:
+      - ""5000:80""
+    networks:
+      - poll-tier
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+  worker:
+    build: worker
+    container_name: ""worker""
+    networks:
+      - back-tier
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    depends_on:
+      - redis
+      - db
+  redis:
+    image: ""redis:alpine""
+    container_name: ""redis""
+    networks:
+      - poll-tier
+      - back-tier
+  result:
+    build: result
+    container_name: ""result""
+    ports:
+      - ""5001:80""
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_HOST=db
+      - RESULT_PORT=80
+    networks:
+      - result-tier
+    depends_on:
+      - db
+  db:
+    image: ""postgres:alpine""
+    container_name: ""db""
+    restart: always
+    networks:
+      - back-tier
+      - result-tier
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=postgres
+volumes:
+  db-data:
+    driver: local
+networks:
+  poll-tier: {}
+  back-tier: {}
+  result-tier: {}
+I'm expected to get the db connected, and not password authentication failed for user ""postgres"".
+","<postgresql><doctor><doctor-compose>, doctor password authentic fail user ""postures"", i'm write doctor-compose file launch services. do service trouble maker, away get error: fatal: password authentic fail user ""postures"" detail: password match user ""postures"". connect match pg_hba.cone line 95: ""host md"" i'v read lot threads, i'v correctly set postgres_us postgres_password. also remove previous volume contain for postgresql re-knit password. can't figure still working. correct way for re-into postgresql image. would all connect database. i'v seen error: connect match pg_hba.cone line 95: ""host md"", i'v heard poster cone file. office contain suppose work, ? version: '3' services: poll: build: poll container_name: ""poll"" ports: - ""5000:80"" network: - poll-tier environment: - redis_host=red depends_on: - red worker: build: worker container_name: ""worker"" network: - back-tier environment: - redis_host=red - postgres_host=do - postgres_db=poster - postgres_user=poster - postgres_password=root depends_on: - red - do red: image: ""red:aline"" container_name: ""red"" network: - poll-tier - back-tier result: build: result container_name: ""result"" ports: - ""5001:80"" environment: - postgres_user=poster - postgres_password=root - postgres_host=do - result_port=80 network: - result-ti depends_on: - do do: image: ""postures:aline"" container_name: ""do"" start: away network: - back-tier - result-ti environment: - postgres_user=poster - postgres_password=root - postgres_db=poster volumes: do-data: driver: local network: poll-tier: {} back-tier: {} result-tier: {} i'm expect get do connected, password authentic fail user ""postures""."
+48633900,Presto: Cast timestamp w/TZ to plain timestamp WITHOUT converting to UTC,"This query in Presto:
+select *, 
+  cast(ts_w_tz as timestamp) as ts, 
+  cast(substr(cast(ts_w_tz as varchar), 1, 23) as timestamp) as local_ts_workaround 
+from (select timestamp '2018-02-06 23:00:00.000 Australia/Melbourne' as ts_w_tz);
+Returns:
+                   ts_w_tz                   |           ts            |   local_ts_workaround   
+---------------------------------------------+-------------------------+-------------------------
+ 2018-02-06 23:00:00.000 Australia/Melbourne | 2018-02-06 12:00:00.000 | 2018-02-06 23:00:00.000
+As you can see, the act of casting the timestamp with timezone to a timestamp has resulted in the timestamp being converted back to UTC time (eg ts). IMO the correct behaviour should be to return the 'wall reading' of the timestamp, as per local_ts_workaround.
+I realise there are many posts about how Presto's handling of this is wrong and doesn't conform to the SQL standard, and that there is a fix in the works. But in the meantime this is a major pain since the effect is that there appears to be no built in way to get a localised timestamp withOUT timezone (as per local_ts_workaround).
+Obviously, I have the string conversion workaround for now, but this seems horrible. I am wondering if anyone has a better workaround or can point out something that I have missed?
+Thanks.
+",<sql><presto>,1322,0,10,8162,10,35,32,45,12762,0.0,15,2,13,2018-02-06 0:59,2020-05-07 6:28,2021-02-15 18:07,821.0,1105.0,Advanced,33,"<sql><presto>, Presto: Cast timestamp w/TZ to plain timestamp WITHOUT converting to UTC, This query in Presto:
+select *, 
+  cast(ts_w_tz as timestamp) as ts, 
+  cast(substr(cast(ts_w_tz as varchar), 1, 23) as timestamp) as local_ts_workaround 
+from (select timestamp '2018-02-06 23:00:00.000 Australia/Melbourne' as ts_w_tz);
+Returns:
+                   ts_w_tz                   |           ts            |   local_ts_workaround   
+---------------------------------------------+-------------------------+-------------------------
+ 2018-02-06 23:00:00.000 Australia/Melbourne | 2018-02-06 12:00:00.000 | 2018-02-06 23:00:00.000
+As you can see, the act of casting the timestamp with timezone to a timestamp has resulted in the timestamp being converted back to UTC time (eg ts). IMO the correct behaviour should be to return the 'wall reading' of the timestamp, as per local_ts_workaround.
+I realise there are many posts about how Presto's handling of this is wrong and doesn't conform to the SQL standard, and that there is a fix in the works. But in the meantime this is a major pain since the effect is that there appears to be no built in way to get a localised timestamp withOUT timezone (as per local_ts_workaround).
+Obviously, I have the string conversion workaround for now, but this seems horrible. I am wondering if anyone has a better workaround or can point out something that I have missed?
+Thanks.
+","<sal><preston>, preston: cast timestamp w/tz plain timestamp without convert etc, query preston: select *, cast(ts_w_tz timestamp) to, cast(substr(cast(ts_w_tz varchar), 1, 23) timestamp) local_ts_workaround (select timestamp '2018-02-06 23:00:00.000 australia/melbourne' ts_w_tz); returns: ts_w_tz | to | local_ts_workaround ---------------------------------------------+-------------------------+------------------------- 2018-02-06 23:00:00.000 australia/melbourne | 2018-02-06 12:00:00.000 | 2018-02-06 23:00:00.000 see, act cast timestamp timezon timestamp result timestamp convert back etc time (eg to). mio correct behaviour return 'wall reading' timestamp, per local_ts_workaround. realise man post preston' hand wrong conform sal standard, fix works. meantime major pain since effect appear built way get localise timestamp without timezon (a per local_ts_workaround). obviously, string covers workaround now, seem horrible. wonder anyone better workaround point cometh missed? thanks."
+53513963,How to restore a database from bak file from azure data studio on Mac,"Previously on Mac I use mysql operation studio and I click on database and click restore then browse to my bak file, but now they change to azure data studio and when I repeat the same steps I got this error:
+""You must enable preview features in order to use restore"" 
+but I cannot figure out hot to enable that. I have googled and tried few things even open my azure, microsoft account on website but I do not see that option. 
+Can some one help please !
+",<sql><azure-sql-database>,456,1,0,1259,3,22,52,53,13507,0.0,84,4,13,2018-11-28 7:10,2018-12-11 15:49,2018-12-11 15:49,13.0,13.0,Basic,9,"<sql><azure-sql-database>, How to restore a database from bak file from azure data studio on Mac, Previously on Mac I use mysql operation studio and I click on database and click restore then browse to my bak file, but now they change to azure data studio and when I repeat the same steps I got this error:
+""You must enable preview features in order to use restore"" 
+but I cannot figure out hot to enable that. I have googled and tried few things even open my azure, microsoft account on website but I do not see that option. 
+Can some one help please !
+","<sal><azure-sal-database>, restore database back file azur data studio mac, previous mac use myself over studio click database click restore brows back file, change azur data studio repeat step got error: ""you must enable review feature order use restore"" cannot figure hot enable that. good try thing even open azure, microsoft account west see option. one help pleas !"
+48396535,How can I modify the time zone in Azure SQL Database?,"Can you please tell me how to change the time zone in Azure SQL Database?
+",<azure-sql-database>,74,0,0,141,1,1,4,63,24596,0.0,0,1,13,2018-01-23 7:44,2018-01-23 12:14,,0.0,,Basic,9,"<azure-sql-database>, How can I modify the time zone in Azure SQL Database?, Can you please tell me how to change the time zone in Azure SQL Database?
+","<azure-sal-database>, modify time zone azur sal database?, pleas tell change time zone azur sal database?"
+59488379,AWS Athena partition fetch all paths,"Recently, I've experienced an issue with AWS Athena when there is quite high number of partitions.
+The old version had a database and tables with only 1 partition level, say id=x. Let's take one table; for example, where we store payment parameters per id (product), and there are not plenty of IDs. Assume its around 1000-5000. Now while querying that table with passing id number on where clause like "".. where id = 10"". The queries were returned pretty fast actually. Assume we update the data twice a day.
+Lately, we've been thinking to add another partition level for day like, ""../id=x/dt=yyyy-mm-dd/.."". This means that partition number grows  xID times per day if a month passes and if we have 3000 IDs, we'd approximately get 3000x30=90000 partitions a month. Thus, a rapid grow in number of partitions.
+On, say 3 months old data (~270k partitions), we'd like to see a query like the following would return in at most 20 seconds or so.
+select count(*) from db.table where id = x and dt = 'yyyy-mm-dd'
+This takes like a minute.
+The Real Case
+It turns out Athena first fetches the all partitions (metadata) and s3 paths (regardless the usage of where clause) and then filter those s3 paths that you would like to see on where condition. The first part (fetching all s3 paths by partitions lasts long proportionally to the number of partitions)
+The more partitions you have, the slower the query executed.
+Intuitively, I expected that Athena fetches only s3 paths stated on where clause, I mean this would be the one way of magic of the partitioning. Maybe it fetches all paths 
+Does anybody know a work around, or do we use Athena in a wrong way ?
+Should Athena be used only with small number of partitions ?
+Edit
+In order to clarify the statement above, I add a piece from support mail.
+from Support
+  ...
+  You mentioned that your new system has 360000 which is a huge number.
+  So when you are doing select * from &lt;partitioned table&gt;, Athena first download all partition metadata and searched S3 path mapped with
+  those partitions. This process of fetching data for each partition
+  lead to longer time in query execution.
+  ...
+Update
+An issue opened on AWS forums. The linked issue raised on aws forums is here.
+Thanks.
+",<amazon-web-services><nosql><aws-glue><presto><amazon-athena>,2239,1,2,2037,1,16,25,61,1429,0.0,110,1,13,2019-12-26 12:18,2020-03-28 16:34,2020-03-28 16:34,93.0,93.0,Advanced,33,"<amazon-web-services><nosql><aws-glue><presto><amazon-athena>, AWS Athena partition fetch all paths, Recently, I've experienced an issue with AWS Athena when there is quite high number of partitions.
+The old version had a database and tables with only 1 partition level, say id=x. Let's take one table; for example, where we store payment parameters per id (product), and there are not plenty of IDs. Assume its around 1000-5000. Now while querying that table with passing id number on where clause like "".. where id = 10"". The queries were returned pretty fast actually. Assume we update the data twice a day.
+Lately, we've been thinking to add another partition level for day like, ""../id=x/dt=yyyy-mm-dd/.."". This means that partition number grows  xID times per day if a month passes and if we have 3000 IDs, we'd approximately get 3000x30=90000 partitions a month. Thus, a rapid grow in number of partitions.
+On, say 3 months old data (~270k partitions), we'd like to see a query like the following would return in at most 20 seconds or so.
+select count(*) from db.table where id = x and dt = 'yyyy-mm-dd'
+This takes like a minute.
+The Real Case
+It turns out Athena first fetches the all partitions (metadata) and s3 paths (regardless the usage of where clause) and then filter those s3 paths that you would like to see on where condition. The first part (fetching all s3 paths by partitions lasts long proportionally to the number of partitions)
+The more partitions you have, the slower the query executed.
+Intuitively, I expected that Athena fetches only s3 paths stated on where clause, I mean this would be the one way of magic of the partitioning. Maybe it fetches all paths 
+Does anybody know a work around, or do we use Athena in a wrong way ?
+Should Athena be used only with small number of partitions ?
+Edit
+In order to clarify the statement above, I add a piece from support mail.
+from Support
+  ...
+  You mentioned that your new system has 360000 which is a huge number.
+  So when you are doing select * from &lt;partitioned table&gt;, Athena first download all partition metadata and searched S3 path mapped with
+  those partitions. This process of fetching data for each partition
+  lead to longer time in query execution.
+  ...
+Update
+An issue opened on AWS forums. The linked issue raised on aws forums is here.
+Thanks.
+","<amazon-web-services><nose><was-blue><preston><amazon-athens>, a athens partite fetch paths, recently, i'v experience issue a athens quit high number partitions. old version database table 1 partite level, say id=x. let' take one table; example, store payment parapet per id (product), plenty is. assume around 1000-5000. query table pass id number class like "".. id = 10"". query return pretty fast actually. assume update data twice day. lately, we'v think add not partite level day like, ""../id=x/it=yyyy-mm-did/.."". mean partite number grow did time per day month pass 3000 is, we'd approxim get 3000x30=90000 partite month. thus, rapid grow number partitions. on, say 3 month old data (~270k partitions), we'd like see query like follow would return 20 second so. select count(*) do.table id = x it = 'yyyy-mm-did' take like minute. real case turn athens first fetch partite (metadata) s path (regardless usage clause) filter s path would like see condition. first part (fetch s path partite last long property number partitions) partite have, slower query executed. intuitively, expect athens fetch s path state clause, mean would one way magic petitioning. may fetch path anybody know work around, use athens wrong way ? athens use small number partite ? edit order clarify statement above, add piece support mail. support ... mention new system 360000 huge number. select * &it;partite table&it;, athens first download partite metadata search s path map partitions. process fetch data partite lead longer time query execution. ... update issue open a forms. link issue rays a forum here. thanks."

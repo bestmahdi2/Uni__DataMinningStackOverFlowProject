@@ -1,0 +1,1309 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+51534758,Visual Studio Code SQL Syntax Highlighting in .py Files,"I am switching over from atom to VSCode and finding it to be a way better experience for (mostly) python.
+One thing I can't seem to work out is that the python syntax highlighting on atom recognised SQL in strings and highlighted it.
+I can't seem to find an extension for VSCode to do the same thing.
+Does one exist or is there a way to get this highlighting in VSCode?
+",<python><sql><visual-studio-code><syntax-highlighting>,370,2,0,553,1,5,17,39,10424,0.0,27,4,29,2018-07-26 8:50,2019-03-26 23:27,,243.0,,Intermediate,20
+53471882,"MySQL Workbench reports ""is not valid at this position for this server version"" error","For the following SQL query:
+SELECT COUNT (distinct first_name) from actor;
+I receive the following error message:
+""SELECT"" is not valid at this position for this server version, expecting: '(', WITH
+I am a total newbie at SQL. How do I resolve this error?
+I put the exact same line at another PC with the exact same schema and it worked fine.
+",<mysql><mysql-workbench>,344,0,2,292,1,3,6,45,150690,0.0,1,4,28,2018-11-25 20:54,2018-11-25 21:11,2018-11-25 21:11,0.0,0.0,Basic,9
+59607616,When should I use MultipleActiveResultSets=True when working with ASP.NET Core 3.0 and SQL Server 2019+?,"Most applications I have programmed do not use MultipleActiveResultSets=True, but I have seen the option being enabled in a couple of them and in a few tutorials.
+This SO question deals with the same topic, but it is very old and I believe that things have changed much in the mean time.
+OP argues about executing some non-queries, while performing an ExecuteReader. In this case I believe it to be a bad design since it might be replaced with some batch-style operation, perhaps a stored procedure to minimize the number of round-trips.
+When using Entity Framework with ASP.NET Core and receiving an exception related to the data context executing already something in the scope, I treat it as a bug and not thinking about enabling MARS.
+Reading this MS Docs article I see that one should pay attention to various aspects such as options (ANSI_NULLS, DATE_FORMAT, LANGUAGE, TEXTSIZE), security context, current database, state variables (@@ERROR, @@ROWCOUNT, @@FETCH_STATUS, @@IDENTITY) when working with MARS enabled.
+Also, 10+ years mean much more capable servers being able to hold much more connections if this is really needed (caching should help reduce this need).
+So I am wondering if I ever have to consider enabling MARS when working with modern ASP.NET Core applications (3.0+).
+Question: When should I use MultipleActiveResultSets=True when working with ASP.NET Core 3.0 and SQL Server 2019+?
+Edit to address feedback
+I am not interested in an exhaustive analysis, but a couple of appropriate contexts to justify using MARS or not.
+A typical example in ASP.NET Core applications is to have database context as scoped (get a database connection from the connection pool per request, make changes, usually one transaction per request/scope). So far, I have treated errors related to multiple queries per connection as my own fault to avoid MARS, but I did so without understanding actually why.
+",<sql-server><asp.net-core><entity-framework-core><sql-server-mars>,1906,2,10,22299,19,146,170,40,12139,0.0,7185,1,28,2020-01-06 6:30,2021-04-10 17:19,2021-04-10 17:19,460.0,460.0,Basic,9
+52802521,How can I get time.Time in Golang protobuf v3 struct?,"I'm using the google time package github.com/golang/protobuf/ptypes/timestamp in protobuf message file  now.
+google.protobuf.Timestamp UpdateTime = 9;
+But the UpdateTime property becomes a pointer *timestamp.Timestamp in golang struct after protoc compiling, it's not a time.Time and I can't save these property into Mysql timestamp column.
+What can I do?
+",<mysql><go><timestamp><protocol-buffers>,356,0,5,427,1,5,6,59,44394,0.0,0,2,28,2018-10-14 12:14,2018-10-14 14:53,,0.0,,Basic,9
+53623048,Restore database in docker container,"Getting an error below when restoring a AdventureWorks2017 database within a docker container.
+Running SQL Server 2019 CTP 2.0 (mcr.microsoft.com/mssql/server:vNext-CTP2.0-ubuntu)
+Both backup and target data volume are persisted. 
+No problems creating new database. 
+Checked the paths and they are correct. Do not have any problems when restoring using 2017-latest docker image.
+Anybody else have this issue with 2019-CTP2, workarounds?
+  Msg 3634, Level 16, State 1, Line 7 The operating system returned the
+  error '2(The system cannot find the file specified.)' while attempting
+  'RestoreContainer::ValidateTargetForCreation' on
+  '/var/opt/mssql/data/AdventureWorks2017.mdf'. Msg 3156, Level 16,
+  State 5, Line 7 File 'AdventureWorks2017' cannot be restored to
+  '/var/opt/mssql/data/AdventureWorks2017.mdf'. Use WITH MOVE to
+  identify a valid location for the file. Msg 3634, Level 16, State 1,
+  Line 7 The operating system returned the error '2(The system cannot
+  find the file specified.)' while attempting
+  'RestoreContainer::ValidateTargetForCreation' on
+  '/var/opt/mssql/log/AdventureWorks2017_log.ldf'. Msg 3156, Level 16,
+  State 5, Line 7 File 'AdventureWorks2017_log' cannot be restored to
+  '/var/opt/mssql/log/AdventureWorks2017_log.ldf'. Use WITH MOVE to
+  identify a valid location for the file. Msg 3119, Level 16, State 1,
+  Line 7 Problems were identified while planning for the RESTORE
+  statement. Previous messages provide details. Msg 3013, Level 16,
+  State 1, Line 7 RESTORE DATABASE is terminating abnormally.
+to create container.
+$datapath = ""D:\Foo"";
+$logpath = ""D:\Foo"";
+$backuppath = ""D:\Foo"";
+$pass = "":-)""
+$ct = (docker run -e ""ACCEPT_EULA=Y"" -e ""SA_PASSWORD=$pass"" `
+    -e ""MSSQL_PID=Developer"" -p 2017:1433 `
+    -e ""MSSQL_TCP_PORT=1433"" `
+    -v ${datapath}:/var/opt/mssql/data `
+    -v ${logpath}:/var/opt/mssql/log `
+    -v ${backuppath}:/var/opt/mssql/backup `
+    -e ""MSSQL_BACKUP_DIR=/var/opt/mssql/backup"" `
+    -e ""MSSQL_DATA_DIR=/var/opt/mssql/data"" ` 
+    -e ""MSSQL_LOG_DIR=/var/opt/mssql/log"" `
+    -d mcr.microsoft.com/mssql/server:vNext-CTP2.0-ubuntu)
+Restore command.
+RESTORE DATABASE [AdventureWorks2017] FROM  DISK = N'/var/opt/mssql/backup/AdventureWorks2017.bak' 
+WITH  FILE = 1,  
+MOVE N'AdventureWorks2017' TO N'/var/opt/mssql/data/AdventureWorks2017.mdf',  
+MOVE N'AdventureWorks2017_log' TO N'/var/opt/mssql/log/AdventureWorks2017_log.ldf', 
+NOUNLOAD,  STATS = 1 
+",<sql-server><docker><sql-server-2019>,2430,0,20,1142,1,8,14,50,15652,0.0,52,7,28,2018-12-04 23:41,2018-12-05 5:40,2018-12-14 1:39,1.0,10.0,Basic,14
+51117503,"Python 3.7, Failed building wheel for MySql-Python","I am new to python and I am trying django framework that involves some MySql and ran into this error when try to do pip install mysqlclient and down the lines of cmd messages I got this.
+   Failed building wheel for mysqlclient
+  Running setup.py clean for mysqlclient
+Failed to build mysqlclient
+Installing collected packages: mysqlclient
+  Running setup.py install for mysqlclient ... error
+    Complete output from command c:\users\ronanl~1\envs\py1\scripts\python.exe -u -c ""import setuptools, tokenize;__file__='C:\\Users\\RONANL~1\\AppData\\Local\\Temp\\pip-install-pkbqy3t3\\mysqlclient\\setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record C:\Users\RONANL~1\AppData\Local\Temp\pip-record-moxwf7lu\install-record.txt --single-version-externally-managed --compile --install-headers c:\users\ronanl~1\envs\py1\include\site\python3.7\mysqlclient:
+    running install
+    running build
+    running build_py
+    creating build
+    creating build\lib.win32-3.7
+    copying _mysql_exceptions.py -&gt; build\lib.win32-3.7
+    creating build\lib.win32-3.7\MySQLdb
+    copying MySQLdb\__init__.py -&gt; build\lib.win32-3.7\MySQLdb
+    copying MySQLdb\compat.py -&gt; build\lib.win32-3.7\MySQLdb
+    copying MySQLdb\connections.py -&gt; build\lib.win32-3.7\MySQLdb
+    copying MySQLdb\converters.py -&gt; build\lib.win32-3.7\MySQLdb
+    copying MySQLdb\cursors.py -&gt; build\lib.win32-3.7\MySQLdb
+    copying MySQLdb\release.py -&gt; build\lib.win32-3.7\MySQLdb
+    copying MySQLdb\times.py -&gt; build\lib.win32-3.7\MySQLdb
+    creating build\lib.win32-3.7\MySQLdb\constants
+    copying MySQLdb\constants\__init__.py -&gt; build\lib.win32-3.7\MySQLdb\constants
+    copying MySQLdb\constants\CLIENT.py -&gt; build\lib.win32-3.7\MySQLdb\constants
+    copying MySQLdb\constants\CR.py -&gt; build\lib.win32-3.7\MySQLdb\constants
+    copying MySQLdb\constants\ER.py -&gt; build\lib.win32-3.7\MySQLdb\constants
+    copying MySQLdb\constants\FIELD_TYPE.py -&gt; build\lib.win32-3.7\MySQLdb\constants
+    copying MySQLdb\constants\FLAG.py -&gt; build\lib.win32-3.7\MySQLdb\constants
+    copying MySQLdb\constants\REFRESH.py -&gt; build\lib.win32-3.7\MySQLdb\constants
+    running build_ext
+    building '_mysql' extension
+    creating build\temp.win32-3.7
+    creating build\temp.win32-3.7\Release
+    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.14.26428\bin\HostX86\x86\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -Dversion_info=(1,3,13,'final',0) -D__version__=1.3.13 ""-IC:\Program Files (x86)\MySQL\MySQL Connector C 6.1\include"" ""-Ic:\users\ronan lina\appdata\local\programs\python\python37-32\include"" ""-Ic:\users\ronan lina\appdata\local\programs\python\python37-32\include"" ""-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.14.26428\ATLMFC\include"" ""-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.14.26428\include"" ""-IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt"" /Tc_mysql.c /Fobuild\temp.win32-3.7\Release\_mysql.obj /Zl
+    _mysql.c
+    _mysql.c(29): fatal error C1083: Cannot open include file: 'mysql.h': No such file or directory
+    error: command 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.14.26428\\bin\\HostX86\\x86\\cl.exe' failed with exit status 2
+&gt; 
+&gt; 
+&gt; Command ""c:\users\ronanl~1\envs\py1\scripts\python.exe -u -c ""import setuptools, tokenize;__file__='C:\\Users\\RONANL~1\\AppData\\Local\\Temp\\pip-install-pkbqy3t3\\mysqlclient\\setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record C:\Users\RONANL~1\AppData\Local\Temp\pip-record-moxwf7lu\install-record.txt --single-version-externally-managed --compile --install-headers c:\users\ronanl~1\envs\py1\include\site\python3.7\mysqlclient"" failed with error code 1 in C:\Users\RONANL~1\AppData\Local\Temp\pip-install-pkbqy3t3\mysqlclient\
+anyone knows how to fix this ?
+",<python><mysql><django><python-3.x><mysql-python>,4457,0,40,389,1,4,13,59,90537,0.0,27,13,28,2018-06-30 18:27,2018-10-04 11:24,,96.0,,Basic,14
+49228926,Get city name either do not start with vowels or do not end with vowels,"Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+I write the below query, but it's not working for me. Any suggestion?
+select distinct city
+from station
+where city regexp '^[^aeiou].*[^aeiou]$'; 
+",<sql>,348,1,3,407,1,4,5,65,171270,0.0,0,50,28,2018-03-12 5:55,2018-03-12 6:07,2018-03-12 6:07,0.0,0.0,Basic,10
+54690701,Is there a way to ensure WHERE clause happens after DISTINCT?,"Imagine you have a table comments in your database.
+The comment table has the columns, id, text, show, comment_id_no.
+If a user enters a comment, it inserts a row into the database
+| id |  comment_id_no | text | show | inserted_at |
+| -- | -------------- | ---- | ---- | ----------- |
+| 1  | 1              | hi   | true | 1/1/2000    |
+If a user wants to update that comment it inserts a new row into the db
+| id |  comment_id_no | text | show | inserted_at |
+| -- | -------------- | ---- | ---- | ----------- |
+| 1  | 1              | hi   | true | 1/1/2000    |
+| 2  | 1              | hey  | true | 1/1/2001    |
+Notice it keeps the same comment_id_no. This is so we will be able to see the history of a comment.
+Now the user decides that they no longer want to display their comment
+| id |  comment_id_no | text | show  | inserted_at |
+| -- | -------------- | ---- | ----- | ----------- |
+| 1  | 1              | hi   | true  | 1/1/2000    |
+| 2  | 1              | hey  | true  | 1/1/2001    |
+| 3  | 1              | hey  | false | 1/1/2002    |
+This hides the comment from the end users. 
+Now a second comment is made (not an update of the first)
+| id |  comment_id_no | text | show  | inserted_at |
+| -- | -------------- | ---- | ----- | ----------- |
+| 1  | 1              | hi   | true  | 1/1/2000    |
+| 2  | 1              | hey  | true  | 1/1/2001    |
+| 3  | 1              | hey  | false | 1/1/2002    |
+| 4  | 2              | new  | true  | 1/1/2003    |
+What I would like to be able to do is select all the latest versions of unique commend_id_no, where show is equal to true. However, I do not want the query to return id=2.
+Steps the query needs to take...
+select all the most recent, distinct comment_id_nos. (should return id=3 and id=4)
+select where show = true (should only return id=4)
+  Note: I am actually writing this query in elixir using ecto and would like to be able to do this without using the subquery function. If anyone can answer this in sql I can convert the answer myself. If anyone knows how to answer this in elixir then also feel free to answer. 
+",<sql><postgresql><elixir><distinct><where-clause>,2091,0,31,1624,1,17,28,42,2481,0.0,344,5,28,2019-02-14 12:43,2019-02-14 12:45,2019-02-14 12:58,0.0,0.0,Basic,10
+51278467,"MySQL collation: utf8mb4_unicode_ci vs ""utf8mb4 - default collation""","Please help me to understand the differences between the collations listed in MySQL Workbench:
+utf8mb4_unicode_ci vs utf8mb4 - default collation
+p.s. Everyone is recommending using utf8mb4_unicode_ci. If this is so popular why it is not default? What differs it from the default?
+I use MySQL 5.7.21.
+",<mysql><mysql-workbench><collation>,300,1,3,38596,26,175,195,35,25212,0.0,2983,1,28,2018-07-11 6:19,2018-07-11 15:18,,0.0,,Intermediate,19
+51959944,"SQLiteBlobTooBigException: Row too big to fit into CursorWindow requiredPos=0, totalRows=1","I am getting below exception only in android 9, after reinstalling everything looks good,
+Exception:
+android.database.sqlite.SQLiteBlobTooBigException: Row too big to fit into CursorWindow requiredPos=0, totalRows=1...
+Code:
+Cursor cursor = database.query(......);
+    if(cursor == null || cursor.getCount() &lt; 0) { //Here is the error
+        Log.d(""Error"", ""count : null"");
+        return """";
+    }
+Edited:
+java.lang.RuntimeException: An error occurred while executing doInBackground()
+at android.os.AsyncTask$3.done(AsyncTask.java:354)
+at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:383)
+at java.util.concurrent.FutureTask.setException(FutureTask.java:252)
+at java.util.concurrent.FutureTask.run(FutureTask.java:271)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+at java.lang.Thread.run(Thread.java:764)
+Caused by: android.database.sqlite.SQLiteBlobTooBigException: Row too big to fit into CursorWindow requiredPos=0, totalRows=1
+at android.database.sqlite.SQLiteConnection.nativeExecuteForCursorWindow(Native Method)
+at android.database.sqlite.SQLiteConnection.executeForCursorWindow(SQLiteConnection.java:859)
+at android.database.sqlite.SQLiteSession.executeForCursorWindow(SQLiteSession.java:836)
+at android.database.sqlite.SQLiteQuery.fillWindow(SQLiteQuery.java:62)
+at android.database.sqlite.SQLiteCursor.fillWindow(SQLiteCursor.java:149)
+at android.database.sqlite.SQLiteCursor.getCount(SQLiteCursor.java:137)
+Thanks in advance guys
+",<android><sqlite><android-database>,1586,0,22,322,1,3,10,74,30636,,9,4,28,2018-08-22 4:35,2019-04-24 10:48,,245.0,,Intermediate,24
+50641841,MySQL Docker Container INFILE/ INTO OUTFILE statement on MacOS System,"I hava a Java program and a mysql Docker container (image: mysql:5.7.20).
+My MacOs is High Sierra 10.13.4.
+The problem in short
+Using Docker on MacOS (10.13.4.). Inside a docker container (image: mysql:5.7.20) mostly the queries (executed from a java program)
+LOAD DATA INFILE ...
+SELECT ... INTO OUTFILE ...
+are working fine, but sometimes the java program throws the exceptions:
+SQLException: Can't create/write to file ‘…’ (Errcode: 2 - No such file or directory)
+SQLException: Can't get stat of ‘…’ Errcode: 2 - No such file or directory)
+SQLException: The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+SQLException: File ‘…’ not found (Errcode: 2 - No such file or directory)
+btw. the file exists and the permissions should be fine (see longer version)
+The longer version
+The process is the following:
+a .csv file gets created
+this .csv file is copied into a directory, which is mounted for the docker container
+docker-compose volumes section: - ""./data/datahub/import:/var/lib/mysql-files/datahub/import""
+then MySQL reads this .csv file into a table:
+LOAD DATA INFILE '.csv-file' REPLACE INTO TABLE 'my-table';
+then some stuff on that database happens
+after that MySQL writes an .csv output file
+SELECTtbl.sku,tbl.deleted,tbl.data_source_valuesINTO OUTFILE 'output.csv' FIELDS TERMINATED BY '|' ENCLOSED BY '""' ESCAPED BY '""' FROM (SELECT ...
+This project has some java integration-tests for this process. These tests are mostly green, but sometimes they fail with:
+SQLException: Can't create/write to file ‘…’ (Errcode: 2 - No such file or directory)
+SQLException: Can't get stat of ‘…’ Errcode: 2 - No such file or directory)
+SQLException: The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+SQLException: File ‘…’ not found (Errcode: 2 - No such file or directory)
+The docker-compose file looks like:
+version: '3'
+  services:
+    datahub_db:
+      image: ""mysql:5.7.20""
+      restart: always
+      environment:
+        - MYSQL_ROOT_PASSWORD=${DATAHUB_DB_ROOT_PASSWORD}
+        - MYSQL_DATABASE=${DATAHUB_DB_DATABASE}
+      volumes:
+        - ""datahub_db:/var/lib/mysql""
+        - ""./data/datahub/import:/var/lib/mysql-files/datahub/import""
+        - ""./data/akeneo/import:/var/lib/mysql-files/akeneo/import""
+      ports:
+        - ""${DATAHUB_DB_PORT}:3306""
+...
+volumes:
+  datahub_db:
+The Log from that Docker database container shows the following (but sometimes, this happened when all test are green, too)
+datahub_db_1  | 2018-06-01T10:04:33.937646Z 144 [Note] Aborted connection 144 to db: 'datahub_test' user: 'root' host: '172.18.0.1' (Got an error reading communication packets)
+The .csv file inside the datahub container, shows the following, fo ls -lha
+root@e02e2074fb6b:/var/lib/mysql- 
+files/datahub/import/test/products/kaw# ls -lha
+total 4.0K
+drwxr-xr-x 3 root root  96 Jun  1 09:36 .
+drwxr-xr-x 3 root root  96 Jun  1 09:36 ..
+-rw-r--r-- 1 root root 378 Jun  1 06:47 deactivated_product_merged_bub.csv
+I think there is no problem, that this file belongs to root because mostly this file can get read by MySQL. When I change to user mysql via su mysql inside the Docker container, I get the following:
+$ ls -al
+total 4
+drwxr-xr-x 3 mysql mysql  96 Jun  1 09:36 .
+drwxr-xr-x 3 mysql mysql  96 Jun  1 09:36 ..
+-rw-r--r-- 1 mysql mysql 378 Jun  1 06:47 deactivated_product_merged_bub.csv
+Now some strange stuff happened. 
+with root user, i could make a cat deactivated_product_merged_bub.csv
+with mysql user i couldn't i got: 
+Output:
+$ cat deactivated_product_merge_bub.csv
+cat: deactivated_product_merge_bub.csv: No such file or directory
+I made a stat deactivated_product_merged_bub.csv as MySQL user and suddenly I could make a cat on that file (as you see I chmod 777 to that file to get the cat working - but it didn't work).
+stat as root
+Output:
+root@e02e2074fb6b:/var/lib/mysql-files/datahub/import/test/products/kaw# stat 
+deactivated_product_merged_bub.csv 
+  File: 'deactivated_product_merged_bub.csv'
+  Size: 378         Blocks: 8          IO Block: 4194304 regular file
+Device: 4fh/79d Inode: 4112125     Links: 1
+Access: (0777/-rwxrwxrwx)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-06-01 09:23:38.000000000 +0000
+Modify: 2018-06-01 06:47:44.000000000 +0000
+Change: 2018-06-01 09:04:53.000000000 +0000
+  Birth: -
+stat as mysql user
+Output:
+$ stat deactivated_product_merged_bub.csv
+  File: 'deactivated_product_merged_bub.csv'
+  Size: 378         Blocks: 8          IO Block: 4194304 regular file
+Device: 4fh/79d Inode: 4112125     Links: 1
+Access: (0777/-rwxrwxrwx)  Uid: (  999/   mysql)   Gid: (  999/   mysql)
+Access: 2018-06-01 09:32:25.000000000 +0000
+Modify: 2018-06-01 06:47:44.000000000 +0000
+Change: 2018-06-01 09:04:53.000000000 +0000
+  Birth: -
+Question
+Does anyone knows, what happened here or has a hint for what I could search to dig deeper?
+My speculation is that it's because using Docker with MacOs and the mounted volume.
+",<java><mysql><docker><docker-compose>,4985,0,73,680,0,9,21,65,3956,0.0,63,3,28,2018-06-01 10:51,2018-10-17 20:55,,138.0,,Intermediate,24
+52697734,Postgresql | remaining connection slots are reserved for non-replication superuser connections,"I am getting an error ""remaining connection slots are reserved for non-replication superuser connections"" at one of PostgreSQL instances.
+However, when I run below query from superuser to check available connections, I found that enough connections are available. But still getting the same error.
+select max_conn,used,res_for_super,max_conn-used-res_for_super 
+res_for_normal 
+from 
+  (select count(*) used from pg_stat_activity) t1,
+  (select setting::int res_for_super from pg_settings where 
+name='superuser_reserved_connections') t2,
+  (select setting::int max_conn from pg_settings where name='max_connections') t3
+Output
+I searched this error and everyone is suggesting to increase the max connections like below link.
+Heroku &quot;psql: FATAL: remaining connection slots are reserved for non-replication superuser connections&quot;
+EDIT
+I restarted the server and after some time used connections were almost 210 but i was able to connect to the server from a normal user. 
+",<postgresql><postgresql-9.6>,982,2,7,1636,2,22,44,73,19593,0.0,105,2,28,2018-10-08 7:54,2021-01-03 18:35,,818.0,,Basic,6
+53730591,Sqlite DB Locked on Azure Dotnet Core Entity Framework,"I have a simple asp.net core web app (v2.1), that I deployed to a B1 (and I tried B2) Azure App Service on Linux. When I call dbContext.SaveChanges(), after adding one very simple entity, the request takes about 30 seconds before throwing the following error:
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 5: 'database is locked'.
+Here is the code. _dbContext is injected with scoped lifetime.
+public async Task&lt;IActionResult&gt; SignIn([Bind(""Email,Password,RedirectUrl"")] SignInModel model) {
+    if (ModelState.IsValid) {
+        var user = _dbContext.Users.Include(u =&gt; u.Claims).FirstOrDefault(u =&gt; u.UserName == model.Email);
+        ...
+        user.LastLogin = DateTimeOffset.Now;
+        await _dbContext.SaveChangesAsync();
+        ...
+        return Redirect(String.IsNullOrWhiteSpace(model.RedirectUrl) ? ""/"" : model.RedirectUrl); 
+    }
+    else {
+        return View(model);
+    }
+}
+During the 30 seconds, I see, via SSH, that a journal file exists beside by SQLite DB file. It's eventually deleted.
+UPDATE: Here are the logs. You can see, that after a single update call, a lock exception is thrown exactly 30 seconds later. 30 seconds is the SQL command timeout. I'm watching the file system using a remote SSH shell, and the journal file is there for ~30 seconds. It's like the combination of the network share used by the app service, and the SQLite file locking logic, is broken or very slow.
+2018-12-20T15:06:27.660624755Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+2018-12-20T15:06:27.660656156Z       Request starting HTTP/1.1 POST http://insecuresite.azurewebsites.net/Account/SignIn application/x-www-form-urlencoded 56
+2018-12-20T15:06:27.660797960Z [15:06:27 DBG] InsecureSite.Middleware.MyCookieAuthHandler:Constructor called.
+2018-12-20T15:06:27.660875561Z [15:06:27 DBG] InsecureSite.Middleware.MyCookieAuthHandler:Constructor called.
+2018-12-20T15:06:27.660885462Z [15:06:27 DBG] InsecureSite.Middleware.MyCookieAuthHandler:HandleAuthenticateAsync called.
+2018-12-20T15:06:27.660890662Z [15:06:27 DBG] InsecureSite.Middleware.MyCookieAuthHandler:HandleAuthenticateAsync called.
+2018-12-20T15:06:27.661837484Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+2018-12-20T15:06:27.661856585Z       Route matched with {action = ""SignIn"", controller = ""Account""}. Executing action InsecureSite.Controllers.AccountController.SignIn (InsecureSite)
+2018-12-20T15:06:27.662465200Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+2018-12-20T15:06:27.662478400Z       Executing action method InsecureSite.Controllers.AccountController.SignIn (InsecureSite) with arguments (InsecureSite.Models.SignInModel) - Validation state: Valid
+2018-12-20T15:06:27.667736726Z [40m[32minfo[39m[22m[49m: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+2018-12-20T15:06:27.667751427Z       Entity Framework Core 2.1.4-rtm-31024 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2018-12-20T15:06:27.716864407Z [40m[32minfo[39m[22m[49m: Microsoft.EntityFrameworkCore.Database.Command[20101]
+2018-12-20T15:06:27.716886507Z       Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2018-12-20T15:06:27.716892507Z       PRAGMA foreign_keys=ON;
+2018-12-20T15:06:27.776374136Z [40m[32minfo[39m[22m[49m: Microsoft.EntityFrameworkCore.Database.Command[20101]
+2018-12-20T15:06:27.776410837Z       Executed DbCommand (59ms) [Parameters=[@__model_Email_0='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+2018-12-20T15:06:27.776514640Z       SELECT ""u"".""UserId"", ""u"".""FirstName"", ""u"".""LastLogin"", ""u"".""LastName"", ""u"".""PasswordHash"", ""u"".""UserName""
+2018-12-20T15:06:27.776526140Z       FROM ""Users"" AS ""u""
+2018-12-20T15:06:27.776531140Z       WHERE ""u"".""UserName"" = @__model_Email_0
+2018-12-20T15:06:27.776536040Z       ORDER BY ""u"".""UserId""
+2018-12-20T15:06:27.776540740Z       LIMIT 1
+2018-12-20T15:06:27.778553489Z [40m[32minfo[39m[22m[49m: Microsoft.EntityFrameworkCore.Database.Command[20101]
+2018-12-20T15:06:27.778567689Z       Executed DbCommand (1ms) [Parameters=[@__model_Email_0='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+2018-12-20T15:06:27.778840096Z       SELECT ""u.Claims"".""UserClaimId"", ""u.Claims"".""Claim"", ""u.Claims"".""UserId"", ""u.Claims"".""Value""
+2018-12-20T15:06:27.778852696Z       FROM ""UserClaims"" AS ""u.Claims""
+2018-12-20T15:06:27.778857796Z       INNER JOIN (
+2018-12-20T15:06:27.778862596Z           SELECT ""u0"".""UserId""
+2018-12-20T15:06:27.778869696Z           FROM ""Users"" AS ""u0""
+2018-12-20T15:06:27.778874396Z           WHERE ""u0"".""UserName"" = @__model_Email_0
+2018-12-20T15:06:27.778879897Z           ORDER BY ""u0"".""UserId""
+2018-12-20T15:06:27.780228429Z           LIMIT 1
+2018-12-20T15:06:27.780242129Z       ) AS ""t"" ON ""u.Claims"".""UserId"" = ""t"".""UserId""
+2018-12-20T15:06:27.780247829Z       ORDER BY ""t"".""UserId""
+2018-12-20T15:06:27.789636555Z [40m[32minfo[39m[22m[49m: Microsoft.EntityFrameworkCore.Database.Command[20101]
+2018-12-20T15:06:27.789651955Z       Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2018-12-20T15:06:27.789657656Z       PRAGMA foreign_keys=ON;
+2018-12-20T15:06:27.794111763Z [40m[32minfo[39m[22m[49m: Microsoft.EntityFrameworkCore.Database.Command[20101]
+2018-12-20T15:06:27.794126763Z       Executed DbCommand (4ms) [Parameters=[@p1='?', @p0='?'], CommandType='Text', CommandTimeout='30']
+2018-12-20T15:06:27.794132363Z       UPDATE ""Users"" SET ""LastLogin"" = @p0
+2018-12-20T15:06:27.794280267Z       WHERE ""UserId"" = @p1;
+2018-12-20T15:06:27.794298667Z       SELECT changes();
+2018-12-20T15:06:57.833069471Z [41m[30mfail[39m[22m[49m: Microsoft.EntityFrameworkCore.Database.Transaction[20205]
+2018-12-20T15:06:57.833107571Z       An error occurred using a transaction.
+2018-12-20T15:06:57.833113572Z Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 5: 'database is locked'.
+2018-12-20T15:06:57.833118772Z    at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+2018-12-20T15:06:57.833123772Z    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+2018-12-20T15:06:57.833128672Z    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+2018-12-20T15:06:57.833133672Z    at Microsoft.Data.Sqlite.SqliteConnectionExtensions.ExecuteNonQuery(SqliteConnection connection, String commandText)
+2018-12-20T15:06:57.833138672Z    at Microsoft.Data.Sqlite.SqliteTransaction.Commit()
+2018-12-20T15:06:57.833143372Z    at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Commit()
+2018-12-20T15:06:57.853805669Z [41m[30mfail[39m[22m[49m: Microsoft.EntityFrameworkCore.Update[10000]
+2018-12-20T15:06:57.853833569Z       An exception occurred in the database while saving changes for context type 'InsecureSite.Data.AppDbContext'.
+2018-12-20T15:06:57.853928072Z       Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 5: 'database is locked'.
+2018-12-20T15:06:57.853938272Z          at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+2018-12-20T15:06:57.853943572Z          at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+2018-12-20T15:06:57.854041474Z          at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+2018-12-20T15:06:57.854051475Z          at Microsoft.Data.Sqlite.SqliteConnectionExtensions.ExecuteNonQuery(SqliteConnection connection, String commandText)
+2018-12-20T15:06:57.854056675Z          at Microsoft.Data.Sqlite.SqliteTransaction.Commit()
+2018-12-20T15:06:57.854137377Z          at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Commit()
+2018-12-20T15:06:57.854146577Z          at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+2018-12-20T15:06:57.854208178Z          at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+2018-12-20T15:06:57.854283180Z          at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2018-12-20T15:06:57.854292080Z          at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2018-12-20T15:06:57.854299081Z Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 5: 'database is locked'.
+2018-12-20T15:06:57.854366282Z    at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+2018-12-20T15:06:57.854384483Z    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+2018-12-20T15:06:57.854389683Z    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+2018-12-20T15:06:57.854455384Z    at Microsoft.Data.Sqlite.SqliteConnectionExtensions.ExecuteNonQuery(SqliteConnection connection, String commandText)
+2018-12-20T15:06:57.854463685Z    at Microsoft.Data.Sqlite.SqliteTransaction.Commit()
+2018-12-20T15:06:57.854468185Z    at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Commit()
+2018-12-20T15:06:57.854529686Z    at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+2018-12-20T15:06:57.854652489Z    at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+2018-12-20T15:06:57.854673890Z    at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2018-12-20T15:06:57.854748391Z    at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2018-12-20T15:06:57.858109772Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+2018-12-20T15:06:57.858123973Z       Executed action InsecureSite.Controllers.AccountController.SignIn (InsecureSite) in 30193.6715ms
+2018-12-20T15:06:57.860885139Z [41m[30mfail[39m[22m[49m: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+2018-12-20T15:06:57.860899939Z       An unhandled exception has occurred while executing the request.
+2018-12-20T15:06:57.860905239Z Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 5: 'database is locked'.
+2018-12-20T15:06:57.861009242Z    at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+2018-12-20T15:06:57.861018942Z    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+2018-12-20T15:06:57.861023842Z    at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+2018-12-20T15:06:57.861120545Z    at Microsoft.Data.Sqlite.SqliteConnectionExtensions.ExecuteNonQuery(SqliteConnection connection, String commandText)
+2018-12-20T15:06:57.861130145Z    at Microsoft.Data.Sqlite.SqliteTransaction.Commit()
+2018-12-20T15:06:57.861134745Z    at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Commit()
+2018-12-20T15:06:57.861237547Z    at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+2018-12-20T15:06:57.861311249Z    at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+2018-12-20T15:06:57.861320149Z    at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2018-12-20T15:06:57.861392851Z    at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2018-12-20T15:06:57.861401851Z    at InsecureSite.Controllers.AccountController.SignIn(SignInModel model) in /home/site/repository/InsecureSite/Controllers/AccountController.cs:line 57
+2018-12-20T15:06:57.861463253Z    at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+2018-12-20T15:06:57.861472053Z    at System.Threading.Tasks.ValueTask`1.get_Result()
+2018-12-20T15:06:57.861541855Z    at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+2018-12-20T15:06:57.861550055Z    at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+2018-12-20T15:06:57.861554655Z    at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+2018-12-20T15:06:57.861629257Z    at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+2018-12-20T15:06:57.861639057Z    at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+2018-12-20T15:06:57.861718659Z    at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+2018-12-20T15:06:57.861727059Z    at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+2018-12-20T15:06:57.861791861Z    at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+2018-12-20T15:06:57.861800861Z    at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+2018-12-20T15:06:57.861805561Z    at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+2018-12-20T15:06:57.861810161Z    at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+2018-12-20T15:06:57.861880363Z    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+2018-12-20T15:06:57.861888363Z    at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+2018-12-20T15:06:57.861948164Z    at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2018-12-20T15:06:57.862056667Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+2018-12-20T15:06:57.862066767Z       Route matched with {action = ""Error"", controller = ""Home""}. Executing action InsecureSite.Controllers.HomeController.Error (InsecureSite)
+2018-12-20T15:06:57.867899207Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+2018-12-20T15:06:57.867914108Z       Executing action method InsecureSite.Controllers.HomeController.Error (InsecureSite) - Validation state: Valid
+2018-12-20T15:06:57.868025910Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+2018-12-20T15:06:57.868045011Z       Executed action method InsecureSite.Controllers.HomeController.Error (InsecureSite), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0771ms.
+2018-12-20T15:06:57.868147613Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+2018-12-20T15:06:57.868157914Z       Executing ViewResult, running view Error.
+2018-12-20T15:06:57.869182938Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+2018-12-20T15:06:57.869196139Z       Executed ViewResult - view Error executed in 7.5623ms.
+2018-12-20T15:06:57.869201439Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+2018-12-20T15:06:57.869206339Z       Executed action InsecureSite.Controllers.HomeController.Error (InsecureSite) in 7.9125ms
+2018-12-20T15:06:57.869222639Z [40m[32minfo[39m[22m[49m: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+2018-12-20T15:06:57.869228039Z       Request finished in 30208.5835ms 500 text/html; charset=utf-8
+2018-12-20T15:08:44  No new trace in the past 1 min(s).
+There is not any other requests hitting this web app. I am the only one making requests.
+Controllers can read data from the DB file without errors. I see that a couple queries right before the failed write take 3ms and 6ms.
+I saw there was an issue with locking and multiple threads, but it is fixed, and I'm on a later version from the fix (2.1.4)
+",<linux><azure><docker><sqlite><entity-framework-core>,16441,2,143,3407,1,23,26,45,3526,0.0,152,4,28,2018-12-11 18:51,2018-12-20 8:19,2022-07-27 10:12,9.0,1324.0,Intermediate,23
+56389698,Why SUPER privileges are disabled when binary logging option is on?,"there are lot of recommendations over the Internet on how to enable SUPER privileges in case if someone hit the following error: 
+  ""ERROR 1419 (HY000): You do not have the SUPER Privilege and Binary Logging is Enabled""
+But I wasn't be able to find WHY MySQL disables these privileges when binary logging option is on.
+Are there some issues with replication if I use e.g. triggers which modify DB or something else? Whether it's safe and, if no, what kind of issues and under which circumstances I can hit if I will return SUPER privileges back? I think there should be some rationale behind this restriction but don't understand which one.
+Does anybody have an answer on this?
+Thank you.
+",<mysql><mariadb>,689,0,0,433,1,4,9,58,86520,0.0,10,4,28,2019-05-31 6:22,2019-05-31 6:45,2019-05-31 6:45,0.0,0.0,Advanced,33
+52324170,AWS RDS for PostgreSQL cannot be connected after several hours,"I created several instances of RDS with PostgreSQL and get the same problems:
+I can connect to all of them right after creating the instances.
+After several hours (I stop working on it, turn off my laptop), I cannot connect to any of them again.
+I use DBeaver for the connections, the error show is ""Connection attempt timed out.""
+I attached the information of the
+. Hope someone can help me with this problem. Thank you in advance.
+",<postgresql><amazon-web-services>,433,1,0,871,2,8,15,46,34799,0.0,27,5,27,2018-09-14 2:26,2018-09-15 15:53,,1.0,,Advanced,33
+51368395,Convert java.sql.Timestamp to Java 8 ZonedDateTime?,"Migrating Joda time to Java 8
+Joda:
+UserObject user = new UserObject()
+user.setCreatedAt(new DateTime(rs.getTimestamp(""columnName"")));`
+Migrating to Java 8
+This is my code; it does compile; I am doubtful if it works:
+ZonedDateTime.ofInstant(rs.getTimestamp(""columnName"").toLocalDateTime().toInstant(ZoneOffset.UTC),ZoneId.of(""UTC"")));
+In some cases, the date is wrong. Any advice?
+",<java><sql><java-8><java-time><zoneddatetime>,381,0,3,1981,9,36,58,44,30687,0.0,22,3,27,2018-07-16 18:52,2018-07-16 19:07,2018-07-18 11:35,0.0,2.0,Basic,10
+53037124,Partitioning a large skewed dataset in S3 with Spark's partitionBy method,"I am trying to write out a large partitioned dataset to disk with Spark and the partitionBy algorithm is struggling with both of the approaches I've tried.
+The partitions are heavily skewed - some of the partitions are massive and others are tiny.
+Problem #1:
+When I use repartition before partitionBy, Spark writes all partitions as a single file, even the huge ones
+val df = spark.read.parquet(&quot;some_data_lake&quot;)
+df
+  .repartition('some_col).write.partitionBy(&quot;some_col&quot;)
+  .parquet(&quot;partitioned_lake&quot;)
+This takes forever to execute because Spark isn't writing the big partitions in parallel.  If one of the partitions has 1TB of data, Spark will try to write the entire 1TB of data as a single file.
+Problem #2:
+When I don't use repartition, Spark writes out way too many files.
+This code will write out an insane number of files.
+df.write.partitionBy(&quot;some_col&quot;).parquet(&quot;partitioned_lake&quot;)
+I ran this on a tiny 8 GB data subset and Spark wrote out 85,000+ files!
+When I tried running this on a production data set, one partition that has 1.3 GB of data was written out as 3,100 files.
+What I'd like
+I'd like for each partition to get written out as 1 GB files.  So a partition that has 7 GB of data will get written out as 7 files and a partition that has 0.3 GB of data will get written out as a single file.
+What is my best path forward?
+",<apache-spark><apache-spark-sql><partitioning>,1394,0,8,18540,11,106,109,39,10093,0.0,547,4,27,2018-10-28 23:52,2018-10-29 0:26,2018-10-29 0:26,1.0,1.0,Advanced,32
+58658690,Retrieve query results as dict in SQLAlchemy,"I am using flask SQLAlchemy and I have the following code to get users from database with raw SQL query from a MySQL database:
+connection = engine.raw_connection()
+cursor = connection.cursor()
+cursor.execute(""SELECT * from User where id=0"")
+results = cursor.fetchall()
+results variable is a tuple and I want it to be of type dict(). Is there a way to achieve this?
+when I was using pymysql to build the db connection I was able to do 
+cursor = connection.cursor(pymysql.cursors.DictCursor)
+Is there something similar in SQLAlchemy?
+Note: The reason I want to do this change is to get rid of using pymysql in my code, and only use SQLAlcehmy features, i.e. I do not want to have ´´´import pymysql´´´ in my code anywhere.
+",<python><mysql><sqlalchemy><flask-sqlalchemy>,720,0,6,595,3,7,16,67,55259,0.0,56,4,27,2019-11-01 11:43,2019-11-01 14:07,2019-11-01 14:07,0.0,0.0,Basic,2
+53045717,adapter Ecto.Adapters.Postgres was not compiled,"I am not able to create my Phoenix project. Would love some advice on how to fix it.
+Setup details:
+Ubuntu 16.04.4 LTS 
+Erlang/OTP 21 [erts-10.1] [source] [64-bit]
+[smp:1:1] [ds:1:1:10] [async-threads:1] [hipe] 
+Elixir 1.7.3 (compiled
+with Erlang/OTP 20)
+Mix 1.7.3 (compiled with Erlang/OTP 20)
+Ecto v3.0.0
+I am following the Phoenix Up and Running to make an app. 
+mix phx.new hello
+cd hello
+mix ecto.create
+last command gives me:
+ == Compilation error in file lib/hello/repo.ex ==
+ ** (ArgumentError) adapter Ecto.Adapters.Postgres was not compiled, ensure it is correct and it is included as a project dependency
+     lib/ecto/repo/supervisor.ex:71: Ecto.Repo.Supervisor.compile_config/2
+     lib/hello/repo.ex:2: (module)
+     (stdlib) erl_eval.erl:680: :erl_eval.do_apply/6
+     (elixir) lib/kernel/parallel_compiler.ex:206: anonymous fn/4 in Kernel.ParallelCompiler.spawn_workers/6
+I have postgres installed. I have postgres super user. 
+",<postgresql><elixir><phoenix-framework><ecto>,944,1,9,507,0,5,13,76,5442,0.0,13,4,27,2018-10-29 12:40,2018-10-29 13:41,2018-10-29 13:41,0.0,0.0,Basic,3
+50689082,to_sql pyodbc count field incorrect or syntax error,"I am downloading Json data from an api website and using sqlalchemy, pyodbc and pandas' to_sql function to insert that data into a MSSQL server.  
+I can download up to 10000 rows, however I have to limit the chunksize to 10 otherwise I get the following error:
+  DBAPIError: (pyodbc.Error) ('07002', '[07002] [Microsoft][SQL Server
+  Native Client 11.0]COUNT field incorrect or syntax error (0)
+  (SQLExecDirectW)') [SQL: 'INSERT INTO [TEMP_producing_entity_details]
+There are around 500 Million rows to download, it's just crawling at this speed.  Any advice on a workaround?  
+Thanks,
+",<python><sql-server><pandas><pyodbc>,587,0,0,287,1,4,8,64,19746,0.0,3,4,27,2018-06-04 21:32,2018-06-05 17:55,2018-06-05 17:55,1.0,1.0,Basic,6
+48555891,How to insert value into primary key column in SQL Server?,"insert into Student 
+values('1', 'joedio', 'newyark', GETDATE())
+I get this error message when trying to run this SQL:
+  An explicit value for the identity column in table 'Student' can only be specified when a column list is used and IDENTITY_INSERT is ON.
+",<sql-server><sql-server-2005>,258,0,2,323,3,5,14,45,119420,0.0,2,7,26,2018-02-01 5:25,2018-02-01 5:31,,0.0,,Basic,10
+53523051,"ERROR: could not stat file ""XX.csv"": Unknown error","I run this command:
+COPY XXX FROM 'D:/XXX.csv'  WITH (FORMAT CSV, HEADER TRUE, NULL 'NULL')
+In Windows 7, it successfully imports CSV files of less than 1GB.
+If the file is more then 1GB big, I get an &ldquo;unknown error&rdquo;.
+[Code: 0, SQL State: XX000]  ERROR: could not stat file ""'D:/XXX.csv'  Unknown error
+How can I fix this issue?
+",<postgresql><large-files><postgresql-copy>,341,0,2,391,1,3,7,81,16764,0.0,0,8,26,2018-11-28 15:37,2018-11-29 7:08,,1.0,,Basic,10
+58616005,Import Postgres data into RDS using S3 and aws_s3,"I'm having a hard time importing data from S3 into an RDS postgres instance. According to the docs, you can use this syntax:
+aws_s3.table_import_from_s3 (
+   table_name text, 
+   column_list text, 
+   options text, 
+   bucket text, 
+   file_path text, 
+   region text, 
+   access_key text, 
+   secret_key text, 
+   session_token text 
+) 
+So, in pgAdmin, I did this:
+SELECT aws_s3.table_import_from_s3(
+  'contacts_1', 
+  'firstname,lastname,imported', 
+  '(format csv)',
+  'com.foo.mybucket', 
+  'mydir/subdir/myfile.csv', 
+  'us-east-2',
+  'AKIAYYXUMxxxxxxxxxxx',
+  '3zB4S5jb1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+);
+I also tried it with an explicit NULL for the last parameter.
+The error message I get is:
+NOTICE:  CURL error code: 51 when attempting to validate pre-signed URL, 1 attempt(s) remaining
+NOTICE:  CURL error code: 51 when attempting to validate pre-signed URL, 0 attempt(s) remaining
+ERROR:  Unable to generate pre-signed url, look at engine log for details.
+SQL state: XX000
+I checked the server logs and there was no further information.
+I have triple-checked the correctness of all the parameters. How do I make this work?
+UPDATE:
+I can confirm that I can do an s3.getObject() in the Java aws sdk using these same credentials.
+",<postgresql><amazon-web-services><amazon-s3><amazon-rds>,1241,1,26,15339,27,93,159,36,27504,0.0,277,8,26,2019-10-29 22:02,2019-10-30 5:37,,1.0,,Basic,3
+55661806,How to Create an Extension for SSMS 2019 (v18),"SQL Server Management Studio 18 RC1 became available March 28, 2018
+This question has already been asked for SSMS 17, but there are slight variations when authoring extensions for different releases of SQL Server Management Studio.
+What are the steps to getting a Hello World application up an running in SSMS 2019?
+",<sql-server><visual-studio-extensions><ssms-addin><ssms-18>,316,2,0,32040,68,469,671,70,11230,0.0,13259,1,26,2019-04-13 3:52,2019-04-13 3:52,2019-04-13 3:52,0.0,0.0,Intermediate,27
+48076425,Difference between N'String' vs U'String' literals in Oracle,"What is the meaning and difference between these queries?
+SELECT U'String' FROM dual;
+and
+SELECT N'String' FROM dual;
+",<sql><string><oracle><literals><string-literals>,118,0,2,496,3,8,18,42,14027,0.0,25,4,26,2018-01-03 11:25,2018-01-03 11:32,2018-01-06 19:37,0.0,3.0,Intermediate,19
+50351517,Difference between two dates in dates using Google bigquery?,"How can I get the difference in days between 2 timestamp fields in Google Big Query? 
+The only function I know is Datediff which only works in Legacy SQL but I'm in Standard SQL. 
+For example: the difference between 20180115 to 20180220 is 36 days.
+",<sql><google-bigquery><datediff><date-difference>,249,0,1,261,1,3,3,35,93665,0.0,0,2,26,2018-05-15 13:28,2018-05-15 14:48,,0.0,,Basic,2
+60514629,"unrecognized configuration parameter ""default table access method"" google cloud","I try to import some files to a PostgreSQL database but I get this error:
+Falha Importar: 
+SET 
+SET 
+SET 
+SET 
+SET 
+set_config ------------ 
+(1 row) 
+SET 
+SET 
+SET 
+SET 
+SET 
+Import error: exit status 3 ERROR: unrecognized configuration parameter ""default_table_access_method""
+",<postgresql><google-cloud-platform><google-cloud-sql>,277,0,14,491,1,4,12,35,25549,0.0,72,2,26,2020-03-03 19:59,2020-03-04 7:49,2020-03-04 7:49,1.0,1.0,Basic,14
+53024891,ModuleNotFoundError: No module named 'MySQLdb',"After finishing of one of my Flask projects, I uploaded it on github just like everybody else. after a 2-3 months period I downloaded the entire githube repository on another machine to run it. However, the app is not working because the packages are not found giving the following message 
+  ModuleNotFoundError: No module named 'Flask'
+So I ended up downloading all packages starting from Flask, SQLalchemy,..etc! but I got stuck with MySQLdb:
+(MYAPPENV) C:\Users\hp\myapp&gt;python run.py
+Traceback (most recent call last):
+  File ""run.py"", line 1, in &lt;module&gt;
+    from app import app
+  File ""C:\Users\hp\myapp\app\__init__.py"", line 4, in &lt;module&gt;
+    from instance.config import engine
+  File ""C:\Users\hp\myapp\instance\config.py"", line 52, in &lt;module&gt;
+    engine = create_engine(""mysql://root:root@localhost/MYAPPDB"")
+  File ""C:\Users\hp\AppData\Local\Programs\Python\Python37-32\lib\site-packages\sqlalchemy\engine\__init__.py"", line 425, in create_engine
+return strategy.create(*args, **kwargs)
+  File ""C:\Users\hp\AppData\Local\Programs\Python\Python37-32\lib\site-packages\sqlalchemy\engine\strategies.py"", line 81, in create
+dbapi = dialect_cls.dbapi(**dbapi_args)
+  File ""C:\Users\hp\AppData\Local\Programs\Python\Python37-32\lib\site-packages\sqlalchemy\dialects\mysql\mysqldb.py"", line 102, in dbapi
+    return __import__('MySQLdb')
+ModuleNotFoundError: No module named 'MySQLdb'
+Could anybody please help with this issue? I am using python37 on windows machine. I even tried downloading packages such as mysqlclient,..etc but it didn't work out.
+",<python><flask><mysql-python>,1580,0,16,451,1,4,9,68,78861,0.0,28,8,26,2018-10-27 18:11,2018-10-27 18:17,,0.0,,Basic,14
+51775718,Is there a fundamental difference between INTERSECT and INNER JOIN?,"I understand, that INNER JOIN is made for referenced keys and INTERSECT is not. But afaik in some cases, both of them can do the same thing. So, is there a difference (in performance or anything) between the following two expressions? And if there is, which one is better?
+Expression 1:
+SELECT id FROM customers 
+INNER JOIN orders ON customers.id = orders.customerID;
+Expression 2:
+SELECT id FROM customers
+INTERSECT
+SELECT customerID FROM orders
+",<sql><inner-join><intersect><sql-except>,447,0,5,1196,1,9,31,59,51310,0.0,496,2,26,2018-08-09 21:02,2018-08-09 21:04,2018-08-09 21:04,0.0,0.0,Basic,8
+49606889,Use dbms_output.put_line in Datagrip for .sql files,"I started to use Datagrip for my PL/SQL (school) projects that need the use of DBMS_OUTPUT.PUT_LINE. Before this I was using Oracle SQL developer and I was able to use DBMS_OUTPUT by adding the following: 
+SET serveroutput ON;
+There is a related question that shows how to enable or disable showing the contents of the DBMS_OUTPUT buffer but this only works for the Database Console tool window. How can I apply this to any .sql file? Currently, I am copying the content of my .sql files and run it in the Console tool window but there must be a better way.
+",<oracle><plsql><datagrip><dbms-output>,558,2,2,1117,1,13,35,66,17012,0.0,464,8,26,2018-04-02 7:13,2018-04-02 7:46,2018-04-02 8:26,0.0,0.0,Basic,9
+65301011,"JdbcTemplate ""queryForObject"" and ""query"" is deprecated in Spring. What should it be replaced by?","Query for object,
+Student student = return jdbcTemplate.queryForObject(&quot;select * from student_id = ?&quot;, new Object[] { studentId }, studentRowMapper);
+For query,
+List&lt;Student&gt; students = return jdbcTemplate.query(&quot;select * from class_room_id = ?&quot;, new Object[] { classRoomId }, studentRowMapper);
+Both jdbcTemplate.queryForObject and jdbcTemplate.query are deprecated in spring boot 2.4.X above
+",<java><sql><spring><spring-boot><jdbctemplate>,420,0,4,8520,12,56,107,73,54152,0.0,591,2,26,2020-12-15 6:27,2020-12-15 6:42,2020-12-15 6:42,0.0,0.0,Basic,9
+54377052,How to connect to WSL mysql from Host Windows,"I am trying to connect HeidiSql from the host  to my WSL Mysql but I could not get it to connect it 
+Error ""can't connect to Mysql server on '127.0.0.1'""
+Tried SSH too but could not connect to the server
+",<mysql><ubuntu><windows-subsystem-for-linux>,204,1,0,271,1,3,4,66,48200,0.0,0,7,26,2019-01-26 9:10,2019-03-09 16:21,,42.0,,Basic,9
+60255595,"If I cache a Spark Dataframe and then overwrite the reference, will the original data frame still be cached?","Suppose I had a function to generate a (py)spark data frame, caching the data frame into memory as the last operation.
+def gen_func(inputs):
+   df = ... do stuff...
+   df.cache()
+   df.count()
+   return df
+Per my understanding, Spark's caching works as follows:
+When cache/persist plus an action (count())  is called on a data
+frame, it is computed from its DAG and cached into memory, affixed
+to the object which refers to it.
+As long as a reference exists to that object, possibly within other functions/other scopes, the df will continue to be cached, and all DAGs that depend on the df will use the in-memory cached data as a starting point.
+If all references to the df are deleted, Spark puts up the cache as memory to be garbage collected. It may not be garbage collected immediately, causing some short-term memory blocks (and in particular, memory leaks if you generate cached data and throw them away too fast), but eventually it will be cleared up.
+My question is, suppose I use gen_func to generate a data frame, but then overwrite the original data frame reference (perhaps with a filter or a withColumn).
+df=gen_func(inputs)
+df=df.filter(&quot;some_col = some_val&quot;)
+In Spark, RDD/DF are immutable, so the reassigned df after the filter and the df before the filter refer to two entirely different objects. In this case, the reference to the original df that was cache/counted has been overwritten. Does that mean that the cached data frame is no longer available and will be garbage collected? Does that mean that the new post-filter df will compute everything from scratch, despite being generated from a previously cached data frame?
+I am asking this because I was recently fixing some out-of-memory issues with my code, and it seems to me that caching might be the problem. However, I do not really understand the full details yet of what are the safe ways to use cache, and how one might accidentally invalidate one's cached memory. What is missing in my understanding? Am I deviating from best practice in doing the above?
+",<python><apache-spark><pyspark><apache-spark-sql>,2046,0,14,401,0,4,8,38,9816,0.0,4,2,26,2020-02-17 3:34,2020-12-21 20:09,,308.0,,Basic,5
+51783300,Flask-Migrate No Changes Detected to Schema on first migration,"I'm using Flask with Flask-SQLAlchemy and Flask-Migrate to create an application, however when I try to create a migration nothing happens. 
+I've created two tables in app/models.py:
+from flask import current_app
+from . import db
+class Student(db.Model):
+    __tablename__ = 'students'
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(64), unique=True, nullable=False)
+    password_hash = db.Column(db.String(128))
+    def __init__(self, **kwargs):
+        super(Student, self).__init__(**kwargs)
+    def __repr__(self):
+        return '&lt;Tutor {}&gt;' % self.id
+class Tutor(db.Model):
+    __tablename__ = 'tutors'
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(64), unique=True, index=True)
+    password_hash = db.Column(db.String(128))
+    def __init__(self, **kwargs):
+        super(Tutor, self).__init__(**kwargs)
+    def __repr__(self):
+        return '&lt;Student %r&gt;' % self.id
+Then I also have app/__init__.py with the following code:
+from flask import Flask
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+#from .models import User, Task, Project, UserProject
+from config import config
+bootstrap = Bootstrap()
+db = SQLAlchemy()
+migrate = Migrate()
+def create_app(config_name='default'):
+    #print config_name.name
+    app = Flask(__name__)
+    app.config.from_object(config[config_name])
+    config[config_name].init_app(app)
+    bootstrap.init_app(app)
+    db.init_app(app)
+    migrate.init_app(app, db)
+    ## Register the main blueprint for main app functionality
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+    return app
+and app.py:
+import os
+from app import create_app, db
+from app.models import Tutor, Student
+app = create_app('default')
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, Tutor=Tutor, Student=Student)
+I can run flask db init with no problem and it creates the migrations directory and all necessary files with the following output:
+Creating directory /Users/Jasmine/projects/flask/flask-tutoring/migrations ... done
+Creating directory /Users/Jasmine/projects/flask/flask-tutoring/migrations/versions ... done
+Generating /Users/Jasmine/projects/flask/flask-tutoring/migrations/script.py.mako ... done
+Generating /Users/Jasmine/projects/flask/flask-tutoring/migrations/env.py ... done
+Generating /Users/Jasmine/projects/flask/flask-tutoring/migrations/README ... done
+Generating /Users/Jasmine/projects/flask/flask-tutoring/migrations/alembic.ini ... done
+Please edit configuration/connection/logging settings in '/Users/Jasmine/projects/flask/flask-tutoring/migrations/alembic.ini' before proceeding.
+but when I try and run flask db migrate alembic can't detect that I've got tables in app/models.py. I get the following output:
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.env] No changes in schema detected.
+There is no migration script created, its as though models.py doesn't exist.
+Apologies if this is a repeated question, but I can't find another example where its the first migration that fails and no migration script at all is created.
+I've tried checking if there is already a table created somewhere by running db.drop_all() in the shell but that doesn't seem to be the problem.
+UPDATE
+I figured out a way to solve this on my own but would like a better understanding of why this worked.
+I re-named app.py to flasktutor.py and re-ran export FLASK_APP='flasktutor.py'. Subsequently the migration worked perfectly.
+Please could someone explain why when the file was called app.py and I used export FLASK_APP='app.py' the migration did not register changes to the schema.
+",<python><python-3.x><flask><flask-sqlalchemy><flask-migrate>,3819,0,85,389,1,3,11,47,26711,0.0,0,10,26,2018-08-10 9:27,2018-09-05 9:34,,26.0,,Basic,14
+50505893,Updating .NET framework resulting in SQL timeouts,"We have an app which targets .NET 4.5.1, and this has remained unchanged.
+However when we upgraded the .NET framework on the server from 4.5.1 -> 4.7.1, we started experiencing SQL timeouts several hours afterwards (the app target remained at 4.5.1).
+""Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.""
+Other servers which had the same treatment produced the issue also, so we looked for a breaking change in .NET, and found this article: https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/
+That article quotes a different exception type, but might be somewhat related. However I'd be stunned if our DNS lookup took longer than 500ms. Also I'd expect to see far more cases of this connection string config reported and used.
+Our app is high traffic, but we're confident we're not leaking connections as this has never been an issues for years until we updated the .NET framework. 
+We're going to try applying this fix (and wait >24 hours to see the results), but is there anything else we could have missed? We're not confident this is the solution.
+EDIT: Even after rolling .NET back to 4.5.1 and restart all servers, we're still seeing the problem. Nothing else has changed in the codebase, but we've yet to roll back a registry change which enabled 'SchUseStrongCrypto' - if that could be the cause?
+",<c#><sql><.net><connection-pooling>,1538,2,1,4373,2,45,75,72,3032,0.0,472,1,26,2018-05-24 9:35,2018-06-02 20:54,,9.0,,Intermediate,23
+51242938,"Spring Boot Application gets stuck on ""Hikari-Pool-1 - Starting...""","I'm trying to run Spring Boot application connected to PostgreSQL database. However, when it comes to Hikari connection pool initializing, it just gets stuck and nothing goes on. HikariPool-1 - Starting... appears in logs and then nothing happens. 
+Logs:
+2018-07-09 15:32:48.475  INFO 21920 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@68999068: startup date [Mon Jul 09 15:32:48 ALMT 2018]; root of context hierarchy
+2018-07-09 15:32:48.736  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$1b7bd026] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.3.RELEASE)
+2018-07-09 15:32:49.207  INFO 21920 --- [           main] o.paperplane.todoapp.TodoappApplication  : No active profile set, falling back to default profiles: default
+2018-07-09 15:32:49.217  INFO 21920 --- [           main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1b410b60: startup date [Mon Jul 09 15:32:49 ALMT 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@68999068
+2018-07-09 15:32:49.763  INFO 21920 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]]
+2018-07-09 15:32:50.046  INFO 21920 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=refresh; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=false; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]] with [Root bean: class [org.springframework.aop.scope.ScopedProxyFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in BeanDefinition defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]]
+2018-07-09 15:32:50.212  INFO 21920 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2203ab9b-5bb0-34f2-b496-2cbda1e334a2
+2018-07-09 15:32:50.342  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ff61cd29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-09 15:32:50.380  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$980f9563] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-09 15:32:50.389  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-09 15:32:50.393  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@309028af' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-09 15:32:50.397  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$bce43815] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-09 15:32:50.404  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-09 15:32:50.424  INFO 21920 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$1b7bd026] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-09 15:32:50.692  INFO 21920 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-07-09 15:32:50.710  INFO 21920 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-09 15:32:50.710  INFO 21920 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-09 15:32:50.714  INFO 21920 --- [ost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_151\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\7-Zip;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;D:\node_js\;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;.]
+2018-07-09 15:32:50.817  INFO 21920 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-09 15:32:50.817  INFO 21920 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1600 ms
+2018-07-09 15:32:51.784  INFO 21920 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-09 15:32:51.785  INFO 21920 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-09 15:32:51.785  INFO 21920 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-09 15:32:51.785  INFO 21920 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-09 15:32:51.785  INFO 21920 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-07-09 15:32:51.785  INFO 21920 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-07-09 15:32:51.786  INFO 21920 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-07-09 15:32:51.786  INFO 21920 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-07-09 15:32:51.885  INFO 21920 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+My pom.xml:
+&lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;
+&lt;project xmlns=""http://maven.apache.org/POM/4.0.0"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+    xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd""&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;org.paperplane&lt;/groupId&gt;
+    &lt;artifactId&gt;todoapp&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;name&gt;todoapp&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.0.3.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+        &lt;spring-cloud.version&gt;Finchley.RELEASE&lt;/spring-cloud.version&gt;
+    &lt;/properties&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-oauth2&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+            &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+            &lt;version&gt;2.9.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+            &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
+            &lt;version&gt;2.9.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
+            &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-security-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+                &lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+My apllication.properties:
+spring.datasource.url=jdbc:postgresql://127.0.0.1:55491/TodoAppDatabase
+spring.datasource.username=admin
+spring.datasource.password=root
+spring.datasource.hikari.connection-timeout=10000
+spring.datasource.hikari.driver-class-name=org.postgresql.Driver
+spring.datasource.hikari.maximum-pool-size=100
+spring.data.jpa.repositories.enabled=true
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
+spring.jpa.properties.hibernate.cache.use_query_cache=true
+spring.jpa.properties.hibernate.connection.provider_class=com.zaxxer.hikari.hibernate.HikariConnectionProvider
+How can I overcome this issue?
+",<spring><postgresql><spring-boot>,15840,4,153,252,1,3,5,46,52392,,2,10,26,2018-07-09 10:06,2018-11-14 13:30,,128.0,,Intermediate,23
+48280776,NHibernate HQL Generator to support SQL Server 2016 temporal tables,"I am trying to implement basic support for SQL Server 2016 temporal tables in NHibernate 4.x. The idea is to alter SQL statement from  
+SELECT * FROM Table t0
+to  
+SELECT * FROM Table FOR SYSTEM_TIME AS OF '2018-01-16 00:00:00' t0
+You can find more info about temporal tables in SQL Server 2016 here
+Unfortunately, I've not found any way to insert FOR FOR SYSTEM_TIME AS OF '...' statement between table name and its alias. I'm not sure if custom dialects supports this. The only working solution I have for now is to append FOR SYSTEM_TIME statement within extra WHERE and my output SQL looks like this
+SELECT * FROM Table t0 WHERE FOR SYSTEM_TIME AS OF '2018-01-16 00:00:00'=1
+To do so, I have implemented generator and dialect as follows:
+public static class AuditableExtensions
+{
+    public static bool AsOf(this IAuditable entity, DateTime date)
+    {
+        return true;
+    }
+    public static IQueryable&lt;T&gt; Query&lt;T&gt;(this ISession session, DateTime asOf) where T : IAuditable
+    {
+        return session.Query&lt;T&gt;().Where(x =&gt; x.AsOf(asOf));
+    }
+}
+public class ForSystemTimeGenerator : BaseHqlGeneratorForMethod
+{
+    public static readonly string ForSystemTimeAsOfString = ""FOR SYSTEM_TIME AS OF"";
+    public ForSystemTimeGenerator()
+    {
+        SupportedMethods = new[]
+        {
+            ReflectionHelper.GetMethod(() =&gt; AuditableExtensions.AsOf(null, DateTime.MinValue))
+        };
+    }
+    public override HqlTreeNode BuildHql(MethodInfo method, Expression targetObject, 
+        ReadOnlyCollection&lt;Expression&gt; arguments,
+        HqlTreeBuilder treeBuilder, 
+        IHqlExpressionVisitor visitor)
+    {
+        return treeBuilder.BooleanMethodCall(nameof(AuditableExtensions.AsOf), new[]
+        {
+            visitor.Visit(arguments[1]).AsExpression()
+        });
+    }
+}
+public class MsSql2016Dialect : MsSql2012Dialect
+{
+    public MsSql2016Dialect()
+    {
+        RegisterFunction(nameof(AuditableExtensions.AsOf), new SQLFunctionTemplate(
+            NHibernateUtil.Boolean, 
+            $""{ForSystemTimeGenerator.ForSystemTimeAsOfString} ?1?2=1""));
+    }
+}
+Can anyone provide any better approach or samples I could use to move forward and insert FOR SYSTEM_TIME AS OF statement between table name and its alias? At this moment the only solution I can see is to alter SQL in OnPrepareStatement in SessionInterceptor but I believe there is some better approach...
+",<c#><sql-server><nhibernate><sql-server-2016><temporal-tables>,2420,1,55,762,0,6,25,56,1022,0.0,54,3,26,2018-01-16 12:00,2018-05-10 5:47,,114.0,,Intermediate,18
+48777993,How do I add a column to a nested struct in a PySpark dataframe?,"I have a dataframe with a schema like
+root
+ |-- state: struct (nullable = true)
+ |    |-- fld: integer (nullable = true)
+I'd like to add columns within the state struct, that is, create a dataframe with a schema like
+root
+ |-- state: struct (nullable = true)
+ |    |-- fld: integer (nullable = true)
+ |    |-- a: integer (nullable = true)
+I tried
+df.withColumn('state.a', val).printSchema()
+# root
+#  |-- state: struct (nullable = true)
+#  |    |-- fld: integer (nullable = true)
+#  |-- state.a: integer (nullable = true)
+",<dataframe><apache-spark><pyspark><struct><apache-spark-sql>,522,0,13,2007,4,23,39,57,55595,0.0,12,7,26,2018-02-14 0:43,2018-02-14 15:26,2018-02-14 15:26,0.0,0.0,Basic,2
+48243734,Is there a way to have table name automatically added to Eloquent query methods?,"I'm developing an app on Laravel 5.5 and I'm facing an issue with a specific query scope. I have the following table structure (some fields omitted):
+orders
+---------
+id
+parent_id
+status
+The parent_id column references the id from the same table. I have this query scope to filter records that don't have any children:
+public function scopeNoChildren(Builder $query): Builder
+{
+    return $query-&gt;select('orders.*')
+        -&gt;leftJoin('orders AS children', function ($join) {
+            $join-&gt;on('orders.id', '=', 'children.parent_id')
+                -&gt;where('children.status', self::STATUS_COMPLETED);
+        })
+        -&gt;where('children.id', null);
+}
+This scope works fine when used alone. However, if I try to combine it with any another condition, it throws an SQL exception:
+Order::where('status', Order::STATUS_COMPLETED)
+    -&gt;noChildren()
+    -&gt;get();
+Leads to this:
+  SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous
+I found two ways to avoid that error:
+Solution #1: Prefix all other conditions with the table name
+Doing something like this works:
+Order::where('orders.status', Order::STATUS_COMPLETED)
+    -&gt;noChildren()
+    -&gt;get();
+But I don't think this is a good approach since it's not clear the table name is required in case other dev or even myself try to use that scope again in the future. They'll probably end up figuring that out, but it doesn't seem a good practice.
+Solution #2: Use a subquery
+I can keep the ambiguous columns apart in a subquery. Still, in this case and as the table grows, the performance will degrade.
+This is the strategy I'm using, though. Because it doesn't require any change to other scopes and conditions. At least not in the way I'm applying it right now.
+public function scopeNoChildren(Builder $query): Builder
+{
+    $subQueryChildren = self::select('id', 'parent_id')
+        -&gt;completed();
+    $sqlChildren = DB::raw(sprintf(
+        '(%s) AS children',
+        $subQueryChildren-&gt;toSql()
+    ));
+    return $query-&gt;select('orders.*')
+        -&gt;leftJoin($sqlChildren, function ($join) use ($subQueryChildren) {
+            $join-&gt;on('orders.id', '=', 'children.parent_id')
+                -&gt;addBinding($subQueryChildren-&gt;getBindings());
+         })-&gt;where('children.id', null);
+}
+The perfect solution
+I think that having the ability to use queries without prefixing with table name without relying on subqueries would be the perfect solution.
+That's why I'm asking: Is there a way to have table name automatically added to Eloquent query methods?
+",<php><mysql><laravel><eloquent>,2608,0,37,3774,6,40,63,41,4259,0.0,2480,3,25,2018-01-13 19:52,2018-06-02 19:56,2018-06-04 14:57,140.0,142.0,Intermediate,20
+55693241,How to securely connect to Cloud SQL from Cloud Run?,"How do I connect to the database on Cloud SQL without having to add my credentials file inside the container?
+",<google-cloud-sql><google-cloud-run>,110,0,0,992,1,9,17,80,13914,0.0,3,3,25,2019-04-15 16:08,2019-04-28 16:25,2019-04-28 16:25,13.0,13.0,Intermediate,20
+56155514,Azure Cosmos DB SQL API UPDATE statement - don't replace whole document,"Can I write an UPDATE statement for Azure Cosmos DB? The SQL API supports queries, but what about updates?
+In particular, I am looking to update documents without having to retrieve the whole document. I have the ID for the document and I know the exact path I want to update within the document. For example, say that my document is
+{
+  ""id"": ""9e576f8b-146f-4e7f-a68f-14ef816e0e50"",
+  ""name"": ""Fido"",
+  ""weight"": 35,
+  ""breed"": ""pomeranian"",
+  ""diet"": {
+    ""scoops"": 3,
+    ""timesPerDay"": 2
+  }
+}
+and I want to update diet.timesPerDay to 1 where the ID is ""9e576f8b-146f-4e7f-a68f-14ef816e0e50"". Can I do that using the Azure SQL API without completely replacing the document?
+",<azure><azure-cosmosdb><azure-cosmosdb-sqlapi>,679,0,13,6482,7,43,95,46,43375,0.0,1337,5,25,2019-05-15 18:23,2019-05-15 18:25,2022-03-10 12:07,0.0,1030.0,Basic,3
+48270374,Invalid datetime format: 1366 Incorrect string value,"I'm getting this error:
+  SQLSTATE[22007]: Invalid datetime format: 1366 Incorrect string value: '\xBD Inch...' for column 'column-name' at row 1
+My database, table, and column have the format utf8mb4_unicode_ci also column-name is type text and NULL.
+This is the value of the column-name
+  [column-name] => Some text before 11 ▒ and other text after, and after.
+However I wait that laravel adds quotes to column's values, because the values are separated by commas (,). It should be as follow:
+  [column-name] => 'Some text before 11 ▒ and other text after, and after.'
+See below the Schema
+    Schema::create('mws_orders', function (Blueprint $table) {
+        $table-&gt;string('custom-id');
+        $table-&gt;string('name');
+        $table-&gt;string('description')-&gt;nullable();
+        $table-&gt;string('comment')-&gt;nullable();
+        $table-&gt;integer('count')-&gt;nullable();
+        $table-&gt;text('column-name')-&gt;nullable();
+        $table-&gt;timestamps();
+        $table-&gt;primary('custom-id');
+    });
+I have been looking for on google but not any solution, yet.
+Anyone has an idea how to solve this issue?
+I'm using Laravel 5.5 and MariaDB 10.2.11.
+",<php><mysql><laravel><mariadb><laravel-5.5>,1177,0,11,1492,6,32,58,43,39927,0.0,206,6,25,2018-01-15 20:40,2018-01-15 21:27,2018-01-17 21:09,0.0,2.0,Basic,14
+54316131,How to create multiple tables in a database in sqflite?,"Im building and app with flutter that uses SQLite database. I have created first table using this piece of code:
+ void _createDb(Database db, int newVersion) async {
+    await db.execute('''CREATE TABLE cards (id_card INTEGER PRIMARY KEY, 
+         color TEXT, type TEXT, rarity TEXT, name TEXT UNIQUE, goldCost INTEGER,
+         manaCost INTEGER, armor INTEGER, attack INTEGER, health INTEGER, description TEXT)''');
+}
+Table gets created and I can access it without problems.
+Unfortunately I cannot include more than 1 table that i just created. I tried adding another SQL CREATE TABLE clause in the same method, and repeating method db.execute with a different SQL clause just in the next line.
+I'm mimicing code from this tutorial: https://www.youtube.com/watch?v=xke5_yGL0uk
+How to add another table within the same database?
+",<database><flutter><sqlite><dart><sqflite>,830,2,6,471,2,6,15,52,41385,0.0,4,7,25,2019-01-22 20:40,2019-02-04 8:15,,13.0,,Intermediate,15
+64350794,"typeORM: ""message"": ""Data type \""Object\"" in \""..."" is not supported by \""postgres\"" database.""","Given the following entity definition:
+@Entity()
+export class User extends BaseEntity {
+  @Column({ nullable: true })
+  name!: string | null;
+  @Column()
+  age!: number;
+}
+The following error appears:
+typeORM:   &quot;message&quot;: &quot;Data type \&quot;Object\&quot; in \&quot;User.name&quot; is not supported by \&quot;postgres\&quot; database.&quot;
+...
+name: 'DataTypeNotSupportedError',
+  message:
+   'Data type &quot;Object&quot; in &quot;User.name&quot; is not supported by &quot;postgres&quot; database.' }
+When looking at the build, I see that the metadata that's emitted by TS addresses it as object:
+__decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata(&quot;design:type&quot;, Object)
+], User.prototype, &quot;name&quot;, void 0);
+What am I doing wrong?
+",<node.js><typescript><postgresql><typeorm><reflect-metadata>,785,0,19,6484,3,28,39,63,15355,0.0,50,2,25,2020-10-14 9:54,2020-10-14 9:54,,0.0,,Intermediate,15
+49509615,How do I use parameters in VBA in the different contexts in Microsoft Access?,"I've read a lot about SQL injection, and using parameters, from sources like bobby-tables.com. However, I'm working with a complex application in Access, that has a lot of dynamic SQL with string concatenation in all sorts of places.
+It has the following things I want to change, and add parameters to, to avoid errors and allow me to handle names with single quotes, like Jack O'Connel.
+It uses:
+DoCmd.RunSQL to execute SQL commands
+DAO recordsets
+ADODB recordsets
+Forms and reports, opened with DoCmd.OpenForm and DoCmd.OpenReport, using string concatenation in the WhereCondition argument
+Domain aggregates like DLookUp that use string concatenation
+The queries are mostly structured like this:
+DoCmd.RunSQL ""INSERT INTO Table1(Field1) SELECT Field1 FROM Table2 WHERE ID = "" &amp; Me.SomeTextbox
+What are my options to use parameters for these different kinds of queries?
+This question is intended as a resource, for the frequent how do I use parameters comment on various posts
+",<sql><vba><ms-access>,982,1,6,31848,13,42,67,68,13793,0.0,513,2,25,2018-03-27 9:47,2018-03-27 9:47,2018-03-27 9:47,0.0,0.0,Basic,3
+64906396,"fetch API always returns {""_U"": 0, ""_V"": 0, ""_W"": null, ""_X"": null}","The below code always return the below wired object
+{&quot;_U&quot;: 0, &quot;_V&quot;: 0, &quot;_W&quot;: null, &quot;_X&quot;: null}
+as response.
+Here is my code
+    getData = () =&gt; {
+        fetch('http://192.168.64.1:3000/getAll',{
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((response) =&gt; {
+            console.log('Response:')
+            console.log(response.json())
+            console.info('=================================')
+        })
+        .catch(err =&gt; console.error(err));
+    } 
+    componentDidMount(){
+        this.getData();
+    }
+I am using node, express, Mysql as backend and react-native frontend
+my backend code is here
+app.get('/getAll',(req,res) =&gt; {
+    console.log('getAll method Called');
+    con.query('select * from dummy',(err,results,fields) =&gt; {
+        if(err) throw err;
+        console.log('Response');
+        console.log(results);
+        res.send(results);
+    });
+});
+The above code gives correct output in console but fetch API is not.
+i cant find solution for the my problem. Thanks in advance.
+",<mysql><node.js><reactjs><react-native><fetch>,1194,1,29,321,1,3,7,52,28228,0.0,24,4,25,2020-11-19 6:24,2020-11-19 6:42,2020-11-19 6:42,0.0,0.0,Basic,1
+52142645,How to improve SQLite insert performance in Python 3.6?,"Background
+I would like to insert 1-million records to SQLite using Python. I tried a number of ways to improve it but it is still not so satisfied. The database load file to memory using 0.23 second (search pass below) but SQLite 1.77 second to load and insert to file.
+Environment
+Intel Core i7-7700 @ 3.6GHz
+16GB RAM
+Micron 1100 256GB SSD, Windows 10 x64
+Python 3.6.5 Minconda
+sqlite3.version 2.6.0  
+GenerateData.py
+I generate the 1 million test input data with the same format as my real data.
+import time
+start_time = time.time()
+with open('input.ssv', 'w') as out:
+    symbols = ['AUDUSD','EURUSD','GBPUSD','NZDUSD','USDCAD','USDCHF','USDJPY','USDCNY','USDHKD']
+    lines = []
+    for i in range(0,1*1000*1000):
+        q1, r1, q2, r2 = i//100000, i%100000, (i+1)//100000, (i+1)%100000
+        line = '{} {}.{:05d} {}.{:05d}'.format(symbols[i%len(symbols)], q1, r1, q2, r2)
+        lines.append(line)
+    out.write('\n'.join(lines))
+print(time.time()-start_time, i)
+input.ssv
+The test data looks like this.
+AUDUSD 0.00000 0.00001
+EURUSD 0.00001 0.00002
+GBPUSD 0.00002 0.00003
+NZDUSD 0.00003 0.00004
+USDCAD 0.00004 0.00005
+...
+USDCHF 9.99995 9.99996
+USDJPY 9.99996 9.99997
+USDCNY 9.99997 9.99998
+USDHKD 9.99998 9.99999
+AUDUSD 9.99999 10.00000
+// total 1 million of lines, taken 1.38 second for Python code to generate to disk
+Windows correctly shows 23,999,999 bytes file size.
+Baseline Code InsertData.py
+import time
+class Timer:
+    def __enter__(self):
+        self.start = time.time()
+        return self
+    def __exit__(self, *args):
+        elapsed = time.time()-self.start
+        print('Imported in {:.2f} seconds or {:.0f} per second'.format(elapsed, 1*1000*1000/elapsed)) 
+with Timer() as t:
+    with open('input.ssv', 'r') as infile:
+        infile.read()
+Basic I/O
+with open('input.ssv', 'r') as infile:
+    infile.read()
+  Imported in 0.13 seconds or 7.6 M per second
+It tests the read speed.
+with open('input.ssv', 'r') as infile:
+    with open('output.ssv', 'w') as outfile:
+        outfile.write(infile.read()) // insert here
+  Imported in 0.26 seconds or 3.84 M per second
+It tests the read and write speed without parsing anything
+with open('input.ssv', 'r') as infile:
+    lines = infile.read().splitlines()
+    for line in lines:
+        pass # do insert here
+  Imported in 0.23 seconds or 4.32 M per second
+When I parse the data line by line, it achieves a very high output.
+This gives us a sense about how fast the IO and string processing operations on my testing machine.
+1.   Write File
+outfile.write(line)
+  Imported in 0.52 seconds or 1.93 M per second
+2.   Split to floats to string
+tokens = line.split()
+sym, bid, ask = tokens[0], float(tokens[1]), float(tokens[2])
+outfile.write('{} {:.5f} {%.5f}\n'.format(sym, bid, ask)) // real insert here
+  Imported in 2.25 seconds or 445 K per second
+3.   Insert Statement with autocommit
+conn = sqlite3.connect('example.db', isolation_level=None)
+c.execute(""INSERT INTO stocks VALUES ('{}',{:.5f},{:.5f})"".format(sym,bid,ask))
+  When isolation_level = None (autocommit), program takes many hours to complete (I could not wait for such a long hours)
+Note the output database file size is 32,325,632 bytes, which is 32MB. It is bigger than the input file ssv file size of 23MB by 10MB.
+4.   Insert Statement with BEGIN (DEFERRED)
+conn = sqlite3.connect('example.db', isolation_level=’DEFERRED’) # default
+c.execute(""INSERT INTO stocks VALUES ('{}',{:.5f},{:.5f})"".format(sym,bid,ask))
+  Imported in 7.50 seconds or 133,296 per second
+This is the same as writing BEGIN, BEGIN TRANSACTION or BEGIN DEFERRED TRANSACTION, not BEGIN IMMEDIATE nor BEGIN EXCLUSIVE.
+5.   Insert by Prepared Statement
+Using the transaction above gives a satisfactory results but it should be noted that using Python’s string operations is undesired because it is subjected to SQL injection. Moreover using string is slow compared to parameter substitution.
+c.executemany(""INSERT INTO stocks VALUES (?,?,?)"", [(sym,bid,ask)])
+  Imported in 2.31 seconds or 432,124 per second
+6.   Turn off Synchronous
+Power failure corrupts the database file when synchronous is not set to EXTRA nor FULL before data reaches the physical disk surface. When we can ensure the power and OS is healthy, we can turn synchronous to OFF so that it doe not synchronized after data handed to OS layer.
+conn = sqlite3.connect('example.db', isolation_level='DEFERRED')
+c = conn.cursor()
+c.execute('''PRAGMA synchronous = OFF''')
+  Imported in 2.25 seconds or 444,247 per second
+7.   Turn off journal and so no rollback nor atomic commit
+In some applications the rollback function of a database is not required, for example a time series data insertion. When we can ensure the power and OS is healthy, we can turn journal_mode to off so that rollback journal is disabled completely and it disables the atomic commit and rollback capabilities.
+conn = sqlite3.connect('example.db', isolation_level='DEFERRED')
+c = conn.cursor()
+c.execute('''PRAGMA synchronous = OFF''')
+c.execute('''PRAGMA journal_mode = OFF''')
+  Imported in 2.22 seconds or 450,653 per second
+8.   Using in-memory database
+In some applications writing data back to disks is not required, such as applications providing queried data to web applications.
+conn = sqlite3.connect("":memory:"")
+  Imported in 2.17 seconds or 460,405 per second
+9.   Faster Python code in the loop
+We should consider to save every bit of computation inside an intensive loop, such as avoiding assignment to variable and string operations.
+9a.  Avoid assignment to variable
+tokens = line.split()
+c.executemany(""INSERT INTO stocks VALUES (?,?,?)"", [(tokens[0], float(tokens[1]), float(tokens[2]))])
+  Imported in 2.10 seconds or 475,964 per second
+9b.  Avoid string.split()
+When we can treat the space separated data as fixed width format, we can directly indicate the distance between each data to the head of data.
+It means line.split()[1] becomes line[7:14]
+c.executemany(""INSERT INTO stocks VALUES (?,?,?)"", [(line[0:6], float(line[7:14]), float(line[15:]))])
+  Imported in 1.94 seconds or 514,661 per second
+9c.  Avoid float() to ?
+When we are using executemany() with ? placeholder, we don’t need to turn the string into float beforehand.
+executemany(""INSERT INTO stocks VALUES (?,?,?)"", [(line[0:6], line[7:14], line[15:])])
+  Imported in 1.59 seconds or 630,520 per second
+10.  The fastest full functioned and robust code so far
+import time
+class Timer:    
+    def __enter__(self):
+        self.start = time.time()
+        return self
+    def __exit__(self, *args):
+        elapsed = time.time()-self.start
+        print('Imported in {:.2f} seconds or {:.0f} per second'.format(elapsed, 1*1000*1000/elapsed))
+import sqlite3
+conn = sqlite3.connect('example.db')
+c = conn.cursor()
+c.execute('''DROP TABLE IF EXISTS stocks''')
+c.execute('''CREATE TABLE IF NOT EXISTS stocks
+             (sym text, bid real, ask real)''')
+c.execute('''PRAGMA synchronous = EXTRA''')
+c.execute('''PRAGMA journal_mode = WAL''')
+with Timer() as t:
+    with open('input.ssv', 'r') as infile:
+        lines = infile.read().splitlines()
+        for line in lines:
+            c.executemany(""INSERT INTO stocks VALUES (?,?,?)"", [(line[0:6], line[7:14], line[15:])])
+        conn.commit()
+        conn.close()
+  Imported in 1.77 seconds or 564,611 per second
+Possible to get faster?
+I have a 23MB file with 1 million records composing of a piece of text as symbol name and 2 floating point number as bid and ask. When you search pass above, the test result shows a 4.32 M inserts per second to plain file. When I insert to a robust SQLite database, it drops to 0.564 M inserts per second. What else you may think of to make it even faster in SQLite? What if not SQLite but other database system?
+",<python><performance><sql-insert>,7738,0,104,641,1,8,10,37,12793,0.0,186,3,25,2018-09-03 2:51,2019-10-24 2:05,,416.0,,Intermediate,23
+52287553,How to create a copy of a dataframe in pyspark?,"I have a dataframe from which I need to create a new dataframe with a small change in the schema by doing the following operation.
+&gt;&gt;&gt; X = spark.createDataFrame([[1,2], [3,4]], ['a', 'b'])
+&gt;&gt;&gt; schema_new = X.schema.add('id_col', LongType(), False)
+&gt;&gt;&gt; _X = X.rdd.zipWithIndex().map(lambda l: list(l[0]) + [l[1]]).toDF(schema_new)
+The problem is that in the above operation, the schema of X gets changed inplace. So when I print X.columns I get 
+&gt;&gt;&gt; X.columns
+['a', 'b', 'id_col']
+but the values in X are still the same
+&gt;&gt;&gt; X.show()
++---+---+
+|  a|  b|
++---+---+
+|  1|  2|
+|  3|  4|
++---+---+
+To avoid changing the schema of X, I tried creating a copy of X using three ways 
+- using copy and deepcopy methods from the copy module
+- simply using _X = X
+The copy methods failed and returned a 
+RecursionError: maximum recursion depth exceeded
+The assignment method also doesn't work
+&gt;&gt;&gt; _X = X
+&gt;&gt;&gt; id(_X) == id(X)
+True
+Since their id are the same, creating a duplicate dataframe doesn't really help here and the operations done on _X reflect in X.
+So my question really is two fold
+how to change the schema outplace (that is without making any changes to X)?
+and more importantly, how to create a duplicate of a pyspark dataframe?
+Note:
+This question is a followup to this post
+",<python><apache-spark><pyspark><apache-spark-sql>,1338,1,30,7707,15,70,110,65,95019,0.0,2100,6,25,2018-09-12 4:35,2018-09-12 6:55,2018-09-12 6:56,0.0,0.0,Basic,9
+51087037,SQL Server json truncated (even when using NVARCHAR(max) ),"DECLARE @result NVARCHAR(max);
+SET @result = (SELECT * FROM table
+               FOR JSON AUTO, ROOT('Data'))
+SELECT @result;
+This returns a json string of ~43000 characters, with some results truncated.
+SET @result = (SELECT * FROM table
+               FOR JSON AUTO, ROOT('Data'))
+This returns a json string of ~2000 characters. Is there any way to prevent any truncation? Even when dealing with some bigdata and the string is millions and millions of characters?
+",<sql><json><sql-server>,466,0,8,583,1,8,14,66,31442,0.0,3,10,25,2018-06-28 15:51,2018-07-23 22:17,,25.0,,Basic,9

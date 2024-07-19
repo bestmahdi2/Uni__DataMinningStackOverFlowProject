@@ -1,0 +1,1619 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34756402,javascript: loop add number,"<p>How to loop like this one in javascript?
+11
+21
+32
+43</p>
+
+<p>I have this code already.</p>
+
+<pre><code>for(var i=11; i &lt;= 43; i += 10){
+document.write(i+'&lt;br&gt;');
+}
+</code></pre>
+",<javascript><loops>,16/01/13 0:31,LQ_CLOSE,"<javascript><loops>, javascript: loop add number, <p>How to loop like this one in javascript?
+11
+21
+32
+43</p>
+
+<p>I have this code already.</p>
+
+<pre><code>for(var i=11; i &lt;= 43; i += 10){
+document.write(i+'&lt;br&gt;');
+}
+</code></pre>
+","<javascript><loops>, javascript: loop add number, <p>how loop like one javascript? 11 21 32 43</p> <p>i code already.</p> <pre><code>for(war i=11; &it;= 43; += 10){ document.write(i+'&it;br&it;'); } </code></pre>"
+34756524,C - double result returning the value of 0,"<pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, const char * argv[]) {
+
+    int a = 10;
+    int b = 20;
+    double result = a / b;
+    printf(""%d divided by %d makes %f\n"", a, b, result);
+
+    return 0;
+}
+</code></pre>
+
+<p>Expecting that the <code>%f</code> would return 0.500000, I ran the code and it turned out to be 0.000000.</p>
+
+<p>Is there a reason that the <code>result</code> variable is returning a zero value?</p>
+",<c>,16/01/13 0:45,LQ_CLOSE,"<c>, C - double result returning the value of 0, <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, const char * argv[]) {
+
+    int a = 10;
+    int b = 20;
+    double result = a / b;
+    printf(""%d divided by %d makes %f\n"", a, b, result);
+
+    return 0;
+}
+</code></pre>
+
+<p>Expecting that the <code>%f</code> would return 0.500000, I ran the code and it turned out to be 0.000000.</p>
+
+<p>Is there a reason that the <code>result</code> variable is returning a zero value?</p>
+","<c>, c - doubt result return value 0, <pre><code>#include &it;studio.h&it; in main(in arc, cost chair * are[]) { in = 10; in b = 20; doubt result = / b; print(""%d livid %d make %f\n"", a, b, result); return 0; } </code></pre> <p>expect <code>%f</code> would return 0.500000, ran code turn 0.000000.</p> <p>i reason <code>result</code> variable return zero value?</p>"
+34756944,How is document.querySelector implemented?,"<p>I suppose the answer to this question depends on what browser you are using, but I guess that just makes it all the more interesting. </p>
+
+<p>I'm wondering how the <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"" rel=""noreferrer""><code>querySelector()</code></a> method is actually implemented. Similarly, I'm curious about <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"" rel=""noreferrer""><code>querySelectorAll()</code></a> and other methods like <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById"" rel=""noreferrer""><code>getElementById()</code></a> and <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName"" rel=""noreferrer""><code>getElementByClassName()</code></a> etc.</p>
+
+<p>Is it a depth first search, breadth first search, or does it utilize some auxiliary data structure, like a global hash table to act as a registry?</p>
+",<javascript><algorithm><dom><browser><tree>,16/01/13 1:32,HQ,"<javascript><algorithm><dom><browser><tree>, How is document.querySelector implemented?, <p>I suppose the answer to this question depends on what browser you are using, but I guess that just makes it all the more interesting. </p>
+
+<p>I'm wondering how the <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"" rel=""noreferrer""><code>querySelector()</code></a> method is actually implemented. Similarly, I'm curious about <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"" rel=""noreferrer""><code>querySelectorAll()</code></a> and other methods like <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById"" rel=""noreferrer""><code>getElementById()</code></a> and <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName"" rel=""noreferrer""><code>getElementByClassName()</code></a> etc.</p>
+
+<p>Is it a depth first search, breadth first search, or does it utilize some auxiliary data structure, like a global hash table to act as a registry?</p>
+","<javascript><algorithm><do><brother><tree>, document.queryselector implements?, <p>i suppose answer question depend brother using, guess make interesting. </p> <p>i'm wonder <a he=""http://developer.maxilla.org/en-us/docs/web/apt/document/queryselector"" red=""noreferrer""><code>queryselector()</code></a> method actual implements. similarly, i'm curious <a he=""http://developer.maxilla.org/en-us/docs/web/apt/document/queryselectorall"" red=""noreferrer""><code>queryselectorall()</code></a> method like <a he=""http://developer.maxilla.org/en-us/docs/web/apt/document/getelementbyid"" red=""noreferrer""><code>getelementbyid()</code></a> <a he=""http://developer.maxilla.org/en-us/docs/web/apt/document/getelementsbyclassname"" red=""noreferrer""><code>getelementbyclassname()</code></a> etc.</p> <p>i depth first search, breadth first search, until auxiliaries data structure, like global has table act registry?</p>"
+34757477,Illegal instruction (core dumped) neural network,"I have a 3-layed neural network, and I keep getting the above error. I tried the fix here: http://stackoverflow.com/questions/10354147/find-which-assembly-instruction-caused-an-illegal-instruction-error-without-debu
+
+And that actually did fix something because before it wasn't saying (core dumped)
+
+Here's the code:
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <time.h>
+    #include <math.h>
+    #include <fcntl.h>
+    
+    #define NUMPAT 51
+    #define NUMIN  51
+    #define NUMHID 20
+    #define NUMOUT 20
+    
+    #define rando() ((double)rand()/(RAND_MAX+1))
+    
+    int main() {
+        int    i, j, k, p, np, op, ranpat[NUMPAT+1], epoch, temp1, temp2, game;
+        int    NumPattern = NUMPAT, NumInput = NUMIN, NumHidden = NUMHID, NumOutput = NUMOUT;
+        // double Input[NUMPAT+1][NUMIN+1] = { 0, 0, 0,  0, 0, 0,  0, 1, 0,  0, 0, 1,  0, 1, 1 };
+        double Input[20][2][51] = { ...blah blah a bunch of data the problem isn't here...
+
+   
+     double Target[20] = {10,10,3,-4,11,-2,13,-5,4,3,4,5,-5,25,13,25,3,2,5,17};
+        double SumH[NUMPAT+1][NUMHID+1], WeightIH[NUMIN+1][NUMHID+1], Hidden[NUMPAT+1][NUMHID+1];
+        double SumO[NUMPAT+1][NUMOUT+1], WeightHO[NUMHID+1][NUMOUT+1], Output[NUMPAT][20];
+        double DeltaO[NUMOUT+1], SumDOW[NUMHID+1], DeltaH[NUMHID+1];
+        double DeltaWeightIH[NUMIN+1][NUMHID+1], DeltaWeightHO[NUMHID+1][NUMOUT+1];
+        double Error, eta = 0.5, alpha = 0.9, smallwt = 0.5;
+    
+        for( j = 0 ; j < NumHidden ; j++ ) {    /* initialize WeightIH and DeltaWeightIH */
+            for( i = 0 ; i < NumInput ; i++ ) {
+                DeltaWeightIH[i][j] = 0.0 ;
+                WeightIH[i][j] = 2.0 * ( rando() - 0.5 ) * smallwt ;
+            }
+        }
+        for( k = 0 ; k < NumOutput ; k ++ ) {    /* initialize WeightHO and DeltaWeightHO */
+            for( j = 0 ; j < NumHidden ; j++ ) {
+                DeltaWeightHO[j][k] = 0.0 ;
+                WeightHO[j][k] = 2.0 * ( rando() - 0.5 ) * smallwt ;
+            }
+        }
+    
+        for( epoch = 0 ; epoch < 100000 ; epoch++) {    /* iterate weight updates */
+            for( p = 1 ; p <= NumPattern ; p++ ) {    /* randomize order of individuals */
+                ranpat[p] = p ;
+            }
+            for( p = 1 ; p <= NumPattern ; p++) {
+                np = p + rand() * ( NumPattern + 1 - p ) ;
+                op = ranpat[p] ; ranpat[p] = ranpat[np] ; ranpat[np] = op ;
+            }
+            Error = 0.0 ;
+            for( np = 1 ; np <= NumPattern ; np++ ) {    /* repeat for all the training patterns */
+                p = ranpat[np];
+                for (game = 0; game < 20; game++){
+                  for( j = 0 ; j < NumHidden ; j++ ) {    /* compute hidden unit activations */
+                      SumH[p][j] = WeightIH[0][j] ;
+                      for( i = 0 ; i < NumInput ; i++ ) {
+                          temp1 = Input[game][0][i] * WeightIH[i][j] ;
+                          temp2 = Input[game][1][i] * WeightIH[i][j] ;
+                          SumH[p][j] += temp1 - temp2 ;
+                      }
+                      Hidden[p][j] = 1.0/(1.0 + exp(-SumH[p][j])) ;
+                  }
+                  for( k = 0 ; k < NumOutput ; k++ ) {    /* compute output unit activations and errors */
+                      SumO[p][k] = WeightHO[0][k] ;
+                      for( j = 0 ; j < NumHidden ; j++ ) {
+                          SumO[p][k] += Hidden[p][j] * WeightHO[j][k] ;
+                      }
+                      Output[p][k] = 1.0/(1.0 + exp(-SumO[p][k])) ;   /* Sigmoidal Outputs */
+      /*              Output[p][k] = SumO[p][k];      L
+    ear Outputs */
+                      Error += 0.5 * (Target[k] - Output[p][k]) * (Target[k] - Output[p][k]) ;   /* SSE */
+      /*              Error -= ( Target[p][k] * log( Output[p][k] ) + ( 1.0 - Target[p][k] ) * log( 1.0 - Output[p][k] ) ) ;    Cross-Entropy Error */
+                      DeltaO[k] = (Target[k] - Output[p][k]) * Output[p][k] * (1.0 - Output[p][k]) ;   /* Sigmoidal Outputs, SSE */
+      /*              DeltaO[k] = Target[p][k] - Output[p][k];     Sigmoidal Outputs, Cross-Entropy Error */
+      /*              DeltaO[k] = Target[p][k] - Output[p][k];     Linear Outputs, SSE */
+                  }
+                  for( j = 0 ; j < NumHidden ; j++ ) {    /* 'back-propagate' errors to hidden layer */
+                      SumDOW[j] = 0.0 ;
+                      for( k = 0 ; k < NumOutput ; k++ ) {
+                          SumDOW[j] += WeightHO[j][k] * DeltaO[k] ;
+                      }
+                      DeltaH[j] = SumDOW[j] * Hidden[p][j] * (1.0 - Hidden[p][j]) ;
+                  }
+                  for( j = 0 ; j < NumHidden ; j++ ) {     /* update weights WeightIH */
+                      DeltaWeightIH[0][j] = eta * DeltaH[j] + alpha * DeltaWeightIH[0][j] ;
+                      WeightIH[0][j] += DeltaWeightIH[0][j] ;
+                      for( i = 0 ; i < NumInput ; i++ ) {
+                          DeltaWeightIH[i][j] = eta * Input[game][0][i] * DeltaH[j] + alpha * DeltaWeightIH[i][j];
+                          WeightIH[i][j] += DeltaWeightIH[i][j] ;
+                      }
+                  }
+                  for( k = 0 ; k < NumOutput ; k ++ ) {    /* update weights WeightHO */
+                      DeltaWeightHO[0][k] = eta * DeltaO[k] + alpha * DeltaWeightHO[0][k] ;
+                      WeightHO[0][k] += DeltaWeightHO[0][k] ;
+                      for( j = 0 ; j < NumHidden ; j++ ) {
+                          DeltaWeightHO[j][k] = eta * Hidden[p][j] * DeltaO[k] + alpha * DeltaWeightHO[j][k] ;
+                          WeightHO[j][k] += DeltaWeightHO[j][k] ;
+                      }
+                  }
+                }
+    
+            }
+            if( epoch%100 == 0 ) fprintf(stdout, ""\nEpoch %-5d :   Error = %f"", epoch, Error) ;
+            if( Error < 0.0004 ) break ;  /* stop learning when 'near enough' */
+        }
+        int sum = 0;
+        double weights[51];
+        for (i = 0; i < NumInput; i++){
+          for (j = 0; j < NumHidden; j++){
+            sum = WeightIH[i][j];
+          }
+          sum /= 51;
+          weights[i] = sum;
+        }
+        for (i = 0; i < 51; i++){
+          printf(""weight[%d] = %G\n"", i, weights[i]);
+        }
+        return 1 ;
+    }
+
+I'm compiling with: `gcc nn.c -O -lm -o nn -mmacosx-version-min=10.11` and it compiles fine. 
+
+Any idea what's going on here?",<c><machine-learning><neural-network><instructions>,16/01/13 2:38,LQ_EDIT,"<c><machine-learning><neural-network><instructions>, Illegal instruction (core dumped) neural network, I have a 3-layed neural network, and I keep getting the above error. I tried the fix here: http://stackoverflow.com/questions/10354147/find-which-assembly-instruction-caused-an-illegal-instruction-error-without-debu
+
+And that actually did fix something because before it wasn't saying (core dumped)
+
+Here's the code:
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <time.h>
+    #include <math.h>
+    #include <fcntl.h>
+    
+    #define NUMPAT 51
+    #define NUMIN  51
+    #define NUMHID 20
+    #define NUMOUT 20
+    
+    #define rando() ((double)rand()/(RAND_MAX+1))
+    
+    int main() {
+        int    i, j, k, p, np, op, ranpat[NUMPAT+1], epoch, temp1, temp2, game;
+        int    NumPattern = NUMPAT, NumInput = NUMIN, NumHidden = NUMHID, NumOutput = NUMOUT;
+        // double Input[NUMPAT+1][NUMIN+1] = { 0, 0, 0,  0, 0, 0,  0, 1, 0,  0, 0, 1,  0, 1, 1 };
+        double Input[20][2][51] = { ...blah blah a bunch of data the problem isn't here...
+
+   
+     double Target[20] = {10,10,3,-4,11,-2,13,-5,4,3,4,5,-5,25,13,25,3,2,5,17};
+        double SumH[NUMPAT+1][NUMHID+1], WeightIH[NUMIN+1][NUMHID+1], Hidden[NUMPAT+1][NUMHID+1];
+        double SumO[NUMPAT+1][NUMOUT+1], WeightHO[NUMHID+1][NUMOUT+1], Output[NUMPAT][20];
+        double DeltaO[NUMOUT+1], SumDOW[NUMHID+1], DeltaH[NUMHID+1];
+        double DeltaWeightIH[NUMIN+1][NUMHID+1], DeltaWeightHO[NUMHID+1][NUMOUT+1];
+        double Error, eta = 0.5, alpha = 0.9, smallwt = 0.5;
+    
+        for( j = 0 ; j < NumHidden ; j++ ) {    /* initialize WeightIH and DeltaWeightIH */
+            for( i = 0 ; i < NumInput ; i++ ) {
+                DeltaWeightIH[i][j] = 0.0 ;
+                WeightIH[i][j] = 2.0 * ( rando() - 0.5 ) * smallwt ;
+            }
+        }
+        for( k = 0 ; k < NumOutput ; k ++ ) {    /* initialize WeightHO and DeltaWeightHO */
+            for( j = 0 ; j < NumHidden ; j++ ) {
+                DeltaWeightHO[j][k] = 0.0 ;
+                WeightHO[j][k] = 2.0 * ( rando() - 0.5 ) * smallwt ;
+            }
+        }
+    
+        for( epoch = 0 ; epoch < 100000 ; epoch++) {    /* iterate weight updates */
+            for( p = 1 ; p <= NumPattern ; p++ ) {    /* randomize order of individuals */
+                ranpat[p] = p ;
+            }
+            for( p = 1 ; p <= NumPattern ; p++) {
+                np = p + rand() * ( NumPattern + 1 - p ) ;
+                op = ranpat[p] ; ranpat[p] = ranpat[np] ; ranpat[np] = op ;
+            }
+            Error = 0.0 ;
+            for( np = 1 ; np <= NumPattern ; np++ ) {    /* repeat for all the training patterns */
+                p = ranpat[np];
+                for (game = 0; game < 20; game++){
+                  for( j = 0 ; j < NumHidden ; j++ ) {    /* compute hidden unit activations */
+                      SumH[p][j] = WeightIH[0][j] ;
+                      for( i = 0 ; i < NumInput ; i++ ) {
+                          temp1 = Input[game][0][i] * WeightIH[i][j] ;
+                          temp2 = Input[game][1][i] * WeightIH[i][j] ;
+                          SumH[p][j] += temp1 - temp2 ;
+                      }
+                      Hidden[p][j] = 1.0/(1.0 + exp(-SumH[p][j])) ;
+                  }
+                  for( k = 0 ; k < NumOutput ; k++ ) {    /* compute output unit activations and errors */
+                      SumO[p][k] = WeightHO[0][k] ;
+                      for( j = 0 ; j < NumHidden ; j++ ) {
+                          SumO[p][k] += Hidden[p][j] * WeightHO[j][k] ;
+                      }
+                      Output[p][k] = 1.0/(1.0 + exp(-SumO[p][k])) ;   /* Sigmoidal Outputs */
+      /*              Output[p][k] = SumO[p][k];      L
+    ear Outputs */
+                      Error += 0.5 * (Target[k] - Output[p][k]) * (Target[k] - Output[p][k]) ;   /* SSE */
+      /*              Error -= ( Target[p][k] * log( Output[p][k] ) + ( 1.0 - Target[p][k] ) * log( 1.0 - Output[p][k] ) ) ;    Cross-Entropy Error */
+                      DeltaO[k] = (Target[k] - Output[p][k]) * Output[p][k] * (1.0 - Output[p][k]) ;   /* Sigmoidal Outputs, SSE */
+      /*              DeltaO[k] = Target[p][k] - Output[p][k];     Sigmoidal Outputs, Cross-Entropy Error */
+      /*              DeltaO[k] = Target[p][k] - Output[p][k];     Linear Outputs, SSE */
+                  }
+                  for( j = 0 ; j < NumHidden ; j++ ) {    /* 'back-propagate' errors to hidden layer */
+                      SumDOW[j] = 0.0 ;
+                      for( k = 0 ; k < NumOutput ; k++ ) {
+                          SumDOW[j] += WeightHO[j][k] * DeltaO[k] ;
+                      }
+                      DeltaH[j] = SumDOW[j] * Hidden[p][j] * (1.0 - Hidden[p][j]) ;
+                  }
+                  for( j = 0 ; j < NumHidden ; j++ ) {     /* update weights WeightIH */
+                      DeltaWeightIH[0][j] = eta * DeltaH[j] + alpha * DeltaWeightIH[0][j] ;
+                      WeightIH[0][j] += DeltaWeightIH[0][j] ;
+                      for( i = 0 ; i < NumInput ; i++ ) {
+                          DeltaWeightIH[i][j] = eta * Input[game][0][i] * DeltaH[j] + alpha * DeltaWeightIH[i][j];
+                          WeightIH[i][j] += DeltaWeightIH[i][j] ;
+                      }
+                  }
+                  for( k = 0 ; k < NumOutput ; k ++ ) {    /* update weights WeightHO */
+                      DeltaWeightHO[0][k] = eta * DeltaO[k] + alpha * DeltaWeightHO[0][k] ;
+                      WeightHO[0][k] += DeltaWeightHO[0][k] ;
+                      for( j = 0 ; j < NumHidden ; j++ ) {
+                          DeltaWeightHO[j][k] = eta * Hidden[p][j] * DeltaO[k] + alpha * DeltaWeightHO[j][k] ;
+                          WeightHO[j][k] += DeltaWeightHO[j][k] ;
+                      }
+                  }
+                }
+    
+            }
+            if( epoch%100 == 0 ) fprintf(stdout, ""\nEpoch %-5d :   Error = %f"", epoch, Error) ;
+            if( Error < 0.0004 ) break ;  /* stop learning when 'near enough' */
+        }
+        int sum = 0;
+        double weights[51];
+        for (i = 0; i < NumInput; i++){
+          for (j = 0; j < NumHidden; j++){
+            sum = WeightIH[i][j];
+          }
+          sum /= 51;
+          weights[i] = sum;
+        }
+        for (i = 0; i < 51; i++){
+          printf(""weight[%d] = %G\n"", i, weights[i]);
+        }
+        return 1 ;
+    }
+
+I'm compiling with: `gcc nn.c -O -lm -o nn -mmacosx-version-min=10.11` and it compiles fine. 
+
+Any idea what's going on here?","<c><machine-learning><neutral-network><instructions>, killed instruct (core dumped) neutral network, 3-lay neutral network, keep get error. try fix here: http://stackoverflow.com/questions/10354147/find-which-assembly-instruction-caused-an-illegal-instruction-error-without-debt actual fix cometh say (core dumped) here' code: #include <studio.h> #include <stdlib.h> #include <time.h> #include <path.h> #include <final.h> #define numpat 51 #define human 51 #define numbed 20 #define tumour 20 #define random() ((double)and()/(rand_max+1)) in main() { in i, j, k, p, no, op, rampart[numpat+1], epoch, temps, temps, game; in numpattern = numpat, numinput = human, numhidden = numbed, numoutput = tumour; // doubt input[numpat+1][human+1] = { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1 }; doubt input[20][2][51] = { ...bah bah bunch data problem here... doubt target[20] = {10,10,3,-4,11,-2,13,-5,4,3,4,5,-5,25,13,25,3,2,5,17}; doubt such[numpat+1][numbed+1], weight[human+1][numbed+1], hidden[numpat+1][numbed+1]; doubt sum[numpat+1][tumour+1], weight[numbed+1][tumour+1], output[numpat][20]; doubt delay[tumour+1], shadow[numbed+1], death[numbed+1]; doubt deltaweightih[human+1][numbed+1], deltaweightho[numbed+1][tumour+1]; doubt error, tea = 0.5, alpha = 0.9, small = 0.5; for( j = 0 ; j < numhidden ; j++ ) { /* into weight deltaweightih */ for( = 0 ; < numinput ; i++ ) { deltaweightih[i][j] = 0.0 ; weight[i][j] = 2.0 * ( random() - 0.5 ) * small ; } } for( k = 0 ; k < numoutput ; k ++ ) { /* into weight deltaweightho */ for( j = 0 ; j < numhidden ; j++ ) { deltaweightho[j][k] = 0.0 ; weight[j][k] = 2.0 * ( random() - 0.5 ) * small ; } } for( epoch = 0 ; epoch < 100000 ; epoch++) { /* inter weight update */ for( p = 1 ; p <= numpattern ; p++ ) { /* random order individu */ rampart[p] = p ; } for( p = 1 ; p <= numpattern ; p++) { no = p + and() * ( numpattern + 1 - p ) ; op = rampart[p] ; rampart[p] = rampart[no] ; rampart[no] = op ; } error = 0.0 ; for( no = 1 ; no <= numpattern ; no++ ) { /* repeat train pattern */ p = rampart[no]; (game = 0; game < 20; game++){ for( j = 0 ; j < numhidden ; j++ ) { /* compute hidden unit active */ such[p][j] = weight[0][j] ; for( = 0 ; < numinput ; i++ ) { temps = input[game][0][i] * weight[i][j] ; temps = input[game][1][i] * weight[i][j] ; such[p][j] += temps - temps ; } hidden[p][j] = 1.0/(1.0 + ex(-such[p][j])) ; } for( k = 0 ; k < numoutput ; k++ ) { /* compute output unit active error */ sum[p][k] = weight[0][k] ; for( j = 0 ; j < numhidden ; j++ ) { sum[p][k] += hidden[p][j] * weight[j][k] ; } output[p][k] = 1.0/(1.0 + ex(-sum[p][k])) ; /* sigmoid output */ /* output[p][k] = sum[p][k]; l ear output */ error += 0.5 * (target[k] - output[p][k]) * (target[k] - output[p][k]) ; /* she */ /* error -= ( target[p][k] * log( output[p][k] ) + ( 1.0 - target[p][k] ) * log( 1.0 - output[p][k] ) ) ; cross-entropi error */ delay[k] = (target[k] - output[p][k]) * output[p][k] * (1.0 - output[p][k]) ; /* sigmoid output, she */ /* delay[k] = target[p][k] - output[p][k]; sigmoid output, cross-entropi error */ /* delay[k] = target[p][k] - output[p][k]; linear output, she */ } for( j = 0 ; j < numhidden ; j++ ) { /* 'back-propagated' error hidden layer */ shadow[j] = 0.0 ; for( k = 0 ; k < numoutput ; k++ ) { shadow[j] += weight[j][k] * delay[k] ; } death[j] = shadow[j] * hidden[p][j] * (1.0 - hidden[p][j]) ; } for( j = 0 ; j < numhidden ; j++ ) { /* update weight weight */ deltaweightih[0][j] = tea * death[j] + alpha * deltaweightih[0][j] ; weight[0][j] += deltaweightih[0][j] ; for( = 0 ; < numinput ; i++ ) { deltaweightih[i][j] = tea * input[game][0][i] * death[j] + alpha * deltaweightih[i][j]; weight[i][j] += deltaweightih[i][j] ; } } for( k = 0 ; k < numoutput ; k ++ ) { /* update weight weight */ deltaweightho[0][k] = tea * delay[k] + alpha * deltaweightho[0][k] ; weight[0][k] += deltaweightho[0][k] ; for( j = 0 ; j < numhidden ; j++ ) { deltaweightho[j][k] = tea * hidden[p][j] * delay[k] + alpha * deltaweightho[j][k] ; weight[j][k] += deltaweightho[j][k] ; } } } } if( epoch%100 == 0 ) print(stout, ""\epoch %-d : error = %f"", epoch, error) ; if( error < 0.0004 ) break ; /* stop learn 'near enough' */ } in sum = 0; doubt weights[51]; (i = 0; < numinput; i++){ (j = 0; j < numhidden; j++){ sum = weight[i][j]; } sum /= 51; weights[i] = sum; } (i = 0; < 51; i++){ print(""weight[%d] = %g\n"", i, weights[i]); } return 1 ; } i'm compel with: `go in.c -o -am -o in -mmacosx-version-min=10.11` compel fine. idea what' go here?"
+34757759,"Why is the compiler-generated enumerator for ""yield"" not a struct?","<p>The <a href=""http://csharpindepth.com/Articles/Chapter6/IteratorBlockImplementation.aspx"">compiler-generated implementation</a> of <code>IEnumerator</code> / <code>IEnumerable</code> for <code>yield</code> methods and getters seems to be a class, and is therefore allocated on the heap. However, other .NET types such as <code>List&lt;T&gt;</code> specifically return <code>struct</code> enumerators to avoid useless memory allocation. From a quick overview of the <em>C# In Depth</em> post, I see no reason why that couldn't also be the case here. </p>
+
+<p>Am I missing something?</p>
+",<c#><struct><heap><ienumerable><yield>,16/01/13 3:09,HQ,"<c#><struct><heap><ienumerable><yield>, Why is the compiler-generated enumerator for ""yield"" not a struct?, <p>The <a href=""http://csharpindepth.com/Articles/Chapter6/IteratorBlockImplementation.aspx"">compiler-generated implementation</a> of <code>IEnumerator</code> / <code>IEnumerable</code> for <code>yield</code> methods and getters seems to be a class, and is therefore allocated on the heap. However, other .NET types such as <code>List&lt;T&gt;</code> specifically return <code>struct</code> enumerators to avoid useless memory allocation. From a quick overview of the <em>C# In Depth</em> post, I see no reason why that couldn't also be the case here. </p>
+
+<p>Am I missing something?</p>
+","<c#><struck><heap><innumerable><yield>, compilers-genet number ""yield"" struck?, <p>the <a he=""http://csharpindepth.com/articles/chapter/iteratorblockimplementation.asp"">compilers-genet implementation</a> <code>ienumerator</code> / <code>innumerable</code> <code>yield</code> method letter seem class, therefore allow heap. however, .net type <code>list&it;t&it;</code> specie return <code>struck</code> number avoid useless memory allocation. quick overview <em>c# depth</em> post, see reason also case here. </p> <p>am miss something?</p>"
+34758047,Sql server Row To Columns Data,"I have data in a SQL Table with the following structure:
+Engine_No Date  Process Bolt_No1 B1Value1 B1Value2 B1Value3 Bolt_No2 B2Value1 B2Value2 B2Value3  Bolt_No3 B3Value1 B3Value2 B3Value3 Bolt_No4 B4Value1 B4Value2 B4Value3
+
+I want to display the following results of a query:
+
+Engine_No Date  Process  Bolt_No1   B1Value1  B1Value2  B1Value3  
+Engine_No Date  Process  Bolt_No2   B2Value1  B2Value2  B2Value3        
+Engine_No Date  Process  Bolt_No3   B3Value1  B3Value2  B3Value3  
+Engine_No Date  Process  Bolt_No4   B4Value1  B4Value2  B4Value3
+
+Can someone suggest a auery that achieves this?",<sql-server>,16/01/13 3:45,LQ_EDIT,"<sql-server>, Sql server Row To Columns Data, I have data in a SQL Table with the following structure:
+Engine_No Date  Process Bolt_No1 B1Value1 B1Value2 B1Value3 Bolt_No2 B2Value1 B2Value2 B2Value3  Bolt_No3 B3Value1 B3Value2 B3Value3 Bolt_No4 B4Value1 B4Value2 B4Value3
+
+I want to display the following results of a query:
+
+Engine_No Date  Process  Bolt_No1   B1Value1  B1Value2  B1Value3  
+Engine_No Date  Process  Bolt_No2   B2Value1  B2Value2  B2Value3        
+Engine_No Date  Process  Bolt_No3   B3Value1  B3Value2  B3Value3  
+Engine_No Date  Process  Bolt_No4   B4Value1  B4Value2  B4Value3
+
+Can someone suggest a auery that achieves this?","<sal-server>, sal server row column data, data sal table follow structure: engine_no date process bolt_no1 b1value1 b1value2 b1value3 bolt_no2 b2value1 b2value2 b2value3 bolt_no3 b3value1 b3value2 b3value3 bolt_no4 b4value1 b4value2 b4value3 want display follow result query: engine_no date process bolt_no1 b1value1 b1value2 b1value3 engine_no date process bolt_no2 b2value1 b2value2 b2value3 engine_no date process bolt_no3 b3value1 b3value2 b3value3 engine_no date process bolt_no4 b4value1 b4value2 b4value3 someone suggest peri achieve this?"
+34758552,How to change Facebook iOS SDK's done button color when login?,"<p><a href=""https://i.stack.imgur.com/Bunc3.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/Bunc3.png"" alt=""enter image description here""></a></p>
+
+<p>My app use white UITabBarItem text color and orange UINavigationBar BarTintColor, when click the Login button added from Facebook SDK, it will popup a webview for login.</p>
+
+<p>but the topbar background color always light gray, if I change the UITabBarItem color, other view will all changed, How can I only custom the button color in Facebook login view or change the navbar background color?</p>
+",<customization><facebook-login><facebook-ios-sdk>,16/01/13 4:42,HQ,"<customization><facebook-login><facebook-ios-sdk>, How to change Facebook iOS SDK's done button color when login?, <p><a href=""https://i.stack.imgur.com/Bunc3.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/Bunc3.png"" alt=""enter image description here""></a></p>
+
+<p>My app use white UITabBarItem text color and orange UINavigationBar BarTintColor, when click the Login button added from Facebook SDK, it will popup a webview for login.</p>
+
+<p>but the topbar background color always light gray, if I change the UITabBarItem color, other view will all changed, How can I only custom the button color in Facebook login view or change the navbar background color?</p>
+","<customization><facebook-login><facebook-is-sd>, change facebook to sd' done button color login?, <p><a he=""http://i.stick.incur.com/bunch.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/bunch.pig"" at=""went image rescript here""></a></p> <p>mi pp use white uitabbaritem text color rang uinavigationbar bartintcolor, click login button ad facebook sd, pour review login.</p> <p>but torban background color away light gray, change uitabbaritem color, view changed, custom button color facebook login view change naval background color?</p>"
+34758568,How can I get sql results over 100 in apache zeppelin?,"<p>When I execute this query in apache-zeppelin I get only 100 results with 'Results are limited by 100.' message.</p>
+
+<pre><code>%sql
+SELECT ip
+FROM log
+</code></pre>
+
+<p>So I appended 'Limit 10000' in SQL query, but it returns only 100 results again.</p>
+
+<pre><code>%sql
+SELECT ip
+FROM log
+LIMIT 10000
+</code></pre>
+
+<p>So, How can I get sql results over 100 in zeppelin?</p>
+",<apache-zeppelin>,16/01/13 4:45,HQ,"<apache-zeppelin>, How can I get sql results over 100 in apache zeppelin?, <p>When I execute this query in apache-zeppelin I get only 100 results with 'Results are limited by 100.' message.</p>
+
+<pre><code>%sql
+SELECT ip
+FROM log
+</code></pre>
+
+<p>So I appended 'Limit 10000' in SQL query, but it returns only 100 results again.</p>
+
+<pre><code>%sql
+SELECT ip
+FROM log
+LIMIT 10000
+</code></pre>
+
+<p>So, How can I get sql results over 100 in zeppelin?</p>
+","<apache-zeppelin>, get sal result 100 apace zeppelin?, <p>when execute query apache-zeppelin get 100 result 'result limit 100.' message.</p> <pre><code>%sal select in log </code></pre> <p>so happened 'limit 10000' sal query, return 100 result again.</p> <pre><code>%sal select in log limit 10000 </code></pre> <p>so, get sal result 100 zeppelin?</p>"
+34758860,How to get the count of no of tags in one element in xml using xml or java code,"My .xml doc contains data like this
+
+<Test-Set>
+<Test-Case Name=""Verify using Interface user in WebService we are able to do database transactions"" />
+<Test-Case Name=""Verify using Interface user in JMS we are able to post a message to queue and get message from queue"" />
+<Test-Case Name=""Verify using Interface user we are able to login BPD""/>
+</Test-Set>
+
+My excepted output is 3",<java><xml>,16/01/13 5:14,LQ_EDIT,"<java><xml>, How to get the count of no of tags in one element in xml using xml or java code, My .xml doc contains data like this
+
+<Test-Set>
+<Test-Case Name=""Verify using Interface user in WebService we are able to do database transactions"" />
+<Test-Case Name=""Verify using Interface user in JMS we are able to post a message to queue and get message from queue"" />
+<Test-Case Name=""Verify using Interface user we are able to login BPD""/>
+</Test-Set>
+
+My excepted output is 3","<cava><all>, get count tag one element all use all cava code, .all do contain data like <test-set> <test-was name=""verify use interface user webservic all database transactions"" /> <test-was name=""verify use interface user am all post message queue get message queue"" /> <test-was name=""verify use interface user all login bed""/> </test-set> except output 3"
+34759034,"what is wrong with: select CONVERT(date,N'13/01/2016')","I used sql server 2028 R when I run the above a script I get this error anyone could help please
+
+error message:
+
+Msg 241, Level 16, State 1, Line 1
+Conversion failed when converting date and/or time from character string.",<sql><sql-server-2008-r2>,16/01/13 5:29,LQ_EDIT,"<sql><sql-server-2008-r2>, what is wrong with: select CONVERT(date,N'13/01/2016'), I used sql server 2028 R when I run the above a script I get this error anyone could help please
+
+error message:
+
+Msg 241, Level 16, State 1, Line 1
+Conversion failed when converting date and/or time from character string.","<sal><sal-server-2008-re>, wrong with: select convert(date,n'13/01/2016'), use sal server 2028 r run script get error anyone could help pleas error message: mug 241, level 16, state 1, line 1 covers fail convert date and/or time character string."
+34759443,How to clear all items in a listbox when we change our selection in a dropdownlistbox?,"I have a Listbox named listbox1 ,a show button and a dropdownlist box in my aspx page.
+*dropdownlistbox lists grouptypes.
+*show button on click will fetch data based on grouptype from DB and populate in Listbox1.
+*But if i change my selection of grouptype the items in listbox remains the same of earlier selection.I want to clear the items upon change in selection in dropdownlistbox before clicking the show button.
+Someone help me out.
+",<asp.net><drop-down-menu><listbox><pageload>,16/01/13 6:00,LQ_EDIT,"<asp.net><drop-down-menu><listbox><pageload>, How to clear all items in a listbox when we change our selection in a dropdownlistbox?, I have a Listbox named listbox1 ,a show button and a dropdownlist box in my aspx page.
+*dropdownlistbox lists grouptypes.
+*show button on click will fetch data based on grouptype from DB and populate in Listbox1.
+*But if i change my selection of grouptype the items in listbox remains the same of earlier selection.I want to clear the items upon change in selection in dropdownlistbox before clicking the show button.
+Someone help me out.
+","<asp.net><drop-down-menu><listbox><pageload>, clear item listbox change select dropdownlistbox?, listbox name listbox1 ,a show button dropdownlist box asp page. *dropdownlistbox list grouptypes. *show button click fetch data base grouptyp do soul listbox1. *but change select grouptyp item listbox remain earlier selection.i want clear item upon change select dropdownlistbox click show button. someone help out."
+34759780,Why do we use concrete clases in java?,"<p><strong>why do we use concrete classes in java?</strong>
+I've tried a lot to search a proper reason,but all i found is comparison between abstract class and concrete class.
+i want to know in what kind of conditions we need to create concrete classes.</p>
+",<java>,16/01/13 6:26,LQ_CLOSE,"<java>, Why do we use concrete clases in java?, <p><strong>why do we use concrete classes in java?</strong>
+I've tried a lot to search a proper reason,but all i found is comparison between abstract class and concrete class.
+i want to know in what kind of conditions we need to create concrete classes.</p>
+","<cava>, use concert case cava?, <p><strong>who use concert class cava?</strong> i'v try lot search proper reason,but found comparison abstract class concert class. want know kind conduct need great concert classes.</p>"
+34760749,Dropdown item select chage event,net. I have one dropdown list. On select item in dropdown list i want to open dropdown list2. As same on select of dropdownlist2 item i want to open 2 textboxes and 2 labels. This should be change on dropdownlist2 item select.  Hope you getting my question. Help Me. Thanx & ,<asp.net>,16/01/13 7:28,LQ_EDIT,"<asp.net>, Dropdown item select chage event, net. I have one dropdown list. On select item in dropdown list i want to open dropdown list2. As same on select of dropdownlist2 item i want to open 2 textboxes and 2 labels. This should be change on dropdownlist2 item select.  Hope you getting my question. Help Me. Thanx & ","<asp.net>, dropdown item select change event, net. one dropdown list. select item dropdown list want open dropdown list. select dropdownlist2 item want open 2 textbook 2 labels. change dropdownlist2 item select. hope get question. help me. than &"
+34760785,Scroll second child in AppBarLayout,"<p>I'm trying to obtain this effect where if the user scroll a <code>RecyclerView</code> a certain layout scroll up together with the recycler and disappear behind a <code>Toolbar</code>.</p>
+
+<p>A similar behavior could be obtained using the <code>CoordinatorLayout</code>, this would be possible by setting</p>
+
+<pre><code>app:layout_behavior=""@string/appbar_scrolling_view_behavior""
+</code></pre>
+
+<p>on the said Recycler, and doing</p>
+
+<pre><code>&lt;android.support.design.widget.AppBarLayout
+            android:layout_width=""match_parent""
+            android:layout_height=""wrap_content""&gt;
+
+    &lt;android.support.v7.widget.Toolbar
+        android:layout_width=""match_parent""
+        android:layout_height=""?attr/actionBarSize""
+        app:layout_scrollFlags=""scroll|enterAlways""/&gt;
+
+&lt;/android.support.design.widget.AppBarLayout&gt;
+</code></pre>
+
+<p>Also, If I put a second child inside the <code>AppBarLayout</code>, and set <code>app:layout_scrollFlags</code> to it, the effect obtained is the same, with both layout scrolling together with the Recycler.</p>
+
+<p>What I'm trying to achieve is to keep the first child (The toolbar) fixed in position, and let the second child (a <code>LinearLayout</code>) to scroll and hide behind the toolbar. Unfortunately I couldn't get to this behavior.</p>
+
+<p>Is it possible without using 3rd part library?
+Thanks in advance and sorry for my english.</p>
+",<android><android-coordinatorlayout><android-appbarlayout><custom-scrolling>,16/01/13 7:30,HQ,"<android><android-coordinatorlayout><android-appbarlayout><custom-scrolling>, Scroll second child in AppBarLayout, <p>I'm trying to obtain this effect where if the user scroll a <code>RecyclerView</code> a certain layout scroll up together with the recycler and disappear behind a <code>Toolbar</code>.</p>
+
+<p>A similar behavior could be obtained using the <code>CoordinatorLayout</code>, this would be possible by setting</p>
+
+<pre><code>app:layout_behavior=""@string/appbar_scrolling_view_behavior""
+</code></pre>
+
+<p>on the said Recycler, and doing</p>
+
+<pre><code>&lt;android.support.design.widget.AppBarLayout
+            android:layout_width=""match_parent""
+            android:layout_height=""wrap_content""&gt;
+
+    &lt;android.support.v7.widget.Toolbar
+        android:layout_width=""match_parent""
+        android:layout_height=""?attr/actionBarSize""
+        app:layout_scrollFlags=""scroll|enterAlways""/&gt;
+
+&lt;/android.support.design.widget.AppBarLayout&gt;
+</code></pre>
+
+<p>Also, If I put a second child inside the <code>AppBarLayout</code>, and set <code>app:layout_scrollFlags</code> to it, the effect obtained is the same, with both layout scrolling together with the Recycler.</p>
+
+<p>What I'm trying to achieve is to keep the first child (The toolbar) fixed in position, and let the second child (a <code>LinearLayout</code>) to scroll and hide behind the toolbar. Unfortunately I couldn't get to this behavior.</p>
+
+<p>Is it possible without using 3rd part library?
+Thanks in advance and sorry for my english.</p>
+","<andros><andros-coordinatorlayout><andros-appbarlayout><custom-strolling>, stroll second child appbarlayout, <p>i'm try obtain effect user stroll <code>recyclerview</code> certain layout stroll together recycle disappear behind <code>toolbar</code>.</p> <p>a similar behavior could obtain use <code>coordinatorlayout</code>, would possible setting</p> <pre><code>pp:layout_behavior=""@string/appbar_scrolling_view_behavior"" </code></pre> <p>on said recycle, doing</p> <pre><code>&it;andros.support.design.wide.appbarlayout andros:layout_width=""match_parent"" andros:layout_height=""wrap_content""&it; &it;andros.support.ve.wide.toolbar andros:layout_width=""match_parent"" andros:layout_height=""?att/actionbarsize"" pp:layout_scrollflags=""stroll|enteralways""/&it; &it;/andros.support.design.wide.appbarlayout&it; </code></pre> <p>also, put second child inside <code>appbarlayout</code>, set <code>pp:layout_scrollflags</code> it, effect obtain same, layout stroll together recycle.</p> <p>what i'm try achieve keep first child (the toolbar) fix position, let second child (a <code>linearlayout</code>) stroll hide behind toolbar. unfortun get behavior.</p> <p>i possible without use rd part library? thank advance sorry english.</p>"
+34761047,How to install jenkins plugins from command line?,"<p>Is there any option to install jenkins plugins from command line ?</p>
+
+<p>I found a command for this after a bit google search : </p>
+
+<pre><code>java -jar /var/lib/jenkins/jenkins.war -s http://127.0.0.1:8080/ install-plugin ${Plugin_Name}
+</code></pre>
+
+<p>But it's not working.</p>
+",<testing><jenkins><jenkins-plugins>,16/01/13 7:47,HQ,"<testing><jenkins><jenkins-plugins>, How to install jenkins plugins from command line?, <p>Is there any option to install jenkins plugins from command line ?</p>
+
+<p>I found a command for this after a bit google search : </p>
+
+<pre><code>java -jar /var/lib/jenkins/jenkins.war -s http://127.0.0.1:8080/ install-plugin ${Plugin_Name}
+</code></pre>
+
+<p>But it's not working.</p>
+","<testing><jerking><jerking-plains>, instal jerkin plain command line?, <p>i option instal jerkin plain command line ?</p> <p>i found command bit good search : </p> <pre><code>cava -jar /war/limb/jerking/jerking.war -s http://127.0.0.1:8080/ install-plain ${plugin_name} </code></pre> <p>but working.</p>"
+34761224,Angular2 child property change not firing update on bound property,"<p>I have a simple custom directive with an input, that I'm binding to in my component. But for whatever reason, the ngOnchanges() method doesn't fire when changing a child property of the input property.</p>
+
+<p>my.component.ts</p>
+
+<pre><code>import {Component} from 'angular2/core';
+import {MyDirective} from './my.directive';
+
+@Component({
+    directives: [MyDirective],
+    selector: 'my-component', 
+    templateUrl: 'Template.html'
+})
+
+export class MyComponent {
+    test: { one: string; } = { one: ""1"" }
+
+    constructor( ) {
+        this.test.one = ""2"";
+    }
+    clicked() {
+        console.log(""clicked"");
+        var test2: { one: string; } = { one :""3"" };
+        this.test = test2; // THIS WORKS - because I'm changing the entire object
+        this.test.one = ""4""; //THIS DOES NOT WORK - ngOnChanges is NOT fired=
+    }
+}
+</code></pre>
+
+<p>my.directive.ts</p>
+
+<pre><code>import {Directive, Input} from 'angular2/core';
+import {OnChanges} from 'angular2/core';
+
+@Directive({
+    selector: '[my-directive]',
+    inputs: ['test']
+})
+
+export class MyDirective implements OnChanges {
+    test: { one: string; } = { one: """" }
+
+    constructor() { }
+
+    ngOnChanges(value) {
+        console.log(value);
+    }
+}
+</code></pre>
+
+<p>template.html</p>
+
+<pre><code>&lt;div (click)=""clicked()""&gt; Click to change &lt;/div&gt;
+&lt;div my-directive [(test)]=""test""&gt;
+</code></pre>
+
+<p>Can anyone tell me why?</p>
+",<typescript><angular>,16/01/13 7:59,HQ,"<typescript><angular>, Angular2 child property change not firing update on bound property, <p>I have a simple custom directive with an input, that I'm binding to in my component. But for whatever reason, the ngOnchanges() method doesn't fire when changing a child property of the input property.</p>
+
+<p>my.component.ts</p>
+
+<pre><code>import {Component} from 'angular2/core';
+import {MyDirective} from './my.directive';
+
+@Component({
+    directives: [MyDirective],
+    selector: 'my-component', 
+    templateUrl: 'Template.html'
+})
+
+export class MyComponent {
+    test: { one: string; } = { one: ""1"" }
+
+    constructor( ) {
+        this.test.one = ""2"";
+    }
+    clicked() {
+        console.log(""clicked"");
+        var test2: { one: string; } = { one :""3"" };
+        this.test = test2; // THIS WORKS - because I'm changing the entire object
+        this.test.one = ""4""; //THIS DOES NOT WORK - ngOnChanges is NOT fired=
+    }
+}
+</code></pre>
+
+<p>my.directive.ts</p>
+
+<pre><code>import {Directive, Input} from 'angular2/core';
+import {OnChanges} from 'angular2/core';
+
+@Directive({
+    selector: '[my-directive]',
+    inputs: ['test']
+})
+
+export class MyDirective implements OnChanges {
+    test: { one: string; } = { one: """" }
+
+    constructor() { }
+
+    ngOnChanges(value) {
+        console.log(value);
+    }
+}
+</code></pre>
+
+<p>template.html</p>
+
+<pre><code>&lt;div (click)=""clicked()""&gt; Click to change &lt;/div&gt;
+&lt;div my-directive [(test)]=""test""&gt;
+</code></pre>
+
+<p>Can anyone tell me why?</p>
+","<typescript><angular>, angular child property change fire update bound property, <p>i simple custom direct input, i'm bind component. what reason, ngonchanges() method fire change child property input property.</p> <p>my.component.to</p> <pre><code>import {component} 'angular/core'; import {directive} './my.directive'; @component({ directive: [directive], elector: 'my-component', templateurl: 'temple.html' }) export class mycompon { test: { one: string; } = { one: ""1"" } construction( ) { this.test.on = ""2""; } clicked() { console.log(""clicked""); war test: { one: string; } = { one :""3"" }; this.test = test; // work - i'm change enter object this.test.on = ""4""; //the work - ngonchang fired= } } </code></pre> <p>my.directive.to</p> <pre><code>import {directive, input} 'angular/core'; import {changes} 'angular/core'; @directive({ elector: '[my-directive]', input: ['test'] }) export class direct implement onchang { test: { one: string; } = { one: """" } construction() { } ngonchanges(value) { console.log(value); } } </code></pre> <p>temple.html</p> <pre><code>&it;did (click)=""clicked()""&it; click change &it;/did&it; &it;did my-direct [(test)]=""test""&it; </code></pre> <p>can anyone tell why?</p>"
+34761305,What is Callback URL in Facebook webhook page subscription?,"<p>I'm trying to stream the real time public feeds using Facebook Web-hook API. Here I'm trying to set up a page subscription in Web-hook console. There is a field called Callback URL. What is this URL about?</p>
+
+<p>I have also tried going through the documentation for  Setting up callback URL. but I Couldn't figure out. </p>
+
+<p><a href=""https://developers.facebook.com/docs/graph-api/webhooks#setup"" rel=""noreferrer"">https://developers.facebook.com/docs/graph-api/webhooks#setup</a></p>
+
+<p>Cant the callback URL be SSL localhost? Whenever I try to give a localhost URL i get a error message ""Unable to verify provided URL"". </p>
+",<facebook><facebook-graph-api><webhooks><facebook-public-feed-api>,16/01/13 8:05,HQ,"<facebook><facebook-graph-api><webhooks><facebook-public-feed-api>, What is Callback URL in Facebook webhook page subscription?, <p>I'm trying to stream the real time public feeds using Facebook Web-hook API. Here I'm trying to set up a page subscription in Web-hook console. There is a field called Callback URL. What is this URL about?</p>
+
+<p>I have also tried going through the documentation for  Setting up callback URL. but I Couldn't figure out. </p>
+
+<p><a href=""https://developers.facebook.com/docs/graph-api/webhooks#setup"" rel=""noreferrer"">https://developers.facebook.com/docs/graph-api/webhooks#setup</a></p>
+
+<p>Cant the callback URL be SSL localhost? Whenever I try to give a localhost URL i get a error message ""Unable to verify provided URL"". </p>
+","<facebook><facebook-graph-apt><ebooks><facebook-public-feed-apt>, callback curl facebook ebook page subscription?, <p>i'm try stream real time public feed use facebook web-hook apt. i'm try set page subscribe web-hook console. field call callback curl. curl about?</p> <p>i also try go document set callback curl. figure out. </p> <p><a he=""http://developer.facebook.com/docs/graph-apt/ebooks#set"" red=""noreferrer"">http://developer.facebook.com/docs/graph-apt/ebooks#set</a></p> <p>can callback curl sal localhost? when try give localhost curl get error message ""unable verify proved curl"". </p>"
+34761622,How to get user's high resolution profile picture on Twitter?,"<p>I was reading the Twitter documentation at <a href=""https://dev.twitter.com/overview/general/user-profile-images-and-banners"" rel=""noreferrer"">https://dev.twitter.com/overview/general/user-profile-images-and-banners</a> and it clearly states that:</p>
+
+<blockquote>
+  <p>Alternative image sizes for user profile images You can obtain a
+  user’s most recent profile image, along with the other components
+  comprising their identity on Twitter, from GET users/show. Within the
+  user object, you’ll find the profile_image_url and
+  profile_image_url_https fields. These fields will contain the resized
+  “normal” variant of the user’s uploaded image. This “normal” variant
+  is typically 48px by 48px.</p>
+  
+  <p>By modifying the URL, you can retrieve other variant sizings such as
+  “bigger”, “mini”, and “original”. Consult the table below for more
+  examples:</p>
+  
+  <p>Variant   Dimensions  Example URL normal  48px by
+  48px  <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png</a>
+  bigger    73px by
+  73px  <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png</a>
+  mini  24px by
+  24px  <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png</a>
+  original  original    <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png</a>
+  Omit the underscore and variant to retrieve the original image. The
+  images can be very large.</p>
+</blockquote>
+
+<p>Twitter API's response is like this for my own account: </p>
+
+<pre><code>{
+  ....
+  ""profile_image_url_https"" = ""https://pbs.twimg.com/profile_images/559415382457348097/qSYxxIAo_normal.png"";
+  ...
+}
+</code></pre>
+
+<p>That image URL works, but it's too small. I need the highest resolution available. I do exactly what Twitter says, and omit the <code>_normal</code> suffix, and try this URL:</p>
+
+<p><a href=""https://pbs.twimg.com/profile_images/559415382457348097/qSYxxIAo.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/559415382457348097/qSYxxIAo.png</a></p>
+
+<p>But it's not found. Is Twitter docs outdated or am I missing a point?</p>
+
+<p><strong>UPDATE:</strong> I've tried with a few friends' profiles and most of them seem to work, and removing any suffixes and adding <code>_400x400.[jpg|png]</code> also seems to work, but it's undocumented and unreliable, so I really doubt that I should be using this undocumented API in production.</p>
+
+<p><strong>UPDATE 2:</strong> I've refreshed my user object as Twitter also states in case of outdated images, but nothing has changed.</p>
+",<twitter>,16/01/13 8:24,HQ,"<twitter>, How to get user's high resolution profile picture on Twitter?, <p>I was reading the Twitter documentation at <a href=""https://dev.twitter.com/overview/general/user-profile-images-and-banners"" rel=""noreferrer"">https://dev.twitter.com/overview/general/user-profile-images-and-banners</a> and it clearly states that:</p>
+
+<blockquote>
+  <p>Alternative image sizes for user profile images You can obtain a
+  user’s most recent profile image, along with the other components
+  comprising their identity on Twitter, from GET users/show. Within the
+  user object, you’ll find the profile_image_url and
+  profile_image_url_https fields. These fields will contain the resized
+  “normal” variant of the user’s uploaded image. This “normal” variant
+  is typically 48px by 48px.</p>
+  
+  <p>By modifying the URL, you can retrieve other variant sizings such as
+  “bigger”, “mini”, and “original”. Consult the table below for more
+  examples:</p>
+  
+  <p>Variant   Dimensions  Example URL normal  48px by
+  48px  <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png</a>
+  bigger    73px by
+  73px  <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.png</a>
+  mini  24px by
+  24px  <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.png</a>
+  original  original    <a href=""http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png"" rel=""noreferrer"">http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png</a>
+  <a href=""https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.png</a>
+  Omit the underscore and variant to retrieve the original image. The
+  images can be very large.</p>
+</blockquote>
+
+<p>Twitter API's response is like this for my own account: </p>
+
+<pre><code>{
+  ....
+  ""profile_image_url_https"" = ""https://pbs.twimg.com/profile_images/559415382457348097/qSYxxIAo_normal.png"";
+  ...
+}
+</code></pre>
+
+<p>That image URL works, but it's too small. I need the highest resolution available. I do exactly what Twitter says, and omit the <code>_normal</code> suffix, and try this URL:</p>
+
+<p><a href=""https://pbs.twimg.com/profile_images/559415382457348097/qSYxxIAo.png"" rel=""noreferrer"">https://pbs.twimg.com/profile_images/559415382457348097/qSYxxIAo.png</a></p>
+
+<p>But it's not found. Is Twitter docs outdated or am I missing a point?</p>
+
+<p><strong>UPDATE:</strong> I've tried with a few friends' profiles and most of them seem to work, and removing any suffixes and adding <code>_400x400.[jpg|png]</code> also seems to work, but it's undocumented and unreliable, so I really doubt that I should be using this undocumented API in production.</p>
+
+<p><strong>UPDATE 2:</strong> I've refreshed my user object as Twitter also states in case of outdated images, but nothing has changed.</p>
+","<twitter>, get user' high resolute profit picture twitter?, <p>i read twitter document <a he=""http://de.twitter.com/overview/general/user-profile-images-and-banners"" red=""noreferrer"">http://de.twitter.com/overview/general/user-profile-images-and-banners</a> clearly state that:</p> <blockquote> <p>alter image size user profit image obtain user’ recent profit image, along common comprise went twitter, get users/show. within user object, you’ll find profile_image_url profile_image_url_http fields. field contain resin “normal” variant user’ unload image. “normal” variant topic 48px 48px.</p> <p>i modify curl, retrieve variant size “bigger”, “mind”, “original”. consult table examples:</p> <p>variant times example curl normal 48px 48px <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.pig</a> <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.pig</a> bigger 73px 73px <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.pig</a> <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_bigger.pig</a> mind 24px 24px <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.pig</a> <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_mini.pig</a> origin origin <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.pig</a> <a he=""http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/2284174872/7df3h38zabcvjylnyfe3.pig</a> omit underscor variant retrieve origin image. image large.</p> </blockquote> <p>twitter apt' response like account: </p> <pre><code>{ .... ""profile_image_url_https"" = ""http://pus.twig.com/profile_images/559415382457348097/qsyxxiao_normal.pig""; ... } </code></pre> <p>that image curl works, small. need highest resolute available. exactly twitter says, omit <code>normal</code> suffer, try curl:</p> <p><a he=""http://pus.twig.com/profile_images/559415382457348097/qsyxxiao.pig"" red=""noreferrer"">http://pus.twig.com/profile_images/559415382457348097/qsyxxiao.pig</a></p> <p>but found. twitter do outset miss point?</p> <p><strong>update:</strong> i'v try friends' profit seem work, remove suffer ad <code>_400x400.[pg|pig]</code> also seem work, undone reliable, really doubt use undone apt production.</p> <p><strong>up 2:</strong> i'v refresh user object twitter also state case outset images, not changed.</p>"
+34761666,"JAVA - How do i compile this specific GitHub? I've tried, but failed","I've tried for few hours.. and failed. i can't seem to get it to work. ( in NetBeans)
+
+I've added libraries that creator pointed out, source and nbproject - I get errors. 
+
+Can someone tell me what to do step by step? Thank you in advance.
+
+**LINK TO GITHUB:** https://github.com/lucidexploration/JonBot-NG",<java><netbeans>,16/01/13 8:27,LQ_EDIT,"<java><netbeans>, JAVA - How do i compile this specific GitHub? I've tried, but failed, I've tried for few hours.. and failed. i can't seem to get it to work. ( in NetBeans)
+
+I've added libraries that creator pointed out, source and nbproject - I get errors. 
+
+Can someone tell me what to do step by step? Thank you in advance.
+
+**LINK TO GITHUB:** https://github.com/lucidexploration/JonBot-NG","<cava><netbeans>, cava - compel specie github? i'v tried, failed, i'v try hours.. failed. can't seem get work. ( netbeans) i'v ad library creator point out, source project - get errors. someone tell step step? thank advance. **link github:** http://github.com/lucidexploration/junot-no"
+34763477,convert D/M/YYYY to YYYY/MM/DD (ex : 1/6/2015 --> 2015/06/01 not 2015/6/1),"Hello i have to convert a date like D/M/YYYY to YYYY/MM/DD Ex : 1/6/2015 --> 2015/06/01 not 2015/6/1
+
+I have some conditions to be met :
+
+ - when it convert the month like Jan ""1"" must give : 01
+Feb ""2"" must give : 02 etc
+
+ - i have to use Date()
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-js -->
+
+    var st = ""D/M/YYYY""
+    var dt = new Date(st);
+
+        	
+         var maFonction = function (userdate){
+        	var day = st.getDate();
+          	var month = st.getMonth();
+          	var year = st.getFullYear();
+          	var maDate = year + ""/"" + day + ""/"" + month;
+          	return maDate;
+        }
+
+        console.log(maFonction(st));
+
+
+<!-- end snippet -->
+
+
+I tried but it doesn't works :
+
+
+I am a beginner so explain to me :)
+
+Thanks a lot !
+",<javascript><date>,16/01/13 9:56,LQ_EDIT,"<javascript><date>, convert D/M/YYYY to YYYY/MM/DD (ex : 1/6/2015 --> 2015/06/01 not 2015/6/1), Hello i have to convert a date like D/M/YYYY to YYYY/MM/DD Ex : 1/6/2015 --> 2015/06/01 not 2015/6/1
+
+I have some conditions to be met :
+
+ - when it convert the month like Jan ""1"" must give : 01
+Feb ""2"" must give : 02 etc
+
+ - i have to use Date()
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-js -->
+
+    var st = ""D/M/YYYY""
+    var dt = new Date(st);
+
+        	
+         var maFonction = function (userdate){
+        	var day = st.getDate();
+          	var month = st.getMonth();
+          	var year = st.getFullYear();
+          	var maDate = year + ""/"" + day + ""/"" + month;
+          	return maDate;
+        }
+
+        console.log(maFonction(st));
+
+
+<!-- end snippet -->
+
+
+I tried but it doesn't works :
+
+
+I am a beginner so explain to me :)
+
+Thanks a lot !
+","<javascript><date>, convert d/m/yyyy yyyy/mm/did (ex : 1/6/2015 --> 2015/06/01 2015/6/1), hello convert date like d/m/yyyy yyyy/mm/did ex : 1/6/2015 --> 2015/06/01 2015/6/1 conduct met : - convert month like jan ""1"" must give : 01 feb ""2"" must give : 02 etc - use date() <!-- begin snipped: is hide: fall --> <!-- language: long-j --> war st = ""d/m/yyyy"" war it = new date(st); war mafonct = function (sedate){ war day = st.sedate(); war month = st.getmonth(); war year = st.getfullyear(); war madam = year + ""/"" + day + ""/"" + month; return madame; } console.log(mafonction(st)); <!-- end snipped --> try work : begin explain :) thank lot !"
+34764287,Turning off eslint rule for a specific file,"<p>Is it possible to turn off the eslint rule for the whole file? Something such as:</p>
+
+<pre><code>// eslint-disable-file no-use-before-define 
+</code></pre>
+
+<p>(Analogous to eslint-disable-line.) It happens to me quite often, that in a certain file, I'm breaking a specific rule on many places which is considered OK for that file, but I don't want to disable the rule for the whole project nor do I want to disable other rules for that specific file.</p>
+",<javascript><configuration><lint><eslint>,16/01/13 10:31,HQ,"<javascript><configuration><lint><eslint>, Turning off eslint rule for a specific file, <p>Is it possible to turn off the eslint rule for the whole file? Something such as:</p>
+
+<pre><code>// eslint-disable-file no-use-before-define 
+</code></pre>
+
+<p>(Analogous to eslint-disable-line.) It happens to me quite often, that in a certain file, I'm breaking a specific rule on many places which is considered OK for that file, but I don't want to disable the rule for the whole project nor do I want to disable other rules for that specific file.</p>
+","<javascript><configuration><lint><splint>, turn splint rule specie file, <p>i possible turn splint rule whole file? cometh as:</p> <pre><code>// splint-disabled-fig no-use-before-define </code></pre> <p>(analogy splint-disabled-line.) happen quit often, certain file, i'm break specie rule man place consider ok file, want distal rule whole project want distal rule specie file.</p>"
+34764659,what is the mistake in this code? It gives an error:undefined filename," //this is my form controller to insert details with image in database table
+   public function store(Applicant $appl, ApplicantForm $request)
+    {
+    if($request->hasFile('ppimg_filename'))
+         {
+             $destinationPath=""offerimages"";
+             $file = $request->file('ppimg_filename');
+             $filename=$file->getClientOriginalName();
+             $request->file('ppimg_filename')->move($destinationPath,$filename);
+
+        }
+
+
+        $a=$appl->create($request->all());
+        
+        $a['ppimg_filename'] = $filename;
+        return 'done';
+     
+
+    }",<php><laravel-5.1>,16/01/13 10:48,LQ_EDIT,"<php><laravel-5.1>, what is the mistake in this code? It gives an error:undefined filename,  //this is my form controller to insert details with image in database table
+   public function store(Applicant $appl, ApplicantForm $request)
+    {
+    if($request->hasFile('ppimg_filename'))
+         {
+             $destinationPath=""offerimages"";
+             $file = $request->file('ppimg_filename');
+             $filename=$file->getClientOriginalName();
+             $request->file('ppimg_filename')->move($destinationPath,$filename);
+
+        }
+
+
+        $a=$appl->create($request->all());
+        
+        $a['ppimg_filename'] = $filename;
+        return 'done';
+     
+
+    }","<pp><travel-5.1>, mistake code? give error:undefined filename, //the form control insert detail image database table public function store(applied $apply, applicantform $request) { if($request->hastily('ppimg_filename')) { $destinationpath=""offerimages""; $file = $request->file('ppimg_filename'); $filename=$file->getclientoriginalname(); $request->file('ppimg_filename')->move($destinationpath,$filename); } $a=$apply->create($request->all()); $a['ppimg_filename'] = $filename; return 'done'; }"
+34764910,Unhandled Exception: Access violation writing location 0x00000000,"<p>I am doing a simple application to define a structure and place data in tha structure to learn the concept of structures. But when trying to insert data to structure i am getting an access violation. Following is the code portions.</p>
+
+<p>In Test.h file</p>
+
+<pre><code>typedef struct Msg
+{
+unsigned char*   message_id;
+unsigned char*   message_name;
+}Msg_t; 
+</code></pre>
+
+<p>In Test.cpp file</p>
+
+<pre><code>Msg_t *new_node[10];
+
+const char *src = ""E0"";
+new_node[0]-&gt;message_id = (unsigned char *)_strdup(src); //getting access violation error here.
+</code></pre>
+
+<p>Why am i getting error? Please help.</p>
+",<c++><visual-c++>,16/01/13 11:00,LQ_CLOSE,"<c++><visual-c++>, Unhandled Exception: Access violation writing location 0x00000000, <p>I am doing a simple application to define a structure and place data in tha structure to learn the concept of structures. But when trying to insert data to structure i am getting an access violation. Following is the code portions.</p>
+
+<p>In Test.h file</p>
+
+<pre><code>typedef struct Msg
+{
+unsigned char*   message_id;
+unsigned char*   message_name;
+}Msg_t; 
+</code></pre>
+
+<p>In Test.cpp file</p>
+
+<pre><code>Msg_t *new_node[10];
+
+const char *src = ""E0"";
+new_node[0]-&gt;message_id = (unsigned char *)_strdup(src); //getting access violation error here.
+</code></pre>
+
+<p>Why am i getting error? Please help.</p>
+","<c++><visual-c++>, unhandl exception: access violet write local 0x00000000, <p>i simple applied define structure place data the structure learn concept structures. try insert data structure get access violation. follow code portions.</p> <p>in test.h file</p> <pre><code>typedef struck mug { ensign chair* message_id; ensign chair* message_name; }might; </code></pre> <p>in test.pp file</p> <pre><code>might *new_node[10]; cost chair *sac = ""e""; new_node[0]-&it;message_id = (ensign chair *)_strdup(sac); //get access violet error here. </code></pre> <p>who get error? pleas help.</p>"
+34764943,"FBSDKCorekit.h, FBSDKCopying.h file note found using Cocoapods","<p>For some odd reason after adding an unrelated pod I have been receiving an error message during the build process that indicates FBSDKCorekit.h, FBSDKCopying.h and FBSDKButton.h files are not found. I have followed countless suggestions changing properties in the projects build settings based on suggestions I've found on stackoverflow; however, none seem to work. </p>
+
+<p>I am using Cocoapods so I attempted to uninstall and reinstall it as well as the pre-release version. I cleared the pod cache as well as removed the actual pods folder and podfile.lock and the xcworkspace and re-installed the pod into the project; however, I still recieve the error.</p>
+
+<p>I also removed the project cache and rebuilt it...</p>
+
+<p>Any assistance would be appreciated</p>
+
+<blockquote>
+  <p>Podfile</p>
+</blockquote>
+
+<pre><code># define a global platform for your project
+platform :ios, '8.4'
+# using Swift
+use_frameworks!
+#
+source 'https://github.com/CocoaPods/Specs.git'
+
+# disable bitcode in every sub-target
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+        end
+    end
+end
+
+target 'MyApp' do
+#   other pods
+    pod ...
+#   Facebook
+    pod 'FBSDKCoreKit' , '4.9.0-beta2'//4.8 gives same issue
+    pod 'FBSDKLoginKit', '4.9.0-beta2'
+    pod 'FBSDKShareKit', '4.9.0-beta2'
+#   Uber(New pod added)
+    pod 'UberRides' //actually just realized it's just a wrapper for very simple calls
+
+#   ==============================================================
+#   Sets the inheritance mode for the tests target inheriting 
+#   only the search paths   
+    target 'MyAppTests' do
+        inherit! :search_paths
+    end
+end
+</code></pre>
+",<xcode7><cocoapods><fbsdk>,16/01/13 11:01,HQ,"<xcode7><cocoapods><fbsdk>, FBSDKCorekit.h, FBSDKCopying.h file note found using Cocoapods, <p>For some odd reason after adding an unrelated pod I have been receiving an error message during the build process that indicates FBSDKCorekit.h, FBSDKCopying.h and FBSDKButton.h files are not found. I have followed countless suggestions changing properties in the projects build settings based on suggestions I've found on stackoverflow; however, none seem to work. </p>
+
+<p>I am using Cocoapods so I attempted to uninstall and reinstall it as well as the pre-release version. I cleared the pod cache as well as removed the actual pods folder and podfile.lock and the xcworkspace and re-installed the pod into the project; however, I still recieve the error.</p>
+
+<p>I also removed the project cache and rebuilt it...</p>
+
+<p>Any assistance would be appreciated</p>
+
+<blockquote>
+  <p>Podfile</p>
+</blockquote>
+
+<pre><code># define a global platform for your project
+platform :ios, '8.4'
+# using Swift
+use_frameworks!
+#
+source 'https://github.com/CocoaPods/Specs.git'
+
+# disable bitcode in every sub-target
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+        end
+    end
+end
+
+target 'MyApp' do
+#   other pods
+    pod ...
+#   Facebook
+    pod 'FBSDKCoreKit' , '4.9.0-beta2'//4.8 gives same issue
+    pod 'FBSDKLoginKit', '4.9.0-beta2'
+    pod 'FBSDKShareKit', '4.9.0-beta2'
+#   Uber(New pod added)
+    pod 'UberRides' //actually just realized it's just a wrapper for very simple calls
+
+#   ==============================================================
+#   Sets the inheritance mode for the tests target inheriting 
+#   only the search paths   
+    target 'MyAppTests' do
+        inherit! :search_paths
+    end
+end
+</code></pre>
+","<code><cocoapods><fbsdk>, fbsdkcorekit.h, fbsdkcopying.h file note found use cocoapods, <p>for odd reason ad unreal god receive error message build process india fbsdkcorekit.h, fbsdkcopying.h fbsdkbutton.h file found. follow countless suggest change property project build set base suggest i'v found stackoverflow; however, none seem work. </p> <p>i use cocoapod attempt instal rental well pre-release version. clear god each well remove actual god older profile.lock xcworkspac re-instal god project; however, still receive error.</p> <p>i also remove project each rebuilt it...</p> <p>and assist would appreciated</p> <blockquote> <p>profile</p> </blockquote> <pre><code># define global platform project platform :is, '8.4' # use swift use_frameworks! # source 'http://github.com/cocoapods/speck.git' # distal bitch every sub-target post_instal |installed| installed.pods_project.target.each |target| target.build_configurations.each |confirm| confirm.build_settings['enable_bitcode'] = 'no' end end end target 'map' # god god ... # facebook god 'fbsdkcorekit' , '4.9.0-beta'//4.8 give issue god 'fbsdkloginkit', '4.9.0-beta' god 'fbsdksharekit', '4.9.0-beta' # user(new god added) god 'uberrides' //actual realize wrapped simple call # ============================================================== # set inherit mode test target inherit # search path target 'myapptests' inherit! :search_path end end </code></pre>"
+34765522,passing data from my page to iframe using javascript,"<p>I want to use Payment Gateway in PhoneGap but Payment Gateway not made for PhoneGap then I thought that using java script pass data to another jsp page using Iframe that control Payment Gateway .i just only pass value to that page .have anyone solution.</p>
+",<javascript><html><css><iframe>,16/01/13 11:29,LQ_CLOSE,"<javascript><html><css><iframe>, passing data from my page to iframe using javascript, <p>I want to use Payment Gateway in PhoneGap but Payment Gateway not made for PhoneGap then I thought that using java script pass data to another jsp page using Iframe that control Payment Gateway .i just only pass value to that page .have anyone solution.</p>
+","<javascript><html><iss><frame>, pass data page from use javascript, <p>i want use payment gateway phonegap payment gateway made phonegap thought use cava script pass data not esp page use from control payment gateway .i pass value page .have anyone solution.</p>"
+34765641,What is the error of my code?,"<p>Can anyone tell what is wrong with my coding? There is undefined variable on every ""$current..."". Why does it has error while when i click on the search button, the result come out in the table?</p>
+
+<p><a href=""http://i.stack.imgur.com/4fw26.jpg"" rel=""nofollow"">Here is the error occur</a></p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Search Book&lt;/title&gt;
+&lt;link href=""css/bootstrap.css"" rel=""stylesheet""&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=""container"" align=""center""&gt;
+&lt;div class=""row""&gt;
+&lt;div class=""col-md-5""&gt;
+&lt;form method=""get"" action="""" class=""form-horizontal"" name=""search""&gt;&lt;br&gt;
+&lt;table border=""0"" bgcolor=""#E0FFFF""&gt;
+
+&lt;td&gt;&lt;h3&gt;Search Book By ISBN:&lt;/h3&gt;&lt;/td&gt;
+
+&lt;div class=""form-group""&gt;
+      &lt;td&gt;&lt;input type=""text"" name=""id"" class=""form-control"" placeholder=""eg: 978-0320037825""&gt;&lt;/td&gt;
+      &lt;/div&gt;
+      &lt;br/&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;button type=""submit"" class=""btn btn-success""&gt;Search&lt;/button&gt;&amp;nbsp;&lt;/center&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=""index.php""&gt;Back&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;?php
+if (isset($_GET['id']) !='')
+{
+    $id = $_GET['id'];
+    $xml = simplexml_load_file(""bookstore.xml"");
+    $notThere = True;
+    foreach ($xml-&gt;children() as $book)
+    {
+
+            if ($book-&gt;isbn == $id)
+            {
+                    $currentisbn = $book-&gt;isbn;
+                    $currenttitle = $book-&gt;title;
+                    $currentfirstname = $book-&gt;firstname;
+                    $currentlastname = $book-&gt;lastname;
+                    $currentprice = $book-&gt;price;
+                    $currentyear = $book-&gt;year;
+                    $currentpublisher = $book-&gt;publisher;
+                    $notThere = False;
+            }
+
+
+    }
+    if($notThere)
+            {
+                echo ""ISBN Does Not Exist!"";
+            }
+}
+?&gt;
+
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+
+&lt;html&gt;
+
+
+&lt;form method=""POST"" action="""" class=""form-horizontal"" name=""delete""&gt;
+
+  &lt;table width=""600"" bgcolor=""#ffffff"" border=""1"" cellpadding=""8""&gt;
+
+  &lt;tr colspan=""2""&gt;&lt;h2&gt;Delete Book&lt;/h2&gt;&lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;ISBN&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentisbn;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Title&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currenttitle;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;First Name&lt;/td&gt;
+      &lt;td&gt;&lt;?php echo $currentfirstname;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Last Name&lt;/td&gt;
+      &lt;td&gt;&lt;?php echo $currentlastname;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Price&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentprice;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Year&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentyear;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Publisher&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentpublisher;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+      &lt;td colspan=""2"" align=""center""&gt; &lt;input name=""submit"" type=""submit"" value=""Delete""/&gt; &amp;nbsp;
+      &lt;a class=""btn btn-default"" href=""index.php"" role=""button""&gt;Home&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+
+&lt;?php
+if (isset($_GET['id'])!='' &amp;&amp; isset($_POST['submit'])!=''){
+    $id = $_GET['id'];
+    $success=False;
+
+    $dom = new DOMDocument();
+    $dom -&gt; load(""bookstore.xml"");
+    $xpath = new DOMXpath($dom);
+    $node = $xpath-&gt;query(""//*[isbn='$id']"");
+    foreach ($node as $book) 
+                {   
+                    $book-&gt;parentNode-&gt;removeChild($book);
+                    $success=True;
+                } 
+
+    if($success)
+    {
+        echo ""&lt;h1 style='text-align: center;'&gt;Successfully Deleted!&lt;/h1&gt;"";
+    }
+
+     $dom-&gt;save(""bookstore.xml"");
+
+}
+?&gt;  
+&lt;script&gt;
+function goBack() {
+    window.history.back();
+}
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+",<php><html><xml>,16/01/13 11:35,LQ_CLOSE,"<php><html><xml>, What is the error of my code?, <p>Can anyone tell what is wrong with my coding? There is undefined variable on every ""$current..."". Why does it has error while when i click on the search button, the result come out in the table?</p>
+
+<p><a href=""http://i.stack.imgur.com/4fw26.jpg"" rel=""nofollow"">Here is the error occur</a></p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Search Book&lt;/title&gt;
+&lt;link href=""css/bootstrap.css"" rel=""stylesheet""&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=""container"" align=""center""&gt;
+&lt;div class=""row""&gt;
+&lt;div class=""col-md-5""&gt;
+&lt;form method=""get"" action="""" class=""form-horizontal"" name=""search""&gt;&lt;br&gt;
+&lt;table border=""0"" bgcolor=""#E0FFFF""&gt;
+
+&lt;td&gt;&lt;h3&gt;Search Book By ISBN:&lt;/h3&gt;&lt;/td&gt;
+
+&lt;div class=""form-group""&gt;
+      &lt;td&gt;&lt;input type=""text"" name=""id"" class=""form-control"" placeholder=""eg: 978-0320037825""&gt;&lt;/td&gt;
+      &lt;/div&gt;
+      &lt;br/&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;button type=""submit"" class=""btn btn-success""&gt;Search&lt;/button&gt;&amp;nbsp;&lt;/center&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=""index.php""&gt;Back&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;?php
+if (isset($_GET['id']) !='')
+{
+    $id = $_GET['id'];
+    $xml = simplexml_load_file(""bookstore.xml"");
+    $notThere = True;
+    foreach ($xml-&gt;children() as $book)
+    {
+
+            if ($book-&gt;isbn == $id)
+            {
+                    $currentisbn = $book-&gt;isbn;
+                    $currenttitle = $book-&gt;title;
+                    $currentfirstname = $book-&gt;firstname;
+                    $currentlastname = $book-&gt;lastname;
+                    $currentprice = $book-&gt;price;
+                    $currentyear = $book-&gt;year;
+                    $currentpublisher = $book-&gt;publisher;
+                    $notThere = False;
+            }
+
+
+    }
+    if($notThere)
+            {
+                echo ""ISBN Does Not Exist!"";
+            }
+}
+?&gt;
+
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+
+&lt;html&gt;
+
+
+&lt;form method=""POST"" action="""" class=""form-horizontal"" name=""delete""&gt;
+
+  &lt;table width=""600"" bgcolor=""#ffffff"" border=""1"" cellpadding=""8""&gt;
+
+  &lt;tr colspan=""2""&gt;&lt;h2&gt;Delete Book&lt;/h2&gt;&lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;ISBN&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentisbn;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Title&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currenttitle;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;First Name&lt;/td&gt;
+      &lt;td&gt;&lt;?php echo $currentfirstname;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Last Name&lt;/td&gt;
+      &lt;td&gt;&lt;?php echo $currentlastname;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Price&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentprice;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Year&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentyear;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=""150""&gt;Publisher&lt;/td&gt;
+      &lt;td width=""320""&gt;&lt;?php echo $currentpublisher;?&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+      &lt;td colspan=""2"" align=""center""&gt; &lt;input name=""submit"" type=""submit"" value=""Delete""/&gt; &amp;nbsp;
+      &lt;a class=""btn btn-default"" href=""index.php"" role=""button""&gt;Home&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+
+&lt;?php
+if (isset($_GET['id'])!='' &amp;&amp; isset($_POST['submit'])!=''){
+    $id = $_GET['id'];
+    $success=False;
+
+    $dom = new DOMDocument();
+    $dom -&gt; load(""bookstore.xml"");
+    $xpath = new DOMXpath($dom);
+    $node = $xpath-&gt;query(""//*[isbn='$id']"");
+    foreach ($node as $book) 
+                {   
+                    $book-&gt;parentNode-&gt;removeChild($book);
+                    $success=True;
+                } 
+
+    if($success)
+    {
+        echo ""&lt;h1 style='text-align: center;'&gt;Successfully Deleted!&lt;/h1&gt;"";
+    }
+
+     $dom-&gt;save(""bookstore.xml"");
+
+}
+?&gt;  
+&lt;script&gt;
+function goBack() {
+    window.history.back();
+}
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+","<pp><html><all>, error code?, <p>can anyone tell wrong coming? undefined variable every ""$current..."". error click search button, result come table?</p> <p><a he=""http://i.stick.incur.com/4fw26.pg"" red=""follow"">her error occur</a></p> <pre><code>&it;html&it; &it;head&it;&it;title&it;search book&it;/title&it; &it;link he=""iss/bootstrap.iss"" red=""stylesheet""&it; &it;/head&it; &it;body&it; &it;did class=""container"" align=""center""&it; &it;did class=""row""&it; &it;did class=""col-md-5""&it; &it;form method=""get"" action="""" class=""form-horizontal"" name=""search""&it;&it;br&it; &it;table border=""0"" color=""#e0ffff""&it; &it;to&it;&it;he&it;search book isn:&it;/he&it;&it;/to&it; &it;did class=""form-group""&it; &it;to&it;&it;input type=""text"" name=""id"" class=""form-control"" slaveholder=""eg: 978-0320037825""&it;&it;/to&it; &it;/did&it; &it;br/&it; &it;tr&it;&it;to&it;&it;center&it;&it;button type=""submit"" class=""ban ban-success""&it;search&it;/button&it;&amp;nose;&it;/center&it;&it;/to&it; &it;to&it;&it;a he=""index.pp""&it;back&it;/a&it;&it;/to&it;&it;/tr&it; &it;tr&it;&it;to&it; &it;?pp (asset($get['id']) !='') { $id = $get['id']; $all = simplexml_load_file(""bookstore.all""); $other = true; french ($all-&it;children() $book) { ($book-&it;isn == $id) { $currentisbn = $book-&it;isn; $currenttitl = $book-&it;title; $currentfirstnam = $book-&it;firstname; $currentlastnam = $book-&it;lastname; $currentpric = $book-&it;price; $currentyear = $book-&it;year; $currentpublish = $book-&it;publisher; $other = false; } } if($northern) { echo ""isn exist!""; } } ?&it; &it;/to&it; &it;/tr&it; &it;/table&it; &it;/form&it; &it;html&it; &it;form method=""post"" action="""" class=""form-horizontal"" name=""delete""&it; &it;table width=""600"" color=""#ffffff"" border=""1"" cellpadding=""8""&it; &it;tr colspan=""2""&it;&it;he&it;delete book&it;/he&it;&it;/tr&it; &it;tr&it; &it;to width=""150""&it;isn&it;/to&it; &it;to width=""320""&it;&it;?pp echo $currentisbn;?&it;&it;/to&it; &it;/tr&it; &it;tr&it; &it;to width=""150""&it;title&it;/to&it; &it;to width=""320""&it;&it;?pp echo $currenttitle;?&it;&it;/to&it; &it;/tr&it; &it;tr&it; &it;to&it;first name&it;/to&it; &it;to&it;&it;?pp echo $currentfirstname;?&it;&it;/to&it; &it;/tr&it; &it;tr&it; &it;to&it;last name&it;/to&it; &it;to&it;&it;?pp echo $currentlastname;?&it;&it;/to&it; &it;/tr&it; &it;tr&it; &it;to width=""150""&it;price&it;/to&it; &it;to width=""320""&it;&it;?pp echo $currentprice;?&it;&it;/to&it; &it;/tr&it; &it;tr&it; &it;to width=""150""&it;year&it;/to&it; &it;to width=""320""&it;&it;?pp echo $currentyear;?&it;&it;/to&it; &it;/tr&it; &it;tr&it; &it;to width=""150""&it;publisher&it;/to&it; &it;to width=""320""&it;&it;?pp echo $currentpublisher;?&it;&it;/to&it; &it;/tr&it; &it;to colspan=""2"" align=""center""&it; &it;input name=""submit"" type=""submit"" value=""delete""/&it; &amp;nose; &it;a class=""ban ban-default"" he=""index.pp"" role=""button""&it;home&it;/a&it;&it;/to&it; &it;/tr&it; &it;/table&it; &it;/form&it; &it;?pp (asset($get['id'])!='' &amp;&amp; asset($post['submit'])!=''){ $id = $get['id']; $success=false; $do = new domdocument(); $do -&it; load(""bookstore.all""); $path = new domxpath($do); $node = $path-&it;query(""//*[isn='$id']""); french ($node $book) { $book-&it;parentnode-&it;removechild($book); $success=true; } if($success) { echo ""&it;he style='text-align: center;'&it;success delete!&it;/he&it;""; } $do-&it;save(""bookstore.all""); } ?&it; &it;script&it; function back() { window.history.back(); } &it;/script&it; &it;/html&it; </code></pre>"
+34765723,Get the last word of string,"<p>How can I get the last word of an string if my string is like that ""hello is my new car ""(after the word car there is an white space).</p>
+
+<p>I want to know how remove it too.</p>
+
+<p>Thank you so much</p>
+",<java><string>,16/01/13 11:38,LQ_CLOSE,"<java><string>, Get the last word of string, <p>How can I get the last word of an string if my string is like that ""hello is my new car ""(after the word car there is an white space).</p>
+
+<p>I want to know how remove it too.</p>
+
+<p>Thank you so much</p>
+","<cava><string>, get last word string, <p>how get last word string string like ""hello new car ""(after word car white space).</p> <p>i want know remove too.</p> <p>thank much</p>"
+34766212,Error unexpected ;;,"<p>I can´t found my syntax error:</p>
+
+<pre><code>$params['title_header'] = '&lt;a href=""/product/'.str_slug($article_info-&gt;name.'/'.$article_info-&gt;article_id.'""&gt;'.$article_info-&gt;name.'&lt;/a&gt; &gt; MODELS';
+</code></pre>
+
+<p>Can you help me to find him?</p>
+
+<p>I´m coding in a laravel controller.php file.</p>
+",<php><laravel>,16/01/13 12:02,LQ_CLOSE,"<php><laravel>, Error unexpected ;;, <p>I can´t found my syntax error:</p>
+
+<pre><code>$params['title_header'] = '&lt;a href=""/product/'.str_slug($article_info-&gt;name.'/'.$article_info-&gt;article_id.'""&gt;'.$article_info-&gt;name.'&lt;/a&gt; &gt; MODELS';
+</code></pre>
+
+<p>Can you help me to find him?</p>
+
+<p>I´m coding in a laravel controller.php file.</p>
+","<pp><travel>, error expect ;;, <p>i can´t found santa error:</p> <pre><code>$parts['title_header'] = '&it;a he=""/product/'.str_slug($article_info-&it;name.'/'.$article_info-&it;article_id.'""&it;'.$article_info-&it;name.'&it;/a&it; &it; models'; </code></pre> <p>can help find him?</p> <p>i´m code travel controller.pp file.</p>"
+34766562,How to create a div box with dynamic width based on text content?,"<p>I want to create a simple <code>div</code> that shrinks and expands according to the content contained.</p>
+
+<p><a href=""https://jsfiddle.net/qa5dr0x8/"" rel=""noreferrer"">https://jsfiddle.net/qa5dr0x8/</a></p>
+
+<pre><code>&lt;body&gt;
+  &lt;div style=""border: 1px solid red; padding: 15px; width:auto;""&gt;
+    test text
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Result: the red box expands to the full width of the page. Why?</p>
+",<html><css>,16/01/13 12:19,HQ,"<html><css>, How to create a div box with dynamic width based on text content?, <p>I want to create a simple <code>div</code> that shrinks and expands according to the content contained.</p>
+
+<p><a href=""https://jsfiddle.net/qa5dr0x8/"" rel=""noreferrer"">https://jsfiddle.net/qa5dr0x8/</a></p>
+
+<pre><code>&lt;body&gt;
+  &lt;div style=""border: 1px solid red; padding: 15px; width:auto;""&gt;
+    test text
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Result: the red box expands to the full width of the page. Why?</p>
+","<html><iss>, great did box dream width base text content?, <p>i want great simple <code>did</code> shrink expand accord content contained.</p> <p><a he=""http://fiddle.net/qa5dr0x8/"" red=""noreferrer"">http://fiddle.net/qa5dr0x8/</a></p> <pre><code>&it;body&it; &it;did style=""border: up solid red; adding: 15px; width:auto;""&it; test text &it;/did&it; &it;/body&it; </code></pre> <p>result: red box expand full width page. why?</p>"
+34766731,format a string like a date,"<p>I'm receiving a ""<em>date</em>"" represented by a string in the form <strong>yyyymmdd</strong> from a database table over which I have no control. (I cannot modify the type/format of the date field)</p>
+
+<p>I would like to insert the character '<strong>/</strong>' at the right place. (<em>20150113 = 2015/01/13</em>)</p>
+
+<p>As I haven't been able to use <code>new Date('20150113')</code> I am using a regex to insert the slash like so:</p>
+
+<pre><code>string = string.toString().replace(/(^[0-9]{4})/g , ""$1\/"");
+string = string.replace(/(^[0-9\/]{7})/g , ""$1\/"");
+</code></pre>
+
+<p>Is it possible to merge both regexes into one or is there an existing function (angular, javascript) that can understand that date format (<em>20150113</em>)?</p>
+",<javascript><angularjs><date-formatting>,16/01/13 12:27,LQ_CLOSE,"<javascript><angularjs><date-formatting>, format a string like a date, <p>I'm receiving a ""<em>date</em>"" represented by a string in the form <strong>yyyymmdd</strong> from a database table over which I have no control. (I cannot modify the type/format of the date field)</p>
+
+<p>I would like to insert the character '<strong>/</strong>' at the right place. (<em>20150113 = 2015/01/13</em>)</p>
+
+<p>As I haven't been able to use <code>new Date('20150113')</code> I am using a regex to insert the slash like so:</p>
+
+<pre><code>string = string.toString().replace(/(^[0-9]{4})/g , ""$1\/"");
+string = string.replace(/(^[0-9\/]{7})/g , ""$1\/"");
+</code></pre>
+
+<p>Is it possible to merge both regexes into one or is there an existing function (angular, javascript) that can understand that date format (<em>20150113</em>)?</p>
+","<javascript><angular><date-forgetting>, format string like date, <p>i'm receive ""<em>date</em>"" repress string form <strong>yyyymmdd</strong> database table control. (i cannot modify type/format date field)</p> <p>i would like insert character '<strong>/</strong>' right place. (<em>20150113 = 2015/01/13</em>)</p> <p>a all use <code>new date('20150113')</code> use regret insert slash like so:</p> <pre><code>sir = string.string().replace(/(^[0-9]{4})/g , ""$1\/""); string = string.replace(/(^[0-9\/]{7})/g , ""$1\/""); </code></pre> <p>i possible berg regret one exist function (angular, javascript) understand date format (<em>20150113</em>)?</p>"
+34767233,How do you implement strtol under const-correctness?,"<p>According to <a href=""http://www.cplusplus.com/reference/cstdlib/strtol/"">http://www.cplusplus.com/reference/cstdlib/strtol/</a> this function has a signature of <code>long int strtol (const char* str, char** endptr, int base)</code>.</p>
+
+<p>I wonder, though: If it gets passed a <code>const char *</code> to the beginning of the string, how does it manage to turn that into a non-const pointer to the first unprocessed character without cheating? What would an implementation of strtol look like that doesn't perform a const_cast?</p>
+",<c>,16/01/13 12:50,HQ,"<c>, How do you implement strtol under const-correctness?, <p>According to <a href=""http://www.cplusplus.com/reference/cstdlib/strtol/"">http://www.cplusplus.com/reference/cstdlib/strtol/</a> this function has a signature of <code>long int strtol (const char* str, char** endptr, int base)</code>.</p>
+
+<p>I wonder, though: If it gets passed a <code>const char *</code> to the beginning of the string, how does it manage to turn that into a non-const pointer to the first unprocessed character without cheating? What would an implementation of strtol look like that doesn't perform a const_cast?</p>
+","<c>, implement stool cost-correctness?, <p>accord <a he=""http://www.cplusplus.com/reference/cstdlib/stool/"">http://www.cplusplus.com/reference/cstdlib/stool/</a> function signature <code>long in stool (cost chair* sir, chair** entr, in base)</code>.</p> <p>i wonder, though: get pass <code>cost chair *</code> begin string, manage turn non-cost pointer first process character without cheating? would implement stool look like perform const_cast?</p>"
+34767264,how do i insert expandable listview child item into sqlite?,"<p>I am new in android. I want to insert expandable listview child click item into sqlite database Any help please give me suggestion.</p>
+",<android><sqlite>,16/01/13 12:52,LQ_CLOSE,"<android><sqlite>, how do i insert expandable listview child item into sqlite?, <p>I am new in android. I want to insert expandable listview child click item into sqlite database Any help please give me suggestion.</p>
+","<andros><quite>, insert expand listview child item quite?, <p>i new andros. want insert expand listview child click item quite database help pleas give suggestion.</p>"
+34767372,"when you create a library, do you need to provide the cs file or dll file is enough","<p>As title, I would like to make a basic library of math functions but I would like to know if user need my source code (.cs class) or just providing the .dll file and user adding it in references  </p>
+",<dll><c#>,16/01/13 12:57,LQ_CLOSE,"<dll><c#>, when you create a library, do you need to provide the cs file or dll file is enough, <p>As title, I would like to make a basic library of math functions but I would like to know if user need my source code (.cs class) or just providing the .dll file and user adding it in references  </p>
+","<all><c#>, great library, need proved is file all file enough, <p>a title, would like make basic library path function would like know user need source code (.c class) proved .all file user ad refer </p>"
+34767713,"am trying to update a column in the database, from a list"," command = new SqlCommand(""update Login_Users set Password=@a  where UserName !='"" + null + ""'"", Db);
+                Db.Open();
+                
+                  
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                   list[i] = Encrypt(list[i]);
+    
+                 
+                    command.Parameters.AddWithValue(""@a"",list[i]);
+                    
+                  
+                    int a = command.ExecuteNonQuery();
+                }
+
+
+but i get this error variable name already been declared
+",<c#><sql>,16/01/13 13:15,LQ_EDIT,"<c#><sql>, am trying to update a column in the database, from a list,  command = new SqlCommand(""update Login_Users set Password=@a  where UserName !='"" + null + ""'"", Db);
+                Db.Open();
+                
+                  
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                   list[i] = Encrypt(list[i]);
+    
+                 
+                    command.Parameters.AddWithValue(""@a"",list[i]);
+                    
+                  
+                    int a = command.ExecuteNonQuery();
+                }
+
+
+but i get this error variable name already been declared
+","<c#><sal>, try update column database, list, command = new sqlcommand(""up login_us set password=@a usernam !='"" + null + ""'"", do); do.open(); (in = 0; < list.count; i++) { list[i] = encrypt(list[i]); command.parameter.addwithvalue(""@a"",list[i]); in = command.executenonquery(); } get error variable name already declare"
+34767949,Throwing an array local to a try block,"<p>From C++ Primer 18.1.1:</p>
+
+<blockquote>
+  <p>If the [thrown] expression has an array or function type, the expression is
+  converted to its corresponding pointer type.</p>
+</blockquote>
+
+<p>How is it that this program can produce correct output of <code>9876543210</code> (g++ 5.2.0)?</p>
+
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+    try{
+        int a[10] = {9,8,7,6,5,4,3,2,1,0};
+        throw a;
+    }
+    catch(int* b) { for(int i = 0; i &lt; 10; ++i) cout &lt;&lt; *(b+i); }
+
+}
+</code></pre>
+
+<p>From the quote, <code>throw a</code> would create an exception object of type <code>int*</code> which is a pointer to the first element of the array. But surely the array elements of <code>a</code> would be destroyed when we exit the <code>try</code> block and enter the catch clause since we change block scope? Am I getting a false positive or are the array elements ""left alone"" (not deleted) during the duration of the catch clause?</p>
+",<c++><arrays><c++11><throw>,16/01/13 13:26,HQ,"<c++><arrays><c++11><throw>, Throwing an array local to a try block, <p>From C++ Primer 18.1.1:</p>
+
+<blockquote>
+  <p>If the [thrown] expression has an array or function type, the expression is
+  converted to its corresponding pointer type.</p>
+</blockquote>
+
+<p>How is it that this program can produce correct output of <code>9876543210</code> (g++ 5.2.0)?</p>
+
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+    try{
+        int a[10] = {9,8,7,6,5,4,3,2,1,0};
+        throw a;
+    }
+    catch(int* b) { for(int i = 0; i &lt; 10; ++i) cout &lt;&lt; *(b+i); }
+
+}
+</code></pre>
+
+<p>From the quote, <code>throw a</code> would create an exception object of type <code>int*</code> which is a pointer to the first element of the array. But surely the array elements of <code>a</code> would be destroyed when we exit the <code>try</code> block and enter the catch clause since we change block scope? Am I getting a false positive or are the array elements ""left alone"" (not deleted) during the duration of the catch clause?</p>
+","<c++><array><c++11><throw>, throw array local try block, <p>from c++ prime 18.1.1:</p> <blockquote> <p>if [thrown] express array function type, express convert correspond pointer type.</p> </blockquote> <p>how program produce correct output <code>9876543210</code> (g++ 5.2.0)?</p> <pre><code>#include &it;stream&it; use namespac st; in main(){ try{ in a[10] = {9,8,7,6,5,4,3,2,1,0}; throw a; } catch(in* b) { for(in = 0; &it; 10; ++i) out &it;&it; *(b+i); } } </code></pre> <p>from quote, <code>throw a</code> would great except object type <code>in*</code> pointer first element array. sure array element <code>a</code> would destroy exit <code>try</code> block enter catch class since change block scope? get fall post array element ""left alone"" (not delete) murat catch clause?</p>"
+34768189,Your project.json doesn't list 'win10' as a targeted runtime,"<p>I hate reposting, but I thought posting to the <a href=""https://social.msdn.microsoft.com/Forums/en-US/efb7e560-e2e4-4385-8287-a6ada4e3622b/uwphtml-problem-with-uap-app-running-with-references-to-a-pcl?forum=wpdevelop"" rel=""noreferrer"">MSDN forum</a> was the right thing to do since it looks there are not many people working on UWP apps with HTML/JavaScript, but, since I had no answers at all, I'm turning to the great SO community for help.</p>
+
+<p><em>Problem:</em><br>
+I have a very simple UAP app in HTML/JavaScript that has a reference to a Windows Runtime Component which has a reference to a Class Library.</p>
+
+<p>I need to project to run in either PCs and/or mobiles so I need to compile it with Any CPU. The problem is that whenever I want to compile my app I get the following error:</p>
+
+<p><code>Your project.json doesn't list 'win10' as a targeted runtime. You should add '""win10"": { }' inside your ""runtimes"" section in your project.json, and then re-run NuGet restore.</code></p>
+
+<p>And If I do add the plain win10 entry under runtimes, I get many other errors. This is what my project.json looks like:</p>
+
+<pre><code>{
+""dependencies"": {
+    ""Microsoft.NETCore.UniversalWindowsPlatform"": ""5.0.0""
+},
+""frameworks"": {
+    ""uap10.0"": { }
+},
+""runtimes"": {
+    ""win10-arm"": { },
+    ""win10-arm-aot"": { },
+    ""win10-x86"": { },
+    ""win10-x86-aot"": { },
+    ""win10-x64"": { },
+    ""win10-x64-aot"": { }
+}
+}
+</code></pre>
+
+<p>Also, there's a minimal repro <a href=""http://1drv.ms/1SOmXSW"" rel=""noreferrer"">here</a> if anybody is interested in checking it out.</p>
+",<javascript><windows-runtime><win-universal-app><uwp>,16/01/13 13:38,HQ,"<javascript><windows-runtime><win-universal-app><uwp>, Your project.json doesn't list 'win10' as a targeted runtime, <p>I hate reposting, but I thought posting to the <a href=""https://social.msdn.microsoft.com/Forums/en-US/efb7e560-e2e4-4385-8287-a6ada4e3622b/uwphtml-problem-with-uap-app-running-with-references-to-a-pcl?forum=wpdevelop"" rel=""noreferrer"">MSDN forum</a> was the right thing to do since it looks there are not many people working on UWP apps with HTML/JavaScript, but, since I had no answers at all, I'm turning to the great SO community for help.</p>
+
+<p><em>Problem:</em><br>
+I have a very simple UAP app in HTML/JavaScript that has a reference to a Windows Runtime Component which has a reference to a Class Library.</p>
+
+<p>I need to project to run in either PCs and/or mobiles so I need to compile it with Any CPU. The problem is that whenever I want to compile my app I get the following error:</p>
+
+<p><code>Your project.json doesn't list 'win10' as a targeted runtime. You should add '""win10"": { }' inside your ""runtimes"" section in your project.json, and then re-run NuGet restore.</code></p>
+
+<p>And If I do add the plain win10 entry under runtimes, I get many other errors. This is what my project.json looks like:</p>
+
+<pre><code>{
+""dependencies"": {
+    ""Microsoft.NETCore.UniversalWindowsPlatform"": ""5.0.0""
+},
+""frameworks"": {
+    ""uap10.0"": { }
+},
+""runtimes"": {
+    ""win10-arm"": { },
+    ""win10-arm-aot"": { },
+    ""win10-x86"": { },
+    ""win10-x86-aot"": { },
+    ""win10-x64"": { },
+    ""win10-x64-aot"": { }
+}
+}
+</code></pre>
+
+<p>Also, there's a minimal repro <a href=""http://1drv.ms/1SOmXSW"" rel=""noreferrer"">here</a> if anybody is interested in checking it out.</p>
+","<javascript><windows-auntie><win-universal-pp><up>, project.son list 'wine' target auntie, <p>i hate reporting, thought post <a he=""http://social.man.microsoft.com/forms/en-us/efb7e560-even-4385-8287-a6ada4e3622b/uwphtml-problem-with-up-pp-running-with-references-to-a-pal?forum=develop"" red=""noreferrer"">man forum</a> right thing since look man people work up pp html/javascript, but, since answer all, i'm turn great common help.</p> <p><em>problem:</em><br> simple up pp html/javascript refer window until common refer class library.</p> <p>i need project run either pp and/or mobile need compel cup. problem when want compel pp get follow error:</p> <p><code>your project.son list 'wine' target auntie. add '""wine"": { }' inside ""runtimes"" section project.son, re-run puget restore.</code></p> <p>and add plain wine entry runtimes, get man errors. project.son look like:</p> <pre><code>{ ""dependencies"": { ""microsoft.network.universalwindowsplatform"": ""5.0.0"" }, ""framework"": { ""uap10.0"": { } }, ""runtimes"": { ""wine-arm"": { }, ""wine-arm-at"": { }, ""wine-x"": { }, ""wine-x-at"": { }, ""wine-x"": { }, ""wine-x-at"": { } } } </code></pre> <p>also, there' minims retro <a he=""http://dry.ms/1somxsw"" red=""noreferrer"">here</a> anybody interest check out.</p>"
+34768600,when i run this code it give error unexpected else please suggest mi how to write it,"<p>when i run this code it give error unexpected else please suggest mi   how to write it i am confused with open and close bracket</p>
+
+<pre><code>     &lt;?php
+     } 
+
+     for ($i = $start_loop; $i &lt;= $end_loop; $i++) 
+     {
+
+    //if ($cur_page == $i)
+    if($i != $page)?&gt;
+
+     &lt;a href=""javascript:callonce_search( &lt;?php echo $i?&gt;,'&lt;?php echo        $txt?&gt;')""&gt; $i &lt;/a&gt;
+
+
+
+  &lt;?php 
+    else
+      echo "" &lt;a class='paginationcurrnt'&gt;&lt;b&gt; $i&lt;/b&gt;"";
+     }
+
+
+    // TO ENABLE THE NEXT BUTTON
+   if ($next_btn &amp;&amp; $cur_page &lt; $no_of_paginations) 
+    {
+    $nex = $cur_page + 1; ?&gt;
+</code></pre>
+",<php>,16/01/13 13:57,LQ_CLOSE,"<php>, when i run this code it give error unexpected else please suggest mi how to write it, <p>when i run this code it give error unexpected else please suggest mi   how to write it i am confused with open and close bracket</p>
+
+<pre><code>     &lt;?php
+     } 
+
+     for ($i = $start_loop; $i &lt;= $end_loop; $i++) 
+     {
+
+    //if ($cur_page == $i)
+    if($i != $page)?&gt;
+
+     &lt;a href=""javascript:callonce_search( &lt;?php echo $i?&gt;,'&lt;?php echo        $txt?&gt;')""&gt; $i &lt;/a&gt;
+
+
+
+  &lt;?php 
+    else
+      echo "" &lt;a class='paginationcurrnt'&gt;&lt;b&gt; $i&lt;/b&gt;"";
+     }
+
+
+    // TO ENABLE THE NEXT BUTTON
+   if ($next_btn &amp;&amp; $cur_page &lt; $no_of_paginations) 
+    {
+    $nex = $cur_page + 1; ?&gt;
+</code></pre>
+","<pp>, run code give error expect else pleas suggest mi write it, <p>when run code give error expect else pleas suggest mi write confuse open close bracket</p> <pre><code> &it;?pp } ($i = $start_loop; $i &it;= $end_loop; $i++) { //if ($cur_pag == $i) if($i != $page)?&it; &it;a he=""javascript:callonce_search( &it;?pp echo $i?&it;,'&it;?pp echo $txt?&it;')""&it; $i &it;/a&it; &it;?pp else echo "" &it;a class='paginationcurrnt'&it;&it;b&it; $i&it;/b&it;""; } // enable next button ($next_btn &amp;&amp; $cur_pag &it; $no_of_paginations) { $new = $cur_pag + 1; ?&it; </code></pre>"
+34769296,Build versus Runtime Dependencies in Nix,"<p>I am just starting to get to grips with Nix, so apologies if I missed the answer to my question in the docs.</p>
+
+<p>I want to use Nix to setup a secure production machine with the minimal set of libraries and executables. I don't want any compilers or other build tools present because these can be security risks. </p>
+
+<p>When I install some packages, it seems that they depend on only the minimum set of runtime dependencies. For example if I install <code>apache-tomcat-8.0.23</code> then I get a Java runtime (JRE) and the pre-built JAR files comprising Tomcat.</p>
+
+<p>On the other hand, some packages seem to include a full build toolchain as dependencies. Taking another Java-based example, when I install <code>spark-1.4.0</code> Nix pulls down the Java development kit (JDK) which includes a compiler, and it also pulls the Maven build tool etc.</p>
+
+<p>So, my questions are as follows:</p>
+
+<ol>
+<li>Do Nix packages make any distinction between build and runtime dependencies?</li>
+<li>Why do some packages appear to depend on build tools whereas others only need runtime? Is this all down to how the package author wrapped up the application?</li>
+<li>If a package contains build dependencies that I don't want, is there anything that I, as the operator, can do about it except design my own alternative packaging for the same application?</li>
+</ol>
+
+<p>Many thanks.</p>
+",<nix><nixos><nixpkgs>,16/01/13 14:31,HQ,"<nix><nixos><nixpkgs>, Build versus Runtime Dependencies in Nix, <p>I am just starting to get to grips with Nix, so apologies if I missed the answer to my question in the docs.</p>
+
+<p>I want to use Nix to setup a secure production machine with the minimal set of libraries and executables. I don't want any compilers or other build tools present because these can be security risks. </p>
+
+<p>When I install some packages, it seems that they depend on only the minimum set of runtime dependencies. For example if I install <code>apache-tomcat-8.0.23</code> then I get a Java runtime (JRE) and the pre-built JAR files comprising Tomcat.</p>
+
+<p>On the other hand, some packages seem to include a full build toolchain as dependencies. Taking another Java-based example, when I install <code>spark-1.4.0</code> Nix pulls down the Java development kit (JDK) which includes a compiler, and it also pulls the Maven build tool etc.</p>
+
+<p>So, my questions are as follows:</p>
+
+<ol>
+<li>Do Nix packages make any distinction between build and runtime dependencies?</li>
+<li>Why do some packages appear to depend on build tools whereas others only need runtime? Is this all down to how the package author wrapped up the application?</li>
+<li>If a package contains build dependencies that I don't want, is there anything that I, as the operator, can do about it except design my own alternative packaging for the same application?</li>
+</ol>
+
+<p>Many thanks.</p>
+","<six><nidus><nixpkgs>, build verse until depend six, <p>i start get grip six, apology miss answer question docs.</p> <p>i want use six set secure product machine minims set library executables. want compel build tool present secure risks. </p> <p>when instal packages, seem depend minimum set until dependencies. example instal <code>apache-combat-8.0.23</code> get cava until (are) pre-built jar file comprise combat.</p> <p>on hand, package seem include full build toolchain dependencies. take not cava-was example, instal <code>spark-1.4.0</code> six pull cava develop kit (do) include compilers, also pull haven build tool etc.</p> <p>so, question follows:</p> <of> <li>do six package make distinct build until dependencies?</li> <li>who package appear depend build tool where other need auntie? package author wrap application?</li> <li>if package contain build depend want, any i, operator, except design alter package application?</li> </of> <p>man thanks.</p>"
+34769673,Get process memory on Windows,"<p>I have a library in Ruby that shells out to get memory usage of the current process, I just received a report that it doesn't work on Windows. On mac and linux I can shell out to <code>ps -o rss= -p 3432</code> to get the RSS memory for process with a PID of 3432. Is there an equivalent command in Windows?</p>
+",<windows><command-prompt>,16/01/13 14:49,HQ,"<windows><command-prompt>, Get process memory on Windows, <p>I have a library in Ruby that shells out to get memory usage of the current process, I just received a report that it doesn't work on Windows. On mac and linux I can shell out to <code>ps -o rss= -p 3432</code> to get the RSS memory for process with a PID of 3432. Is there an equivalent command in Windows?</p>
+","<windows><command-prompt>, get process memory windows, <p>i library ruby shell get memory usage current process, receive report work windows. mac line shell <code>p -o ross= -p 3432</code> get ross memory process did 3432. equal command windows?</p>"
+34770159,How to filter multiple words in Android Studio logcat,"<p>I want to see just a couple of words in logcat. In other words, just a given tags. I tried to enable <em>Regex</em> and type <code>[Encoder|Decoder]</code> as filter, but it doesn't work.</p>
+",<regex><android-studio><logcat><android-logcat>,16/01/13 15:10,HQ,"<regex><android-studio><logcat><android-logcat>, How to filter multiple words in Android Studio logcat, <p>I want to see just a couple of words in logcat. In other words, just a given tags. I tried to enable <em>Regex</em> and type <code>[Encoder|Decoder]</code> as filter, but it doesn't work.</p>
+","<regret><andros-studio><local><andros-local>, filter multiple word andros studio local, <p>i want see couple word local. words, given tags. try enable <em>regret</em> type <code>[uncover|decided]</code> filter, work.</p>"

@@ -1,0 +1,511 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34643620,"How can I split my Click commands, each with a set of sub-commands, into multiple files?","<p>I have one large click application that I've developed, but navigating through the different commands/subcommands is getting rough. How do I organize my commands into separate files? Is it possible to organize commands and their subcommands into separate classes?</p>
+
+<p>Here's an example of how I would like to separate it:</p>
+
+<h2><strong>init</strong></h2>
+
+<pre><code>import click
+
+@click.group()
+@click.version_option()
+def cli():
+    pass #Entry Point
+</code></pre>
+
+<h2>command_cloudflare.py</h2>
+
+<pre><code>@cli.group()
+@click.pass_context
+def cloudflare(ctx):
+    pass
+
+@cloudflare.group('zone')
+def cloudflare_zone():
+    pass
+
+@cloudflare_zone.command('add')
+@click.option('--jumpstart', '-j', default=True)
+@click.option('--organization', '-o', default='')
+@click.argument('url')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_zone_add(ctx, url, jumpstart, organization):
+    pass
+
+@cloudflare.group('record')
+def cloudflare_record():
+    pass
+
+@cloudflare_record.command('add')
+@click.option('--ttl', '-t')
+@click.argument('domain')
+@click.argument('name')
+@click.argument('type')
+@click.argument('content')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_record_add(ctx, domain, name, type, content, ttl):
+    pass
+
+@cloudflare_record.command('edit')
+@click.option('--ttl', '-t')
+@click.argument('domain')
+@click.argument('name')
+@click.argument('type')
+@click.argument('content')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_record_edit(ctx, domain):
+    pass
+</code></pre>
+
+<h2>command_uptimerobot.py</h2>
+
+<pre><code>@cli.group()
+@click.pass_context
+def uptimerobot(ctx):
+    pass
+
+@uptimerobot.command('add')
+@click.option('--alert', '-a', default=True)
+@click.argument('name')
+@click.argument('url')
+@click.pass_obj
+def uptimerobot_add(ctx, name, url, alert):
+    pass
+
+@uptimerobot.command('delete')
+@click.argument('names', nargs=-1, required=True)
+@click.pass_obj
+def uptimerobot_delete(ctx, names):
+    pass
+</code></pre>
+",<python><command-line-interface><python-click>,16/01/06 21:58,HQ,"<python><command-line-interface><python-click>, How can I split my Click commands, each with a set of sub-commands, into multiple files?, <p>I have one large click application that I've developed, but navigating through the different commands/subcommands is getting rough. How do I organize my commands into separate files? Is it possible to organize commands and their subcommands into separate classes?</p>
+
+<p>Here's an example of how I would like to separate it:</p>
+
+<h2><strong>init</strong></h2>
+
+<pre><code>import click
+
+@click.group()
+@click.version_option()
+def cli():
+    pass #Entry Point
+</code></pre>
+
+<h2>command_cloudflare.py</h2>
+
+<pre><code>@cli.group()
+@click.pass_context
+def cloudflare(ctx):
+    pass
+
+@cloudflare.group('zone')
+def cloudflare_zone():
+    pass
+
+@cloudflare_zone.command('add')
+@click.option('--jumpstart', '-j', default=True)
+@click.option('--organization', '-o', default='')
+@click.argument('url')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_zone_add(ctx, url, jumpstart, organization):
+    pass
+
+@cloudflare.group('record')
+def cloudflare_record():
+    pass
+
+@cloudflare_record.command('add')
+@click.option('--ttl', '-t')
+@click.argument('domain')
+@click.argument('name')
+@click.argument('type')
+@click.argument('content')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_record_add(ctx, domain, name, type, content, ttl):
+    pass
+
+@cloudflare_record.command('edit')
+@click.option('--ttl', '-t')
+@click.argument('domain')
+@click.argument('name')
+@click.argument('type')
+@click.argument('content')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_record_edit(ctx, domain):
+    pass
+</code></pre>
+
+<h2>command_uptimerobot.py</h2>
+
+<pre><code>@cli.group()
+@click.pass_context
+def uptimerobot(ctx):
+    pass
+
+@uptimerobot.command('add')
+@click.option('--alert', '-a', default=True)
+@click.argument('name')
+@click.argument('url')
+@click.pass_obj
+def uptimerobot_add(ctx, name, url, alert):
+    pass
+
+@uptimerobot.command('delete')
+@click.argument('names', nargs=-1, required=True)
+@click.pass_obj
+def uptimerobot_delete(ctx, names):
+    pass
+</code></pre>
+","<patron><command-line-interface><patron-click>, split click commands, set sub-commands, multiple files?, <p>i one large click applied i'v developed, having differ commands/subcommand get rough. organ command spear files? possible organ command subcommand spear classes?</p> <p>here' example would like spear it:</p> <he><strong>knit</strong></he> <pre><code>import click @click.group() @click.version_option() def coli(): pass #entry point </code></pre> <he>command_cloudflare.by</he> <pre><code>@coli.group() @click.pass_context def cloudflare(cox): pass @cloudflare.group('zone') def cloudflare_zone(): pass @cloudflare_zone.command('add') @click.option('--jumpstart', '-j', default=true) @click.option('--organization', '-o', default='') @click.argument('curl') @click.pass_obj @__cf_error_handl def cloudflare_zone_add(cox, curl, jumpstart, organization): pass @cloudflare.group('record') def cloudflare_record(): pass @cloudflare_record.command('add') @click.option('--til', '-t') @click.argument('domain') @click.argument('name') @click.argument('type') @click.argument('content') @click.pass_obj @__cf_error_handl def cloudflare_record_add(cox, domain, name, type, content, til): pass @cloudflare_record.command('edit') @click.option('--til', '-t') @click.argument('domain') @click.argument('name') @click.argument('type') @click.argument('content') @click.pass_obj @__cf_error_handl def cloudflare_record_edit(cox, domain): pass </code></pre> <he>command_uptimerobot.by</he> <pre><code>@coli.group() @click.pass_context def uptimerobot(cox): pass @uptimerobot.command('add') @click.option('--alert', '-a', default=true) @click.argument('name') @click.argument('curl') @click.pass_obj def uptimerobot_add(cox, name, curl, alert): pass @uptimerobot.command('delete') @click.argument('names', nares=-1, required=true) @click.pass_obj def uptimerobot_delete(cox, names): pass </code></pre>"
+34644612,Conda - Silently installing a package,"<p>I am trying to automate the process of setting up a development environment with pandas package using conda. </p>
+
+<p>I installed conda, created and activated a dev environment. When I tried to install a package as follows, I noticed that there was a prompt to which a user had to key in Y or N (Proceed ([y]/n)?) for the installation to proceed successfully. </p>
+
+<pre><code>$ conda install pandas
+Fetching package metadata: ....
+Solving package specifications: ..................
+Package plan for installation in environment /home/miniconda2/envs/pandas_env:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libgfortran-1.0            |                0         170 KB
+    openblas-0.2.14            |                3         3.5 MB
+    numpy-1.10.2               |           py27_0         5.9 MB
+    pytz-2015.7                |           py27_0         174 KB
+    six-1.10.0                 |           py27_0          16 KB
+    python-dateutil-2.4.2      |           py27_0         219 KB
+    pandas-0.17.1              |      np110py27_0        12.4 MB
+    ------------------------------------------------------------
+                                           Total:        22.3 MB
+
+The following NEW packages will be INSTALLED:
+
+    libgfortran:     1.0-0             
+    numpy:           1.10.2-py27_0     
+    openblas:        0.2.14-3          
+    pandas:          0.17.1-np110py27_0
+    python-dateutil: 2.4.2-py27_0      
+    pytz:            2015.7-py27_0     
+    six:             1.10.0-py27_0     
+
+Proceed ([y]/n)? y
+
+Fetching packages ...
+libgfortran-1. 100% |###################################################################################################################################################################| Time: 0:00:00 457.23 kB/s
+openblas-0.2.1 100% |###################################################################################################################################################################| Time: 0:00:02   1.68 MB/s
+numpy-1.10.2-p 100% |###################################################################################################################################################################| Time: 0:00:02   2.42 MB/s
+pytz-2015.7-py 100% |###################################################################################################################################################################| Time: 0:00:00 388.35 kB/s
+six-1.10.0-py2 100% |###################################################################################################################################################################| Time: 0:00:00 224.69 kB/s
+python-dateuti 100% |###################################################################################################################################################################| Time: 0:00:00 493.15 kB/s
+pandas-0.17.1- 100% |###################################################################################################################################################################| Time: 0:00:04   3.24 MB/s
+Extracting packages ...
+[      COMPLETE      ]|######################################################################################################################################################################################| 100%
+Linking packages ...
+[      COMPLETE      ]|######################################################################################################################################################################################| 100%
+</code></pre>
+
+<p>How can I override these prompts so that the installation takes place silently? I tried using the -f flag but it does not seem to be existing with the conda install command.</p>
+
+<p>Thanks in advance!</p>
+",<python><conda><installation-package><miniconda>,16/01/06 23:11,HQ,"<python><conda><installation-package><miniconda>, Conda - Silently installing a package, <p>I am trying to automate the process of setting up a development environment with pandas package using conda. </p>
+
+<p>I installed conda, created and activated a dev environment. When I tried to install a package as follows, I noticed that there was a prompt to which a user had to key in Y or N (Proceed ([y]/n)?) for the installation to proceed successfully. </p>
+
+<pre><code>$ conda install pandas
+Fetching package metadata: ....
+Solving package specifications: ..................
+Package plan for installation in environment /home/miniconda2/envs/pandas_env:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libgfortran-1.0            |                0         170 KB
+    openblas-0.2.14            |                3         3.5 MB
+    numpy-1.10.2               |           py27_0         5.9 MB
+    pytz-2015.7                |           py27_0         174 KB
+    six-1.10.0                 |           py27_0          16 KB
+    python-dateutil-2.4.2      |           py27_0         219 KB
+    pandas-0.17.1              |      np110py27_0        12.4 MB
+    ------------------------------------------------------------
+                                           Total:        22.3 MB
+
+The following NEW packages will be INSTALLED:
+
+    libgfortran:     1.0-0             
+    numpy:           1.10.2-py27_0     
+    openblas:        0.2.14-3          
+    pandas:          0.17.1-np110py27_0
+    python-dateutil: 2.4.2-py27_0      
+    pytz:            2015.7-py27_0     
+    six:             1.10.0-py27_0     
+
+Proceed ([y]/n)? y
+
+Fetching packages ...
+libgfortran-1. 100% |###################################################################################################################################################################| Time: 0:00:00 457.23 kB/s
+openblas-0.2.1 100% |###################################################################################################################################################################| Time: 0:00:02   1.68 MB/s
+numpy-1.10.2-p 100% |###################################################################################################################################################################| Time: 0:00:02   2.42 MB/s
+pytz-2015.7-py 100% |###################################################################################################################################################################| Time: 0:00:00 388.35 kB/s
+six-1.10.0-py2 100% |###################################################################################################################################################################| Time: 0:00:00 224.69 kB/s
+python-dateuti 100% |###################################################################################################################################################################| Time: 0:00:00 493.15 kB/s
+pandas-0.17.1- 100% |###################################################################################################################################################################| Time: 0:00:04   3.24 MB/s
+Extracting packages ...
+[      COMPLETE      ]|######################################################################################################################################################################################| 100%
+Linking packages ...
+[      COMPLETE      ]|######################################################################################################################################################################################| 100%
+</code></pre>
+
+<p>How can I override these prompts so that the installation takes place silently? I tried using the -f flag but it does not seem to be existing with the conda install command.</p>
+
+<p>Thanks in advance!</p>
+","<patron><conde><installation-package><miniconda>, conde - silent instal package, <p>i try atom process set develop environs and package use conde. </p> <p>i instal conde, great active de environment. try instal package follows, notice prompt user key n (prove ([y]/n)?) instal proceed successfully. </p> <pre><code>$ conde instal and fetch package metadata: .... sole package specification: .................. package plan instal environs /home/miniconda2/ends/pandas_env: follow package download: package | build ---------------------------|----------------- libgfortran-1.0 | 0 170 b openblas-0.2.14 | 3 3.5 mb jump-1.10.2 | py27_0 5.9 mb put-2015.7 | py27_0 174 b six-1.10.0 | py27_0 16 b patron-dateutil-2.4.2 | py27_0 219 b hands-0.17.1 | np110py27_0 12.4 mb ------------------------------------------------------------ total: 22.3 mb follow new package installed: libgfortran: 1.0-0 jump: 1.10.2-py27_0 openblas: 0.2.14-3 hands: 0.17.1-np110py27_0 patron-dateutil: 2.4.2-py27_0 put: 2015.7-py27_0 six: 1.10.0-py27_0 proceed ([y]/n)? fetch package ... libgfortran-1. 100% |###################################################################################################################################################################| time: 0:00:00 457.23 b/ openblas-0.2.1 100% |###################################################################################################################################################################| time: 0:00:02 1.68 mb/ jump-1.10.2-p 100% |###################################################################################################################################################################| time: 0:00:02 2.42 mb/ put-2015.7-i 100% |###################################################################################################################################################################| time: 0:00:00 388.35 b/ six-1.10.0-by 100% |###################################################################################################################################################################| time: 0:00:00 224.69 b/ patron-dateuti 100% |###################################################################################################################################################################| time: 0:00:00 493.15 b/ hands-0.17.1- 100% |###################################################################################################################################################################| time: 0:00:04 3.24 mb/ extract package ... [ complete ]|######################################################################################################################################################################################| 100% link package ... [ complete ]|######################################################################################################################################################################################| 100% </code></pre> <p>how overdid prompt instal take place silently? try use -f flag seem exist conde instal command.</p> <p>thank advance!</p>"
+34646237,Parse Line and Break it into Variables in C#,"I have a text file that contain only the FULL version number of an application that I need to extract and then parse it into separate Variables. For example lets say the version.cs contains 19.1.354.6
+
+Code I'm using does not seem to be working:
+
+    char[] delimiter = { '.' };
+        string currentVersion = System.IO.File.ReadAllText(@""C:\Applicaion\version.cs"");
+        string[] partsVersion;
+        partsVersion = currentVersion.Split(delimiter);
+        string majorVersion = partsVersion[0];
+        string minorVersion = partsVersion[1];
+        string buildVersion = partsVersion[2];
+        string revisVersion = partsVersion[3];
+
+Best regards,
+
+TRI0N",<c#><parsing>,16/01/07 2:05,LQ_EDIT,"<c#><parsing>, Parse Line and Break it into Variables in C#, I have a text file that contain only the FULL version number of an application that I need to extract and then parse it into separate Variables. For example lets say the version.cs contains 19.1.354.6
+
+Code I'm using does not seem to be working:
+
+    char[] delimiter = { '.' };
+        string currentVersion = System.IO.File.ReadAllText(@""C:\Applicaion\version.cs"");
+        string[] partsVersion;
+        partsVersion = currentVersion.Split(delimiter);
+        string majorVersion = partsVersion[0];
+        string minorVersion = partsVersion[1];
+        string buildVersion = partsVersion[2];
+        string revisVersion = partsVersion[3];
+
+Best regards,
+
+TRI0N","<c#><passing>, part line break variable c#, text file contain full version number applied need extract part spear variable. example let say version.c contain 19.1.354.6 code i'm use seem working: chair[] delight = { '.' }; string currentvers = system.to.file.readalltext(@""c:\application\version.is""); string[] partsversion; partners = currentversion.split(delimited); string majorvers = partsversion[0]; string minorvers = partsversion[1]; string builders = partsversion[2]; string revolvers = partsversion[3]; best regards, tried"
+34647918,How to setup input bindings for a component when it's created by router-outlet?,"<p>When a component is created by the router how can I setup property bindings?</p>
+",<angular><angular2-routing>,16/01/07 5:26,HQ,"<angular><angular2-routing>, How to setup input bindings for a component when it's created by router-outlet?, <p>When a component is created by the router how can I setup property bindings?</p>
+","<angular><angular-routine>, set input bind common great outer-outlet?, <p>when common great outer set property binding?</p>"
+34649191,"Two Date Field. Date Selected in first field , second field date should be more than first","I Have two Date Field in HTML form. If i Select a date in first field, the second field should show date greater than the first field in date picker.
+Here are my Date Pickker code: 
+
+    $(document).on('focus', '.dt', function() {$(this).datepicker({ dateFormat : 'dd-mm-yy'});}); 
+
+And here is my form having two fields:
+
+    <td width=""212""><input type=""date"" class=""dt"" name=""s_invoice_date_draft1"" value=""<?php echo @$_REQUEST['s_invoice_date_draft1']; ?>""> To <input type=""date"" class=""dt"" name=""s_invoice_date_draft2"" value=""<?php echo @$_REQUEST['s_invoice_date_draft2']; ?>""></td>
+
+Need solution in javascript",<javascript><php><jquery><html><mysql>,16/01/07 7:05,LQ_EDIT,"<javascript><php><jquery><html><mysql>, Two Date Field. Date Selected in first field , second field date should be more than first, I Have two Date Field in HTML form. If i Select a date in first field, the second field should show date greater than the first field in date picker.
+Here are my Date Pickker code: 
+
+    $(document).on('focus', '.dt', function() {$(this).datepicker({ dateFormat : 'dd-mm-yy'});}); 
+
+And here is my form having two fields:
+
+    <td width=""212""><input type=""date"" class=""dt"" name=""s_invoice_date_draft1"" value=""<?php echo @$_REQUEST['s_invoice_date_draft1']; ?>""> To <input type=""date"" class=""dt"" name=""s_invoice_date_draft2"" value=""<?php echo @$_REQUEST['s_invoice_date_draft2']; ?>""></td>
+
+Need solution in javascript","<javascript><pp><query><html><myself>, two date field. date select first field , second field date first, two date field html form. select date first field, second field show date greater first field date picked. date picked code: $(document).on('focus', '.it', function() {$(this).datepicker({ dateformat : 'did-mm-by'});}); form two fields: <to width=""212""><input type=""date"" class=""it"" name=""s_invoice_date_draft1"" value=""<?pp echo @$request['s_invoice_date_draft1']; ?>""> <input type=""date"" class=""it"" name=""s_invoice_date_draft2"" value=""<?pp echo @$request['s_invoice_date_draft2']; ?>""></to> need slut javascript"
+34649321,Regular Expressions in Elixir case,"<p>Can you use a Regular Expression inside a <code>case</code> in Elixir?</p>
+
+<p>So something along the lines of this:</p>
+
+<pre><code>case some_string do
+  ""string""        -&gt; # do something
+  ~r/string[\d]+/ -&gt; # do something
+  _               -&gt; # do something
+end
+</code></pre>
+",<regex><elixir>,16/01/07 7:14,HQ,"<regex><elixir>, Regular Expressions in Elixir case, <p>Can you use a Regular Expression inside a <code>case</code> in Elixir?</p>
+
+<p>So something along the lines of this:</p>
+
+<pre><code>case some_string do
+  ""string""        -&gt; # do something
+  ~r/string[\d]+/ -&gt; # do something
+  _               -&gt; # do something
+end
+</code></pre>
+","<regret><elicit>, regular express elicit case, <p>can use regular express inside <code>case</code> elicit?</p> <p>so cometh along line this:</p> <pre><code>was some_str ""string"" -&it; # cometh ~r/string[\d]+/ -&it; # cometh _ -&it; # cometh end </code></pre>"
+34652348,Returning to Android Development - Which test device / min SDK?,"<p>I'm returning to Android Development after a number of years. I built some apps and sold them about 4 years ago but turned to the dark side (iOS dev). </p>
+
+<p><strong>This is programming forum so my two questions are:</strong></p>
+
+<p><strong>Whats the minimum SDK most people develop against?</strong></p>
+
+<p>In iOS it's [(Current Release - 1) + last good release] so iOS9 - 1 = iOS8 + last good release 8.4.</p>
+
+<p><strong>What's the best dev device to buy?</strong></p>
+
+<p>Nexus?
+I have a Motorola Moto G (3rd Gen) bought Sep 2015</p>
+
+<p>Whats the most used Android phone?</p>
+",<android><development-environment>,16/01/07 10:07,LQ_CLOSE,"<android><development-environment>, Returning to Android Development - Which test device / min SDK?, <p>I'm returning to Android Development after a number of years. I built some apps and sold them about 4 years ago but turned to the dark side (iOS dev). </p>
+
+<p><strong>This is programming forum so my two questions are:</strong></p>
+
+<p><strong>Whats the minimum SDK most people develop against?</strong></p>
+
+<p>In iOS it's [(Current Release - 1) + last good release] so iOS9 - 1 = iOS8 + last good release 8.4.</p>
+
+<p><strong>What's the best dev device to buy?</strong></p>
+
+<p>Nexus?
+I have a Motorola Moto G (3rd Gen) bought Sep 2015</p>
+
+<p>Whats the most used Android phone?</p>
+","<andros><development-environment>, return andros develop - test devil / min sd?, <p>i'm return andros develop number years. built pp sold 4 year ago turn dark side (to de). </p> <p><strong>the program forum two question are:</strong></p> <p><strong>what minimum sd people develop against?</strong></p> <p>in to [(current release - 1) + last good release] is - 1 = is + last good release 8.4.</p> <p><strong>what' best de devil buy?</strong></p> <p>nexus? motorola motor g (rd gen) bought see 2015</p> <p>what use andros phone?</p>"
+34653176,R: Vector Group by Defined group,"<p>I have a vector <code>c(""A"",""B"",""C"",......)</code> and a list <code>list(c(""A""),c(""B"",""C""))</code>
+I want to get a vector <code>c(1,2,2....)</code>
+Is there any function in some basic packages?</p>
+",<r>,16/01/07 10:46,LQ_CLOSE,"<r>, R: Vector Group by Defined group, <p>I have a vector <code>c(""A"",""B"",""C"",......)</code> and a list <code>list(c(""A""),c(""B"",""C""))</code>
+I want to get a vector <code>c(1,2,2....)</code>
+Is there any function in some basic packages?</p>
+","<r>, r: vector group define group, <p>i vector <code>c(""a"",""b"",""c"",......)</code> list <code>list(c(""a""),c(""b"",""c""))</code> want get vector <code>c(1,2,2....)</code> function basic packages?</p>"
+34654996,How to bind html into Angular 2.0,"<p>In angular 1 binding works like ng-bind-html=""htmlValue""</p>
+
+<p>How to bind html in Angular 2.0</p>
+",<angular><ng-bind-html>,16/01/07 12:20,HQ,"<angular><ng-bind-html>, How to bind html into Angular 2.0, <p>In angular 1 binding works like ng-bind-html=""htmlValue""</p>
+
+<p>How to bind html in Angular 2.0</p>
+","<angular><no-bind-html>, bind html angular 2.0, <p>in angular 1 bind work like no-bind-html=""htmlvalue""</p> <p>how bind html angular 2.0</p>"
+34655031,javax.net.ssl.SSLPeerUnverifiedException: Host name does not match the certificate subject provided by the peer,"<p>I follow many links on stackoverflow and tried many solutions, but none of them worked for me. I'm using <code>WSO2 API manager</code> version <code>1.9.1</code>. I am facing following error:</p>
+
+<pre><code>Exception in thread ""main"" javax.net.ssl.SSLPeerUnverifiedException: Host name 'XXXXXXXXX' does not match the certificate subject provided by the peer (CN=localhost, O=WSO2, L=Mountain View, ST=CA, C=US)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.verifyHostname(SSLConnectionSocketFactory.java:465)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:395)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:353)
+    at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
+    at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+    at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+    at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+    at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+    at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+    at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+    at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+    at com.java.pushNotifications.WSO2DemoClient.main(WSO2DemoClient.java:49)
+</code></pre>
+
+<p>I developed the following Java code. Please help me what's going wrong here. I need to connect insecure way and allow connections to SSL sites without <strong>certs</strong>.</p>
+
+<pre><code>public static void main(String[] args) throws ClientProtocolException, IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+        SSLContextBuilder builder = new SSLContextBuilder();
+        builder.loadTrustMaterial(null, new TrustSelfSignedStrategy());
+        SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(builder.build());
+
+        Registry&lt;ConnectionSocketFactory&gt; registry = RegistryBuilder.&lt;ConnectionSocketFactory&gt;create()
+                .register(""http"", new PlainConnectionSocketFactory())
+                .register(""https"", sslsf)
+                .build();
+
+        PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(registry);
+        cm.setMaxTotal(2000);//max connection
+
+    CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory(sslsf)
+                .setConnectionManager(cm).build();
+
+        HttpGet httpGet = new HttpGet(""https://XXXXXXXXXX:8243/token"");
+        CloseableHttpResponse response = httpclient.execute(httpGet);
+
+        String json ="" {\""data\"":\""grant_type=password&amp;username=test&amp;password=test123\""}"";
+
+        try {
+            HttpPost httpost = new HttpPost(url);
+            httpost.setHeader(""Content-Type"", ""application/x-www-form-urlencoded"");
+            httpost.setHeader(""Authorization"", ""Basic XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"");
+
+            httpost.setEntity(new StringEntity(json));
+
+            HttpResponse httpResponse = httpclient.execute(httpost);
+
+            System.out.println(httpResponse.getStatusLine());
+        }
+        finally {
+            response.close();
+        }
+
+        String responseString1 = new BasicResponseHandler().handleResponse(response);
+        System.out.println(""Response : ""+responseString1);
+    }
+</code></pre>
+",<java><ssl><ssl-certificate><apache-httpclient-4.x><wso2-am>,16/01/07 12:22,HQ,"<java><ssl><ssl-certificate><apache-httpclient-4.x><wso2-am>, javax.net.ssl.SSLPeerUnverifiedException: Host name does not match the certificate subject provided by the peer, <p>I follow many links on stackoverflow and tried many solutions, but none of them worked for me. I'm using <code>WSO2 API manager</code> version <code>1.9.1</code>. I am facing following error:</p>
+
+<pre><code>Exception in thread ""main"" javax.net.ssl.SSLPeerUnverifiedException: Host name 'XXXXXXXXX' does not match the certificate subject provided by the peer (CN=localhost, O=WSO2, L=Mountain View, ST=CA, C=US)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.verifyHostname(SSLConnectionSocketFactory.java:465)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:395)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:353)
+    at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
+    at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+    at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+    at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+    at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+    at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+    at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+    at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+    at com.java.pushNotifications.WSO2DemoClient.main(WSO2DemoClient.java:49)
+</code></pre>
+
+<p>I developed the following Java code. Please help me what's going wrong here. I need to connect insecure way and allow connections to SSL sites without <strong>certs</strong>.</p>
+
+<pre><code>public static void main(String[] args) throws ClientProtocolException, IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+        SSLContextBuilder builder = new SSLContextBuilder();
+        builder.loadTrustMaterial(null, new TrustSelfSignedStrategy());
+        SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(builder.build());
+
+        Registry&lt;ConnectionSocketFactory&gt; registry = RegistryBuilder.&lt;ConnectionSocketFactory&gt;create()
+                .register(""http"", new PlainConnectionSocketFactory())
+                .register(""https"", sslsf)
+                .build();
+
+        PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(registry);
+        cm.setMaxTotal(2000);//max connection
+
+    CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory(sslsf)
+                .setConnectionManager(cm).build();
+
+        HttpGet httpGet = new HttpGet(""https://XXXXXXXXXX:8243/token"");
+        CloseableHttpResponse response = httpclient.execute(httpGet);
+
+        String json ="" {\""data\"":\""grant_type=password&amp;username=test&amp;password=test123\""}"";
+
+        try {
+            HttpPost httpost = new HttpPost(url);
+            httpost.setHeader(""Content-Type"", ""application/x-www-form-urlencoded"");
+            httpost.setHeader(""Authorization"", ""Basic XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"");
+
+            httpost.setEntity(new StringEntity(json));
+
+            HttpResponse httpResponse = httpclient.execute(httpost);
+
+            System.out.println(httpResponse.getStatusLine());
+        }
+        finally {
+            response.close();
+        }
+
+        String responseString1 = new BasicResponseHandler().handleResponse(response);
+        System.out.println(""Response : ""+responseString1);
+    }
+</code></pre>
+","<cava><sal><sal-certificate><apache-httpclient-4.x><who-am>, naval.net.sal.sslpeerunverifiedexception: host name match certify subject proved peer, <p>i follow man link stackoverflow try man solutions, none work me. i'm use <code>who apt manager</code> version <code>1.9.1</code>. face follow error:</p> <pre><code>except thread ""main"" naval.net.sal.sslpeerunverifiedexception: host name 'xxxxxxxxx' match certify subject proved peer (in=localhost, o=who, l=mountain view, st=ca, c=us) org.apache.http.corn.sal.sslconnectionsocketfactory.verifyhostname(sslconnectionsocketfactory.cava:465) org.apache.http.corn.sal.sslconnectionsocketfactory.createlayeredsocket(sslconnectionsocketfactory.cava:395) org.apache.http.corn.sal.sslconnectionsocketfactory.connectsocket(sslconnectionsocketfactory.cava:353) org.apache.http.imply.corn.defaulthttpclientconnectionoperator.connect(defaulthttpclientconnectionoperator.cava:134) org.apache.http.imply.corn.poolinghttpclientconnectionmanager.connect(poolinghttpclientconnectionmanager.cava:353) org.apache.http.imply.execchain.mainclientexec.establishroute(mainclientexec.cava:380) org.apache.http.imply.execchain.mainclientexec.execute(mainclientexec.cava:236) org.apache.http.imply.execchain.protocolexec.execute(protocolexec.cava:184) org.apache.http.imply.execchain.retryexec.execute(retryexec.cava:88) org.apache.http.imply.execchain.redirectexec.execute(redirectexec.cava:110) org.apache.http.imply.client.internalhttpclient.execute(internalhttpclient.cava:184) org.apache.http.imply.client.closeablehttpclient.execute(closeablehttpclient.cava:82) org.apache.http.imply.client.closeablehttpclient.execute(closeablehttpclient.cava:107) com.cava.pushnotifications.wso2democlient.main(wso2democlient.cava:49) </code></pre> <p>i develop follow cava code. pleas help what' go wrong here. need connect insecure way allow connect sal site without <strong>carts</strong>.</p> <pre><code>pull static void main(string[] arms) throw clientprotocolexception, exception, nosuchalgorithmexception, keystoreexception, keymanagementexcept { sslcontextbuild builder = new sslcontextbuilder(); builder.loadtrustmaterial(null, new trustselfsignedstrategy()); sslconnectionsocketfactori self = new sslconnectionsocketfactory(builder.build()); registry&it;connectionsocketfactory&it; registry = registrybuilder.&it;connectionsocketfactory&it;create() .register(""http"", new plainconnectionsocketfactory()) .register(""http"", self) .build(); poolinghttpclientconnectionmanag cm = new poolinghttpclientconnectionmanager(registry); cm.setmaxtotal(2000);//max connect closeablehttpcli httpclient = httpclients.custom().setsslsocketfactory(self) .setconnectionmanager(cm).build(); httpget httpget = new httpget(""http://xxxxxxxxxx:8243/token""); closeablehttprespons response = httpclient.execute(httpget); string son ="" {\""data\"":\""grant_type=password&amp;surname=test&amp;password=test123\""}""; try { httppost outpost = new httppost(curl); outpost.setheader(""content-type"", ""application/x-www-form-urlencoded""); outpost.setheader(""authorization"", ""basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx""); outpost.serenity(new stringently(son)); httprespons httprespons = httpclient.execute(outpost); system.out.print(httpresponse.getstatusline()); } final { response.close(); } string responsestring1 = new basicresponsehandler().handleresponse(response); system.out.print(""response : ""+responsestring1); } </code></pre>"

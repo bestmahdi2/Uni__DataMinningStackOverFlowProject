@@ -1,0 +1,261 @@
+Id,Title,Body,Tags,CreationDate,Y
+34643620,"How can I split my Click commands, each with a set of sub-commands, into multiple files?","<p>I have one large click application that I've developed, but navigating through the different commands/subcommands is getting rough. How do I organize my commands into separate files? Is it possible to organize commands and their subcommands into separate classes?</p>
+
+<p>Here's an example of how I would like to separate it:</p>
+
+<h2><strong>init</strong></h2>
+
+<pre><code>import click
+
+@click.group()
+@click.version_option()
+def cli():
+    pass #Entry Point
+</code></pre>
+
+<h2>command_cloudflare.py</h2>
+
+<pre><code>@cli.group()
+@click.pass_context
+def cloudflare(ctx):
+    pass
+
+@cloudflare.group('zone')
+def cloudflare_zone():
+    pass
+
+@cloudflare_zone.command('add')
+@click.option('--jumpstart', '-j', default=True)
+@click.option('--organization', '-o', default='')
+@click.argument('url')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_zone_add(ctx, url, jumpstart, organization):
+    pass
+
+@cloudflare.group('record')
+def cloudflare_record():
+    pass
+
+@cloudflare_record.command('add')
+@click.option('--ttl', '-t')
+@click.argument('domain')
+@click.argument('name')
+@click.argument('type')
+@click.argument('content')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_record_add(ctx, domain, name, type, content, ttl):
+    pass
+
+@cloudflare_record.command('edit')
+@click.option('--ttl', '-t')
+@click.argument('domain')
+@click.argument('name')
+@click.argument('type')
+@click.argument('content')
+@click.pass_obj
+@__cf_error_handler
+def cloudflare_record_edit(ctx, domain):
+    pass
+</code></pre>
+
+<h2>command_uptimerobot.py</h2>
+
+<pre><code>@cli.group()
+@click.pass_context
+def uptimerobot(ctx):
+    pass
+
+@uptimerobot.command('add')
+@click.option('--alert', '-a', default=True)
+@click.argument('name')
+@click.argument('url')
+@click.pass_obj
+def uptimerobot_add(ctx, name, url, alert):
+    pass
+
+@uptimerobot.command('delete')
+@click.argument('names', nargs=-1, required=True)
+@click.pass_obj
+def uptimerobot_delete(ctx, names):
+    pass
+</code></pre>
+",<python><command-line-interface><python-click>,16/01/06 21:58,HQ
+34644612,Conda - Silently installing a package,"<p>I am trying to automate the process of setting up a development environment with pandas package using conda. </p>
+
+<p>I installed conda, created and activated a dev environment. When I tried to install a package as follows, I noticed that there was a prompt to which a user had to key in Y or N (Proceed ([y]/n)?) for the installation to proceed successfully. </p>
+
+<pre><code>$ conda install pandas
+Fetching package metadata: ....
+Solving package specifications: ..................
+Package plan for installation in environment /home/miniconda2/envs/pandas_env:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libgfortran-1.0            |                0         170 KB
+    openblas-0.2.14            |                3         3.5 MB
+    numpy-1.10.2               |           py27_0         5.9 MB
+    pytz-2015.7                |           py27_0         174 KB
+    six-1.10.0                 |           py27_0          16 KB
+    python-dateutil-2.4.2      |           py27_0         219 KB
+    pandas-0.17.1              |      np110py27_0        12.4 MB
+    ------------------------------------------------------------
+                                           Total:        22.3 MB
+
+The following NEW packages will be INSTALLED:
+
+    libgfortran:     1.0-0             
+    numpy:           1.10.2-py27_0     
+    openblas:        0.2.14-3          
+    pandas:          0.17.1-np110py27_0
+    python-dateutil: 2.4.2-py27_0      
+    pytz:            2015.7-py27_0     
+    six:             1.10.0-py27_0     
+
+Proceed ([y]/n)? y
+
+Fetching packages ...
+libgfortran-1. 100% |###################################################################################################################################################################| Time: 0:00:00 457.23 kB/s
+openblas-0.2.1 100% |###################################################################################################################################################################| Time: 0:00:02   1.68 MB/s
+numpy-1.10.2-p 100% |###################################################################################################################################################################| Time: 0:00:02   2.42 MB/s
+pytz-2015.7-py 100% |###################################################################################################################################################################| Time: 0:00:00 388.35 kB/s
+six-1.10.0-py2 100% |###################################################################################################################################################################| Time: 0:00:00 224.69 kB/s
+python-dateuti 100% |###################################################################################################################################################################| Time: 0:00:00 493.15 kB/s
+pandas-0.17.1- 100% |###################################################################################################################################################################| Time: 0:00:04   3.24 MB/s
+Extracting packages ...
+[      COMPLETE      ]|######################################################################################################################################################################################| 100%
+Linking packages ...
+[      COMPLETE      ]|######################################################################################################################################################################################| 100%
+</code></pre>
+
+<p>How can I override these prompts so that the installation takes place silently? I tried using the -f flag but it does not seem to be existing with the conda install command.</p>
+
+<p>Thanks in advance!</p>
+",<python><conda><installation-package><miniconda>,16/01/06 23:11,HQ
+34646237,Parse Line and Break it into Variables in C#,"I have a text file that contain only the FULL version number of an application that I need to extract and then parse it into separate Variables. For example lets say the version.cs contains 19.1.354.6
+
+Code I'm using does not seem to be working:
+
+    char[] delimiter = { '.' };
+        string currentVersion = System.IO.File.ReadAllText(@""C:\Applicaion\version.cs"");
+        string[] partsVersion;
+        partsVersion = currentVersion.Split(delimiter);
+        string majorVersion = partsVersion[0];
+        string minorVersion = partsVersion[1];
+        string buildVersion = partsVersion[2];
+        string revisVersion = partsVersion[3];
+
+Best regards,
+
+TRI0N",<c#><parsing>,16/01/07 2:05,LQ_EDIT
+34647918,How to setup input bindings for a component when it's created by router-outlet?,"<p>When a component is created by the router how can I setup property bindings?</p>
+",<angular><angular2-routing>,16/01/07 5:26,HQ
+34649191,"Two Date Field. Date Selected in first field , second field date should be more than first","I Have two Date Field in HTML form. If i Select a date in first field, the second field should show date greater than the first field in date picker.
+Here are my Date Pickker code: 
+
+    $(document).on('focus', '.dt', function() {$(this).datepicker({ dateFormat : 'dd-mm-yy'});}); 
+
+And here is my form having two fields:
+
+    <td width=""212""><input type=""date"" class=""dt"" name=""s_invoice_date_draft1"" value=""<?php echo @$_REQUEST['s_invoice_date_draft1']; ?>""> To <input type=""date"" class=""dt"" name=""s_invoice_date_draft2"" value=""<?php echo @$_REQUEST['s_invoice_date_draft2']; ?>""></td>
+
+Need solution in javascript",<javascript><php><jquery><html><mysql>,16/01/07 7:05,LQ_EDIT
+34649321,Regular Expressions in Elixir case,"<p>Can you use a Regular Expression inside a <code>case</code> in Elixir?</p>
+
+<p>So something along the lines of this:</p>
+
+<pre><code>case some_string do
+  ""string""        -&gt; # do something
+  ~r/string[\d]+/ -&gt; # do something
+  _               -&gt; # do something
+end
+</code></pre>
+",<regex><elixir>,16/01/07 7:14,HQ
+34652348,Returning to Android Development - Which test device / min SDK?,"<p>I'm returning to Android Development after a number of years. I built some apps and sold them about 4 years ago but turned to the dark side (iOS dev). </p>
+
+<p><strong>This is programming forum so my two questions are:</strong></p>
+
+<p><strong>Whats the minimum SDK most people develop against?</strong></p>
+
+<p>In iOS it's [(Current Release - 1) + last good release] so iOS9 - 1 = iOS8 + last good release 8.4.</p>
+
+<p><strong>What's the best dev device to buy?</strong></p>
+
+<p>Nexus?
+I have a Motorola Moto G (3rd Gen) bought Sep 2015</p>
+
+<p>Whats the most used Android phone?</p>
+",<android><development-environment>,16/01/07 10:07,LQ_CLOSE
+34653176,R: Vector Group by Defined group,"<p>I have a vector <code>c(""A"",""B"",""C"",......)</code> and a list <code>list(c(""A""),c(""B"",""C""))</code>
+I want to get a vector <code>c(1,2,2....)</code>
+Is there any function in some basic packages?</p>
+",<r>,16/01/07 10:46,LQ_CLOSE
+34654996,How to bind html into Angular 2.0,"<p>In angular 1 binding works like ng-bind-html=""htmlValue""</p>
+
+<p>How to bind html in Angular 2.0</p>
+",<angular><ng-bind-html>,16/01/07 12:20,HQ
+34655031,javax.net.ssl.SSLPeerUnverifiedException: Host name does not match the certificate subject provided by the peer,"<p>I follow many links on stackoverflow and tried many solutions, but none of them worked for me. I'm using <code>WSO2 API manager</code> version <code>1.9.1</code>. I am facing following error:</p>
+
+<pre><code>Exception in thread ""main"" javax.net.ssl.SSLPeerUnverifiedException: Host name 'XXXXXXXXX' does not match the certificate subject provided by the peer (CN=localhost, O=WSO2, L=Mountain View, ST=CA, C=US)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.verifyHostname(SSLConnectionSocketFactory.java:465)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:395)
+    at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:353)
+    at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
+    at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+    at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+    at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+    at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+    at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+    at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+    at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+    at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+    at com.java.pushNotifications.WSO2DemoClient.main(WSO2DemoClient.java:49)
+</code></pre>
+
+<p>I developed the following Java code. Please help me what's going wrong here. I need to connect insecure way and allow connections to SSL sites without <strong>certs</strong>.</p>
+
+<pre><code>public static void main(String[] args) throws ClientProtocolException, IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+        SSLContextBuilder builder = new SSLContextBuilder();
+        builder.loadTrustMaterial(null, new TrustSelfSignedStrategy());
+        SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(builder.build());
+
+        Registry&lt;ConnectionSocketFactory&gt; registry = RegistryBuilder.&lt;ConnectionSocketFactory&gt;create()
+                .register(""http"", new PlainConnectionSocketFactory())
+                .register(""https"", sslsf)
+                .build();
+
+        PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(registry);
+        cm.setMaxTotal(2000);//max connection
+
+    CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory(sslsf)
+                .setConnectionManager(cm).build();
+
+        HttpGet httpGet = new HttpGet(""https://XXXXXXXXXX:8243/token"");
+        CloseableHttpResponse response = httpclient.execute(httpGet);
+
+        String json ="" {\""data\"":\""grant_type=password&amp;username=test&amp;password=test123\""}"";
+
+        try {
+            HttpPost httpost = new HttpPost(url);
+            httpost.setHeader(""Content-Type"", ""application/x-www-form-urlencoded"");
+            httpost.setHeader(""Authorization"", ""Basic XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"");
+
+            httpost.setEntity(new StringEntity(json));
+
+            HttpResponse httpResponse = httpclient.execute(httpost);
+
+            System.out.println(httpResponse.getStatusLine());
+        }
+        finally {
+            response.close();
+        }
+
+        String responseString1 = new BasicResponseHandler().handleResponse(response);
+        System.out.println(""Response : ""+responseString1);
+    }
+</code></pre>
+",<java><ssl><ssl-certificate><apache-httpclient-4.x><wso2-am>,16/01/07 12:22,HQ

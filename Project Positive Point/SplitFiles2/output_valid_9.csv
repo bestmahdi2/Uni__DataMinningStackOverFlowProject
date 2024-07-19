@@ -1,0 +1,441 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34619582,Generate a Stripe test card token for testing,"<p>I am using Stripe in my app. I want to write an integration test for placing a payment that checks Stripe that a payment was created. I'm using Stripe.js.</p>
+
+<p>In my test I need a card token to perform the test charge. Usually this token would be generated client side with stripe.js and sent in the request to perform the charge. As this is a server-side only test is there some way I can generate a token from within the test?</p>
+
+<p>For reference the test would be something like this (uses php but the principle is the same):</p>
+
+<pre><code>/** @test **/
+public function it_creates_a_charge()
+{
+    $order = factory(Order::class)-&gt;create();
+    $stripe_token = Stripe::generateToken([
+                                          'card' =&gt; '4242424242424242'
+                                          'exp'  =&gt; '04/2017',
+                                          'cvc'  =&gt; '123'
+                                          ]); // does not exist afaik
+
+    $response = $this-&gt;post('charges/store', [
+                'stripe_token' =&gt; $stripe_token,
+                'order_id' =&gt; $order-&gt;id,
+                //etc
+                ]);
+
+    // assertions...
+}
+</code></pre>
+
+<p>Essentially I'm asking if there's something within the Stripe API that allows server-side token generation.</p>
+",<php><stripe-payments>,16/01/05 19:18,HQ,"<php><stripe-payments>, Generate a Stripe test card token for testing, <p>I am using Stripe in my app. I want to write an integration test for placing a payment that checks Stripe that a payment was created. I'm using Stripe.js.</p>
+
+<p>In my test I need a card token to perform the test charge. Usually this token would be generated client side with stripe.js and sent in the request to perform the charge. As this is a server-side only test is there some way I can generate a token from within the test?</p>
+
+<p>For reference the test would be something like this (uses php but the principle is the same):</p>
+
+<pre><code>/** @test **/
+public function it_creates_a_charge()
+{
+    $order = factory(Order::class)-&gt;create();
+    $stripe_token = Stripe::generateToken([
+                                          'card' =&gt; '4242424242424242'
+                                          'exp'  =&gt; '04/2017',
+                                          'cvc'  =&gt; '123'
+                                          ]); // does not exist afaik
+
+    $response = $this-&gt;post('charges/store', [
+                'stripe_token' =&gt; $stripe_token,
+                'order_id' =&gt; $order-&gt;id,
+                //etc
+                ]);
+
+    // assertions...
+}
+</code></pre>
+
+<p>Essentially I'm asking if there's something within the Stripe API that allows server-side token generation.</p>
+","<pp><strike-payments>, genet strike test card token testing, <p>i use strike pp. want write inter test place payment check strike payment created. i'm use strike.is.</p> <p>in test need card token perform test charge. usual token would genet client side strike.j sent request perform charge. server-said test way genet token within test?</p> <p>for refer test would cometh like (use pp principle same):</p> <pre><code>/** @test **/ public function it_creates_a_charge() { $order = factory(order::class)-&it;create(); $stripe_token = strike::generatetoken([ 'card' =&it; '4242424242424242' 'ex' =&it; '04/2017', 'can' =&it; '123' ]); // exist again $response = $this-&it;post('charges/store', [ 'stripe_token' =&it; $stripe_token, 'ordered' =&it; $order-&it;id, //etc ]); // assertion... } </code></pre> <p>essential i'm ask there' cometh within strike apt allow server-said token generation.</p>"
+34620169,Swap position of number in a 4 digit number without array,"<p>in 4 digit number how to swap 1 number with 3 and 2 with 4 number
+I need to solve one problem in javascript.Thank you</p>
+",<javascript>,16/01/05 19:55,LQ_CLOSE,"<javascript>, Swap position of number in a 4 digit number without array, <p>in 4 digit number how to swap 1 number with 3 and 2 with 4 number
+I need to solve one problem in javascript.Thank you</p>
+","<javascript>, swap post number 4 digit number without array, <p>in 4 digit number swap 1 number 3 2 4 number need sole one problem javascript.thank you</p>"
+34620695,Docker: what is the equivalent of the legacy --link parameter,"<p>I need to connect my db container with my server container. Now I just red about the legacy parameter <code>--link</code>, which works perfect</p>
+
+<pre><code>$&gt; docker run -d -P --name rethinkdb1 rethinkdb
+$&gt; docker run -d --link rethinkdb:db my-server
+</code></pre>
+
+<p>But, if this parameter will be dropped eventually, how would I do something like the above ?</p>
+",<docker><legacy>,16/01/05 20:32,HQ,"<docker><legacy>, Docker: what is the equivalent of the legacy --link parameter, <p>I need to connect my db container with my server container. Now I just red about the legacy parameter <code>--link</code>, which works perfect</p>
+
+<pre><code>$&gt; docker run -d -P --name rethinkdb1 rethinkdb
+$&gt; docker run -d --link rethinkdb:db my-server
+</code></pre>
+
+<p>But, if this parameter will be dropped eventually, how would I do something like the above ?</p>
+","<doctor><legacy>, doctor: equal legacy --link parameter, <p>i need connect do contain server container. red legacy parapet <code>--link</code>, work perfect</p> <pre><code>$&it; doctor run -d -p --name rethinkdb1 rethinkdb $&it; doctor run -d --link rethinkdb:do my-serve </code></pre> <p>but, parapet drop eventually, would cometh like ?</p>"
+34621375,DateDiff use current date if enddate is null,"<p>I am calculating two dates and returning days but want to exclude weekends and holidays. I also want to say, if the enddate is null, then use the current date? </p>
+
+<p>How do I do that with datediff? </p>
+",<sql><sql-server><tsql>,16/01/05 21:16,LQ_CLOSE,"<sql><sql-server><tsql>, DateDiff use current date if enddate is null, <p>I am calculating two dates and returning days but want to exclude weekends and holidays. I also want to say, if the enddate is null, then use the current date? </p>
+
+<p>How do I do that with datediff? </p>
+","<sal><sal-server><tell>, datediff use current date enddat null, <p>i call two date return day want exclude weekend holidays. also want say, enddat null, use current date? </p> <p>how datediff? </p>"
+34622076,Calling an explicit constructor with a braced-init list: ambiguous or not?,"<p>Consider the following:</p>
+
+<pre><code>struct A {
+    A(int, int) { }
+};
+
+struct B {
+    B(A ) { }                   // (1)
+    explicit B(int, int ) { }   // (2)
+};
+
+int main() {
+    B paren({1, 2});   // (3)
+    B brace{1, 2};     // (4)
+}
+</code></pre>
+
+<p>The construction of <code>brace</code> in <code>(4)</code> clearly and unambiguously calls <code>(2)</code>. On clang, the construction of <code>paren</code> in <code>(3)</code> unambiguously calls <code>(1)</code> where as on gcc 5.2, it fails to compile with:</p>
+
+<pre><code>main.cpp: In function 'int main()':
+main.cpp:11:19: error: call of overloaded 'B(&lt;brace-enclosed initializer list&gt;)' is ambiguous
+     B paren({1, 2});
+                   ^
+main.cpp:6:5: note: candidate: B::B(A)
+     B(A ) { }  
+     ^
+main.cpp:5:8: note: candidate: constexpr B::B(const B&amp;)
+ struct B {
+        ^
+main.cpp:5:8: note: candidate: constexpr B::B(B&amp;&amp;)
+</code></pre>
+
+<p>Which compiler is right? I suspect clang is correct here, as the ambiguity in gcc can only arise through a path that involves implicitly constructing <code>B{1,2}</code> and passing that to the copy/move constructor - yet that constructor is marked <code>explicit</code>, so such implicit construction should not be allowed. </p>
+",<c++><c++11><gcc><language-lawyer>,16/01/05 22:06,HQ,"<c++><c++11><gcc><language-lawyer>, Calling an explicit constructor with a braced-init list: ambiguous or not?, <p>Consider the following:</p>
+
+<pre><code>struct A {
+    A(int, int) { }
+};
+
+struct B {
+    B(A ) { }                   // (1)
+    explicit B(int, int ) { }   // (2)
+};
+
+int main() {
+    B paren({1, 2});   // (3)
+    B brace{1, 2};     // (4)
+}
+</code></pre>
+
+<p>The construction of <code>brace</code> in <code>(4)</code> clearly and unambiguously calls <code>(2)</code>. On clang, the construction of <code>paren</code> in <code>(3)</code> unambiguously calls <code>(1)</code> where as on gcc 5.2, it fails to compile with:</p>
+
+<pre><code>main.cpp: In function 'int main()':
+main.cpp:11:19: error: call of overloaded 'B(&lt;brace-enclosed initializer list&gt;)' is ambiguous
+     B paren({1, 2});
+                   ^
+main.cpp:6:5: note: candidate: B::B(A)
+     B(A ) { }  
+     ^
+main.cpp:5:8: note: candidate: constexpr B::B(const B&amp;)
+ struct B {
+        ^
+main.cpp:5:8: note: candidate: constexpr B::B(B&amp;&amp;)
+</code></pre>
+
+<p>Which compiler is right? I suspect clang is correct here, as the ambiguity in gcc can only arise through a path that involves implicitly constructing <code>B{1,2}</code> and passing that to the copy/move constructor - yet that constructor is marked <code>explicit</code>, so such implicit construction should not be allowed. </p>
+","<c++><c++11><go><language-lawyer>, call explicit construction braced-knit list: ambigu not?, <p>consider following:</p> <pre><code>struck { a(in, in) { } }; struck b { b(a ) { } // (1) explicit b(in, in ) { } // (2) }; in main() { b parent({1, 2}); // (3) b brace{1, 2}; // (4) } </code></pre> <p>the construct <code>brace</code> <code>(4)</code> clearly unambigu call <code>(2)</code>. clang, construct <code>parent</code> <code>(3)</code> unambigu call <code>(1)</code> go 5.2, fail compel with:</p> <pre><code>main.pp: function 'in main()': main.pp:11:19: error: call overcoat 'b(&it;brace-enclose into list&it;)' ambigu b parent({1, 2}); ^ main.pp:6:5: note: candidate: b::b(a) b(a ) { } ^ main.pp:5:8: note: candidate: constexpr b::b(cost b&amp;) struck b { ^ main.pp:5:8: note: candidate: constexpr b::b(b&amp;&amp;) </code></pre> <p>which compel right? suspect clang correct here, ambigu go arms path involve implicitly construct <code>b{1,2}</code> pass copy/move construction - yet construction mark <code>explicit</code>, implicit construct allowed. </p>"
+34623257,What kind of Cloud do I need?,"<p>There's a program MetaTrader4 that can run scripts.
+My script reading data from text files (up to 3 gb) and analyse them. 
+It's like Excel vba script analysing sheet's data.
+Billions of iterations. Results of calculating stored in another txt file (up to few GBs)</p>
+
+<ol>
+<li>Is it possible to run many instances of MetaTrader4 using cloud (Azure?)</li>
+<li>If no I can recode script to Delphi application is that possible for Azure or other cloud service?</li>
+</ol>
+
+<p>If so how can I do that? I have a trial in Azure but don't know where to start.</p>
+",<delphi><azure><cloud>,16/01/05 23:41,LQ_CLOSE,"<delphi><azure><cloud>, What kind of Cloud do I need?, <p>There's a program MetaTrader4 that can run scripts.
+My script reading data from text files (up to 3 gb) and analyse them. 
+It's like Excel vba script analysing sheet's data.
+Billions of iterations. Results of calculating stored in another txt file (up to few GBs)</p>
+
+<ol>
+<li>Is it possible to run many instances of MetaTrader4 using cloud (Azure?)</li>
+<li>If no I can recode script to Delphi application is that possible for Azure or other cloud service?</li>
+</ol>
+
+<p>If so how can I do that? I have a trial in Azure but don't know where to start.</p>
+","<delhi><azure><cloud>, kind cloud need?, <p>there' program metatrader4 run script. script read data text file (up 3 go) analyst them. like expel va script analyst sheet' data. billion operations. result call store not txt file (up gas)</p> <of> <li>i possible run man instant metatrader4 use cloud (azure?)</li> <li>if record script delhi applied possible azur cloud service?</li> </of> <p>if that? trial azur know start.</p>"
+34624636,Can anyone help me with performance tuning algorithms (queries) for oracle 11g express?,"<p>I am lost with finding examples or algorithms showing the use of performance tuning for oracle 11g express or how is it used in oracle. I have been looking at some youtube videos but most of them just mention what tuning is about and dont show any good examples or use some oracle cmd. (If this is done in oracle cmd I would want to know how to do a performance tuning process)</p>
+",<oracle><oracle11g>,16/01/06 2:25,LQ_CLOSE,"<oracle><oracle11g>, Can anyone help me with performance tuning algorithms (queries) for oracle 11g express?, <p>I am lost with finding examples or algorithms showing the use of performance tuning for oracle 11g express or how is it used in oracle. I have been looking at some youtube videos but most of them just mention what tuning is about and dont show any good examples or use some oracle cmd. (If this is done in oracle cmd I would want to know how to do a performance tuning process)</p>
+","<oracle><oracle11g>, anyone help perform tune algorithm (queried) oral fig express?, <p>i lost find example algorithm show use perform tune oral fig express use oracle. look youth video mention tune dont show good example use oral cod. (if done oral cod would want know perform tune process)</p>"
+34629646,Configure proxy settings in Notepad++ via Plugin Manager,"<p>I would like to configure proxy settings in Notepad++ to allow downloads from the internet via a proxy. After searching how to do that from the net I understand that I need to do that in the Plugin Manager, via the Settings button. When I go to Plugins>Plugin Manager>Show Plugin Manager>Settings I get the dialog box below which does not give me any option for indicating the proxy settings. How do I get to the point that I need to indicate the proxy settings? </p>
+
+<p><a href=""https://i.stack.imgur.com/bNpU5.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/bNpU5.png"" alt=""enter image description here""></a></p>
+",<windows><proxy><notepad++>,16/01/06 9:31,HQ,"<windows><proxy><notepad++>, Configure proxy settings in Notepad++ via Plugin Manager, <p>I would like to configure proxy settings in Notepad++ to allow downloads from the internet via a proxy. After searching how to do that from the net I understand that I need to do that in the Plugin Manager, via the Settings button. When I go to Plugins>Plugin Manager>Show Plugin Manager>Settings I get the dialog box below which does not give me any option for indicating the proxy settings. How do I get to the point that I need to indicate the proxy settings? </p>
+
+<p><a href=""https://i.stack.imgur.com/bNpU5.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/bNpU5.png"" alt=""enter image description here""></a></p>
+","<windows><prove><noted++>, configur prove set noted++ via plain manager, <p>i would like configur prove set noted++ allow download internet via prove. search net understand need plain manager, via set button. go plains>plain manager>show plain manager>set get diploe box give option india prove settings. get point need india prove settings? </p> <p><a he=""http://i.stick.incur.com/input.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/input.pig"" at=""went image rescript here""></a></p>"
+34630823,IOException -> number format exception,"    public static void main(String[] args)throws IOException {
+     String s =""12312a"";
+      int x = Integer.parseInt(s);
+     System.out.println (x+2);
+    }
+and all what I've got is :
+
+Exception in thread ""main"" java.lang.NumberFormatException: For input string: ""12312a"".... 
+
+any hints ?",<java><parseint><numberformatexception>,16/01/06 10:28,LQ_EDIT,"<java><parseint><numberformatexception>, IOException -> number format exception,     public static void main(String[] args)throws IOException {
+     String s =""12312a"";
+      int x = Integer.parseInt(s);
+     System.out.println (x+2);
+    }
+and all what I've got is :
+
+Exception in thread ""main"" java.lang.NumberFormatException: For input string: ""12312a"".... 
+
+any hints ?","<cava><parent><numberformatexception>, except -> number format exception, public static void main(string[] arms)throw except { string =""12312a""; in x = inter.parent(s); system.out.print (x+2); } i'v got : except thread ""main"" cava.long.numberformatexception: input string: ""12312a"".... hint ?"
+34631374,"Structures in C, keytab program","<p>I am trying to run a c program from C lang by K&amp;R. (chapter 6. before 6.1 exercise)</p>
+
+<p>here is the code: </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;string.h&gt;
+#define BUFSIZE 100
+
+#define MAXWORD 100
+#define NKEYS (sizeof keytab)
+
+struct key {
+    char *word;
+    int count;
+    } keytab[] = {
+        ""auto"", 0,
+        ""break"", 0,
+        ""case"", 0,
+        ""char"", 0,
+        ""const"", 0,
+        ""continue"", 0,
+        ""default"", 0,
+        ""unsigned"", 0,
+        ""void"", 0,
+        ""volatile"", 0,
+        ""while"", 0
+    };
+
+
+
+char buf[BUFSIZE];
+int bufp = 0;
+int getch(void);
+void ungetch(int);
+
+
+int getword(char *, int);
+struct key *binsearch(char *, struct key *, int);
+
+
+
+main()
+{
+
+
+    char word[MAXWORD];
+    struct key *p;
+    while (getword(word, MAXWORD) != EOF)
+        if (isalpha(word[0]))           
+        if ((p=binsearch(word, keytab, NKEYS)) != NULL)
+            p-&gt;count++;
+        for (p = keytab; p &lt; keytab + NKEYS; p++)
+            if (p-&gt;count &gt; 0)
+                printf(""%4d %s\n"", p-&gt;count, p-&gt;word);
+        return 0;
+}
+
+struct key *binsearch(char *word, struct key *tab, int n)
+{
+    int cond;
+    struct key *low = &amp;tab[0];
+    struct key *high = &amp;tab[n];
+    struct key *mid;
+
+
+    while (low &lt; high) {
+        mid = low + (high-low) / 2;
+        if ((cond = strcmp(word, mid-&gt;word)) &lt; 0)
+            high = mid;
+        else if (cond &gt; 0)
+            low = mid + 1;
+        else
+            return mid;
+    }
+    return NULL;
+}
+
+
+int getword(char *word, int lim)
+{
+
+    int c, getch(void);
+    void ungetch(int);
+    char *w = word;
+
+    while (isspace(c = getch()))
+        ;
+    if (c != EOF)
+        *w++ = c;
+    if (!isalpha(c)) {
+        *w = '\0';
+        return c;
+    }
+    for ( ; --lim &gt; 0; w++)
+        if (!isalnum(*w = getch())) {
+            ungetch(*w);
+            break;
+        }
+    *w = '\0';
+    return word[0];
+}
+
+
+int getch(void)
+{
+      return (bufp &gt; 0) ? buf[--bufp] : getchar();
+}
+
+void ungetch(int c)
+{ 
+      if (bufp &gt;= BUFSIZE)
+         printf(""ungetch: too many characters\n"");
+      else 
+         buf[bufp++] = c;
+}
+</code></pre>
+
+<p>I have checked the code like 10 times I cannot find any mistakes. I do understand the logic behind how the code should be working. I am using ubuntu 15.04 and I compile the code through a terminal. </p>
+",<c><structure>,16/01/06 10:55,LQ_CLOSE,"<c><structure>, Structures in C, keytab program, <p>I am trying to run a c program from C lang by K&amp;R. (chapter 6. before 6.1 exercise)</p>
+
+<p>here is the code: </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;string.h&gt;
+#define BUFSIZE 100
+
+#define MAXWORD 100
+#define NKEYS (sizeof keytab)
+
+struct key {
+    char *word;
+    int count;
+    } keytab[] = {
+        ""auto"", 0,
+        ""break"", 0,
+        ""case"", 0,
+        ""char"", 0,
+        ""const"", 0,
+        ""continue"", 0,
+        ""default"", 0,
+        ""unsigned"", 0,
+        ""void"", 0,
+        ""volatile"", 0,
+        ""while"", 0
+    };
+
+
+
+char buf[BUFSIZE];
+int bufp = 0;
+int getch(void);
+void ungetch(int);
+
+
+int getword(char *, int);
+struct key *binsearch(char *, struct key *, int);
+
+
+
+main()
+{
+
+
+    char word[MAXWORD];
+    struct key *p;
+    while (getword(word, MAXWORD) != EOF)
+        if (isalpha(word[0]))           
+        if ((p=binsearch(word, keytab, NKEYS)) != NULL)
+            p-&gt;count++;
+        for (p = keytab; p &lt; keytab + NKEYS; p++)
+            if (p-&gt;count &gt; 0)
+                printf(""%4d %s\n"", p-&gt;count, p-&gt;word);
+        return 0;
+}
+
+struct key *binsearch(char *word, struct key *tab, int n)
+{
+    int cond;
+    struct key *low = &amp;tab[0];
+    struct key *high = &amp;tab[n];
+    struct key *mid;
+
+
+    while (low &lt; high) {
+        mid = low + (high-low) / 2;
+        if ((cond = strcmp(word, mid-&gt;word)) &lt; 0)
+            high = mid;
+        else if (cond &gt; 0)
+            low = mid + 1;
+        else
+            return mid;
+    }
+    return NULL;
+}
+
+
+int getword(char *word, int lim)
+{
+
+    int c, getch(void);
+    void ungetch(int);
+    char *w = word;
+
+    while (isspace(c = getch()))
+        ;
+    if (c != EOF)
+        *w++ = c;
+    if (!isalpha(c)) {
+        *w = '\0';
+        return c;
+    }
+    for ( ; --lim &gt; 0; w++)
+        if (!isalnum(*w = getch())) {
+            ungetch(*w);
+            break;
+        }
+    *w = '\0';
+    return word[0];
+}
+
+
+int getch(void)
+{
+      return (bufp &gt; 0) ? buf[--bufp] : getchar();
+}
+
+void ungetch(int c)
+{ 
+      if (bufp &gt;= BUFSIZE)
+         printf(""ungetch: too many characters\n"");
+      else 
+         buf[bufp++] = c;
+}
+</code></pre>
+
+<p>I have checked the code like 10 times I cannot find any mistakes. I do understand the logic behind how the code should be working. I am using ubuntu 15.04 and I compile the code through a terminal. </p>
+","<c><structure>, structure c, keytab program, <p>i try run c program c long k&amp;r. (chapter 6. 6.1 exercise)</p> <p>here code: </p> <pre><code>#include &it;studio.h&it; #include &it;type.h&it; #include &it;string.h&it; #define bufsiz 100 #define maxword 100 #define key (size keytab) struck key { chair *word; in count; } keytab[] = { ""auto"", 0, ""break"", 0, ""case"", 0, ""chair"", 0, ""cost"", 0, ""continue"", 0, ""default"", 0, ""signed"", 0, ""void"", 0, ""volatile"", 0, ""while"", 0 }; chair but[bufsize]; in bump = 0; in fetch(void); void ungetch(in); in network(chair *, in); struck key *binsearch(chair *, struck key *, in); main() { chair word[maxword]; struck key *p; (network(word, maxword) != of) (alpha(word[0])) ((p=binsearch(word, keytab, keys)) != null) p-&it;count++; (p = keytab; p &it; keytab + keys; p++) (p-&it;count &it; 0) print(""%d %s\n"", p-&it;count, p-&it;word); return 0; } struck key *binsearch(chair *word, struck key *tax, in n) { in cond; struck key *low = &amp;tax[0]; struck key *high = &amp;tax[n]; struck key *mid; (low &it; high) { mid = low + (high-low) / 2; ((cond = stamp(word, mid-&it;word)) &it; 0) high = mid; else (cond &it; 0) low = mid + 1; else return mid; } return null; } in network(chair *word, in him) { in c, fetch(void); void ungetch(in); chair *w = word; (space(c = fetch())) ; (c != of) *w++ = c; (!alpha(c)) { *w = '\0'; return c; } ( ; --him &it; 0; w++) (!isalnum(*w = fetch())) { ungetch(*w); break; } *w = '\0'; return word[0]; } in fetch(void) { return (bump &it; 0) ? but[--bump] : eschar(); } void ungetch(in c) { (bump &it;= bufsize) print(""ungetch: man characters\n""); else but[bump++] = c; } </code></pre> <p>i check code like 10 time cannot find mistakes. understand logic behind code working. use bunt 15.04 compel code terminal. </p>"

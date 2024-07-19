@@ -1,0 +1,365 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34739660,Objective-C send variable to Swift,"I have that code:
+
+    - (NSString *)obtenerDatosUsuario
+    {
+       __block NSString *result=@"""";
+        [self obtenerDatosUsuarioSQL:^(NSString *resultadoSQL){
+            result=resultadoSQL;
+        }];
+        return result;
+    } 
+
+And I want that the return be the content of resultadoSQL",<objective-c>,16/01/12 9:20,LQ_EDIT,"<objective-c>, Objective-C send variable to Swift, I have that code:
+
+    - (NSString *)obtenerDatosUsuario
+    {
+       __block NSString *result=@"""";
+        [self obtenerDatosUsuarioSQL:^(NSString *resultadoSQL){
+            result=resultadoSQL;
+        }];
+        return result;
+    } 
+
+And I want that the return be the content of resultadoSQL","<objective-c>, objective-c send variable swift, code: - (string *)obtenerdatosusuario { block string *result=@""""; [self obtenerdatosusuariosql:^(nasty *resultadosql){ result=resultadosql; }]; return result; } want return content resultadosql"
+34743160,Android I don't understand nine patch tool,"<p>Android I don't understand nine patch tool and why we use the nine patch and what is the benefits of using nine patch .I think it is used for small images in order to not loose quality when it is scaled.
+plz can anyone give me detail explanation about why we use nine patch ?</p>
+",<android>,16/01/12 12:01,LQ_CLOSE,"<android>, Android I don't understand nine patch tool, <p>Android I don't understand nine patch tool and why we use the nine patch and what is the benefits of using nine patch .I think it is used for small images in order to not loose quality when it is scaled.
+plz can anyone give me detail explanation about why we use nine patch ?</p>
+","<andros>, andros understand nine patch tool, <p>andros understand nine patch tool use nine patch benefit use nine patch .i think use small image order look quality scale. ply anyone give detail explain use nine patch ?</p>"
+34745955,Replaceobjectatindex doesn't reload the tableview in ios?,"This is my piece of code:
+
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
+    NSDictionary oldDict = (NSDictionary )[dataArray objectAtIndex:0];
+    [newDict addEntriesFromDictionary:oldDict];
+    [newDict setObject:@""Don"" forKey:@""Name""];
+    [dataArray replaceObjectAtIndex:0 withObject:newDict];
+    [self.tblview reloadData];
+
+I have to reload my tableview.But the tableview is not reloaded.How to rectify it.",<ios><objective-c><uitableview><nsarray>,16/01/12 14:12,LQ_EDIT,"<ios><objective-c><uitableview><nsarray>, Replaceobjectatindex doesn't reload the tableview in ios?, This is my piece of code:
+
+    NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
+    NSDictionary oldDict = (NSDictionary )[dataArray objectAtIndex:0];
+    [newDict addEntriesFromDictionary:oldDict];
+    [newDict setObject:@""Don"" forKey:@""Name""];
+    [dataArray replaceObjectAtIndex:0 withObject:newDict];
+    [self.tblview reloadData];
+
+I have to reload my tableview.But the tableview is not reloaded.How to rectify it.","<is><objective-c><uitableview><array>, replaceobjectatindex reload tableview is?, piece code: nsmutabledictionari *verdict = [[nsmutabledictionari allow] knit]; nsdictionari olddict = (nsdictionari )[dataarray objectatindex:0]; [verdict addentriesfromdictionary:olddict]; [verdict setobject:@""don"" force:@""name""]; [dataarray replaceobjectatindex:0 withobject:verdict]; [self.tblview reloaddata]; reload tableview.but tableview reloaded.how rectify it."
+34746775,Scheduling a second notification if first is ignored in swift (or completing any action if notification is ignored),"<p>So I have an app currently on the app store that schedules 10 notifications in advance assuming you miss one you will still get a second chance or ten. Now before you think I will be bothering the person, the notification is very important to the functionality of the app and really is the main purpose. The app was built for iOS 7 so at that time there was no ""handleActionWithIdentifier"" which can, from my understanding, complete actions for the app even if it is closed depending on the users response to the notification. This update was very helpful for the app as it eliminates part of my problem of having to open the app to respond to the notification (the notifications ask the user a question and depending on the answer, completes something).</p>
+
+<p>The problem that remains is detecting if the notification was missed, how would I make another notification appear, for example the next day, if the notification is dismissed or ignored. I have searched this on google and stack overflow and from my understanding all previous questions have been asking how to detect if the notification was missed one the app is opened which I do not need.</p>
+
+<p>At this point, I can properly run code if the user responds to the notification by pressing one of the options on the notification by this :</p>
+
+<pre><code>func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -&gt; Void) {
+        var userInfo = [NSObject: AnyObject]()
+        userInfo[""text""] = responseInfo[UIUserNotificationActionResponseTypedTextKey]
+        NSNotificationCenter.defaultCenter().postNotificationName(""text"", object: nil, userInfo: userInfo)
+
+        print(userInfo)
+
+        completionHandler()
+    }
+</code></pre>
+
+<p>as of right now, I am just taking textfield input and printing it but I could launch a second notification if I wanted. Is there a method to detecting when a notification is missed and scheduling another notification?</p>
+
+<p>There is always a chance that it is still not possible to do what I want and I would just schedule 10 notifications in advance which seems sloppy and does not let me make the response as iterative.</p>
+
+<p>TLDR; how do I detect and run code if a local notification is missed WITHOUT opening the app</p>
+
+<p>BTW: if you have answers, swift is the preferred language</p>
+",<ios><iphone><swift><notifications><uilocalnotification>,16/01/12 14:51,HQ,"<ios><iphone><swift><notifications><uilocalnotification>, Scheduling a second notification if first is ignored in swift (or completing any action if notification is ignored), <p>So I have an app currently on the app store that schedules 10 notifications in advance assuming you miss one you will still get a second chance or ten. Now before you think I will be bothering the person, the notification is very important to the functionality of the app and really is the main purpose. The app was built for iOS 7 so at that time there was no ""handleActionWithIdentifier"" which can, from my understanding, complete actions for the app even if it is closed depending on the users response to the notification. This update was very helpful for the app as it eliminates part of my problem of having to open the app to respond to the notification (the notifications ask the user a question and depending on the answer, completes something).</p>
+
+<p>The problem that remains is detecting if the notification was missed, how would I make another notification appear, for example the next day, if the notification is dismissed or ignored. I have searched this on google and stack overflow and from my understanding all previous questions have been asking how to detect if the notification was missed one the app is opened which I do not need.</p>
+
+<p>At this point, I can properly run code if the user responds to the notification by pressing one of the options on the notification by this :</p>
+
+<pre><code>func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -&gt; Void) {
+        var userInfo = [NSObject: AnyObject]()
+        userInfo[""text""] = responseInfo[UIUserNotificationActionResponseTypedTextKey]
+        NSNotificationCenter.defaultCenter().postNotificationName(""text"", object: nil, userInfo: userInfo)
+
+        print(userInfo)
+
+        completionHandler()
+    }
+</code></pre>
+
+<p>as of right now, I am just taking textfield input and printing it but I could launch a second notification if I wanted. Is there a method to detecting when a notification is missed and scheduling another notification?</p>
+
+<p>There is always a chance that it is still not possible to do what I want and I would just schedule 10 notifications in advance which seems sloppy and does not let me make the response as iterative.</p>
+
+<p>TLDR; how do I detect and run code if a local notification is missed WITHOUT opening the app</p>
+
+<p>BTW: if you have answers, swift is the preferred language</p>
+","<is><phone><swift><modifications><uilocalnotification>, schedule second notify first ignore swift (or complete action notify ignored), <p>so pp current pp store schedule 10 notify advance assume miss one still get second chance ten. think bother person, notify import function pp really main purpose. pp built to 7 time ""handleactionwithidentifier"" can, understanding, complete action pp even close depend user response ratification. update help pp limit part problem open pp respond notify (the notify ask user question depend answer, complete something).</p> <p>the problem remain detect notify missed, would make not notify appear, example next day, notify dismiss ignored. search good stick overflow understand previous question ask detect notify miss one pp open need.</p> <p>at point, properly run code user respond notify press one option notify :</p> <pre><code>fun application(application: application, handleactionwithidentifi identified: string?, forlocalnotif ratification: uilocalnotification, withresponseinfo responseinfo: [subject : anyobject], completionhandler: () -&it; void) { war userinfo = [subject: anyobject]() userinfo[""text""] = responseinfo[uiusernotificationactionresponsetypedtextkey] nsnotificationcenter.defaultcenter().postnotificationname(""text"", object: nail, userinfo: userinfo) print(userinfo) completionhandler() } </code></pre> <p>a right now, take textfield input print could launch second notify wanted. method detect notify miss schedule not ratification?</p> <p>there away chance still possible want would schedule 10 notify advance seem slope let make response operative.</p> <p>old; detect run code local notify miss without open pp</p> <p>bow: answers, swift prefer language</p>"
+34747233,I want to compare two values from two lists of dictionaries,"I' trying to compare two values, one from list1 and another from list2. Each values inside dictionaries in these lists. I read it from a csv file. I want the code to be fast and efficient. Please help. Thanks in advance. 
+
+    import csv    
+    
+    list1 = []
+    list2 = []
+    reader1 = csv.DictReader(open('file1.csv'))
+    reader2 = csv.DictReader(open('file2.csv'))
+    
+    list1 = [x for x in reader1]
+    list2 = [x for x in reader2]
+    
+    
+    print [x['MyMail'] for x in list1 for y in list2 if x['MyMail']==y['Email']]
+
+This is comparing only the first value and not iterating. ",<python><csv><dictionary><list-comprehension><dictionary-comprehension>,16/01/12 15:14,LQ_EDIT,"<python><csv><dictionary><list-comprehension><dictionary-comprehension>, I want to compare two values from two lists of dictionaries, I' trying to compare two values, one from list1 and another from list2. Each values inside dictionaries in these lists. I read it from a csv file. I want the code to be fast and efficient. Please help. Thanks in advance. 
+
+    import csv    
+    
+    list1 = []
+    list2 = []
+    reader1 = csv.DictReader(open('file1.csv'))
+    reader2 = csv.DictReader(open('file2.csv'))
+    
+    list1 = [x for x in reader1]
+    list2 = [x for x in reader2]
+    
+    
+    print [x['MyMail'] for x in list1 for y in list2 if x['MyMail']==y['Email']]
+
+This is comparing only the first value and not iterating. ","<patron><is><dictionary><list-comprehension><dictionary-comprehension>, want compare two value two list dictionaries, i' try compare two values, one list not list. value inside dictionary lists. read is file. want code fast efficient. pleas help. thank advance. import is list = [] list = [] reader = is.dictreader(open('file.is')) reader = is.dictreader(open('file.is')) list = [x x reader] list = [x x reader] print [x['email'] x list list x['email']==y['email']] compare first value operating."
+34749819,Maven resource filtering exclude,"<p>I have a following maven configuration:</p>
+
+<pre><code>        &lt;resources&gt;
+            &lt;resource&gt;
+                &lt;directory&gt;src/main/resources&lt;/directory&gt;
+                &lt;filtering&gt;true&lt;/filtering&gt;
+                &lt;excludes&gt;
+                    &lt;exclude&gt;keystore.jks&lt;/exclude&gt;
+                &lt;/excludes&gt;
+            &lt;/resource&gt;
+        &lt;/resources&gt;
+</code></pre>
+
+<p>I want <code>keystore.jks</code> to be included in my classes/war application but not to be processed by Maven filtering.</p>
+
+<p>How to change this configuration ? </p>
+",<maven>,16/01/12 17:12,HQ,"<maven>, Maven resource filtering exclude, <p>I have a following maven configuration:</p>
+
+<pre><code>        &lt;resources&gt;
+            &lt;resource&gt;
+                &lt;directory&gt;src/main/resources&lt;/directory&gt;
+                &lt;filtering&gt;true&lt;/filtering&gt;
+                &lt;excludes&gt;
+                    &lt;exclude&gt;keystore.jks&lt;/exclude&gt;
+                &lt;/excludes&gt;
+            &lt;/resource&gt;
+        &lt;/resources&gt;
+</code></pre>
+
+<p>I want <code>keystore.jks</code> to be included in my classes/war application but not to be processed by Maven filtering.</p>
+
+<p>How to change this configuration ? </p>
+","<haven>, haven resource filter exclude, <p>i follow haven configuration:</p> <pre><code> &it;resources&it; &it;resource&it; &it;directory&it;sac/main/resources&it;/directory&it; &it;faltering&it;true&it;/faltering&it; &it;excludes&it; &it;exclude&it;restore.was&it;/exclude&it; &it;/excludes&it; &it;/resource&it; &it;/resources&it; </code></pre> <p>i want <code>restore.was</code> include classes/war applied process haven faltering.</p> <p>how change configur ? </p>"
+34752519,Regular expression to search for files and folders,"<p>Help write a regular expression to search for files and folders,
+searches for a given mask. In the mask, you can use ""*""
+(any characters in any number), and the ""?"" (one symbol).</p>
+",<c#><regex>,16/01/12 19:46,LQ_CLOSE,"<c#><regex>, Regular expression to search for files and folders, <p>Help write a regular expression to search for files and folders,
+searches for a given mask. In the mask, you can use ""*""
+(any characters in any number), and the ""?"" (one symbol).</p>
+","<c#><regret>, regular express search file holders, <p>help write regular express search file holders, search given mask. mask, use ""*"" (and character number), ""?"" (one symbol).</p>"
+34752647,Why are these ID's no longer visible?,"I've been arranging these shapes in a grid, then all of a sudden I hit run and all the shapes that are ID's disappeared and I cant work out why. I haven't changed anything. Why are the not visible? 
+<script async src=""//jsfiddle.net/wundersoy/zsf5x91q/embed/js,html,css,result/dark/""></script>",<html><css><visible>,16/01/12 19:55,LQ_EDIT,"<html><css><visible>, Why are these ID's no longer visible?, I've been arranging these shapes in a grid, then all of a sudden I hit run and all the shapes that are ID's disappeared and I cant work out why. I haven't changed anything. Why are the not visible? 
+<script async src=""//jsfiddle.net/wundersoy/zsf5x91q/embed/js,html,css,result/dark/""></script>","<html><iss><visible>, id' longer visible?, i'v arrange shape grid, sudden hit run shape id' disappear can work why. change anything. visible? <script async sac=""//fiddle.net/wundersoy/zsf5x91q/ebbed/is,html,iss,result/dark/""></script>"
+34754142,Stripe Error: 'Token is Not Supported' when trying to sign up to subscription,"<p>Can't find any information on this particular error anywhere so please bear with me.</p>
+
+<p>My Angular/NodeJS app has a payment page (for monthly and annual subscriptions) handled through Stripe.</p>
+
+<p>I've created the subscription types in my Stripe dashboard (two subscriptions: <code>StarterAnnual</code> and <code>StarterMonthly</code>), and I've set up the handler like so:</p>
+
+<pre><code>  var handler = StripeCheckout.configure({
+          key: 'pk_test_qs8Ot1USopAZAyLN3gNXma0T',
+          image: '/img/stripe-logo.png',
+          locale: 'auto',
+          email: $scope.user.email,
+          token: function(token) {
+            console.log(token)
+            var tempObj = {
+                stripeToken : token,
+                email : $scope.user.email,
+                cost : $scope.plan.price * 100
+                plan : $scope.plan.name
+            }
+            $http.post('/api/makePayment', tempObj).then(function(data){
+                console.log('stripe data', data);
+            },function(err){
+                console.log('stripe error', err);
+            })
+          }
+        });
+
+        handler.open({
+          name: '&lt;bizname&gt;',
+          description: $scope.plan.name,
+          amount: $scope.plan.price * 100
+        });
+</code></pre>
+
+<p>In my Node route, I'm doing this:</p>
+
+<pre><code>exports.makePayment = function(req,res){
+
+  var stripeToken = req.body.stripeToken,
+            email = req.body.email,
+             cost = req.body.cost,
+             plan = req.body.plan;
+
+  var tempObj = {
+    source: stripeToken,
+    plan: plan,
+    email: email
+  }
+
+  console.log(tempObj); // Everything looks fine in this log
+
+  stripe.customers.create(tempObj, function(err, customer) {
+    if(err){
+      console.log(""Stripe Error"");
+      console.log(err);
+    }else{
+      console.log(customer);
+      res.status(200).send(customer);
+    }
+
+  });
+}
+</code></pre>
+
+<p>When I try to make a payment I get:</p>
+
+<pre><code>Stripe Error
+{ [Error: token is not supported.]
+  type: 'StripeInvalidRequestError',
+  stack: 'Error: token is not supported.\n    at Error._Error (/node_modules/stripe/lib/Error.js:12:17)\n    at Error.Constructor (/node_modules/stripe/lib/utils.js:105:13)\n    at Error.Constructor (/node_modules/stripe/lib/utils.js:105:13)\n    at Function.StripeError.generate (/node_modules/stripe/lib/Error.js:56:14)\n    at IncomingMessage.&lt;anonymous&gt; (/node_modules/stripe/lib/StripeResource.js:138:39)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:905:12)\n    at doNTCallback2 (node.js:452:9)\n    at process._tickCallback (node.js:366:17)',
+  rawType: 'invalid_request_error',
+  code: undefined,
+  param: 'source',
+  message: 'token is not supported.',
+  detail: undefined,
+  raw: 
+   { type: 'invalid_request_error',
+     message: 'token is not supported.',
+     param: 'source',
+     statusCode: 400,
+     requestId: 'req_7hzY3mEgeM3nNJ' },
+  requestId: 'req_7hzY3mEgeM3nNJ',
+  statusCode: 400 }
+</code></pre>
+
+<p>I've pretty much just used code straight out of the docs, what am I doing wrong here? Do I need to set things up differently for creating a customer when doing a subscription?</p>
+",<javascript><angularjs><node.js><stripe-payments>,16/01/12 21:30,HQ,"<javascript><angularjs><node.js><stripe-payments>, Stripe Error: 'Token is Not Supported' when trying to sign up to subscription, <p>Can't find any information on this particular error anywhere so please bear with me.</p>
+
+<p>My Angular/NodeJS app has a payment page (for monthly and annual subscriptions) handled through Stripe.</p>
+
+<p>I've created the subscription types in my Stripe dashboard (two subscriptions: <code>StarterAnnual</code> and <code>StarterMonthly</code>), and I've set up the handler like so:</p>
+
+<pre><code>  var handler = StripeCheckout.configure({
+          key: 'pk_test_qs8Ot1USopAZAyLN3gNXma0T',
+          image: '/img/stripe-logo.png',
+          locale: 'auto',
+          email: $scope.user.email,
+          token: function(token) {
+            console.log(token)
+            var tempObj = {
+                stripeToken : token,
+                email : $scope.user.email,
+                cost : $scope.plan.price * 100
+                plan : $scope.plan.name
+            }
+            $http.post('/api/makePayment', tempObj).then(function(data){
+                console.log('stripe data', data);
+            },function(err){
+                console.log('stripe error', err);
+            })
+          }
+        });
+
+        handler.open({
+          name: '&lt;bizname&gt;',
+          description: $scope.plan.name,
+          amount: $scope.plan.price * 100
+        });
+</code></pre>
+
+<p>In my Node route, I'm doing this:</p>
+
+<pre><code>exports.makePayment = function(req,res){
+
+  var stripeToken = req.body.stripeToken,
+            email = req.body.email,
+             cost = req.body.cost,
+             plan = req.body.plan;
+
+  var tempObj = {
+    source: stripeToken,
+    plan: plan,
+    email: email
+  }
+
+  console.log(tempObj); // Everything looks fine in this log
+
+  stripe.customers.create(tempObj, function(err, customer) {
+    if(err){
+      console.log(""Stripe Error"");
+      console.log(err);
+    }else{
+      console.log(customer);
+      res.status(200).send(customer);
+    }
+
+  });
+}
+</code></pre>
+
+<p>When I try to make a payment I get:</p>
+
+<pre><code>Stripe Error
+{ [Error: token is not supported.]
+  type: 'StripeInvalidRequestError',
+  stack: 'Error: token is not supported.\n    at Error._Error (/node_modules/stripe/lib/Error.js:12:17)\n    at Error.Constructor (/node_modules/stripe/lib/utils.js:105:13)\n    at Error.Constructor (/node_modules/stripe/lib/utils.js:105:13)\n    at Function.StripeError.generate (/node_modules/stripe/lib/Error.js:56:14)\n    at IncomingMessage.&lt;anonymous&gt; (/node_modules/stripe/lib/StripeResource.js:138:39)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:905:12)\n    at doNTCallback2 (node.js:452:9)\n    at process._tickCallback (node.js:366:17)',
+  rawType: 'invalid_request_error',
+  code: undefined,
+  param: 'source',
+  message: 'token is not supported.',
+  detail: undefined,
+  raw: 
+   { type: 'invalid_request_error',
+     message: 'token is not supported.',
+     param: 'source',
+     statusCode: 400,
+     requestId: 'req_7hzY3mEgeM3nNJ' },
+  requestId: 'req_7hzY3mEgeM3nNJ',
+  statusCode: 400 }
+</code></pre>
+
+<p>I've pretty much just used code straight out of the docs, what am I doing wrong here? Do I need to set things up differently for creating a customer when doing a subscription?</p>
+","<javascript><angular><node.is><strike-payments>, strike error: 'token supported' try sign subscription, <p>can't find inform particular error anywhere pleas bear me.</p> <p>mi angular/nodes pp payment page (for monthly annual subscriptions) hand strike.</p> <p>i'v great subscribe type strike dashboard (two subscriptions: <code>starterannual</code> <code>startermonthly</code>), i'v set handle like so:</p> <pre><code> war handle = stripecheckout.configure({ key: 'pk_test_qs8ot1usopazayln3gnxma0t', image: '/ing/strike-log.pig', local: 'auto', email: $scope.user.email, token: function(token) { console.log(token) war temporo = { stripetoken : token, email : $scope.user.email, cost : $scope.plan.price * 100 plan : $scope.plan.am } $http.post('/apt/makepayment', temporo).then(function(data){ console.log('strip data', data); },function(err){ console.log('strip error', err); }) } }); handle.open({ name: '&it;bizname&it;', description: $scope.plan.name, amount: $scope.plan.price * 100 }); </code></pre> <p>in node route, i'm this:</p> <pre><code>exports.makepay = function(red,yes){ war stripetoken = red.body.stripetoken, email = red.body.email, cost = red.body.cost, plan = red.body.plan; war temporo = { source: stripetoken, plan: plan, email: email } console.log(temporo); // every look fine log strike.customers.create(temporo, function(err, customer) { if(err){ console.log(""strip error""); console.log(err); }else{ console.log(customer); yes.status(200).send(customer); } }); } </code></pre> <p>when try make payment get:</p> <pre><code>strip error { [error: token supported.] type: 'stripeinvalidrequesterror', stick: 'error: token supported.\n error.terror (/node_modules/strike/limb/error.is:12:17)\n error.construction (/node_modules/strike/limb/still.is:105:13)\n error.construction (/node_modules/strike/limb/still.is:105:13)\n function.stripeerror.genet (/node_modules/strike/limb/error.is:56:14)\n incomingmessage.&it;anonymous&it; (/node_modules/strike/limb/striperesource.is:138:39)\n emotion (events.is:72:20)\n incomingmessage.emit (events.is:166:7)\n endreadabl (_stream_readable.is:905:12)\n dontcallback2 (node.is:452:9)\n process._tickcallback (node.is:366:17)', rawtype: 'invalid_request_error', code: undefined, parma: 'source', message: 'token supported.', detail: undefined, raw: { type: 'invalid_request_error', message: 'token supported.', parma: 'source', statuscode: 400, requested: 'req_7hzy3megem3nnj' }, requested: 'req_7hzy3megem3nnj', statuscode: 400 } </code></pre> <p>i'v pretty much use code straight docs, wrong here? need set thing differ great custom subscription?</p>"
+34755728,Profile Python import times,"<p>Is there a way to find out which imports are taking the longest in Python? Looking at the output of <code>python -m cProfile &lt;script&gt;</code>, it doesn't seem to include <code>import</code> statements (understandably given potentially huge dependency trees). Initially I thought it did since I saw a row for <code>__import__()</code> calls, but I think this might actually be because code somewhere is explicitly calling it, toy programs with only <code>import</code> statements don't have a row for it.</p>
+
+<p>Right now I'm just using:</p>
+
+<pre><code>start = time.time()
+import &lt;module&gt;
+print '%s / time: %f' % (&lt;module&gt;, time.time()-start)
+</code></pre>
+
+<p>around each module, but it doesn't profile it recursively to see which import within an import might be inflating the time.</p>
+",<python><profiling><python-import>,16/01/12 23:27,HQ,"<python><profiling><python-import>, Profile Python import times, <p>Is there a way to find out which imports are taking the longest in Python? Looking at the output of <code>python -m cProfile &lt;script&gt;</code>, it doesn't seem to include <code>import</code> statements (understandably given potentially huge dependency trees). Initially I thought it did since I saw a row for <code>__import__()</code> calls, but I think this might actually be because code somewhere is explicitly calling it, toy programs with only <code>import</code> statements don't have a row for it.</p>
+
+<p>Right now I'm just using:</p>
+
+<pre><code>start = time.time()
+import &lt;module&gt;
+print '%s / time: %f' % (&lt;module&gt;, time.time()-start)
+</code></pre>
+
+<p>around each module, but it doesn't profile it recursively to see which import within an import might be inflating the time.</p>
+","<patron><profiting><patron-import>, profit patron import times, <p>i way find import take longest patron? look output <code>patron -m profit &it;script&it;</code>, seem include <code>import</code> statement (understand given potent huge depend trees). into thought since saw row <code>__import__()</code> calls, think might actual code somewhere explicitly call it, toy program <code>import</code> statement row it.</p> <p>right i'm using:</p> <pre><code>start = time.time() import &it;module&it; print '% / time: %f' % (&it;module&it;, time.time()-start) </code></pre> <p>around module, profit recurs see import within import might flat time.</p>"

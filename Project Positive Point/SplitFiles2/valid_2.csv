@@ -1,0 +1,205 @@
+Id,Title,Body,Tags,CreationDate,Y
+34559402,c# - List all primes upto 100,"Written the below code trying to identify all primes up 100. It's outputting 1,2 and 5. Can anyone see any reason why it wouldn't continue past the first 3?
+
+I know there's some efficiency tweaks I can do (only odds numbers etc) but just trying to get the core (overkill) concept down first. I'm a complete noob just trying to enhance my intuition with programming so I know it's probably not the most elegant solution but more interested in why it doesn't work.
+
+Appreciate any help.. HAPPY NEW YEAR!
+
+
+
+
+    static void Main(string[] args)
+        {
+            int q = 100;
+            for (int i = 1; i < q; i++)
+            {
+                if ((q % i) == 0)
+                {
+                    bool isPrime = true;
+                    for (int j = 2; j < i; j++)                       
+                            {
+                                if ((i % j) == 0)
+                                {
+                                    isPrime = false;
+                                }
+                            }
+                        
+                    if (isPrime == true)
+                    { Console.WriteLine(i + "" is a prime number... hopefully.""); }
+                    
+                }
+            }
+            Console.ReadKey();
+        }",<c#><primes>,16/01/01 19:41,LQ_EDIT
+34561346,Angular2 exception: Token must be defined,"<p>app/boot.ts</p>
+
+<pre><code>import {bootstrap} from 'angular2/platform/browser';
+import {AppComponent} from './app.component';
+bootstrap(AppComponent);
+</code></pre>
+
+<p>app/app.component.ts</p>
+
+<pre><code>import {Component} from 'angular2/core';
+@Component({
+  selector: 'my-app',
+  template: '{{title}}'
+})
+class AppComponent {
+  title: ""app""
+}
+</code></pre>
+
+<p>Error:</p>
+
+<pre><code>EXCEPTION: Token must be defined!
+STACKTRACE:BrowserDomAdapter.logError @ angular2.dev.js:23514
+ExceptionHandler.call                 @ angular2.dev.js:1147
+(anonymous function)                  @ angular2.dev.js:14801
+NgZone._notifyOnError                 @ angular2.dev.js:5796
+collection_1.StringMapWrapper.merge.onError @ angular2.dev.js:5700
+run                                   @ angular2-polyfills.js:141
+(anonymous function)                  @ angular2.dev.js:5719
+NgZone.run                            @ angular2.dev.js:5681
+ApplicationRef_.bootstrap             @ angular2.dev.js:14906
+bootstrap                             @ angular2.dev.js:25054
+execute                               @ boot.ts:4
+u                                     @ system.src.js:4597
+execute                               @ system.src.js:4597
+y                                     @ system.src.js:4597
+...
+</code></pre>
+",<angular>,16/01/02 0:05,HQ
+34562193,Form Validation project,"<p>I am working on a project for my company and we are not allowed to alter the HTML in any way. There is already a Page set up in the Using html to do Data Validation. There are to separate forms of validation questions on the page and each form contains its own ""submit"" button. Although both submit buttons have the same ""id"". is there any way to figure out how isolate each button to apply a different "".onclick"" method to them. Thanks in advance.</p>
+",<javascript><html><validation>,16/01/02 3:06,LQ_CLOSE
+34562473,Most Pythonic way to kill a thread after some period of time,"<p>I would like to run a process in a thread (which is iterating over a large database table). While the thread is running, I just want the program to wait. If that thread takes longer then 30 seconds, I want to kill the thread and do something else. By killing the thread, I mean that I want it to cease activity and release resources gracefully.</p>
+
+<p>I figured the best way to do this was through a <code>Thread()</code>'s <code>join(delay)</code> and <code>is_alive()</code> functions, and an <code>Event</code>. Using the <code>join(delay)</code> I can have my program wait 30 seconds for the thread to finish, and by using the <code>is_alive()</code> function I can determine if the thread has finished its work. If it hasn't finished its work, the event is set, and the thread knows to stop working at that point.</p>
+
+<p>Is this approach valid, and is this the most pythonic way to go about my problem statement?</p>
+
+<p>Here is some sample code:</p>
+
+<pre><code>import threading
+import time
+
+# The worker loops for about 1 minute adding numbers to a set
+# unless the event is set, at which point it breaks the loop and terminates
+def worker(e):
+    data = set()
+    for i in range(60):
+        data.add(i)
+        if not e.isSet():
+            print ""foo""
+            time.sleep(1)
+        else:
+            print ""bar""
+            break
+
+e = threading.Event()
+t = threading.Thread(target=worker, args=(e,))
+t.start()
+
+# wait 30 seconds for the thread to finish its work
+t.join(30)
+if t.is_alive():
+    print ""thread is not done, setting event to kill thread.""
+    e.set()
+else:
+    print ""thread has already finished.""
+</code></pre>
+",<python><multithreading>,16/01/02 4:01,HQ
+34562496,"Gulp error internal/child_process.js:298 throw errnoException(err, 'spawn'); Error: spawn EACCES","<p>I searched for the cause of this error and found that I have to change permissions or run gulp using sudo, but still got the same error.
+Can anyone please help...</p>
+
+<p>internal/child_process.js:298
+    throw errnoException(err, 'spawn');
+    ^</p>
+
+<p>Error: spawn EACCES
+    at exports._errnoException (util.js:870:11)
+    at ChildProcess.spawn (internal/child_process.js:298:11)
+    at exports.spawn (child_process.js:362:9)
+    at exports.execFile (child_process.js:151:15)
+    at ExecBuffer. (/var/www/conFusion/node_modules/gulp-imagemin/node_modules/imagemin/node_modules/imagemin-optipng/node_modules/exec-buffer/index.js:91:3)
+    at /var/www/conFusion/node_modules/gulp-rev/node_modules/vinyl-file/node_modules/graceful-fs/graceful-fs.js:42:10
+    at /var/www/conFusion/node_modules/gulp-cache/node_modules/cache-swap/node_modules/graceful-fs/graceful-fs.js:42:10
+    at /var/www/conFusion/node_modules/gulp-imagemin/node_modules/imagemin/node_modules/vinyl-fs/node_modules/graceful-fs/graceful-fs.js:42:10
+    at FSReqWrap.oncomplete (fs.js:82:15)</p>
+",<gulp>,16/01/02 4:05,HQ
+34563285,Filter Name with Starting Letter in C#,"here is my code for select details by checking the name given.
+here I want to do name filter by starting letter also.. how can I do it?
+
+select * from tblcustomer
+where 
+customername=case @customername
+		when null then customername
+		else @customername",<sql>,16/01/02 6:31,LQ_EDIT
+34563454,Django ImageField upload_to path,"<p>I'm having trouble understanding and using Django's ImageField.</p>
+
+<p>I have a model:</p>
+
+<pre><code>class BlogContent(models.Model):
+    title = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='static/static_dirs/images/')
+    description = models.TextField()
+</code></pre>
+
+<p>My file system is currently:</p>
+
+<pre><code>src
+ |---main_project
+ |---app_that_contains_blog_content_model
+ |---static
+       |---static_dirs
+                |---images
+</code></pre>
+
+<p>When I run the server and go to the Admin page, I can add BlogContent objects. After choosing an image for the image field, the image has a temporary name. However, after I save this object I can't find the image in the folder specified by the upload_to path. </p>
+
+<p>What is the correct way to do this?</p>
+",<python><django>,16/01/02 6:54,HQ
+34564148,Compiling SASS in Windows 7,"<p>I'm planning to use SASS in making a website instead of CSS. I'm trying to compile a SASS file to CSS. Should I use an application to do so? Or should I use just command prompt?</p>
+",<windows-7><compilation><sass>,16/01/02 8:46,LQ_CLOSE
+34564297,to get or set the values of controls of a form froma class file,"I am new here,
+i need to ask that, how can i get the value of a textbox and store it outside the FORM.cs, and to get that value to show it on a label...
+it is just for test application.. i want to code that is independent from GUI.
+thanks for your help in advance.
+here is what i was trying...
+
+In Form.cs
+ 
+
+private void button4_Click(object sender, EventArgs e)
+        {
+            
+           
+            cueTextBox2.Text = value;
+            Calling cal = new Calling();
+           cal.setntags(value);
+          }
+
+in Calling.cs
+
+
+    public string setntags(string value)
+            {
+                
+                value = tag1;
+                MessageBox.Show(""done"");
+                return tag1;
+    
+            }
+
+i am new in coding.. please help me,.",<c#><asp.net><winforms><class>,16/01/02 9:12,LQ_EDIT
+34564356,i am new to pythn and was trying to fix indentation error : this is my code class Cylinder(object):,"class Cylinder(object):
+        self.pi = 3.14
+    def __init__(self,height=1,radius=1):
+            self.height = height
+            self.radius = radius
+        
+    def volume(self):
+        return self.pi * self.radius**2 * self.height
+    
+    def surface_area(self):
+        pass",<python>,16/01/02 9:22,LQ_EDIT

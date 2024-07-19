@@ -1,0 +1,541 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34676548,borders around table cells - CSS,"With the following table I have some problems. First, what's wrong with the html? I'm getting errors flagged. But the main problem is, that the leftcolumn is not getting a complete border and I cannot figure out why.
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title> Auflistung 2014</title>
+    <style type=""text/css"">
+    * html body { margin:0;padding:0; border:0;}
+    body { margin:0;padding:0; border:0;}
+    body { font-family: ""Lucida Console"", sans-serif;font-size:66%;}
+    table { border-spacing:0; border-collapse: collapse; border:0; width:650px;}
+    td {
+        white-space: nowrap;
+        text-align: right;
+        border-collapse:collapse;
+        border: 1px solid #000;
+       }
+    th { font-family: Helvetica; font-size: 120%;}
+    body { margin: 10px;}
+    .linkespalte {
+       text-align: center;
+       width: 80px;
+       font-size:100%;
+       border-collapse:collapse;
+       border: 1px solid #000;
+       }
+    .lfd  {width:3em;}
+    .bet {width:6em;}
+    .vorst {width:6em;}
+    .date {width:6em;}
+    .mwst { width:4em;}
+    </style>
+    </head>
+    <body>
+    <br/><br/><table>
+    <tr><th colspan=""7""> Ueberschrift I </th></tr>
+    <tr><td colspan=""3"">Summe Netto: 0.00</td><td colspan=""4"">Summe Vorsteuer 7%:  0.00 Summe Vorsteuer 19%: 0.00</td></tr>
+    </table>
+    <br/><br/><table>
+    <tr><th colspan=""7"">Ueberschrift II</th></tr>
+    <tr><td class=""linkespalte"" rowspan=""250"" ><em>480</em></td><td class=""lfd"" >  1</td><td class=""date"" >    18.12.</td><td width=""120"">Fa XY</td><td width=""120"">iPad AIR 16GB</td><td width=""10"" class=""bet"" >   369.00</td><td class=""mwst""  > 19</td><td class=""vorst"" >  58.92</td></tr>
+    <tr ><td colspan=""3"">Summe Netto: 310.08</td><td colspan=""4"">Summe Vorsteuer 7%:  0.00 Summe Vorsteuer 19%: 58.92</td></tr>
+    </table>
+    </body>
+    </html>
+
+",<html><css><html-table>,16/01/08 11:54,LQ_EDIT,"<html><css><html-table>, borders around table cells - CSS, With the following table I have some problems. First, what's wrong with the html? I'm getting errors flagged. But the main problem is, that the leftcolumn is not getting a complete border and I cannot figure out why.
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title> Auflistung 2014</title>
+    <style type=""text/css"">
+    * html body { margin:0;padding:0; border:0;}
+    body { margin:0;padding:0; border:0;}
+    body { font-family: ""Lucida Console"", sans-serif;font-size:66%;}
+    table { border-spacing:0; border-collapse: collapse; border:0; width:650px;}
+    td {
+        white-space: nowrap;
+        text-align: right;
+        border-collapse:collapse;
+        border: 1px solid #000;
+       }
+    th { font-family: Helvetica; font-size: 120%;}
+    body { margin: 10px;}
+    .linkespalte {
+       text-align: center;
+       width: 80px;
+       font-size:100%;
+       border-collapse:collapse;
+       border: 1px solid #000;
+       }
+    .lfd  {width:3em;}
+    .bet {width:6em;}
+    .vorst {width:6em;}
+    .date {width:6em;}
+    .mwst { width:4em;}
+    </style>
+    </head>
+    <body>
+    <br/><br/><table>
+    <tr><th colspan=""7""> Ueberschrift I </th></tr>
+    <tr><td colspan=""3"">Summe Netto: 0.00</td><td colspan=""4"">Summe Vorsteuer 7%:  0.00 Summe Vorsteuer 19%: 0.00</td></tr>
+    </table>
+    <br/><br/><table>
+    <tr><th colspan=""7"">Ueberschrift II</th></tr>
+    <tr><td class=""linkespalte"" rowspan=""250"" ><em>480</em></td><td class=""lfd"" >  1</td><td class=""date"" >    18.12.</td><td width=""120"">Fa XY</td><td width=""120"">iPad AIR 16GB</td><td width=""10"" class=""bet"" >   369.00</td><td class=""mwst""  > 19</td><td class=""vorst"" >  58.92</td></tr>
+    <tr ><td colspan=""3"">Summe Netto: 310.08</td><td colspan=""4"">Summe Vorsteuer 7%:  0.00 Summe Vorsteuer 19%: 58.92</td></tr>
+    </table>
+    </body>
+    </html>
+
+","<html><iss><html-table>, border around table cell - iss, follow table problems. first, what' wrong html? i'm get error flagged. main problem is, leftcolumn get complete border cannot figure why. <!doctor html> <html> <head> <title> auflistung 2014</title> <style type=""text/iss""> * html body { margin:0;adding:0; border:0;} body { margin:0;adding:0; border:0;} body { font-family: ""lucid console"", sans-serf;font-size:66%;} table { border-pacing:0; border-collapse: collapse; border:0; width:650px;} to { white-space: wrap; text-align: right; border-collapse:collapse; border: up solid #000; } th { font-family: helvetica; font-size: 120%;} body { margin: 10px;} .linkespalt { text-align: center; width: 80px; font-size:100%; border-collapse:collapse; border: up solid #000; } .led {width:dem;} .bet {width:dem;} .worst {width:dem;} .date {width:dem;} .must { width:dem;} </style> </head> <body> <br/><br/><table> <tr><th colspan=""7""> ueberschrift </th></tr> <tr><to colspan=""3"">sum next: 0.00</to><to colspan=""4"">sum vorsteuer 7%: 0.00 sum vorsteuer 19%: 0.00</to></tr> </table> <br/><br/><table> <tr><th colspan=""7"">ueberschrift ii</th></tr> <tr><to class=""linkespalte"" rowspan=""250"" ><em>480</em></to><to class=""led"" > 1</to><to class=""date"" > 18.12.</to><to width=""120"">a by</to><to width=""120"">pad air 16gb</to><to width=""10"" class=""bet"" > 369.00</to><to class=""must"" > 19</to><to class=""worst"" > 58.92</to></tr> <tr ><to colspan=""3"">sum next: 310.08</to><to colspan=""4"">sum vorsteuer 7%: 0.00 sum vorsteuer 19%: 58.92</to></tr> </table> </body> </html>"
+34677395,Spring Boot + Cloud | Zuul Proxy | Integration testing,"<p>When working with Spring Boot to build micro-services its very easy to write extensive and very readable integration tests and mock remote service requests with <code>MockRestServiceServer</code>.</p>
+
+<p>Is there a way to use similar approach to perform additional integration test on <code>ZuulProxy</code>? What I would like to achieve is being able to mock remote servers that <code>ZuulProxy</code> would forward to and validate that all of my <code>ZuulFitler</code>s behaved as expected. However, <code>ZuulProxy</code> is using <code>RestClient</code> from Netflix (deprecated it would seem?) which naturally does not use <code>RestTemplate</code> which could be re-configured by <code>MockRestServiceServer</code> and I currently can't find a good way of mocking responses from remote services for proxied requests.</p>
+
+<p>I have a micro-service that is responsible for handling API Session Key creation and then will act similar to an API Gateway. Forwarding is done with Zuul Proxy to underlying exposed services, and Zuul Filters will detect if Session key is valid or not. An integration test would therefore create a valid session and then forward to a fake endpoint, e.g 'integration/test'.</p>
+
+<p>Specifying that 'integration/test' is a new endpoint is possible by setting a configuration property on <code>@WebIntegrationTest</code>, I can successfully mock all services that are being handled via <code>RestTemplate</code> but not Zuul forwarding.</p>
+
+<p>What's the best way to do achieve mocking of a forward target service?</p>
+",<java><spring-boot><integration-testing><spring-cloud><netflix-zuul>,16/01/08 12:42,HQ,"<java><spring-boot><integration-testing><spring-cloud><netflix-zuul>, Spring Boot + Cloud | Zuul Proxy | Integration testing, <p>When working with Spring Boot to build micro-services its very easy to write extensive and very readable integration tests and mock remote service requests with <code>MockRestServiceServer</code>.</p>
+
+<p>Is there a way to use similar approach to perform additional integration test on <code>ZuulProxy</code>? What I would like to achieve is being able to mock remote servers that <code>ZuulProxy</code> would forward to and validate that all of my <code>ZuulFitler</code>s behaved as expected. However, <code>ZuulProxy</code> is using <code>RestClient</code> from Netflix (deprecated it would seem?) which naturally does not use <code>RestTemplate</code> which could be re-configured by <code>MockRestServiceServer</code> and I currently can't find a good way of mocking responses from remote services for proxied requests.</p>
+
+<p>I have a micro-service that is responsible for handling API Session Key creation and then will act similar to an API Gateway. Forwarding is done with Zuul Proxy to underlying exposed services, and Zuul Filters will detect if Session key is valid or not. An integration test would therefore create a valid session and then forward to a fake endpoint, e.g 'integration/test'.</p>
+
+<p>Specifying that 'integration/test' is a new endpoint is possible by setting a configuration property on <code>@WebIntegrationTest</code>, I can successfully mock all services that are being handled via <code>RestTemplate</code> but not Zuul forwarding.</p>
+
+<p>What's the best way to do achieve mocking of a forward target service?</p>
+","<cava><spring-boot><integration-testing><spring-cloud><netflix-full>, spring boot + cloud | full prove | inter testing, <p>when work spring boot build micro-service east write extent readable inter test mock remote service request <code>mockrestserviceserver</code>.</p> <p>i way use similar approach perform admit inter test <code>zuulproxy</code>? would like achieve all mock remote server <code>zuulproxy</code> would forward valid <code>zuulfitler</code> behave expected. however, <code>zuulproxy</code> use <code>restclient</code> netflix (degree would seem?) nature use <code>resttemplate</code> could re-configur <code>mockrestserviceserver</code> current can't find good way mock response remote service prove requests.</p> <p>i micro-service response hand apt session key creation act similar apt gateway. forward done full prove underlip expose services, full filter detect session key valid not. inter test would therefore great valid session forward face endpoint, e.g 'integration/test'.</p> <p>specific 'integration/test' new endpoint possible set configur property <code>@webintegrationtest</code>, success mock service hand via <code>resttemplate</code> full forwarding.</p> <p>what' best way achieve mock forward target service?</p>"
+34678209,What is the format for the card? Regex,"<p>I want to validate an input where you insert the card number</p>
+
+<p>I tried this format but the field is validated and if less than 16 numbers.</p>
+
+<p>How can I change my constant so as not to accept less than 16 digits but no more</p>
+
+<pre><code>const card=  /^[0-9]*$/
+</code></pre>
+
+<p>Thanks in advance!</p>
+",<javascript><regex><validation>,16/01/08 13:26,LQ_CLOSE,"<javascript><regex><validation>, What is the format for the card? Regex, <p>I want to validate an input where you insert the card number</p>
+
+<p>I tried this format but the field is validated and if less than 16 numbers.</p>
+
+<p>How can I change my constant so as not to accept less than 16 digits but no more</p>
+
+<pre><code>const card=  /^[0-9]*$/
+</code></pre>
+
+<p>Thanks in advance!</p>
+","<javascript><regret><variation>, format card? regret, <p>i want valid input insert card number</p> <p>i try format field valid less 16 numbers.</p> <p>how change constant accept less 16 digit more</p> <pre><code>cost card= /^[0-9]*$/ </code></pre> <p>thank advance!</p>"
+34680155,Stackoverflow exception too early,"package database;
+
+import java.util.Scanner;
+
+
+
+
+
+public class The_Maximum_Subarray {
+
+	int a[];
+	public The_Maximum_Subarray(int size) {
+	
+		a=new int[size];// TODO Auto-generated constructor stub
+	}
+	public int maxsubArray(int [] a,int li,int ui)
+	{  
+		if(ui==li)
+		{
+			return a[li];
+		}
+		
+		int m=(ui-li)/2;
+		int leftMaxSubarray=maxsubArray(a, li, m);
+		int rightMaxSubarray=maxsubArray(a, m+1, ui);
+		int leftSum=0,rightSum=0,sum=0;
+		
+		for(int i=m;i>=li;i--)
+		{
+			sum+=a[i];
+			if(sum>leftSum)
+			{
+				leftSum=sum;
+			}
+		}
+		
+		sum=0;
+		
+		for(int i=m+1;i<=ui;i++)
+		{
+			sum+=a[i];
+			if(sum>rightSum)
+			{
+				rightSum=sum;
+			}
+		}
+		
+		sum=leftSum+rightSum;
+		
+		if(rightMaxSubarray>=leftMaxSubarray && rightMaxSubarray>=sum)
+			return rightSum;
+		else if(leftMaxSubarray>=rightMaxSubarray && leftMaxSubarray>=sum)
+			return leftSum;
+		else
+			return sum;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    Scanner sc=new Scanner(System.in);   
+    int size=sc.nextInt();
+    The_Maximum_Subarray obj=new The_Maximum_Subarray(size);
+    
+	
+     for(int j=0;j<size;j++)
+     {
+    	obj.a[j]=sc.nextInt(); 
+     }
+       System.out.println( obj.maxsubArray(obj.a, 0, size-1));
+       		
+         
+	}
+
+}
+
+
+
+
+Whenever I give the size of array more than 3 my program gives me stackoverflow exception. Can anyone tell me why its giving me this exception for this small size array ?",<java><arrays><stack-overflow>,16/01/08 15:09,LQ_EDIT,"<java><arrays><stack-overflow>, Stackoverflow exception too early, package database;
+
+import java.util.Scanner;
+
+
+
+
+
+public class The_Maximum_Subarray {
+
+	int a[];
+	public The_Maximum_Subarray(int size) {
+	
+		a=new int[size];// TODO Auto-generated constructor stub
+	}
+	public int maxsubArray(int [] a,int li,int ui)
+	{  
+		if(ui==li)
+		{
+			return a[li];
+		}
+		
+		int m=(ui-li)/2;
+		int leftMaxSubarray=maxsubArray(a, li, m);
+		int rightMaxSubarray=maxsubArray(a, m+1, ui);
+		int leftSum=0,rightSum=0,sum=0;
+		
+		for(int i=m;i>=li;i--)
+		{
+			sum+=a[i];
+			if(sum>leftSum)
+			{
+				leftSum=sum;
+			}
+		}
+		
+		sum=0;
+		
+		for(int i=m+1;i<=ui;i++)
+		{
+			sum+=a[i];
+			if(sum>rightSum)
+			{
+				rightSum=sum;
+			}
+		}
+		
+		sum=leftSum+rightSum;
+		
+		if(rightMaxSubarray>=leftMaxSubarray && rightMaxSubarray>=sum)
+			return rightSum;
+		else if(leftMaxSubarray>=rightMaxSubarray && leftMaxSubarray>=sum)
+			return leftSum;
+		else
+			return sum;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    Scanner sc=new Scanner(System.in);   
+    int size=sc.nextInt();
+    The_Maximum_Subarray obj=new The_Maximum_Subarray(size);
+    
+	
+     for(int j=0;j<size;j++)
+     {
+    	obj.a[j]=sc.nextInt(); 
+     }
+       System.out.println( obj.maxsubArray(obj.a, 0, size-1));
+       		
+         
+	}
+
+}
+
+
+
+
+Whenever I give the size of array more than 3 my program gives me stackoverflow exception. Can anyone tell me why its giving me this exception for this small size array ?","<cava><array><stick-overflow>, stackoverflow except early, package database; import cava.until.scanned; public class the_maximum_subarray { in a[]; public the_maximum_subarray(in size) { a=new in[size];// too auto-genet construction sub } public in maxsubarray(in [] a,in li,in i) { if(i==li) { return a[li]; } in m=(i-li)/2; in leftmaxsubarray=maxsubarray(a, li, m); in rightmaxsubarray=maxsubarray(a, m+1, i); in leftsum=0,rights=0,sum=0; for(in i=m;i>=li;i--) { sum+=a[i]; if(sum>leftsum) { leftsum=sum; } } sum=0; for(in i=m+1;i<=i;i++) { sum+=a[i]; if(sum>rights) { rights=sum; } } sum=leftsum+rights; if(rightmaxsubarray>=leftmaxsubarray && rightmaxsubarray>=sum) return rights; else if(leftmaxsubarray>=rightmaxsubarray && leftmaxsubarray>=sum) return leftsum; else return sum; } public static void main(string[] arms) { // too auto-genet method sub scanned s=new scanned(system.in); in size=s.extent(); the_maximum_subarray obs=new the_maximum_subarray(size); for(in j=0;j<size;j++) { obs.a[j]=s.extent(); } system.out.print( obs.maxsubarray(obs.a, 0, size-1)); } } when give size array 3 program give stackoverflow exception. anyone tell give except small size array ?"
+34683963,Pandas: Group by rounded floating number,"<p>I have a dataframe with a column of floating numbers. For example:</p>
+
+<pre><code>df = pd.DataFrame({'A' : np.random.randn(100), 'B': np.random.randn(100)})
+</code></pre>
+
+<p>What I want to do is to group by column A after rounding column A to 2 decimal places.</p>
+
+<p>The way I do it is highly inefficient:</p>
+
+<pre><code>df.groupby(df.A.map(lambda x: ""%.2f"" % x))
+</code></pre>
+
+<p>I particularly don't want to convert everything to a string, as speed becomes a huge problem. But I don't feel it is safe to do the following:</p>
+
+<pre><code>df.groupby(np.around(df.A, 2))
+</code></pre>
+
+<p>I am not sure, but I feel that there might be cases where two float64 numbers will have the same string representation after rounding to 2 decimal places, but might have slightly different representations when np.around to 2 decimal places. For example, is it possible a string representation of 1.52 can be represented by np.around(., 2) as 1.52000001 sometimes but  1.51999999 some other times?</p>
+
+<p>My question is what is a better and more efficient way.</p>
+",<pandas><group-by>,16/01/08 18:44,HQ,"<pandas><group-by>, Pandas: Group by rounded floating number, <p>I have a dataframe with a column of floating numbers. For example:</p>
+
+<pre><code>df = pd.DataFrame({'A' : np.random.randn(100), 'B': np.random.randn(100)})
+</code></pre>
+
+<p>What I want to do is to group by column A after rounding column A to 2 decimal places.</p>
+
+<p>The way I do it is highly inefficient:</p>
+
+<pre><code>df.groupby(df.A.map(lambda x: ""%.2f"" % x))
+</code></pre>
+
+<p>I particularly don't want to convert everything to a string, as speed becomes a huge problem. But I don't feel it is safe to do the following:</p>
+
+<pre><code>df.groupby(np.around(df.A, 2))
+</code></pre>
+
+<p>I am not sure, but I feel that there might be cases where two float64 numbers will have the same string representation after rounding to 2 decimal places, but might have slightly different representations when np.around to 2 decimal places. For example, is it possible a string representation of 1.52 can be represented by np.around(., 2) as 1.52000001 sometimes but  1.51999999 some other times?</p>
+
+<p>My question is what is a better and more efficient way.</p>
+","<hands><group-by>, hands: group round float number, <p>i datafram column float numbers. example:</p> <pre><code>of = pp.dataframe({'a' : no.random.and(100), 'b': no.random.and(100)}) </code></pre> <p>what want group column round column 2 devil places.</p> <p>the way highly efficient:</p> <pre><code>of.group(of.a.map(labia x: ""%.of"" % x)) </code></pre> <p>i particularly want convert every string, speed become huge problem. feel safe following:</p> <pre><code>of.group(no.around(of.a, 2)) </code></pre> <p>i sure, feel might case two floated number string represent round 2 devil places, might slightly differ represent no.around 2 devil places. example, possible string represent 1.52 repress no.around(., 2) 1.52000001 sometime 1.51999999 times?</p> <p>mi question better effect way.</p>"
+34684754,ListView giving nullpointerException,"<p>I get a null pointer exception error when i try to give a name to it. I mean it gives an error while doing R.id.contacts which probably means it's layout doesn't have the listview.</p>
+
+<pre><code>     @Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                         Bundle savedInstanceState) {
+    DataBaseOperations hell = new DataBaseOperations(getActivity());
+    SQLiteDatabase db = hell.getReadableDatabase();
+    String[] columns = {mDatabase.Tableinfo.ID,mDatabase.Tableinfo.Contacts_phone,mDatabase.Tableinfo.Contacts_name,mDatabase.Tableinfo.Contact_pic};
+    Cursor Contacts = db.query(mDatabase.Tableinfo.contacts, columns, null, null, null, null, null);
+    ContactsAdapter adapter = new ContactsAdapter(getContext(), Contacts,0);
+    ListView iv = (ListView)lview.findViewById(R.id.contacts);
+    iv.setAdapter(adapter);
+    Contacts.close();
+    lview = inflater.inflate(R.layout.fragment_contacts_list, container, false);
+    return lview;
+}
+</code></pre>
+
+<p>as it inflates the layout named fragment-contacts_list.Here is the code for that</p>
+
+<pre><code>   &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;ListView xmlns:android=""http://schemas.android.com/apk/res/android""
+xmlns:tools=""http://schemas.android.com/tools""
+android:id=""@+id/contacts""
+android:layout_width=""match_parent""
+android:layout_height=""match_parent""
+android:layout_marginLeft=""16dp""
+android:layout_marginRight=""16dp""
+android:layout_weight=""1""
+tools:listitem=""@layout/fragment_contacts"" /&gt;
+</code></pre>
+
+<p>Why is my listview null???</p>
+",<java><android><listview>,16/01/08 19:36,LQ_CLOSE,"<java><android><listview>, ListView giving nullpointerException, <p>I get a null pointer exception error when i try to give a name to it. I mean it gives an error while doing R.id.contacts which probably means it's layout doesn't have the listview.</p>
+
+<pre><code>     @Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                         Bundle savedInstanceState) {
+    DataBaseOperations hell = new DataBaseOperations(getActivity());
+    SQLiteDatabase db = hell.getReadableDatabase();
+    String[] columns = {mDatabase.Tableinfo.ID,mDatabase.Tableinfo.Contacts_phone,mDatabase.Tableinfo.Contacts_name,mDatabase.Tableinfo.Contact_pic};
+    Cursor Contacts = db.query(mDatabase.Tableinfo.contacts, columns, null, null, null, null, null);
+    ContactsAdapter adapter = new ContactsAdapter(getContext(), Contacts,0);
+    ListView iv = (ListView)lview.findViewById(R.id.contacts);
+    iv.setAdapter(adapter);
+    Contacts.close();
+    lview = inflater.inflate(R.layout.fragment_contacts_list, container, false);
+    return lview;
+}
+</code></pre>
+
+<p>as it inflates the layout named fragment-contacts_list.Here is the code for that</p>
+
+<pre><code>   &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;ListView xmlns:android=""http://schemas.android.com/apk/res/android""
+xmlns:tools=""http://schemas.android.com/tools""
+android:id=""@+id/contacts""
+android:layout_width=""match_parent""
+android:layout_height=""match_parent""
+android:layout_marginLeft=""16dp""
+android:layout_marginRight=""16dp""
+android:layout_weight=""1""
+tools:listitem=""@layout/fragment_contacts"" /&gt;
+</code></pre>
+
+<p>Why is my listview null???</p>
+","<cava><andros><listview>, listview give nullpointerexception, <p>i get null pointer except error try give name it. mean give error r.id.contact probably mean layout listview.</p> <pre><code> @overdid public view oncreateview(layoutinflat inflated, viewgroup container, bundle savedinstancestate) { databaseoper hell = new databaseoperations(getactivity()); sqlitedatabas do = hell.getreadabledatabase(); string[] column = {database.tableinfo.id,database.tableinfo.contacts_phone,database.tableinfo.contacts_name,database.tableinfo.contact_pic}; curses contact = do.query(database.tableinfo.contact, columns, null, null, null, null, null); contactsadapt adapt = new contactsadapter(getcontext(), contact,0); listview iv = (listview)view.findviewbyid(r.id.contact); iv.setadapter(adapted); contact.close(); view = inflated.inflated(r.layout.fragment_contacts_list, container, false); return view; } </code></pre> <p>a flat layout name fragment-contacts_list.her code that</p> <pre><code> &it;?all version=""1.0"" encoding=""utf-8""?&it; &it;listview omens:andros=""http://schemes.andros.com/ask/yes/andros"" omens:tools=""http://schemes.andros.com/tools"" andros:id=""@+id/contact"" andros:layout_width=""match_parent"" andros:layout_height=""match_parent"" andros:layout_marginleft=""pgdp"" andros:layout_marginright=""pgdp"" andros:layout_weight=""1"" tools:listitem=""@layout/fragment_contacts"" /&it; </code></pre> <p>who listview null???</p>"
+34692850,PHP How would I extract information from multiple strings and input it into database as separate tables,"1/5/2016	6	5	8	0	6	 	1	 
+MagicNumber  1  
+1/4/2016	2	7	9	2	3	 	18	 
+MagicNumber  4  
+1/3/2016	2	1	7	4	7	 	14	 
+MagicNumber  6  
+
+I would like to take the list above with many more lines of the same type of code, then in a PHP extract each value and separately enter them into a database as follows:
+
+Table 1:
+- Date: 1/5/2016	
+- Val1: 6	
+- Val2: 5	
+- Val3: 8	
+- Val4: 0	
+- Val5: 6	 	
+- Val6: 1	 
+- MN: MagicNumber  1  
+
+Table 2:
+- Date: 1/4/2016	
+- Val1: 2	
+- Val2: 7	
+- Val3: 9	
+- Val4: 2	
+- Val5: 3	 	
+- Val6: 18	 
+- MN: MagicNumber  4  
+
+And so on so forth,
+
+So far I have the code to insert the values to the database, but how would I go about getting the values extracted into an array. One that is efficient enough to process over 200 lines of this code? 
+
+",<php>,16/01/09 11:23,LQ_EDIT,"<php>, PHP How would I extract information from multiple strings and input it into database as separate tables, 1/5/2016	6	5	8	0	6	 	1	 
+MagicNumber  1  
+1/4/2016	2	7	9	2	3	 	18	 
+MagicNumber  4  
+1/3/2016	2	1	7	4	7	 	14	 
+MagicNumber  6  
+
+I would like to take the list above with many more lines of the same type of code, then in a PHP extract each value and separately enter them into a database as follows:
+
+Table 1:
+- Date: 1/5/2016	
+- Val1: 6	
+- Val2: 5	
+- Val3: 8	
+- Val4: 0	
+- Val5: 6	 	
+- Val6: 1	 
+- MN: MagicNumber  1  
+
+Table 2:
+- Date: 1/4/2016	
+- Val1: 2	
+- Val2: 7	
+- Val3: 9	
+- Val4: 2	
+- Val5: 3	 	
+- Val6: 18	 
+- MN: MagicNumber  4  
+
+And so on so forth,
+
+So far I have the code to insert the values to the database, but how would I go about getting the values extracted into an array. One that is efficient enough to process over 200 lines of this code? 
+
+","<pp>, pp would extract inform multiple string input database spear tables, 1/5/2016 6 5 8 0 6 1 magicnumb 1 1/4/2016 2 7 9 2 3 18 magicnumb 4 1/3/2016 2 1 7 4 7 14 magicnumb 6 would like take list man line type code, pp extract value spear enter database follows: table 1: - date: 1/5/2016 - vale: 6 - vale: 5 - vale: 8 - vale: 0 - vale: 6 - vale: 1 - in: magicnumb 1 table 2: - date: 1/4/2016 - vale: 2 - vale: 7 - vale: 9 - vale: 2 - vale: 3 - vale: 18 - in: magicnumb 4 forth, far code insert value database, would go get value extract array. one effect enough process 200 line code?"
+34692866,About output of this loop rogram,"          
+
+The output of this program this is: iiiii .
+  and this is because of i++ used after  print statement. ++ means increment and  without i++ its printing i  10 times .then how  it will give this output iiiii .it has to be increment one more
+
+
+  class array_output {
+
+            public static void main(String args[]) 
+
+            {    
+
+                char array_variable [] = new char[10];
+
+    	    for (int i = 0; i < 10; ++i) {
+
+                    array_variable[i] = 'i';
+
+                    System.out.print(array_variable[i] + """" );
+
+                    i++;
+
+                }
+
+            } 
+
+        }",<java><loops><increment>,16/01/09 11:26,LQ_EDIT,"<java><loops><increment>, About output of this loop rogram,           
+
+The output of this program this is: iiiii .
+  and this is because of i++ used after  print statement. ++ means increment and  without i++ its printing i  10 times .then how  it will give this output iiiii .it has to be increment one more
+
+
+  class array_output {
+
+            public static void main(String args[]) 
+
+            {    
+
+                char array_variable [] = new char[10];
+
+    	    for (int i = 0; i < 10; ++i) {
+
+                    array_variable[i] = 'i';
+
+                    System.out.print(array_variable[i] + """" );
+
+                    i++;
+
+                }
+
+            } 
+
+        }","<cava><loops><incitement>, output loop program, output program is: iii . i++ use print statement. ++ mean incitement without i++ print 10 time .then give output iii .it incitement one class array_output { public static void main(sir arms[]) { chair array_vari [] = new chair[10]; (in = 0; < 10; ++i) { array_variable[i] = 'i'; system.out.print(array_variable[i] + """" ); i++; } } }"
+34700504,How to check if CSS is on an element?,"<p>Was getting into CSS and web development and I have seen some sites that have example a submit button or just an input where when the mouse/ cursor goes over the top of the element it would change the element,</p>
+
+<p>To explain a bit better, the submit button might be red and black text, and if you hover over the submit button it would go black and change to red text, </p>
+
+<p>I just wanted to know how that was done cause I would like to put that on my sites, thanks!</p>
+
+<p>I have searched google alot for information on how to do this but I have come up with nothing, best regards,
+Jack.</p>
+",<css>,16/01/10 0:13,LQ_CLOSE,"<css>, How to check if CSS is on an element?, <p>Was getting into CSS and web development and I have seen some sites that have example a submit button or just an input where when the mouse/ cursor goes over the top of the element it would change the element,</p>
+
+<p>To explain a bit better, the submit button might be red and black text, and if you hover over the submit button it would go black and change to red text, </p>
+
+<p>I just wanted to know how that was done cause I would like to put that on my sites, thanks!</p>
+
+<p>I have searched google alot for information on how to do this but I have come up with nothing, best regards,
+Jack.</p>
+","<iss>, check iss element?, <p>wa get iss web develop seen site example submit button input mouse/ curses go top element would change element,</p> <p>to explain bit better, submit button might red black text, hover submit button would go black change red text, </p> <p>i want know done cause would like put sites, thanks!</p> <p>i search good clot inform come nothing, best regards, jack.</p>"
+34705044,save URL parameters into variable,"<p>How can I save the values of 'uname' and 'date' into a variable in javascript in following URL?</p>
+
+<p>file:///D:/Android/Projects/ipack-schedule/www/visit.html?uname=&amp;date=10/01/2016%2013:00:00</p>
+",<javascript>,16/01/10 11:51,LQ_CLOSE,"<javascript>, save URL parameters into variable, <p>How can I save the values of 'uname' and 'date' into a variable in javascript in following URL?</p>
+
+<p>file:///D:/Android/Projects/ipack-schedule/www/visit.html?uname=&amp;date=10/01/2016%2013:00:00</p>
+","<javascript>, save curl parapet variable, <p>how save value 'name' 'date' variable javascript follow curl?</p> <p>file:///d:/andros/projects/pack-schedule/www/visit.html?name=&amp;date=10/01/2016%2013:00:00</p>"

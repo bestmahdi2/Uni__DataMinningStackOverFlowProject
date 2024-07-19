@@ -1,0 +1,1869 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+59624695,Entity Framework Core 3.1 Return value (int) from stored procedure,"this returns -1, how can i get the actual return value from stored procedure?
+here is my stored procedure
+ALTER PROCEDURE [Production].[Select_TicketQuantity]
+    @Ticket NVARCHAR(25),
+    @Reference NVARCHAR(20)
+AS
+BEGIN
+    declare @SQL nvarchar (4000)
+    SET @SQL = 'select QARTCOL as Quantidade from D805DATPOR.GCARCCR1 where NCOLGIA = ' + @Ticket + ' AND NARTCOM = ''' + @Reference + ''''
+    SET @SQL = N'select CONVERT(int,Quantidade) as Quantidade from OpenQuery(MACPAC, ''' + REPLACE(@SQL, '''', '''''') + ''')'
+    PRINT @SQL
+    EXEC (@SQL)
+END   
+C# code
+int? quantity= 0;
+try
+{
+    quantity= await _context.Database.ExecuteSqlRawAsync(""EXEC Production.Select_TicketQuantity @p0, @p1"", parameters: new[] { ticket, reference});
+}
+catch (Exception ex)
+{
+    _logger.LogError($""{ex}"");
+    return RedirectToPage(""Index"");
+}
+",<c#><sql-server><entity-framework-core-3.1>,834,0,23,3390,4,35,80,75,27905,0.0,366,7,15,2020-01-07 8:30,2020-01-07 9:57,,0.0,,Basic,10
+62828259,Laravel Slow queries,"public function delete( ReportDetailRequest $request )
+    {
+        $id = (int)$request-&gt;id;
+        $customerRecord = CustomerInfo::find($id);
+        $customerRecord-&gt;delete();
+    }
+I currently have the above in a laravel application where a DELETE request is sent to this controller. At the moment, as you can see, its very simple, but the query seems super slow. It comes back in postman in 2.23 seconds. What should I try to speed this up? The database layer (mysql) does have an index on ID from what I can tell and the application isn't running in debug. Is this typical?
+edit:
+Good thinking that the request validation may be doing something (it is validating that this user has auth to delete).
+class ReportDetailRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        $id = (int)$this-&gt;route('id');
+        $customerInfo = CustomerInfo::find($id)-&gt;first();
+        $company = $customerInfo-&gt;company_id;
+        return (auth()-&gt;user()-&gt;company-&gt;id  == $company );
+    }
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            //
+        ];
+    }
+}
+Show create table:
+CREATE TABLE &quot;customer_info&quot; (
+  &quot;id&quot; int(11) NOT NULL AUTO_INCREMENT,
+  &quot;user_id&quot; int(11) DEFAULT NULL,
+  &quot;report_guid&quot; varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  &quot;customer_email&quot; varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  &quot;created_at&quot; timestamp NULL DEFAULT NULL,
+  &quot;updated_at&quot; timestamp NULL DEFAULT NULL,
+  &quot;report_read&quot; tinyint(1) NOT NULL,
+  &quot;customer_name&quot; varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  &quot;customer_support_issue&quot; longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  &quot;company_id&quot; int(11) NOT NULL,
+  &quot;archived&quot; tinyint(1) NOT NULL,
+  &quot;archived_at&quot; timestamp NULL DEFAULT NULL,
+  &quot;report_active&quot; tinyint(4) DEFAULT NULL,
+  &quot;customer_screenshot&quot; varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  &quot;video_url&quot; varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (&quot;id&quot;),
+  KEY &quot;indexReportLookup&quot; (&quot;report_guid&quot;),
+  KEY &quot;guid&quot; (&quot;report_guid&quot;),
+  KEY &quot;customer_info_id_index&quot; (&quot;id&quot;)
+)
+Baseline:
+ public function delete( Request $request )
+    {
+        // $id = (int)$request-&gt;id;
+        // $customerRecord = CustomerInfo::find($id);
+        // $foo_sql = $customerRecord-&gt;delete()-&gt;toSql();
+        // echo($foo_sql);
+        return 'test';
+        //$customerRecord-&gt;delete();
+    }
+Ok so a brand new table, with a brand new Request. with a single ID in it, looks like this:
+The controller looks like:
+public function deleteTest( Request $request )
+    {
+        $id = (int)$request-&gt;id;
+        $customerRecord = NewTable::where('id', '=', $id)-&gt;first();
+        $customerRecord-&gt;delete();
+        return response(null, 200);
+    }
+Postman version is :Version 7.27.1 (7.27.1)
+1630 ms. WTF. 1.6 seconds for a simple request on a new table.
+EXPLAIN DELETE:
+1   DELETE  new_tables      range   PRIMARY PRIMARY 8   const   1   100 Using where
+EXPLAIN SELECT
+1   SIMPLE  new_tables      const   PRIMARY PRIMARY 8   const   1   100 Using index
+MYSQL version   8.0.18
+innodb_version  8.0.18
+So now to add to the fun.
+A framework free PHP file. Simple GET request. 100ms.
+&lt;?php
+echo('tester');
+?&gt;
+Edit. Just to reiterate.
+A Laravel GET method (with authentication) returning test, returns 1.6s.
+A no framework &quot;sample.php&quot; file returns in 100ms.
+A Laravel GET method (without authentication) returning test, returns in 430ms.
+A Laravel GET method (without authentication but with DB access), returns in 1483ms.
+It look like there is indeed something holding up requests once the application starts using the database.
+Route::middleware('auth:api')-&gt;get('/test1','Api\CustomerInfoController@deleteTest')-&gt;name('report.deleteTest1.api');
+Route::middleware('auth:api')-&gt;get('/test2','Api\NewTableController@index')-&gt;name('report.deleteTest2.api');
+Route::get('/test3','Api\CustomerInfoController@deleteTest')-&gt;name('report.deleteTest3.api');
+Route::get('/test4','Api\NewTableController@index')-&gt;name('report.deleteTest4.api');
+ Route::get('/test5','Api\NewTableController@dbTest')-&gt;name('report.deleteTest5.api');
+NewTableController:
+&lt;?php
+namespace App\Http\Controllers\Api;
+class NewTableController extends Controller
+{
+    public function index()
+    {
+        return &quot;test2&quot;;
+    }
+}
+CustomerInfoController ( with some stuff removed, but method is pretty similar conceptually to NewTableController albeit with some dependency injection going on ).
+&lt;?php
+namespace App\Http\Controllers\Api;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Requests\ReportDetailRequest;
+use App\Services\CustomerInfoService;
+use Auth;
+use App\LookupParent;
+use App\LookupChild;
+use App\CustomerInfo;
+use App\Http\Resources\CustomerInfoResourceCollection;
+use App\Http\Resources\CustomerInfoResource;
+use App\Http\Resources\CustomerInfoResourceDetail;
+use Carbon\Carbon;
+use App\NewTable;
+class CustomerInfoController extends Controller
+{
+    protected $customerInfoService;
+    public function __construct(
+        CustomerInfoService $customerInfoService
+        )
+    {
+        $this-&gt;customerInfoService = $customerInfoService;
+    }
+    public function deleteTest()
+    {
+        return 'deleteTest';
+    }
+   public function dbTest()
+   {   
+     tap(NewTable::find(1))-&gt;delete();
+   }
+}
+Results:
+/test1 (with authentication 1380ms)
+/test2 (with authentication 1320ms)
+/test3 (without authentication 112ms)
+/test4 (without authentication 124ms)
+/test5 (db without authentication 1483ms)
+In other words, authentication talks to the database as does a simple delete query without authentication. These take at least a second to complete each. This leads to the roughly two second request mentioned above which has both elements (authentication and database access).
+Edit. For those of you reading from Google. Problem was to do with the managed database provided by Digital Ocean. Setup a localised database on MySQL on the same box, and problem resolved itself. think it was either latency from datacenters between web server and database across the world somewhere or a misconfiguration on the part of the db admins at DigitalOcean. Resolved myself, problem wasn't Laravel.
+",<mysql><laravel><performance>,6782,4,144,4349,6,51,89,76,9288,0.0,182,5,15,2020-07-10 6:09,2020-07-21 12:53,,11.0,,Intermediate,23
+59654712,Invalid value for key 'authentication',"I have a .NET Core 3.0 app where am trying to connect to a Azure SQL database using EF Core and Active directory integrated authentication.
+I have verified that I have access to this database from my machine as I can connect to it just fine using SQL server management studio and 'Azure Active Directory-Integrated' authentication.
+However, when I try to read data in my app (using EF Core), I always get a System.Argument exception with the following statement:
+Invalid value for key 'authentication'
+Exception details point to the Db connection string.
+So, here is my connection string from my dev appsettings.json file:
+&quot;ConnectionStrings&quot;: {
+&quot;MCDB&quot;: &quot;Server=tcp:dev-media-center-sql.database.windows.net,1433;Initial
+Catalog=MediaCenter;Persist Security Info=False;User
+ID={my User ID};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=Active Directory Integrated;&quot;   },
+I have tried hard coding the connection string directly in my code, thinking that there might be a problem with my JSON but I still get the same exception.
+Is &quot;Active Directory Integrated&quot; not a valid value for the 'Authentication' keyword? If not, what is it then? I have already tried &quot;ActiveDirectoryIntegrated&quot; (with no spaces) and /&quot;Active Directory Integrated&quot;/ (escaping double quotes) but to no avail.
+",<json><azure><.net-core><azure-active-directory><azure-sql-database>,1383,0,0,735,2,7,16,52,14531,0.0,43,6,15,2020-01-08 22:30,2020-09-25 23:43,,261.0,,Basic,2
+59849262,Postgresql full text search with TypeOrm,"There is some way to handle full text search with Postgres and TypeOrm. I've seen some examples but they only work with Mysql. How can I get the equivalent of this but with Postgresql?
+@Entity()
+export class User {
+    @PrimaryGeneratedColumn()
+    id: string;
+    @Index({ fulltext: true })
+    @Column(""varchar"")
+    name: string;
+}
+And use query builder:
+const searchTerm = ""John"";
+const result = await connection.manager.getRepository(User)
+            .createQueryBuilder()
+            .select()
+            .where(`MATCH(name) AGAINST ('${searchTerm}' IN BOOLEAN MODE)`)
+            .getMany();
+",<postgresql><typeorm>,601,0,17,795,2,10,30,78,18538,0.0,256,3,15,2020-01-21 21:09,2020-01-23 5:14,2020-01-23 5:14,2.0,2.0,Basic,3
+48305081,Spark' Dataset unpersist behaviour,"Recently I saw some strange behaviour of Spark.
+I have a pipeline in my application in which I'm manipulating one big Dataset - pseudocode:
+val data = spark.read (...)
+data.join(df1, ""key"") //etc, more transformations
+data.cache(); // used to not recalculate data after save
+data.write.parquet() // some save
+val extension = data.join (..) // more transformations - joins, selects, etc.
+extension.cache(); // again, cache to not double calculations
+extension.count();
+// (1)
+extension.write.csv() // some other save
+extension.groupBy(""key"").agg(some aggregations) //
+extension.write.parquet() // other save, without cache it will trigger recomputation of whole dataset
+However when I call data.unpersist() i.e. in place (1), Spark deletes from Storage all datasets, also the extension Dataset which is not the dataset I tried to unpersist.
+Is that an expected behaviour? How can I free some memory by unpersist on old Dataset without unpersisting all Dataset that was ""next in chain""?
+My setup:
+Spark version: current master, RC for 2.3
+Scala: 2.11
+Java: OpenJDK 1.8
+Question looks similar to Understanding Spark&#39;s caching, but here I'm doing some actions before unpersist. At first I'm counting everything and then save into storage - I don't know if caching works the same in RDD like in Datasets
+",<apache-spark><apache-spark-sql>,1303,1,17,15806,4,47,62,67,6579,0.0,2301,2,15,2018-01-17 15:54,2018-01-17 17:41,2018-01-17 17:41,0.0,0.0,Intermediate,23
+51089008,"An error occurred while installing mysql2 (0.3.21), and Bundler cannot continue","Any reason why this error popped up when I tried bundling an application:
+I have tried installing gem install mysql2 -v '0.3.21' as they recommend but it cant install properly. Also I am running this on macOS High Sierra. Sorry for my bad wording for this question because its my first time working with ruby.
+ To see why this extension failed to compile, please check the mkmf.log which can be found here:
+  /Users/yamanshrestha/Desktop/Dorsata/vendor/bundle/ruby/2.3.0/extensions/universal-darwin-17/2.3.0/mysql2-0.3.21/mkmf.log
+current directory: /Users/yamanshrestha/Desktop/Dorsata/vendor/bundle/ruby/2.3.0/gems/mysql2-0.3.21/ext/mysql2
+make ""DESTDIR="" clean
+current directory: /Users/yamanshrestha/Desktop/Dorsata/vendor/bundle/ruby/2.3.0/gems/mysql2-0.3.21/ext/mysql2
+make ""DESTDIR=""
+compiling infile.c
+compiling client.c
+client.c:439:3: error: use of undeclared identifier 'my_bool'
+  my_bool res = mysql_read_query_result(client);
+  ^
+client.c:441:19: error: use of undeclared identifier 'res'
+  return (void *)(res == 0 ? Qtrue : Qfalse);
+                  ^
+client.c:762:3: error: use of undeclared identifier 'my_bool'
+  my_bool boolval;
+  ^
+client.c:793:7: error: use of undeclared identifier 'boolval'
+      boolval = (value == Qfalse ? 0 : 1);
+      ^
+client.c:794:17: error: use of undeclared identifier 'boolval'
+      retval = &amp;boolval;
+                ^
+client.c:797:10: error: use of undeclared identifier 'MYSQL_SECURE_AUTH'; did you mean 'MYSQL_DEFAULT_AUTH'?
+    case MYSQL_SECURE_AUTH:
+         ^~~~~~~~~~~~~~~~~
+         MYSQL_DEFAULT_AUTH
+/usr/local/Cellar/mysql/8.0.11/include/mysql/mysql.h:188:3: note: 'MYSQL_DEFAULT_AUTH' declared here
+  MYSQL_DEFAULT_AUTH,
+  ^
+client.c:798:7: error: use of undeclared identifier 'boolval'
+      boolval = (value == Qfalse ? 0 : 1);
+      ^
+client.c:799:17: error: use of undeclared identifier 'boolval'
+      retval = &amp;boolval;
+                ^
+client.c:830:38: error: use of undeclared identifier 'boolval'
+        wrapper-&gt;reconnect_enabled = boolval;
+                                     ^
+client.c:1185:38: error: use of undeclared identifier 'MYSQL_SECURE_AUTH'; did you mean 'MYSQL_DEFAULT_AUTH'?
+  return _mysql_client_options(self, MYSQL_SECURE_AUTH, value);
+                                     ^~~~~~~~~~~~~~~~~
+                                     MYSQL_DEFAULT_AUTH
+/usr/local/Cellar/mysql/8.0.11/include/mysql/mysql.h:188:3: note: 'MYSQL_DEFAULT_AUTH' declared here
+  MYSQL_DEFAULT_AUTH,
+  ^
+10 errors generated.
+make: *** [client.o] Error 1
+make failed, exit code 2
+Gem files will remain installed in /Users/yamanshrestha/Desktop/Dorsata/vendor/bundle/ruby/2.3.0/gems/mysql2-0.3.21 for inspection.
+Results logged to /Users/yamanshrestha/Desktop/Dorsata/vendor/bundle/ruby/2.3.0/extensions/universal-darwin-17/2.3.0/mysql2-0.3.21/gem_make.out
+An error occurred while installing mysql2 (0.3.21), and Bundler cannot continue.
+Make sure that `gem install mysql2 -v '0.3.21' --source 'http://rubygems.org/'` succeeds before bundling.
+",<mysql><ruby-on-rails><bundle-install>,3020,1,59,250,1,2,11,73,14099,0.0,4,5,15,2018-06-28 18:01,2018-06-29 20:41,,1.0,,Intermediate,19
+59264410,How to connect to Traefik TCP Services with TLS configuration enabled?,"I am trying to configure Traefik so that I would have access to services via domain names, and that I would not have to set different ports. For example, two MongoDB services, both on the default port, but in different domains, example.localhost and example2.localhost. Only this example works. I mean, other cases probably work, but I can't connect to them, and I don't understand what the problem is. This is probably not even a problem with Traefik.
+I have prepared a repository with an example that works. You just need to generate your own certificate with mkcert. The page at example.localhost returns the 403 Forbidden error but you should not worry about it, because the purpose of this configuration is to show that SSL is working (padlock, green status). So don't focus on 403.
+Only the SSL connection to the mongo service works. I tested it with the Robo 3T program. After selecting the SSL connection, providing the host on example.localhost and selecting the certificate for a self-signed (or own) connection works. And that's the only thing that works that way. Connections to redis (Redis Desktop Manager) and to pgsql (PhpStorm, DBeaver, DbVisualizer) do not work, regardless of whether I provide certificates or not. I do not forward SSL to services, I only connect to Traefik. I spent long hours on it. I searched the internet. I haven't found the answer yet. Has anyone solved this?
+PS. I work on Linux Mint, so my configuration should work in this environment without any problem. I would ask for solutions for Linux.
+If you do not want to browse the repository, I attach the most important files:
+docker-compose.yml
+version: ""3.7""
+services:
+    traefik:
+        image: traefik:v2.0
+        ports:
+            - 80:80
+            - 443:443
+            - 8080:8080
+            - 6379:6379
+            - 5432:5432
+            - 27017:27017
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./config.toml:/etc/traefik/traefik.config.toml:ro
+            - ./certs:/etc/certs:ro
+        command:
+            - --api.insecure
+            - --accesslog
+            - --log.level=INFO
+            - --entrypoints.http.address=:80
+            - --entrypoints.https.address=:443
+            - --entrypoints.traefik.address=:8080
+            - --entrypoints.mongo.address=:27017
+            - --entrypoints.postgres.address=:5432
+            - --entrypoints.redis.address=:6379
+            - --providers.file.filename=/etc/traefik/traefik.config.toml
+            - --providers.docker
+            - --providers.docker.exposedByDefault=false
+            - --providers.docker.useBindPortIP=false
+    apache:
+        image: php:7.2-apache
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.http-dev.entrypoints=http
+            - traefik.http.routers.http-dev.rule=Host(`example.localhost`)
+            - traefik.http.routers.https-dev.entrypoints=https
+            - traefik.http.routers.https-dev.rule=Host(`example.localhost`)
+            - traefik.http.routers.https-dev.tls=true
+            - traefik.http.services.dev.loadbalancer.server.port=80
+    pgsql:
+        image: postgres:10
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+        labels:
+            - traefik.enable=true
+            - traefik.tcp.routers.pgsql.rule=HostSNI(`example.localhost`)
+            - traefik.tcp.routers.pgsql.tls=true
+            - traefik.tcp.routers.pgsql.service=pgsql
+            - traefik.tcp.routers.pgsql.entrypoints=postgres
+            - traefik.tcp.services.pgsql.loadbalancer.server.port=5432
+    mongo:
+        image: mongo:3
+        labels:
+            - traefik.enable=true
+            - traefik.tcp.routers.mongo.rule=HostSNI(`example.localhost`)
+            - traefik.tcp.routers.mongo.tls=true
+            - traefik.tcp.routers.mongo.service=mongo
+            - traefik.tcp.routers.mongo.entrypoints=mongo
+            - traefik.tcp.services.mongo.loadbalancer.server.port=27017
+    redis:
+        image: redis:3
+        labels:
+            - traefik.enable=true
+            - traefik.tcp.routers.redis.rule=HostSNI(`example.localhost`)
+            - traefik.tcp.routers.redis.tls=true
+            - traefik.tcp.routers.redis.service=redis
+            - traefik.tcp.routers.redis.entrypoints=redis
+            - traefik.tcp.services.redis.loadbalancer.server.port=6379
+config.toml
+[tls]
+[[tls.certificates]]
+certFile = ""/etc/certs/example.localhost.pem""
+keyFile = ""/etc/certs/example.localhost-key.pem""
+Build &amp; Run
+mkcert example.localhost # in ./certs/
+docker-compose up -d
+Prepare step by step
+Install mkcert (run also mkcert -install for CA)
+Clone my code
+In certs folder run mkcert example.localhost
+Start container by docker-compose up -d
+Open page https://example.localhost/ and check if it is secure connection
+If address http://example.localhost/ is not reachable, add 127.0.0.1 example.localhost to /etc/hosts
+Certs:
+Public: ./certs/example.localhost.pem
+Private: ./certs/example.localhost-key.pem
+CA: ~/.local/share/mkcert/rootCA.pem
+Test MongoDB
+Install Robo 3T
+Create new connection:
+Address: example.localhost
+Use SSL protocol
+CA Certificate: rootCA.pem (or Self-signed Certificate)
+Test tool:
+Test Redis
+Install RedisDesktopManager
+Create new connection:
+Address: example.localhost
+SSL
+Public Key: example.localhost.pem
+Private Key: example.localhost-key.pem
+Authority: rootCA.pem
+Test tool:
+So far:
+Can connect to Postgres via IP (info from Traefik)
+jdbc:postgresql://172.21.0.4:5432/postgres?sslmode=disable
+jdbc:postgresql://172.21.0.4:5432/postgres?sslfactory=org.postgresql.ssl.NonValidatingFactory
+Try telet (IP changes every docker restart):
+&gt; telnet 172.27.0.5 5432
+Trying 172.27.0.5...
+Connected to 172.27.0.5.
+Escape character is '^]'.
+^]
+Connection closed by foreign host.
+&gt; telnet example.localhost 5432
+Trying ::1...
+Connected to example.localhost.
+Escape character is '^]'.
+^]
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain; charset=utf-8
+Connection: close
+400 Bad RequestConnection closed by foreign host.
+If I connect directly to postgres, the data is nice. If I connect to via Traefik then I have Bad Request when closing the connection. I have no idea what this means and whether it must mean something.
+",<postgresql><docker><ssl><tcp><traefik>,6320,12,120,1882,1,23,30,60,8244,0.0,377,2,15,2019-12-10 9:51,2020-01-29 1:34,,50.0,,Advanced,37
+48277519,how to use COMMIT and ROLLBACK in a PostgreSQL function,"I am using three insert statements, and if there is an error in the third statement, I want to rollback the first and the second one. If there is no way to do this, please tell me a different approach to handle this in PostgresqQL.
+If I use COMMIT or ROLLBACK, I get an error.
+CREATE OR REPLACE FUNCTION TEST1 ()
+   RETURNS VOID
+   LANGUAGE 'plpgsql'
+   AS $$
+BEGIN 
+    INSERT INTO table1 VALUES (1);
+    INSERT INTO table1 VALUES (2);
+    INSERT INTO table1 VALUES ('A');
+    COMMIT;
+EXCEPTION
+   WHEN OTHERS THEN
+   ROLLBACK;
+END;$$;
+The above code is not working; COMMIT and ROLLBACK are not supported by PostgreSQL functions.
+",<postgresql><postgresql-10>,631,0,20,487,3,7,23,60,47949,0.0,10,3,15,2018-01-16 9:05,2018-01-16 9:16,2018-01-16 9:16,0.0,0.0,Basic,10
+63816057,How do i close database instance in gorm 1.20.0,"As i have not found in Close() function with *gorm instance, any help would be appreciated
+dbURI := fmt.Sprintf(&quot;user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s&quot;,
+    &quot;username&quot;, &quot;password&quot;, &quot;dbname&quot;, &quot;5432&quot;, &quot;disable&quot;, &quot;Asia/Kolkata&quot;)
+fmt.Println(dbURI)
+connection, err := gorm.Open(postgres.Open(dbURI), &amp;gorm.Config{})
+if err != nil {
+    fmt.Println(&quot;Error connecting database&quot;)
+    panic(err.Error())
+} else {
+    fmt.Println(&quot;Connected to database&quot;)
+}
+Note: connection.Close() is not available for GORM 1.20.0
+",<postgresql><go><go-gorm><glide-golang>,623,0,11,497,1,4,16,43,26825,0.0,25,3,15,2020-09-09 16:46,2020-09-09 18:24,,0.0,,Basic,10
+50474156,java.sql.SQLException: Unknown initial character set index '255' received from server for connector 8.0.11,"While establishing the connection to a MySQL database, I'm getting the following error
+java.sql.SQLException: Unknown initial character set index '255' received from 
+server. Initial client character set can be forced via the 'characterEncoding' 
+property.
+Upon googling, I got to know that we need to modify 2 params in my.ini or my.cnf.
+I am using MySQL version 8.0.11 and it does not have this file.
+Hence I modified these parameters using the SQL commands:
+Please note name and duration are column name in the table.    
+ALTER TABLE courses MODIFY name VARCHAR(50) COLLATE utf8_unicode_ci;    
+ALTER TABLE courses MODIFY duration VARCHAR(50) COLLATE utf8_unicode_ci;
+ALTER TABLE courses MODIFY name VARCHAR(50) CHARACTER SET utf8;
+ALTER TABLE courses MODIFY duration VARCHAR(50) CHARACTER SET utf8;
+Hence my table looks like this 
+After this, I restarted MySQL server, but I'm still getting the above error.
+Please note I'm deploying my application in tomcat and running rest API call which will connect to the database. While connecting to the database, I'm getting the above error.
+",<java><mysql><jdbc>,1088,1,8,445,2,6,13,76,52338,0.0,34,15,15,2018-05-22 18:20,2018-05-22 18:32,2018-08-14 5:25,0.0,84.0,Basic,10
+48562745,Select from multiple tables in one call,"In my code I have a page that includes information from 3 different tables. To show this information I make 3 SQL select calls and unite them in one list to pass as Model to my view. Can I do it with one SQL call? Data has no connection with one another. 
+My code:
+public ActionResult Index()
+{
+    StorePageData PageData = new StorePageData();
+    return View(PageData);
+}
+public class StorePageData
+{
+     public List&lt;Table1Data&gt; Table1 { get; set; }
+     public List&lt;Table2Data&gt; Table2 { get; set; }
+     public List&lt;Table3Data&gt; Table3 { get; set; }
+     public StorePageData()
+     {
+          Table1  = //loading from Database1
+          Table2  = //loading from Database2
+          Table3  = //loading from Database3
+     }
+}
+public class Table1Data
+{
+     public int Id { get; set; }
+     public double Info1 { get; set; }
+     public string Info2 { get; set; }
+}
+public class Table2Data
+{
+     public int Id { get; set; }
+     public List&lt;int&gt; Info1 { get; set; }
+     public List&lt;int&gt; Info2 { get; set; }
+}
+public class Table3Data
+{
+     public int Id { get; set; }
+     public List&lt;string&gt; Info1 { get; set; }
+     public List&lt;string&gt; Info2 { get; set; }
+}
+If there is a way to load all 3 tables in one SQL request it will improve significantly the load time of this page.
+Thank you.
+",<c#><asp.net><.net><sql-server><asp.net-mvc>,1336,0,36,2700,2,25,32,52,16257,0.0,403,7,15,2018-02-01 12:25,2018-02-01 12:32,2018-02-05 0:07,0.0,4.0,Basic,10
+58894875,How to delete a database in pgadmin,"When i try to create other database with the name ""eCommerce"" in pgadmin 4 this message appears 
+ERROR: source database ""template1"" is being accessed by other users
+DETAIL: There are 2 other sessions using the database.
+I try to delete the others databases but is not working and appears
+ERROR: cannot drop a template database
+What should i do?
+",<java><sql><database>,345,0,0,155,1,2,6,35,35059,0.0,4,6,15,2019-11-16 20:26,2019-11-16 22:26,2019-11-16 22:26,0.0,0.0,Basic,10
+51183321,How to use Paging with SQLite?,"I want to integrate Paging with SQLite in existing application. There are around 90 tables in my database so its time consuming to convert to Room. I also tried LIMIT...OFFSET but that takes time to process data every time. 
+Thanks.
+",<android><sqlite><paging>,233,2,1,4928,9,34,64,35,24595,0.0,113,0,15,2018-07-05 4:15,,,,,Basic,10
+56542036,"pgloader - Failed to connect to mysql at ""localhost"" (port 3306) as user ""root"": Condition QMYND:MYSQL-UNSUPPORTED-AUTHENTICATION was signalled","I am trying to migrate my rails application from mysql to postgres. Since we have already running application so I am moving mysql data to postgres database using pgloader. But when I do 
+pgloader mysql://root:root_password@127.0.0.1/mysql_database postgresql://postgres_user:postgres_pass@127.0.0.1/postgres_database
+I get error - Failed to connect to mysql at ""127.0.0.1"" (port 3306) as user ""root"": Condition QMYND:MYSQL-UNSUPPORTED-AUTHENTICATION was signalled. I can easily log in to mysql from terminal though.
+Thanks in advance.
+",<mysql><ruby-on-rails><postgresql><pgloader>,536,0,1,279,1,2,12,77,11056,,10,1,15,2019-06-11 10:49,2020-03-21 15:19,,284.0,,Intermediate,18
+51693126,"Why does DynamoDB seem to inconsistently return LastEvaluatedKey when no records remain, depending on the record limit of the query?","Using javascript aws-sdk and querying a dynamodb table, with document client. the table contains 10 elements and the query limit = 5. 
+For each request I use the LastEvaluatedKey to build a new query and send a fresh request, here are the results :
+first request --&gt; {Items: Array(5), Count: 5, ScannedCount: 5, LastEvaluatedKey: {…}}
+second request --&gt; {Items: Array(5), Count: 5, ScannedCount: 5, LastEvaluatedKey: {…}}
+third request --&gt; {Items: Array(0), Count: 0, ScannedCount: 0}
+According to this doc 
+  If the result contains a LastEvaluatedKey element, proceed to step 2. 
+  If there is not a LastEvaluatedKey in the result, then there are no
+  more items to be retrieved
+It is supposed to not return LastEvaluatedKey in the second request, cause there is no more elements, but it returns one which send to an empty result in the third request.
+When i try with limit = 4, every things works as expected
+first request --&gt; {Items: Array(4), Count: 4, ScannedCount: 4, LastEvaluatedKey: {…}}
+second request --&gt; {Items: Array(4), Count: 4, ScannedCount: 4, LastEvaluatedKey: {…}}
+third request --&gt; {Items: Array(2), Count: 2, ScannedCount: 2} &lt;--- there is no LastEvaluatedKey as expected
+So what is happening here ?
+",<amazon-web-services><pagination><nosql><amazon-dynamodb>,1242,1,6,1779,4,17,38,48,19219,0.0,90,3,15,2018-08-05 9:34,2018-08-05 12:39,2018-08-05 12:44,0.0,0.0,Advanced,33
+51947581,Select all columns except for some PostgreSQL,"I have to compare tables but there are some columns which I don't need to compare and I only know them (not the ones I have to compare) so I want to select all columns from table except the ones that I don't need to compare.
+I thought of something like:
+SELECT 'SELECT ' || array_to_string(ARRAY(SELECT 'o' || '.' || c.column_name
+    FROM information_schema.columns As c
+        WHERE table_name = 'office' 
+        AND  c.column_name NOT IN('id', 'deleted')
+), ',') || ' FROM officeAs o' As sqlstmt
+however the output was SELECT * FROM office As o 
+instead of being select a,b,c from office without id and deleted columns.
+Does anyone have any ideas what's wrong with this query?
+",<sql><postgresql>,682,0,8,2219,4,35,82,53,32424,,232,4,15,2018-08-21 11:21,2018-08-21 11:29,2018-08-21 11:29,0.0,0.0,Basic,10
+53921336,An error happened while reading data from the provider. The remote certificate is invalid according to the validation procedure,"I'm trying to connect Postgres Database on AWS EC2 instance to Microsoft PowerBI. I tried various method available on internet but its showing the above error. Although I've done this connection on AWS RDS. I installed required dependencies (GAC) and all the certificates required for PowerBI.
+",<windows><postgresql><amazon-ec2><powerbi>,294,1,0,333,1,2,13,67,26312,0.0,9,6,15,2018-12-25 10:10,2018-12-25 10:33,2018-12-25 10:33,0.0,0.0,Basic,13
+50129411,Why is predicate pushdown not used in typed Dataset API (vs untyped DataFrame API)?,"I always thought that dataset/dataframe API's are the same.. and the only difference is that dataset API will give you compile time safety. Right ?
+So.. I have very simple case:
+ case class Player (playerID: String, birthYear: Int)
+ val playersDs: Dataset[Player] = session.read
+  .option(""header"", ""true"")
+  .option(""delimiter"", "","")
+  .option(""inferSchema"", ""true"")
+  .csv(PeopleCsv)
+  .as[Player]
+ // Let's try to find players born in 1999. 
+ // This will work, you have compile time safety... but it will not use predicate pushdown!!!
+ playersDs.filter(_.birthYear == 1999).explain()
+ // This will work as expected and use predicate pushdown!!!
+ // But you can't have compile time safety with this :(
+ playersDs.filter('birthYear === 1999).explain()
+Explain from first example will show that it's NOT doing predicate pushdown (Notice empty PushedFilters):
+== Physical Plan ==
+*(1) Filter &lt;function1&gt;.apply
++- *(1) FileScan csv [...] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:People.csv], PartitionFilters: [], PushedFilters: [], ReadSchema: struct&lt;playerID:string,birthYear:int,birthMonth:int,birthDay:int,birthCountry:string,birthState:s...
+While the second sample will do it correctly (Notice PushedFilters):
+== Physical Plan ==
+*(1) Project [.....]
++- *(1) Filter (isnotnull(birthYear#11) &amp;&amp; (birthYear#11 = 1999))
+   +- *(1) FileScan csv [...] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:People.csv], PartitionFilters: [], PushedFilters: [IsNotNull(birthYear), EqualTo(birthYear,1999)], ReadSchema: struct&lt;playerID:string,birthYear:int,birthMonth:int,birthDay:int,birthCountry:string,birthState:s...
+So the question is.. how can I use DS Api, and have compile time safety.., and predicate pushdown working as expected ????
+Is it possible ? If not.. does this mean that DS api gives you compile time safety.. but at the cost of performance!! ??? (DF will be much faster in this case.. especially when processing large parquet files)
+",<apache-spark><dataframe><apache-spark-sql><apache-spark-dataset>,1998,0,23,165,0,1,6,81,3471,0.0,2,1,15,2018-05-02 7:40,2018-05-02 9:57,2018-05-02 9:57,0.0,0.0,Basic,3
+51800800,Results in Grid is not showing in SQL Server,"I couldn't see the results in grid pane, so I did the following: 
+Tools &gt; Options &gt; Query Results &gt; Results to Grid 
+      &gt; uncheck the ""Discard results after execution"" check box
+But still I couldn't see the results in grid. I even hit the ""Reset to Default"" button in same window yet no luck
+Please shed some light on this.
+",<sql-server><sql-server-2012><ssms><ssms-2012>,339,0,2,751,1,11,28,72,33458,,108,3,15,2018-08-11 14:46,2018-08-11 14:57,,0.0,,Basic,14
+62881953,Redis vs SQL Server performance,"Application performance is one of the main reason of using cache over relational database. Because it stores data in memory in the form of key value pair, we can store frequently accessed data in cache which are not changes very frequently. Reading from cache is much faster than database. Redis is one of the best solution in distributed cache market.
+I was doing a performance test between Azure Redis cache and Azure SQL Server. I have created a simple ASP.NET Core application and inside that I have read data from SQL Server database as well as Redis multiple times and compare the read time duration between them. For database reading I have used Entity Framework Core and for Redis reading I have used 'Microsoft.Extensions.Caching.StackExchangeRedis'.
+Model
+using System;
+namespace WebApplication2.Models
+{
+    [Serializable]
+    public class Student
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Subject { get; set; }
+        public Student()
+        {
+            Name = string.Empty;
+            Subject = string.Empty;
+        }
+    }
+}
+Entity Framework Core data context.
+using Microsoft.EntityFrameworkCore;
+using WebApplication2.Models;
+namespace WebApplication2.Data
+{
+    public class StudentContext : DbContext
+    {
+        public StudentContext(DbContextOptions&lt;StudentContext&gt; options)
+            : base(options)
+        {
+        }
+        public DbSet&lt;Student&gt;? Students { get; set; }
+    }
+}
+Startup class
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    string studentDbConnectionString = Configuration.GetConnectionString(&quot;StudentDbConnectionString&quot;);
+    services.AddDbContext&lt;StudentContext&gt;(option =&gt; option.UseSqlServer(studentDbConnectionString));
+    string redisConnectionString = Configuration.GetConnectionString(&quot;RedisConnectionString&quot;);
+    services.AddStackExchangeRedisCache(options =&gt;
+    {
+        options.Configuration = redisConnectionString;
+    });
+}
+appsettings.json
+{
+  &quot;Logging&quot;: {
+    &quot;LogLevel&quot;: {
+      &quot;Default&quot;: &quot;Information&quot;,
+      &quot;Microsoft&quot;: &quot;Warning&quot;,
+      &quot;Microsoft.Hosting.Lifetime&quot;: &quot;Information&quot;
+     }
+  },
+  &quot;AllowedHosts&quot;: &quot;*&quot;,
+  &quot;ConnectionStrings&quot;: {
+    &quot;StudentDbConnectionString&quot;: &quot;[Azure SQL Server connection string]&quot;,
+    &quot;RedisConnectionString&quot;: &quot;[Azure Redis cache connection string]&quot;
+  }
+}
+Home controller
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using WebApplication2.Data;
+using WebApplication2.Models;
+namespace WebApplication2.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly StudentContext _studentContext;
+        private readonly IDistributedCache _cache;
+        public HomeController(StudentContext studentContext, IDistributedCache cache)
+        {
+            _studentContext = studentContext;
+            _cache = cache;
+        }
+        public IActionResult Index()
+        {
+            List&lt;Student&gt;? students = null;
+            var counter = 10000;
+            var sw = Stopwatch.StartNew();
+            for (var i = 0; i &lt; counter; i++)
+            {
+                students = _studentContext.Students.OrderBy(student =&gt; student.Id).ToList();
+            }
+            sw.Stop();
+            ViewData[&quot;DatabaseDuraion&quot;] = $&quot;Database: {sw.ElapsedMilliseconds}&quot;;
+            if (students != null &amp;&amp; students.Count &gt; 0)
+            {
+                List&lt;Student&gt; studentsFromCache;
+                var key = &quot;Students&quot;;
+                _cache.Set(key, ObjectToByteArray(students));
+                sw.Restart();
+                for (var i = 0; i &lt; counter; i++)
+                {
+                    studentsFromCache = (List&lt;Student&gt;)ByteArrayToObject(_cache.Get(key));
+                }
+                sw.Stop();
+                ViewData[&quot;RedisDuraion&quot;] = $&quot;Redis: {sw.ElapsedMilliseconds}&quot;;
+            }
+            return View();
+        }
+        private byte[] ObjectToByteArray(object obj)
+        {
+            var bf = new BinaryFormatter();
+            using var ms = new MemoryStream();
+            bf.Serialize(ms, obj);
+            return ms.ToArray();
+        }
+        private object ByteArrayToObject(byte[] arrBytes)
+        {
+            using var memStream = new MemoryStream();
+            var binForm = new BinaryFormatter();
+            memStream.Write(arrBytes, 0, arrBytes.Length);
+            memStream.Seek(0, SeekOrigin.Begin);
+            object obj = binForm.Deserialize(memStream);
+            return obj;
+        }
+    }
+}
+Home\Index.cshtml view
+@{
+    ViewData[&quot;Title&quot;] = &quot;Home Page&quot;;
+}
+&lt;div class=&quot;text-center&quot;&gt;        
+    &lt;p&gt;@ViewData[&quot;DatabaseDuraion&quot;]&lt;/p&gt;
+    &lt;p&gt;@ViewData[&quot;RedisDuraion&quot;]&lt;/p&gt;
+&lt;/div&gt;
+I have found SQL Server is faster than Redis.
+The ASP.NET Core application is hosted in Azure App Service with the same location with Azure SQL Server and Azure Redis.
+Please let me know why Redis is slower than SQL Server?
+",<sql-server><azure><redis>,5510,1,142,494,1,4,14,77,15095,0.0,94,3,15,2020-07-13 18:21,2020-07-17 6:37,2020-07-17 6:37,4.0,4.0,Intermediate,23
+55093267,How to resolve writing configuration error while installing mysql?,"I am new to MySQL. I downloaded the MySQL windows installer and selected I guess everything I thought I would need for x64 and x86 products especially utilities, workbench and MySQL Server for MYSQL 8.0.15 
+When I get to the Configuration Steps section I select Execute and this is what happens: 
+  Writing Configuration file turns red. 
+Next I checked the Log File: 
+The Log File states: 
+  Beginning configuration step: Writing Configuration File 
+  Invalid server template 
+  Ended configuration step: Writing configuration file. 
+",<mysql><windows>,534,0,0,151,0,1,4,64,2806,,14,1,15,2019-03-10 23:01,2022-03-31 2:01,,1117.0,,Basic,14
+55162939,BigQuery: Return First Value from Different Groups in a Group By,"I am currently having a problem with a Standard SQL query. I have a list of emails where every email can have multiple functions. See the example below on how the table looks like.
+Email                         Function
+peter@gmail.com               engineer
+peter@gmail.com               specialist
+dave@gmail.com                analyst
+dave@gmail.com                tester
+dave@gmail.com                manager
+michael@gmail.com             intern
+What I want is a query that returns every email once with the first function it finds. So the above table should return the following:
+Email                         Function
+peter@gmail.com               engineer
+dave@gmail.com                analyst
+michael@gmail.com             intern
+How do I do this?
+What I have right now is a simplified version of the query.
+SELECT Email, Function
+FROM database
+GROUP BY Email, Function
+The issue is here is that I have to put both Email and Function in the GROUP BY. If I only put Email in the Group By the query cannot run even though I only want the query to GROUP BY Email.
+Thanks!
+",<sql><google-bigquery><standards>,1077,0,14,171,1,1,6,60,22249,,3,6,15,2019-03-14 12:47,2019-03-14 12:49,,0.0,,Basic,10
+54095648,Using Dapper to get nvarchar(max) returns a string trimmed to 4000 characters. Can this behaviour be changed?,"I have a SQL Server data table which stores a JSON string in one of its columns.  The JSON string is a serialised .net object and the data typically exceeds 4000 characters.
+I have a simple stored procedure which I use to retrieve the data:
+    @StageID int,
+    @Description varchar(250) = null OUTPUT,
+    @Program nvarchar(max) = null OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT @Program = StageProgram, @Description = Description 
+    FROM StageProgram 
+    WHERE StageID = @StageID;
+    RETURN 0;
+END 
+I am using the data type nvarchar(max) for the column. When I serialise the .net object to JSON and write it to the database using Dapper, I find that the full string is correctly stored in the database.
+However, when I attempt to retrieve the string I find that it is trimmed to 4000 characters, discarding the rest of the data.
+Here is the relevant code:
+DynamicParameters p = new DynamicParameters();
+p.Add(""@StageID"", Properties.Settings.Default.StageID, DbType.Int32, ParameterDirection.Input);
+p.Add(""@Description"", """", DbType.String, direction: ParameterDirection.Output);
+p.Add(""@Program"", """", DbType.String, direction: ParameterDirection.Output);
+p.Add(""@ReturnValue"", DbType.Int32, direction: ParameterDirection.ReturnValue);               
+try
+{
+     int stageID = Properties.Settings.Default.StageID;
+     connection.Execute(sql, p, commandType: CommandType.StoredProcedure);                 
+     json = p.Get&lt;string&gt;(""@Program"");
+     int r = p.Get&lt;int&gt;(""@ReturnValue"");                    
+}
+When I run this, the string json is trimmed to 4000 characters.
+If I use the built in .net SQL Server connection to retrieve it instead (using a query rather than a stored procedure for simplicity), the full data is correctly returned:
+SqlCommand getProgram = new SqlCommand(""SELECT StageProgram FROM StageProgram WHERE StageID = 1;"");
+getProgram.Connection = connection;
+string json = Convert.ToString(getProgram.ExecuteScalar());
+Is an experienced Dapper user able to provide an explanation for this behaviour? 
+Can it be changed?
+",<c#><json><sql-server><dapper>,2062,0,31,409,0,6,15,66,8476,0.0,7,1,15,2019-01-08 16:13,2019-01-08 17:08,2019-01-08 17:08,0.0,0.0,Basic,14
+57482120,"In Apache Spark, how to convert a slow RDD/dataset into a stream?","I'm investigating an interesting case that involves wide transformations (e.g. repartition &amp; join) on a slow RDD or dataset, e.g. the dataset defined by the following code:
+val ds = sqlContext.createDataset(1 to 100)
+  .repartition(1)
+  .mapPartitions { itr =&gt;
+    itr.map { ii =&gt;
+      Thread.sleep(100)
+      println(f""skewed - ${ii}"")
+      ii
+    }
+  }
+The slow dataset is relevant as it resembles a view of a remote data source, and the partition iterator is derived from a single-threaded network protocol (http, jdbc etc.), in this case, the speed of download > the speed of single-threaded processing, but &lt;&lt; the speed of distributed processing.
+Unfortunately the conventional Spark computation model won't be efficient on a slow dataset because we are confined to one of the following options:
+Use only narrow transformations (flatMap-ish) to pipe the stream with data processing end-to-end in a single thread, obviously the data processing will be a bottle neck and resource utilisation will be low.
+Use a wide operation (repartitioning included) to balance the RDD/dataset, while this is essential for parallel data processing efficiency, the Spark coarse-grained scheduler demands that the download to be fully completed, which becomes another bottleneck.
+Experiment
+The following program represents a simple simulation of such case:
+val mapped = ds
+val mapped2 = mapped
+  .repartition(10)
+  .map { ii =&gt;
+    println(f""repartitioned - ${ii}"")
+    ii
+  }
+mapped2.foreach { _ =&gt;
+  }
+When executing the above program it can be observed that line println(f""repartitioned - ${ii}"") will not be executed before line println(f""skewed - ${ii}"") in RDD dependency.
+I'd like to instruct Spark scheduler to start distributing/shipping data entries generated by the partition iterator before its task completion (through mechanisms like microbatch or stream). Is there a simple way of doing this? E.g. converting the slow dataset into a structured stream would be nice, but there should be alternatives that are better integrated.
+Thanks a lot for your opinion
+UPDATE: to make your experimentation easier I have appended my scala tests that can be ran out of the box:
+package com.tribbloids.spookystuff.spike
+import org.apache.spark.SparkContext
+import org.apache.spark.sql.{SQLContext, SparkSession}
+import org.scalatest.{FunSpec, Ignore}
+@Ignore
+class SlowRDDSpike extends FunSpec {
+  lazy val spark: SparkSession = SparkSession.builder().master(""local[*]"").getOrCreate()
+  lazy val sc: SparkContext = spark.sparkContext
+  lazy val sqlContext: SQLContext = spark.sqlContext
+  import sqlContext.implicits._
+  describe(""is repartitioning non-blocking?"") {
+    it(""dataset"") {
+      val ds = sqlContext
+        .createDataset(1 to 100)
+        .repartition(1)
+        .mapPartitions { itr =&gt;
+          itr.map { ii =&gt;
+            Thread.sleep(100)
+            println(f""skewed - $ii"")
+            ii
+          }
+        }
+      val mapped = ds
+      val mapped2 = mapped
+        .repartition(10)
+        .map { ii =&gt;
+          Thread.sleep(400)
+          println(f""repartitioned - $ii"")
+          ii
+        }
+      mapped2.foreach { _ =&gt;
+        }
+    }
+  }
+  it(""RDD"") {
+    val ds = sc
+      .parallelize(1 to 100)
+      .repartition(1)
+      .mapPartitions { itr =&gt;
+        itr.map { ii =&gt;
+          Thread.sleep(100)
+          println(f""skewed - $ii"")
+          ii
+        }
+      }
+    val mapped = ds
+    val mapped2 = mapped
+      .repartition(10)
+      .map { ii =&gt;
+        Thread.sleep(400)
+        println(f""repartitioned - $ii"")
+        ii
+      }
+    mapped2.foreach { _ =&gt;
+      }
+  }
+}
+",<scala><apache-spark><apache-spark-sql><spark-streaming>,3646,0,95,3756,14,65,106,80,971,0.0,490,2,15,2019-08-13 16:47,2020-06-26 10:13,,318.0,,Basic,10
+51028387,Full Text Search in EF Core 2.1?,"I am looking at using Full Text Search but not 100% clear on how to get it up with EF Core 2.1. 
+It seems that EF Core 2.1 might have implemented partial support for Full Text Search but I am not finding any tutorials on how actually use it.
+My understanding is that I will have to add an Full Text index to one of my columns.
+So if I have this table
+public class Company {
+    public string Name {get; set;}
+}
+public class CompanyConfig : IEntityTypeConfiguration&lt;Company&gt;
+{
+  public void Configure(EntityTypeBuilder&lt;Company&gt; builder)
+        {
+            builder.HasKey(x =&gt; x.Id);
+            builder.Property(x =&gt; x.Name).HasMaxLength(100).IsRequired();
+        }
+}
+How would I add full text index to my Name property?
+",<c#><sql-server><entity-framework><entity-framework-core><full-text-search>,742,0,13,83739,198,532,839,75,13506,0.0,391,1,15,2018-06-25 16:53,2018-07-23 11:10,2018-07-23 11:10,28.0,28.0,Basic,14
+50122955,check for duplicates in Pyspark Dataframe,"Is there a simple and efficient way to check a python dataframe just for duplicates (not drop them) based on column(s)?
+I want to check if a dataframe has dups based on a combination of columns and if it does, fail the process.
+TIA.
+",<python-2.7><dataframe><pyspark><apache-spark-sql>,233,0,0,599,1,4,17,81,75844,0.0,29,6,15,2018-05-01 19:55,2018-05-01 20:05,2018-05-01 20:05,0.0,0.0,Basic,10
+55839111,Installing psycopg2 fails on MacOS with unclear error message,"Trying to install psycopg2 using pip 19.1 on MacOS 10.14.4 returns the lengthy error message below. I understand there are warnings related to gcc, but given the actual error messages I cannot find any clues what the underlying problem is. 
+I have tried the following actions without any luck:
+Upgraded Xcode to the latest version (10.2.1)
+Upgrade Postgresql to 11.2.1
+Uninstalled psycopg2-binary to prevent any dependency issues
+Cleared all files left by a previously successful install at /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages (Yes, I had it installed at some point and it worked, not sure why I uninstalled)
+There seem to be quite some issues around pip and psycopg2 but no question I found on Stackoverflow showed similar error messages, nor did any of the suggested fixes help. Any pointers to potential fixes are very much appreciated!
+pip install psycopg2
+Collecting psycopg2
+  Using cached https://files.pythonhosted.org/packages/23/7e/93c325482c328619870b6cd09370f6dbe1148283daca65115cd63642e60f/psycopg2-2.8.2.tar.gz
+Installing collected packages: psycopg2
+  Running setup.py install for psycopg2 ... error
+    ERROR: Complete output from command /Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7 -u -c 'import setuptools, tokenize;__file__='""'""'/private/var/folders/y4/3pcgz9d54zj29hfq1lmlxpk80000gn/T/pip-install-ci93cz6u/psycopg2/setup.py'""'""';f=getattr(tokenize, '""'""'open'""'""', open)(__file__);code=f.read().replace('""'""'\r\n'""'""', '""'""'\n'""'""');f.close();exec(compile(code, __file__, '""'""'exec'""'""'))' install --record /private/var/folders/y4/3pcgz9d54zj29hfq1lmlxpk80000gn/T/pip-record-ztnpuu7u/install-record.txt --single-version-externally-managed --compile:
+    ERROR: running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.macosx-10.9-x86_64-3.7
+    creating build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/_json.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/extras.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/compat.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/errorcodes.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/tz.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/_range.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/_ipaddress.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/_lru_cache.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/__init__.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/extensions.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/errors.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/sql.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    copying lib/pool.py -&gt; build/lib.macosx-10.9-x86_64-3.7/psycopg2
+    running build_ext
+    building 'psycopg2._psycopg' extension
+    creating build/temp.macosx-10.9-x86_64-3.7
+    creating build/temp.macosx-10.9-x86_64-3.7/psycopg
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/psycopgmodule.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/psycopgmodule.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/green.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/green.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/pqpath.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/pqpath.o
+    psycopg/pqpath.c:135:17: warning: implicit conversion from enumeration type 'ConnStatusType' to different enumeration type 'ExecStatusType' [-Wenum-conversion]
+                    PQstatus(conn-&gt;pgconn) : PQresultStatus(*pgres)));
+                    ^~~~~~~~~~~~~~~~~~~~~~
+    psycopg/pqpath.c:1710:11: warning: code will never be executed [-Wunreachable-code]
+        ret = 1;
+              ^
+    psycopg/pqpath.c:1815:17: warning: implicit conversion from enumeration type 'ConnStatusType' to different enumeration type 'ExecStatusType' [-Wenum-conversion]
+                    PQstatus(curs-&gt;conn-&gt;pgconn) : PQresultStatus(curs-&gt;pgres)));
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    3 warnings generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/utils.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/utils.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/bytes_format.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/bytes_format.o
+    In file included from psycopg/bytes_format.c:81:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/libpq_support.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/libpq_support.o
+    In file included from psycopg/libpq_support.c:29:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/win32_support.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/win32_support.o
+    In file included from psycopg/win32_support.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/solaris_support.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/solaris_support.o
+    In file included from psycopg/solaris_support.c:28:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/connection_int.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/connection_int.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/connection_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/connection_type.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/cursor_int.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/cursor_int.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/cursor_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/cursor_type.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/column_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/column_type.o
+    In file included from psycopg/column_type.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/replication_connection_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/replication_connection_type.o
+    In file included from psycopg/replication_connection_type.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/replication_cursor_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/replication_cursor_type.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/replication_message_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/replication_message_type.o
+    In file included from psycopg/replication_message_type.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/diagnostics_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/diagnostics_type.o
+    In file included from psycopg/diagnostics_type.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/error_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/error_type.o
+    In file included from psycopg/error_type.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/conninfo_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/conninfo_type.o
+    In file included from psycopg/conninfo_type.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/lobject_int.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/lobject_int.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/lobject_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/lobject_type.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/notify_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/notify_type.o
+    In file included from psycopg/notify_type.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/xid_type.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/xid_type.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_asis.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_asis.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_binary.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_binary.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_datetime.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_datetime.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_list.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_list.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_pboolean.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pboolean.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_pdecimal.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pdecimal.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_pint.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pint.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_pfloat.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pfloat.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/adapter_qstring.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_qstring.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/microprotocols.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/microprotocols.o
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/microprotocols_proto.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/microprotocols_proto.o
+    In file included from psycopg/microprotocols_proto.c:27:
+    In file included from ./psycopg/psycopg.h:37:
+    ./psycopg/config.h:81:13: warning: unused function 'Dprintf' [-Wunused-function]
+    static void Dprintf(const char *fmt, ...) {}
+                ^
+    1 warning generated.
+    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -arch x86_64 -g -DPSYCOPG_VERSION=2.8.2 (dt dec pq3 ext lo64) -DPG_VERSION_NUM=110002 -DHAVE_LO64=1 -I/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I. -I/usr/local/Cellar/postgresql/11.2_1/include -I/usr/local/Cellar/postgresql/11.2_1/include/server -c psycopg/typecast.c -o build/temp.macosx-10.9-x86_64-3.7/psycopg/typecast.o
+    gcc -bundle -undefined dynamic_lookup -arch x86_64 -g build/temp.macosx-10.9-x86_64-3.7/psycopg/psycopgmodule.o build/temp.macosx-10.9-x86_64-3.7/psycopg/green.o build/temp.macosx-10.9-x86_64-3.7/psycopg/pqpath.o build/temp.macosx-10.9-x86_64-3.7/psycopg/utils.o build/temp.macosx-10.9-x86_64-3.7/psycopg/bytes_format.o build/temp.macosx-10.9-x86_64-3.7/psycopg/libpq_support.o build/temp.macosx-10.9-x86_64-3.7/psycopg/win32_support.o build/temp.macosx-10.9-x86_64-3.7/psycopg/solaris_support.o build/temp.macosx-10.9-x86_64-3.7/psycopg/connection_int.o build/temp.macosx-10.9-x86_64-3.7/psycopg/connection_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/cursor_int.o build/temp.macosx-10.9-x86_64-3.7/psycopg/cursor_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/column_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/replication_connection_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/replication_cursor_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/replication_message_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/diagnostics_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/error_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/conninfo_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/lobject_int.o build/temp.macosx-10.9-x86_64-3.7/psycopg/lobject_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/notify_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/xid_type.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_asis.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_binary.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_datetime.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_list.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pboolean.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pdecimal.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pint.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_pfloat.o build/temp.macosx-10.9-x86_64-3.7/psycopg/adapter_qstring.o build/temp.macosx-10.9-x86_64-3.7/psycopg/microprotocols.o build/temp.macosx-10.9-x86_64-3.7/psycopg/microprotocols_proto.o build/temp.macosx-10.9-x86_64-3.7/psycopg/typecast.o -L/usr/local/lib -lpq -lssl -lcrypto -o build/lib.macosx-10.9-x86_64-3.7/psycopg2/_psycopg.cpython-37m-darwin.so
+    ld: library not found for -lssl
+    clang: error: linker command failed with exit code 1 (use -v to see invocation)
+    error: command 'gcc' failed with exit status 1
+    ----------------------------------------
+ERROR: Command ""/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7 -u -c 'import setuptools, tokenize;__file__='""'""'/private/var/folders/y4/3pcgz9d54zj29hfq1lmlxpk80000gn/T/pip-install-ci93cz6u/psycopg2/setup.py'""'""';f=getattr(tokenize, '""'""'open'""'""', open)(__file__);code=f.read().replace('""'""'\r\n'""'""', '""'""'\n'""'""');f.close();exec(compile(code, __file__, '""'""'exec'""'""'))' install --record /private/var/folders/y4/3pcgz9d54zj29hfq1lmlxpk80000gn/T/pip-record-ztnpuu7u/install-record.txt --single-version-externally-managed --compile"" failed with error code 1 in /private/var/folders/y4/3pcgz9d54zj29hfq1lmlxpk80000gn/T/pip-install-ci93cz6u/psycopg2/
+",<postgresql><macos><pip><psycopg2>,26899,1,153,362,0,3,13,65,7143,0.0,129,3,15,2019-04-24 21:54,2019-04-24 22:29,2019-04-24 22:29,0.0,0.0,Basic,13
+56583738,How to connect to a sqlite db from a React app?,"I'm trying to build a page using Create React App, plus the sqlite3 module. In their default configurations, the two things don't seem to be compatible out of the box. I'm new to React and JS in general, so I'm hoping there's something obvious I'm missing here.
+Using npx v6.9.0 and Node v12.4.0, I can reproduce this by typing npx create-react-app test, cd test, npm start.
+So far so good. I type: npm install sqlite3, and receive an npm warning that I should install typescript. OK, I type npm install typescript. All good. I start up the app, and it compiles so far. Great!
+I open up App.js, and per sqlite3's readme doc, under the import lines, I type var sqlite3 = require('sqlite3').verbose();
+This is probably where I'm doing something wrong. My app now fails to compile, telling me:
+./node_modules/sqlite3/node_modules/node-pre-gyp/lib/info.js
+Module not found: Can't resolve 'aws-sdk' in '/Users/brendanlandis/Desktop/test/node_modules/sqlite3/node_modules/node-pre-gyp/lib'
+I try npm install aws-sdk, which gets me a little farther. My app still won't compile, but now the error is:
+TypeError: stream is undefined
+./node_modules/set-blocking/index.js/&lt;/module.exports/&lt;
+node_modules/set-blocking/index.js:3
+  1 | module.exports = function (blocking) {
+  2 |   [process.stdout, process.stderr].forEach(function (stream) {
+&gt; 3 |     if (stream._handle &amp;&amp; stream.isTTY &amp;&amp; typeof stream._handle.setBlocking === 'function') {
+  4 |       stream._handle.setBlocking(blocking);
+  5 |     }
+  6 |   });
+In googling around, I haven't yet figured out what I'm doing wrong. Any help would be appreciated. Thanks!
+",<reactjs><sqlite><npm>,1637,0,20,151,1,1,3,63,24404,0.0,0,2,15,2019-06-13 15:19,2020-07-29 11:45,,412.0,,Basic,14
+52682336,Async SQLite python,"I write asynchronous telegram bot using the aiogram library. I decided to use SQLite as a database for storing immutable values. How do I implement asynchronous reads from my database?
+",<python><python-3.x><sqlite><python-asyncio><telegram-bot>,185,0,0,151,1,1,7,58,27282,0.0,4,1,15,2018-10-06 18:52,2018-10-06 20:17,2018-10-06 20:17,0.0,0.0,Basic,13
+60306594,Failed to start PostgreSQL Cluster 10-main when booting,"when I try to boot Ubuntu, it never finishes the boot process because it appears the message ""Failed to start PostgreSQL Cluster 10-main."" I also get the same message with 9.5-main. But lets focus on 10.
+When I execute:
+systemctl status postgresql@10-main.service
+I get the following message:
+postgresql@10-main.service - PostgreSQL Cluster 10-main
+  Loaded: loaded (/lib/systemd/system/postgresql@.service; indirect; vendor preset: enabled)
+  Active: failed (Result: protocol) since Wed 2020-02-19 17:57:22 CET; 30 min ago
+ Process: 1602 ExecStart=/usr/bin/pg_ctlcluster --skip-systemctl-redirect 10-main start (code_exited, status=1/FAILURE)
+PC_info systemd[1]: Starting PostgreSQL Cluster 10-main...
+PC_info postgresql@10-main[1602]: Error: /usr/lib/postgresql/10/bin/pg_ctl /usr/lib/postgresql/10/bin/pg_ctl start -D /var/lib/postgresql/10/main -l /var/log/postgresql/postgresql-19-main.log -s -o -c config_file=""/etc/postgresql/10/main/postgresql.conf"" exit with status 1:
+PC_info systemd[1]: postgresql@10-main.service: Can't open PID file /var/run/postgresql/10-main.pid (yet?) after start: No such file or directory
+PC_info systemd[1]: postgresql@10-main.service: Failed with result 'protocol'.
+PC_info systemd[1]: Failed to start PostgreSQL Cluster 10-main.
+PC_info is information about my computer (user, date..) not relevant
+I got this error from one day to an other without touching anything related to Database Servers.
+I tried to fix it by my self but nothing worked
+Writing the command 
+service postgresql@10-main start
+I get
+Job for postgresql@10-main.service failed because the service did not take the steps required by its unit configuration
+See ""systemctl status postgresql@10-main.service"" and ""journalctl -xe""  for details.
+Running this two command I get the message from the beginning.
+Anyone has an idea of what is happening? How I can fix it?
+",<postgresql><ubuntu><pid><boot>,1868,0,13,230,1,2,10,64,32630,0.0,43,5,15,2020-02-19 18:02,2020-05-30 4:14,,101.0,,Basic,14
+51913783,Removing Duplicate Rows in PostgreSQL with multiple columns,"I have a table ""votes"" with the following columns: 
+voter, election_year, election_type, party
+I need to remove all duplicate rows of the combination of voter and election_year, and I'm having trouble figuring out how to do this.
+I ran the following:
+WITH CTE AS(
+SELECT voter, 
+       election_year,
+       ROW_NUMBER()OVER(PARTITION BY voter, election_year ORDER BY voter) as RN
+FROM votes
+)
+DELETE
+FROM CTE where RN&gt;1
+based on another StackOverflow answer, but it seems this is specific to SQL Server.  I've seen ways to do this using unique ID's, but this particular table doesn't have that luxury.  How can I adopt the above script to remove the duplicates I need?  Thanks!
+EDIT: Per request, creation of the table with some example data:
+CREATE TABLE public.votes
+(
+    voter varchar(10),
+    election_year smallint,
+    election_type varchar(2),
+    party varchar(3)
+);
+INSERT INTO votes
+    (voter, election_year, election_type, party)
+VALUES
+    ('2435871347', 2018, 'PO', 'EV'),
+    ('2435871347', 2018, 'RU', 'EV'),
+    ('2435871347', 2018, 'GE', 'EV'),
+    ('2435871347', 2016, 'PO', 'EV'),
+    ('2435871347', 2016, 'GE', 'EV'),
+    ('10215121/8', 2016, 'GE', 'ED')
+;
+",<sql><postgresql>,1183,0,33,813,2,9,23,49,18245,0.0,89,3,15,2018-08-19 1:38,2018-08-19 2:34,2018-08-19 2:34,0.0,0.0,Basic,10
+52075642,"How to handle unique data in SQLAlchemy, Flask, Python","How do you usually handle unique database entries in Flask? I have the following column in my db model:
+bank_address = db.Column(db.String(42), unique=True)
+The problem is, that even before I can make a check whether it is already in the database or not, I get an error: 
+Check if it is unique and THEN write into db:
+if request.method == 'POST':
+    if user.bank_address != request.form['bank_address_field']:
+        user.bank_address = request.form['bank_address_field']
+        db.session.add(user)
+        db.session.commit()
+The error I get:
+  sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE
+  constraint failed: user.bank_address_field [SQL: 'UPDATE user SET
+  bank_address_field=? WHERE user.id = ?']
+",<python><sqlite><flask><sqlalchemy><unique>,724,0,6,4510,8,59,112,44,20853,0.0,671,2,15,2018-08-29 10:50,2018-08-29 10:57,2018-08-29 10:57,0.0,0.0,Basic,13
+58600623,MySQL UUID function produces the same value when used as a function parameter,"The UUID() function by itself produces a different value each time it is called, as I would expect it to do:
+SELECT UUID() from INFORMATION_SCHEMA.TABLES LIMIT 3;
+3bb7d468-f9c5-11e9-8349-d05099466715
+3bb7d482-f9c5-11e9-8349-d05099466715
+3bb7d492-f9c5-11e9-8349-d05099466715
+However, as soon as we use it within the REPLACE() function, it begins producing the same value:
+SELECT REPLACE(UUID(),'-','-') from INFORMATION_SCHEMA.TABLES LIMIT 3;
+e0f2d47a-f9c5-11e9-8349-d05099466715
+e0f2d47a-f9c5-11e9-8349-d05099466715
+e0f2d47a-f9c5-11e9-8349-d05099466715
+This 'breaks' Insert From Select statements like this where we expect each inserted row to have a unique value:
+INSERT INTO MyTable (uid, tableName) -- uid is binary(16)
+SELECT UNHEX(REPLACE(UUID(),'-','')), TABLE_NAME from INFORMATION_SCHEMA.TABLES;
+Note, I am using the information schema's list of tables for convenience.  It shouldn't matter, but for those that are curious, our PK's are UUIDs in binary(16) form.  I can't change that; please don't focus on that.
+The UUID() function is non-deterministic, while the REPLACE() function is deterministic.  I would have expected the non-deterministic characteristic of the UUID() function to result in the REPLACE() function behaving as if it had a different argument for each row, but it seems as though the DB engine is over optimizing by assuming the UUID() to be constant.
+I also tested this behavior with another non-deterministic function, RAND(), and in this case the REPLACE() function worked as we'd expect!
+SELECT REPLACE(RAND(),' ',' ') from INFORMATION_SCHEMA.TABLES LIMIT 3;
+0.911571646026868
+0.626416072832808
+0.6977608461843439
+Questions:
+Is there a way to perform an ""Insert From Select"" and generate a unique UUID in binary 16 form per row in the select?
+Why is this happening?  Is this a bug?
+Updates
+I am using 5.7.27 locally:
+mysql  Ver 14.14 Distrib 5.7.27, for Linux (x86_64)
+But this will end up deploying to an AWS RDS instance.  lol... The Terraform (scripted deploy) spins up an AWS RDS instance with engine version 5.7.16.
+Looking in the AWS console, I see support up to version 5.7.26 (in the 5.7 vein) and 8.0.16 (in the 8.0 vein).  I'll discuss upgrading the deployed engine version.  I'd love to change the PK column definitions to default the values as @Schwern has suggested.
+Work Around
+Until I can get others to agree to a version change, I'm moving forward by using a temporary table as intermediate storage for generated id values.
+CREATE TEMPORARY TABLE GeneratedIds (
+    generatedId varchar(36) NOT NULL,
+    tableName text NOT NULL
+);
+INSERT INTO GeneratedIds (generatedId, tableName)
+SELECT UUID(), TABLE_NAME from INFORMATION_SCHEMA.TABLES;
+INSERT INTO MyTable (uid, tableName) -- uid is binary(16)
+SELECT UNHEX(REPLACE(generatedId,'-','')), tableName FROM GeneratedIds;
+DROP TABLE GeneratedIds;
+This is not very elegant, but it does work.  In my case I am working within a sql migration file where I can string together this kind of sequence of sql in a cohesive manner.  I wouldn't recommend doing this in code; it smells.
+Conclusion
+This does appear to be a bug in MySQL.  I did a quick search of their bug DB but I did not find a mention of it.  Regardless, the SQL statements above illustrate the defect, and @Schwern and I have shown that this bug has been fixed in version 5.7.27 (exactly) and version 8.0.16 (possibly all 8.., only tested 8.0.16 and 8.0.18).
+Version 8.0.16 test:
+Server version: 8.0.16 MySQL Community Server - GPL
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql&gt; SELECT REPLACE(UUID(),'-','-') from INFORMATION_SCHEMA.TABLES LIMIT 3;
++--------------------------------------+
+| REPLACE(UUID(),'-','-')              |
++--------------------------------------+
+| 96f9205a-fdc6-11e9-87de-d05099466715 |
+| 96f920f9-fdc6-11e9-87de-d05099466715 |
+| 96f9213e-fdc6-11e9-87de-d05099466715 |
++--------------------------------------+
+3 rows in set (0.00 sec)
+",<mysql>,4172,0,55,697,0,6,22,37,4332,0.0,8,1,15,2019-10-29 2:10,2019-10-29 3:27,2019-10-29 3:27,0.0,0.0,Basic,10
+51573145,Formula `mysql` is not installed,"I'm trying to install mysql using brew services start mysql as per the website instructions but it gives me an error:
+Formula `mysql` is not installed.
+I already did a full uninstall on my XAMPP server.
+Terminal:
+Dylans-Macbook:~ dylandude$ brew install mysql@5.7
+Updating Homebrew...
+==&gt; Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+==&gt; Updated Formulae
+ansible                    jpeg-turbo                 phplint
+ccrypt                     mapcrafter                 skinny
+dxpy                       mikutter
+jenkins-job-builder        pgcli
+Warning: mysql@5.7 5.7.23 is already installed and up-to-date
+To reinstall 5.7.23, run `brew reinstall mysql@5.7`
+Dylans-Macbook:~ dylandude$ brew services start mysql
+Error: Formula `mysql` is not installed.
+",<mysql><homebrew>,771,0,16,161,1,1,4,58,21732,0.0,0,1,15,2018-07-28 16:18,2018-07-29 19:56,,1.0,,Basic,14
+50996079,"""Login timeout expired"" error when accessing MS SQL db via sqlalchemy and pyodbc","So I have some trouble getting sqlalchemy and pyodbc working with a remote MS SQL Server. Local sqlcmd worked properly but not when I try to read the db via python code. Any help would be appreciated. 
+Environment:
+Centos 7
+SQLCmd version: Version 17.1.0000.1 Linux
+MS SQL Server 6.01.7601.17514
+Python 2.7
+The following sqlcmd worked properly
+sqlcmd -S {Host},{Port} -U {USER} -P {PWD} -Q ""use {Database};""
+Attempts to work with sqlalchemy or pyodbc directly didn't work. Error:
+pyodbc.OperationalError: ('HYT00', u'[HYT00] [unixODBC][Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0) (SQLDriverConnect)')
+Code:
+Attempt with pyodbc
+conn = pyodbc.connect(
+    r'DRIVER={ODBC Driver 17 for SQL Server};'
+    r'SERVER=HOST,PORT;'
+    r'DATABASE=DATABASE;'
+    r'UID=UID;'
+    r'PWD=PWD'
+    )
+Attempt with sqlalchemy:
+create_engine('mssql+pyodbc://{user}:{password}@{host}:{port}/{database}?driver={driver}'.format(
+        user=user,
+        password=password,
+        host=host,
+        database=database,
+        port=port,
+        driver=""ODBC+Driver+17+for+SQL+Server""
+    )).connect()
+I can reproduce the error with sqlcmd if I remove the port from the command, so maybe the conn_string I am passing to pyodbc is not in the correct format?
+",<sql-server><sqlalchemy><pyodbc><sqlcmd>,1261,0,16,2061,5,27,40,39,20837,,11,3,15,2018-06-22 21:59,2018-09-14 11:10,2018-09-14 11:10,84.0,84.0,Basic,14
+48927271,Count number of words in a spark dataframe,"How can we find the number of words in a column of a spark dataframe without using REPLACE() function of SQL ? Below is the code and input I am working with but the replace() function does not work.
+from pyspark.sql import SparkSession
+my_spark = SparkSession \
+    .builder \
+    .appName(""Python Spark SQL example"") \
+    .enableHiveSupport() \
+    .getOrCreate()
+parqFileName = 'gs://caserta-pyspark-eval/train.pqt'
+tuesdayDF = my_spark.read.parquet(parqFileName)
+tuesdayDF.createOrReplaceTempView(""parquetFile"")
+tuesdaycrimes = spark.sql(""SELECT LENGTH(Address) - LENGTH(REPLACE(Address, ' ', ''))+1 FROM parquetFile"")
+print(tuesdaycrimes.show())
++-------------------+--------------+--------------------+---------+----------+--------------+--------------------+-----------+---------+
+|              Dates|      Category|            Descript|DayOfWeek|PdDistrict|    Resolution|             Address|          X|        Y|
++-------------------+--------------+--------------------+---------+----------+--------------+--------------------+-----------+---------+
+|2015-05-14 03:53:00|      WARRANTS|      WARRANT ARREST|Wednesday|  NORTHERN|ARREST, BOOKED|  OAK ST / LAGUNA ST| -122.42589|37.774597|
+|2015-05-14 03:53:00|OTHER OFFENSES|TRAFFIC VIOLATION...|Wednesday|  NORTHERN|ARREST, BOOKED|  OAK ST / LAGUNA ST| -122.42589|37.774597|
+|2015-05-14 03:33:00|OTHER OFFENSES|TRAFFIC VIOLATION...|Wednesday|  NORTHERN|ARREST, BOOKED|VANNESS AV / GREE...| -122.42436|37.800415|
+",<python><apache-spark><pyspark><apache-spark-sql>,1473,0,22,159,1,1,6,76,48389,0.0,0,4,14,2018-02-22 12:20,2018-02-22 13:15,,0.0,,Basic,2
+57539722,How to clear a Cosmos DB database or delete all items using Azure portal,"If go to https://portal.azure.com, open our Azure Cosmos DB account (1) --&gt; Data Explorer (2) --&gt; Click on users (3) --&gt; Click on New SQL Query:
+Azure will open a text box to enter a Query:
+I've found that Cosmos DB does not allow the usage of DELETE instead of SELECT: https://stackoverflow.com/a/48339202/1198404, so I should do something like:
+SELECT * FROM c DELETE c
+SELECT * FROM c DELETE *
+But none of my attempts worked.
+",<azure><azure-cosmosdb><azureportal><azure-cosmosdb-sqlapi>,438,5,2,3849,6,58,90,42,76294,0.0,216,5,14,2019-08-17 20:28,2019-08-17 22:30,2019-08-18 13:17,0.0,1.0,Basic,1
+58880998,"Communications link failure , Spring Boot + MySql +Docker + Hibernate","I'm working with spring boot, hibernate &amp; MySql. While running the application it is running well as per expectation . But while making the docker-compose file and running the app docker image with mysql docker image it gives this error.
+Error
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+java.net.ConnectException: Connection refused.
+private Connection createConnection() throws SQLException 
+{
+        DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+        String mysqlUrl = &quot;jdbc:mysql://localhost/database?autoReconnect=true&amp;useSSL=false&quot;;
+        Connection connection = DriverManager.getConnection(mysqlUrl, &quot;root&quot;, &quot;root&quot;);
+        return connection;
+}
+Application.properties
+spring.datasource.url=jdbc:mysql://localhost/database?autoReconnect=true&amp;useSSL=false
+spring.datasource.username=root
+spring.datasource.password=root
+Please guide me how to tackle this.
+docker-compose.yml
+version: '3'
+services:
+  docker-mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    ports:
+      - 3307:3306
+  app:
+    image: app:latest
+    ports:
+       - 8091:8091
+    depends_on:
+       - docker-mysql
+",<mysql><spring><spring-boot><docker><docker-compose>,1303,0,26,627,5,15,33,72,43054,0.0,436,6,14,2019-11-15 16:21,2019-11-15 16:50,2019-11-15 17:17,0.0,0.0,Advanced,37
+57803604,Homebrew Mariadb Mysql installation root access denied,"So I basically am installing mariadb with mysql on my mac using homebrew.
+These are the steps I made:
+brew doctor -> worked 
+brew update -> worked 
+brew install mariadb -> worked 
+mysql_install_db -> Failed
+  WARNING: The host 'Toms-MacBook-Pro.local' could not be looked up
+  with /usr/local/Cellar/mariadb/10.4.6_1/bin/resolveip. This probably
+  means that your libc libraries are not 100 % compatible with this
+  binary MariaDB version. The MariaDB daemon, mysqld, should work
+  normally with the exception that host name resolving will not work.
+  This means that you should use IP addresses instead of hostnames when
+  specifying MariaDB privileges ! mysql.user table already exists!
+Running mysql_upgrade afterwards gave me following error:
+  Version check failed. Got the following error when calling the 'mysql'
+  command line client ERROR 1698 (28000): Access denied for user
+  'root'@'localhost' FATAL ERROR: Upgrade failed
+I can't enter mysql like this:
+mysql -uroot
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+but like this:
+sudo mysql -u root
+The user table returns this:
+MariaDB [(none)]&gt; USE mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+Database changed
+MariaDB [mysql]&gt; SELECT User, Host, plugin FROM mysql.user;
++---------------+-------------------------+-----------------------+
+| User          | Host                    | plugin                |
++---------------+-------------------------+-----------------------+
+| root          | localhost               | mysql_native_password |
+| toms          | localhost               | mysql_native_password |
+|               | localhost               |                       |
+|               | toms-macbook-pro.local |                       |
++---------------+-------------------------+-----------------------+
+4 rows in set (0.004 sec)
+",<mysql><macos><mariadb><homebrew>,1945,0,19,259,1,3,10,77,14310,0.0,1,5,14,2019-09-05 10:38,2019-09-05 12:29,2019-09-05 12:41,0.0,0.0,Advanced,39
+49400284,Count number of rows in golang,"I want to display the number of rows from database using Go. How do I display number of rows?
+count, err := db.Query(""SELECT COUNT(*) FROM main_table"")
+",<mysql><go>,152,0,1,205,1,3,9,51,27443,0.0,17,2,14,2018-03-21 7:12,2018-03-21 7:42,2018-03-21 7:42,0.0,0.0,Basic,9
+55304197,Array difference in postgresql,"I have two arrays [1,2,3,4,7,6] and [2,3,7] in PostgreSQL which may have common elements. What I am trying to do is to exclude from the first array all the elements that are present in the second. 
+So far I have achieved the following:
+SELECT array
+  (SELECT unnest(array[1, 2, 3, 4, 7, 6])
+   EXCEPT SELECT unnest(array[2, 3, 7]));
+However, the ordering is not correct as the result is {4,6,1} instead of the desired {1,4,6}.
+How can I fix this ? 
+I finally created a custom function with the following definition (taken from here) which resolved my issue:
+create or replace function array_diff(array1 anyarray, array2 anyarray)
+returns anyarray language sql immutable as $$
+    select coalesce(array_agg(elem), '{}')
+    from unnest(array1) elem
+    where elem &lt;&gt; all(array2)
+$$;
+",<arrays><postgresql>,788,1,13,1251,2,18,38,49,8540,0.0,111,2,14,2019-03-22 16:41,2019-03-22 17:09,2019-03-22 17:09,0.0,0.0,Intermediate,18
+63066240,Setup postgres in Github Actions for Django,"I'm currently working on a website right now on Django. On my computer, I am running it on Docker with a postgres database. Here's the docker-compose file I have:
+version: '3'
+services:
+    db:
+        image: postgres
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+    web:
+        build: .
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - &quot;8000:8000&quot;
+And here's the relevant part in settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+When I run my tests in the docker container with this setup, it works find and the tests run. However, in github actions, it doesn't work. Here's my workflow file:
+name: Django CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7, 3.8]
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run Tests
+      run: |
+        python manage.py test
+When this runs in github actions, I get the following error:
+django.db.utils.OperationalError: could not translate host name &quot;db&quot; to address: Temporary failure in name resolution
+Could someone please help me with this, and please let me know if you need anymore code.
+",<django><github-actions><django-testing><django-postgresql>,1931,0,66,195,0,2,7,76,4544,0.0,1,2,14,2020-07-24 3:17,2020-08-10 18:49,2020-08-10 18:49,17.0,17.0,Intermediate,23
+49546011,Unable to connect mysql to spring boot project,"i am following this https://spring.io/guides/gs/accessing-data-mysql/ guide to connect mysql db to spring boot project
+but getting following error when running the application, i am generating spring starter project and only selecting web, mysql and jpa boxes while creating project via spring tool suite
+2018-03-28 16:48:42.125 ERROR 15452 --- [           main] com.zaxxer.hikari.HikariConfig           : Failed to load driver class com.mysql.jdbc.Driver from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@782830e
+2018-03-28 16:48:42.128  WARN 15452 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under '' to com.zaxxer.hikari.HikariDataSource
+2018-03-28 16:48:42.130  INFO 15452 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-03-28 16:48:42.142  INFO 15452 --- [           main] ConditionEvaluationReportLoggingListener : 
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-03-28 16:48:42.143 ERROR 15452 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+***************************
+APPLICATION FAILED TO START
+***************************
+Description:
+Failed to bind properties under '' to com.zaxxer.hikari.HikariDataSource:
+    Property: driverclassname
+    Value: com.mysql.jdbc.Driver
+    Origin: ""driverClassName"" from property source ""source""
+    Reason: Unable to set value for property driver-class-name
+Action:
+Update your application's configuration
+following is application.properties 
+spring.jpa.hibernate.ddl-auto=create
+spring.datasource.url=jdbc:mysql://localhost:3306/world
+spring.datasource.username=root
+spring.datasource.password=admin
+and pom.xml
+&lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;
+&lt;project xmlns=""http://maven.apache.org/POM/4.0.0"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+    xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd""&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;proj.mine&lt;/groupId&gt;
+    &lt;artifactId&gt;training-app-2&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;name&gt;training-app-2&lt;/name&gt;
+    &lt;description&gt;traning practive app&lt;/description&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.0.0.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;/properties&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+EDIT: Added spring.datasource.driver-class-name=com.mysql.jdbc.Driver in application.properties, error still persists
+2018-03-28 17:55:05.641  WARN 3140 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+2018-03-28 17:55:05.643  INFO 3140 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-03-28 17:55:05.656  INFO 3140 --- [           main] ConditionEvaluationReportLoggingListener : 
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-03-28 17:55:05.662 ERROR 3140 --- [           main] o.s.boot.SpringApplication               : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+    at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:587) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1250) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1099) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:388) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1234) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at proj.mine.TrainingApp2Application.main(TrainingApp2Application.java:10) [classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+    at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:579) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    ... 18 common frames omitted
+Caused by: java.lang.IllegalStateException: Cannot load driver class: com.mysql.jdbc.Driver
+    at org.springframework.util.Assert.state(Assert.java:94) ~[spring-core-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:224) ~[spring-boot-autoconfigure-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.initializeDataSourceBuilder(DataSourceProperties.java:176) ~[spring-boot-autoconfigure-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:43) ~[spring-boot-autoconfigure-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:81) ~[spring-boot-autoconfigure-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+    at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+    at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+    at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+    ... 19 common frames omitted
+",<mysql><spring><spring-boot><spring-data-jpa><spring-tool-suite>,11921,6,130,147,1,3,9,39,44053,0.0,2,7,14,2018-03-29 0:00,2018-03-29 12:51,2018-03-29 12:51,0.0,0.0,Basic,12
+56246710,How to resolve DB connection invalidated warning in Airflow Scheduler?,"I am upgrading our Airflow instance from 1.9 to 1.10.3 and whenever the scheduler runs now I get a warning that the database connection has been invalidated and it's trying to reconnect. A bunch of these errors show up in a row. The console also indicates that tasks are being scheduled but if I check the database nothing is ever being written.
+The following warning shows up where it didn't before
+[2019-05-21 17:29:26,017] {sqlalchemy.py:81} WARNING - DB connection invalidated. Reconnecting...
+Eventually, I'll also get this error
+FATAL: remaining connection slots are reserved for non-replication superuser connections
+I've tried to increase the SQL Alchemy pool size setting in airflow.cfg but that had no effect
+# The SqlAlchemy pool size is the maximum number of database connections in the pool.
+sql_alchemy_pool_size = 10
+I'm using CeleryExecutor and I'm thinking that maybe the number of workers is overloading the database connections.
+I run three commands, airflow webserver, airflow scheduler, and airflow worker, so there should only be one worker and I don't see why that would overload the database.
+How do I resolve the database connection errors? Is there a setting to increase the number of database connections, if so where is it? Do I need to handle the workers differently?
+Update:
+Even with no workers running, starting the webserver and scheduler fresh, when the scheduler fills up the airflow pools the DB connection warning starts to appear.
+Update 2:
+I found the following issue in the Airflow Jira: https://issues.apache.org/jira/browse/AIRFLOW-4567
+There is some activity with others saying they see the same issue. It is unclear whether this directly causes the crashes that some people are seeing or whether this is just an annoying cosmetic log. As of yet there is no resolution to this problem.
+",<database><postgresql><sqlalchemy><airflow><airflow-scheduler>,1829,2,8,411,0,3,14,63,3873,0.0,257,1,14,2019-05-21 21:39,2019-08-16 16:55,2019-08-16 16:55,87.0,87.0,Advanced,39
+54920939,Parsing FB-Purity's Firefox idb (Indexed Database API) object_data blob from Linux bash,"From a Linux bash script, I want to read the structured data stored by a particular Firefox add-on called FB-Purity.
+I have found a folder called .mozilla/firefox/b8eab5j0.default/storage/default/moz-extension+++37a9788c-671d-4cae-ba5c-fbdb8788499a^userContextId=4294967295/ that contains a .metadata file which contains the string moz-extension://37a9788c-671d-4cae-ba5c-fbdb8788499a, an URL which when opened in Firefox shows the add-on's details, so I am pretty sure that this folder belongs to the add-on.
+That folder contains an idb directory, which sounds like Indexed Database API, a W3C standard apparently used since last year by Firefox it to store add-ons data.
+The idb folder only contains an empty folder and an SQLite file.
+The SQLite file, unfortunately, does not contain much application structured data, but the object_data table contains a 95KB blob which probably contains the real structured data:
+INSERT INTO `object_data` VALUES (1,'0pmegsjfoetupsf.742612367',NULL,NULL,
+X'e08b0d0403000101c0f1ffe5a201000400ffff7b00220032003100380035003000320022003a002
+2005300610074006f0072007500200055007205105861006e00690022002c00220036003100350036
+[... 95KB ...]
+00780022007d00000000000000');
+Question: Any clue what this blob's format is? How to extract it (using command line or any library or Linux tool) to JSON or any other readable format?
+",<sqlite><firefox-addon><blob><indexeddb><firefox-addon-webextensions>,1355,2,11,58957,59,224,377,52,2601,0.0,2729,1,14,2019-02-28 8:02,2020-01-26 22:23,2020-01-26 22:23,332.0,332.0,Intermediate,26
+51625671,Routing to Different SQL Server Instances Running through Docker on Default Port,"I can use Traefik for web sites since they use headers when they are connecting.
+But I want to have multiple different instances of SQL Server running through docker which will be externally available (outside the docker host, potentially outside the local network)
+So, is there anything which allows connecting to different sql server instances running on the same docker instance WITHOUT having to give them different ports or external ip addresses such that someone could access
+sql01.docker.local,1433 AND sql02.docker.local,1433 from SQL Tools.
+Start Additional Question
+Since there has been no replies perhaps there is a way to have different instances like: sql.docker.local\instance1 and sql.docker.local\instance2 though I imagine that may also not be possible
+End  Additional Question
+This is an example of the docker-compose file I was trying to use (before I realised that queries to sql server don't send through a host header - or am I wrong about that?)
+version: '2.1'
+services:
+  traefik:
+    container_name: traefik
+    image: stefanscherer/traefik-windows
+    command: --docker.endpoint=tcp://172.28.80.1:2375 --logLevel=DEBUG
+    ports:
+      - ""8080:8080""
+      - ""80:80""
+      - ""1433:1433""
+    volumes:
+      - ./runtest:C:/etc/traefik
+      - C:/Users/mvukomanovic.admin/.docker:C:/etc/ssl
+    networks:
+      - default
+    restart: unless-stopped
+    labels:
+      - ""traefik.enable=false""
+  whoami:
+    image: stefanscherer/whoami
+    labels:
+      - ""traefik.backend=whoami""
+      - ""traefik.frontend.entryPoints=http""
+      - ""traefik.port=8080""
+      - ""traefik.frontend.rule=Host:whoami.docker.local""
+    networks:
+      - default
+    restart: unless-stopped
+  sql01:
+    image: microsoft/mssql-server-windows-developer
+    environment:
+      - ACCEPT_EULA=Y
+    hostname: sql01
+    domainname: sql01.local
+    networks:
+      - default
+    restart: unless-stopped
+    labels:
+      - ""traefik.frontend.rule=Host:sql01.docker.local,sql01,sql01.local""
+      - ""traefik.frontend.entryPoints=mssql""
+      - ""traefik.port=1433""
+      - ""traefik.frontend.port=1433""
+    networks:
+      - default
+    restart: unless-stopped    
+  sql02:
+    image: microsoft/mssql-server-windows-developer
+    environment:
+      - ACCEPT_EULA=Y
+    hostname: sql02
+    domainname: sql02.local
+    networks:
+      - default
+    restart: unless-stopped
+    labels:
+      - ""traefik.frontend.rule=Host:sql02.docker.local,sql02,sql02.local""
+      - ""traefik.frontend.entryPoints=mssql""
+      - ""traefik.port=1433""
+      - ""traefik.frontend.port=1433""
+    networks:
+      - default
+    restart: unless-stopped    
+networks:
+  default:
+    external:
+      name: nat
+",<sql-server><docker><docker-compose><traefik>,2667,0,74,1402,1,16,24,70,2660,0.0,907,3,14,2018-08-01 5:05,2018-08-07 14:40,,6.0,,Advanced,32
+60869614,Pyspark: how to extract hour from timestamp,"I have a table like the following
+    df
+ +------------------------------------+-----------------------+
+|identifier                          |timestamp              |
++------------------------------------+-----------------------+
+|86311425-0890-40a5-8950-54cbaaa60815|2020-03-18 14:41:55 UTC|
+|38e121a8-f21f-4d10-bb69-26eb045175b5|2020-03-13 15:19:21 UTC|
+|1a69c9b0-283b-4b6d-89ac-66f987280c66|2020-03-16 12:59:51 UTC|
+|c7b5c53f-bf40-498f-8302-4b3329322bc9|2020-03-18 22:05:06 UTC|
+|0d3d807b-9b3a-466e-907c-c22402240730|2020-03-17 18:40:03 UTC|
++------------------------------------+-----------------------+
+tmp.printSchema()
+root
+ |-- identifier: string (nullable = true)
+ |-- timestamp: string (nullable = true)
+I would like to have a column that take only the day and the hours from the timestamp.
+I am trying the following:
+from pyspark.sql.functions import hour
+df = df.withColumn(""hour"", hour(col(""timestamp"")))
+but I get the following
++--------------------+--------------------+----+
+|          identifier|           timestamp|hour|
++--------------------+--------------------+----+
+|321869c3-71e5-41d...|2020-03-19 03:34:...|null|
+|226b8d50-2c6a-471...|2020-03-19 02:59:...|null|
+|47818b7c-34b5-43c...|2020-03-19 01:41:...|null|
+|f5ca5599-7252-49d...|2020-03-19 04:25:...|null|
+|add2ae24-aa7b-4d3...|2020-03-19 01:50:...|null|
++--------------------+--------------------+----+
+while I would like to have
++--------------------+--------------------+-------------------+
+|          identifier|           timestamp|hour               |
++--------------------+--------------------+-------------------+
+|321869c3-71e5-41d...|2020-03-19 03:00:...|2020-03-19 03:00:00|
+|226b8d50-2c6a-471...|2020-03-19 02:59:...|2020-03-19 02:00:00|
+|47818b7c-34b5-43c...|2020-03-19 01:41:...|2020-03-19 01:00:00|
+|f5ca5599-7252-49d...|2020-03-19 04:25:...|2020-03-19 04:00:00|
+|add2ae24-aa7b-4d3...|2020-03-19 01:50:...|2020-03-19 01:00:00|
++--------------------+--------------------+-------------------+
+",<python><sql><pyspark>,1987,0,36,7043,20,76,142,58,33584,0.0,107,5,14,2020-03-26 14:32,2020-03-26 15:05,,0.0,,Basic,2
+56093317,"Google Query - ""NOT LIKE"" Statement Doesn't work","The following line doesn't work:
+=QUERY(AB:AE,&quot;select AB,AC,AD,AE where AB NOT LIKE '%Info%'&quot;,1)
+Throws:
+Unable to parse query string for Function QUERY parameter 2: PARSE_ERROR: Encountered &quot;  &quot;AH &quot;&quot; at line 1, column 26. Was expecting one of: &quot;(&quot; ... &quot;(&quot;
+However, this one does:
+=QUERY(AB:AE,&quot;select AB,AC,AD,AE where AB LIKE '%Info%'&quot;,1)
+",<sql><google-sheets><google-sheets-formula><google-query-language>,401,0,2,482,1,10,18,43,17326,,342,2,14,2019-05-11 18:47,2019-05-11 18:51,2019-05-27 9:07,0.0,16.0,Basic,2
+56329093,Memory leaks when using pandas_udf and Parquet serialization?,"I am currently developing my first whole system using PySpark and I am running into some strange, memory-related issues. In one of the stages, I would like to resemble a Split-Apply-Combine strategy in order to modify a DataFrame. That is, I would like to apply a function to each of the groups defined by a given column and finally combine them all. Problem is, the function I want to apply is a prediction method for a fitted model that ""speaks"" the Pandas idiom, i.e., it is vectorized and takes a Pandas Series as an input. 
+I have then designed an iterative strategy, traversing the groups and manually applying a pandas_udf.Scalar in order to solve the problem. The combination part is done using incremental calls to DataFrame.unionByName(). I have decided not to use the GroupedMap type of pandas_udf because the docs state that the memory should be managed by the user, and you should have special care whenever one of the groups might be too large to keep it in memory or be represented by a Pandas DataFrame.
+The main problem is that all the processing seems to run fine, but in the end I want to serialize the final DataFrame to a Parquet file. And it is at this point where I receive a lot of Java-like errors about DataFrameWriter, or out-of-memory exceptions.
+I have tried the code in both Windows and Linux machines. The only way I have managed to avoid the errors has been to increase the --driver-memory value in the machines. The minimum value is different in every platform, and is dependent on the size of the problem, which somehow makes me suspect on memory leaks.
+The problem did not happen until I started using pandas_udf. I think that there is probably a memory leak somewhere in the whole process of pyarrow serialization taking place under the hood when using a pandas_udf.
+I have created a minimal reproducible example. If I run this script directly using Python, it produces the error. Using spark-submit and increasing a lot the driver memory, it is possible to make it work. 
+import pyspark
+import pyspark.sql.functions as F
+import pyspark.sql.types as spktyp
+# Dummy pandas_udf -------------------------------------------------------------
+@F.pandas_udf(spktyp.DoubleType())
+def predict(x):
+    return x + 100.0
+# Initialization ---------------------------------------------------------------
+spark = pyspark.sql.SparkSession.builder.appName(
+        ""mre"").master(""local[3]"").getOrCreate()
+sc = spark.sparkContext
+# Generate a dataframe ---------------------------------------------------------
+out_path = ""out.parquet""
+z = 105
+m = 750000
+schema = spktyp.StructType(
+    [spktyp.StructField(""ID"", spktyp.DoubleType(), True)]
+)
+df = spark.createDataFrame(
+    [(float(i),) for i in range(m)],
+    schema
+)
+for j in range(z):
+    df = df.withColumn(
+        f""N{j}"",
+        F.col(""ID"") + float(j)
+    )
+df = df.withColumn(
+    ""X"",
+    F.array(
+        F.lit(""A""),
+        F.lit(""B""),
+        F.lit(""C""),
+        F.lit(""D""),
+        F.lit(""E"")
+    ).getItem(
+        (F.rand()*3).cast(""int"")
+    )
+)
+# Set the column names for grouping, input and output --------------------------
+group_col = ""X""
+in_col = ""N0""
+out_col = ""EP""
+# Extract different group ids in grouping variable -----------------------------
+rows = df.select(group_col).distinct().collect()
+groups = [row[group_col] for row in rows]
+print(f""Groups: {groups}"")
+# Split and treat the first id -------------------------------------------------
+first, *others = groups
+cur_df = df.filter(F.col(group_col) == first)
+result = cur_df.withColumn(
+    out_col,
+    predict(in_col)
+)
+# Traverse the remaining group ids ---------------------------------------------
+for i, other in enumerate(others):
+    cur_df = df.filter(F.col(group_col) == other)
+    new_df = cur_df.withColumn(
+        out_col,
+        predict(in_col)
+    )
+    # Incremental union --------------------------------------------------------
+    result = result.unionByName(new_df)
+# Save to disk -----------------------------------------------------------------
+result.write.mode(""overwrite"").parquet(out_path)
+Shockingly (at least for me), the problem seems to vanish if I put a call to repartition() just before the serialization statement.
+result = result.repartition(result.rdd.getNumPartitions())
+result.write.mode(""overwrite"").parquet(out_path)
+Having put this line into place, I can lower a lot the driver memory configuration, and the script runs fine. I can barely understand the relationship among all those factors, although I suspect lazy evaluation of the code and pyarrow serialization might be related.
+This is the current environment I am using for development:
+arrow-cpp                 0.13.0           py36hee3af98_1    conda-forge
+asn1crypto                0.24.0                py36_1003    conda-forge
+astroid                   2.2.5                    py36_0
+atomicwrites              1.3.0                      py_0    conda-forge
+attrs                     19.1.0                     py_0    conda-forge
+blas                      1.0                         mkl
+boost-cpp                 1.68.0            h6a4c333_1000    conda-forge
+brotli                    1.0.7             he025d50_1000    conda-forge
+ca-certificates           2019.3.9             hecc5488_0    conda-forge
+certifi                   2019.3.9                 py36_0    conda-forge
+cffi                      1.12.3           py36hb32ad35_0    conda-forge
+chardet                   3.0.4                 py36_1003    conda-forge
+colorama                  0.4.1                    py36_0
+cryptography              2.6.1            py36hb32ad35_0    conda-forge
+dill                      0.2.9                    py36_0
+docopt                    0.6.2                    py36_0
+entrypoints               0.3                      py36_0
+falcon                    1.4.1.post1     py36hfa6e2cd_1000    conda-forge
+fastavro                  0.21.21          py36hfa6e2cd_0    conda-forge
+flake8                    3.7.7                    py36_0
+future                    0.17.1                py36_1000    conda-forge
+gflags                    2.2.2                ha925a31_0
+glog                      0.3.5                h6538335_1
+hug                       2.5.2            py36hfa6e2cd_0    conda-forge
+icc_rt                    2019.0.0             h0cc432a_1
+idna                      2.8                   py36_1000    conda-forge
+intel-openmp              2019.3                      203
+isort                     4.3.17                   py36_0
+lazy-object-proxy         1.3.1            py36hfa6e2cd_2
+libboost                  1.67.0               hd9e427e_4
+libprotobuf               3.7.1                h1a1b453_0    conda-forge
+lz4-c                     1.8.1.2              h2fa13f4_0
+mccabe                    0.6.1                    py36_1
+mkl                       2018.0.3                      1
+mkl_fft                   1.0.6            py36hdbbee80_0
+mkl_random                1.0.1            py36h77b88f5_1
+more-itertools            4.3.0                 py36_1000    conda-forge
+ninabrlong                0.1.0                     dev_0    &lt;develop&gt;
+nose                      1.3.7                 py36_1002    conda-forge
+nose-exclude              0.5.0                      py_0    conda-forge
+numpy                     1.15.0           py36h9fa60d3_0
+numpy-base                1.15.0           py36h4a99626_0
+openssl                   1.1.1b               hfa6e2cd_2    conda-forge
+pandas                    0.23.3           py36h830ac7b_0
+parquet-cpp               1.5.1                         2    conda-forge
+pip                       19.0.3                   py36_0
+pluggy                    0.11.0                     py_0    conda-forge
+progressbar2              3.38.0                     py_1    conda-forge
+py                        1.8.0                      py_0    conda-forge
+py4j                      0.10.7                   py36_0
+pyarrow                   0.13.0           py36h8c67754_0    conda-forge
+pycodestyle               2.5.0                    py36_0
+pycparser                 2.19                     py36_1    conda-forge
+pyflakes                  2.1.1                    py36_0
+pygam                     0.8.0                      py_0    conda-forge
+pylint                    2.3.1                    py36_0
+pyopenssl                 19.0.0                   py36_0    conda-forge
+pyreadline                2.1                      py36_1
+pysocks                   1.6.8                 py36_1002    conda-forge
+pyspark                   2.4.1                      py_0
+pytest                    4.5.0                    py36_0    conda-forge
+pytest-runner             4.4                        py_0    conda-forge
+python                    3.6.6                hea74fb7_0
+python-dateutil           2.8.0                    py36_0
+python-hdfs               2.3.1                      py_0    conda-forge
+python-mimeparse          1.6.0                      py_1    conda-forge
+python-utils              2.3.0                      py_1    conda-forge
+pytz                      2019.1                     py_0
+re2                       2019.04.01       vc14h6538335_0  [vc14]  conda-forge
+requests                  2.21.0                py36_1000    conda-forge
+requests-kerberos         0.12.0                   py36_0
+scikit-learn              0.20.1           py36hb854c30_0
+scipy                     1.1.0            py36hc28095f_0
+setuptools                41.0.0                   py36_0
+six                       1.12.0                   py36_0
+snappy                    1.1.7                h777316e_3
+sqlite                    3.28.0               he774522_0
+thrift-cpp                0.12.0            h59828bf_1002    conda-forge
+typed-ast                 1.3.1            py36he774522_0
+urllib3                   1.24.2                   py36_0    conda-forge
+vc                        14.1                 h0510ff6_4
+vs2015_runtime            14.15.26706          h3a45250_0
+wcwidth                   0.1.7                      py_1    conda-forge
+wheel                     0.33.1                   py36_0
+win_inet_pton             1.1.0                    py36_0    conda-forge
+wincertstore              0.2              py36h7fe50ca_0
+winkerberos               0.7.0                    py36_1
+wrapt                     1.11.1           py36he774522_0
+xz                        5.2.4                h2fa13f4_4
+zlib                      1.2.11               h62dcd97_3
+zstd                      1.3.3                hfe6a214_0
+Any hint or help would be much appreciated.
+",<python><pandas><pyspark><apache-spark-sql><pyarrow>,10600,0,176,259,0,3,13,43,3318,0.0,48,2,14,2019-05-27 15:45,2019-06-05 15:59,,9.0,,Intermediate,23

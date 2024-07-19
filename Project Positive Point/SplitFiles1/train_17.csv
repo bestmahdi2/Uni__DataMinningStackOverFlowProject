@@ -1,0 +1,758 @@
+Id,Title,Body,Tags,CreationDate,Y
+34803311,"template and derived class definition : error: 'myClass' is not a class, namespace, or enumeration","<p>I'm trying to learn templates in C++ and I have the following code :</p>
+
+<pre><code>#include &lt;stack&gt;
+
+template&lt;typename T&gt;
+class   myClass : public std::stack&lt;T&gt;{
+public:
+    myClass(void);
+    myClass(myClass const &amp; src);
+    virtual ~myClass(void);
+    myClass &amp;   operator=(myClass const &amp; rhs);
+};
+
+template&lt;typename T&gt;
+myClass::myClass(void) : std::stack&lt;T&gt;(){
+}
+</code></pre>
+
+<p>But I can't figure out why I get the following when I try to compile :</p>
+
+<pre><code>test.cpp:17:1: error: 'myClass' is not a class, namespace, or enumeration
+myClass::myClass(void) : std::stack&lt;T&gt;(){
+^
+test.cpp:8:9: note: 'myClass' declared here
+class   myClass : public std::stack&lt;T&gt;{
+        ^
+1 error generated.
+</code></pre>
+
+<p>It looks like the definition of the function causes the error, but I don't know why I get this error, it looks OK to me (even if I guess it's not really OK), just a syntax error perhaps?..</p>
+
+<p>I compile with <strong>clang++ -Wall -Werror -Wextra -c</strong>.</p>
+
+<p>What could cause this error?</p>
+",<c++><templates><derived-class>,16/01/15 2:14,HQ
+34803466,How to list the content of a named volume in docker 1.9+?,"<p>Docker 1.9 added named volumes, so I..</p>
+
+<pre><code>docker volume create --name postgres-data
+
+docker volume ls 
+</code></pre>
+
+<p>and I get</p>
+
+<pre><code>local               postgres-data
+</code></pre>
+
+<p>all good so far.. </p>
+
+<p>so how do I see what is in the named volume?  Is there a way to cd to it on the host system.  Like I can for a mounted host directory?</p>
+",<docker>,16/01/15 2:33,HQ
+34803567,What pylint options can be specified in inline comments?,"<p>I note that I can disable particular messages using a comment. For example, pylint by default complains about variable names of less than three letters. I can suppress that like this:</p>
+
+<pre><code># pylint: disable=invalid-name
+def some_string_operation(s):  # (the same thing here would also work)
+    return something(s)
+</code></pre>
+
+<p>But I cannot, for example, add <code>s</code> to the good-names list. This doesn't work:</p>
+
+<pre><code># pylint: good-names=s
+def some_string_operation(s):
+    return something(s)
+</code></pre>
+
+<p>So clearly not all options can be modified that way. Which ones can?</p>
+",<python><pylint>,16/01/15 2:44,HQ
+34803648,ConfigurationManager and AppSettings in universal (UWP) app,"<p>I would like to store an API key in a configuration file without checking it into source control, and read the data in my UWP app.</p>
+
+<p>A common solution is to store the key in .config file (such as <code>app.config</code> or <code>web.config</code>) and access it like so:</p>
+
+<pre><code>var apiKey = ConfigurationManager.AppSettings.Get(""apiKey"");
+</code></pre>
+
+<p>I'm working on a Universal Windows (UWP) app and can't access the System.Configuration namespace that holds <code>ConfigurationManager</code>.</p>
+
+<p>How can I access AppSettings in UWP app?
+Alternatively, what's the best way to access configuration data in an UWP app?</p>
+",<c#><uwp><portable-class-library>,16/01/15 2:54,HQ
+34804000,What is the best way to execute form submission?,"<p>Please excuse any ignorant or ametuer perspective that I may seem to have.  I am indeed an aspiring web developer :)</p>
+
+<p>The only thing that I need to achieve right now is having the user fill out a form with only two fields and have that information end up in my inbox.</p>
+
+<p>After much searching and different solutions/opinions from a WIDE variety of sources and dev types, I still cannot seem to find a step by step process of how to best implement this seemingly simple issue I'm having. </p>
+
+<p>Now, I'm willing to learn what I may need to, but I have no idea where to start.  I've been told PHP, Django(Python), JavaScript and a whole slew of others.</p>
+
+<p>I can build the form with out an issue.  It's getting that information to my email that I'm stuck on!</p>
+
+<p>Any and all feedback is much appreciated.  Thank you!</p>
+",<javascript><php><forms><validation><submit>,16/01/15 3:38,LQ_CLOSE
+34804494,"can any one clarify ""S_NO"" NUMBER(12,0) NOT NULL ENABLE PRIMARY KEY"" what it means S_NO"" NUMBER(12,0)","can any one clarify ""S_NO"" NUMBER(12,0) NOT NULL ENABLE PRIMARY KEY"" what it means the datatype S_NO"" NUMBER(12,0)
+
+Please clarify the each parameter",<sql><oracle><oracle11g>,16/01/15 4:38,LQ_EDIT
+34804803,Complete a string base on index of last character,"<p>Example Word : String , the returned last index is 5 which is ""g"". I need to complete the word string base on the space before the word.</p>
+
+<p>For example</p>
+
+<p>obj string the last index is 5, which is g, ""string"" word should be completed.</p>
+",<c#><string>,16/01/15 5:16,LQ_CLOSE
+34806347,What is the comment syntax in Yesod (hamlet) templates?,"<p>I just can not find how to comment line in hamlet template. Is there some syntax for comments? Like</p>
+
+<pre><code>-- &lt;p&gt;Some code should be ignored by template
+</code></pre>
+
+<p>or something?</p>
+",<templates><haskell><yesod><hamlet><shakespeare-text>,16/01/15 7:42,HQ
+34807187,java: Reading in multiple integers from the scanner and assigning each integer to a different variable?,"I have to read in integers and the scanner has to continue to scan them in until 0 is entered. Then all of those numbers have to be saved to different variables. Then the variables have to be compared and the following has to occur:
+-Find the smallest integer
+-Find how many integers are even
+-Find the sum of the negative integers
+
+I have this so far:
+
+
+    public static void main (String[] args)
+    {
+    		Scanner in = new Scanner(System.in);
+    		System.out.println(""Enter integers"");
+    		do
+    	    {
+    			
+    	    }
+    		while (in.nextInt() !=0);
+        }
+
+I am lost on what to do next.",<java>,16/01/15 8:43,LQ_EDIT
+34807286,WebSocket SyntaxError: An invalid or illegal string was specified,"<p>I'm getting a <code>SyntaxError: An invalid or illegal string was specified</code>, while trying to connect to a WebSocket on Firefox.</p>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;&lt;meta charset=""utf-8""&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    var socket = new WebSocket('127.0.0.1:1234');
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Why do I get this error?</p>
+",<javascript><firefox><websocket>,16/01/15 8:49,HQ
+34807293,How to set teh selected option on a dropdown list on a jquery dialog?,"i have a table od data, when i sent the a row of data to fields on a jquery dialog it fails to set the selected value of the `dropdown list`
+
+i have use this 
+
+     $('#ddlProducts').val(data.prodID); 
+
+`data.prodID` has a value but it does not set it to the `value` of the `dropdown`. How do i fix this?",<jquery><asp.net-mvc-4>,16/01/15 8:49,LQ_EDIT
+34807532,iOS what is paperRect in core graphics topic,"I was studying core graphics recently and always see some of the code assign paperRect in CGRect variable, so I search around in internet and I dunno what is paperRect doing? Counld any one explain to me. Thanks you.",<ios><core-graphics>,16/01/15 9:03,LQ_EDIT
+34807819,Using a argument as a property key,"<p>Lets say I got this function:</p>
+
+<pre><code>  vm.setSelectedItem = function(itemName, searchedItems){
+    vm.selectedItem = _.findWhere(searchedItems, {name: itemName});
+  };
+</code></pre>
+
+<p>I need to make the ""name"" dynamic</p>
+
+<pre><code>  vm.setSelectedItem = function(itemName, searchedItems, propertyKey){
+    vm.selectedItem = _.findWhere(searchedItems, {}); //How do I use the arg propertyKey here?
+  };
+</code></pre>
+
+<p>How do I do this?</p>
+",<javascript>,16/01/15 9:20,LQ_CLOSE
+34807971,Why does git diff-index HEAD result change for touched files after git diff or git status?,"<p>If I <code>touch</code> a file tracked in a git repo, and run <code>git diff-index HEAD</code>, it will print output with <code>M</code> indicating the file has been modified. For example,</p>
+
+<pre><code>$ touch foo
+$ git diff-index HEAD
+:100644 100644 257cc5642cb1a054f08cc83f2d943e56fd3ebe99 0000000000000000000000000000000000000000 M  foo
+</code></pre>
+
+<p>I am unsure if this makes sense or not, but that is not the question. The question is, why does the output change (to no diff) if I run <code>git diff HEAD</code> or <code>git status</code>?</p>
+
+<pre><code>$ touch foo
+$ git diff-index HEAD
+:100644 100644 257cc5642cb1a054f08cc83f2d943e56fd3ebe99 0000000000000000000000000000000000000000 M  foo
+$ git diff                  # no output
+$ git diff-index HEAD       # no output
+</code></pre>
+
+<p>I would expect the result, whatever it is, to stay the same across commands that are not supposed to change anything.</p>
+",<git>,16/01/15 9:28,HQ
+34808036,"Hi, I wanted to know why the output of this code is nothing?","I wanted to know why the output of this code is nothing? is it something related to the use of SIZE in for expression?
+
+
+    #include<stdio.h>
+    int array[6] = {4, 5, 6, 10, -1, 0};
+    #define SIZE (sizeof(array)/sizeof(array[0]))
+    int main() {
+    	int i;	
+    	for (i= -1; i< SIZE; ++i)  printf(""%d"", array[i+1]);
+    	return 0;
+    }",<c><type-conversion>,16/01/15 9:31,LQ_EDIT
+34808133,Simple countdown hh:mm:ss in android studio,"<p>How can I create a simple countdown in Android studio with a fixed start time? It should start the count down as soon as the application is opened. The preferable format is hh:mm:ss</p>
+
+<p>thanks</p>
+",<android><android-studio><countdown>,16/01/15 9:37,LQ_CLOSE
+34808493,Java- formatted input,"<p>How can I accept input from STDIN in the format
+<strong>HH:MM:SSAM</strong>
+<strong>here in place of AM , PM can also be there</strong>
+and display output in the form <strong>HH:MM:SS</strong></p>
+",<java>,16/01/15 9:58,LQ_CLOSE
+34808801,How to play flv video on mobile web browsers?,"<p>Is it possible to view .flv format video movies with standard android web browsers fromm my web page? I tried to watch using videojs, but get an error ""no compatible source was found for this video"". </p>
+",<javascript><html><video><video-streaming><html5-video>,16/01/15 10:16,LQ_CLOSE
+34808925,Express and WebSocket listening on the same port,"<p>I have an app.js which is used to trigger two events when some POST data are received: </p>
+
+<ol>
+<li>Insert POST data into a database</li>
+<li>Send a message to a client using a WebSocket</li>
+</ol>
+
+<p>Here is the <strong>app.js</strong> (only the important lines)</p>
+
+<pre><code>var express = require('express');
+var bodyParser = require('body-parser');
+var server = require('./server');
+
+var app = express();
+var port = process.env.PORT || 3000;
+
+app.post('/server', server);
+
+app.listen(port, function(){
+  console.log('Slack bot listening');
+});
+</code></pre>
+
+<p>And here is the <strong>server.js</strong> (only the important lines)</p>
+
+<pre><code>var db = require('./DB');
+var WebSocketServer = require('ws').Server;
+
+var insertData = function(req, res){
+
+    var wss = new WebSocketServer({server: server});
+    console.log('WebSocketServer created');
+    wss.on('connection', function(wss){
+        wss.send(JSON.stringify('Socket open'));
+    });
+    wss.on('close', function(){
+        console.log('WebServerSocket has been closed');
+    });
+};
+
+module.exports = insertData;
+</code></pre>
+
+<p>What I would like to achieve is to set the WebSocketServer in a way that it listen to the same port of the app. 
+I thought about passing the <em>server</em> var from <strong>app.js</strong> to <strong>server.js</strong> but </p>
+
+<ol>
+<li>I think this a not an elegant way to do it</li>
+<li>I don't know how to do it</li>
+</ol>
+
+<p>What do you guys think? </p>
+",<javascript><node.js><websocket>,16/01/15 10:23,HQ
+34809287,passing data from web form PHP application to Java web application," There is two WEB applications based on two different servers. How I can pass data from the web form, which  consist 5-10 fields (php web application) to Java application(Struts2, Spring2) in the most elegant and safe way. please give me suggestions",<java><php><web-services>,16/01/15 10:42,LQ_EDIT
+34809845,Check Ansible version from inside of a playbook,"<p>I have a playbook that is running in different way in Ansible 1.9.x and 2.0. I would like to check currently running ansible version in my playbook to avoid someone running it with old one. </p>
+
+<p>I don't think that this is the best solution: </p>
+
+<pre><code>- local_action: command ansible --version
+  register: version
+</code></pre>
+
+<p>What would you suggest?</p>
+",<ansible><ansible-playbook>,16/01/15 11:16,HQ
+34809935,Change column names of data.frame based on column number and text,"<p>In the data.frame <code>run</code></p>
+
+<pre><code>run &lt;- data.frame(1:4,2:5,3:6)
+  X1.4 X2.5 X3.6
+1    1    2    3
+2    2    3    4
+3    3    4    5
+4    4    5    6
+</code></pre>
+
+<p>I want to change the column names to</p>
+
+<pre><code>&gt; colnames(run) &lt;- c(""runner1"", ""runner2"", ""runner3"")
+</code></pre>
+
+<p>Is there a way to do this in R code (imagine I have hundreds of columns) by combining a similar text <code>runner</code> with a serial number <code>1, 2, 3...</code></p>
+
+<p>I started with
+<code>c(rbind(rep(c(""runner""), each=3), c(1:3)))</code> which does not work and is probably way too complicated.</p>
+
+<p>I suppose there is a easy solution?</p>
+",<r><dataframe>,16/01/15 11:21,LQ_CLOSE
+34809965,display hidden form when specific number of integers/characters are entered into a text field,"<p>I am trying to create a function where when a specific number of integers (eg. a phone number) are entered into a text field, a hidden form is displayed and both initial text field and form re-positioned. </p>
+
+<p>Any examples available on how this can be accomplished?</p>
+
+<p>Thanks</p>
+",<javascript><jquery><html>,16/01/15 11:23,LQ_CLOSE
+34810451,WHy If condition block is getting executed ?,"I have this conditions 
+
+    if (txtBoxFatherHusbandName.Text != """" || txtBoxName.Text != """" || txtBoxNICNo.Text != """")
+            {
+                ShowMsgBox(""Please first <b>Save/Update</b> the data being entered in mandatory fields"");
+    
+                txtBoxFatherHusbandName.Focus();
+    
+                return;
+            }
+
+all three textboxes are empty with no text in it but still the conditions is getting executed. why ?",<c#><asp.net><webforms>,16/01/15 11:50,LQ_EDIT
+34810560,Version ranges in gradle,"<p>What are the possible ways of specifying version ranges in gradle dependencies? I saw some 1.+ notation but I have not found a document which really says what is possible and what is not. Furthermore, I do not know whether the Maven ranges can be used as well.</p>
+
+<p>Can somebody give me a short overview so that I can understand the rules?</p>
+",<gradle><dependencies><repository>,16/01/15 11:56,HQ
+34810604,singly linked list counting algorithm,"I need to write a metod that goes over a sorted singly linked list and returns
+the numer that appears the most times but goes over the list only one time
+
+can someone point me in the right direction?
+can't find an elegent solution yet, should i use recursion?
+I want the code to be as efficient as possible
+
+thanks in advance",<java><algorithm><singly-linked-list>,16/01/15 11:58,LQ_EDIT
+34810835,How to create an array constructor for my class?,"<p>I would like to create a constructor, which is similar to the <code>int</code> array constructor: <code>int foo[3] = { 4, 5, 6 };</code></p>
+
+<p>But I would like to use it like this:</p>
+
+<pre><code>MyClass&lt;3&gt; foo = { 4, 5, 6 };
+</code></pre>
+
+<p>There is a private <code>n</code> size array in my class:</p>
+
+<pre><code>template&lt;const int n=2&gt;
+class MyClass {
+
+    public:
+
+        // code...
+
+    private:
+
+        int numbers[n];
+
+        // code...
+
+};
+</code></pre>
+",<c++><arrays><c++11>,16/01/15 12:12,HQ
+34811268,No img-responsive in Bootstrap 4,"<p>I just downloaded the source code for Bootstrap 4 alpha 2 and can't find the class <code>img-responsive</code> in it. It exists in Bootstrap 3 source code and I can find it with Notepad++ but in Bootstrap 4s <code>bootstrap.css</code> in <code>dist</code> folder it doesn't exist.</p>
+
+<p>What happend to it??</p>
+",<image><twitter-bootstrap>,16/01/15 12:37,HQ
+34811540,How to build a Fluent Nested Guard API,"<p>I am building a simple Guard API to protect against illegal parameters being passed to functions and so on.</p>
+
+<p>I have the following code:</p>
+
+<pre><code>public static class Guard
+{
+    public static GuardArgument&lt;T&gt; Ensure&lt;T&gt;(T value, string argumentName)
+    {
+        return new GuardArgument&lt;T&gt;(value, argumentName);
+    }
+}
+
+public class GuardArgument&lt;T&gt;
+{
+    public GuardArgument(T value, string argumentName)
+    {
+        Value = value;
+        Name = Name;
+    }
+
+    public T Value { get; private set; }
+    public string Name { get; private set; }
+}
+
+// Example extension for validity checks
+public static GuardArgument&lt;T&gt; IsNotNull&lt;T&gt;(this GuardArgument&lt;T&gt; guardArgument, string errorMessage)
+{
+    if (guardArgument.Value == null)
+    {
+        throw new ArgumentNullException(guardArgument.Name, errorMessage);
+    }
+
+    return guardArgument;
+}     
+</code></pre>
+
+<p>At the moment the code can be used in a similar way to (note this is just a dumb example):</p>
+
+<pre><code>void DummyMethod(int? someObject) {
+
+    Guard.Ensure(someObject, ""someObject"")
+       .IsNotNull()
+       .IsGreaterThan(0)
+       .IsLessThan(10);
+}
+</code></pre>
+
+<p>This all works fine.  What I want to be able to do now is extend the API to include child properties in the checks in the following way:</p>
+
+<pre><code>Guard.Ensure(someObject, ""someObject"")
+    .IsNotNull()
+    .Property(
+        (x =&gt; x.ChildProp1, ""childProp1"")
+           .IsNotNull()
+           .IsGreaterThan(10)
+     )
+     .Property(
+        (x =&gt; x.ChildProp2, ""childProp2"")
+           .IsNotNull()
+           .IsLessThan(10)
+     );
+</code></pre>
+
+<p>Obviously the new <code>.Property</code> method needs to return the parent <code>GuardArgument</code> in order to chain. Furthermore the child property needs to be able to use the existing check methods (<code>IsNotNull()</code> etc) to avoid code duplication.</p>
+
+<p>I cannot work out how to construct the lambda/Property function parameters or where the <code>.Property</code> method should be located - i.e. should it be a property on the <code>GuardArgument</code> or somewhere else, or even if there is a better structure to the API.</p>
+",<c#><lambda><fluent>,16/01/15 12:53,HQ
+34812486,Calling functions inside Vue.js template,"<p>My template:</p>
+
+<pre><code>&lt;template id=""players-template"" inline-template&gt;
+        &lt;div v-for=""player in players""&gt;
+            &lt;div v-bind:class=""{ 'row': ($index + 1) % 3 == 0 }""&gt;
+                &lt;div class=""player col-md-4""&gt;
+                    &lt;div class=""panel panel-default""&gt;
+                        &lt;div class=""panel-heading""&gt;
+                            &lt;h3 class=""panel-title""&gt;
+                                &lt;a href=""#""&gt;{{ player.username }}&lt;/a&gt;
+                                &lt;span class=""small pull-right""&gt;{{ player.createdAt }}&lt;/span&gt;
+                            &lt;/h3&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=""panel-body""&gt;
+                            &lt;img v-bind:src=""player.avatar"" alt=""{{ player.username }}"" class=""img-circle center-block""&gt;
+                        &lt;/div&gt;
+                        &lt;div class=""panel-footer""&gt;
+                            &lt;div class=""btn-group btn-group-justified"" role=""group"" aria-label=""...""&gt;
+                                &lt;a href=""#"" class=""btn btn-primary btn-success send-message"" data-toggle=""tooltip"" data-placement=""bottom"" title=""Wyślij wiadomość"" v-bind:id=""player.id"" @click=""createConversation(player.id)""&gt;&lt;span class=""glyphicon glyphicon-envelope""&gt;&lt;/span&gt;&amp;nbsp;&lt;/a&gt;
+                                &lt;a href=""#"" class=""btn btn-primary btn-info"" data-toggle=""tooltip"" data-placement=""bottom"" title=""Pokaż profil""&gt;&lt;span class=""glyphicon glyphicon-user""&gt;&lt;/span&gt;&amp;nbsp;&lt;/a&gt;
+                                &lt;a href=""#"" class=""btn btn-primary btn-primary"" data-toggle=""tooltip"" data-placement=""bottom"" title=""Zobacz szczegółowe informacje o poście""&gt;&lt;span class=""glyphicon glyphicon-option-horizontal""&gt;&lt;/span&gt;&amp;nbsp;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+</code></pre>
+
+<p>My script:</p>
+
+<pre><code>new Vue({
+    el: 'body',
+    methods: {
+        createConversation: function(id) { 
+            console.log(""createConversation()"");
+            console.log(id);
+        }
+    }
+});
+</code></pre>
+
+<p>When the template is rendering i gets an error <code>[Vue warn]: v-on:click=""createConversation"" expects a function value, got undefined</code>. I don't know how to use methods inside a component template. If someone could help me I would appreciate is.</p>
+",<javascript><vue.js>,16/01/15 13:46,HQ
+34812664,PHP Header = Location in a different folder in directory,"<p>If I had a page inside of an includes folder but wanted a <code>header(""location: dashboard.php"");</code> to redirect out of the folder into the main directory, how would I do this?</p>
+
+<p>I want to come out of two folders to the main directory.</p>
+",<php>,16/01/15 13:55,LQ_CLOSE
+34812731,Html multiple select element accessibility,"<p>In our web application we have a search form which contains a field for which a user can select one or more answers from a list of possible options.  We currently use the ""select"" html element with the ""multiple"" attribute set as in the example below:</p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-css lang-css prettyprint-override""><code>select {
+  width: 150px;
+}</code></pre>
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;select multiple&gt;
+  &lt;option value=""A""&gt;Alice&lt;/option&gt;
+  &lt;option value=""B""&gt;Bob&lt;/option&gt;
+  &lt;option value=""F""&gt;Fred&lt;/option&gt;
+  &lt;option value=""K""&gt;Kevin&lt;/option&gt;
+  &lt;option value=""M""&gt;Mary&lt;/option&gt;
+  &lt;option value=""S""&gt;Susan&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>Feedback from user testing has shown that this solution is confusing for users.  Multiple selection/deselection is performed by holding down the Ctrl key (on windows), however many users were unaware of this.</p>
+
+<p>The element also does not seem to allow for easy use when using just a keyboard - this is obviously an accessibility issue.</p>
+
+<p>Is there a ""best practice"", accessible way of displaying an input with multiple options to a user?</p>
+",<html><accessibility>,16/01/15 14:00,HQ
+34812890,IabHelper class not working?,"<p>I have implemented the IabHelper class in my android project and it says that the 'getBuyIntentToReplaceSkus' cannot be resolved. The full method:</p>
+
+<pre><code>buyIntentBundle = mService.getBuyIntentToReplaceSkus(5,
+mContext.getPackageName(),oldSkus, sku, itemType, extraData);
+</code></pre>
+
+<p>I implemented in app billing in my project but I have not yet created any items to be purchased, though the rest of the methods don't have any problems.</p>
+",<android><android-intent><in-app-purchase>,16/01/15 14:10,HQ
+34812967,Bad performance of UIStackView within UICollectionViewCells,"<p>I am using <code>UIStackView</code> to layout <code>UILabels</code> in my <code>UICollectionViewCell</code> subclass. I'm using the iOS SDK 9.2</p>
+
+<p>The scrolling of the collection view is smooth if I don't update the labels' <code>text</code> when I dequeue them. However, if I update their <code>text</code> as I dequeue them, the scrolling is very slow. </p>
+
+<p>I made a very small demo to show the problem, to be ran on a device (not the simulator). You can create a new empty project and replace the contents of <code>ViewController.swift</code> with this:</p>
+
+<pre><code>import UIKit
+
+class ViewController: UIViewController {
+
+    override func loadView() {
+        view = UIView()
+
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 200)
+        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.registerClass(Cell.self, forCellWithReuseIdentifier: ""Cell"")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = self
+        view.addSubview(collectionView)
+
+        let constraints = [""H:|-[collectionView]-|"",
+            ""V:|[collectionView]|""
+        ].flatMap { NSLayoutConstraint.constraintsWithVisualFormat($0, options: [], metrics: nil, views: [""collectionView"": collectionView])
+        }
+        NSLayoutConstraint.activateConstraints(constraints)
+
+    }
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -&gt; UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(""Cell"", forIndexPath: indexPath) as! Cell
+
+        //comment out the line below to make the scrolling smoother: 
+        cell.fillLabels()
+
+        return cell
+    }
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {
+        return 100
+    }
+}
+
+class Cell: UICollectionViewCell {
+
+    var labelArray = [UILabel]()
+
+    func fillLabels() {
+        for label in labelArray {
+            label.text = ""\(label.text!) yo""
+        }
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        contentView.backgroundColor = UIColor.whiteColor()
+
+        let stackView = UIStackView()
+        stackView.axis = .Horizontal
+        stackView.alignment = .Leading
+        stackView.distribution = .EqualSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(stackView)
+
+        let leftStack = UIStackView()
+        leftStack.axis = .Vertical
+
+        let rightStack = UIStackView()
+        rightStack.axis = .Vertical
+
+        stackView.addArrangedSubview(leftStack)
+        stackView.addArrangedSubview(rightStack)
+
+        for index in 0...10 {
+            let leftLabel = UILabel()
+            leftLabel.text = ""\(index)""
+            leftStack.addArrangedSubview(leftLabel)
+
+            labelArray.append(leftLabel)
+
+            let rightLabel = UILabel()
+            rightLabel.text = ""\(index)""
+            rightStack.addArrangedSubview(rightLabel)
+
+            labelArray.append(rightLabel)
+        }
+
+
+        let constraints = [
+            ""H:|[stackView]|"",
+            ""V:|[stackView]|""
+            ].flatMap {
+                NSLayoutConstraint.constraintsWithVisualFormat($0, options: [], metrics: nil, views: [""stackView"": stackView])
+        }
+
+        NSLayoutConstraint.activateConstraints(constraints)
+
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError(""init(coder:) has not been implemented"")
+    }
+}
+</code></pre>
+
+<p>You'll notice the scrolling is smooth when you comment out the call to <code>fillLabels</code>. </p>
+
+<p>If you try to reproduce the same layout without <code>UIStackViews</code> and include the call <code>fillLabels</code>, you'll notice the scrolling is smooth too.</p>
+
+<p>This suggests <code>UIStackView</code> suffers performance bottlenecks if it has recalculate its layout. </p>
+
+<p>Is this hypothesis correct? Are there some solutions?</p>
+",<ios><uicollectionviewcell><uistackview>,16/01/15 14:14,HQ
+34813156,Need to change program filtering of files getting from FTP,"<p>I've a C# program that received FTP records. The files we receive are all .csv so I check for that below:</p>
+
+<pre><code>private static bool IsAllowedExtension(string fileExtension)
+        {
+            return  fileExtension.ToLower() == "".csv"";
+        }
+</code></pre>
+
+<p>then we process only this sort of file:</p>
+
+<pre><code> foreach (RemoteFileInfo fileInfo in directory.Files)
+                                {
+                                    var fileExtension = Path.GetExtension(fileInfo.Name);
+                                    if (string.IsNullOrEmpty(fileExtension) || !IsAllowedExtension(fileExtension))
+                                        continue;
+
+                                    if (!Directory.Exists(LocalPath))
+                                        Directory.CreateDirectory(LocalPath);
+
+                                    var localFile = string.Format(""{0}\\{1}"",LocalPath.TrimEnd('\\') , fileInfo.Name);
+
+                                    if (fileInfo.Name != "".."" &amp;&amp; !File.Exists(localFile))
+</code></pre>
+
+<p>However, now there has been some .csv in the group receiving we dont want. So i want to add or change this to that the file we want all start as this:</p>
+
+<p>""CheckoutReportID="" this would give us only the ones needed.</p>
+",<c#><.net>,16/01/15 14:24,LQ_CLOSE
+34813412,How to detect if building with address sanitizer when building with gcc 4.8?,"<p>I'm working on a program written in C that I occasionally build with address sanitizer, basically to catch bugs. The program prints a banner in the logs when it starts up with info such as: who built it, the branch it was built on, compiler etc. I was thinking it would be nice to also spell out if the binary was built using address sanitizer. I know there's __has_feature(address_sanitizer), but that only works for clang. I tried the following simple program: </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+#if defined(__has_feature)
+# if __has_feature(address_sanitizer)
+    printf (""We has ASAN!\n"");
+# else
+    printf (""We have has_feature, no ASAN!\n"");
+# endif
+#else
+    printf (""We got nothing!\n"");
+#endif
+
+    return 0;
+}
+</code></pre>
+
+<p>When building with <code>gcc -Wall -g -fsanitize=address -o asan asan.c</code>, this yields: </p>
+
+<pre><code>We got nothing!
+</code></pre>
+
+<p>With <code>clang -Wall -g -fsanitize=address -o asan asan.c</code> I get: </p>
+
+<pre><code>We has ASAN!
+</code></pre>
+
+<p>Is there a gcc equivalent to __has_feature? </p>
+
+<p>I know there are ways to check, like the huge VSZ value for programs built with address sanitizer, just wondering if there's a compile-time define or something. </p>
+",<c><gcc><clang><address-sanitizer>,16/01/15 14:36,HQ
+34813726,google play services 8.4.0 - classes.jar not found - android studio,"<p>I am getting this error when I Run or Debug the app but when I build or clean my project there are no errors. It sounds strange but I've wasted my 4-5 hours searching for this but nothing was helpful. 
+Error:</p>
+
+<pre><code>Error:Execution failed for task ':app:compileDebugJavaWithJavac'.&gt; java.io.FileNotFoundException: C:\Users\Saeed Jassani\Downloads\AppName\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\8.4.0\jars\classes.jar (The system cannot find the path specified)
+</code></pre>
+
+<p>build.gradle file:</p>
+
+<pre><code>apply plugin: 'com.android.application'
+
+android {
+compileSdkVersion 23
+buildToolsVersion ""23.0.2""
+defaultConfig {
+    applicationId ""com.example.app""
+    minSdkVersion 9
+    targetSdkVersion 23
+    versionCode 1
+    versionName ""1.0""
+}
+buildTypes {
+    release {
+        minifyEnabled false
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+}
+}
+dependencies {
+compile fileTree(dir: 'libs', include: ['*.jar'])
+testCompile 'junit:junit:4.12'
+compile 'com.android.support:appcompat-v7:23.1.1'
+compile 'com.android.support:recyclerview-v7:23.1.1'
+compile 'com.android.support:design:23.1.1'
+compile 'com.google.android.gms:play-services:8.4.0'
+compile 'com.android.support:support-v4:23.1.1'
+}
+</code></pre>
+",<android><android-gradle-plugin><google-play-services>,16/01/15 14:50,HQ
+34814280,List<comma-separated strings> => List<string>?,"<p>Trying to come up with a LINQy way to do this, but nothing's coming to me.</p>
+
+<p>I have a List&lt;> of objects which include a property which is a comma-separated list of alpha codes:</p>
+
+<pre><code>lst[0].codes = ""AA,BB,DD""
+lst[1].codes = ""AA,DD,EE""
+lst[2].codes = ""GG,JJ""
+</code></pre>
+
+<p>I'd like a list of those codes, hopefully in the form of a List of strings:</p>
+
+<pre><code>result = AA,BB,DD,EE,GG,JJ
+</code></pre>
+
+<p>Thanks for any direction.</p>
+",<c#><linq>,16/01/15 15:19,HQ
+34814306,Customize Radio and Checkbox with CSS,"<p>Is it possible to customize the look of radio and checkboxes only using CSS?  I see there is a lot out there regarding this, but most solutions require the use of images and javascript.  </p>
+",<css><checkbox><radio-button>,16/01/15 15:21,LQ_CLOSE
+34814368,"""Gradle Version 2.10 is required."" Error","<p>As I've been using </p>
+
+<pre><code>classpath 'com.android.tools.build:gradle:+'
+</code></pre>
+
+<p>In the <strong>build.gradle</strong> file, I got the following error since <strong>gradle version 2.10</strong> has been released.
+The error is :</p>
+
+<blockquote>
+  <p>Warning:Gradle version 2.10 is required. Current version is 2.8. If
+  using the gradle wrapper, try editing the distributionUrl in
+  C:\Users\blahblah\myproject\gradle\wrapper\gradle-wrapper.properties
+  to gradle-2.10-all.zip</p>
+</blockquote>
+
+<p>at first it looks easy to solve by the guide, but when I'd done the change, I got the error again. </p>
+
+<p>I'm using <strong>Android Studio 2.0</strong> with the latest <strong>Android SDK Tools 24.4.1</strong> and <strong>Android SDK Build Tools 23.0.2</strong></p>
+
+<p>I've even tried to download <strong>Gradle 2.10</strong> and put it manually on android-studio\gradle\ folder, but no luck.</p>
+
+<p>Any help would be appreciated.</p>
+",<android><android-studio><plugins><gradle><android-gradle-plugin>,16/01/15 15:24,HQ

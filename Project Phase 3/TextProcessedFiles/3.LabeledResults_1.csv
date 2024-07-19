@@ -1,0 +1,1197 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+50093144,MySQL 8.0 - Client does not support authentication protocol requested by server; consider upgrading MySQL client,"I can't make a simple connection to the server for some reason. I install the newest MySQL Community 8.0 database along with Node.JS with default settings.
+This is my node.js code
+    var mysql = require('mysql');
+    var con = mysql.createConnection({
+      host: &quot;localhost&quot;,
+      user: &quot;root&quot;,
+      password: &quot;password&quot;,
+      insecureAuth : true
+    });
+    con.connect(function(err) {
+      if (err) throw err;
+      console.log(&quot;Connected!&quot;);
+    });
+Below is the error found in Command Prompt:
+C:\Users\mysql-test&gt;node app.js
+    C:\Users\mysql-test\node_modules\mysql\lib\protocol\Parse
+    r.js:80
+            throw err; // Rethrow non-MySQL errors
+            ^
+Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+    at Handshake.Sequence._packetToError (C:\Users\mysql-
+test\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Handshake.ErrorPacket (C:\Users\mysql-test\node_mo
+dules\mysql\lib\protocol\sequences\Handshake.js:130:18)
+    at Protocol._parsePacket (C:\Users\mysql-test\node_mo
+dules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (C:\Users\mysql-test\node_modules\mys
+ql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (C:\Users\mysql-test\node_modules\m
+ysql\lib\protocol\Protocol.js:39:16)
+    at Socket.&lt;anonymous&gt; (C:\Users\mysql-test\node_modul
+es\mysql\lib\Connection.js:103:28)
+    at Socket.emit (events.js:159:13)
+    at addChunk (_stream_readable.js:265:12)
+    at readableAddChunk (_stream_readable.js:252:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\mysql-test\node_module
+s\mysql\lib\protocol\Protocol.js:145:48)
+    at Protocol.handshake (C:\Users\mysql-test\node_modul
+es\mysql\lib\protocol\Protocol.js:52:23)
+    at Connection.connect (C:\Users\mysql-test\node_modul
+es\mysql\lib\Connection.js:130:18)
+    at Object.&lt;anonymous&gt; (C:\Users\mysql-test\server.js:
+11:5)
+at Module._compile (module.js:660:30)
+at Object.Module._extensions..js (module.js:671:10)
+at Module.load (module.js:573:32)
+at tryModuleLoad (module.js:513:12)
+at Function.Module._load (module.js:505:3)
+at Function.Module.runMain (module.js:701:10)
+I've read up on some things such as:
+https://dev.mysql.com/doc/refman/5.5/en/old-client.html
+https://github.com/mysqljs/mysql/issues/1507
+But I am still not sure how to fix my problem.
+",<mysql><node.js>,2492,4,51,7655,3,10,14,64,1015467,0.0,7,35,755,2018-04-30 2:04,2018-05-02 9:58,2018-05-02 9:58,2.0,2.0,Advanced,32
+49194719,Authentication plugin 'caching_sha2_password' cannot be loaded,"I am connecting MySQL - 8.0 with MySQL Workbench and getting the below error:
+  Authentication plugin 'caching_sha2_password' cannot be loaded:
+  dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image
+  not found
+I have tried with other client tool as well.
+Any solution for this?
+",<mysql><mysql-workbench><mysql-8.0>,297,0,0,17755,9,53,82,61,1043189,0.0,715,38,671,2018-03-09 13:19,2018-03-12 5:08,2018-03-12 5:08,3.0,3.0,Advanced,32
+50379839,Connection Java - MySQL : Public Key Retrieval is not allowed,"I try to connect MySQL database with Java using connector 8.0.11.   Everything seems to be OK, but I get this exception:
+Exception in thread &quot;main&quot; java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed at
+     com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) at 
+     com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) at
+     com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) at     
+     com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) at 
+     com.mysql.cj.jdbc.ConnectionImpl.(ConnectionImpl.java:444) at
+     com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) at
+     com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) at
+     com.mysql.cj.jdbc.MysqlDataSource.getConnection(MysqlDataSource.java:438) at
+     com.mysql.cj.jdbc.MysqlDataSource.getConnection(MysqlDataSource.java:146) at
+     com.mysql.cj.jdbc.MysqlDataSource.getConnection(MysqlDataSource.java:119) at
+     ConnectionManager.getConnection(ConnectionManager.java:28) at
+     Main.main(Main.java:8)
+Here is my Connection Manager class:
+public class ConnectionManager {
+    public static final String serverTimeZone = &quot;UTC&quot;;
+    public static final String serverName = &quot;localhost&quot;;
+    public static final String databaseName =&quot;biblioteka&quot;;
+    public static final int portNumber = 3306;
+    public static final String user = &quot;anyroot&quot;;
+    public static final String password = &quot;anyroot&quot;;
+    public static Connection getConnection() throws SQLException {
+        MysqlDataSource dataSource = new MysqlDataSource();
+        dataSource.setUseSSL( false );
+        dataSource.setServerTimezone( serverTimeZone );
+        dataSource.setServerName( serverName );
+        dataSource.setDatabaseName( databaseName );
+        dataSource.setPortNumber( portNumber );
+        dataSource.setUser( user );
+        dataSource.setPassword( password );
+        return dataSource.getConnection();
+    }
+}
+",<java><mysql><exception><connector>,2115,0,37,4667,3,9,10,73,670288,0.0,17,25,450,2018-05-16 21:02,2018-05-20 19:57,2018-05-20 19:57,4.0,4.0,Intermediate,31
+65456814,"Docker (Apple Silicon/M1 Preview) MySQL ""no matching manifest for linux/arm64/v8 in the manifest list entries""","I'm running the latest build of the Docker Apple Silicon Preview. I created the tutorial container/images and it works fine. When I went to create a custom YAML file and run docker-compose I get the following error when pulling mysql:
+ERROR: no matching manifest for linux/arm64/v8 in the manifest list entries
+Here is a snippet from my YAMl file:
+version: '3'
+services:
+  # Database
+  db:
+    image: mysql-server:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+    networks:
+      - wpsite 
+I've tried :latest and :8 which result in the same error. It pulls phpmyadmin and wordpress fine.
+",<mysql><docker><apple-silicon>,730,1,16,5470,4,31,52,54,405092,0.0,34,24,445,2020-12-26 13:20,2021-01-06 9:04,2021-01-06 9:04,11.0,11.0,Advanced,37
+50177216,How to grant all privileges to root user in MySQL 8.0,"Tried
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
+Getting
+  ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+  corresponds to your MySQL server version for the right syntax to use near 'IDENTIFIED BY 'root' WITH GRANT OPTION' at line 1.
+Note: The same is working when tried in previous versions.
+Also tried
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+Getting
+  ERROR 1410 (42000): You are not allowed to create a user with GRANT
+MySQL (8.0.11.0) username/password is root/root.
+",<mysql><mysql-error-1064><mysql-8.0>,584,0,2,2820,3,8,8,53,720528,0.0,7,24,282,2018-05-04 14:23,2018-05-06 8:17,,2.0,,Basic,9
+50690076,phpMyAdmin - Error > Incorrect format parameter?,"I have a WordPress production website.
+I've exported the database by the following commands: select database &gt; export &gt; custom &gt; select all tables &gt; select .zip compression &gt; 'Go'
+I've downloaded the file which is example.sql.zip but when I upload to my localhost I get this error: phpMyAdmin - Error &gt; Incorrect format parameter
+I've tried to export with other formats and I get the same error.
+I've tried with other SQL Databases and it exports/ imports just fine.
+What could it be? A corrupt database or other?
+Thanks
+",<php><mysql><database><wordpress><phpmyadmin>,539,0,2,5235,7,21,35,63,474164,0.0,9,22,272,2018-06-04 23:15,2018-06-07 16:58,2018-06-07 16:58,3.0,3.0,Basic,14
+52364415,PHP with MySQL 8.0+ error: The server requested authentication method unknown to the client,"I'm running MySQL version 8 on PHP 7.0.
+I'm getting the following error when I try to connect to my database from PHP:
+  Connect Error: SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client
+PHP might show this error
+  Warning: mysqli_connect(): The server requested authentication method unknown to the client [caching_sha2_password] in D:\xampp\htdocs\reg\server.php on line 10
+How can I fix this problem?
+",<php><mysql><mysql-8.0>,441,0,0,2311,2,12,16,67,420053,0.0,1,8,228,2018-09-17 9:17,2018-09-17 9:18,,0.0,,Basic,3
+55038942,"FATAL: password authentication failed for user ""postgres"" (postgresql 11 with pgAdmin 4)","I recently installed Postgresql 11, during the installation, there's no step to put password and username for Postgres. Now in pgAdmin 4, I wanted to connect the database to server and it's asking me to input password, and I haven't put any in the first place.
+Any one knows what's going on?
+",<postgresql><pgadmin-4><postgresql-11>,292,0,0,1849,2,8,9,71,589784,0.0,0,18,183,2019-03-07 8:12,2019-03-07 8:41,2019-03-07 8:41,0.0,0.0,Basic,13
+50557234,Authentication plugin 'caching_sha2_password' is not supported,"I am trying to connect to a MySQL server with python connector. I created a new user lcherukuri with the authentication plugin mysql_native_password.
+But I got the error
+  mysql.connector.errors.NotSupportedError: Authentication plugin 'caching_sha2_password' is not supported
+Can someone help me? 
+import mysql.connector
+cnx = mysql.connector.connect(user='lcherukuri', password='password',
+                              host='127.0.0.1',
+                              database='test')
+cnx.close()
+",<python><mysql>,499,1,8,4649,13,43,75,42,307207,0.0,215,29,172,2018-05-27 22:53,2018-05-27 23:05,2018-05-27 23:05,0.0,0.0,Advanced,44
+50026939,php mysqli_connect: authentication method unknown to the client [caching_sha2_password],"I am using php mysqli_connect for login to a MySQL database (all on localhost)
+&lt;?php
+//DEFINE ('DB_USER', 'user2');
+//DEFINE ('DB_PASSWORD', 'pass2');
+DEFINE ('DB_USER', 'user1');
+DEFINE ('DB_PASSWORD', 'pass1');
+DEFINE ('DB_HOST', '127.0.0.1');
+DEFINE ('DB_NAME', 'dbname');
+$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+if(!$dbc){
+    die('error connecting to database');    
+}
+?&gt;
+this is the mysql.user table:
+MySQL Server ini File:
+[mysqld]
+# The default authentication plugin to be used when connecting to the server
+default_authentication_plugin=caching_sha2_password
+#default_authentication_plugin=mysql_native_password
+with caching_sha2_password in the MySQL Server ini file, it's not possible at all to login with user1 or user2;
+  error: mysqli_connect(): The server requested authentication method unknown to the client [caching_sha2_password] in...
+with mysql_native_password in the MySQL Server ini file, it's possible to login with user1, but with user2, same error;
+how can I login using caching_sha2_password on the mySql Server?
+",<php><mysql><hash><sha>,1069,1,22,2568,2,16,20,51,310409,0.0,91,18,162,2018-04-25 16:15,2018-04-25 16:54,2018-04-25 16:54,0.0,0.0,Advanced,44
+61523447,Skipping acquire of configured file 'main/binary-i386/Packages',"Good afternoon, please tell me what I'm doing wrong. I just installed the Linux Ubuntu on my computer and still don’t understand anything about it. I tried to install PostreSQL and pgAdmin. I installed on this video tutorial https://www.youtube.com/watch?v=Vdzb7JTPnGk I get this error.
+Text of Error: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'http://apt.postgresql.org/pub/repos/apt focal-pgdg InRelease' doesn't support architecture 'i386'
+Tell me please how to fix it.
+My version of ubuntu: Ubuntu 20.04 LTS
+",<linux><postgresql><ubuntu><installation>,548,3,3,1601,2,6,3,50,108093,0.0,0,4,160,2020-04-30 12:31,2020-05-01 20:08,,1.0,,Basic,14
+55300370,PostgreSQL: serial vs identity,"To have an integer auto-numbering primary key on a table, you can use SERIAL
+But I noticed the table information_schema.columns has a number of identity_ fields, and indeed, you could create a column with a GENERATED specifier...
+What's the difference? Were they introduced with different PostgreSQL versions? Is one preferred over the other?
+",<postgresql>,343,2,4,36202,11,45,69,71,79782,0.0,1709,1,150,2019-03-22 13:10,2019-03-22 13:31,2019-03-22 13:31,0.0,0.0,Intermediate,19
+57879150,How can I solve error gypgyp ERR!ERR! find VSfind VS msvs_version not set from command line or npm config?,"I want to run this project : https://github.com/adonis-china/adonis-adminify
+When I run npm install, there exist error : 
+&gt; sqlite3@3.1.13 install C:\laragon\www\adonis-admin\node_modules\sqlite3
+&gt; node-pre-gyp install --fallback-to-build
+node-pre-gyp ERR! Tried to download(403): https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v3.1.13/node-v64-win32-x64.tar.gz
+node-pre-gyp ERR! Pre-built binaries not found for sqlite3@3.1.13 and node@10.15.0 (node-v64 ABI) (falling back to source compile with node-gyp)
+node-pre-gyp ERR! Tried to download(undefined): https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v3.1.13/node-v64-win32-x64.tar.gz
+node-pre-gyp ERR! Pre-built binaries not found for sqlite3@3.1.13 and node@10.15.0 (node-v64 ABI) (falling back to source compile with node-gyp)
+gyp ERR! gypfind VS
+ gyp ERR!ERR!  find VSfind VS
+ msvs_version not set from command line or npm config
+gypgyp  ERR!ERR!  find VSfind VS msvs_version not set from command line or npm config
+ VCINSTALLDIR not set, not running in VS Command Prompt
+gyp gypERR! ERR!  find VSfind VS VCINSTALLDIR not set, not running in VS Command Prompt
+gyp checking VS2019 (16.2.29230.47) found at:
+ gypERR!  find VSERR! checking VS2019 (16.2.29230.47) found at:
+gyp  find VS ""C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional""
+ERR!gyp find VS ERR! ""C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional""
+ gypfind VS ERR! - ""Visual Studio C++ core features"" missing
+gyp  ERR!find VS  - ""Visual Studio C++ core features"" missing
+find VSgyp could not find a version of Visual Studio 2017 or newer to use
+ gypERR!  ERR!find VS  could not find a version of Visual Studio 2017 or newer to use
+find VS looking for Visual Studio 2015
+gyp gyp ERR!ERR!  find VSfind VS looking for Visual Studio 2015
+ - not found
+gyp gyp ERR!ERR!  find VSfind VS - not found
+ not looking for VS2013 as it is only supported up to Node.js 8
+gyp ERR!gyp  ERR!find VS find VS not looking for VS2013 as it is only supported up to Node.js 8
+gyp gypERR!  ERR!find VS
+ gypfind VS  **************************************************************
+gypERR!  ERR!find VS find VS **************************************************************
+ You need to install the latest version of Visual Studio
+gypgyp ERR!  ERR!find VS find VS You need to install the latest version of Visual Studio
+ including the ""Desktop development with C++"" workload.
+gypgyp  ERR!ERR! find VS find VS including the ""Desktop development with C++"" workload.
+ For more information consult the documentation at:
+gyp ERR!gyp find VS  For more information consult the documentation at:
+ERR!gyp  ERR! find VSfind VS https://github.com/nodejs/node-gyp#on-windows
+ https://github.com/nodejs/node-gyp#on-windows
+gyp gyp ERR!ERR! find VS  **************************************************************
+find VSgyp **************************************************************
+ gypERR! find VS
+ERR! find VS
+gyp gypERR!  ERR!configure error
+ configure errorgyp
+ ERR! stackgyp Error: Could not find any Visual Studio installation to use
+ gypERR!  stackERR! Error: Could not find any Visual Studio installation to use
+ stackgyp      at VisualStudioFinder.fail (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:121:47)
+ERR!gyp stack      at VisualStudioFinder.fail (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:121:47)
+ERR! gypstack      at findVisualStudio2013 (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:74:16)
+gypERR!  ERR!stack      at findVisualStudio2013 (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:74:16)
+stack     at VisualStudioFinder.findVisualStudio2013 (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:344:14)
+gypgyp ERR! stack     at findVisualStudio2015 (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:70:14)
+ gypERR!  ERR! stackstack     at regSearchKeys (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:365:16)
+     at VisualStudioFinder.findVisualStudio2013 (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:344:14)
+gyp gypERR!  ERR!stack stack     at regGetValue (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\util.js:54:7)
+     at findVisualStudio2015 (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:70:14)
+gypgyp  ERR!ERR!  stackstack     at C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\util.js:33:16
+gyp     at regSearchKeys (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\find-visualstudio.js:365:16)
+ gyp ERR! ERR!stack     at ChildProcess.exithandler (child_process.js:301:5)
+ gypstack      at regGetValue (C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\util.js:54:7)
+ERR! gypstack     at ChildProcess.emit (events.js:182:13)
+ gypERR! ERR!  stack     at C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\lib\util.js:33:16
+stack     at maybeClose (internal/child_process.js:962:16)
+gyp gypERR! ERR!  System Windows_NT 10.0.17134
+stackgyp     at ChildProcess.exithandler (child_process.js:301:5)
+ ERR!gyp  commandERR! ""C:\\Program Files\\nodejs\\node.exe"" ""C:\\Users\\Chelsea\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js"" ""configure"" ""--fallback-to-build"" ""--module=C:\\laragon\\www\\adonis-admin\\node_modules\\sqlite3\\lib\\binding\\node-v64-win32-x64\\node_sqlite3.node"" ""--module_name=node_sqlite3"" ""--module_path=C:\\laragon\\www\\adonis-admin\\node_modules\\sqlite3\\lib\\binding\\node-v64-win32-x64"" ""--python=C:\\Users\\Chelsea\\.windows-build-tools\\python27\\python.exe""
+ gypstack     at ChildProcess.emit (events.js:182:13)
+ gypERR!  ERR!cwd C:\laragon\www\adonis-admin\node_modules\sqlite3
+ gypstack ERR!     at maybeClose (internal/child_process.js:962:16)
+ node -v v10.15.0
+gypgyp  ERR!ERR!  Systemnode-gyp -v Windows_NT 10.0.17134
+ v5.0.3
+gypgyp  ERR!ERR! command  ""C:\\Program Files\\nodejs\\node.exe"" ""C:\\Users\\Chelsea\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js"" ""configure"" ""--fallback-to-build"" ""--module=C:\\laragon\\www\\adonis-admin\\node_modules\\sqlite3\\lib\\binding\\node-v64-win32-x64\\node_sqlite3.node"" ""--module_name=node_sqlite3"" ""--module_path=C:\\laragon\\www\\adonis-admin\\node_modules\\sqlite3\\lib\\binding\\node-v64-win32-x64"" ""--python=C:\\Users\\Chelsea\\.windows-build-tools\\python27\\python.exe""
+not okgyp
+ ERR! cwd C:\laragon\www\adonis-admin\node_modules\sqlite3
+gyp ERR! node -v v10.15.0
+gyp ERR! node-gyp -v v5.0.3
+gyp ERR! not ok
+node-pre-gyp ERR! build error
+node-pre-gyp ERR! stack Error: Failed to execute 'C:\Program Files\nodejs\node.exe C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\bin\node-gyp.js configure --fallback-to-build --module=C:\laragon\www\adonis-admin\node_modules\sqlite3\lib\binding\node-v64-win32-x64\node_sqlite3.node --module_name=node_sqlite3 --module_path=C:\laragon\www\adonis-admin\node_modules\sqlite3\lib\binding\node-v64-win32-x64 --python=C:\Users\Chelsea\.windows-build-tools\python27\python.exe' (1)
+node-pre-gyp ERR! stack     at ChildProcess.&lt;anonymous&gt; (C:\laragon\www\adonis-admin\node_modules\sqlite3\node_modules\node-pre-gyp\lib\util\compile.js:83:29)
+node-pre-gyp ERR! stack     at ChildProcess.emit (events.js:182:13)
+node-pre-gyp ERR! stack     at maybeClose (internal/child_process.js:962:16)
+node-pre-gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:251:5)
+node-pre-gyp ERR! System Windows_NT 10.0.17134
+node-pre-gyp ERR! command ""C:\\Program Files\\nodejs\\node.exe"" ""C:\\laragon\\www\\adonis-admin\\node_modules\\sqlite3\\node_modules\\node-pre-gyp\\bin\\node-pre-gyp"" ""install"" ""--fallback-to-build""
+node-pre-gyp ERR! cwd C:\laragon\www\adonis-admin\node_modules\sqlite3
+node-pre-gyp ERR! node -v v10.15.0
+node-pre-gyp ERR! node-pre-gyp -v v0.6.38
+node-pre-gyp ERR! not ok
+Failed to execute 'C:\Program Files\nodejs\node.exe C:\Users\Chelsea\AppData\Roaming\npm\node_modules\npm\node_modules\node-gyp\bin\node-gyp.js configure --fallback-to-build --module=C:\laragon\www\adonis-admin\node_modules\sqlite3\lib\binding\node-v64-win32-x64\node_sqlite3.node --module_name=node_sqlite3 --module_path=C:\laragon\www\adonis-admin\node_modules\sqlite3\lib\binding\node-v64-win32-x64 --python=C:\Users\Chelsea\.windows-build-tools\python27\python.exe' (1)
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.9 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.9: wanted {""os"":""darwin"",""arch"":""any""} (current: {""os"":""win32"",""arch"":""x64""})
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! sqlite3@3.1.13 install: `node-pre-gyp install --fallback-to-build`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the sqlite3@3.1.13 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\Chelsea\AppData\Roaming\npm-cache\_logs\2019-09-10T22_53_41_072Z-debug.log
+How can I solve the error?
+",<node.js><sqlite><vue.js><npm><adonis.js>,9526,4,106,12524,73,249,449,65,296271,0.0,463,28,144,2019-09-10 22:59,2020-01-23 16:12,,135.0,,Intermediate,30
+48218065,Objects created in a thread can only be used in that same thread,"I can't find the problem:
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm(request.form)
+    if request.method=='POST' and form.validate():
+        name =  form.name.data 
+        email = form.email.data
+        username = form.username.data
+        password = sha256_crypt.encrypt(str(form.password.data))
+        c.execute(&quot;INSERT INTO users(name,email,username,password) 
+        VALUES(?,?,?,?)&quot;, (name, email, username, password))
+        conn.commit
+        conn.close()
+Error:
+File &quot;C:\Users\app.py&quot;, line 59, in register c.execute(&quot;INSERT INTO
+users(name,email,username,password) VALUES(?,?,?,?)&quot;, (name, email,
+username, password))  ProgrammingError: SQLite objects created in a
+thread can only be used in that   same thread.The object was created
+in thread id 23508 and this is thread id   22640
+Does this mean I can't use the name, email username &amp; password in an HTML file? How do I solve this?
+",<python><mysql><sqlite><flask>,981,0,15,1293,2,7,5,52,143516,0.0,0,11,128,2018-01-12 0:52,2018-01-12 1:17,2018-01-12 1:17,0.0,0.0,Basic,6
+58461178,"How to fix ""ERROR: column c.relhasoids does not exist"" in Postgres?","I’m trying to CREATE TABLE command in Postgresql. 
+After creating a table, if I punch in TABLE table name, it works.
+But I punch in \d table name, I keep getting an error below.
+ERROR:  column c.relhasoids does not exist
+LINE 1: ...riggers, c.relrowsecurity, c.relforcerowsecurity, c.relhasoi...
+I attempted DROP DATABASE table name recreated a database and recreated a table again several times. But it didn't work.
+Any suggestions would be appreciated! Thank you.
+",<postgresql>,466,0,2,1393,2,7,8,71,116287,0.0,5,15,126,2019-10-19 6:39,2019-10-19 7:19,,0.0,,Basic,9
+57665645,Server returns invalid timezone. Go to Advanced tab and set servertimezone property manually,"My Intelij IDE wont connect to my database server of MySQL Workbench, it specifies it as a timezone problem and wants me to go to advanced tab and set serverTimezone property manually.
+I tried looking if there where a similar problem but i cant seem to find it.
+",<mysql><sql><database><intellij-idea><mysql-workbench>,262,0,0,1240,2,6,7,81,88473,0.0,54,5,113,2019-08-26 22:29,2019-08-27 2:27,2019-08-27 2:27,1.0,1.0,Basic,14
+54513450,A strange operation problem in SQL Server: -100/-100*10 = 0,"
+If you execute SELECT -100/-100*10 the result is 0.
+If you execute SELECT (-100/-100)*10 the result is 10.
+If you execute SELECT -100/(-100*10) the result is 0.
+If you execute SELECT 100/100*10 the result is 10.
+BOL states:
+  When two operators in an expression have the same operator precedence level, they are evaluated left to right based on their position in the expression.
+And
+Level   Operators
+  1     ~ (Bitwise NOT)
+  2     * (Multiplication), / (Division), % (Modulus)
+  3     + (Positive), - (Negative), + (Addition), + (Concatenation), - (Subtraction), &amp; (Bitwise AND), ^ (Bitwise Exclusive OR), | (Bitwise OR)
+Is BOL wrong, or am I missing something? It seems the - is throwing the (expected) precedence off.
+",<sql><sql-server><t-sql><operator-precedence>,727,1,13,839,1,6,7,61,8047,0.0,1,3,105,2019-02-04 9:43,2019-02-04 11:02,,0.0,,Basic,2
+60864367,"#1030 - Got error 176 ""Read page with wrong checksum"" from storage engine Aria","Created a new database but can't create new user account due to this error.
+Does anyone know how to fix this? I can't find any solution to fix this.
+1030 - Got error 176 &quot;Read page with wrong checksum&quot; from storage engine Aria
+",<mysql><phpmyadmin><mariadb>,237,1,0,1003,2,8,7,44,156659,0.0,4,6,100,2020-03-26 9:36,2020-04-30 8:52,2020-05-17 8:56,35.0,52.0,Advanced,37
+52032739,Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver',"This is the Warning im getting in console, Im confused with this warning:
+Loading class `com.mysql.jdbc.Driver'. 
+This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'.
+The driver is automatically registered via the SPI and manual loading 
+of the driver class is generally unnecessary.
+",<mysql><jdbc>,303,0,4,1021,2,7,7,70,278424,0.0,0,26,100,2018-08-27 4:52,2018-09-19 12:23,,23.0,,Advanced,38
+59993844,ERROR: Loading local data is disabled - this must be enabled on both the client and server sides,"I don't understand the responses that others have provided to similar questions except for the most obvious ones, such as the one below:
+mysql&gt; SET GLOBAL local_infile=1;
+Query OK, 0 rows affected (0.00 sec)
+mysql&gt; SHOW GLOBAL VARIABLES LIKE 'local_infile';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| local_infile  | ON    |
++---------------+-------+
+1 row in set (0.01 sec)
+By this I mean the exact code was provided. I'd greatly appreciate if someone could walk me through, step by step, what I need to do to enable local data on the ""client"" side and ""server"" side. It seems like I've enabled local data on the client side, but I don't know what instructions I need to give my computer to enable the ""server side"". I'm not tech savvy at all, and I just want to be able to get to the point where the data has been uploaded into MySQL workbench.
+ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides
+CREATE TABLE toys (
+uniq_id VARCHAR(1000),
+product_name VARCHAR(1000),
+manufacturer VARCHAR(1000),
+price VARCHAR(1000),
+number_available_in_stock VARCHAR (1000),
+number_of_reviews INT,
+number_of_answered_questions INT,
+average_review_rating VARCHAR(1000),
+amazon_category_and_sub_category VARCHAR(1000),
+customers_who_bought_this_item_also_bought VARCHAR(1000),
+description VARCHAR(1000),
+product_information VARCHAR(1000),
+product_description VARCHAR(1000),
+items_customers_buy_after_viewing_this_item VARCHAR(1000),
+customer_questions_and_answers VARCHAR(1000),
+customer_reviews VARCHAR(1000),
+sellers VARCHAR(1000)
+);
+LOAD DATA LOCAL INFILE ‘/Users/BruddaDave/Desktop/amazonsample.csv’ INTO TABLE toys
+FIELDS TERMINATED BY ‘,’
+LINES TERMINATED BY ‘\n’
+IGNORE 1 LINES
+(uniq_id, product_name, manufacturer, price, number_available_in_stock, number_of_reviews, number_of_answered_questions, average_review_rating, amazon_category_and_sub_category, customers_who_bought_this_item_also_bought, description, product_information, product_description, items_customers_buy_after_viewing_this_item, customer_questions_and_answers, customer_reviews, sellers)
+;
+I just want to be able to import a .csv file into MySQL using the command line shell.
+",<mysql><client><local>,2238,0,38,1121,1,6,4,38,257829,0.0,0,15,99,2020-01-30 20:15,2020-02-02 15:45,,3.0,,Basic,3
+51335298,Concepts of backref and back_populate in SQLalchemy?,"Can anyone explain the concepts of these two ideas and how they relate to making relationships between tables? I can't really seem to find anything that explains it clearly and the documentation feels like there's too much jargon to understand in easy concepts. For instance, in this example of a one to many relationship in the documentation:
+class Parent(Base):
+    __tablename__ = 'parent'
+    id = Column(Integer, primary_key=True)
+    children = relationship(""Child"", back_populates=""parent"")
+class Child(Base):
+    __tablename__ = 'child'
+    id = Column(Integer, primary_key=True)
+    parent_id = Column(Integer, ForeignKey('parent.id'))
+    parent = relationship(""Parent"", back_populates=""children"")
+Why does the relationship() go inside the parent class while ForeignKey goes inside the child class? And what does having back_populates exactly do to one another? Does having the placement of which class the relationship() function exist in matter?
+",<python><database><sqlalchemy>,958,0,14,1009,2,10,11,68,34417,0.0,0,2,97,2018-07-14 4:44,2020-01-26 17:15,,561.0,,Intermediate,27
+52423595,mysqldump: Couldn't execute. Unknown table 'column_statistics' in information_schema,"I want to dump my database, even after following correct syntax it thows me following error.  
+Syntax I used : 
+mysqldump -uroot -p omnichannel_store_india &gt; omnichannel_store_india.sql
+Throws errors :
+  mysqldump: Couldn't execute
+   'SELECT COLUMN_NAME, JSON_EXTRACT(HISTOGRAM, '$.""number-of-buckets-specified""') FROM information_schema.COLUMN_STATISTICS WHERE SCHEMA_NAME = 'omnichannel_store_india' AND TABLE_NAME = 'consignment_items';': 
+Unknown table 'column_statistics' in information_schema (1109)
+",<mysql>,510,0,1,14737,6,67,65,68,61214,0.0,64,3,93,2018-09-20 11:00,2018-09-20 11:00,2018-09-20 11:00,0.0,0.0,Advanced,32
+50691977,How to reset the root password in MySQL 8.0.11?,"I have actually lost my root password and I need to change it.  I follow these steps :
+Step # 1: Stop the MySQL server process.
+Step # 2: Start the MySQL (mysqld) server/daemon process with the
+--skip-grant-tables option so that it will not prompt for a password.
+Step # 3: Connect to the MySQL server as the root user.
+that we can found on these website : https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords#recover-mysql-root-password
+mysql&gt; use mysql;
+mysql&gt; SET PASSWORD FOR 'root'@'localhost' = PASSWORD(""TOOR"");
+mysql&gt; flush privileges;
+mysql&gt; quit
+First error, so I tried :
+mysql&gt; use mysql;
+mysql&gt; update user set password=PASSWORD(""TOOR"") where User='root';
+mysql&gt; flush privileges;
+mysql&gt; quit
+Always the same error said : 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near '(""TOO
+R"") WHERE User='root'' at line 1
+How can I resolve this?
+",<mysql><passwords><root>,999,2,11,1479,1,12,16,68,155526,0.0,42,8,93,2018-06-05 4:20,2018-07-05 8:29,2018-09-30 16:29,30.0,117.0,Basic,9
+48406228,Room - Select query with IN condition?,"Is it possible to use SQLite's IN condition with Room?
+I'm trying to select a list of items from my database where the value of a certain column (in this case a TEXT column) matches any one of a set of filter values. That's pretty easily done in SQL and SQLite, by my knowledge, just by adding an IN condition to your SELECT statement (see here). However, I can't seem to make it work with Room.
+I keep getting this error:
+Error:(70, 25) error: no viable alternative at input 'SELECT * FROM Table WHERE column IN :filterValues'
+(where the input to the DAO @Query-annotated method is called filterValues)
+I have tried three different methods now:
+Passing the argument as a List&lt;String&gt;
+Passing the argument as a String[]
+And lastly passing the argument as simply a String, but formatted as (value_1, value_2, ..., value_n)
+The last one in particular should work easily, as it will (or at least, it should) directly translate to SELECT * FROM Table WHERE column IN (value_1, value_2, ..., value_n), which is the exact way you would manually write out the SELECT if you were just accessing the database directly.
+",<android><sqlite><select><android-room><sql-in>,1116,1,13,3025,2,15,22,76,48798,0.0,29,3,89,2018-01-23 16:14,2018-01-23 16:14,2018-01-23 16:14,0.0,0.0,Basic,9
+54340470,TRIM is not a recognized built-in function name,"For the following code:
+DECLARE @ss varchar(60)
+  SET @ss = 'admin'
+  select TRIM(@ss)
+I've got an error: 
+  'TRIM' is not a recognized built-in function name
+",<sql><sql-server><t-sql>,159,0,4,923,1,7,10,57,118870,0.0,3,3,89,2019-01-24 6:21,2019-01-24 6:26,2019-01-24 6:26,0.0,0.0,Basic,1
+49948350,phpMyAdmin on MySQL 8.0,"UPDATE
+Newer versions of phpMyAdmin solved this issue. I've successfully tested with phpMyAdmin 5.0.1
+I have installed the MySQL 8.0 server and phpMyAdmin, but when I try to access it from the browser the following errors occur:
+#2054 - The server requested authentication method unknown to the client
+mysqli_real_connect(): The server requested authentication method unknown to the client [caching_sha2_password]
+mysqli_real_connect(): (HY000/2054): The server requested authentication method unknown to the client
+I imagine it must have something to do with the strong passwords implemented and the relative freshness of the MySQL release.
+But I  know nothing of the most advanced driver and connection configuration.
+Has someone faced the same problem and solved it? :D
+",<mysql><phpmyadmin><database-connection><mysql-8.0>,773,0,3,1690,1,14,29,69,195495,0.0,943,18,84,2018-04-20 19:15,2018-04-20 21:46,2018-05-20 16:59,0.0,30.0,Basic,14
+51442639,Why is 199.96 - 0 = 200 in SQL?,"I have some clients getting weird bills. I was able to isolate the core problem:
+SELECT 199.96 - (0.0 * FLOOR(CAST(1.0 AS DECIMAL(19, 4)) * CAST(199.96 AS DECIMAL(19, 4)))) -- 200 what the?
+SELECT 199.96 - (0.0 * FLOOR(1.0 * CAST(199.96 AS DECIMAL(19, 4)))) -- 199.96
+SELECT 199.96 - (0.0 * FLOOR(CAST(1.0 AS DECIMAL(19, 4)) * 199.96)) -- 199.96
+SELECT 199.96 - (CAST(0.0 AS DECIMAL(19, 4)) * FLOOR(CAST(1.0 AS DECIMAL(19, 4)) * CAST(199.96 AS DECIMAL(19, 4)))) -- 199.96
+SELECT 199.96 - (CAST(0.0 AS DECIMAL(19, 4)) * FLOOR(1.0 * CAST(199.96 AS DECIMAL(19, 4))))                         -- 199.96
+SELECT 199.96 - (CAST(0.0 AS DECIMAL(19, 4)) * FLOOR(CAST(1.0 AS DECIMAL(19, 4)) * 199.96))                         -- 199.96
+-- It gets weirder...
+SELECT (0 * FLOOR(CAST(1.0 AS DECIMAL(19, 4)) * CAST(199.96 AS DECIMAL(19, 4)))) -- 0
+SELECT (0 * FLOOR(1.0 * CAST(199.96 AS DECIMAL(19, 4))))                         -- 0
+SELECT (0 * FLOOR(CAST(1.0 AS DECIMAL(19, 4)) * 199.96))                         -- 0
+-- so... ... 199.06 - 0 equals 200... ... right???
+SELECT 199.96 - 0 -- 199.96 ...NO....
+Has anyone a clue, what the heck is happening here? I mean, it has certainly something to do with the decimal datatype, but I can't really wrap my head around it...
+There was a lot of confusion about of what datatype the number literals were, so I decided to show the real line:
+PS.SharePrice - (CAST((@InstallmentCount - 1) AS DECIMAL(19, 4)) * CAST(FLOOR(@InstallmentPercent * PS.SharePrice) AS DECIMAL(19, 4))))
+PS.SharePrice DECIMAL(19, 4)
+@InstallmentCount INT
+@InstallmentPercent DECIMAL(19, 4)
+I made sure that the result of each operation having an operand of a type different than DECIMAL(19, 4) is cast explicitly before applying it to the outer context.
+Nevertheless, the result remains 200.00.
+I have now created a boiled down sample you guys can execute on your computer.
+DECLARE @InstallmentIndex INT = 1
+DECLARE @InstallmentCount INT = 1
+DECLARE @InstallmentPercent DECIMAL(19, 4) = 1.0
+DECLARE @PS TABLE (SharePrice DECIMAL(19, 4))
+INSERT INTO @PS (SharePrice) VALUES (599.96)
+-- 2000
+SELECT
+  IIF(@InstallmentIndex &lt; @InstallmentCount,
+  FLOOR(@InstallmentPercent * PS.SharePrice),
+  1999.96)
+FROM @PS PS
+-- 2000
+SELECT
+  IIF(@InstallmentIndex &lt; @InstallmentCount,
+  FLOOR(@InstallmentPercent * CAST(599.96 AS DECIMAL(19, 4))),
+  1999.96)
+FROM @PS PS
+-- 1996.96
+SELECT
+  IIF(@InstallmentIndex &lt; @InstallmentCount,
+  FLOOR(@InstallmentPercent * 599.96),
+  1999.96)
+FROM @PS PS
+-- Funny enough - with this sample explicitly converting EVERYTHING to DECIMAL(19, 4) - it still doesn't work...
+-- 2000
+SELECT
+  IIF(@InstallmentIndex &lt; @InstallmentCount,
+  FLOOR(@InstallmentPercent * CAST(199.96 AS DECIMAL(19, 4))),
+  CAST(1999.96 AS DECIMAL(19, 4)))
+FROM @PS PS
+Now I've got something...
+-- 2000
+SELECT
+  IIF(1 = 2,
+  FLOOR(CAST(1.0 AS decimal(19, 4)) * CAST(199.96 AS DECIMAL(19, 4))),
+  CAST(1999.96 AS DECIMAL(19, 4)))
+-- 1999.9600
+SELECT
+  IIF(1 = 2,
+  CAST(FLOOR(CAST(1.0 AS decimal(19, 4)) * CAST(199.96 AS DECIMAL(19, 4))) AS INT),
+  CAST(1999.96 AS DECIMAL(19, 4)))
+What the hell - floor is supposed to return an integer anyway. What's going on here? :-D
+I think I now managed to really boil it down to the very essence :-D
+-- 1.96
+SELECT IIF(1 = 2,
+  CAST(1.0 AS DECIMAL (36, 0)),
+  CAST(1.96 AS DECIMAL(19, 4))
+)
+-- 2.0
+SELECT IIF(1 = 2,
+  CAST(1.0 AS DECIMAL (37, 0)),
+  CAST(1.96 AS DECIMAL(19, 4))
+)
+-- 2
+SELECT IIF(1 = 2,
+  CAST(1.0 AS DECIMAL (38, 0)),
+  CAST(1.96 AS DECIMAL(19, 4))
+)
+",<sql-server><t-sql><precision><sql-server-2016><sqldatatypes>,3520,0,86,1493,0,14,26,45,6128,0.0,18,2,83,2018-07-20 12:32,2018-07-20 13:05,2018-07-20 13:05,0.0,0.0,Basic,2
+48427185,How to make good reproducible Apache Spark examples,"I've been spending a fair amount of time reading through some questions with the pyspark and spark-dataframe tags and very often I find that posters don't provide enough information to truly understand their question. I usually comment asking them to post an MCVE but sometimes getting them to show some sample input/output data is like pulling teeth.
+Perhaps part of the problem is that people just don't know how to easily create an MCVE for spark-dataframes. I think it would be useful to have a spark-dataframe version of this pandas question as a guide that can be linked.
+So how does one go about creating a good, reproducible example?
+",<dataframe><apache-spark><pyspark><apache-spark-sql>,642,2,0,41968,17,109,152,50,9088,0.0,3145,4,83,2018-01-24 16:24,2018-01-24 16:24,2018-01-24 16:24,0.0,0.0,Intermediate,31
+50645402,MySQL: SyntaxError: Unexpected identifier,"I just installed MySQL on my computer and when I try to create a database from the MySQL shell, I get this error:
+MySQL  JS &gt; CREATE DATABASE databasename;
+SyntaxError: Unexpected identifier
+Does anyone know why this is happening? Is there a problem with the installation of MySQL?
+",<mysql><sql>,285,0,2,2164,4,24,42,81,101109,0.0,417,7,82,2018-06-01 14:14,2018-06-01 14:18,2018-06-01 14:18,0.0,0.0,Basic,1
+57265913,Error: TCP Provider: Error code 0x2746. During the Sql setup in linux through terminal,"I am trying to setup the ms-sql server in my linux by following the documentation 
+https://learn.microsoft.com/pl-pl/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-2017
+The SQL server status is Active (Running).
+I am getting the following error while executing the command 
+sqlcmd -S localhost -U SA -P '&lt;YourPassword&gt;'
+Error:
+  Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : TCP Provider:
+  Error code 0x2746. Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL
+  Server : Client unable to establish connection.
+I also tried by giving the command 
+sqlcmd -S 127.0.0.1 -U SA -P '&lt;YourPassword&gt;' 
+But the same error is displayed. When I tried the wrong password it also displays the same error.
+",<sql-server><linux><tcpclient>,725,2,2,821,1,6,3,43,102076,0.0,0,21,82,2019-07-30 6:54,2019-07-30 9:26,,0.0,,Intermediate,15
+56108144,Using S3 as a database vs. database (e.g. MongoDB),"Due to simple setup and low costs I am considering using AWS S3 bucket instead of a NoSQL database to save simple user settings as a JSON (around 30 documents).
+I researched the following disadvantages of not using a database which are not relevant for my use case:
+Listing of buckets/files will cost you money.
+No updates - you cannot update a file, just replace it.
+No indexes.
+Versioning will cost you $$.
+No search
+No transactions
+No query API (SQL or NoSQL)
+Are there any other disavantages of using a S3 bucket instead of a database?
+",<mongodb><amazon-web-services><amazon-s3><nosql>,540,0,0,2978,6,26,47,80,63603,0.0,1087,2,80,2019-05-13 8:09,2019-05-13 8:50,2019-05-13 8:52,0.0,0.0,Intermediate,18
+50746465,How do I call SQLitePCL.Batteries.Init().?,"I am attempting to create an SQLite database for my application and have come across this error. 
+  System.Exception: 'You need to call SQLitePCL.raw.SetProvider().  If
+  you are using a bundle package, this is done by calling
+  SQLitePCL.Batteries.Init().'
+I created a simple console app the run the exact same code for creation, with no issues. The code looks like this!
+using (var dataContext = new SampleDBContext())
+{
+    dataContext.Accounts.Add(new Account() { AccountName = name, AccountBalance = balance });
+}
+public class SampleDBContext : DbContext
+{
+    private static bool _created = false;
+    public SampleDBContext()
+    {
+        if (!_created)
+        {
+            _created = true;
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+        }
+    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
+    {
+        optionbuilder.UseSqlite(@""Data Source=""Source folder""\Database.db"");
+    }
+    public DbSet&lt;Account&gt; Accounts { get; set; }
+}
+Can anyone shed any light on the issue? I installed the same Nuget Packages on both projects, the only difference between the two is the Data Source and the POCO classes I used for the database.
+Thanks.
+Edit
+My program currently consists of a Console application that references a .Net Framework Class Library. The Console application simple has a constructor that looks like this:
+public Program()
+{   
+    using (var db = new FinancialContext())
+    {
+        db.Accounts.Add(new Account() { AccountName = ""RBS"", AccountBalance=20 });
+    }
+}
+The Class Library has a FinancialContext as Follows:
+public class FinancialContext : DbContext
+{
+    public DbSet&lt;Account&gt; Accounts { get; set; }
+    public FinancialContext()
+    {
+      # Database.EnsureDeleted();
+        Database.EnsureCreated();
+    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
+    {
+        optionbuilder.UseSqlite(@""Data Source=""Some Source Folder""\Database.db"");
+    }
+}
+The Above error is shown at the # symbol point, is there a problem with the way I am coding? I would really like to know what the issue is so I can fix it properly rather than apply a 'fix'. Also I tried the suggestion in the comments, but putting the code line SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3()); in the Console Application gave the error SQLitePCL is not in the current context, which leaves me thinking I am missing a reference?
+",<c#><entity-framework><sqlite>,2470,0,53,2850,2,17,34,65,57172,0.0,50,8,80,2018-06-07 16:48,2018-06-08 10:17,2018-07-28 9:52,1.0,51.0,Basic,9
+58812324,PostgreSQL(Full Text Search) vs ElasticSearch,"Hi I am doing some research before I implement search feature into my service. 
+I'm currently using PostgreSQL as my main storage. I could definitely use PostgreSQL's built-in Full-Text-Search but the problem is that I have data scattered around several tables. 
+My service is an e-commerce website. So if a customer searches ""good apple laptop"", I need to join Brand table, post table and review table(1 post is a combination of several reviews + short summary) to fully search all posts. If I were to use elasticsearch, I could insert complete posts by preprocessing.
+From my research, some people said PostgreSQL's FTS and elasticsearch have similar performance and some people said elasticsearch is faster. Which would be better solution for my case?
+Thanks in advance
+",<postgresql><elasticsearch><full-text-search>,773,0,3,1413,3,18,22,78,47451,0.0,5,3,79,2019-11-12 5:02,2019-11-12 5:22,2019-11-12 5:22,0.0,0.0,Intermediate,21
+56751565,pq: could not resize shared memory segment. No space left on device,"I have on a dashboard, a number of panels (numbering around 6)to display data points chart making queries to dockerised instance of PostgreSQL database.
+Panels were working fine until very recently, some stop working and report an error like this:
+  pq: could not resize shared memory segment ""/PostgreSQL.2058389254"" to 12615680 bytes: No space left on device
+Any idea why this? how to work around solving this. Docker container runs on remote host accessed via ssh.
+EDIT
+Disk space:
+$df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1       197G  140G   48G  75% /
+devtmpfs        1.4G     0  1.4G   0% /dev
+tmpfs           1.4G  4.0K  1.4G   1% /dev/shm
+tmpfs           1.4G  138M  1.3G  10% /run
+tmpfs           1.4G     0  1.4G   0% /sys/fs/cgroup
+/dev/dm-16       10G   49M   10G   1% /var/lib/docker/devicemapper/mnt/a0f3c5ab84aa06d5b2db00c4324dd6bf7141500ff4c83e23e9aba7c7268bcad4
+/dev/dm-1        10G  526M  9.5G   6% /var/lib/docker/devicemapper/mnt/8623a774d736ed3dc0d2db89b7d07cae85c3d1bcafc245180eec4ffd738f93a5
+shm              64M     0   64M   0% /var/lib/docker/containers/260552ebcdf2bf0961329108d3d975110f8ada0a41325f5e7dd81b8ddad9d18b/mounts/shm
+/dev/dm-4        10G  266M  9.8G   3% /var/lib/docker/devicemapper/mnt/6f873e62607e7cac4c4b658c72874c787b90290f74d1159eca81af61cb467cfb
+shm              64M   50M   15M  78% /var/lib/docker/containers/84c66d9fb5b6ae023d051766f4d35ced87a519a1fee68ca5c89d61ff87cf1e5a/mounts/shm
+/dev/dm-2        10G  383M  9.7G   4% /var/lib/docker/devicemapper/mnt/cb3df1ae654ed78802c2e5bd7a51a1b0bdd562855a7c7803750b80b33f5c206e
+shm              64M     0   64M   0% /var/lib/docker/containers/22ba2ae2b6859c24623703dcb596527d64257d2d61de53f4d88e00a8e2335211/mounts/shm
+/dev/dm-3        10G   99M  9.9G   1% /var/lib/docker/devicemapper/mnt/492a19fc8f3e254c4e5cc691c3300b5fee9d1a849422673bf0c19b4b2d1db571
+shm              64M     0   64M   0% /var/lib/docker/containers/39abe855a9b107d4921807332309517697f024b2d169ebc5f409436208f766d0/mounts/shm
+/dev/dm-7        10G  276M  9.8G   3% /var/lib/docker/devicemapper/mnt/55c6a6c17c892d149c1cc91fbf42b98f1340ffa30a1da508e3526af7060f3ce2
+shm              64M     0   64M   0% /var/lib/docker/containers/bf2e7254cd7e2c6000da61875343580ec6ff5cbf40c017a398ba7479af5720ec/mounts/shm
+/dev/dm-8        10G  803M  9.3G   8% /var/lib/docker/devicemapper/mnt/4e51f48d630041316edd925f1e20d3d575fce4bf19ef39a62756b768460d1a3a
+shm              64M     0   64M   0% /var/lib/docker/containers/72d4ae743de490ed580ec9265ddf8e6b90e3a9d2c69bd74050e744c8e262b342/mounts/shm
+/dev/dm-6        10G   10G   20K 100% /var/lib/docker/devicemapper/mnt/3dcddaee736017082fedb0996e42b4c7b00fe7b850d9a12c81ef1399fa00dfa5
+shm              64M     0   64M   0% /var/lib/docker/containers/9f2bf4e2736d5128d6c240bb10da977183676c081ee07789bee60d978222b938/mounts/shm
+/dev/dm-5        10G  325M  9.7G   4% /var/lib/docker/devicemapper/mnt/65a2bf48cbbfe42f0c235493981e62b90363b4be0a2f3aa0530bbc0b5b29dbe3
+shm              64M     0   64M   0% /var/lib/docker/containers/e53d5ababfdefc5c8faf65a4b2d635e2543b5a807b65a4f3cd8553b4d7ef2d06/mounts/shm
+/dev/dm-9        10G  1.2G  8.9G  12% /var/lib/docker/devicemapper/mnt/3216c48346c3702a5cd2f62a4737cc39666983b8079b481ab714cdb488400b08
+shm              64M     0   64M   0% /var/lib/docker/containers/5cd0774a742f54c7c4fe3d4c1307fc93c3c097a861cde5f611a0fa9b454af3dd/mounts/shm
+/dev/dm-10       10G  146M  9.9G   2% /var/lib/docker/devicemapper/mnt/6a98acd1428ae670e8f1da62cb8973653c8b11d1c98a8bf8be78f59d2ddba062
+shm              64M     0   64M   0% /var/lib/docker/containers/a878042353f6a605167e7f9496683701fd2889f62ba1d6c0dc39c58bc03a8209/mounts/shm
+tmpfs           285M     0  285M   0% /run/user/0
+EDIT-2
+$df -ih
+Filesystem     Inodes IUsed IFree IUse% Mounted on
+/dev/vda1         13M  101K   13M    1% /
+devtmpfs         354K   394  353K    1% /dev
+tmpfs            356K     2  356K    1% /dev/shm
+tmpfs            356K   693  356K    1% /run
+tmpfs            356K    16  356K    1% /sys/fs/cgroup
+/dev/dm-16        10M  2.3K   10M    1% /var/lib/docker/devicemapper/mnt/a0f3c5ab84aa06d5b2db00c4324dd6bf7141500ff4c83e23e9aba7c7268bcad4
+/dev/dm-1         10M   19K   10M    1% /var/lib/docker/devicemapper/mnt/8623a774d736ed3dc0d2db89b7d07cae85c3d1bcafc245180eec4ffd738f93a5
+shm              356K     1  356K    1% /var/lib/docker/containers/260552ebcdf2bf0961329108d3d975110f8ada0a41325f5e7dd81b8ddad9d18b/mounts/shm
+/dev/dm-4         10M   11K   10M    1% /var/lib/docker/devicemapper/mnt/6f873e62607e7cac4c4b658c72874c787b90290f74d1159eca81af61cb467cfb
+shm              356K     2  356K    1% /var/lib/docker/containers/84c66d9fb5b6ae023d051766f4d35ced87a519a1fee68ca5c89d61ff87cf1e5a/mounts/shm
+/dev/dm-2         10M  5.6K   10M    1% /var/lib/docker/devicemapper/mnt/cb3df1ae654ed78802c2e5bd7a51a1b0bdd562855a7c7803750b80b33f5c206e
+shm              356K     1  356K    1% /var/lib/docker/containers/22ba2ae2b6859c24623703dcb596527d64257d2d61de53f4d88e00a8e2335211/mounts/shm
+/dev/dm-3         10M  4.6K   10M    1% /var/lib/docker/devicemapper/mnt/492a19fc8f3e254c4e5cc691c3300b5fee9d1a849422673bf0c19b4b2d1db571
+shm              356K     1  356K    1% /var/lib/docker/containers/39abe855a9b107d4921807332309517697f024b2d169ebc5f409436208f766d0/mounts/shm
+/dev/dm-7         10M  7.5K   10M    1% /var/lib/docker/devicemapper/mnt/55c6a6c17c892d149c1cc91fbf42b98f1340ffa30a1da508e3526af7060f3ce2
+shm              356K     1  356K    1% /var/lib/docker/containers/bf2e7254cd7e2c6000da61875343580ec6ff5cbf40c017a398ba7479af5720ec/mounts/shm
+/dev/dm-8         10M   12K   10M    1% /var/lib/docker/devicemapper/mnt/4e51f48d630041316edd925f1e20d3d575fce4bf19ef39a62756b768460d1a3a
+shm              356K     1  356K    1% /var/lib/docker/containers/72d4ae743de490ed580ec9265ddf8e6b90e3a9d2c69bd74050e744c8e262b342/mounts/shm
+/dev/dm-6        7.9K  7.3K   623   93% /var/lib/docker/devicemapper/mnt/3dcddaee736017082fedb0996e42b4c7b00fe7b850d9a12c81ef1399fa00dfa5
+shm              356K     1  356K    1% /var/lib/docker/containers/9f2bf4e2736d5128d6c240bb10da977183676c081ee07789bee60d978222b938/mounts/shm
+/dev/dm-5         10M   27K   10M    1% /var/lib/docker/devicemapper/mnt/65a2bf48cbbfe42f0c235493981e62b90363b4be0a2f3aa0530bbc0b5b29dbe3
+shm              356K     1  356K    1% /var/lib/docker/containers/e53d5ababfdefc5c8faf65a4b2d635e2543b5a807b65a4f3cd8553b4d7ef2d06/mounts/shm
+/dev/dm-9         10M   53K   10M    1% /var/lib/docker/devicemapper/mnt/3216c48346c3702a5cd2f62a4737cc39666983b8079b481ab714cdb488400b08
+shm              356K     1  356K    1% /var/lib/docker/containers/5cd0774a742f54c7c4fe3d4c1307fc93c3c097a861cde5f611a0fa9b454af3dd/mounts/shm
+/dev/dm-10        10M  5.2K   10M    1% /var/lib/docker/devicemapper/mnt/6a98acd1428ae670e8f1da62cb8973653c8b11d1c98a8bf8be78f59d2ddba062
+shm              356K     1  356K    1% /var/lib/docker/containers/a878042353f6a605167e7f9496683701fd2889f62ba1d6c0dc39c58bc03a8209/mounts/shm
+tmpfs            356K     1  356K    1% /run/user/0
+EDIT-3
+postgres container service:
+version: ""3.5""
+services:
+#other containers go here..
+ postgres:
+    restart: always
+    image: postgres:10
+    hostname: postgres
+    container_name: fiware-postgres
+    expose:
+      - ""5432""
+    ports:
+      - ""5432:5432""
+    networks:
+      - default
+    environment:
+      - ""POSTGRES_PASSWORD=password""
+      - ""POSTGRES_USER=postgres""
+      - ""POSTGRES_DB=postgres""
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    build:
+      context: .
+      shm_size: '4gb'
+Database size:
+postgres=# SELECT pg_size_pretty( pg_database_size('postgres'));
+ pg_size_pretty
+----------------
+ 42 GB
+(1 row)
+EDIT-4
+Sorry, but none of the workaround related to this question actually work, including this one
+On the dashboard, I have 5 panels intended to display data points. The queries are similar, except that each displays different parameters for temperature, relativeHumidity, illuminance, particles and O3. This is the query:
+SELECT to_timestamp(floor((extract('epoch' from recvtime)/ 1800 )) * 1800) as time,
+avg(attrvalue::float) as illuminance
+FROM urbansense.weather WHERE attrname='illuminance' AND attrvalue&lt;&gt;'null' GROUP BY time ORDER BY time asc;
+The difference is in the WHERE attrname=#parameterValue statement. I modified the postgresql.conf file to write logs but the logs doesn't seem to provide helpfull tips: here goes the logs:
+$ vim postgres-data/log/postgresql-2019-06-26_150012.log
+.
+.
+2019-06-26 15:03:39.298 UTC [45] LOG:  statement: SELECT to_timestamp(floor((extract('epoch' from recvtime)/ 1800 )) * 1800) as time,
+        avg(attrvalue::float) as o3
+        FROM urbansense.airquality WHERE attrname='O3' AND attrvalue&lt;&gt;'null' GROUP BY time ORDER BY time asc;
+2019-06-26 15:03:40.903 UTC [41] ERROR:  could not resize shared memory segment ""/PostgreSQL.1197429420"" to 12615680 bytes: No space left on device
+2019-06-26 15:03:40.903 UTC [41] STATEMENT:  SELECT to_timestamp(floor((extract('epoch' from recvtime)/ 1800 )) * 1800) as time,
+        avg(attrvalue::float) as illuminance
+        FROM urbansense.weather WHERE attrname='illuminance' AND attrvalue&lt;&gt;'null' GROUP BY time ORDER BY time asc;
+2019-06-26 15:03:40.905 UTC [42] FATAL:  terminating connection due to administrator command
+2019-06-26 15:03:40.905 UTC [42] STATEMENT:  SELECT to_timestamp(floor((extract('epoch' from recvtime)/ 1800 )) * 1800) as time,
+        avg(attrvalue::float) as illuminance
+        FROM urbansense.weather WHERE attrname='illuminance' AND attrvalue&lt;&gt;'null' GROUP BY time ORDER BY time asc;
+2019-06-26 15:03:40.909 UTC [43] FATAL:  terminating connection due to administrator command
+2019-06-26 15:03:40.909 UTC [43] STATEMENT:  SELECT to_timestamp(floor((extract('epoch' from recvtime)/ 1800 )) * 1800) as time,
+        avg(attrvalue::float) as illuminance
+        FROM urbansense.weather WHERE attrname='illuminance' AND attrvalue&lt;&gt;'null' GROUP BY time ORDER BY time asc;
+2019-06-26 15:03:40.921 UTC [1] LOG:  worker process: parallel worker for PID 41 (PID 42) exited with exit code 1
+2019-06-26 15:03:40.922 UTC [1] LOG:  worker process: parallel worker for PID 41 (PID 43) exited with exit code 1
+2019-06-26 15:07:04.058 UTC [39] LOG:  temporary file: path ""base/pgsql_tmp/pgsql_tmp39.0"", size 83402752
+2019-06-26 15:07:04.058 UTC [39] STATEMENT:  SELECT to_timestamp(floor((extract('epoch' from recvtime)/ 1800 )) * 1800)as time,
+        avg(attrvalue::float) as relativeHumidity
+        FROM urbansense.weather WHERE attrname='relativeHumidity' AND attrvalue&lt;&gt;'null' GROUP BY time ORDER BY time asc;
+2019-06-26 15:07:04.076 UTC [40] LOG:  temporary file: path ""base/pgsql_tmp/pgsql_tmp40.0"", size 83681280
+2019-06-26 15:07:04.076 UTC [40] STATEMENT:  SELECT to_timestamp(floor((extract('epoch' from recvtime)/ 1800 )) * 1800)as time,
+        avg(attrvalue::float) as relativeHumidity
+        FROM urbansense.weather WHERE attrname='relativeHumidity' AND attrvalue&lt;&gt;'null' GROUP BY time ORDER BY time asc;
+2019-06-26 15:07:04.196 UTC [38] LOG:  temporary file: path ""base/pgsql_tmp/pgsql_tmp38.0"", size 84140032
+Anyone with a idea how to solve this?
+",<postgresql><docker><grafana>,11183,1,129,3495,6,29,62,46,78856,0.0,439,6,78,2019-06-25 10:07,2019-06-25 12:28,2019-06-25 12:28,0.0,0.0,Intermediate,23
+48593016,Postgresql Docker role does not exist,"I downloaded the docker container for postgres: https://hub.docker.com/r/library/postgres/, and did the following:
+$ docker run --name satgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+satgres | ""docker-entrypoint.s…"" | 5 seconds ago | Up 6 seconds | 0.0.0.0:5432-&gt;5432/tcp | satgres
+$ docker exec -it c8f1b22cc41e /bin/bash        
+# psql -U postgres
+psql (10.1)
+postgres=# CREATE DATABASE mytest;
+postgres=# \password postgres
+postgres=# CREATE ROLE ming WITH LOGIN PASSWORD 'pass1234';
+postgres=# ALTER ROLE ming CREATEDB;
+postgres=# CREATE DATABASE sjk;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE youtube TO ming;
+postgres=# \connect sjk
+youtube=# ALTER ROLE ming lOGIN;  
+My plan is to use this database on docker with Django, so first want to check I can connect, but I cant.
+$ psql -h localhost -p 5432 -U postgres
+$ psql: FATAL:  role ""postgres"" does not exist
+$ psql -h localhost -p 5432 -U ming
+$ psql: FATAL:  role ""ming"" does not exist
+I do the same with PSequal.app, says the same thing,
+Im running on Mac High Sierra. 
+Why am I getting this error? The role exists, or at least it seems it to me...
+",<database><postgresql><docker>,1137,2,17,3302,4,19,39,53,102667,0.0,297,3,76,2018-02-03 1:19,2018-02-03 4:48,2018-02-03 4:48,0.0,0.0,Basic,9
+54527277,"can't activate sqlite3 (~> 1.3.6), already activated sqlite3-1.4.0","I’m using Ubuntu and run into to a problem when using db:migrate for ruby project. 
+rails aborted!
+LoadError: Error loading the 'sqlite3' Active Record adapter. Missing a gem it depends on? can't activate sqlite3 (~&gt; 1.3.6), already activated sqlite3-1.4.0. Make sure all dependencies are added to Gemfile.
+/home/juan/odin_on_rails/RailsaAPP/bin/rails:9:in `&lt;top (required)&gt;'
+/home/juan/odin_on_rails/RailsaAPP/bin/spring:15:in `&lt;top (required)&gt;'
+bin/rails:3:in `load'
+bin/rails:3:in `&lt;main&gt;'
+Caused by:
+Gem::LoadError: can't activate sqlite3 (~&gt; 1.3.6), already activated sqlite3-1.4.0. Make sure all dependencies are added to Gemfile.
+/home/juan/odin_on_rails/RailsaAPP/bin/rails:9:in `&lt;top (required)&gt;'
+/home/juan/odin_on_rails/RailsaAPP/bin/spring:15:in `&lt;top (required)&gt;'
+bin/rails:3:in `load'
+bin/rails:3:in `&lt;main&gt;'
+Tasks: TOP =&gt; db:migrate =&gt; db:load_config
+(See full trace by running task with --trace)
+",<ruby-on-rails><ruby><sqlite>,960,0,15,761,1,5,3,74,22933,0.0,0,5,76,2019-02-05 3:13,2019-02-05 6:29,,0.0,,Basic,9
+51552470,"DBeaver, export from database Postgres, table structure (properties) into file .txt","I have little problem with DBeaver. I want to export my structure from each table from database in file .txt. I found how to export all data but I don't need this data, just table structure.
+If you have some solutions for export table structure .csv it'll be good.
+Here is a an image   about structure of the table:
+",<postgresql><dbeaver><export-to-text>,316,2,0,853,1,7,7,48,157591,0.0,0,4,75,2018-07-27 7:04,2019-02-03 15:37,,191.0,,Basic,9
+49949526,Laravel mysql migrate error,"I recently format my mac book pro, after cloning the proyect from github and install the things I need like MySql and Sequel Pro I tried to migrate the database information but I get this error:
+   Illuminate\Database\QueryException  : SQLSTATE[42000]: Syntax error or access violation: 1231 Variable 'sql_mode' can't be set to the value of 'NO_AUTO_CREATE_USER' (SQL: select * from information_schema.tables where table_schema = fisica and table_name = migrations)
+  Exception trace:
+  1   PDOException::(""SQLSTATE[42000]: Syntax error or access violation: 1231 Variable 'sql_mode' can't be set to the value of 'NO_AUTO_CREATE_USER'"")
+Versions: 
+Mysql  8.0.11
+Laravel 5.6.12
+PHP 7.1.14 (cli)
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=fisica
+DB_USERNAME=xxx
+DB_PASSWORD=xxx
+I created the database from Sequel PRO GUI
+",<php><mysql><laravel><laravel-5.6>,838,0,11,3232,2,13,36,78,51665,0.0,71,10,74,2018-04-20 20:49,2018-04-20 22:10,2018-05-16 13:25,0.0,26.0,Basic,8
+49730100,Error in phpMyAdmin after updating to v4.8.0: The $cfg['TempDir'] (./tmp/) is not accessible,"phpMyAdmin worked fine with v4.7.9. Now after updating to v4.8.0 today (replacing the old phpmyadmin folder against the new one) I'm getting this message in phpMyAdmin:
+  The $cfg['TempDir'] (./tmp/) is not accessible. phpMyAdmin is not able
+  to cache templates and will be slow because of this.
+I added the folder ./tmp/ like like this: /usr/share/tmp
+phpMyAdmin is on: /usr/share/phpmyadmin
+This didn't change anything.
+Who know this error? What can I do?
+",<php><mysql><linux><phpmyadmin>,459,0,5,2988,3,21,60,45,130016,0.0,105,23,73,2018-04-09 9:51,2018-04-09 10:38,2018-04-09 10:38,0.0,0.0,Basic,14
+64210167,Unable to connect to Postgres DB due to the authentication type 10 is not supported,"I have recently tried my hands on Postgres. Installed it on local (PostgreSQL 13.0).
+Created a maven project and used Spring Data JPA, works just fine. Whereas when I tried using Gradle project, I am not able to connect to the DB and keep getting the following error.
+org.postgresql.util.PSQLException: The authentication type 10 is not
+supported. Check that you have configured the pg_hba.conf file to
+include the client's IP address or subnet, and that it is using an
+authentication scheme supported by the driver.    at
+org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:614)
+~[postgresql-42.1.4.jar:42.1.4]   at
+org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:222)
+~[postgresql-42.1.4.jar:42.1.4]   at
+org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
+~[postgresql-42.1.4.jar:42.1.4]   at
+org.postgresql.jdbc.PgConnection.(PgConnection.java:194)
+~[postgresql-42.1.4.jar:42.1.4]   at
+org.postgresql.Driver.makeConnection(Driver.java:450)
+~[postgresql-42.1.4.jar:42.1.4]   at
+org.postgresql.Driver.connect(Driver.java:252)
+~[postgresql-42.1.4.jar:42.1.4]   at
+java.sql.DriverManager.getConnection(Unknown Source) [na:1.8.0_261]
+at java.sql.DriverManager.getConnection(Unknown Source)
+[na:1.8.0_261]    at
+org.postgresql.ds.common.BaseDataSource.getConnection(BaseDataSource.java:94)
+[postgresql-42.1.4.jar:42.1.4]    at
+org.postgresql.ds.common.BaseDataSource.getConnection(BaseDataSource.java:79)
+[postgresql-42.1.4.jar:42.1.4]
+I tried using JDBCTemplate as well. Doesn't work
+Modified the pg_hba.cfg file referring to this post - Doesn't work
+Used the deprecated Lib of  - Doesn't Work either.
+Please Suggest me a solution for this problem.
+My code and Config:
+    @Configuration
+    public class DataSourceConfig {
+        @Bean
+        public DriverManagerDataSource getDataSource() {
+            DriverManagerDataSource dataSourceBuilder = new DriverManagerDataSource();
+            dataSourceBuilder.setDriverClassName(&quot;org.postgresql.Driver&quot;);
+            dataSourceBuilder.setUrl(&quot;jdbc:postgresql://localhost:5432/postgres&quot;);
+            dataSourceBuilder.setUsername(&quot;postgres&quot;);
+            dataSourceBuilder.setPassword(&quot;root&quot;);
+            return dataSourceBuilder;
+        }
+    }
+@Component
+public class CustomerOrderJDBCTemplate implements CustomerOrderDao{
+    private DataSource dataSource;
+    private JdbcTemplate jdbcTemplateObject;
+    @Autowired
+    ApplicationContext context;
+    public void setDataSource() {
+        //Getting Bean by Class
+        DriverManagerDataSource dataSource = context.getBean(DriverManagerDataSource.class);
+        this.dataSource = dataSource;
+        this.jdbcTemplateObject = new JdbcTemplate(this.dataSource);
+    }
+@Override
+    public Customer create(Customer customer) {
+        setDataSource();
+        String sql = &quot;insert into CustomerOrder (customerType, customerPayment) values (?, ?)&quot;;
+        //jdbcTemplateObject.update(sql, customerOrder.getCustomerOrderType(), customerOrder.getCustomerOrderPayment());
+        KeyHolder holder = new GeneratedKeyHolder();
+        jdbcTemplateObject.update(new PreparedStatementCreator() {
+            @Override
+            public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                ps.setString(1, customer.getType());
+                ps.setString(2, customer.getPayment());
+                return ps;
+            }
+        }, holder);
+        long customerId = holder.getKey().longValue();
+        customer.setCustomerID(customerOrderId);
+        return customer;
+    }
+}
+dependencies
+implementation('org.springframework.boot:spring-boot-starter-web')
+    compile(&quot;org.springframework.boot:spring-boot-devtools&quot;)
+    compile(group: 'org.postgresql', name: 'postgresql', version: '42.1.4')
+    compile(&quot;org.springdoc:springdoc-openapi-ui:1.4.1&quot;)
+    compile(&quot;org.springframework:spring-jdbc:5.2.5.RELEASE&quot;)
+password_encryption is set like this:
+postgres=# show password_encryption;
+ password_encryption
+---------------------
+ scram-sha-256
+(1 row)
+",<java><postgresql><spring-boot><gradle><postgresql-13>,4301,1,70,1627,4,21,38,67,191841,0.0,57,20,72,2020-10-05 14:01,2020-10-05 15:27,2020-10-13 13:37,0.0,8.0,Advanced,32
+53267642,Create new local server in pgadmin?,"I have PostgreSQL 11 and PGadmin 4 installed on windows. Currently I'm connected to a AWS server which hosts all of my data.
+I want to create a local server (localhost) as a testing environment where I can experiment. I can't seem to do it though, and the other similar questions on stack don't help. Here's what my process is:
+in pgAdmin, right click 'Servers' and go Create>Server
+On the 'Create - Server' pop up box, i type in Name: Localserver. For 'connection' I type localhost. Port I leave as default '5432', db: postgres, username: postgres password: empty
+click save.
+however, I get an error:
+  Unable to connect to server:
+  could not connect to server: Connection refused (0x0000274D/10061)
+  Is the server running on host ""localhost"" (::1) and accepting
+  TCP/IP connections on port 5432?
+  could not connect to server: Connection refused (0x0000274D/10061)
+  Is the server running on host ""localhost"" (127.0.0.1) and accepting
+  TCP/IP connections on port 5432?
+What should I do? I am the admin if that makes a difference.
+",<postgresql><pgadmin>,1036,1,0,1227,1,11,18,68,201621,0.0,82,7,72,2018-11-12 17:58,2018-11-12 18:08,,0.0,,Basic,9
+59455783,pg_restore: [archiver] unsupported version (1.14) in file header,"I have a live server and development box, call them live and dev respectively both running postgresql. I can see both and manage both with pgadmin4 without trouble, and both are fully functional the one being a live website and the other where I run my website in debug mode on the my dev box. Pretty ordinary setup.
+For years I have been running the same bash script I wrote that dumps the live database then restores it on the dev box so I have the latest live snapshot to work with.
+Today this fails me with the titled message:
+pg_restore: [archiver] unsupported version (1.14) in file header
+I have tried to diagnose this, and searched extensively on-line but am bedeviled and have failed so here I am cap in hand for expertise.
+To help I will share the following:
+$ pg_dump --version
+pg_dump (PostgreSQL) 10.11 (Ubuntu 10.11-1.pgdg18.04+1)
+$ pg_restore --version
+pg_restore (PostgreSQL) 10.11 (Ubuntu 10.11-1.pgdg18.04+1)
+$ pg_dump --host=live.lan --port=5432 --dbname=mydb --username=myuser --format=custom &gt; test.backup
+$ ls -l test.backup 
+-rw-r--r-- 1 bernd bernd 2398358 Dec 23 23:40 test.backup
+$ file test.backup 
+test.backup: PostgreSQL custom database dump - v1.14-0
+$ pg_restore --dbname=mydb test.backup 
+pg_restore: [archiver] unsupported version (1.14) in file header
+Given pg_dump and pg_restore are identical versions and:
+$ which pg_dump
+/usr/bin/pg_dump
+$ which pg_restore
+/usr/bin/pg_restore
+$ ls -l /usr/bin/pg_dump /usr/bin/pg_restore
+lrwxrwxrwx 1 root root 37 Nov 14 23:23 /usr/bin/pg_dump -&gt; ../share/postgresql-common/pg_wrapper
+lrwxrwxrwx 1 root root 37 Nov 14 23:23 /usr/bin/pg_restore -&gt; ../share/postgresql-common/pg_wrapper
+I can see they are not just identical versions but are run by the same wrapper script (which happens to be a perl script - now that's a language you don't see much anymore and I used to code in extensively)
+So I'm left totally perplexed. Thinking there may be a version issue with the live machine:
+$ ssh live.lan
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-72-generic x86_64)
+$ which pg_dump
+/usr/bin/pg_dump
+$ which pg_restore
+/usr/bin/pg_restore
+$ pg_dump --version
+pg_dump (PostgreSQL) 10.10 (Ubuntu 10.10-0ubuntu0.18.04.1)
+$ pg_restore --version
+pg_restore (PostgreSQL) 10.10 (Ubuntu 10.10-0ubuntu0.18.04.1)
+I can see the live box does have slightly older version of pg_dump (which would only matter if pg_dump on my dev box somehow used a RPC to the live box to run its pg_dump).
+Now there is maybe a small clue in the fact that my dev box has seen a few postgresql upgrades come through and so for example:
+$ pg_lsclusters
+Ver Cluster Port Status Owner    Data directory              Log file
+10  main    5432 online postgres /var/lib/postgresql/10/main /var/log/postgresql/postgresql-10-main.log
+11  main    5433 online postgres /var/lib/postgresql/11/main /var/log/postgresql/postgresql-11-main.log
+12  main    5434 online postgres /var/lib/postgresql/12/main /var/log/postgresql/postgresql-12-main.log
+The 11 and 12 clusters remain unused as evidenced by empty log files. I'm using 10. But I do notice that:
+$ psql --version
+psql (PostgreSQL) 12.1 (Ubuntu 12.1-1.pgdg18.04+1)
+$ ssh live.lan
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-72-generic x86_64)
+$ psql --version
+psql (PostgreSQL) 10.10 (Ubuntu 10.10-0ubuntu0.18.04.1)
+which is mildly fishy but again not obviously a cause or related:
+I am using pg_dump not psql
+I am using only the dev boxes pg tools not the live boxes (they should be irrelevant, the whole data transfer theoretically over port 5432 on the live box which delivers a databse dump to pg_dump on my dev box.
+Here are the clusters on the love box and it's over port 5432 that on live.lan I'm running pg_dump!
+$ pg_lsclusters 
+Ver Cluster Port Status Owner    Data directory           Log file
+10  main    5432 online postgres /data/postgresql/10/main /var/log/postgresql/postgresql-10-main.log
+I am deeply perplexed and hamstrung at present by this. Would deeply appreciate forward moving clues. If I am compelled to fish around in the dark I will probbaly uninstall postgres 11 and 12 again and see if that helps, else I will end up having to trace /usr/share/postgresql-common/pg_wrapper to see how and where the two paths of pg_dump and pg_restore diverge down incompatible version paths.
+Update:
+A further clue I have uncovered, that permits me a workaround but simply deepens the mystery is as follows:
+$ sudo -u postgres pg_dump --host=live.lan --port=5432 --dbname=mydb --username=myuser --format=custom &gt; test.backup
+$ sudo -u postgres /usr/lib/postgresql/10/bin/pg_dump --host=live.lan --port=5432 --dbname=mydb --username=myuser --format=custom &gt; test2.backup
+$ sudo -u postgres pg_restore -l test.backup
+pg_restore: [archiver] unsupported version (1.14) in file header
+$ sudo -u postgres pg_restore -l test2.backup
+... produces listing of contents ...
+$ sudo -u postgres pg_dump --version
+pg_dump (PostgreSQL) 10.11 (Ubuntu 10.11-1.pgdg18.04+1)
+$ sudo -u postgres /usr/lib/postgresql/10/bin/pg_dump --version
+pg_dump (PostgreSQL) 10.11 (Ubuntu 10.11-1.pgdg18.04+1)
+That is perplexing beyond belief. The only possible explanations:
+in spite of reporting identical version numbers the two pg_dumps are different. I would rule this out as beyond belief.
+pg_dump runs pg_wrapper which runs /usr/lib/postgresql/10/bin/pg_dump with some mystery argument(s) that break it!
+The second is plausible, and will require me to instrument pg_wrapper to diagnose.
+Update 2:
+And one instrumentation of pg_wrapper later. It eventuates that pg_dump runs pg_wrapper which runs /usr/lib/postgresql/12/bin/pg_dump yet it runs /usr/lib/postgresql/10/bin/pg_restore ... Go figure! Starting to think this a postgresql version interoperability bug!
+Update 3:
+Looking deeper into pg_wrapper, nailed the cause, and yes I'd argue it's a pg_wrapper bug of a kind though it may be debatable, hardly though IMHO. Here's what it does:
+If --host is provided then it uses the newest version of postgresql installed (12 in my case and this is for pg_dump, so pg_dump 12 creates the dump)
+If --host is not provided then it consults the user config (10 in my case, and this is for pg_restore, so pg_restore 10 is run and it can't read a file created by pg_dump 12).
+So why is this a bug? Because I have a use config, and I'd like it respected whether or not I'm talking to a remote host. More to the point if I specify a host I certainly don't expect to use the latest local version ignoring local config. I'd expect either to respect local config (as is the case when no remote host is specified) or try to match the rmeote hosts version. Arbitrarily leaning on the latest installed version is IMHO deeply questionable.
+BUT it turns out there is a workaround that works. Essentially instead of:
+sudo -u postgres pg_restore -l test.backup
+this works:
+sudo -u postgres pg_restore --host=localhost -l test.backup
+By specifying the host ironically we force it to ignore local configs and use the newest version of pg_restore which seems to work fine restoring to a PG 10 cluster.
+",<postgresql><ubuntu><pg-dump><pg-restore>,7064,0,61,1884,1,15,32,57,122001,0.0,80,7,71,2019-12-23 12:57,2020-03-26 15:48,,94.0,,Advanced,32
+62807717,How can I solve Postgresql SCRAM authentication problem?,"I am getting an error after moving the project to production. The error is as follows while running with production server
+pg_connect(): Unable to connect to PostgreSQL server: SCRAM
+authentication requires libpq version 10 or above.
+Here is my PostgreSQL version:
+Development Version :
+PostgreSQL 11.5 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.8.5 20150623
+(Red Hat 4.8.5-36), 64-bit
+Production Version :
+PostgreSQL 11.5 (EnterpriseDB Advanced Server 11.5.12) on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-36), 64-bit
+",<postgresql><authentication><libpq>,555,0,0,2387,6,20,31,73,176518,0.0,63,20,70,2020-07-09 5:00,2020-07-09 6:07,2020-07-09 6:07,0.0,0.0,Advanced,32
+50958721,Convert a spark DataFrame to pandas DF,"Is there a way to convert a Spark Df (not RDD) to pandas DF
+I tried the following:
+var some_df = Seq(
+ (""A"", ""no""),
+ (""B"", ""yes""),
+ (""B"", ""yes""),
+ (""B"", ""no"")
+ ).toDF(
+""user_id"", ""phone_number"")
+Code:
+%pyspark
+pandas_df = some_df.toPandas()
+Error:
+ NameError: name 'some_df' is not defined
+Any suggestions.
+",<pandas><apache-spark><apache-spark-sql>,307,0,11,4242,7,40,75,47,220050,0.0,135,3,70,2018-06-21 0:16,2018-06-21 1:43,2018-06-21 1:43,0.0,0.0,Basic,6
+51750715,"Could not translate host name ""db"" to address using Postgres, Docker Compose and Psycopg2","In one folder I have 3 files: base.py, Dockerfile and docker-compose.yml.
+base.py:
+import psycopg2
+conn = psycopg2.connect(""dbname='base123' user='postgres' host='db' password='pw1234'"")
+Dockerfile:
+FROM ubuntu:16.04
+RUN apt-get update
+RUN apt-get -y install python-pip
+RUN apt-get update
+RUN pip install --upgrade pip
+RUN pip install psycopg2-binary
+COPY base.py base.py
+RUN python base.py
+docker-compose.yml:
+version: '3'
+services:
+  db:
+    image: 'postgres:latest'
+    expose:
+      - ""5432""
+    environment:
+      POSTGRES_PASSWORD: pw1234
+      POSTGRES_DB: base123
+  aprrka:
+    build: .    
+    depends_on:
+      - db
+After I ran docker-compose up, I got the following error:
+Traceback (most recent call last):
+  File ""base.py"", line 5, in &lt;module&gt;
+conn = psycopg2.connect(""dbname='base123' user='postgres' host='db' password='pw1234'"")
+   File ""/usr/local/lib/python2.7/dist-packages/psycopg2/__init__.py"", line 130, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name ""db"" to address: Name or service not known
+ERROR: Service 'aprrka' failed to build: The command '/bin/sh -c python base.py' returned a non-zero code: 1
+I don't know why I have this error. I exposed port 5432. By default Compose sets up a single network for app. Each service joins the default network, I think that my app with postgres should work together. Did I write incorrect docker-compose.yml?
+",<python><postgresql><docker><docker-compose><psycopg2>,1475,0,36,994,1,8,20,58,191709,0.0,71,7,69,2018-08-08 15:43,2018-08-08 15:56,2018-08-08 15:56,0.0,0.0,Basic,14
+50803608,Can't export my database from mysql workbench,"I am trying to export my database from MySQL Workbench but I get this during the export progress:
+Running: mysqldump.exe
+--defaults-file=&quot;c:\users\user\appdata\local\temp\tmp2h91wa.cnf&quot;  --user=root --host=localhost --protocol=tcp --port=3306 --default-character-set=utf8 --skip-triggers &quot;mydb&quot; mysqldump: Couldn't execute 'SELECT COLUMN_NAME,
+JSON_EXTRACT(HISTOGRAM, '$.&quot;number-of-buckets-specified&quot;')
+FROM information_schema.COLUMN_STATISTICS                WHERE
+SCHEMA_NAME = 'mydb' AND TABLE_NAME = 'courses';': Unknown table
+'column_statistics' in information_schema (1109)
+Operation failed with exitcode 2 20:55:09 Export of
+C:\Users\user\Documents\dumps\mydb.sql has finished with 1 errors
+",<mysql><database><export><mysql-workbench>,728,0,0,701,1,5,7,49,127634,0.0,0,16,66,2018-06-11 18:01,2018-06-27 12:44,2018-10-23 8:21,16.0,134.0,Basic,14
+58938358,MYSQL - Warning: #1681 Integer display width is deprecated,"I'm getting this warning when importing mysql dumps in phpMyAdmin: 
+Warning: #1681 Integer display width is deprecated and will be removed in a future release.
+I found this on https://dev.mysql.com/worklog/task/?id=13127
+Deprecate the ZEROFILL attribute for numeric data types and the display width attribute for integer types.
+but i don't really understand what it means. Can someone explain what is the problem generating this warning, and how to resolve it. 
+",<mysql><phpmyadmin>,462,2,2,2389,1,21,25,35,94833,0.0,385,3,66,2019-11-19 16:09,2019-12-01 7:23,2019-12-01 7:23,12.0,12.0,Basic,14
+51770485,TypeError: Object of type 'DataFrame' is not JSON serializable,"I'm trying to create a plotly graph with some data I've got from my PostgreSQL server, but when I try to graph I'm getting an error: ""TypeError: Object of type 'DataFrame' is not JSON serializable""
+Here's the code so far:
+import dash
+import numpy as np
+import pandas as pd
+import plotly.offline as py
+import plotly.graph_objs as go
+import psycopg2 as pg2
+import datetime
+conn = pg2.connect(database='X',user='X',password=secret)
+cur = conn.cursor()
+cur.execute(""SELECT * FROM times;"")
+a = cur.fetchall()
+str(a)
+df = pd.DataFrame([[ij for ij in i] for i in a])
+df.to_json()
+df.rename(columns={0: ""Serial Number"", 1: ""Status"", 2: ""Date"", 3: ""Time"", 4: ""Number""}, inplace=True);
+x = df[""Date""]
+data = [go.Scatter(
+            x=x,
+            y=df[""Status""])]
+layout = go.Layout(title=""Server Data Visualization"",
+                   xaxis = dict(
+                   range = [df.head(1),
+                            df.tail(1)]),
+                    yaxis=dict(title = ""Status""))
+fig = go.Figure(data = data, layout = layout)
+py.plot(fig)
+The df[""Date""] is the date in format of ""2018-08-03"" and the df[""Status""] is either ""Uptime"" or ""Downtime.""
+Can someone tell me what I'm doing incorrectly? I'm trying to have this graph basically be dates on the x-axis read in from the sql server, and then two values on the y-axis that represent either the value of ""Uptime"" or ""Downtime.""
+Traceback (most recent call last):
+  File ""\\srv31data1\users$\User\Desktop\basic.py"", line 37, in &lt;module&gt;
+    py.plot(fig)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\site-packages\plotly\offline\offline.py"", line 469, in plot
+    '100%', '100%', global_requirejs=False)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\site-packages\plotly\offline\offline.py"", line 184, in _plot_html
+    cls=utils.PlotlyJSONEncoder)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\json\__init__.py"", line 238, in dumps
+    **kw).encode(obj)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\site-packages\plotly\utils.py"", line 161, in encode
+    encoded_o = super(PlotlyJSONEncoder, self).encode(o)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\json\encoder.py"", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\json\encoder.py"", line 257, in iterencode
+    return _iterencode(o, 0)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\site-packages\plotly\utils.py"", line 229, in default
+    return _json.JSONEncoder.default(self, obj)
+  File ""C:\Users\User\AppData\Local\Programs\Python\Python36\lib\json\encoder.py"", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'DataFrame' is not JSON serializable
+Edit: Sorry, forgot to post the traceback!
+",<python-3.x><postgresql><pandas><plotly><psycopg2>,2828,0,54,663,1,5,5,42,143451,0.0,0,2,66,2018-08-09 15:08,2018-08-09 15:23,2018-08-09 15:23,0.0,0.0,Basic,6
+61097695,'Self signed certificate' error during query the Heroku hosted Postgres database from the Node.js application,"My Node.js app is able to work with local Postgres database via npm pg module. 
+I can connect to the Heroku hosted Postgres database (free Hobby Dev plan) via command line with heroku pg:psql command as well. 
+But when my Node.js app is trying to query to Heroku hosted Postgres database I am receiving an self signed certificate error.
+Here is the output with self signed certificate error:
+(node:2100) UnhandledPromiseRejectionWarning: Error: self signed certificate
+    at TLSSocket.onConnectSecure (_tls_wrap.js:1051:34)
+    at TLSSocket.emit (events.js:189:13)
+    at TLSSocket._finishInit (_tls_wrap.js:633:8)
+(node:2100) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:2100) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+D:\MY\DEV\PROJECTS\AdsSubscribeBot\test.js:57
+  if (err) throw err;
+           ^
+Error: Connection terminated unexpectedly
+    at Connection.con.once (D:\MY\DEV\PROJECTS\AdsSubscribeBot\node_modules\pg\lib\client.js:264:9)
+    at Object.onceWrapper (events.js:277:13)
+    at Connection.emit (events.js:189:13)
+    at Socket.&lt;anonymous&gt; (D:\MY\DEV\PROJECTS\AdsSubscribeBot\node_modules\pg\lib\connection.js:76:10)
+    at Socket.emit (events.js:194:15)
+    at TCP._handle.close (net.js:597:12)
+Simpliest way to reproduce this error is to try use the sample code to connecting in Node.js from Heroku devcenter:
+https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-node-js
+Here is the sample of the code that causes self signed certificate error:
+const connectionString = 'postgres://USERNAME:PASSWORD@HOST:PORT/DB_NAME';
+const { Client } = require('pg');
+const client = new Client({
+  connectionString: connectionString,
+  ssl: true
+});
+client.connect();
+client.query('SELECT * FROM users;', (err, res) =&gt; {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+Maybe someone has faced the same issue and know the way how to solve it.
+Thanks in advance for any help.
+",<javascript><node.js><postgresql><heroku>,2318,2,40,653,1,5,5,41,36203,0.0,1,5,65,2020-04-08 9:41,2020-04-09 16:28,2020-04-09 16:28,1.0,1.0,Basic,13

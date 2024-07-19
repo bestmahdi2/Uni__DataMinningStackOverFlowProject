@@ -1,0 +1,1457 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+57603349,Error:mysqld.service: Start request repeated too quickly. On manjaro,"Yesterday I updated my manjaro. I had many problems since then.
+Firstly, I type
+systemctl status mysqld.service
+to start MySQL, but it errors out with
+mysqld.service: Start request repeated too quickly.
+I has found many suggestions but they doesn't work.
+I already have tried:
+Check the permission of the MySQL data directory using the below command. The ownership should be mysql:mysql and the directory permission should be 700.
+ls -ld /var/lib/mysql/
+Check the permission of databases inside the MySQL data directory using the below command. The ownership should be mysql:mysql for all the files inside that directory.
+ls -lh /var/lib/mysql/
+Check the listening network TCP ports using the command
+netstat -ntlp
+Check the MySQL log files for any error using:
+cat /var/log/mysql/mysqld.log
+Try to start MySQL using
+mysqld_safe --defaults-file=/etc/my.cf
+My Error:
+dong@dong-manjaro  /home/dong   systemctl status mysqld.service                                                                          13:30:33 
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Thu 2019-08-22 13:30:29 CST; 6s ago
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+  Process: 8006 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+  Process: 8027 ExecStart=/usr/bin/mysqld $MYSQLD_OPTS (code=exited, status=127)
+ Main PID: 8027 (code=exited, status=127)
+8月 22 13:30:29 dong-manjaro systemd[1]: mysqld.service: Service RestartSec=100ms expired, scheduling restart.
+8月 22 13:30:29 dong-manjaro systemd[1]: mysqld.service: Scheduled restart job, restart counter is at 5.
+8月 22 13:30:29 dong-manjaro systemd[1]: Stopped MySQL Server.
+8月 22 13:30:29 dong-manjaro systemd[1]: **mysqld.service: Start request repeated too quickly.**
+8月 22 13:30:29 dong-manjaro systemd[1]: **mysqld.service: Failed with result 'exit-code'.**
+8月 22 13:30:29 dong-manjaro systemd[1]: **Failed to start MySQL Server.**
+",<mysql><linux><archlinux><manjaro>,2063,1,25,131,1,1,5,73,34795,0.0,3,6,13,2019-08-22 6:39,2020-12-12 8:22,,478.0,,Basic,13
+62257900,How to list all the stored procedure in AWS RedShift,"I was checking this, but not find the proper one. So I prepared one and sharing that query here.
+",<amazon-web-services><plsql><amazon-redshift>,97,0,0,2832,6,40,91,72,16515,0.0,57,2,13,2020-06-08 8:22,2020-06-08 8:23,2020-06-08 8:23,0.0,0.0,Basic,10
+48145384,How to disable only_full_group_by option in Laravel,"I am new to laravel and I am having an issue with DB problem.
+I have disabled 'only_full_group_by' sql_mode by editing /etc/mysql/my.cnf file. And I checked sql_mode for both global and session using SELECT @@GLOBAL.sql_mode; and SELECT @@SESSION.sql_mode; and confirmed that sql_mode no longer has only_full_group_by.
+However, when I make a request through postman, it gives me the error saying this is incompatible with sql_mode=only_full_group_by.
+I am so confused. Why do I get this error even after I changed sql_mode? Am I doing something wrong?
+Any suggestion or advice would be appreciated.
+Thank you.
+SQL using toSql()
+select A.* 
+from `A` 
+inner join `B` on `A`.`id` = `B`.`a_id` 
+inner join `C` on `C`.`id` = `B`.`c_id` 
+group by `A`.`id` having COUNT(A.id) &gt; 0;
+",<php><mysql><laravel-5><mysql-5.7>,777,0,13,1045,3,17,40,47,16047,0.0,114,5,13,2018-01-08 6:38,2018-01-08 6:44,2018-01-08 6:44,0.0,0.0,Basic,10
+54446734,Is it possible to issue CREATE statements using sp_executesql with parameters?,"I'm trying to dynamically create triggers, but ran into a confusing issue around using sp_executesql and passing parameters into the dynamic SQL.  The following simple test case works:
+DECLARE @tableName sysname = 'MyTable';
+DECLARE @sql nvarchar(max) = N'
+    CREATE TRIGGER TR_' + @tableName + N' ON ' + @tableName + N' FOR INSERT
+        AS
+        BEGIN
+            PRINT 1
+        END';
+EXEC sp_executesql @sql
+However, I want to be able to use @tableName (and other values) as variables within the script, so I passed it along to the sp_executesql call:
+DECLARE @tableName sysname = 'ContentItems';
+DECLARE @sql nvarchar(max) = N'
+    CREATE TRIGGER TR_' + @tableName + N' ON ' + @tableName + N' FOR INSERT
+        AS
+        BEGIN
+            PRINT @tableName
+        END';
+EXEC sp_executesql @sql, N'@tableName sysname', @tableName=@tableName
+When running the above, I get an error:
+  Msg 156, Level 15, State 1, Line 2
+  Incorrect syntax near the keyword 'TRIGGER'.
+After trying I few things, I've discovered that even if I don't use @tableName in the dynamic SQL at all, I still get this error.  And I also get this error trying to create a PROCEDURE (except, obviously, the message is Incorrect syntax near the keyword 'PROCEDURE'.)
+Since the SQL runs fine either directly or when not supplying parameters to sp_executesql, this seems like I'm running into a true limitation in the SQL engine, but I don't see it documented anywhere.  Does anyone know if there is a way to accept to a dynamic CREATE script, or at least have insight into the underlying limitation that's being run into?
+Update
+I can add a PRINT statement, and get the below SQL, which is valid, and runs successfully (when run directly).  I still get the error if there's nothing dynamic in the SQL (it's just a single string with no concatenation).
+CREATE TRIGGER TR_ContentItems ON ContentItems FOR INSERT
+    AS
+    BEGIN
+        PRINT @tableName
+    END
+I also get the same error whether using sysname or nvarchar(max) for the parameter.
+",<sql-server><dynamic-sql><sp-executesql>,2020,0,31,152787,23,148,175,79,1581,0.0,3899,7,13,2019-01-30 17:56,2019-01-30 18:36,,0.0,,Basic,10
+62802173,Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call,"I have an application based on F#, and I use EF-Core and MySQL (Pomelo.EntityFrameworkCore.MySql).
+I have an async method which updates data in DB(MySql)
+let updatePlayerAchievementsAsync (logger:ILogger) (ctx:ReportCacheDbContext) (id: int) = async {
+  let! account = ctx.AccountCaches.FirstOrDefaultAsync(fun e -&gt; e.AccountId = id) |&gt; Async.AwaitTask
+  if account &lt;&gt; null then
+    account.State &lt;- &quot;Closed&quot;
+    do! ctx.SaveChangesAsync true |&gt; Async.AwaitTask |&gt; Async.Ignore
+    logger.LogInformation(&quot;Account{0} updated&quot;, id)        
+}
+when this method comes to the 99th element, the following errors occurred:
+|ERROR|System.InvalidOperationException:An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call. 
+---&gt; MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired. All pooled connections are in use.
+I tried to follow 1st error's recomendation and tried to add EnableRetryOnFailure()
+member this.ConfigureServices(services: IServiceCollection) =
+    services.AddOptions() |&gt; ignore
+    services.AddCors() |&gt; ignore
+    services
+        .AddDbContext&lt;ApplicationDbContext&gt;(
+            fun (service:IServiceProvider) (dbContext:DbContextOptionsBuilder) -&gt;
+                dbContext.UseMySql(profile.DbConnectionToAdmin /*HERE*/)|&gt; ignore)
+    ...
+And I can't find any documentation about this adding options for F# &amp; MySQL, cause all found info written on C#.
+Maybe problem in used pools (default max=100) and I wrote next:
+...
+do! ctx.SaveChangesAsync true |&gt; Async.AwaitTask |&gt; Async.Ignore
+ctx.Database.CloseConnection()
+logger.LogInformation(&quot;Account{0} updated&quot;, id)  
+But anyway problem wasn't solved.
+This is my new experience in F# and async and I cant understand what I did incorrectly.
+Could anyone help me with it?
+",<mysql><entity-framework><asynchronous><async-await><f#>,1956,0,26,315,1,3,9,75,48466,,1,3,13,2020-07-08 19:19,2020-11-03 11:34,,118.0,,Basic,10
+49782240,Can I do case insensitive search with JSON_EXTRACT in MySQL?,"I am running SELECT * FROM mytable WHERE LOWER(JSON_EXTRACT(metadata, ""$.title"")) = 'hello world' with the intent that hello world is data from a user that I will flatten to all lowercase. The actual value in my db is ""Hello World"", but this search comes back empty every time.
+If I do a SELECT LOWER(JSON_EXTRACT(metadata, ""$.title"")) FROM mytable, it certainly comes back lowercase as hello world. Not sure what I'm missing here.
+Queries to get actual values:
+SELECT JSON_EXTRACT(metadata, ""$.title"")  FROM mytable gets me ""Hello World""
+SELECT LOWER(JSON_EXTRACT(metadata, ""$.title""))  FROM mytable gets me ""hello world""
+Queries trying to find the right row
+Gets me value
+SELECT * FROM mytable WHERE JSON_EXTRACT(metadata, ""$.title"") = ""Hello World""
+SELECT * FROM mytable WHERE metadata-&gt;""$.title"" = ""Hello World""
+SELECT * FROM ututs WHERE LOWER(metadata-&gt;""$.title"")  LIKE ""%hello world%""
+Gets me nothing
+SELECT * FROM mytable WHERE JSON_EXTRACT(metadata, ""$.title"") = ""hello world""
+SELECT * FROM mytable WHERE JSON_EXTRACT(metadata, ""$.title"") LIKE  ""%hello world%""
+SELECT * FROM ututs WHERE LOWER(metadata-&gt;""$.title"") = ""hello world""
+SELECT * FROM ututs WHERE LOWER(metadata-&gt;""$.title"")  LIKE ""hello""
+So it looks like the result is giving back the value, including quotes. That doesn't appear to be the issue though, given I get a result when I match the case. I am also confused why the % at the start is solving my issue. There is no space between the "" and H. I typed the JSON out myself.
+I also updated metadata column straight to {""title"":""Hello World""} by manually typing. MySQL automatically adds a space after colon to make it {""title"": ""Hello World""}, which is fine, but was just sanity checking any spaces.
+",<mysql><json>,1733,0,21,8822,14,58,107,69,10018,,151,3,13,2018-04-11 18:35,2018-04-11 20:35,2018-04-11 20:35,0.0,0.0,Basic,10
+51151773,Best practice calling scalar functions with Entity Framework Core (2.1),"I often need to call scalar functions that are defined on a SQL Server from my web applications (ASP.NET Core / EF Core). Since these functions are just simple helper functions and I also use a lot of them I use a general pattern for calling these scalar functions - with the help of the new query types available from EF Core 2.1.
+Since I am relatively new to EF Core my question is if this pattern might cause problems and/or if there is a better solution or best practice for calling scalar functions. The solution works and I cannot observe any problems so far but for example I wondered if using the same query type for different functions might lead to unexpected values or weird behaviour due to caching/tracking behaviour, etc. within EF Core - it's more of a gut feeling.
+So here's the pattern:
+Instead of defining different entity types for every single scalar function I simply define one generic type:
+public class PrimitiveDto&lt;T&gt;
+{
+    public T Value { get; set; }
+}
+In my context class I register these types for every return type I expect from the scalar functions I want to use - so for all scalar functions returning 'int' the context class would have one additional entry like this:
+public virtual DbQuery&lt;PrimitiveDto&lt;int&gt;&gt; BasicIntDto { get; set; }
+For EF Core &gt;= 3 it is:
+public virtual DbSet&lt;PrimitiveDto&lt;int&gt;&gt; BasicIntDto { get; set; }
+In every part of the application where I want to call a scalar function returning 'int' I simply use the same following pattern:
+context.BasicIntDto.FromSql(&quot;SELECT &lt;FUNCTION&gt; AS Value&quot;)
+By using this pattern I can call any number of functions the same way without defining additional types or extending the context class.
+Please let me know if I could run into a trap through this pattern. Thank you very much.
+",<c#><sql-server><entity-framework><asp.net-core><entity-framework-core>,1820,0,7,700,0,8,18,54,8974,0.0,305,1,13,2018-07-03 10:03,2019-01-15 16:03,,196.0,,Basic,10
+48557948,Where should I register my DBAL type?,"I am using Doctrine's enum types to track the status of an entity that I am using in a Symfony application. I am using (roughly) the methods described here: 
+http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/cookbook/mysql-enums.html
+My problem comes when I try to update the database schema. I get the following error:
+  [Doctrine\DBAL\DBALException]
+  Unknown column type ""EnumStatusType"" requested. Any Doctrine type that you use has to be registered
+   with \Doctrine\DBAL\Types\Type::addType(). You can get a list of all the known types with \Doctrin
+  e\DBAL\Types\Type::getTypesMap(). If this error occurs during database introspection then you might
+   have forgot to register all database types for a Doctrine Type. Use AbstractPlatform#registerDoctr
+  ineTypeMapping() or have your custom types implement Type#getMappedDatabaseTypes(). If the type nam
+  e is empty you might have a problem with the cache or forgot some mapping information.
+This error is very helpful in a way -- as is the documentation -- but both of those resources leave out two pieces of information: In which file should I use addType() to register my new type? 
+Two secondary questions: Should I call the addType() method statically, as shown in the examples? If not, how should I retrieve an object in order to call the method non-statically?
+",<php><mysql><symfony><doctrine-orm><doctrine>,1342,2,7,1034,5,35,70,70,10124,0.0,843,1,13,2018-02-01 8:03,2018-02-01 8:07,2018-02-01 8:07,0.0,0.0,Basic,3
+53694089,ERROR: (gcloud.sql.connect) HTTPError 400: The incoming request contained invalid data,"Problem
+I am not able to connect to my Cloud SQL postgres instance with the command line, which has been working previously:
+gcloud sql connect &lt;instance_name&gt; --user=&lt;username&gt;
+This is the error I'm getting:
+ERROR: (gcloud.sql.connect) HTTPError 400: The incoming request contained invalid data.
+Version
+Running macOS Mojave 10.14 (18A391) with a tethered 4G hotspot via my Samsung Galaxy S8.
+$ gcloud --version
+Google Cloud SDK 227.0.0
+bq 2.0.39
+core 2018.11.30
+gsutil 4.34
+Log
+Running the command with the --log-http flag, it returns:
+{
+ ""error"": {
+  ""errors"": [
+   {
+    ""domain"": ""global"",
+    ""reason"": ""invalidRequest"",
+    ""message"": ""The incoming request contained invalid data.""
+   }
+  ],
+  ""code"": 400,
+  ""message"": ""The incoming request contained invalid data.""
+ }
+}
+Question
+Why is this happening and what can I do to fix it?
+",<google-cloud-platform><google-cloud-sql>,851,0,21,698,1,6,18,59,11343,0.0,9,3,13,2018-12-09 16:00,2018-12-09 18:07,2018-12-09 18:07,0.0,0.0,Basic,3
+48837393,Scala doobie fragment with generic type parameter,"I am trying to abstract inserting objects of different types into sql tables of similar structure. Here's what I'm trying to do:
+class TableAccess[A : Meta](table: String) {
+  def insert(key: String, a: A): ConnectionIO[Unit] = {
+    (fr""insert into "" ++ Fragment.const(table) ++ fr"" values ($key, $a);"").update.run.map(_ =&gt; ())
+  }
+}
+But I get this compile error:
+[error] diverging implicit expansion for type doobie.util.param.Param[A]
+[error] starting with method fromMeta in object Param
+[error]     (fr""insert into "" ++ Fragment.const(table) ++ fr"" values ($key, $a);"").update.run.map(_ =&gt; ())
+All I can find in the documentation is:
+  doobie allows you to interpolate values of any type (and options
+  thereof) with an Meta instance, which includes...
+But it seems that is not enough in this case; what's the right typeclass/imports/conversions I need?
+",<sql><scala><doobie>,865,0,8,18284,2,37,59,58,1581,0.0,334,3,13,2018-02-17 2:47,2018-03-18 8:42,2020-01-06 19:10,29.0,688.0,Basic,5
+57987355,Remove sensitive information from environment variables in postgres docker container,"I want to make a postgres database image but don't want to expose password and username which are stored as environment variable when produced using docker-compose.yml file. Basically, I don't want anyone to exec into the container and find out the variables.
+One way is to use docker-secrets, but I don't want to to use docker swarm because my containers would be running on a single host.
+my docker-compose file -
+    version: ""3""
+    services:
+       db:
+         image: postgres:10.0-alpine
+      environment:
+         POSTGRES_USER: 'user'
+         POSTGRES_PASSWORD: 'pass'
+         POSTGRES_DB: 'db'
+Things I have tried -
+1) unset the environment variable at the end of entrypoint-entrypoint.sh 
+        for f in /docker-entrypoint-initdb.d/*; do
+            case ""$f"" in
+            *.sh)     echo ""$0: running $f""; . ""$f"" ;;
+            *.sql)    echo ""$0: running $f""; ""${psql[@]}"" -f ""$f""; echo ;;
+            *.sql.gz) echo ""$0: running $f""; gunzip -c ""$f"" | ""${psql[@]}""; echo ;;
+            *)        echo ""$0: ignoring $f"" ;;
+            esac
+            echo
+        done
+        unset POSTGRES_USER
+nothing happened though. :(
+2) init.sql inside docker-entrypoint-initdb.d, to create db, user and pass without using env.
+I shared the volume, as - 
+```
+   volumes:
+       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+```
+and, on my host, inside docker-entrypoint-initdb.d, I saved an init.sql as -
+CREATE DATABASE docker_db;CREATE USER docker_user with encrypted password 'pass';GRANT ALL PRIVILEGES ON DATABASE docker_db TO docker_user;
+I moved inside the running container and this file was there but, no user or database was created as mentioned in the file.
+I have been stuck on this for past two days, any help is much appreciated.
+",<postgresql><docker><docker-compose><dockerfile><docker-swarm>,1767,0,23,608,1,5,16,43,8922,0.0,83,5,13,2019-09-18 7:32,2019-09-18 7:38,2019-09-19 6:48,0.0,1.0,Basic,14
+49391212,PostgreSQL: compare jsons,"As known, at the moment PostgreSQL has no method to compare two json values. The comparison like json = json doesn't work. But what about casting json to text before?
+Then
+select ('{""x"":""a"", ""y"":""b""}')::json::text = 
+('{""x"":""a"", ""y"":""b""}')::json::text
+returns true
+while
+select ('{""x"":""a"", ""y"":""b""}')::json::text = 
+('{""x"":""a"", ""y"":""d""}')::json::text
+returns false
+I tried several variants with more complex objects and it works as expected.
+Are there any gotchas in this solution?
+UPDATE:
+The compatibility with v9.3 is needed
+",<json><postgresql>,528,0,9,351,1,3,15,59,38607,0.0,4,3,13,2018-03-20 17:59,2018-03-20 19:51,2018-03-20 19:51,0.0,0.0,Basic,2
+48554917,Getting Sequelize.js library to work on Amazon Lambda,"So I'm trying to run a lambda on amazon and narrowed down the error finally by testing the lambda in amazons testing console.
+The error I got is this.
+{
+  ""errorMessage"": ""Please install mysql2 package manually"",
+  ""errorType"": ""Error"",
+  ""stackTrace"": [
+    ""new MysqlDialect (/var/task/node_modules/sequelize/lib/dialects/mysql/index.js:14:30)"",
+    ""new Sequelize (/var/task/node_modules/sequelize/lib/sequelize.js:234:20)"",
+    ""Object.exports.getSequelizeConnection (/var/task/src/twilio/twilio.js:858:20)"",
+    ""Object.&lt;anonymous&gt; (/var/task/src/twilio/twilio.js:679:25)"",
+    ""__webpack_require__ (/var/task/src/twilio/twilio.js:20:30)"",
+    ""/var/task/src/twilio/twilio.js:63:18"",
+    ""Object.&lt;anonymous&gt; (/var/task/src/twilio/twilio.js:66:10)"",
+    ""Module._compile (module.js:570:32)"",
+    ""Object.Module._extensions..js (module.js:579:10)"",
+    ""Module.load (module.js:487:32)"",
+    ""tryModuleLoad (module.js:446:12)"",
+    ""Function.Module._load (module.js:438:3)"",
+    ""Module.require (module.js:497:17)"",
+    ""require (internal/module.js:20:19)""
+  ]
+}
+Easy enough, so I have to install mysql2.  So I added it to my package.json file.
+{
+  ""name"": ""test-api"",
+  ""version"": ""1.0.0"",
+  ""description"": """",
+  ""main"": ""handler.js"",
+  ""scripts"": {
+    ""test"": ""echo \""Error: no test specified\"" &amp;&amp; exit 0""
+  },
+  ""keywords"": [],
+  ""author"": """",
+  ""license"": ""ISC"",
+  ""devDependencies"": {
+    ""aws-sdk"": ""^2.153.0"",
+    ""babel-core"": ""^6.26.0"",
+    ""babel-loader"": ""^7.1.2"",
+    ""babel-plugin-transform-runtime"": ""^6.23.0"",
+    ""babel-preset-es2015"": ""^6.24.1"",
+    ""babel-preset-stage-3"": ""^6.24.1"",
+    ""serverless-domain-manager"": ""^1.1.20"",
+    ""serverless-dynamodb-autoscaling"": ""^0.6.2"",
+    ""serverless-webpack"": ""^4.0.0"",
+    ""webpack"": ""^3.8.1"",
+    ""webpack-node-externals"": ""^1.6.0""
+  },
+  ""dependencies"": {
+    ""babel-runtime"": ""^6.26.0"",
+    ""mailgun-js"": ""^0.13.1"",
+    ""minimist"": ""^1.2.0"",
+    ""mysql"": ""^2.15.0"",
+    ""mysql2"": ""^1.5.1"",
+    ""qs"": ""^6.5.1"",
+    ""sequelize"": ""^4.31.2"",
+    ""serverless"": ""^1.26.0"",
+    ""serverless-plugin-scripts"": ""^1.0.2"",
+    ""twilio"": ""^3.10.0"",
+    ""uuid"": ""^3.1.0""
+  }
+}
+I noticed when I do sls deploy however, it seems to only be packaging some of the modules?
+Serverless: Package lock found - Using locked versions
+Serverless: Packing external modules: babel-runtime@^6.26.0, twilio@^3.10.0, qs@^6.5.1, mailgun-js@^0.13.1, sequelize@^4.31.2, minimi
+st@^1.2.0, uuid@^3.1.0
+Serverless: Packaging service...
+Serverless: Uploading CloudFormation file to S3...
+Serverless: Uploading artifacts...
+Serverless: Validating template...
+Serverless: Updating Stack...
+Serverless: Checking Stack update progress...
+................................
+Serverless: Stack update finished...
+I think this is why it's not working.  In short, how do I get mysql2 library to be packaged correctly with serverless so my lambda function will work with the sequelize library?
+Please note that when I test locally my code works fine.
+My serverless file is below
+service: testapi
+# Use serverless-webpack plugin to transpile ES6/ES7
+plugins:
+  - serverless-webpack
+  - serverless-plugin-scripts
+  # - serverless-domain-manager
+custom:
+  #Define the Stage or default to Staging.
+  stage: ${opt:stage, self:provider.stage}
+  webpackIncludeModules: true
+  #Define Databases Here
+  databaseName: ""${self:service}-${self:custom.stage}""
+  #Define Bucket Names Here
+  uploadBucket: ""${self:service}-uploads-${self:custom.stage}""
+  #Custom Script setup
+  scripts:
+    hooks:
+      #Script below will run schema changes to the database as neccesary and update according to stage.
+      'deploy:finalize':  node database-schema-update.js --stage ${self:custom.stage}
+  #Domain Setup
+  # customDomain:
+  #    basePath: ""/""
+  #    domainName: ""api-${self:custom.stage}.test.com""
+  #    stage: ""${self:custom.stage}""
+  #    certificateName: ""*.test.com""
+  #    createRoute53Record: true
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: staging
+  region: us-east-1
+  environment:
+    DOMAIN_NAME: ""api-${self:custom.stage}.test.com""
+    DATABASE_NAME: ${self:custom.databaseName}
+    DATABASE_USERNAME: ${env:RDS_USERNAME}
+    DATABASE_PASSWORD: ${env:RDS_PASSWORD}
+    UPLOAD_BUCKET: ${self:custom.uploadBucket}
+    TWILIO_ACCOUNT_SID: """"
+    TWILIO_AUTH_TOKEN: """"
+    USER_POOL_ID: """"
+    APP_CLIENT_ID: """"
+    REGION: ""us-east-1""
+    IDENTITY_POOL_ID: """"
+    RACKSPACE_API_KEY: """"
+  #Below controls permissions for lambda functions.
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:UpdateTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: ""arn:aws:dynamodb:us-east-1:*:*""
+functions:
+  create_visit:
+    handler: src/visits/create.main
+    events:
+      - http:
+          path: visits
+          method: post
+          cors: true
+          authorizer: aws_iam
+  get_visit:
+    handler: src/visits/get.main
+    events:
+      - http:
+          path: visits/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  list_visit:
+    handler: src/visits/list.main
+    events:
+      - http:
+          path: visits
+          method: get
+          cors: true
+          authorizer: aws_iam
+  update_visit:
+    handler: src/visits/update.main
+    events:
+      - http:
+          path: visits/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  delete_visit:
+    handler: src/visits/delete.main
+    events:
+      - http:
+          path: visits/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  twilio_send_text_message:
+    handler: src/twilio/twilio.send_text_message
+    events:
+      - http:
+          path: twilio/sendtextmessage
+          method: post
+          cors: true
+          authorizer: aws_iam
+  #This function handles incoming calls and where to route it to.
+  twilio_incoming_call:
+    handler: src/twilio/twilio.incoming_calls
+    events:
+      - http:
+          path: twilio/calls
+          method: post
+  twilio_failure:
+    handler: src/twilio/twilio.twilio_failure
+    events:
+      - http:
+          path: twilio/failure
+          method: post
+  twilio_statuschange:
+    handler: src/twilio/twilio.statuschange
+    events:
+      - http:
+          path: twilio/statuschange
+          method: post
+  twilio_incoming_message:
+    handler: src/twilio/twilio.incoming_message
+    events:
+      - http:
+          path: twilio/messages
+          method: post
+  twilio_whisper:
+    handler: src/twilio/twilio.whisper
+    events:
+      - http:
+          path: twilio/whisper
+          method: post
+      - http:
+          path: twilio/whisper
+          method: get
+  twilio_start_call:
+    handler: src/twilio/twilio.start_call
+    events:
+      - http:
+          path: twilio/startcall
+          method: post
+      - http:
+          path: twilio/startcall
+          method: get
+resources:
+  Resources:
+    uploadBucket:
+       Type: AWS::S3::Bucket
+       Properties:
+         BucketName: ${self:custom.uploadBucket}
+    RDSDatabase:
+      Type: AWS::RDS::DBInstance
+      Properties:
+        Engine : mysql
+        MasterUsername: ${env:RDS_USERNAME}
+        MasterUserPassword: ${env:RDS_PASSWORD}
+        DBInstanceClass : db.t2.micro
+        AllocatedStorage: '5'
+        PubliclyAccessible: true
+        #TODO: The Value of Stage is also available as a TAG automatically which I may use to replace this manually being put here..
+        Tags:
+          -
+            Key: ""Name""
+            Value: ${self:custom.databaseName}
+      DeletionPolicy: Snapshot
+    DNSRecordSet:
+      Type: AWS::Route53::RecordSet
+      Properties:
+        HostedZoneName: test.com.
+        Name: database-${self:custom.stage}.test.com
+        Type: CNAME
+        TTL: '300'
+        ResourceRecords:
+        - {""Fn::GetAtt"": [""RDSDatabase"",""Endpoint.Address""]}
+      DependsOn: RDSDatabase
+UPDATE:: So I confirmed that running sls package --stage dev seems to create this in the zip folder that would eventually upload to AWS.  This confirms that serverless is not creating the package correctly with the mysql2 reference for some reason? Why is this?
+webpack config file as requested
+const slsw = require(""serverless-webpack"");
+const nodeExternals = require(""webpack-node-externals"");
+module.exports = {
+  entry: slsw.lib.entries,
+  target: ""node"",
+  // Since 'aws-sdk' is not compatible with webpack,
+  // we exclude all node dependencies
+  externals: [nodeExternals()],
+  // Run babel on all .js files and skip those in node_modules
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: ""babel-loader"",
+        include: __dirname,
+        exclude: /node_modules/
+      }
+    ]
+  }
+};
+",<amazon-web-services><aws-lambda><amazon-rds><serverless-framework><node-mysql2>,8812,1,276,8781,12,86,154,77,9087,0.0,2051,2,13,2018-02-01 3:33,2018-02-01 8:02,2018-02-01 8:02,0.0,0.0,Basic,6
+48462011,Alembic migration: How to set server_onupdate in Alembic's alter_column function,"I'm trying to change a table column in PostgreSQL using Alembic but I don't know how to perform the needed update to apply the SQLAlchemy's server_onupdate property.
+The column is:
+changed = Column(ArrowType(timezone=True), server_default=utcnow(), primary_key=True)
+I'm using the Arrowtype column type from SQLAlchemy_utils package (this is not a problem).
+My intention is to create something like this:
+changed = Column(ArrowType(timezone=True), **server_onupdate=utcnow()**, primary_key=True)
+But using the Alembic function: alter_column
+In the documentation there are only references to the server_default property but nothing about server_onupdate
+Is there a way to achieve this?
+Thanks
+",<python><postgresql><sqlalchemy><alembic>,692,0,2,305,0,1,8,45,1575,0.0,46,1,13,2018-01-26 13:10,2023-02-22 20:59,,1853.0,,Basic,3
+57795044,spring data JPA - mysql - findById() empty unless findAll() called before,"I'm struggling with this strange error: the findById() method of a CrudRepository returns Optional.empty, unless findAll() is called before when using mysql.
+e.g.
+User
+@Entity
+public class User {
+    @Id
+    @GeneratedValue
+    private UUID id;
+    public UUID getId() {
+        return id;
+    }
+}
+UserRepository
+public interface UserRepository extends CrudRepository&lt;User, UUID&gt; { }
+UserService
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+    @Transactional
+    public UUID create() {
+        final User user = new User();
+        userRepository.save(user);
+        return user.getId();
+    }
+    @Transactional
+    public User find(@PathVariable UUID userId) {
+        // userRepository.findAll(); TODO without this functin call, Optinoal.empty is returned by the repo
+        return userRepository.findById(userId).orElseThrow(() -&gt; new IllegalArgumentException(String.format(""missing user:%s"", userId)));
+    }
+}
+UserApp
+@SpringBootApplication
+public class UserApp {
+    private static final Logger LOG = LoggerFactory.getLogger(UserApp.class);
+    @Autowired
+    private UserService userService;
+    @EventListener
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        final UUID userId = userService.create();
+        final User user = userService.find(userId);
+        LOG.info(""found user: {}"", user.getId());
+    }
+    public static void main(String[] args) {
+        SpringApplication.run(UserApp.class, args);
+    }
+}
+application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/db_test
+spring.datasource.username=springuser
+spring.datasource.password=ThePassword
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=true
+spring.jpa.database=mysql
+Why does the findAll() method call change the result of findById()?
+Edit: Hibernate logs with findAll:
+Hibernate: drop table if exists user
+Hibernate: create table user (id binary(255) not null, primary key (id)) engine=MyISAM
+Hibernate: insert into user (id) values (?)
+Hibernate: select user0_.id as id1_0_ from user user0_
+Without:
+Hibernate: drop table if exists user
+Hibernate: create table user (id binary(255) not null, primary key (id)) engine=MyISAM
+Hibernate: insert into user (id) values (?)
+Hibernate: select user0_.id as id1_0_0_ from user user0_ where user0_.id=?
+",<mysql><spring><spring-data-jpa><spring-data>,2337,0,74,6382,14,56,96,57,3551,0.0,68,4,13,2019-09-04 19:55,2019-09-25 22:01,,21.0,,Basic,9
+48748070,SQLAlchemy connection via proxy,"I need to connect to existing database from SQLAlchemy via proxy.
+        self.DB = {
+            'drivername': 'oracle',
+            'host': url,
+            'port': port,
+            'username': username,
+            'password': password,
+            'database': dbname
+        }
+        _engine = create_engine(URL(**self.DB))
+        self.connection = _engine.connect()
+I'm getting:
+cx_Oracle.DatabaseError: ORA-12170: TNS:Connect timeout occurred
+And I'm pretty sure I just need proxy because of my company policy. I couldn't find any tips in documentation how can I create connection via proxy.
+",<python><proxy><sqlalchemy>,601,0,12,1271,0,14,35,66,2051,0.0,206,0,13,2018-02-12 13:51,,,,,Basic,3
+54845280,How to interpret mysqldump output?,"My intent is to extract the triggers, functions, and stored procedures from a database, edit them, and add them to another database.
+Below is a partial output from mysqldump.  I understand how the database is updated with the DROP, CREATE, andINSERT INTO statements, but don't understand the triggers.  I expected the following:
+CREATE TRIGGER users_BINS BEFORE INSERT ON users
+FOR EACH ROW
+if(IFNULL(NEW.idPublic, 0) = 0) THEN
+   INSERT INTO _inc_accounts (type, accountsId, idPublic) values (""users"",NEW.accountsId,1)
+   ON DUPLICATE KEY UPDATE idPublic = idPublic + 1;
+   SET NEW.idPublic=(SELECT idPublic FROM _inc_accounts WHERE accountsId=NEW.accountsId AND type=""users"");
+END IF;
+What does /*!50003 mean?  I thought it was some comment which would mean the CREATE for the trigger isn't present, but I must be misinterpreting the output. 
+ How should one interpret a mysqldump output?
+mysqldump -u username-ppassword --routines mydb
+--
+-- Table structure for table `users`
+--
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idPublic` int(11) NOT NULL,
+  `accountsId` int(11) NOT NULL,
+  `firstname` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` char(255) NOT NULL COMMENT 'Password currently uses bcrypt and only requires 60 characters, but may change over time.',
+  `tsCreated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `osTicketId` int(11) NOT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniqueEmail` (`accountsId`,`email`),
+  UNIQUE KEY `uniqueUsername` (`accountsId`,`username`),
+  KEY `fk_users_accounts1_idx` (`accountsId`),
+  CONSTRAINT `fk_users_accounts1` FOREIGN KEY (`accountsId`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Dumping data for table `users`
+--
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (xxx
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`michael`@`12.34.56.78`*/ /*!50003 TRIGGER `users_BINS` BEFORE INSERT ON `users` FOR EACH ROW
+BEGIN
+if(IFNULL(NEW.idPublic, 0) = 0) THEN
+   INSERT INTO _inc_accounts (type, accountsId, idPublic) values (""users"",NEW.accountsId,1)
+   ON DUPLICATE KEY UPDATE idPublic = idPublic + 1;
+   SET NEW.idPublic=(SELECT idPublic FROM _inc_accounts WHERE accountsId=NEW.accountsId AND type=""users"");
+END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+",<mysql><triggers>,3622,0,72,25165,68,221,392,74,1604,0.0,1099,1,13,2019-02-23 19:21,2019-03-05 3:57,2019-03-05 3:57,10.0,10.0,Basic,5
+58249954,JSON stringify and PostgreSQL bigint compliance,"I am trying to add BigInt support within my library, and ran into an issue with JSON.stringify.
+The nature of the library permits not to worry about type ambiguity and de-serialization, as everything that's serialized goes into the server, and never needs any de-serialization.
+I initially came up with the following simplified approach, just to counteract Node.js throwing TypeError: Do not know how to serialize a BigInt at me:
+// Does JSON.stringify, with support for BigInt:
+function toJson(data) {
+    return JSON.stringify(data, (_, v) =&gt; typeof v === 'bigint' ? v.toString() : v);
+}
+But since it converts each BigInt into a string, each value ends up wrapped into double quotes.
+Is there any work-around, perhaps some trick within Node.js formatting utilities, to produce a result from JSON.stringify where each BigInt would be formatted as an open value? This is what PostgreSQL understands and supports, and so I'm looking for a way to generate JSON with BigInt that's compliant with PostgreSQL.
+Example
+const obj = {
+    value: 123n
+};
+console.log(toJson(obj));
+// This is what I'm getting: {""value"":""123""}
+// This is what I want: {""value"":123}
+Obviously, I cannot just convert BigInt into number, as I would be losing information then. And rewriting the entire JSON.stringify for this probably would be too complicated.
+UPDATE
+At this point I have reviewed and played with several polyfills, like these ones:
+polyfill-1
+polyfill-2
+But they all seem like an awkward solution, to bring in so much code, and then modify for BigInt support. I am hoping to find something more elegant.
+",<node.js><postgresql><stringify><bigint>,1595,3,23,24653,15,116,141,43,15274,,1325,3,13,2019-10-05 15:54,2019-10-06 0:11,2019-10-06 0:11,1.0,1.0,Basic,9
+53405317,Postgres changeset with column TEXT not working with Liquibase 3.6.2 and Postgres 9.6,"I am working with the new Spring Boot 2.1.0 version.  In Spring Boot 2.1.0, Liquibase was updated from 3.5.5 to 3.6.2.  I've noticed several things in my change sets are no long working.  
+-- test_table.sql
+CREATE TABLE test_table (
+   id             SERIAL PRIMARY KEY,
+   --Works fine as TEXT or VARCHAR with Liquibase 3.5 which is bundled with Spring Boot version 2.0.6.RELEASE
+   --Will only work as VARCHAR with Liquibase 3.6.2 which is bundled with Spring Boot version 2.1.0.RELEASE and above
+   worksheet_data TEXT
+);
+-- test_table.csv
+id,worksheet_data
+1,fff
+-- Liquibase Changeset
+    &lt;changeSet id=""DATA_01"" author=""me"" runOnChange=""false""&gt;
+    &lt;loadData
+            file=""${basedir}/sql/data/test_table.csv""
+            tableName=""test_table""/&gt;
+    &lt;/changeSet&gt;
+This will not work.  I am presented with this odd stacktrace.  It complains it can't find liquibase/changelog/fff which I'm not referencing at all in the changeset.  The ""fff"" coincidentally matches the data value in table_test.csv.    
+    org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set liquibase/changelog/data_nonprod.xml::DATA_NONPROD_02::scott_winters:
+     Reason: liquibase.exception.DatabaseException: class path resource [liquibase/changelog/fff] cannot be resolved to URL because it does not exist
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1745) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1083) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:853) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+    at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+    at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+    at net.migov.amar.MiAmarApiApplication.main(MiAmarApiApplication.java:33) [classes/:na]
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+    at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+    at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+    Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set liquibase/changelog/data_nonprod.xml::DATA_NONPROD_02::scott_winters:
+         Reason: liquibase.exception.DatabaseException: class path resource [liquibase/changelog/fff] cannot be resolved to URL because it does not exist
+        at liquibase.changelog.ChangeSet.execute(ChangeSet.java:637) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:78) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.Liquibase.update(Liquibase.java:202) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.Liquibase.update(Liquibase.java:179) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:353) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:305) ~[liquibase-core-3.6.2.jar:na]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1741) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+        ... 23 common frames omitted
+    Caused by: liquibase.exception.DatabaseException: class path resource [liquibase/changelog/fff] cannot be resolved to URL because it does not exist
+        at liquibase.statement.ExecutablePreparedStatementBase.applyColumnParameter(ExecutablePreparedStatementBase.java:191) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.statement.ExecutablePreparedStatementBase.attachParams(ExecutablePreparedStatementBase.java:110) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.statement.BatchDmlExecutablePreparedStatement.attachParams(BatchDmlExecutablePreparedStatement.java:51) ~[liquibase-core-3.6.2.jar:na]
+        at liquibase.statement.ExecutablePreparedStatementBase.execute(ExecutablePreparedStatementBase.java:81) ~[liquibase-core-3.6.2.jar:na]
+        at liquib
+ase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:115) ~[liquibase-core-3.6.2.jar:na]
+    at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1229) ~[liquibase-core-3.6.2.jar:na]
+    at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1211) ~[liquibase-core-3.6.2.jar:na]
+    at liquibase.changelog.ChangeSet.execute(ChangeSet.java:600) ~[liquibase-core-3.6.2.jar:na]
+    ... 31 common frames omitted
+Caused by: java.io.FileNotFoundException: class path resource [liquibase/changelog/fff] cannot be resolved to URL because it does not exist
+    at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:195) ~[spring-core-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+    at liquibase.integration.spring.SpringLiquibase$SpringResourceOpener.getResourcesAsStream(SpringLiquibase.java:556) ~[liquibase-core-3.6.2.jar:na]
+    at liquibase.statement.ExecutablePreparedStatementBase.getResourceAsStream(ExecutablePreparedStatementBase.java:281) ~[liquibase-core-3.6.2.jar:na]
+    at liquibase.statement.ExecutablePreparedStatementBase.toCharacterStream(ExecutablePreparedStatementBase.java:241) ~[liquibase-core-3.6.2.jar:na]
+    at liquibase.statement.ExecutablePreparedStatementBase.applyColumnParameter(ExecutablePreparedStatementBase.java:184) ~[liquibase-core-3.6.2.jar:na]
+    ... 38 common frames omitted
+If I change TEXT to VARCHAR it works.  From my understanding these column types are the same in postgres, so I can work around this.  However, this is frustrating, and I don't see this new behavior documented.  From this link 3.6.2 is advertised as a ""drop in"" change (http://www.liquibase.org/2018/04/liquibase-3-6-0-released.html).
+I would like to use the new features of Spring Boot 2.1.0, but I cannot specify liquibase 3.5.5 in my build because Spring Boot will complain about incompatible versions.  This is just one issue I'm seeing with changesets that worked in 3.5.5.  Maybe the folks at Spring should consider rolling back the version of liquibase.
+Any advice on this matter would be greatly appreciated.  Thanks.
+UPDATED
+I have created a sample Spring Boot project to demonstrate this:  https://github.com/pcalouche/postgres-liquibase-text
+",<postgresql><liquibase>,9651,4,74,1615,2,17,19,47,5159,0.0,153,1,13,2018-11-21 4:34,2018-12-27 10:26,2018-12-27 10:26,36.0,36.0,Advanced,32
+52485862,How to use HASHBYTES function in SQL Server for multiple columns,"I have a requirement wherein I have to create hashvalue which consist of all columns of a table. With Checksum this can be done easily, but Checksum is not recommended as per Microsoft: 
+  If at least one of the values in the expression list changes, the list checksum will probably change. However, this is not guaranteed. Therefore, to detect whether values have changed, we recommend the use of CHECKSUM only if your application can tolerate an occasional missed change. Otherwise, consider using HashBytes instead. With a specified MD5 hash algorithm, the probability that HashBytes will return the same result, for two different inputs, is much lower compared to CHECKSUM.
+HASHBYTES accepts only 2 parameters (algorithm type, column)
+Now the problem is even though HASHBYTES is more reliable compared to checksum but there doesn't seem to be an easy way to create it on multiple columns.
+An example in the checksum,
+create table dbo.chksum_demo1
+(
+    id int not null,
+    name varchar(25),
+    address varchar(250),
+    HashValue as Checksum (id,name,address)
+    CONSTRAINT PK_chksum_demo1 PRIMARY KEY (Id)
+)
+How can we do the above using Hashbytes instead of checksum? 
+",<sql-server>,1178,0,13,813,3,15,32,54,38627,0.0,42,4,13,2018-09-24 19:12,2018-09-24 19:40,,0.0,,Basic,2
+48409610,Share a dict with multiple Python scripts,"I'd like a unique dict (key/value) database to be accessible from multiple Python scripts running at the same time.
+If script1.py updates d[2839], then script2.py should see the modified value when querying d[2839] a few seconds after.
+I thought about using SQLite but it seems that concurrent write/read from multiple processes is not SQLite's strength (let's say script1.py has just modified d[2839], how would script2.py's SQLite connection know it has to reload this specific part of the database?)
+I also thought about locking the file when I want to flush the modifications (but it's rather tricky to do), and use json.dump to serialize, then trying to detect the modifications, use json.load to reload if any modification, etc. ... oh no I'm reinventing the wheel, and reinventing a particularly inefficient key/value database!
+redis looked like a solution but it does not officially support Windows, the same applies for leveldb.
+multiple scripts might want to write at exactly the same time (even if this is a very rare event), is there a way to let the DB system handle this (thanks to a locking parameter? it seems that by default SQLite can't do this because ""SQLite supports an unlimited number of simultaneous readers, but it will only allow one writer at any instant in time."")
+What would be a Pythonic solution for this?
+Note: I'm on Windows, and the dict should have maximum 1M items (key and value both integers).
+",<python><sqlite><dictionary><key-value-store>,1432,5,10,42385,103,394,707,54,3096,0.0,3760,8,13,2018-01-23 19:42,2018-01-23 20:09,2018-01-27 8:19,0.0,4.0,Intermediate,22
+50310979,How to use SQLAlchemy's `one_or_none` query method?,"I'm trying to use the one_or_none query method to retrieve a record from my database but when I pass in a kwargs like I normally would with the filter_by method, it says it doesn't expect that keyword.
+I tried going through the doc, but there's not description of the method's argument or an example.
+",<python><sqlalchemy>,301,1,2,1679,6,18,31,50,20017,0.0,12,1,13,2018-05-12 21:54,2018-05-12 22:58,,0.0,,Basic,3
+48777206,DROP TABLE IF EXISTS not working on Azure SQL Data Warehouse,"I used the SQL Server management studio to generate script against Azure Data Warehouse. I selected Edition Azure Data Warehouse, it generates below the script to drop table if it exists and create table. However, the script cannot pass validation. Please see below for the error message.
+DROP TABLE IF EXISTS Table1
+GO
+Error message:  
+  Parse error at line: 2, column: 12: Incorrect syntax near 'IF'.
+",<azure-sql-database><azure-synapse>,403,0,2,317,1,6,18,77,17584,0.0,24,4,13,2018-02-13 23:12,2018-02-14 9:18,,1.0,,Basic,3
+53473804,Build sqlproj on Azure DevOps,"I'm trying to use Azure DevOps Pipelines to build my .NET Core 2.1 solution from GitHub.  It includes a SQL project that has a TargetFrameworkVersion of v4.6.2.  This project always fails to build.
+Build FAILED.
+/home/vsts/work/1/s/MySolution/MyDatabase/MyDatabase.sqlproj : warning NU1503: Skipping restore for project '/home/vsts/work/1/s/MySolution/MyDatabase/MyDatabase.sqlproj'. The project file may be invalid or missing targets required for restore. [/home/vsts/work/1/s/MySolution/MySolution.sln]
+/home/vsts/work/1/s/MySolution/MyDatabase/MyDatabase.sqlproj(57,3): error MSB4019: The imported project ""/usr/share/dotnet/sdk/2.1.403/Microsoft/VisualStudio/v15.0/SSDT/Microsoft.Data.Tools.Schema.SqlTasks.targets"" was not found. Confirm that the path in the &lt;Import&gt; declaration is correct, and that the file exists on disk.
+1 Warning(s)
+1 Error(s)
+How do I reference or include those targets for the build server?  It builds fine in VS2017.  I've spent more than a day hunting and cannot find any information on this problem.
+",<build><azure-devops><azure-pipelines><sqlproj>,1039,0,7,12416,9,45,81,36,8624,,1275,3,13,2018-11-26 1:47,2018-11-27 5:24,2018-11-27 5:24,1.0,1.0,Intermediate,22
+55566459,"C# Dynamic Linq: Implement ""Like"" in The Where Clause","So I want to make a general sorter for my data. I have this code to get data from the database which will extract the data only which contains value.
+using System.Linq.Dynamic;
+public static IQueryable&lt;object&gt; SortList(string searchString, Type modelType, 
+    IQueryable&lt;object&gt; model)
+{
+    ....
+    string toStringPredicate = type == typeof(string) ? propertyName + 
+        "".Contains(@0)"" : propertyName + "".ToString().Contains(@0)"";
+    model = model.Where(propertyName + "" != NULL AND "" + toStringPredicate, value);
+}
+The model is this:
+public class ManageSubscriberItems
+{
+    public int? UserId { get; set; }
+    public string Email { get; set; }
+    public Guid SubscriberId { get; set; }
+}
+When I call:
+models = (IQueryable&lt;ManageSubscriberItems&gt;)EcommerceCMS.Helpers.FilterHelper
+    .SortList(searchString, typeof(ManageSubscriberItems), models);
+if(models.Any())
+It throws this error:
+  ""LINQ to Entities does not recognize the method 'System.String
+  ToString()' method, and this method cannot be translated into a store
+  expression.""
+EDIT
+I found the problem, but I still cannot fix it. So if the property is not string, it will throw an error when calling .ToString().Contains(). 
+model = model.Where(propertyName + "" != NULL AND "" + propertyName + 
+    "".ToString().Contains(@0)"", value);
+What I want is to implement LIKE in the query. Can anyone help me?
+",<c#><sql-server><linq><dynamic><dynamic-linq>,1393,0,27,1953,2,23,64,38,6249,0.0,60,4,13,2019-04-08 4:53,2019-04-12 6:36,,4.0,,Basic,2
+53257270,SQL over clause - dividing partition into numbered sub-partitions,"I have a challenge, that I've come across at multiple occasions but never been able to find an efficient solution to. Imagine I have a large table with data regarding e.g. bank accounts and their possible revolving moves from debit to credit:
+AccountId DebitCredit AsOfDate
+--------- ----------- ----------
+aaa       d           2018-11-01
+aaa       d           2018-11-02
+aaa       c           2018-11-03
+aaa       c           2018-11-04
+aaa       c           2018-11-05
+bbb       d           2018-11-02
+ccc       c           2018-11-01
+ccc       d           2018-11-02
+ccc       d           2018-11-03
+ccc       c           2018-11-04
+ccc       d           2018-11-05
+ccc       c           2018-11-06
+In the example above I would like to assign sub-partition numbers to the combination of AccountId and DebitCredit where the partition number is incremented each time DebitCredit shifts. In other words in the example above I would like this result:
+AccountId DebitCredit AsOfDate   PartNo
+--------- ----------- ---------- ------
+aaa       d           2018-11-01      1
+aaa       d           2018-11-02      1
+aaa       c           2018-11-03      2
+aaa       c           2018-11-04      2
+aaa       c           2018-11-05      2
+bbb       d           2018-11-02      1
+ccc       c           2018-11-01      1
+ccc       d           2018-11-02      2
+ccc       d           2018-11-03      2
+ccc       c           2018-11-04      3
+ccc       d           2018-11-05      4
+ccc       c           2018-11-06      5
+I cannot really figure out how to do it quickly and efficiently. The operation has to be done daily on a tables with millions of rows.
+In this example it is guaranteed that we will have consecutive rows for all accounts. However, of course the customer might open an account the 15th in the month and/or close his account the 26th.
+The challenge is to be solved on an MSSQL 2016 server, but a solution that would work on 2012 (and maybe even 2008r2) would be nice.
+As you can imagine there's no way of telling whether there will only be debit or credit rows or whether the account will be revolving each day.
+",<sql><sql-server><t-sql><sql-server-2016><ranking-functions>,2120,0,30,133,0,0,6,56,973,0.0,2,3,13,2018-11-12 7:02,2018-11-12 7:17,2018-11-12 8:17,0.0,0.0,Intermediate,17
+50073853,Cannot upgrade server earlier than 5.7 to 8.0 in centos. server start fail,"I try to configure Mysql server on centos 7.4. After installing Mysql 8.0 to my system, systemctl restart mysqld failed.
+See the error log /var/log/mysqld.log.
+  [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.11) starting as process 320
+  [ERROR] [MY-013168] [InnoDB] Cannot upgrade server earlier than 5.7 to 8.0
+  [ERROR] [MY-011013] [Server] Failed to initialize DD Storage Engine.[ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+  [ERROR] [MY-010119] [Server] Aborting
+  [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.
+",<mysql><centos>,619,0,0,139,0,1,4,78,6343,0.0,0,1,13,2018-04-28 7:02,2019-05-01 22:31,,368.0,,Basic,14
+52038200,"Can not persist data model's field into database, but can retrieve it","I have a problem when trying to persist a data model class into a database. I have a class like this: 
+class DataModelClass{
+    //some more field etc.
+    @Column(name = ""number1"", nullable = true)
+    private Integer number1;
+    @Column(name = ""number2"", nullable = true)
+    private Integer number2;
+    public DataModelClass(){}
+    (...)
+    public Integer getNumber2() {
+        return number2;
+    }
+    public void setNumber2( Integer number2 ) {
+        this.number2= number2;
+    }
+}
+The second field was added after first one. When to persist object created with this class via:
+em.persist(dataModelClass);
+A new row in database is created, but only with first field added. The second one is empty. When I am debugging the object dataModelClass has every field set with some integer value.
+When I am adding a value for number2 through pgAdmin, and then retrieving this row with java code via:
+DataModelClass dmc = em.find(DataModelClass.class, 1);
+Than dmc.getNumber2() is not empty/null.
+Anyone have any ideas what is wrong?
+[Edit]
+Maybe it will help a little more, On data model (DataModelClass) class i got this annotation:
+@Entity
+@Table(name = ""custom_table"",
+       uniqueConstraints=@UniqueConstraint(name=""UK_example_foreign_id"", columnNames={""example_foreign_id""})
+)
+@SequenceGenerator(name = DataModelClass.SEQ_NAME, sequenceName = DataModelClass.SEQ_NAME, allocationSize = 1)
+Obviously this field exist in my class
+",<java><postgresql><hibernate><jpa>,1438,0,31,2218,4,17,43,64,568,,80,2,13,2018-08-27 11:22,2018-09-04 11:17,2018-09-04 11:39,8.0,8.0,Basic,9
+64354878,Convert UTF-8 varbinary(max) to varchar(max),"I have a varbinary(max) column with UTF-8-encoded text that has been compressed. I would like to decompress this data and work with it in T-SQL as a varchar(max) using the UTF-8 capabilities of SQL Server.
+I'm looking for a way of specifying the encoding when converting from varbinary(max) to varchar(max). The only way I've managed to do that is by creating a table variable with a column with a UTF-8 collation and inserting the varbinary data into it.
+DECLARE @rv TABLE(
+    Res varchar(max) COLLATE Latin1_General_100_CI_AS_SC_UTF8 
+)
+INSERT INTO @rv
+SELECT SUBSTRING(Decompressed, 4, DATALENGTH(Decompressed) - 3) WithoutBOM
+FROM
+    (SELECT DECOMPRESS(RawResource) AS Decompressed FROM Resource) t
+I'm wondering if there is a more elegant and efficient approach that does not involve inserting into a table variable.
+UPDATE:
+Boiling this down to a simple example that doesn't deal with byte order marks or compression:
+I have the string &quot;Hello 😊&quot; UTF-8 encoded without a BOM stored in variable @utf8Binary
+DECLARE @utf8Binary varbinary(max) = 0x48656C6C6F20F09F988A
+Now I try to assign that into various char-based variables and print the result:
+DECLARE @brokenVarChar varchar(max) = CONVERT(varchar(max), @utf8Binary)
+print '@brokenVarChar = ' + @brokenVarChar
+DECLARE @brokenNVarChar nvarchar(max) = CONVERT(varchar(max), @utf8Binary)
+print '@brokenNVarChar = ' +  @brokenNVarChar 
+DECLARE @rv TABLE(
+    Res varchar(max) COLLATE Latin1_General_100_CI_AS_SC_UTF8 
+)
+INSERT INTO @rv
+select @utf8Binary
+DECLARE @working nvarchar(max)
+Select TOP 1 @working = Res from @rv
+print '@working = ' + @working
+The results of this are:
+@brokenVarChar = Hello ðŸ˜Š
+@brokenNVarChar = Hello ðŸ˜Š
+@working = Hello 😊
+So I am able to get the binary result properly decoded using this indirect method, but I am wondering if there is a more straightforward (and likely efficient) approach.
+",<sql-server><t-sql>,1891,0,30,148,0,1,6,55,4092,0.0,5,4,13,2020-10-14 13:54,2020-10-14 16:00,2020-10-14 16:00,0.0,0.0,Basic,9
+54946697,psycopg2 - Inserting list of dictionaries into PosgreSQL database. Too many executions?,"I am inserting a list of dictionaries to a PostgreSQL database. The list will be growing quickly and the number of dict values (columns) is around 30. The simplified data:
+projects = [
+{'name': 'project alpha', 'code': 12, 'active': True},
+{'name': 'project beta', 'code': 25, 'active': True},
+{'name': 'project charlie', 'code': 46, 'active': False}
+]
+Inserting the data into the PostgreSQL database with the following code does work (as in this answer), but I am worried about executing too many queries.
+for project in projects:
+    columns = project.keys()
+    values = project.values()
+    query = &quot;&quot;&quot;INSERT INTO projects (%s) VALUES %s;&quot;&quot;&quot;
+    # print(cursor.mogrify(query, (AsIs(','.join(project.keys())), tuple(project.values()))))
+    cursor.execute(query, (AsIs(','.join(columns)), tuple(values)))
+conn.commit()
+Is there a better practice? Thank you so much in advance for your help!
+",<python><postgresql><psycopg2>,924,1,16,2570,3,20,40,53,8627,0.0,1616,3,13,2019-03-01 14:32,2019-03-01 15:13,2019-03-01 17:47,0.0,0.0,Basic,9
+50799157,Use a CTE to UPDATE or DELETE in MySQL,"The new version of MySQL, 8.0, now supports Common Table Expressions.
+According to the manual:
+A WITH clause is permitted at the beginning of SELECT, UPDATE, and DELETE statements:
+WITH ... SELECT ...
+WITH ... UPDATE ...
+WITH ... DELETE ...
+So, I thought, given the following table:
+ID lastName firstName
+----------------------
+1  Smith    Pat
+2  Smith    Pat
+3  Smith    Bob
+I can use the following query:
+WITH ToDelete AS 
+(
+   SELECT ID,
+          ROW_NUMBER() OVER (PARTITION BY lastName, firstName ORDER BY ID) AS rn
+   FROM mytable
+)   
+DELETE FROM ToDelete;
+in order to delete duplicates from the table, just like I could do in SQL Server.
+It turns out I was wrong. When I try to execute the DELETE stament from MySQL Workbench I get the error:
+Error Code: 1146. Table 'todelete' doesn't exist
+I also get an error message when I try to do an UPDATE using the CTE.
+So, my question is, how could one use a WITH clause in the context of an UPDATE or DELETE statement in MySQL (as cited in the manual of version 8.0)?
+",<mysql><sql-update><common-table-expression><sql-delete><mysql-8.0>,1021,2,20,71571,9,63,98,50,13195,0.0,4808,2,13,2018-06-11 13:41,2018-06-11 13:48,2018-06-11 13:48,0.0,0.0,Basic,9
+52375300,Count(*) vs Count(id) speed,"I know they return different results (the first counts nulls, the latter not). That's not my question. Just imagine a case where I don't care (either because there are no nulls, or because there are only a few and I only want a general sense of the number of rows in the database).
+My question is about the following (presumable) contradiction:
+Here  one of the highest rep users in the SQL tag says 
+  Your use of COUNT(*) or COUNT(column) should be based on the
+  desired output only.
+On the other hand, here is a 47 times upvoted comment saying 
+  ... if you have a non-nullable column such as ID, then count(ID) will
+  significantly improve performance over count(*).
+The two seem to contradict each other. So can someone please explain to me why is whatever the correct one correct?
+",<sql><sql-server>,788,2,2,26768,38,141,295,50,14150,0.0,2952,2,13,2018-09-17 20:33,2018-09-17 20:41,,0.0,,Intermediate,23
+59283754,STRING_AGG with line break,"DROP TABLE IF EXISTS items;
+CREATE TABLE items (item varchar(20));
+INSERT INTO items VALUES ('apple'),('raspberry');
+SELECT STRING_AGG(item, CHAR(13)) AS item_list FROM items;
+How do I get a line break between items ?
+",<sql><sql-server><t-sql><string-aggregation>,218,1,4,9734,4,17,28,50,16293,,245,4,13,2019-12-11 10:33,2019-12-11 11:02,2019-12-11 11:40,0.0,0.0,Basic,2
+61576670,Databases in psql Don't Show up in PgAdmin4,"I installed Postgres 
+and followed the instruction. I create a database and logged in by the master password but I don't find the database even the + mark is not shown in the servers. can anyone help, please?
+",<postgresql><pgadmin>,209,1,0,151,1,2,8,62,15936,0.0,3,3,13,2020-05-03 15:04,2020-06-28 5:22,,56.0,,Basic,14
+52302676,"Hibernate entity query for finding the most recent, semi-unique row, in a single table","I have a Hibernate database with a single table that looks like:
+PURCHASE_ID | PRODUCT_NAME | PURCHASE_DATE | PURCHASER_NAME | PRODUCT_CATEGORY
+------------------------------------------------------------------------------
+     1          Notebook      09-07-2018          Bob            Supplies
+     2          Notebook      09-06-2018          Bob            Supplies
+     3           Pencil       09-06-2018          Bob            Supplies
+     4            Tape        09-10-2018          Bob            Supplies
+     5           Pencil       09-09-2018         Steve           Supplies
+     6           Pencil       09-06-2018         Steve           Supplies
+     7           Pencil       09-08-2018         Allen           Supplies
+And I want to return only the newest purchases, based on some other limitations. For example:
+List&lt;Purchase&gt; getNewestPurchasesFor(Array&lt;String&gt; productNames, Array&lt;String&gt; purchaserNames) { ... }
+Could be called using:
+List&lt;Purchase&gt; purchases = getNewestPurchasesFor([""Notebook"", ""Pencil""], [""Bob"", ""Steve""]);
+In English, ""Give me the newest purchases, for either a Notebook or Pencil, by either Bob or Steve.""
+And would provide:
+PURCHASE_ID | PRODUCT_NAME | PURCHASE_DATE | PURCHASER_NAME
+-----------------------------------------------------------
+     1          Notebook      09-07-2018          Bob            
+     3           Pencil       09-06-2018          Bob            
+     5           Pencil       09-09-2018         Steve           
+So it's like a ""distinct"" lookup on multiple columns, or a ""limit"" based on some post-sorted combined-column unique key, but all the examples I've found show using the SELECT DISTINCT(PRODUCT_NAME, PURCHASER_NAME) to obtain those columns only, whereas I need to use the format:
+from Purchases as entity where ... 
+So that the model types are returned with relationships intact.
+Currently, my query returns me all of the old purchases as well:
+PURCHASE_ID | PRODUCT_NAME | PURCHASE_DATE | PURCHASER_NAME | PRODUCT_CATEGORY
+------------------------------------------------------------------------------
+     1          Notebook      09-07-2018          Bob            Supplies
+     2          Notebook      09-06-2018          Bob            Supplies
+     3           Pencil       09-06-2018          Bob            Supplies
+     5           Pencil       09-09-2018         Steve           Supplies
+     6           Pencil       09-06-2018         Steve           Supplies
+Which, for repeat purchases, causes quite the performance drop.
+Are there any special keywords I should be using to accomplish this? Query languages and SQL-fu are not my strong suits.
+Edit:
+Note that I'm currently using the Criteria API, and would like to continue doing so.
+Criteria criteria = session.createCriteria(Purchase.class);
+criteria.addOrder(Order.desc(""purchaseDate""));
+// Product names
+Criterion purchaseNameCriterion = Restrictions.or(productNames.stream().map(name -&gt; Restrictions.eq(""productName"", name)).toArray(Criterion[]::new));
+// Purchaser
+Criterion purchaserCriterion = Restrictions.or(purchaserNames.stream().map(name -&gt; Restrictions.eq(""purchaser"", name)).toArray(Criterion[]::new));
+// Bundle the two together
+criteria.add(Restrictions.and(purchaseNameCriterion, purchaserCriterion));
+criteria.list(); // Gives the above results
+If I try to use a distinct Projection, I get an error:
+ProjectionList projections = Projections.projectionList();
+projections.add(Projections.property(""productName""));
+projections.add(Projections.property(""purchaser""));
+criteria.setProjection(Projections.distinct(projections));
+Results in:
+17:08:39 ERROR Order by expression ""THIS_.PURCHASE_DATE"" must be in the result list in this case; SQL statement:
+Because, as mentioned above, adding a projection/distinct column set seems to indicate to Hibernate that I want those columns as a result/return value, when what I want is to simply limit the returned model objects based on unique column values.
+",<java><sql><hibernate>,3998,0,41,31434,32,138,234,47,1029,0.0,899,10,13,2018-09-12 20:06,2018-09-12 20:56,,0.0,,Advanced,32
+54479941,How to init MySql Database in Docker Compose,"Scenario:
+I developed a microservice in Spring which uses a mysql 8 database.
+This db has to be initalized (create a Database, some tables and data).
+On my host machine I initialized the database with data.sql and schema.sql script.
+The Problem is, that I have to set:
+spring.datasource.initialization-mode=always
+for the first execute. This initializes my db the way I want to.
+For future runs I have to comment this command. Very ugly soltion but I could not find a better one and I got no reponse right now to this question.
+I thought for testing it is ok but I definetly have to improve that.
+Currently I want to run my service with docker by a docker compose.
+Expected:
+This is the docker-compose file. Fairly simple. I'm totally new in the world of docker and so I want to go on step by step.
+version: '3' 
+services:usermanagement-service:
+build:
+  ./UserManagementService
+restart:
+  on-failure
+ports:
+  - ""7778:7778""
+links:
+  - mysqldb
+depends_on:
+  - mysqldb   mysqldb:
+build:
+  ./CustomMySql
+volumes:
+  - ./mysql-data:/var/lib/mysql
+restart:
+  on-failure
+environment:
+  MYSQL_ROOT_PASSWORD: root
+  MYSQL_DATABASE: userdb
+  MYSQL_USER: testuser
+  MYSQL_PASSWORD: testuser
+expose:
+  - ""3600""
+I was expecting, that my database gets initialized with a user and that in the first run my microservice initializes the db with data.
+So before the next start of compose I have to comment the command and rebuild the image. (I know , ugly)
+Problem:
+So besides this ugly solution I run into runtime problems. 
+On docker-compose up my Microservice is faster than the init of the database. So it tries to call the db what results in en error.
+Because of the restart on failure the microservice comes up again.
+Now it works because the init of the db has finished.
+Solution:
+I searched the www and for it seems like a known problem which might be solved within a wait-for-it.sh file. This has to be included with COPY in the Dockerfile.
+So I'm no expert but I am searching for a good solution to either:
+init database from within spring und make my service wait till mysql is ready
+or init the database from withn my container via a volume on the first run and of course solve this init problem.
+I don't know what is best practice here I and I would be very thankful for some help how to build this up.
+",<mysql><spring-boot><docker><docker-compose><init>,2298,1,29,2102,3,30,53,57,21435,0.0,490,1,13,2019-02-01 12:52,2019-02-01 13:38,2019-02-01 13:38,0.0,0.0,Advanced,32
+48382457,MYSQL JSON column change array order after saving,"I am using JSON column type in MySQL database table. When I try to save JSON values in table column, the JSON array automatically re-order(shuffle) 
+I have following JSON:
+{""TIMER_HEADER"": [{""XX!TIMERHDR"": ""XXTIMERHDR"", ""VER"": "" 7"", ""REL"": "" 0"", ""COMPANYNAME"": ""XXX"", ""IMPORTEDBEFORE"": ""N"", ""FROMTIMER"": ""N"", ""COMPANYCREATETIME"": ""12423426""}, {""XX!HDR"": ""XXHDR"", ""PROD"": ""Qics for Wnows"", ""VER"": ""Version 6.0"", ""REL"": ""Release R"", ""IIFVER"": ""1"", ""DATE"": ""2018-01-20"", ""TIME"": ""1516520267"",   ""ACCNTNT"": ""N"", ""ACCNTNTSPLITTIME"": ""0""}], ""COLUMN_HEADER"": [""!TIMEACT"", ""DATE"", ""JOB"", ""EMP"", ""ITEM"", ""PITEM"", ""DURATION"", ""PROJ"", ""NOTE"", ""BILLINGSTATUS""]}
+After saving in JSON-column of MySql table, this becomes:
+{""TIMER_HEADER"": [{""REL"": "" 0"", ""VER"": "" 7"", ""FROMTIMER"": ""N"", ""COMPANYNAME"": ""XXX"", ""XX!TIMERHDR"": ""XXTIMERHDR"", ""IMPORTEDBEFORE"": ""N"", ""COMPANYCREATETIME"": ""12423426""}, {""REL"": ""Release R"", ""VER"": ""Version 6.0"", ""DATE"": ""2018-01-20"", ""PROD"": ""Qics for Wnows"", ""TIME"": ""1516520267"", ""IIFVER"": ""1"", ""XX!HDR"": ""XXHDR"", ""ACCNTNT"": ""N"", ""ACCNTNTSPLITTIME"": ""0""}], ""COLUMN_HEADER"": [""!TIMEACT"", ""DATE"", ""JOB"", ""EMP"", ""ITEM"", ""PITEM"", ""DURATION"", ""PROJ"", ""NOTE"", ""BILLINGSTATUS""]}
+I need the same order as I have original, because there is an validation on 3rd party.
+Please help. Thanks.
+",<mysql><json><mysql-json>,1292,0,2,1211,0,19,32,70,7443,0.0,45,2,13,2018-01-22 13:15,2018-01-22 13:31,,0.0,,Basic,9
+57165310,Create a DATETIME column in SQLite FLutter database?,"I create a TABLE with some columns and everything's ok until I tried to insert a new DATETIME column:
+_onCreate(Database db, int version) async {
+await db.
+execute(""CREATE TABLE $TABLE ($ID INTEGER PRIMARY KEY, $NAME TEXT, $COLOUR 
+TEXT, $BREED TEXT, $BIRTH DATETIME)"");
+}
+My Model Class to store is:
+class Pet {
+ int id;
+ String name;
+ DateTime birth;
+ String breed;
+ String colour;
+ Pet({this.id, this.name, this.birth, this.colour, this.breed});
+ }
+In the controller, I tried to store a new instance of Pet, instantiating a new variable DateTime _date = new DateTime.now(); and saving all in
+Pet newPet = Pet(
+      id: null,
+      name: _name,
+      colour: _colour,
+      breed: _breed,
+      birth: _date
+  );
+But when I insert in the database I receive:
+  Unhandled Exception: Invalid argument: Instance of 'DateTime'
+",<sqlite><datetime><flutter><instance>,825,0,24,523,3,7,18,54,25011,0.0,22,1,13,2019-07-23 13:30,2019-07-23 13:33,2019-07-23 13:33,0.0,0.0,Basic,3
+61144337,How to get insert id after save to database in CodeIgniter 4,"I'm using Codeigniter 4. 
+And inserting new data like this,
+$data = [
+        'username' =&gt; 'darth',
+        'email'    =&gt; 'd.vader@theempire.com'
+];
+$userModel-&gt;save($data);
+Which is mentioned here: CodeIgniter’s Model reference
+It's doing the insertion. 
+But I haven't found any reference about to get the inserted id after insertion.
+Please help! Thanks in advance. 
+",<php><mysql><codeigniter-4>,379,1,6,636,1,10,22,47,49589,0.0,42,10,13,2020-04-10 16:19,2020-04-11 9:32,2020-04-11 9:32,1.0,1.0,Basic,3
+51619861,Sql left join on left key with null values,"I have a question about join with key with null value. 
+Suppose I have a table t, which is going to be on left side. (id is primary key and sub_id is the key to join with the right table.)
+    id sub_id value
+    1  3       23
+    2  3       234
+    3  2       245
+    4  1       12
+    5  null    948
+    6  2       45
+    7  null    12
+and I have another table m which is on right side. (t.sub_id = m.id)
+    id feature
+    1  9       
+    2  8       
+    3  2       
+    4  1       
+    5  4    
+    6  2       
+    7  null
+Now I want to use 
+    select * from t left join m on t.sub_id = m.id   
+What result will it return? Is Null value in left key influence the result? I want all null left key rows not to shown in my result.
+Thank you!  
+",<sql><null><left-join>,746,0,24,2707,5,18,30,79,85700,0.0,34,4,13,2018-07-31 18:27,2018-07-31 18:30,2018-07-31 18:30,0.0,0.0,Basic,10
+60421158,Would it be possible to have multiple database connection pools in rails to switch between?,"A little background
+I have been using the Apartment gem for running a multi-tenancy app for years. Now recently the need to scale the database out into separate hosts has arrived, the db server simply can't keep up any more (both reads and writes are getting too too much) - and yes, I scaled the hardware to the max (dedicated hardware, 64 cores, 12 Nvm-e drives in raid 10, 384Gb ram etc.). 
+I was considering doing this per-tenant (1 tenant = 1 database connection config / pool) as that would be a ""simple"" and efficient way to get up to number-of-tenants-times more capacity without doing loads of application code changes. 
+Now, I am running rails 4.2 atm., soon upgrading to 5.2. I can see that rails 6 adds support for a per-model connection definitions, however that is not really what I need, as I have a completely mirrored database schema for each of my 20 tenants. Typically I switch ""database"" per request (in middleware) or per background job (sidekiq middleware), however this is currently trivial and handled ny the Apartment gem, as it just sets the search_path in Postgresql and does not really change the actual connection. When switching to a per-tenant hosting strategy I will need to switch the entire connection per request.
+Questions:
+I understand that I could do an ActiveRecord::Base.establish_connection(config) per request / background job - however, as I also understand, that triggers an entirely new database connection handshake to be made and a new db pool to spawn in rails - right? I guess that would be a performance suicide to make that kind of overhead on every single request to my application.
+I am therefore wondering if anyone can see the option with rails of e.g. pre-establishing multiple (total of 20) database connections/pools from the beginning (e.g. on boot of the application), and then just switch between those pools per request? So that he db connections are already made and ready to be used.
+Is all this just a poor poor idea, and should I instead look for a different approach? E.g. 1 app instance = one specific connection to one specific tenant. Or something else. 
+",<ruby-on-rails><ruby><postgresql><multi-tenant>,2125,1,3,8613,11,59,118,44,2129,0.0,228,3,13,2020-02-26 19:28,2020-02-27 16:52,2020-03-03 5:06,1.0,6.0,Intermediate,21
+53226642,SQLite3 database is Locked in Azure,"I have a Flask server Running on Azure provided by Azure App services with sqlite3 as a database. I am unable to update sqlite3 as it is showing that database is locked 
+    2018-11-09T13:21:53.854367947Z [2018-11-09 13:21:53,835] ERROR in app: Exception on /borrow [POST]
+    2018-11-09T13:21:53.854407246Z Traceback (most recent call last):
+    2018-11-09T13:21:53.854413046Z   File ""/home/site/wwwroot/antenv/lib/python3.7/site-packages/flask/app.py"", line 2292, in wsgi_app
+    2018-11-09T13:21:53.854417846Z     response = self.full_dispatch_request()
+    2018-11-09T13:21:53.854422246Z   File ""/home/site/wwwroot/antenv/lib/python3.7/site-packages/flask/app.py"", line 1815, in full_dispatch_request
+    2018-11-09T13:21:53.854427146Z     rv = self.handle_user_exception(e)
+    2018-11-09T13:21:53.854431646Z   File ""/home/site/wwwroot/antenv/lib/python3.7/site-packages/flask/app.py"", line 1718, in handle_user_exception
+    2018-11-09T13:21:53.854436146Z     reraise(exc_type, exc_value, tb)
+    2018-11-09T13:21:53.854440346Z   File ""/home/site/wwwroot/antenv/lib/python3.7/site-packages/flask/_compat.py"", line 35, in reraise
+    2018-11-09T13:21:53.854444746Z     raise value
+    2018-11-09T13:21:53.854448846Z   File ""/home/site/wwwroot/antenv/lib/python3.7/site-packages/flask/app.py"", line 1813, in full_dispatch_request
+    2018-11-09T13:21:53.854453246Z     rv = self.dispatch_request()
+    2018-11-09T13:21:53.854457546Z   File ""/home/site/wwwroot/antenv/lib/python3.7/site-packages/flask/app.py"", line 1799, in dispatch_request
+    2018-11-09T13:21:53.854461846Z     return self.view_functions[rule.endpoint](**req.view_args)
+    2018-11-09T13:21:53.854466046Z   File ""/home/site/wwwroot/application.py"", line 282, in borrow
+    2018-11-09T13:21:53.854480146Z     cursor.execute(""UPDATE books SET stock = stock - 1 WHERE bookid = ?"",(bookid,))
+    2018-11-09T13:21:53.854963942Z sqlite3.OperationalError: database is locked
+Here is the route - 
+@app.route('/borrow',methods=[""POST""])
+def borrow():
+    # import pdb; pdb.set_trace()
+    body = request.get_json()
+    user_id = body[""userid""]
+    bookid = body[""bookid""]
+    conn = sqlite3.connect(""database.db"")
+    cursor = conn.cursor()
+    date = datetime.now()
+    expiry_date = date + timedelta(days=30)
+    cursor.execute(""UPDATE books SET stock = stock - 1 WHERE bookid = ?"",(bookid,))
+    # conn.commit()
+    cursor.execute(""INSERT INTO borrowed (issuedate,returndate,memberid,bookid) VALUES (?,?,?,?)"",(""xxx"",""xxx"",user_id,bookid,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return json.dumps({""status"":200,""conn"":""working with datess update""})
+I tried checking the database integrity using pragma. There was no integrity loss. So I don't know what might be causing that error. Any help is Appreciated :)
+",<sql><azure><sqlite>,2796,0,35,363,0,2,12,67,6387,0.0,146,6,13,2018-11-09 13:29,2019-01-05 10:20,,57.0,,Basic,9
+53783736,What is the difference between Azure SQL Database Elastic Pools and Azure SQL Database Managed Instance?,"Azure SQL Database has two similar flavors - Managed Instance and Elastic pools. Both flavors enables placing multiple databases that share the same resources and in both cases can be changed cpu/storage for entire group of database within the instance/pool. What is the difference between them?
+",<azure><azure-sql-database><azure-sql-managed-instance>,296,0,0,13452,4,40,56,55,19771,0.0,21,1,13,2018-12-14 16:41,2018-12-14 16:41,2018-12-14 16:41,0.0,0.0,Basic,8
+63256680,Adding an array of integers as a data type in a Gorm Model,"I am trying to save an array of numbers in a single postgresql field using Gorm.
+The array needs to be a list with between 2 &amp; 13 numbers: [1, 2, 3, 5, 8, 13, 21, 40, 1000]
+Everything was working when saving a single int64. When I tried changing the model to account for an array of int64's it gives me the following error:
+&quot;panic: invalid sql type  (slice) for postgres&quot;
+my Gorm model is:
+type Game struct {
+    gorm.Model
+    GameCode    string
+    GameName    string
+    DeckType    []int64
+    GameEndDate string
+}
+Update based on answer from @pacuna. I tried the suggested code and I get a similar error.
+&quot;panic: invalid sql type Int64Array (slice) for postgres&quot;
+Here is the full code block:
+package main
+import (
+    &quot;fmt&quot;
+    &quot;github.com/jinzhu/gorm&quot;
+    _ &quot;github.com/jinzhu/gorm/dialects/postgres&quot;
+    pq &quot;github.com/lib/pq&quot;
+)
+var db *gorm.DB
+// Test -- Model for Game table
+type Test struct {
+    gorm.Model                                           
+    GameCode    string                                      
+    GameName    string                                      
+    DeckType    pq.Int64Array    
+    GameEndDate string   
+}
+func main() {
+    db, err := gorm.Open(&quot;postgres&quot;, &quot;host=localhost port=5432 user=fullstack dbname=scratch_game sslmode=disable&quot;)
+    if err != nil {
+        fmt.Println(err.Error())
+        panic(&quot;Failed to connect to database...&quot;)
+    }
+    defer db.Close()
+    dt := []int64{1, 2, 3}
+    db.AutoMigrate(&amp;Test{})
+    fmt.Println(&quot;Table Created&quot;)
+    db.Create(&amp;Test{GameCode: &quot;xxx&quot;, GameName: &quot;xxx&quot;, DeckType: pq.Int64Array(dt), GameEndDate: &quot;xxx&quot;})
+    fmt.Println(&quot;Record Added&quot;)
+}
+",<postgresql><go><go-gorm>,1783,0,47,192,1,1,12,54,21620,0.0,5,1,13,2020-08-05 0:12,2020-08-05 1:04,2020-08-05 1:04,0.0,0.0,Basic,8
+48243934,Mocking Postgresql now() function for testing,"I have the following stack
+Node/Express backend
+Postgresql 10 database
+Mocha for testing
+Sinon for mocking
+I have written a bunch of end-to-end tests to test all my webservices. The problem is that some of them are time dependent (as in ""give me the modified records of the last X seconds""). 
+sinon is pretty good at mocking all the time/dated related stuff in Node, however I have a modified field in my Postgresql tables that is populated with a trigger:
+CREATE FUNCTION update_modified_column()
+  RETURNS TRIGGER AS $$
+BEGIN
+  NEW.modified = now();
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+The problem of course is that sinon can't override that now() function.
+Any idea on how I could solve this? The problem is not setting a specific date at the start of the test, but advancing time faster than real-time (in one of my tests I want to change some stuff in the database, advance the 'current time' with one day, change some more stuff in the database and do webservice calls to see the result).
+I can figure out a few solutions myself, but they all involve changing the application code and making it less elegant. I don't think your application code should be impacted by the fact that you want to test it.
+",<node.js><postgresql><mocha.js><sinon>,1214,0,11,6044,6,43,70,72,4163,,692,4,13,2018-01-13 20:18,2018-01-13 22:01,,0.0,,Basic,10
+53295322,PostgreSQL statement timeout,"PostgreSQL Version: 9.3
+We have online system which gets transnational data (approximately 15000 records per day).  
+We have table partitioning on date &amp; time and have a PostgreSQL function to load the incoming request into the table.
+Sometimes we see the error message
+  ERROR: 57014: canceling statement due to statement timeout
+The client sends the request again after some time if not successful and on second try it gets recorded successfully.  It seems this has to be something with table locks but I am not sure.
+",<postgresql>,524,0,0,131,1,1,5,76,38728,0.0,0,2,13,2018-11-14 7:50,2018-11-14 11:33,,0.0,,Basic,9
+52066085,System.Linq.Expressions exception thrown when using FirstOrDefault in .Net Core 2.1,"I am receiving ~300+ exceptions that are spammed in my server output labeled:
+Exception thrown: 'System.ArgumentException' in System.Linq.Expressions.dll
+The query I am using is as follows:
+Account account = _accountContext.Account.
+     Include(i =&gt; i.Currency).
+     Include(i =&gt; i.Unlocks).
+     Include(i =&gt; i.Settings).
+     Include(i =&gt; i.Friends).
+     FirstOrDefault(a =&gt; a.FacebookUserID == facebookUserID);
+Eventually the exceptions stop generating, it shows a large query in the output window, and everything continues as normal.
+If I change the query to the following I do not experience the exception:
+IQueryable&lt;Account&gt; account = _accountContext.Account.
+     Include(i =&gt; i.Currency).
+     Include(i =&gt; i.Unlocks).
+     Include(i =&gt; i.Settings).
+     Include(i =&gt; i.Friends).
+     Where(a =&gt; a.FacebookUserID == facebookUserID);
+However, if I call anything such as First, FirstOrDefault, Single, etc on the IQueryable&lt;Account&gt; variable the exceptions start up again and then stop after ~300.
+These exceptions are stalling user logins upwards of 30 seconds or more. The duration of exceptions grows with the amount of data being returned from the database.
+I use the Account object by passing it around the server to perform varying maintenance tasks on it and then eventually sending the object client-side where I have it being deserialized into the client-side version of the Account class.
+Does anyone know what could be causing these internal exceptions and how I might be able to eliminate or mitigate them? 
+Here is my output log:
+Below is the exception message:
+The AccountStatistics isn't listed in the query above because there are about 20 some includes and I shorthanded the include list for brevity.
+Field 'Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor+TransparentIdentifier`2[Project.Models.Account,System.Collections.Generic.IEnumerable`1[Project.Models.AccountStatistics]].Inner' is not defined for type 'Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor+TransparentIdentifier`2[Project.Models.Account,Project.Models.AccountStatistics]'
+There is no inner exception.
+I double checked my database and I have an entry for the user and all of their fields are filled with valid data.
+Account Class (Edited for brevity)
+public class Account
+    {
+        [Key]
+        public int ID { get; set; }
+        public DateTime CreationDate { get; set; }
+        public AccountCurrency Currency { get; set; }
+        public AccountProgression Progression { get; set; }
+        public AccountSettings Settings { get; set; }
+        public AccountStatistics Statistics { get; set; }
+        public ICollection&lt;AccountFriendEntry&gt; Friends { get; set; }
+        public ICollection&lt;AccountUnlockedGameEntry&gt; Unlocks{ get; set; }
+    }
+Account Statistics class
+public class AccountStatistics
+{
+    [Key]
+    public int AccountID { get; set; }
+    public int LoginCount { get; set; }
+    public DateTime LastLoginTime { get; set; }
+    public DateTime LastActivityTime { get; set; }
+}
+Edit
+Keys for the Account Statistics table
+   migrationBuilder.CreateTable(
+            name: ""AccountStatistics"",
+            columns: table =&gt; new
+            {
+                AccountID = table.Column&lt;int&gt;(nullable: false),
+                LoginCount = table.Column&lt;int&gt;(nullable: false),
+                LastLoginTime = table.Column&lt;DateTime&gt;(nullable: false),
+                CreationDate = table.Column&lt;DateTime&gt;(nullable: false)
+            },
+            constraints: table =&gt;
+            {
+                table.PrimaryKey(""PK_AccountStatistics"", x =&gt; x.AccountID);
+                table.ForeignKey(
+                    name: ""FK_AccountStatistics_Accounts_AccountID"",
+                    column: x =&gt; x.AccountID,
+                    principalTable: ""Accounts"",
+                    principalColumn: ""ID"",
+                    onDelete: ReferentialAction.Cascade);
+            });
+Edit 9001
+After doing some testing I've realized the exception only occurs when chaining includes.
+This will cause an exception:
+Account account = _accountContext.Account.
+     Include(i =&gt; i.Currency).
+     Include(i =&gt; i.Unlocks).
+     Include(i =&gt; i.Settings).
+     Include(i =&gt; i.Friends).
+     FirstOrDefault(a =&gt; a.FacebookUserID == facebookUserID);
+This will NOT cause an exception:
+Account account = _accountContext.Account.
+     Include(i =&gt; i.Currency).
+     FirstOrDefault(a =&gt; a.FacebookUserID == facebookUserID);
+It does not matter if its currency and unlock, friends and currency, settings, and statistics. Any combination of includes (2 or more) causes the exception to happen.
+Edit 9002
+Here are my results of the following query:
+var acct = _accountContext.Account
+     .Where(a =&gt; a.FacebookUserID == facebookUserID)
+     .Select(x =&gt; new { Account = x, x.Currency, x.Settings }).ToList();
+Exception:
+System.ArgumentException: 'Field 'Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor+TransparentIdentifier`2[Project.Models.Account,System.Collections.Generic.IEnumerable`1[Project.Models.AccountSettings]].Inner' is not defined for type 'Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor+TransparentIdentifier`2[Project.Models.Account,Project.Models.AccountSettings]''
+I feel like this is treating AccountSettings as a collection when it's a single field reference.
+Edit Final:
+I never found a fix for this issue. I re-created all the tables and such in another environment and it works just fine. Not a very ideal solution to blow away all tables, classes, and migrations, but it's the only thing that fixed the issue.
+",<c#><sql-server><entity-framework>,5685,2,74,301,0,2,10,60,5118,0.0,0,4,13,2018-08-28 20:56,2018-11-01 10:31,,65.0,,Basic,10
+51632735,JDBC result set retrieve LocalDateTime,"I run a simple query to retrieve a row from a MySQL database.
+I get ResultSet and I need to retrieve a LocalDateTime object from it.
+My DB table.
+CREATE TABLE `some_entity` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) NOT NULL,
+  `text` varchar(255) DEFAULT NULL,
+  `created_date_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+I need to retrieve some entity by id.
+String SELECT = ""SELECT ID, TITLE, TEXT, CREATED_DATE_TIME FROM some_entity WHERE some_entity.id = ?"";
+PreparedStatement selectPreparedStatement = connection.prepareStatement(SELECT);
+try {
+    selectPreparedStatement.setLong(1, id);
+    ResultSet resultSet = selectPreparedStatement.executeQuery();
+    if (resultSet.next()) {
+        Long foundId = resultSet.getLong(1);
+        String title = resultSet.getString(2);
+        String text = resultSet.getString(3);
+        LocalDateTime createdDateTime = null;// How do I retrieve it???
+    }
+} catch (SQLException e) {
+    throw new RuntimeException(""Failed to retrieve some entity by id."", e);
+}
+",<java><mysql><jdbc><java-time>,1123,0,23,12375,15,79,114,50,22758,0.0,3438,1,13,2018-08-01 11:59,2018-08-01 12:05,2018-08-01 12:05,0.0,0.0,Advanced,35
+52043874,Limiting maximum size of dataframe partition,"When I write out a dataframe to, say, csv, a .csv file is created for each partition.  Suppose I want to limit the max size of each file to, say, 1 MB.  I could do the write multiple times and increase the argument to repartition each time.  Is there a way I can calculate ahead of time what argument to use for repartition to ensure the max size of each file is less than some specified size.
+I imagine there might be pathological cases where all the data ends up on one partition. So make the weaker assumption that we only want to ensure that the average file size is less than some specified amount, say 1 MB. 
+",<scala><apache-spark><apache-spark-sql>,615,0,0,8646,33,119,206,72,14117,0.0,723,2,13,2018-08-27 16:59,2018-08-30 19:29,2018-08-30 19:29,3.0,3.0,Intermediate,22

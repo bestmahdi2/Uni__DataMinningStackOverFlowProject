@@ -1,0 +1,725 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34589435,Get the enclosing class of a Java lambda expression,"<p>I have a method that takes a functional parameter, e.g. a <code>Runnable</code>. As it's a library method, I want it to use a logger derived from the functional parameter. Calling <code>getClass</code> on the functional parameter works fine for normal classes, and I can <code>getEnclosingClass</code> for nested or anonymous classes; but if it's a lambda expression, it returns some obscure name containing <code>$$Lambda$</code>, which I could strip off manually like this:</p>
+
+<pre><code>Class&lt;?&gt; type = runnable.getClass();
+String canonical = type.getCanonicalName();
+int lambdaOffset = canonical.indexOf(""$$Lambda$"");
+if (lambdaOffset &gt; 0) {
+    try {
+        type = Class.forName(canonical.substring(0, lambdaOffset));
+    } catch (ClassNotFoundException e) {
+        // strange, but we can stick to the type we already have
+    }
+}
+</code></pre>
+
+<p>As you can see, that's not very elegant and probably not portable. I've tried <code>getEnclosingClass</code>, <code>getEnclosingMethod</code>, and <code>getEnclosingConstructor</code>, but they all return <code>null</code>.</p>
+
+<p>Any ideas?</p>
+",<java><lambda>,16/01/04 10:49,HQ,"<java><lambda>, Get the enclosing class of a Java lambda expression, <p>I have a method that takes a functional parameter, e.g. a <code>Runnable</code>. As it's a library method, I want it to use a logger derived from the functional parameter. Calling <code>getClass</code> on the functional parameter works fine for normal classes, and I can <code>getEnclosingClass</code> for nested or anonymous classes; but if it's a lambda expression, it returns some obscure name containing <code>$$Lambda$</code>, which I could strip off manually like this:</p>
+
+<pre><code>Class&lt;?&gt; type = runnable.getClass();
+String canonical = type.getCanonicalName();
+int lambdaOffset = canonical.indexOf(""$$Lambda$"");
+if (lambdaOffset &gt; 0) {
+    try {
+        type = Class.forName(canonical.substring(0, lambdaOffset));
+    } catch (ClassNotFoundException e) {
+        // strange, but we can stick to the type we already have
+    }
+}
+</code></pre>
+
+<p>As you can see, that's not very elegant and probably not portable. I've tried <code>getEnclosingClass</code>, <code>getEnclosingMethod</code>, and <code>getEnclosingConstructor</code>, but they all return <code>null</code>.</p>
+
+<p>Any ideas?</p>
+","<cava><labia>, get enclose class cava labia expression, <p>i method take function parameter, e.g. <code>unable</code>. library method, want use longer derive function parameter. call <code>getclass</code> function parapet work fine normal classes, <code>getenclosingclass</code> nest agony classes; labia expression, return obscure name contain <code>$$labia$</code>, could strip manual like this:</p> <pre><code>class&it;?&it; type = unable.getclass(); string canon = type.getcanonicalname(); in lambdaoffset = conical.index(""$$labia$""); (lambdaoffset &it; 0) { try { type = class.frame(conical.subsiding(0, lambdaoffset)); } catch (classnotfoundexcept e) { // strange, stick type already } } </code></pre> <p>a see, that' leg probably portable. i'v try <code>getenclosingclass</code>, <code>getenclosingmethod</code>, <code>getenclosingconstructor</code>, return <code>null</code>.</p> <p>and ideas?</p>"
+34589807,how to give CAKEPHP validation ?,"    $name=$_POST[""name""];
+    select * from college where status='2' where name='$name'.
+
+if condition is true it has to show already exits or else successful msg has to display has to display .  Is it possible to give this validation in model part.",<cakephp><cakephp-2.0><cakephp-1.3><cakephp-2.3><cakephp-2.1>,16/01/04 11:11,LQ_EDIT,"<cakephp><cakephp-2.0><cakephp-1.3><cakephp-2.3><cakephp-2.1>, how to give CAKEPHP validation ?,     $name=$_POST[""name""];
+    select * from college where status='2' where name='$name'.
+
+if condition is true it has to show already exits or else successful msg has to display has to display .  Is it possible to give this validation in model part.","<cakephp><cakephp-2.0><cakephp-1.3><cakephp-2.3><cakephp-2.1>, give cakephp valid ?, $name=$post[""name""]; select * college status='2' name='$name'. conduct true show already exit else success mug display display . possible give valid model part."
+34590038,Javascript regex to find expression in a line then append to the end of that line,"<p>I am busy parsing a text log to HTML and I am replacing tabs with HTML bullet tags</p>
+
+<p>I need a regular expression to identify the beginning of a line and then append something to the end of it. eg:</p>
+
+<pre><code>config system accprofile
+    edit ""Number 1""
+        set mntgrp read-write
+    edit ""read-only""
+        set mntgrp read
+
+config system 2
+    edit ""Number 2""
+        set mntgrp read-write
+    edit ""read-only""
+        set mntgrp read
+</code></pre>
+
+<p>Needs to be changed to:</p>
+
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;config system accprofile&lt;/li&gt;
+        &lt;ul&gt;
+        &lt;li&gt;edit ""Number 1""&lt;/li&gt;
+            &lt;ul&gt;
+            &lt;li&gt;set mntgrp read-write&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;li&gt;edit ""read-only""&lt;/li&gt;
+            &lt;ul&gt;    
+            &lt;li&gt;set mntgrp read&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;config system 2&lt;/li&gt;
+        &lt;ul&gt;
+        &lt;li&gt;edit ""Number 2""&lt;/li&gt;
+            &lt;ul&gt;
+            &lt;li&gt;set mntgrp read-write&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;li&gt;edit ""read-only""&lt;/li&gt;
+            &lt;ul&gt;
+            &lt;li&gt;set mntgrp read&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/ul&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>I can identify the front of each row by searching for 'config' but I then need to append <code>\n\t&lt;ul&gt;</code> to the end of the line.</p>
+
+<p>How can I do this?</p>
+",<javascript><regex>,16/01/04 11:23,LQ_CLOSE,"<javascript><regex>, Javascript regex to find expression in a line then append to the end of that line, <p>I am busy parsing a text log to HTML and I am replacing tabs with HTML bullet tags</p>
+
+<p>I need a regular expression to identify the beginning of a line and then append something to the end of it. eg:</p>
+
+<pre><code>config system accprofile
+    edit ""Number 1""
+        set mntgrp read-write
+    edit ""read-only""
+        set mntgrp read
+
+config system 2
+    edit ""Number 2""
+        set mntgrp read-write
+    edit ""read-only""
+        set mntgrp read
+</code></pre>
+
+<p>Needs to be changed to:</p>
+
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;config system accprofile&lt;/li&gt;
+        &lt;ul&gt;
+        &lt;li&gt;edit ""Number 1""&lt;/li&gt;
+            &lt;ul&gt;
+            &lt;li&gt;set mntgrp read-write&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;li&gt;edit ""read-only""&lt;/li&gt;
+            &lt;ul&gt;    
+            &lt;li&gt;set mntgrp read&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;config system 2&lt;/li&gt;
+        &lt;ul&gt;
+        &lt;li&gt;edit ""Number 2""&lt;/li&gt;
+            &lt;ul&gt;
+            &lt;li&gt;set mntgrp read-write&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;li&gt;edit ""read-only""&lt;/li&gt;
+            &lt;ul&gt;
+            &lt;li&gt;set mntgrp read&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/ul&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>I can identify the front of each row by searching for 'config' but I then need to append <code>\n\t&lt;ul&gt;</code> to the end of the line.</p>
+
+<p>How can I do this?</p>
+","<javascript><regret>, javascript regret find express line happened end line, <p>i busy part text log html replace tax html bullet tags</p> <p>i need regular express identify begin line happened cometh end it. eg:</p> <pre><code>confirm system accprofil edit ""number 1"" set mntgrp read-writ edit ""read-only"" set mntgrp read confirm system 2 edit ""number 2"" set mntgrp read-writ edit ""read-only"" set mntgrp read </code></pre> <p>need change to:</p> <pre><code>&it;up&it; &it;li&it;confirm system accprofile&it;/li&it; &it;up&it; &it;li&it;edit ""number 1""&it;/li&it; &it;up&it; &it;li&it;set mntgrp read-write&it;/li&it; &it;/up&it; &it;li&it;edit ""read-only""&it;/li&it; &it;up&it; &it;li&it;set mntgrp read&it;/li&it; &it;/up&it; &it;/up&it; &it;li&it;confirm system 2&it;/li&it; &it;up&it; &it;li&it;edit ""number 2""&it;/li&it; &it;up&it; &it;li&it;set mntgrp read-write&it;/li&it; &it;/up&it; &it;li&it;edit ""read-only""&it;/li&it; &it;up&it; &it;li&it;set mntgrp read&it;/li&it; &it;/up&it; &it;/up&it; &it;/up&it; </code></pre> <p>i identify front row search 'confirm' need happened <code>\n\t&it;up&it;</code> end line.</p> <p>how this?</p>"
+34590168,What are typescript typings?,"<p>I just started playing with angular 2, and I saw that many projects that are available on the web have a folder called <code>typings</code>. Digging more into the problem I found that it has something to do with <a href=""https://www.npmjs.com/package/typings"">https://www.npmjs.com/package/typings</a> package. I read their documentation but I didn't understand exactly why do we need typings. Can you provide some example where typings are needed or helpful. 
+Thanks</p>
+",<typescript><angular>,16/01/04 11:31,HQ,"<typescript><angular>, What are typescript typings?, <p>I just started playing with angular 2, and I saw that many projects that are available on the web have a folder called <code>typings</code>. Digging more into the problem I found that it has something to do with <a href=""https://www.npmjs.com/package/typings"">https://www.npmjs.com/package/typings</a> package. I read their documentation but I didn't understand exactly why do we need typings. Can you provide some example where typings are needed or helpful. 
+Thanks</p>
+","<typescript><angular>, typescript things?, <p>i start play angular 2, saw man project avail web older call <code>things</code>. dig problem found cometh <a he=""http://www.names.com/package/things"">http://www.names.com/package/things</a> package. read document understand exactly need things. proved example type need helpful. thanks</p>"
+34591847,Text to morse code using jQuery,"<p>I've been tasked with creating a little feature using JavaScript/jQuery that will translate text input by the user into morse code.</p>
+
+<p>What would be the most efficient way of going about this?</p>
+",<javascript><morse-code>,16/01/04 13:04,LQ_CLOSE,"<javascript><morse-code>, Text to morse code using jQuery, <p>I've been tasked with creating a little feature using JavaScript/jQuery that will translate text input by the user into morse code.</p>
+
+<p>What would be the most efficient way of going about this?</p>
+","<javascript><morse-code>, text more code use query, <p>i'v task great little feature use javascript/query translate text input user more code.</p> <p>what would effect way go this?</p>"
+34595356,What does compound let/const assignment mean?,"<p>There is an article <a href=""https://github.com/petkaantonov/bluebird/wiki/Optimization-killers"" rel=""noreferrer"">Optimization killers</a> in wiki of Bluebird library. In this article there is a phrase:</p>
+
+<blockquote>
+  <p>Currently not optimizable: <br>
+  ...<br>
+  Functions that contain a compound let assignment <br>
+  Functions that contain a compound const assignment<br></p>
+</blockquote>
+
+<p>What does compound let assignment and compound const assignment mean?
+In ECMAScript 5.1 there was notion of <a href=""http://www.ecma-international.org/ecma-262/5.1/#sec-11.13.2"" rel=""noreferrer"">compound assignment</a> but in ECMAScript 2015, it seems there is no notion of any compound assignment there is only regular assignments.</p>
+
+<p>I suspect that compound let and const assignment, it is just compound assignment after declaration. For example:</p>
+
+<pre><code>let n = 1;
+n += 4;
+</code></pre>
+
+<p>Am I right?</p>
+",<javascript><bluebird><compound-assignment>,16/01/04 16:19,HQ,"<javascript><bluebird><compound-assignment>, What does compound let/const assignment mean?, <p>There is an article <a href=""https://github.com/petkaantonov/bluebird/wiki/Optimization-killers"" rel=""noreferrer"">Optimization killers</a> in wiki of Bluebird library. In this article there is a phrase:</p>
+
+<blockquote>
+  <p>Currently not optimizable: <br>
+  ...<br>
+  Functions that contain a compound let assignment <br>
+  Functions that contain a compound const assignment<br></p>
+</blockquote>
+
+<p>What does compound let assignment and compound const assignment mean?
+In ECMAScript 5.1 there was notion of <a href=""http://www.ecma-international.org/ecma-262/5.1/#sec-11.13.2"" rel=""noreferrer"">compound assignment</a> but in ECMAScript 2015, it seems there is no notion of any compound assignment there is only regular assignments.</p>
+
+<p>I suspect that compound let and const assignment, it is just compound assignment after declaration. For example:</p>
+
+<pre><code>let n = 1;
+n += 4;
+</code></pre>
+
+<p>Am I right?</p>
+","<javascript><bluebeard><compound-assignment>, compound let/cost assign mean?, <p>there article <a he=""http://github.com/petkaantonov/bluebeard/wiki/optimization-tillers"" red=""noreferrer"">optic tillers</a> wiki bluebeard library. article phrase:</p> <blockquote> <p>current optimizable: <br> ...<br> function contain compound let assign <br> function contain compound cost assignment<br></p> </blockquote> <p>what compound let assign compound cost assign mean? ecmascript 5.1 notion <a he=""http://www.emma-international.org/emma-262/5.1/#see-11.13.2"" red=""noreferrer"">compound assignment</a> ecmascript 2015, seem notion compound assign regular assignment.</p> <p>i suspect compound let cost assignment, compound assign declaration. example:</p> <pre><code>let n = 1; n += 4; </code></pre> <p>am right?</p>"
+34595597,C# send string array over socket,"<p>how can i send an string array over socket tcp from client to server and server to client? i cant find any solutions... i tried to convert the string array to a byte array and back. but i get a out of memory expection...</p>
+
+<pre><code>private static byte[] ToByteArray(string[] input)
+{
+    using (var stream = new MemoryStream())
+    using (var writer = new BinaryWriter(stream, Encoding.UTF8))
+    {
+        var rows = input.GetLength(0);
+        writer.Write(rows);
+        for (int i = 0; i &lt; rows; i++)
+        {
+            writer.Write(input[i]);
+        }
+        return stream.ToArray();
+    }
+}
+
+private static string[] FromByteArray(byte[] input)
+{
+    using (var stream = new MemoryStream(input))
+    using (var reader = new BinaryReader(stream, Encoding.UTF8))
+    {
+        var rows = reader.ReadInt32();
+        var result = new string[rows];
+        for (int i = 0; i &lt; rows; i++)
+        {
+            result[i] = reader.ReadString();
+        }
+        return result;
+    }
+}
+</code></pre>
+",<c#><arrays><sockets>,16/01/04 16:34,LQ_CLOSE,"<c#><arrays><sockets>, C# send string array over socket, <p>how can i send an string array over socket tcp from client to server and server to client? i cant find any solutions... i tried to convert the string array to a byte array and back. but i get a out of memory expection...</p>
+
+<pre><code>private static byte[] ToByteArray(string[] input)
+{
+    using (var stream = new MemoryStream())
+    using (var writer = new BinaryWriter(stream, Encoding.UTF8))
+    {
+        var rows = input.GetLength(0);
+        writer.Write(rows);
+        for (int i = 0; i &lt; rows; i++)
+        {
+            writer.Write(input[i]);
+        }
+        return stream.ToArray();
+    }
+}
+
+private static string[] FromByteArray(byte[] input)
+{
+    using (var stream = new MemoryStream(input))
+    using (var reader = new BinaryReader(stream, Encoding.UTF8))
+    {
+        var rows = reader.ReadInt32();
+        var result = new string[rows];
+        for (int i = 0; i &lt; rows; i++)
+        {
+            result[i] = reader.ReadString();
+        }
+        return result;
+    }
+}
+</code></pre>
+","<c#><array><sockets>, c# send string array socket, <p>how send string array socket top client server server client? can find solutions... try convert string array bite array back. get memory election...</p> <pre><code>prim static bite[] tobytearray(string[] input) { use (war stream = new memorystream()) use (war writer = new binarywriter(stream, encoding.utf)) { war row = input.getlength(0); writer.write(rows); (in = 0; &it; rows; i++) { writer.write(input[i]); } return stream.array(); } } privat static string[] frombytearray(bite[] input) { use (war stream = new memorystream(input)) use (war reader = new binaryreader(stream, encoding.utf)) { war row = reader.readint32(); war result = new string[rows]; (in = 0; &it; rows; i++) { result[i] = reader.reassuring(); } return result; } } </code></pre>"
+34595670,Android studio error: unreported exception Throwable; must be caught or declares to be thrown,"<p>Hello I hope you can help me.</p>
+
+<p>My project has 5 errors of the same type.</p>
+
+<p>These are methods where there is the error:</p>
+
+<pre><code>public fresul BulkImportdbOperatori(SQLiteDatabase db, ArrayList&lt;OperatoriXML&gt; elencoOperatori) {
+        fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+        Throwable th;
+        fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+        db.beginTransaction();
+        try {
+            db.execSQL(""DELETE FROM operatori"");
+            SQLiteStatement insert = db.compileStatement(""INSERT INTO operatori (codice, alfaoperatore, login, password) VALUES (?, ?, ?, ?)"");
+            for (int i = 0; i &lt; elencoOperatori.size(); i += VERSIONE_DB) {
+                insert.bindString(VERSIONE_DB, ((OperatoriXML) elencoOperatori.get(i)).getCodOp());
+                insert.bindString(2, ((OperatoriXML) elencoOperatori.get(i)).getAlfaOp());
+                insert.bindString(3, ((OperatoriXML) elencoOperatori.get(i)).getLoginOp());
+                insert.bindString(4, ((OperatoriXML) elencoOperatori.get(i)).getPwdOp());
+                insert.execute();
+                insert.clearBindings();
+            }
+            db.setTransactionSuccessful();
+            db.endTransaction();
+            return Ret2;
+        } catch (Exception e) {
+            String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+            Ret = new fresul(-1, errMsg);
+            Log.e(""bulkInsert:"", errMsg);
+            db.endTransaction();
+            return Ret;
+        } catch (Throwable th2) {
+            th = th2;
+            Ret2 = Ret;
+            db.endTransaction();
+            throw th;
+        }
+    }
+</code></pre>
+
+<p>this is the second method:</p>
+
+<pre><code>public fresul BulkImportdbSale(SQLiteDatabase db, ArrayList&lt;SaleXML&gt; elencosale) {
+    fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+    Throwable th;
+    fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+    db.beginTransaction();
+    try {
+        db.execSQL(""DELETE FROM sale"");
+        SQLiteStatement insert = db.compileStatement(""INSERT INTO sale (codice, alfasala, numerotavoli, deltatavoli) VALUES (?, ?, ?, ?)"");
+        for (int i = 0; i &lt; elencosale.size(); i += VERSIONE_DB) {
+            insert.bindString(VERSIONE_DB, ((SaleXML) elencosale.get(i)).getCodSala());
+            insert.bindString(2, ((SaleXML) elencosale.get(i)).getAlfaSala());
+            insert.bindString(3, Integer.toString(((SaleXML) elencosale.get(i)).getNumeroTavoli()));
+            insert.bindString(4, Integer.toString(((SaleXML) elencosale.get(i)).getDeltaTavoli()));
+            insert.execute();
+            insert.clearBindings();
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return Ret2;
+    } catch (Exception e) {
+        String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+        Ret = new fresul(-1, errMsg);
+        Log.e(""bulkInsert:"", errMsg);
+        db.endTransaction();
+        return Ret;
+    } catch (Throwable th2) {
+        th = th2;
+        Ret2 = Ret;
+        db.endTransaction();
+        throw th;
+    }
+}
+</code></pre>
+
+<p>This is the third method</p>
+
+<pre><code>public fresul BulkImportdbArticoli(SQLiteDatabase db, ArrayList&lt;RepartiXML&gt; elencorep, ArrayList&lt;VariantiXML&gt; elencovar) {
+    fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+    Throwable th;
+    fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+    db.beginTransaction();
+    try {
+        int i;
+        String cv;
+        db.execSQL(""DELETE FROM LinkVariantiArticoli"");
+        db.execSQL(""DELETE FROM variantiarticoli"");
+        SQLiteStatement insertVariante = db.compileStatement(""INSERT INTO variantiarticoli (codice, alfavariante, prezzovariante, variantepertutti) VALUES (?, ?, ?, ?)"");
+        for (i = 0; i &lt; elencovar.size(); i += VERSIONE_DB) {
+            cv = ((VariantiXML) elencovar.get(i)).getCodVariante();
+            String av = ((VariantiXML) elencovar.get(i)).getAlfaVariante();
+            double pv = ((VariantiXML) elencovar.get(i)).getPrezzoVariante();
+            boolean gv = ((VariantiXML) elencovar.get(i)).getVariantePerTutti();
+            insertVariante.bindString(VERSIONE_DB, cv);
+            insertVariante.bindString(2, av);
+            insertVariante.bindDouble(3, pv);
+            insertVariante.bindLong(4, (long) boolToInt(gv));
+            insertVariante.execute();
+            insertVariante.clearBindings();
+        }
+        db.execSQL(""DELETE FROM reparti"");
+        db.execSQL(""DELETE FROM articoli"");
+        SQLiteStatement insertRep = db.compileStatement(""INSERT INTO reparti (codice, descrizione, posizione) VALUES (?, ?, ?)"");
+        SQLiteStatement insertArt = db.compileStatement(""INSERT INTO articoli (codice, descrizione, reparto, prezzo, iva, posizione) VALUES (?, ?, ?, ?, ?, ?)"");
+        SQLiteStatement insertLinkVarArt = db.compileStatement(""INSERT INTO LinkVariantiArticoli (codice_articolo, codice_variante) VALUES (?, ?)"");
+        for (i = 0; i &lt; elencorep.size(); i += VERSIONE_DB) {
+            insertRep.bindString(VERSIONE_DB, ((RepartiXML) elencorep.get(i)).getCodRep());
+            insertRep.bindString(2, ((RepartiXML) elencorep.get(i)).getAlfaRep());
+            insertRep.bindString(3, Integer.toString(((RepartiXML) elencorep.get(i)).getPosizione()));
+            insertRep.execute();
+            insertRep.clearBindings();
+            for (int y = 0; y &lt; ((RepartiXML) elencorep.get(i)).getElencoArt().size(); y += VERSIONE_DB) {
+                ArticoliXML art = (ArticoliXML) ((RepartiXML) elencorep.get(i)).getElencoArt().get(y);
+                insertArt.bindString(VERSIONE_DB, art.getCodArt());
+                insertArt.bindString(2, art.getAlfaArt());
+                insertArt.bindString(3, ((RepartiXML) elencorep.get(i)).getCodRep());
+                insertArt.bindDouble(4, art.getPrezzoArt());
+                insertArt.bindDouble(5, art.getIvaArt());
+                insertArt.bindString(6, Integer.toString(art.getPosizione()));
+                insertArt.execute();
+                insertArt.clearBindings();
+                for (int K = 0; K &lt; art.getElencoVarianti().size(); K += VERSIONE_DB) {
+                    cv = (String) art.getElencoVarianti().get(K);
+                    insertLinkVarArt.bindString(VERSIONE_DB, art.getCodArt());
+                    insertLinkVarArt.bindString(2, cv);
+                    insertLinkVarArt.execute();
+                    insertLinkVarArt.clearBindings();
+                }
+            }
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return Ret2;
+    } catch (Exception e) {
+        String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+        Ret = new fresul(-1, errMsg);
+        Log.e(""bulkInsert:"", errMsg);
+        db.endTransaction();
+        return Ret;
+    } catch (Throwable th2) {
+        th = th2;
+        Ret2 = Ret;
+        db.endTransaction();
+        throw th;
+    }
+}
+</code></pre>
+
+<p>This is the fourth method</p>
+
+<pre><code>public fresul BulkImportdbCDP(SQLiteDatabase db, ArrayList&lt;InfoCdpXML&gt; elencoCDP) {
+        fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+        Throwable th;
+        fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+        db.beginTransaction();
+        try {
+            db.execSQL(""DELETE FROM CentriDiProduzione"");
+            SQLiteStatement insert = db.compileStatement(""INSERT INTO CentriDiProduzione (codice, alfacdp) VALUES (?, ?)"");
+            for (int i = 0; i &lt; elencoCDP.size(); i += VERSIONE_DB) {
+                insert.bindString(VERSIONE_DB, ((InfoCdpXML) elencoCDP.get(i)).getCodCDP());
+                insert.bindString(2, ((InfoCdpXML) elencoCDP.get(i)).getAlfaCDP());
+                insert.execute();
+                insert.clearBindings();
+            }
+            db.setTransactionSuccessful();
+            db.endTransaction();
+            return Ret2;
+        } catch (Exception e) {
+            String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+            Ret = new fresul(-1, errMsg);
+            Log.e(""bulkInsert:"", errMsg);
+            db.endTransaction();
+            return Ret;
+        } catch (Throwable th2) {
+            th = th2;
+            Ret2 = Ret;
+            db.endTransaction();
+            throw th;
+        }
+    }
+</code></pre>
+
+<p>and this is the last</p>
+
+<pre><code>public fresul BulkImportdbMsgForCDP(SQLiteDatabase db, ArrayList&lt;MsgForCdpXML&gt; elencoMSG) {
+    fresul Ret  = new fresul(0, BuildConfig.FLAVOR);
+    Throwable th;
+    fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+    db.beginTransaction();
+    try {
+        db.execSQL(""DELETE FROM MsgForCDP"");
+        SQLiteStatement insert = db.compileStatement(""INSERT INTO MsgForCDP (codice, testo, cdp) VALUES (?, ?, ?)"");
+        for (int i = 0; i &lt; elencoMSG.size(); i += VERSIONE_DB) {
+            insert.bindString(VERSIONE_DB, ((MsgForCdpXML) elencoMSG.get(i)).getCodMSG());
+            insert.bindString(2, ((MsgForCdpXML) elencoMSG.get(i)).getTestoMSG());
+            insert.bindString(3, ((MsgForCdpXML) elencoMSG.get(i)).getCodCDP());
+            insert.execute();
+            insert.clearBindings();
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return Ret2;
+    } catch (Exception e) {
+        String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+        Ret = new fresul(-1, errMsg);
+        Log.e(""bulkInsert:"", errMsg);
+        db.endTransaction();
+        return Ret;
+    } catch (Throwable th2) {
+        th = th2;
+        Ret2 = Ret;
+        db.endTransaction();
+        throw th;
+    }
+}
+</code></pre>
+
+<p>Could you help me understand what's going on?</p>
+",<java><android>,16/01/04 16:37,LQ_CLOSE,"<java><android>, Android studio error: unreported exception Throwable; must be caught or declares to be thrown, <p>Hello I hope you can help me.</p>
+
+<p>My project has 5 errors of the same type.</p>
+
+<p>These are methods where there is the error:</p>
+
+<pre><code>public fresul BulkImportdbOperatori(SQLiteDatabase db, ArrayList&lt;OperatoriXML&gt; elencoOperatori) {
+        fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+        Throwable th;
+        fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+        db.beginTransaction();
+        try {
+            db.execSQL(""DELETE FROM operatori"");
+            SQLiteStatement insert = db.compileStatement(""INSERT INTO operatori (codice, alfaoperatore, login, password) VALUES (?, ?, ?, ?)"");
+            for (int i = 0; i &lt; elencoOperatori.size(); i += VERSIONE_DB) {
+                insert.bindString(VERSIONE_DB, ((OperatoriXML) elencoOperatori.get(i)).getCodOp());
+                insert.bindString(2, ((OperatoriXML) elencoOperatori.get(i)).getAlfaOp());
+                insert.bindString(3, ((OperatoriXML) elencoOperatori.get(i)).getLoginOp());
+                insert.bindString(4, ((OperatoriXML) elencoOperatori.get(i)).getPwdOp());
+                insert.execute();
+                insert.clearBindings();
+            }
+            db.setTransactionSuccessful();
+            db.endTransaction();
+            return Ret2;
+        } catch (Exception e) {
+            String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+            Ret = new fresul(-1, errMsg);
+            Log.e(""bulkInsert:"", errMsg);
+            db.endTransaction();
+            return Ret;
+        } catch (Throwable th2) {
+            th = th2;
+            Ret2 = Ret;
+            db.endTransaction();
+            throw th;
+        }
+    }
+</code></pre>
+
+<p>this is the second method:</p>
+
+<pre><code>public fresul BulkImportdbSale(SQLiteDatabase db, ArrayList&lt;SaleXML&gt; elencosale) {
+    fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+    Throwable th;
+    fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+    db.beginTransaction();
+    try {
+        db.execSQL(""DELETE FROM sale"");
+        SQLiteStatement insert = db.compileStatement(""INSERT INTO sale (codice, alfasala, numerotavoli, deltatavoli) VALUES (?, ?, ?, ?)"");
+        for (int i = 0; i &lt; elencosale.size(); i += VERSIONE_DB) {
+            insert.bindString(VERSIONE_DB, ((SaleXML) elencosale.get(i)).getCodSala());
+            insert.bindString(2, ((SaleXML) elencosale.get(i)).getAlfaSala());
+            insert.bindString(3, Integer.toString(((SaleXML) elencosale.get(i)).getNumeroTavoli()));
+            insert.bindString(4, Integer.toString(((SaleXML) elencosale.get(i)).getDeltaTavoli()));
+            insert.execute();
+            insert.clearBindings();
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return Ret2;
+    } catch (Exception e) {
+        String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+        Ret = new fresul(-1, errMsg);
+        Log.e(""bulkInsert:"", errMsg);
+        db.endTransaction();
+        return Ret;
+    } catch (Throwable th2) {
+        th = th2;
+        Ret2 = Ret;
+        db.endTransaction();
+        throw th;
+    }
+}
+</code></pre>
+
+<p>This is the third method</p>
+
+<pre><code>public fresul BulkImportdbArticoli(SQLiteDatabase db, ArrayList&lt;RepartiXML&gt; elencorep, ArrayList&lt;VariantiXML&gt; elencovar) {
+    fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+    Throwable th;
+    fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+    db.beginTransaction();
+    try {
+        int i;
+        String cv;
+        db.execSQL(""DELETE FROM LinkVariantiArticoli"");
+        db.execSQL(""DELETE FROM variantiarticoli"");
+        SQLiteStatement insertVariante = db.compileStatement(""INSERT INTO variantiarticoli (codice, alfavariante, prezzovariante, variantepertutti) VALUES (?, ?, ?, ?)"");
+        for (i = 0; i &lt; elencovar.size(); i += VERSIONE_DB) {
+            cv = ((VariantiXML) elencovar.get(i)).getCodVariante();
+            String av = ((VariantiXML) elencovar.get(i)).getAlfaVariante();
+            double pv = ((VariantiXML) elencovar.get(i)).getPrezzoVariante();
+            boolean gv = ((VariantiXML) elencovar.get(i)).getVariantePerTutti();
+            insertVariante.bindString(VERSIONE_DB, cv);
+            insertVariante.bindString(2, av);
+            insertVariante.bindDouble(3, pv);
+            insertVariante.bindLong(4, (long) boolToInt(gv));
+            insertVariante.execute();
+            insertVariante.clearBindings();
+        }
+        db.execSQL(""DELETE FROM reparti"");
+        db.execSQL(""DELETE FROM articoli"");
+        SQLiteStatement insertRep = db.compileStatement(""INSERT INTO reparti (codice, descrizione, posizione) VALUES (?, ?, ?)"");
+        SQLiteStatement insertArt = db.compileStatement(""INSERT INTO articoli (codice, descrizione, reparto, prezzo, iva, posizione) VALUES (?, ?, ?, ?, ?, ?)"");
+        SQLiteStatement insertLinkVarArt = db.compileStatement(""INSERT INTO LinkVariantiArticoli (codice_articolo, codice_variante) VALUES (?, ?)"");
+        for (i = 0; i &lt; elencorep.size(); i += VERSIONE_DB) {
+            insertRep.bindString(VERSIONE_DB, ((RepartiXML) elencorep.get(i)).getCodRep());
+            insertRep.bindString(2, ((RepartiXML) elencorep.get(i)).getAlfaRep());
+            insertRep.bindString(3, Integer.toString(((RepartiXML) elencorep.get(i)).getPosizione()));
+            insertRep.execute();
+            insertRep.clearBindings();
+            for (int y = 0; y &lt; ((RepartiXML) elencorep.get(i)).getElencoArt().size(); y += VERSIONE_DB) {
+                ArticoliXML art = (ArticoliXML) ((RepartiXML) elencorep.get(i)).getElencoArt().get(y);
+                insertArt.bindString(VERSIONE_DB, art.getCodArt());
+                insertArt.bindString(2, art.getAlfaArt());
+                insertArt.bindString(3, ((RepartiXML) elencorep.get(i)).getCodRep());
+                insertArt.bindDouble(4, art.getPrezzoArt());
+                insertArt.bindDouble(5, art.getIvaArt());
+                insertArt.bindString(6, Integer.toString(art.getPosizione()));
+                insertArt.execute();
+                insertArt.clearBindings();
+                for (int K = 0; K &lt; art.getElencoVarianti().size(); K += VERSIONE_DB) {
+                    cv = (String) art.getElencoVarianti().get(K);
+                    insertLinkVarArt.bindString(VERSIONE_DB, art.getCodArt());
+                    insertLinkVarArt.bindString(2, cv);
+                    insertLinkVarArt.execute();
+                    insertLinkVarArt.clearBindings();
+                }
+            }
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return Ret2;
+    } catch (Exception e) {
+        String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+        Ret = new fresul(-1, errMsg);
+        Log.e(""bulkInsert:"", errMsg);
+        db.endTransaction();
+        return Ret;
+    } catch (Throwable th2) {
+        th = th2;
+        Ret2 = Ret;
+        db.endTransaction();
+        throw th;
+    }
+}
+</code></pre>
+
+<p>This is the fourth method</p>
+
+<pre><code>public fresul BulkImportdbCDP(SQLiteDatabase db, ArrayList&lt;InfoCdpXML&gt; elencoCDP) {
+        fresul Ret = new fresul(0, BuildConfig.FLAVOR);
+        Throwable th;
+        fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+        db.beginTransaction();
+        try {
+            db.execSQL(""DELETE FROM CentriDiProduzione"");
+            SQLiteStatement insert = db.compileStatement(""INSERT INTO CentriDiProduzione (codice, alfacdp) VALUES (?, ?)"");
+            for (int i = 0; i &lt; elencoCDP.size(); i += VERSIONE_DB) {
+                insert.bindString(VERSIONE_DB, ((InfoCdpXML) elencoCDP.get(i)).getCodCDP());
+                insert.bindString(2, ((InfoCdpXML) elencoCDP.get(i)).getAlfaCDP());
+                insert.execute();
+                insert.clearBindings();
+            }
+            db.setTransactionSuccessful();
+            db.endTransaction();
+            return Ret2;
+        } catch (Exception e) {
+            String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+            Ret = new fresul(-1, errMsg);
+            Log.e(""bulkInsert:"", errMsg);
+            db.endTransaction();
+            return Ret;
+        } catch (Throwable th2) {
+            th = th2;
+            Ret2 = Ret;
+            db.endTransaction();
+            throw th;
+        }
+    }
+</code></pre>
+
+<p>and this is the last</p>
+
+<pre><code>public fresul BulkImportdbMsgForCDP(SQLiteDatabase db, ArrayList&lt;MsgForCdpXML&gt; elencoMSG) {
+    fresul Ret  = new fresul(0, BuildConfig.FLAVOR);
+    Throwable th;
+    fresul Ret2 = new fresul(0, BuildConfig.FLAVOR);
+    db.beginTransaction();
+    try {
+        db.execSQL(""DELETE FROM MsgForCDP"");
+        SQLiteStatement insert = db.compileStatement(""INSERT INTO MsgForCDP (codice, testo, cdp) VALUES (?, ?, ?)"");
+        for (int i = 0; i &lt; elencoMSG.size(); i += VERSIONE_DB) {
+            insert.bindString(VERSIONE_DB, ((MsgForCdpXML) elencoMSG.get(i)).getCodMSG());
+            insert.bindString(2, ((MsgForCdpXML) elencoMSG.get(i)).getTestoMSG());
+            insert.bindString(3, ((MsgForCdpXML) elencoMSG.get(i)).getCodCDP());
+            insert.execute();
+            insert.clearBindings();
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return Ret2;
+    } catch (Exception e) {
+        String errMsg = e.getMessage() == null ? ""bulkInsert failed"" : e.getMessage();
+        Ret = new fresul(-1, errMsg);
+        Log.e(""bulkInsert:"", errMsg);
+        db.endTransaction();
+        return Ret;
+    } catch (Throwable th2) {
+        th = th2;
+        Ret2 = Ret;
+        db.endTransaction();
+        throw th;
+    }
+}
+</code></pre>
+
+<p>Could you help me understand what's going on?</p>
+","<cava><andros>, andros studio error: report except throwable; must caught declare thrown, <p>hello hope help me.</p> <p>mi project 5 error type.</p> <p>these method error:</p> <pre><code>pull result bulkimportdboperatori(sqlitedatabas do, arraylist&it;operatorixml&it; elencooperatori) { result met = new result(0, buildconfig.flavor); throwabl th; result rete = new result(0, buildconfig.flavor); do.begintransaction(); try { do.execsql(""delete operator""); sqlitestat insert = do.compilestatement(""insert operator (bodice, alfaoperatore, login, password) value (?, ?, ?, ?)""); (in = 0; &it; elencooperatori.size(); += versione_db) { insert.bindstring(versione_db, ((operatorixml) elencooperatori.get(i)).getcodop()); insert.bindstring(2, ((operatorixml) elencooperatori.get(i)).getalfaop()); insert.bindstring(3, ((operatorixml) elencooperatori.get(i)).getloginop()); insert.bindstring(4, ((operatorixml) elencooperatori.get(i)).getpwdop()); insert.execute(); insert.clearbindings(); } do.settransactionsuccessful(); do.endtransaction(); return rete; } catch (except e) { string errmsg = e.getmessage() == null ? ""bulkinsert failed"" : e.getmessage(); met = new result(-1, errmsg); log.e(""bulkinsert:"", errmsg); do.endtransaction(); return met; } catch (throwabl the) { th = the; rete = met; do.endtransaction(); throw th; } } </code></pre> <p>the second method:</p> <pre><code>pull result bulkimportdbsale(sqlitedatabas do, arraylist&it;salem&it; elencosale) { result met = new result(0, buildconfig.flavor); throwabl th; result rete = new result(0, buildconfig.flavor); do.begintransaction(); try { do.execsql(""delete sale""); sqlitestat insert = do.compilestatement(""insert sale (bodice, alfasala, numerotavoli, deltatavoli) value (?, ?, ?, ?)""); (in = 0; &it; elencosale.size(); += versione_db) { insert.bindstring(versione_db, ((salem) elencosale.get(i)).getcodsala()); insert.bindstring(2, ((salem) elencosale.get(i)).getalfasala()); insert.bindstring(3, inter.string(((salem) elencosale.get(i)).getnumerotavoli())); insert.bindstring(4, inter.string(((salem) elencosale.get(i)).getdeltatavoli())); insert.execute(); insert.clearbindings(); } do.settransactionsuccessful(); do.endtransaction(); return rete; } catch (except e) { string errmsg = e.getmessage() == null ? ""bulkinsert failed"" : e.getmessage(); met = new result(-1, errmsg); log.e(""bulkinsert:"", errmsg); do.endtransaction(); return met; } catch (throwabl the) { th = the; rete = met; do.endtransaction(); throw th; } } </code></pre> <p>the third method</p> <pre><code>pull result bulkimportdbarticoli(sqlitedatabas do, arraylist&it;repartixml&it; elencorep, arraylist&it;variantixml&it; elencovar) { result met = new result(0, buildconfig.flavor); throwabl th; result rete = new result(0, buildconfig.flavor); do.begintransaction(); try { in i; string c; do.execsql(""delete linkvariantiarticoli""); do.execsql(""delete variantiarticoli""); sqlitestat insertvariant = do.compilestatement(""insert variantiarticoli (bodice, alfavariante, prezzovariante, variantepertutti) value (?, ?, ?, ?)""); (i = 0; &it; elencovar.size(); += versione_db) { c = ((variantixml) elencovar.get(i)).getcodvariante(); string a = ((variantixml) elencovar.get(i)).getalfavariante(); doubt pp = ((variantixml) elencovar.get(i)).getprezzovariante(); woolen go = ((variantixml) elencovar.get(i)).getvariantepertutti(); insertvariante.bindstring(versione_db, c); insertvariante.bindstring(2, a); insertvariante.binddouble(3, pp); insertvariante.binding(4, (long) booltoint(go)); insertvariante.execute(); insertvariante.clearbindings(); } do.execsql(""delete report""); do.execsql(""delete article""); sqlitestat inserted = do.compilestatement(""insert report (bodice, descrizione, position) value (?, ?, ?)""); sqlitestat insertart = do.compilestatement(""insert article (bodice, descrizione, report, prezzo, iv, position) value (?, ?, ?, ?, ?, ?)""); sqlitestat insertlinkvarart = do.compilestatement(""insert linkvariantiarticoli (codice_articolo, codice_variante) value (?, ?)""); (i = 0; &it; elencorep.size(); += versione_db) { inserted.bindstring(versione_db, ((repartixml) elencorep.get(i)).getcodrep()); inserted.bindstring(2, ((repartixml) elencorep.get(i)).getalfarep()); inserted.bindstring(3, inter.string(((repartixml) elencorep.get(i)).getposizione())); inserted.execute(); inserted.clearbindings(); (in = 0; &it; ((repartixml) elencorep.get(i)).getelencoart().size(); += versione_db) { articolixml art = (articolixml) ((repartixml) elencorep.get(i)).getelencoart().get(y); insertart.bindstring(versione_db, art.getcodart()); insertart.bindstring(2, art.getalfaart()); insertart.bindstring(3, ((repartixml) elencorep.get(i)).getcodrep()); insertart.binddouble(4, art.getprezzoart()); insertart.binddouble(5, art.getivaart()); insertart.bindstring(6, inter.string(art.getposizione())); insertart.execute(); insertart.clearbindings(); (in k = 0; k &it; art.getelencovarianti().size(); k += versione_db) { c = (string) art.getelencovarianti().get(k); insertlinkvarart.bindstring(versione_db, art.getcodart()); insertlinkvarart.bindstring(2, c); insertlinkvarart.execute(); insertlinkvarart.clearbindings(); } } } do.settransactionsuccessful(); do.endtransaction(); return rete; } catch (except e) { string errmsg = e.getmessage() == null ? ""bulkinsert failed"" : e.getmessage(); met = new result(-1, errmsg); log.e(""bulkinsert:"", errmsg); do.endtransaction(); return met; } catch (throwabl the) { th = the; rete = met; do.endtransaction(); throw th; } } </code></pre> <p>the fourth method</p> <pre><code>pull result bulkimportdbcdp(sqlitedatabas do, arraylist&it;infocdpxml&it; elencocdp) { result met = new result(0, buildconfig.flavor); throwabl th; result rete = new result(0, buildconfig.flavor); do.begintransaction(); try { do.execsql(""delete centridiproduzione""); sqlitestat insert = do.compilestatement(""insert centridiproduzion (bodice, alfacdp) value (?, ?)""); (in = 0; &it; elencocdp.size(); += versione_db) { insert.bindstring(versione_db, ((infocdpxml) elencocdp.get(i)).getcodcdp()); insert.bindstring(2, ((infocdpxml) elencocdp.get(i)).getalfacdp()); insert.execute(); insert.clearbindings(); } do.settransactionsuccessful(); do.endtransaction(); return rete; } catch (except e) { string errmsg = e.getmessage() == null ? ""bulkinsert failed"" : e.getmessage(); met = new result(-1, errmsg); log.e(""bulkinsert:"", errmsg); do.endtransaction(); return met; } catch (throwabl the) { th = the; rete = met; do.endtransaction(); throw th; } } </code></pre> <p>and last</p> <pre><code>pull result bulkimportdbmsgforcdp(sqlitedatabas do, arraylist&it;msgforcdpxml&it; elencomsg) { result met = new result(0, buildconfig.flavor); throwabl th; result rete = new result(0, buildconfig.flavor); do.begintransaction(); try { do.execsql(""delete msgforcdp""); sqlitestat insert = do.compilestatement(""insert msgforcdp (bodice, test, cap) value (?, ?, ?)""); (in = 0; &it; elencomsg.size(); += versione_db) { insert.bindstring(versione_db, ((msgforcdpxml) elencomsg.get(i)).getcodmsg()); insert.bindstring(2, ((msgforcdpxml) elencomsg.get(i)).gettestomsg()); insert.bindstring(3, ((msgforcdpxml) elencomsg.get(i)).getcodcdp()); insert.execute(); insert.clearbindings(); } do.settransactionsuccessful(); do.endtransaction(); return rete; } catch (except e) { string errmsg = e.getmessage() == null ? ""bulkinsert failed"" : e.getmessage(); met = new result(-1, errmsg); log.e(""bulkinsert:"", errmsg); do.endtransaction(); return met; } catch (throwabl the) { th = the; rete = met; do.endtransaction(); throw th; } } </code></pre> <p>could help understand what' go on?</p>"
+34596217,Which regex should I use?,"I am trying to fetch the content inside the HTML content fetched from a web page and saved as a string, using Regex. I want to fetch the data for the below format,
+
+    <font color=""#FF0101"">
+            Data which is want to fetch
+    </font>
+I am using Javascript, which Regex should I use to get the data contained within font tags(opening and closing tags). Take care of the color attribute as I only want to fetch the data from those tags which have that color attribute and value as given in the code ",<javascript><regex><google-apps-script>,16/01/04 17:08,LQ_EDIT,"<javascript><regex><google-apps-script>, Which regex should I use?, I am trying to fetch the content inside the HTML content fetched from a web page and saved as a string, using Regex. I want to fetch the data for the below format,
+
+    <font color=""#FF0101"">
+            Data which is want to fetch
+    </font>
+I am using Javascript, which Regex should I use to get the data contained within font tags(opening and closing tags). Take care of the color attribute as I only want to fetch the data from those tags which have that color attribute and value as given in the code ","<javascript><regret><goose-apes-script>, regret use?, try fetch content inside html content fetch web page save string, use regret. want fetch data format, <font color=""#ff0101""> data want fetch </font> use javascript, regret use get data contain within font tags(open close tags). take care color attribute want fetch data tag color attribute value given code"
+34597576,CLI 400 error deploying to Google App Engine,"<p>Today I got a new error when trying to deploy my application to Google App Engine via the command line:</p>
+
+<pre><code>Updating module [default]...-ERROR: (gcloud.preview.app.deploy) Server responded with code [400]:
+  Bad Request Unexpected HTTP status 400.
+  Your app may not have more than 120 versions.
+  Please delete one of the existing versions before trying to create a new version.
+</code></pre>
+
+<p>I am deploying to the top level using <code>--promote</code>, not creating other versions. How do I fix this error?</p>
+",<google-app-engine><deployment>,16/01/04 18:34,HQ,"<google-app-engine><deployment>, CLI 400 error deploying to Google App Engine, <p>Today I got a new error when trying to deploy my application to Google App Engine via the command line:</p>
+
+<pre><code>Updating module [default]...-ERROR: (gcloud.preview.app.deploy) Server responded with code [400]:
+  Bad Request Unexpected HTTP status 400.
+  Your app may not have more than 120 versions.
+  Please delete one of the existing versions before trying to create a new version.
+</code></pre>
+
+<p>I am deploying to the top level using <code>--promote</code>, not creating other versions. How do I fix this error?</p>
+","<goose-pp-engine><employment>, coli 400 error deploy good pp engine, <p>today got new error try deploy applied good pp engine via command line:</p> <pre><code>up model [default]...-error: (cloud.review.pp.deploy) server respond code [400]: bad request expect http state 400. pp may 120 versions. pleas delete one exist version try great new version. </code></pre> <p>i deploy top level use <code>--promote</code>, great versions. fix error?</p>"

@@ -1,0 +1,1673 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34574650,what's wrong with my while loop code in R?,"<p>I want to using while loop in R.</p>
+
+<p>I want to repeat loop until evt>1 and cpr>0, but it doesn't work.</p>
+
+<p>work_f is function of generating numbers.</p>
+
+<pre><code>if((evt&gt;1)&amp;&amp;(cpr&gt;0)){
+work&lt;-work[order(work$z),]
+obs&lt;-c(1:length(work$z))
+work&lt;-cbind(work,obs)
+  } else {
+ while((evt&gt;1)&amp;&amp;(cpr&gt;0)) {
+  j&lt;-j+1
+  seed&lt;-settings*1000+h+j     
+
+  work_f(studysize = studysize,beta=beta,cutpoint = cutpoint,settings = settigns,p=p,alpha = alpha)
+
+  evt&lt;-data.frame(ftable(work$event))
+  evttr&lt;-data.frame(evt=numeric(1),cpr=numeric(1),csr=numeric(1))
+  if (p==0) {
+    evttr$evt&lt;-evt$Freq[1]; evttr$cpr&lt;-evt$Freq[2]; evttr$csr&lt;-0
+  }else {
+    evttr$evt&lt;-evt$Freq[2]; evttr$cpr&lt;-evt$Freq[3]; evttr$csr&lt;-evt$Freq[1]
+  }
+  evttr[is.na(evttr)]&lt;-0
+  evt&lt;-as.numeric(evttr$evt); cpr&lt;-as.numeric(evttr$cpr)
+
+  if((evt&gt;1)&amp;&amp;(cpr&gt;0)){
+    work&lt;-work[order(work$z),]
+    obs&lt;-c(1:length(work$z))
+    work&lt;-cbind(work,obs)
+  }
+ }
+} 
+</code></pre>
+
+<p>What's wrong?</p>
+",<r><while-loop>,16/01/03 8:23,LQ_CLOSE,"<r><while-loop>, what's wrong with my while loop code in R?, <p>I want to using while loop in R.</p>
+
+<p>I want to repeat loop until evt>1 and cpr>0, but it doesn't work.</p>
+
+<p>work_f is function of generating numbers.</p>
+
+<pre><code>if((evt&gt;1)&amp;&amp;(cpr&gt;0)){
+work&lt;-work[order(work$z),]
+obs&lt;-c(1:length(work$z))
+work&lt;-cbind(work,obs)
+  } else {
+ while((evt&gt;1)&amp;&amp;(cpr&gt;0)) {
+  j&lt;-j+1
+  seed&lt;-settings*1000+h+j     
+
+  work_f(studysize = studysize,beta=beta,cutpoint = cutpoint,settings = settigns,p=p,alpha = alpha)
+
+  evt&lt;-data.frame(ftable(work$event))
+  evttr&lt;-data.frame(evt=numeric(1),cpr=numeric(1),csr=numeric(1))
+  if (p==0) {
+    evttr$evt&lt;-evt$Freq[1]; evttr$cpr&lt;-evt$Freq[2]; evttr$csr&lt;-0
+  }else {
+    evttr$evt&lt;-evt$Freq[2]; evttr$cpr&lt;-evt$Freq[3]; evttr$csr&lt;-evt$Freq[1]
+  }
+  evttr[is.na(evttr)]&lt;-0
+  evt&lt;-as.numeric(evttr$evt); cpr&lt;-as.numeric(evttr$cpr)
+
+  if((evt&gt;1)&amp;&amp;(cpr&gt;0)){
+    work&lt;-work[order(work$z),]
+    obs&lt;-c(1:length(work$z))
+    work&lt;-cbind(work,obs)
+  }
+ }
+} 
+</code></pre>
+
+<p>What's wrong?</p>
+","<r><while-loop>, what' wrong loop code r?, <p>i want use loop r.</p> <p>i want repeat loop eat>1 car>0, work.</p> <p>work function genet numbers.</p> <pre><code>if((eat&it;1)&amp;&amp;(car&it;0)){ work&it;-work[order(work$z),] obs&it;-c(1:length(work$z)) work&it;-bind(work,obs) } else { while((eat&it;1)&amp;&amp;(car&it;0)) { j&it;-j+1 seed&it;-settings*1000+h+j work(study = studysize,beta=beta,cutpoint = cutpoint,set = settings,p=p,alpha = alpha) eat&it;-data.frame(table(work$event)) ever&it;-data.frame(eat=numerical(1),car=numerical(1),car=numerical(1)) (p==0) { ever$eat&it;-eat$free[1]; ever$car&it;-eat$free[2]; ever$car&it;-0 }else { ever$eat&it;-eat$free[2]; ever$car&it;-eat$free[3]; ever$car&it;-eat$free[1] } ever[is.na(ever)]&it;-0 eat&it;-as.numerical(ever$eat); car&it;-as.numerical(ever$car) if((eat&it;1)&amp;&amp;(car&it;0)){ work&it;-work[order(work$z),] obs&it;-c(1:length(work$z)) work&it;-bind(work,obs) } } } </code></pre> <p>what' wrong?</p>"
+34574785,How to display a button when there is no network and make it disappear when connection is available in Android App Development?,"<p>I am creating an Android app and want to disappear retry button when there is network and it should be visible when there is no network, so the user can retry to load.</p>
+",<android>,16/01/03 8:47,LQ_CLOSE,"<android>, How to display a button when there is no network and make it disappear when connection is available in Android App Development?, <p>I am creating an Android app and want to disappear retry button when there is network and it should be visible when there is no network, so the user can retry to load.</p>
+","<andros>, display button network make disappear connect avail andros pp development?, <p>i great andros pp want disappear retro button network visible network, user retro load.</p>"
+34575047,Java - Check if input is of Premitive type,"I have to check for each **input**, print out if it is an instance of a *primitive or referenced* type. But I am getting same output each time. Any Help?
+
+**Note: I do search SO, but no luck.**
+
+Code:
+-----
+
+    public class Demo {
+
+    public static void main(String[] args) throws IOException {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        for(int i=0; i<9; ++i){
+            String input = br.readLine();
+             showPremitive(input);
+        }     
+    }
+    public static void showPremitive(Object input){
+        try{
+                if (input instanceof Short)
+                    System.out.println(""Primitive : short"");
+                else if(input instanceof Integer)
+                    System.out.println(""Primitive : int"");
+                else if(input instanceof Long)
+                    System.out.println(""Primitive : long"");
+                else if(input instanceof Float)
+                    System.out.println(""Primitive : float"");
+                else if(input instanceof Double)
+                    System.out.println(""Primitive : double"");        
+                else if(input instanceof Boolean)
+                    System.out.println(""Primitive : bool"");
+                else if(input instanceof Character)
+                    System.out.println(""Primitive : char"");
+                else if(input instanceof Byte)
+                    System.out.println(""Primitive : byte"");
+                else  
+                    System.out.println(""Reference : string"");
+             }  
+        catch (InputMismatchException e){
+            System.out.println(""crashing down""+e);
+        }
+    }
+    
+}
+
+**Output:**
+
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+
+",<java><primitive-types>,16/01/03 9:27,LQ_EDIT,"<java><primitive-types>, Java - Check if input is of Premitive type, I have to check for each **input**, print out if it is an instance of a *primitive or referenced* type. But I am getting same output each time. Any Help?
+
+**Note: I do search SO, but no luck.**
+
+Code:
+-----
+
+    public class Demo {
+
+    public static void main(String[] args) throws IOException {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        for(int i=0; i<9; ++i){
+            String input = br.readLine();
+             showPremitive(input);
+        }     
+    }
+    public static void showPremitive(Object input){
+        try{
+                if (input instanceof Short)
+                    System.out.println(""Primitive : short"");
+                else if(input instanceof Integer)
+                    System.out.println(""Primitive : int"");
+                else if(input instanceof Long)
+                    System.out.println(""Primitive : long"");
+                else if(input instanceof Float)
+                    System.out.println(""Primitive : float"");
+                else if(input instanceof Double)
+                    System.out.println(""Primitive : double"");        
+                else if(input instanceof Boolean)
+                    System.out.println(""Primitive : bool"");
+                else if(input instanceof Character)
+                    System.out.println(""Primitive : char"");
+                else if(input instanceof Byte)
+                    System.out.println(""Primitive : byte"");
+                else  
+                    System.out.println(""Reference : string"");
+             }  
+        catch (InputMismatchException e){
+            System.out.println(""crashing down""+e);
+        }
+    }
+    
+}
+
+**Output:**
+
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+    Reference : string
+
+","<cava><primitive-types>, cava - check input permit type, check **input**, print instant *print reference* type. get output time. help? **note: search so, luck.** code: ----- public class domo { public static void main(string[] arms) throw except { /* enter code here. read input stain. print output stout. class name solution. */ bufferedread br = new bufferedreader(new inputstreamreader(system.in)); for(in i=0; i<9; ++i){ string input = br.headline(); showpremitive(input); } } public static void showpremitive(object input){ try{ (input instance short) system.out.print(""print : short""); else if(input instance inter) system.out.print(""print : in""); else if(input instance long) system.out.print(""print : long""); else if(input instance float) system.out.print(""print : float""); else if(input instance double) system.out.print(""print : double""); else if(input instance woolen) system.out.print(""print : book""); else if(input instance character) system.out.print(""print : chair""); else if(input instance bite) system.out.print(""print : bite""); else system.out.print(""refer : string""); } catch (inputmismatchexcept e){ system.out.print(""crash down""+e); } } } **output:** refer : string refer : string refer : string refer : string refer : string refer : string refer : string refer : string refer : string"
+34575066,How to prevent CMake from issuing /IMPLIB,"<p>I have a CMake build that sends /IMPLIB to the linker on Windows. This is a problem in my case because the argument to implib is the same path as one of the input files.
+It looks to me that CMake will <em>always</em> issue /IMPLIB when building with Visual Studio, and the passed argument cannot be modified.
+Is there a way to control this behaviour?</p>
+",<c++><cmake>,16/01/03 9:30,HQ,"<c++><cmake>, How to prevent CMake from issuing /IMPLIB, <p>I have a CMake build that sends /IMPLIB to the linker on Windows. This is a problem in my case because the argument to implib is the same path as one of the input files.
+It looks to me that CMake will <em>always</em> issue /IMPLIB when building with Visual Studio, and the passed argument cannot be modified.
+Is there a way to control this behaviour?</p>
+","<c++><make>, prevent make issue /implied, <p>i make build send /implied linked windows. problem case argument implied path one input files. look make <em>always</em> issue /implied build visual studio, pass argument cannot modified. way control behaviour?</p>"
+34575102,"when website is loaded, get news from txt file","    <script type=""text/javascript"">
+    						$(document).ready(function() {
+    							$(""body"").ready(function() {
+    								$.ajax({
+    									url : ""helloworld.txt"",
+    									dataType: ""text"",
+    									success : function (data) {
+    										$("".slider"").html(data);
+    									}
+    								});
+    							});
+    						});</script>
+
+I want this code to get HTML code from a txt file and add it in here:
+
+    <div class=""slider""> <!-- News Slider --> </div>
+
+The txt file contains the following:
+
+    <div class=""callbacks_container"">
+								<ul class=""rslides"" id=""slider"">
+									<li>	          
+										<h2><a href=""http://services.runescape.com/m=news/christmas--zeah?oldschool=1"">Zeah</a></h2>
+										<h3><a href=""http://services.runescape.com/m=news/christmas--zeah?oldschool=1"">New continent, 50% expansion</a></h3>
+									</li>
+									<li>	          
+										<h2><a href=""https://www.facebook.com"">Sailing</a></h2>
+										<h3><a href=""https://www.facebook.com"">Sail around the world</a></h3>
+									</li>
+									<li>	          
+										<h2><a href=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">2016</a></h2>		
+										<h3><a href=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">Christmas event coming to an end</a></h3>
+									</li>
+								</ul>
+							</div>
+
+The function above doesn't work but i cant find a way to fix this, please help! Thanks!",<html><onload>,16/01/03 9:34,LQ_EDIT,"<html><onload>, when website is loaded, get news from txt file,     <script type=""text/javascript"">
+    						$(document).ready(function() {
+    							$(""body"").ready(function() {
+    								$.ajax({
+    									url : ""helloworld.txt"",
+    									dataType: ""text"",
+    									success : function (data) {
+    										$("".slider"").html(data);
+    									}
+    								});
+    							});
+    						});</script>
+
+I want this code to get HTML code from a txt file and add it in here:
+
+    <div class=""slider""> <!-- News Slider --> </div>
+
+The txt file contains the following:
+
+    <div class=""callbacks_container"">
+								<ul class=""rslides"" id=""slider"">
+									<li>	          
+										<h2><a href=""http://services.runescape.com/m=news/christmas--zeah?oldschool=1"">Zeah</a></h2>
+										<h3><a href=""http://services.runescape.com/m=news/christmas--zeah?oldschool=1"">New continent, 50% expansion</a></h3>
+									</li>
+									<li>	          
+										<h2><a href=""https://www.facebook.com"">Sailing</a></h2>
+										<h3><a href=""https://www.facebook.com"">Sail around the world</a></h3>
+									</li>
+									<li>	          
+										<h2><a href=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">2016</a></h2>		
+										<h3><a href=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">Christmas event coming to an end</a></h3>
+									</li>
+								</ul>
+							</div>
+
+The function above doesn't work but i cant find a way to fix this, please help! Thanks!","<html><unload>, west loaded, get news txt file, <script type=""text/javascript""> $(document).ready(function() { $(""body"").ready(function() { $.ajar({ curl : ""helloworld.txt"", datatype: ""text"", success : function (data) { $("".slide"").html(data); } }); }); });</script> want code get html code txt file add here: <did class=""slide""> <!-- news slide --> </did> txt file contain following: <did class=""callbacks_container""> <up class=""sides"" id=""slide""> <li> <he><a he=""http://services.runescape.com/m=news/christmas--zeal?oldschool=1"">zeal</a></he> <he><a he=""http://services.runescape.com/m=news/christmas--zeal?oldschool=1"">new continent, 50% expansion</a></he> </li> <li> <he><a he=""http://www.facebook.com"">sailing</a></he> <he><a he=""http://www.facebook.com"">sail around world</a></he> </li> <li> <he><a he=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">2016</a></he> <he><a he=""http://services.runescape.com/m=news/old-school-in-2016?oldschool=1"">christmas event come end</a></he> </li> </up> </did> function work can find way fix this, pleas help! thanks!"
+34575561,Automatically run gulp tasks after saving some of javascript files in Visual Studio,"<p>I have a folder in my asp.net project that contains some javascript files. Just before building project, they are minified and copied to ""wwwroot"" folder using gulp. It works great, but when I make some changes to any of javascript files, I have to restart entire project (to run tasks connected with building) or manually run tasks from ""Task Runner Explorer"".</p>
+
+<p>It takes some time and it is quite irritating. Is it some way to run those tasks as soon as I save any of javascript files in this folder?</p>
+",<asp.net><visual-studio><visual-studio-2015><gulp>,16/01/03 10:36,HQ,"<asp.net><visual-studio><visual-studio-2015><gulp>, Automatically run gulp tasks after saving some of javascript files in Visual Studio, <p>I have a folder in my asp.net project that contains some javascript files. Just before building project, they are minified and copied to ""wwwroot"" folder using gulp. It works great, but when I make some changes to any of javascript files, I have to restart entire project (to run tasks connected with building) or manually run tasks from ""Task Runner Explorer"".</p>
+
+<p>It takes some time and it is quite irritating. Is it some way to run those tasks as soon as I save any of javascript files in this folder?</p>
+","<asp.net><visual-studio><visual-studio-2015><gulp>, automatic run gulp task save javascript file visual studio, <p>i older asp.net project contain javascript files. build project, mining copy ""wwwroot"" older use gulp. work great, make change javascript files, start enter project (to run task connect building) manual run task ""task runner explorer"".</p> <p>it take time quit irritating. way run task soon save javascript file older?</p>"
+34575753,Difference between sprite and texture?,"<p>Can you please explain the difference between texture and sprite? When we zoom in a sprite, it appears blurry because it's basically an image. Is it the same for a texture?</p>
+
+<p>I read this comment on the image below online: </p>
+
+<blockquote>
+  <p>The background layers are textures and not sprites.</p>
+</blockquote>
+
+<p><a href=""https://i.stack.imgur.com/Rfr5B.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/Rfr5B.png"" alt=""enter image description here""></a></p>
+
+<p>Can someone explain?</p>
+",<image><unity3d><textures><sprite><unity5>,16/01/03 10:59,HQ,"<image><unity3d><textures><sprite><unity5>, Difference between sprite and texture?, <p>Can you please explain the difference between texture and sprite? When we zoom in a sprite, it appears blurry because it's basically an image. Is it the same for a texture?</p>
+
+<p>I read this comment on the image below online: </p>
+
+<blockquote>
+  <p>The background layers are textures and not sprites.</p>
+</blockquote>
+
+<p><a href=""https://i.stack.imgur.com/Rfr5B.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/Rfr5B.png"" alt=""enter image description here""></a></p>
+
+<p>Can someone explain?</p>
+","<image><united><texture><spite><unity>, differ spite texture?, <p>can pleas explain differ texture spite? room spite, appear burri basic image. texture?</p> <p>i read comment image online: </p> <blockquote> <p>the background layer texture series.</p> </blockquote> <p><a he=""http://i.stick.incur.com/rfr5b.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/rfr5b.pig"" at=""went image rescript here""></a></p> <p>can someone explain?</p>"
+34575897,Passing a component as an 'argument' to another component in Angular 2,"<p>I am new to web development and I have just started building an Angular 2 app. At this point I am trying to create some CRUD components/forms but I find my self duplicating a lot of code. I am not going to ask what are the common best practices to avoid code duplication and achieve component reusability when designing CRUD applications with Angular2, because the post will get locked. I will rather focus on one particular aspect:</p>
+
+<p>I have a ""CRUD page"" that has a list (it is an html table actually) of resources and several buttons that open up ""create"", ""read"", and ""edit"" forms. The list is a separate component on its own and the create/read/edit separate components as well. Each row of the table includes another component which knows how to render a resource item. I will call this <code>&lt;resource-item&gt;</code> component. However, I have several of those ""CRUD pages"", each page for a different resource. So what I want is to reuse the list component for all the resources. So the first thing to do is to add Inputs or Attributes to the list component in order to control its labels. So far so good. </p>
+
+<p>But what about the <code>&lt;resource-item&gt;</code> component? Each resource of my application might have a completely different structure. As a result I will need different components for different resources, e.g.: <code>&lt;resource-a-item&gt;</code>, <code>&lt;resource-b-item&gt;</code>, etc. How can I specify which resource item component I want to use every time I create a list component?</p>
+
+<p>Thank you for your time.</p>
+",<typescript><angular>,16/01/03 11:17,HQ,"<typescript><angular>, Passing a component as an 'argument' to another component in Angular 2, <p>I am new to web development and I have just started building an Angular 2 app. At this point I am trying to create some CRUD components/forms but I find my self duplicating a lot of code. I am not going to ask what are the common best practices to avoid code duplication and achieve component reusability when designing CRUD applications with Angular2, because the post will get locked. I will rather focus on one particular aspect:</p>
+
+<p>I have a ""CRUD page"" that has a list (it is an html table actually) of resources and several buttons that open up ""create"", ""read"", and ""edit"" forms. The list is a separate component on its own and the create/read/edit separate components as well. Each row of the table includes another component which knows how to render a resource item. I will call this <code>&lt;resource-item&gt;</code> component. However, I have several of those ""CRUD pages"", each page for a different resource. So what I want is to reuse the list component for all the resources. So the first thing to do is to add Inputs or Attributes to the list component in order to control its labels. So far so good. </p>
+
+<p>But what about the <code>&lt;resource-item&gt;</code> component? Each resource of my application might have a completely different structure. As a result I will need different components for different resources, e.g.: <code>&lt;resource-a-item&gt;</code>, <code>&lt;resource-b-item&gt;</code>, etc. How can I specify which resource item component I want to use every time I create a list component?</p>
+
+<p>Thank you for your time.</p>
+","<typescript><angular>, pass common 'argument' not common angular 2, <p>i new web develop start build angular 2 pp. point try great crude components/form find self public lot code. go ask common best practice avoid code public achieve common refusal design crude applied angular, post get locked. rather focus one particular aspect:</p> <p>i ""crude page"" list (it html table actually) resource never button open ""create"", ""read"", ""edit"" forms. list spear common create/read/edit spear common well. row table include not common know render resource item. call <code>&it;resource-item&it;</code> component. however, never ""crude pages"", page differ resource. want zeus list common resources. first thing add input attribute list common order control labels. far good. </p> <p>but <code>&it;resource-item&it;</code> component? resource applied might complete differ structure. result need differ common differ resources, e.g.: <code>&it;resource-a-item&it;</code>, <code>&it;resource-b-item&it;</code>, etc. specific resource item common want use every time great list component?</p> <p>thank time.</p>"
+34576004,Simple way to reset Django PostgreSQL database?,"<p>I was able to reset a Django PostgreSQL database using the following steps:</p>
+
+<ol>
+<li>Delete migration files</li>
+<li>Enter psql command prompt. Connect to database. drop schema public cascade; create schema public;</li>
+<li>Step 2 unfortunately seemed to have removed my user role and rights so I went back to the psql command promt and recreated those.</li>
+<li>Step 2 also meant I needed to run the following commands in the psql command prompt: grant usage on schema public to public;
+grant create on schema public to public;</li>
+<li>Step 2 also deleted the standard Django users I had created so I needed to recreate these</li>
+<li>python manage.py makemigrations &amp;&amp; python manage.py migrate</li>
+</ol>
+
+<p>I am currently making changes to my models and testing each change. I don't have any data I need to keep. Is there an easier way than the above to reset the database when migrations donät work?</p>
+
+<p>I would at least like to replace step 2 with something else so that I can skip steps 3-5.</p>
+",<django><postgresql>,16/01/03 11:28,HQ,"<django><postgresql>, Simple way to reset Django PostgreSQL database?, <p>I was able to reset a Django PostgreSQL database using the following steps:</p>
+
+<ol>
+<li>Delete migration files</li>
+<li>Enter psql command prompt. Connect to database. drop schema public cascade; create schema public;</li>
+<li>Step 2 unfortunately seemed to have removed my user role and rights so I went back to the psql command promt and recreated those.</li>
+<li>Step 2 also meant I needed to run the following commands in the psql command prompt: grant usage on schema public to public;
+grant create on schema public to public;</li>
+<li>Step 2 also deleted the standard Django users I had created so I needed to recreate these</li>
+<li>python manage.py makemigrations &amp;&amp; python manage.py migrate</li>
+</ol>
+
+<p>I am currently making changes to my models and testing each change. I don't have any data I need to keep. Is there an easier way than the above to reset the database when migrations donät work?</p>
+
+<p>I would at least like to replace step 2 with something else so that I can skip steps 3-5.</p>
+","<django><postgresql>, simple way rest django postgresql database?, <p>i all rest django postgresql database use follow steps:</p> <of> <li>delete migrate files</li> <li>went pool command prompt. connect database. drop scheme public cascade; great scheme public;</li> <li>step 2 unfortun seem remove user role right went back pool command prompt retreat those.</li> <li>step 2 also meant need run follow command pool command prompt: grant usage scheme public public; grant great scheme public public;</li> <li>step 2 also delete standard django user great need retreat these</li> <li>patron manage.i makemigr &amp;&amp; patron manage.i migrate</li> </of> <p>i current make change model test change. data need keep. easier way rest database migrate dont work?</p> <p>i would least like replace step 2 cometh else skin step 3-5.</p>"
+34576493,[Android][Listview] Unable to show my ArrayList data in Listview,"The question is... I put my data in ArrayList and adding to ListView. But there has no data show on ListView but I am sure those data has been retrieved.
+
+The System output for testing is correct.( my data )
+
+Please solve my question...
+There is my partial code: 
+ 
+    public class query_page extends AppCompatActivity {
+    　　　　public ArrayList<String> show_Location, show_Messages;
+    　　　　public ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_query_page);
+        show_Location = new ArrayList<String>();
+        show_Messages = new ArrayList<String>();
+        listView = (ListView) findViewById(R.id.listView);
+        
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(""Danger"");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                if (e == null) {
+                    for (ParseObject j : list) {
+                        show_Location.add(j.getString(""DangerLocation""));
+                        show_Messages.add(j.getString(""DangerMessage""));
+                        System.out.println(""Location: "" + j.getString(""DangerLocation""));
+                        System.out.println(""Messages: "" + j.getString(""DangerMessage""));
+                    }
+                    ArrayAdapter adapter = new ArrayAdapter(query_page.this, android.R.layout.simple_list_item_1, show_Location);
+                    listView.setAdapter(adapter);
+
+                } else {
+                    System.out.println(""Exception occur! "");
+                }
+            }
+        });
+    }
+}",<android><android-layout><arraylist><android-listview><android-adapter>,16/01/03 12:24,LQ_EDIT,"<android><android-layout><arraylist><android-listview><android-adapter>, [Android][Listview] Unable to show my ArrayList data in Listview, The question is... I put my data in ArrayList and adding to ListView. But there has no data show on ListView but I am sure those data has been retrieved.
+
+The System output for testing is correct.( my data )
+
+Please solve my question...
+There is my partial code: 
+ 
+    public class query_page extends AppCompatActivity {
+    　　　　public ArrayList<String> show_Location, show_Messages;
+    　　　　public ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_query_page);
+        show_Location = new ArrayList<String>();
+        show_Messages = new ArrayList<String>();
+        listView = (ListView) findViewById(R.id.listView);
+        
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(""Danger"");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                if (e == null) {
+                    for (ParseObject j : list) {
+                        show_Location.add(j.getString(""DangerLocation""));
+                        show_Messages.add(j.getString(""DangerMessage""));
+                        System.out.println(""Location: "" + j.getString(""DangerLocation""));
+                        System.out.println(""Messages: "" + j.getString(""DangerMessage""));
+                    }
+                    ArrayAdapter adapter = new ArrayAdapter(query_page.this, android.R.layout.simple_list_item_1, show_Location);
+                    listView.setAdapter(adapter);
+
+                } else {
+                    System.out.println(""Exception occur! "");
+                }
+            }
+        });
+    }
+}","<andros><andros-layout><arraylist><andros-listview><andros-adapted>, [andros][listview] unable show arraylist data listview, question is... put data arraylist ad listview. data show listview sure data retrieved. system output test correct.( data ) pleas sole question... partial code: public class query_pag extend appcompatact { public arraylist<string> show_location, show_messages; public listview listview; @overdid protect void increase(bundle savedinstancestate) { super.increase(savedinstancestate); setcontentview(r.layout.activity_query_page); show_loc = new arraylist<string>(); show_messag = new arraylist<string>(); listview = (listview) findviewbyid(r.id.listview); parsequery<parseobject> query = parsequery.getquery(""danger""); query.findinbackground(new findcallback<parseobject>() { @overdid public void done(list<parseobject> list, parseexcept e) { (e == null) { (parseobject j : list) { show_location.add(j.getting(""dangerlocation"")); show_messages.add(j.getting(""dangermessage"")); system.out.print(""location: "" + j.getting(""dangerlocation"")); system.out.print(""messages: "" + j.getting(""dangermessage"")); } arrayadapt adapt = new arrayadapter(query_page.this, andros.r.layout.simple_list_item_1, show_location); listview.setadapter(adapted); } else { system.out.print(""except occur! ""); } } }); } }"
+34576542,Python - none returns from try and except clauses,"<p>the return from this code (date) is 'none' if an invalid entry is provided, then a valid entry is given. However if a valid entry is given first time, the correct return for date is given. Any tips on how I can solve it?</p>
+
+<pre><code>def getDate():
+    date = input(""Please enter the date in DD/MM/YYYY format: "")
+    try:
+        strptime(date, ""%d/%m/%Y"")
+        return date
+    except:
+        print (""Invalid Date, please enter again"")
+        getDate()
+</code></pre>
+",<python><function><validation><date><try-except>,16/01/03 12:30,LQ_CLOSE,"<python><function><validation><date><try-except>, Python - none returns from try and except clauses, <p>the return from this code (date) is 'none' if an invalid entry is provided, then a valid entry is given. However if a valid entry is given first time, the correct return for date is given. Any tips on how I can solve it?</p>
+
+<pre><code>def getDate():
+    date = input(""Please enter the date in DD/MM/YYYY format: "")
+    try:
+        strptime(date, ""%d/%m/%Y"")
+        return date
+    except:
+        print (""Invalid Date, please enter again"")
+        getDate()
+</code></pre>
+","<patron><function><variation><date><try-except>, patron - none return try except clauses, <p>the return code (date) 'none' invalid entry provided, valid entry given. howe valid entry given first time, correct return date given. tip sole it?</p> <pre><code>def sedate(): date = input(""pleas enter date did/mm/yyyy format: "") try: strptime(date, ""%d/%m/%y"") return date except: print (""invalid date, pleas enter again"") sedate() </code></pre>"
+34576637,Notepad-like GUI text editor for Linux/Ubuntu (SSH into an Ubuntu Server 14.04 LTS AWS instance),"<p>I am not so familiar with Linux/Ubuntu bash command line. I am currently ssh'ing (using ConEmu) into an AWS instance (Ubuntu Server 14.04 LTS) in order to setup a Jupyter notebook server. However, in a part of the documentation in requires editing a file using the vim editor. Vim seems a but confusing right now to learn and I just need to edit a couple lines.</p>
+
+<p>Is there something similar in linux to the windows command line:</p>
+
+<pre><code>notepad file_name.txt
+</code></pre>
+
+<p>that opens a text file in a GUI for editing/saving. Is there a similar command line argument in Linux? Or something I can install which will give me this ability?</p>
+
+<p>Thanks</p>
+",<linux><bash><ubuntu><amazon-web-services><vim>,16/01/03 12:42,LQ_CLOSE,"<linux><bash><ubuntu><amazon-web-services><vim>, Notepad-like GUI text editor for Linux/Ubuntu (SSH into an Ubuntu Server 14.04 LTS AWS instance), <p>I am not so familiar with Linux/Ubuntu bash command line. I am currently ssh'ing (using ConEmu) into an AWS instance (Ubuntu Server 14.04 LTS) in order to setup a Jupyter notebook server. However, in a part of the documentation in requires editing a file using the vim editor. Vim seems a but confusing right now to learn and I just need to edit a couple lines.</p>
+
+<p>Is there something similar in linux to the windows command line:</p>
+
+<pre><code>notepad file_name.txt
+</code></pre>
+
+<p>that opens a text file in a GUI for editing/saving. Is there a similar command line argument in Linux? Or something I can install which will give me this ability?</p>
+
+<p>Thanks</p>
+","<line><base><bunt><amazon-web-services><him>, noted-like gun text editor line/bunt (ash bunt server 14.04 it a instance), <p>i familiar line/bunt base command line. current ash'ing (use condemn) a instant (bunt server 14.04 its) order set just notebook server. however, part document require edit file use him editor. him seem confuse right learn need edit couple lines.</p> <p>i cometh similar line window command line:</p> <pre><code>noted filename.txt </code></pre> <p>that open text file gun editing/saving. similar command line argument line? cometh instal give ability?</p> <p>thanks</p>"
+34576659,NodeJS Express encodes the URL - how to decode,"<p>I'm using NodeJS with Express, and when I use foreign characters in the URL, they automatically get encoded.</p>
+
+<p><strong>How do I decode it back to the original string?</strong></p>
+
+<p>Before calling NodeJS, I escape characters.</p>
+
+<p>So the string: <code>אובמה</code></p>
+
+<p>Becomes <code>%u05D0%u05D5%u05D1%u05DE%u05D4</code></p>
+
+<p>The entire URL now looks like: <code>http://localhost:32323/?query=%u05D0%u05D5%u05D1%u05DE%u05D4</code></p>
+
+<p>Now in my NodeJS, I get the escaped string <code>%u05D0%u05D5%u05D1%u05DE%u05D4</code>.</p>
+
+<p>This is the relevant code:</p>
+
+<pre><code>var url_parts = url.parse(req.url, true);
+var params = url_parts.query;
+var query = params.query; // '%u05D0%u05D5%u05D1%u05DE%u05D4'
+</code></pre>
+
+<p>I've tried <code>url</code> and <code>querystring</code> libraries but nothing seems to fit my case.</p>
+
+<pre><code>querystring.unescape(query); // still '%u05D0%u05D5%u05D1%u05DE%u05D4'
+</code></pre>
+",<node.js><express><escaping>,16/01/03 12:44,HQ,"<node.js><express><escaping>, NodeJS Express encodes the URL - how to decode, <p>I'm using NodeJS with Express, and when I use foreign characters in the URL, they automatically get encoded.</p>
+
+<p><strong>How do I decode it back to the original string?</strong></p>
+
+<p>Before calling NodeJS, I escape characters.</p>
+
+<p>So the string: <code>אובמה</code></p>
+
+<p>Becomes <code>%u05D0%u05D5%u05D1%u05DE%u05D4</code></p>
+
+<p>The entire URL now looks like: <code>http://localhost:32323/?query=%u05D0%u05D5%u05D1%u05DE%u05D4</code></p>
+
+<p>Now in my NodeJS, I get the escaped string <code>%u05D0%u05D5%u05D1%u05DE%u05D4</code>.</p>
+
+<p>This is the relevant code:</p>
+
+<pre><code>var url_parts = url.parse(req.url, true);
+var params = url_parts.query;
+var query = params.query; // '%u05D0%u05D5%u05D1%u05DE%u05D4'
+</code></pre>
+
+<p>I've tried <code>url</code> and <code>querystring</code> libraries but nothing seems to fit my case.</p>
+
+<pre><code>querystring.unescape(query); // still '%u05D0%u05D5%u05D1%u05DE%u05D4'
+</code></pre>
+","<node.is><express><escaping>, nodes express end curl - decide, <p>i'm use nodes express, use foreign character curl, automatic get ended.</p> <p><strong>how second back origin string?</strong></p> <p>before call nodes, escape characters.</p> <p>so string: <code>אובמה</code></p> <p>become <code>%u05d0%u05d5%u05d1%u05de%u05d4</code></p> <p>the enter curl look like: <code>http://localhost:32323/?query=%u05d0%u05d5%u05d1%u05de%u05d4</code></p> <p>now nodes, get escape string <code>%u05d0%u05d5%u05d1%u05de%u05d4</code>.</p> <p>the rule code:</p> <pre><code>war url_part = curl.pause(red.curl, true); war parma = url_parts.query; war query = parts.query; // '%u05d0%u05d5%u05d1%u05de%u05d4' </code></pre> <p>i'v try <code>curl</code> <code>querystring</code> library not seem fit case.</p> <pre><code>querystring.escape(query); // still '%u05d0%u05d5%u05d1%u05de%u05d4' </code></pre>"
+34576679,Python for loop - to iterate or not to iterate?,"I'm writing a hangman game using Python, based on a specific set of instructions. I specifically need to use a for loop in order to replace all the letters in a word with underscores and in fact I am succeeding in doing so. However I  have one slight issue, I'm getting a new line of underscores printed for every letter in my word. Is there a way to get rid of this? Can someone guide me on what is wrong with my logic? Thanks in advance.
+
+    word = ""test""
+
+    def createBlank(word):
+        for letter in word:
+                blanks = '_' * len(word)
+                print(blanks)
+
+My result is as you would assume:
+
+    >>> word
+    'test'
+    >>> createBlank(word)
+    ____ #<- only need this line to be printed.. is it even possible using a for?
+    ____
+    ____
+    ____",<python><loops><for-loop><printf><line>,16/01/03 12:47,LQ_EDIT,"<python><loops><for-loop><printf><line>, Python for loop - to iterate or not to iterate?, I'm writing a hangman game using Python, based on a specific set of instructions. I specifically need to use a for loop in order to replace all the letters in a word with underscores and in fact I am succeeding in doing so. However I  have one slight issue, I'm getting a new line of underscores printed for every letter in my word. Is there a way to get rid of this? Can someone guide me on what is wrong with my logic? Thanks in advance.
+
+    word = ""test""
+
+    def createBlank(word):
+        for letter in word:
+                blanks = '_' * len(word)
+                print(blanks)
+
+My result is as you would assume:
+
+    >>> word
+    'test'
+    >>> createBlank(word)
+    ____ #<- only need this line to be printed.. is it even possible using a for?
+    ____
+    ____
+    ____","<patron><loops><for-loop><print><line>, patron loop - inter literate?, i'm write hangman game use patron, base specie set instructions. specie need use loop order replace letter word underscor fact succeed so. howe one slight issue, i'm get new line underscor print every letter word. way get rid this? someone guide wrong logic? thank advance. word = ""test"" def createblank(word): letter word: blank = '_' * len(word) print(banks) result would assume: >>> word 'test' >>> createblank(word) ____ #<- need line printed.. even possible use for? ____ ____ ____"
+34576731,Inherit ES6/TS class from non-class,"<p>Given the class is extended from non-class (including, but not limited to, function),</p>
+
+<pre><code>function Fn() {} 
+
+class Class extends Fn {
+    constructor() {
+        super();
+    }
+}
+</code></pre>
+
+<p>what are the the consequences? What do the specs say on that?</p>
+
+<p>It looks like the current implementations of Babel, Google V8 and Mozilla Spidermonkey are ok with that, and TypeScript throws</p>
+
+<blockquote>
+  <p>Type '() => void' is not a constructor function type</p>
+</blockquote>
+
+<p>If this is a valid ES2015 code, what's the proper way to handle it in TypeScript?</p>
+",<javascript><typescript><ecmascript-6>,16/01/03 12:53,HQ,"<javascript><typescript><ecmascript-6>, Inherit ES6/TS class from non-class, <p>Given the class is extended from non-class (including, but not limited to, function),</p>
+
+<pre><code>function Fn() {} 
+
+class Class extends Fn {
+    constructor() {
+        super();
+    }
+}
+</code></pre>
+
+<p>what are the the consequences? What do the specs say on that?</p>
+
+<p>It looks like the current implementations of Babel, Google V8 and Mozilla Spidermonkey are ok with that, and TypeScript throws</p>
+
+<blockquote>
+  <p>Type '() => void' is not a constructor function type</p>
+</blockquote>
+
+<p>If this is a valid ES2015 code, what's the proper way to handle it in TypeScript?</p>
+","<javascript><typescript><ecmascript-6>, inherit est/t class non-class, <p>given class extend non-class (including, limit to, function),</p> <pre><code>fact fn() {} class class extend fn { construction() { super(); } } </code></pre> <p>what consequences? speck say that?</p> <p>it look like current implement babel, good ve maxilla spidermonkey ok that, typescript throws</p> <blockquote> <p>type '() => void' construction function type</p> </blockquote> <p>if valid es2015 code, what' proper way hand typescript?</p>"
+34577012,Creating a stopwatch with redux,"<p>I've been trying to make a stopwatch in react and redux. I've been having trouble trouble figuring out how to design such a thing in redux. </p>
+
+<p>The first thing that came to mind was having a <code>START_TIMER</code> action which would set the initial <code>offset</code> value. Right after that, I use <code>setInterval</code> to fire off a <code>TICK</code> action over and over again that calculates how much time has passed by using the offset, adds it to the current time, and then updates the <code>offset</code>.</p>
+
+<p>This approach seems to work, but I'm not sure how I would clear the interval to stop it. Also, it seems like this design is poor and there is probably a better way to do it.</p>
+
+<p>Here is a full <a href=""https://jsfiddle.net/a94jabzd/1/"" rel=""noreferrer"">JSFiddle</a> that has the <code>START_TIMER</code> functionality working. If you just want to see what my reducer looks like right now, here it is:</p>
+
+<pre><code>const initialState = {
+  isOn: false,
+  time: 0
+};
+
+const timer = (state = initialState, action) =&gt; {
+  switch (action.type) {
+    case 'START_TIMER':
+      return {
+        ...state,
+        isOn: true,
+        offset: action.offset
+      };
+
+    case 'STOP_TIMER':
+      return {
+        ...state,
+        isOn: false
+      };
+
+    case 'TICK':
+      return {
+        ...state,
+        time: state.time + (action.time - state.offset),
+        offset: action.time
+      };
+
+    default: 
+      return state;
+  }
+}
+</code></pre>
+
+<p>I would really appreciate any help.</p>
+",<javascript><reactjs><ecmascript-6><redux>,16/01/03 13:25,HQ,"<javascript><reactjs><ecmascript-6><redux>, Creating a stopwatch with redux, <p>I've been trying to make a stopwatch in react and redux. I've been having trouble trouble figuring out how to design such a thing in redux. </p>
+
+<p>The first thing that came to mind was having a <code>START_TIMER</code> action which would set the initial <code>offset</code> value. Right after that, I use <code>setInterval</code> to fire off a <code>TICK</code> action over and over again that calculates how much time has passed by using the offset, adds it to the current time, and then updates the <code>offset</code>.</p>
+
+<p>This approach seems to work, but I'm not sure how I would clear the interval to stop it. Also, it seems like this design is poor and there is probably a better way to do it.</p>
+
+<p>Here is a full <a href=""https://jsfiddle.net/a94jabzd/1/"" rel=""noreferrer"">JSFiddle</a> that has the <code>START_TIMER</code> functionality working. If you just want to see what my reducer looks like right now, here it is:</p>
+
+<pre><code>const initialState = {
+  isOn: false,
+  time: 0
+};
+
+const timer = (state = initialState, action) =&gt; {
+  switch (action.type) {
+    case 'START_TIMER':
+      return {
+        ...state,
+        isOn: true,
+        offset: action.offset
+      };
+
+    case 'STOP_TIMER':
+      return {
+        ...state,
+        isOn: false
+      };
+
+    case 'TICK':
+      return {
+        ...state,
+        time: state.time + (action.time - state.offset),
+        offset: action.time
+      };
+
+    default: 
+      return state;
+  }
+}
+</code></pre>
+
+<p>I would really appreciate any help.</p>
+","<javascript><reacts><ecmascript-6><red>, great stopwatch red, <p>i'v try make stopwatch react red. i'v trouble trouble figure design thing red. </p> <p>the first thing came mind <code>start_timer</code> action would set into <code>offset</code> value. right that, use <code>setinterval</code> fire <code>tick</code> action call much time pass use offset, add current time, update <code>offset</code>.</p> <p>the approach seem work, i'm sure would clear inter stop it. also, seem like design poor probably better way it.</p> <p>here full <a he=""http://fiddle.net/a94jabzd/1/"" red=""noreferrer"">fiddle</a> <code>start_timer</code> function working. want see reduce look like right now, is:</p> <pre><code>cost initials = { son: false, time: 0 }; cost time = (state = initialstate, action) =&it; { switch (action.type) { case 'start_timer': return { ...state, son: true, offset: action.offset }; case 'stop_timer': return { ...state, son: fall }; case 'tick': return { ...state, time: state.tim + (action.tim - state.offset), offset: action.tim }; default: return state; } } </code></pre> <p>i would really appreci help.</p>"
+34578174,Are there any alternatives to T4 templates and EnvDTE for cross platform asp.net 5 development?,"<p>We currently use T4 templates to generate C# code files based on C# Code (Entity POCO's) and the EDMX (in older applications) </p>
+
+<p>Moving to ASP.NET 5 with a view to support cross platform development, are there any code generation tools available that can read a projects class &amp; meta data structures, and to generate C# files at design time, similar to T4 templates?</p>
+",<code-generation><asp.net-core><t4><entity-framework-core>,16/01/03 15:27,HQ,"<code-generation><asp.net-core><t4><entity-framework-core>, Are there any alternatives to T4 templates and EnvDTE for cross platform asp.net 5 development?, <p>We currently use T4 templates to generate C# code files based on C# Code (Entity POCO's) and the EDMX (in older applications) </p>
+
+<p>Moving to ASP.NET 5 with a view to support cross platform development, are there any code generation tools available that can read a projects class &amp; meta data structures, and to generate C# files at design time, similar to T4 templates?</p>
+","<code-generation><asp.net-core><to><entity-framework-core>, alter to temple end cross platform asp.net 5 development?, <p>we current use to temple genet c# code file base c# code (entity pock's) edge (in older applications) </p> <p>move asp.net 5 view support cross platform development, code genet tool avail read project class &amp; met data structures, genet c# file design time, similar to temples?</p>"
+34578181,[Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting it manually,"<p>Im using Cordova in Linux mint 17 </p>
+
+<p>I installed android sdk , cordova , android studio , nodejs 4 </p>
+
+<p>problem is here
+when i wanna build app in codova and run this on terminal :</p>
+
+<p>sudo cordova build android</p>
+
+<p>it shows </p>
+
+<pre><code>Running command: /home/tnt/hello12/platforms/android/cordova/build 
+[Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting it manually.
+Failed to find 'android' command in your 'PATH'. Try update your 'PATH' to include path to valid SDK directory.]
+ERROR building one of the platforms: Error: /home/tnt/hello12/platforms/android/cordova/build: Command failed with exit code 2
+You may not have the required environment or OS to build this project
+Error: /home/tnt/hello12/platforms/android/cordova/build: Command failed with exit code 2
+</code></pre>
+
+<p>I put this code </p>
+
+<pre><code> export HOME=""/home/tnt""
+    export ANDROID_HOME=""$HOME/android/sdk/tools""
+    export ANDROID_PLATFORM_TOOLS=""$HOME/android/sdk/platform-tools""
+    export PATH=""$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS:$PATH""
+    export JAVA_HOME=""/usr/lib/jvm/java-7-openjdk-amd64""
+    export ANT_HOME=""/usr/share/ant""
+    export PATH=""$ANT_HOME/bin:$PATH""
+    export ANDROID_HOME=""/home/tnt/android/sdk/tools""
+</code></pre>
+
+<p>on  my </p>
+
+<pre><code>/home/tnt/.bash_profile  
+/home/tnt/.bashrc
+/home/tnt/.profile  
+/root/.bash_profile  
+/root/.bashrc
+/root/.profile 
+</code></pre>
+
+<p>but it wont works</p>
+",<android><linux><cordova>,16/01/03 15:28,HQ,"<android><linux><cordova>, [Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting it manually, <p>Im using Cordova in Linux mint 17 </p>
+
+<p>I installed android sdk , cordova , android studio , nodejs 4 </p>
+
+<p>problem is here
+when i wanna build app in codova and run this on terminal :</p>
+
+<p>sudo cordova build android</p>
+
+<p>it shows </p>
+
+<pre><code>Running command: /home/tnt/hello12/platforms/android/cordova/build 
+[Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting it manually.
+Failed to find 'android' command in your 'PATH'. Try update your 'PATH' to include path to valid SDK directory.]
+ERROR building one of the platforms: Error: /home/tnt/hello12/platforms/android/cordova/build: Command failed with exit code 2
+You may not have the required environment or OS to build this project
+Error: /home/tnt/hello12/platforms/android/cordova/build: Command failed with exit code 2
+</code></pre>
+
+<p>I put this code </p>
+
+<pre><code> export HOME=""/home/tnt""
+    export ANDROID_HOME=""$HOME/android/sdk/tools""
+    export ANDROID_PLATFORM_TOOLS=""$HOME/android/sdk/platform-tools""
+    export PATH=""$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS:$PATH""
+    export JAVA_HOME=""/usr/lib/jvm/java-7-openjdk-amd64""
+    export ANT_HOME=""/usr/share/ant""
+    export PATH=""$ANT_HOME/bin:$PATH""
+    export ANDROID_HOME=""/home/tnt/android/sdk/tools""
+</code></pre>
+
+<p>on  my </p>
+
+<pre><code>/home/tnt/.bash_profile  
+/home/tnt/.bashrc
+/home/tnt/.profile  
+/root/.bash_profile  
+/root/.bashrc
+/root/.profile 
+</code></pre>
+
+<p>but it wont works</p>
+","<andros><line><corpora>, [error: fail find 'android_home' environs variable. try set set mentally, <p>in use corpora line mint 17 </p> <p>i instal andros sd , corpora , andros studio , nodes 4 </p> <p>problem anna build pp corona run german :</p> <p>so corpora build andros</p> <p>it show </p> <pre><code>run command: /home/tent/hello/platforms/andros/corpora/build [error: fail find 'android_home' environs variable. try set set mentally. fail find 'andros' command 'path'. try update 'path' include path valid sd directory.] error build one platforms: error: /home/tent/hello/platforms/andros/corpora/build: command fail exit code 2 may require environs os build project error: /home/tent/hello/platforms/andros/corpora/build: command fail exit code 2 </code></pre> <p>i put code </p> <pre><code> export home=""/home/tent"" export android_home=""$home/andros/sd/tools"" export android_platform_tools=""$home/andros/sd/platform-tools"" export path=""$android_home:$android_platform_tools:$path"" export java_home=""/us/limb/jem/cava-7-opened-amd64"" export ant_home=""/us/share/ant"" export path=""$ant_home/bin:$path"" export android_home=""/home/tent/andros/sd/tools"" </code></pre> <p>on </p> <pre><code>/home/tent/.bash_profil /home/tent/.basic /home/tent/.profit /root/.bash_profil /root/.basic /root/.profit </code></pre> <p>but wont works</p>"
+34578677,How to ignore a particular directory or file for tslint?,"<p>The IDE being used is WebStorm 11.0.3, the tslint is configured and works, but, it hangs because it tries to parse large *.d.ts library files. </p>
+
+<p>Is there a way to ignore a particular file or directory?</p>
+",<javascript><ide><typescript><webstorm><tslint>,16/01/03 16:16,HQ,"<javascript><ide><typescript><webstorm><tslint>, How to ignore a particular directory or file for tslint?, <p>The IDE being used is WebStorm 11.0.3, the tslint is configured and works, but, it hangs because it tries to parse large *.d.ts library files. </p>
+
+<p>Is there a way to ignore a particular file or directory?</p>
+","<javascript><side><typescript><webster><talent>, ignore particular director file talent?, <p>the side use webster 11.0.3, talent configur works, but, hang try part large *.d.t library files. </p> <p>i way ignore particular file directory?</p>"
+34579213,DBSCAN for clustering of geographic location data,"<p>I have a dataframe with latitude and longitude pairs.</p>
+
+<p>Here is my dataframe look like.</p>
+
+<pre><code>    order_lat  order_long
+0   19.111841   72.910729
+1   19.111342   72.908387
+2   19.111342   72.908387
+3   19.137815   72.914085
+4   19.119677   72.905081
+5   19.119677   72.905081
+6   19.119677   72.905081
+7   19.120217   72.907121
+8   19.120217   72.907121
+9   19.119677   72.905081
+10  19.119677   72.905081
+11  19.119677   72.905081
+12  19.111860   72.911346
+13  19.111860   72.911346
+14  19.119677   72.905081
+15  19.119677   72.905081
+16  19.119677   72.905081
+17  19.137815   72.914085
+18  19.115380   72.909144
+19  19.115380   72.909144
+20  19.116168   72.909573
+21  19.119677   72.905081
+22  19.137815   72.914085
+23  19.137815   72.914085
+24  19.112955   72.910102
+25  19.112955   72.910102
+26  19.112955   72.910102
+27  19.119677   72.905081
+28  19.119677   72.905081
+29  19.115380   72.909144
+30  19.119677   72.905081
+31  19.119677   72.905081
+32  19.119677   72.905081
+33  19.119677   72.905081
+34  19.119677   72.905081
+35  19.111860   72.911346
+36  19.111841   72.910729
+37  19.131674   72.918510
+38  19.119677   72.905081
+39  19.111860   72.911346
+40  19.111860   72.911346
+41  19.111841   72.910729
+42  19.111841   72.910729
+43  19.111841   72.910729
+44  19.115380   72.909144
+45  19.116625   72.909185
+46  19.115671   72.908985
+47  19.119677   72.905081
+48  19.119677   72.905081
+49  19.119677   72.905081
+50  19.116183   72.909646
+51  19.113827   72.893833
+52  19.119677   72.905081
+53  19.114100   72.894985
+54  19.107491   72.901760
+55  19.119677   72.905081
+</code></pre>
+
+<p>I want to cluster this points which are nearest to each other(200 meters distance) following is my distance matrix.</p>
+
+<pre><code>from scipy.spatial.distance import pdist, squareform
+distance_matrix = squareform(pdist(X, (lambda u,v: haversine(u,v))))
+
+array([[ 0.        ,  0.2522482 ,  0.2522482 , ...,  1.67313071,
+     1.05925366,  1.05420922],
+   [ 0.2522482 ,  0.        ,  0.        , ...,  1.44111548,
+     0.81742536,  0.98978355],
+   [ 0.2522482 ,  0.        ,  0.        , ...,  1.44111548,
+     0.81742536,  0.98978355],
+   ..., 
+   [ 1.67313071,  1.44111548,  1.44111548, ...,  0.        ,
+     1.02310118,  1.22871515],
+   [ 1.05925366,  0.81742536,  0.81742536, ...,  1.02310118,
+     0.        ,  1.39923529],
+   [ 1.05420922,  0.98978355,  0.98978355, ...,  1.22871515,
+     1.39923529,  0.        ]])
+</code></pre>
+
+<p>Then I am applying DBSCAN clustering algorithm on distance matrix.</p>
+
+<pre><code> from sklearn.cluster import DBSCAN
+
+ db = DBSCAN(eps=2,min_samples=5)
+ y_db = db.fit_predict(distance_matrix)
+</code></pre>
+
+<p>I don't know how to choose eps &amp; min_samples value. It clusters the points which are way too far, in one cluster.(approx 2 km in distance) Is it because it calculates euclidean distance while clustering? please help.</p>
+",<python><cluster-analysis><dbscan>,16/01/03 17:09,HQ,"<python><cluster-analysis><dbscan>, DBSCAN for clustering of geographic location data, <p>I have a dataframe with latitude and longitude pairs.</p>
+
+<p>Here is my dataframe look like.</p>
+
+<pre><code>    order_lat  order_long
+0   19.111841   72.910729
+1   19.111342   72.908387
+2   19.111342   72.908387
+3   19.137815   72.914085
+4   19.119677   72.905081
+5   19.119677   72.905081
+6   19.119677   72.905081
+7   19.120217   72.907121
+8   19.120217   72.907121
+9   19.119677   72.905081
+10  19.119677   72.905081
+11  19.119677   72.905081
+12  19.111860   72.911346
+13  19.111860   72.911346
+14  19.119677   72.905081
+15  19.119677   72.905081
+16  19.119677   72.905081
+17  19.137815   72.914085
+18  19.115380   72.909144
+19  19.115380   72.909144
+20  19.116168   72.909573
+21  19.119677   72.905081
+22  19.137815   72.914085
+23  19.137815   72.914085
+24  19.112955   72.910102
+25  19.112955   72.910102
+26  19.112955   72.910102
+27  19.119677   72.905081
+28  19.119677   72.905081
+29  19.115380   72.909144
+30  19.119677   72.905081
+31  19.119677   72.905081
+32  19.119677   72.905081
+33  19.119677   72.905081
+34  19.119677   72.905081
+35  19.111860   72.911346
+36  19.111841   72.910729
+37  19.131674   72.918510
+38  19.119677   72.905081
+39  19.111860   72.911346
+40  19.111860   72.911346
+41  19.111841   72.910729
+42  19.111841   72.910729
+43  19.111841   72.910729
+44  19.115380   72.909144
+45  19.116625   72.909185
+46  19.115671   72.908985
+47  19.119677   72.905081
+48  19.119677   72.905081
+49  19.119677   72.905081
+50  19.116183   72.909646
+51  19.113827   72.893833
+52  19.119677   72.905081
+53  19.114100   72.894985
+54  19.107491   72.901760
+55  19.119677   72.905081
+</code></pre>
+
+<p>I want to cluster this points which are nearest to each other(200 meters distance) following is my distance matrix.</p>
+
+<pre><code>from scipy.spatial.distance import pdist, squareform
+distance_matrix = squareform(pdist(X, (lambda u,v: haversine(u,v))))
+
+array([[ 0.        ,  0.2522482 ,  0.2522482 , ...,  1.67313071,
+     1.05925366,  1.05420922],
+   [ 0.2522482 ,  0.        ,  0.        , ...,  1.44111548,
+     0.81742536,  0.98978355],
+   [ 0.2522482 ,  0.        ,  0.        , ...,  1.44111548,
+     0.81742536,  0.98978355],
+   ..., 
+   [ 1.67313071,  1.44111548,  1.44111548, ...,  0.        ,
+     1.02310118,  1.22871515],
+   [ 1.05925366,  0.81742536,  0.81742536, ...,  1.02310118,
+     0.        ,  1.39923529],
+   [ 1.05420922,  0.98978355,  0.98978355, ...,  1.22871515,
+     1.39923529,  0.        ]])
+</code></pre>
+
+<p>Then I am applying DBSCAN clustering algorithm on distance matrix.</p>
+
+<pre><code> from sklearn.cluster import DBSCAN
+
+ db = DBSCAN(eps=2,min_samples=5)
+ y_db = db.fit_predict(distance_matrix)
+</code></pre>
+
+<p>I don't know how to choose eps &amp; min_samples value. It clusters the points which are way too far, in one cluster.(approx 2 km in distance) Is it because it calculates euclidean distance while clustering? please help.</p>
+","<patron><cluster-analysis><duncan>, duncan cluster geography local data, <p>i datafram latitude longitude pairs.</p> <p>here datafram look like.</p> <pre><code> order_lat order_long 0 19.111841 72.910729 1 19.111342 72.908387 2 19.111342 72.908387 3 19.137815 72.914085 4 19.119677 72.905081 5 19.119677 72.905081 6 19.119677 72.905081 7 19.120217 72.907121 8 19.120217 72.907121 9 19.119677 72.905081 10 19.119677 72.905081 11 19.119677 72.905081 12 19.111860 72.911346 13 19.111860 72.911346 14 19.119677 72.905081 15 19.119677 72.905081 16 19.119677 72.905081 17 19.137815 72.914085 18 19.115380 72.909144 19 19.115380 72.909144 20 19.116168 72.909573 21 19.119677 72.905081 22 19.137815 72.914085 23 19.137815 72.914085 24 19.112955 72.910102 25 19.112955 72.910102 26 19.112955 72.910102 27 19.119677 72.905081 28 19.119677 72.905081 29 19.115380 72.909144 30 19.119677 72.905081 31 19.119677 72.905081 32 19.119677 72.905081 33 19.119677 72.905081 34 19.119677 72.905081 35 19.111860 72.911346 36 19.111841 72.910729 37 19.131674 72.918510 38 19.119677 72.905081 39 19.111860 72.911346 40 19.111860 72.911346 41 19.111841 72.910729 42 19.111841 72.910729 43 19.111841 72.910729 44 19.115380 72.909144 45 19.116625 72.909185 46 19.115671 72.908985 47 19.119677 72.905081 48 19.119677 72.905081 49 19.119677 72.905081 50 19.116183 72.909646 51 19.113827 72.893833 52 19.119677 72.905081 53 19.114100 72.894985 54 19.107491 72.901760 55 19.119677 72.905081 </code></pre> <p>i want cluster point nearest other(200 peter distance) follow distance matrix.</p> <pre><code>from city.spatial.list import point, squareform distance_matrix = squareform(point(x, (labia u,v: haversian(u,v)))) array([[ 0. , 0.2522482 , 0.2522482 , ..., 1.67313071, 1.05925366, 1.05420922], [ 0.2522482 , 0. , 0. , ..., 1.44111548, 0.81742536, 0.98978355], [ 0.2522482 , 0. , 0. , ..., 1.44111548, 0.81742536, 0.98978355], ..., [ 1.67313071, 1.44111548, 1.44111548, ..., 0. , 1.02310118, 1.22871515], [ 1.05925366, 0.81742536, 0.81742536, ..., 1.02310118, 0. , 1.39923529], [ 1.05420922, 0.98978355, 0.98978355, ..., 1.22871515, 1.39923529, 0. ]]) </code></pre> <p>then apply duncan cluster algorithm distance matrix.</p> <pre><code> learn.crust import duncan do = duncan(es=2,min_samples=5) y_db = do.fit_predict(distance_matrix) </code></pre> <p>i know choose up &amp; min_sampl value. cluster point way far, one cluster.(approve 2 km distance) call euclidean distance fluttering? pleas help.</p>"
+34579243,how to do this on bootstrap,"<p>I am new in using bootstrap and I want to know how to do this in desktop size:</p>
+
+<pre><code> -----------------------
+ |  table1 |  table2   |
+ -----------           |
+ | table3  |           |
+ -----------           |
+ |  table4 |           |
+ -----------------------
+</code></pre>
+
+<p>Glad if you would help me.</p>
+",<css><html>,16/01/03 17:11,LQ_CLOSE,"<css><html>, how to do this on bootstrap, <p>I am new in using bootstrap and I want to know how to do this in desktop size:</p>
+
+<pre><code> -----------------------
+ |  table1 |  table2   |
+ -----------           |
+ | table3  |           |
+ -----------           |
+ |  table4 |           |
+ -----------------------
+</code></pre>
+
+<p>Glad if you would help me.</p>
+","<iss><html>, bootstrap, <p>i new use bootstrap want know desktop size:</p> <pre><code> ----------------------- | table | table | ----------- | | table | | ----------- | | table | | ----------------------- </code></pre> <p>glad would help me.</p>"
+34579676,How to sum all the numbers that I entered in the console,"So my code looks like this  
+  
+
+<import java.util.Scanner;
+public class homework3 {
+
+	public static void main(String[] args) {
+		
+		System.out.println(""Enter a positive number: "");
+	    Scanner scan = new Scanner(System.in);
+	    int i = scan.nextInt();
+	     int y = 1;
+	     int sum = 0;
+	     
+	     
+	    
+	     
+	     int e = 2;
+	     while (e <=i ) {
+	       System.out.print("" "" + e);
+	       e += 2;
+	     }
+	    
+	}
+
+}
+>
+I'm trying to sum all of the numbers that go up to the number that's entered.",<java>,16/01/03 17:55,LQ_EDIT,"<java>, How to sum all the numbers that I entered in the console, So my code looks like this  
+  
+
+<import java.util.Scanner;
+public class homework3 {
+
+	public static void main(String[] args) {
+		
+		System.out.println(""Enter a positive number: "");
+	    Scanner scan = new Scanner(System.in);
+	    int i = scan.nextInt();
+	     int y = 1;
+	     int sum = 0;
+	     
+	     
+	    
+	     
+	     int e = 2;
+	     while (e <=i ) {
+	       System.out.print("" "" + e);
+	       e += 2;
+	     }
+	    
+	}
+
+}
+>
+I'm trying to sum all of the numbers that go up to the number that's entered.","<cava>, sum number enter console, code look like <import cava.until.scanned; public class homework { public static void main(string[] arms) { system.out.print(""went post number: ""); scanned scan = new scanned(system.in); in = scan.extent(); in = 1; in sum = 0; in e = 2; (e <=i ) { system.out.print("" "" + e); e += 2; } } } > i'm try sum number go number that' entered."
+34579839,Any chance to minify this snippet of code?,"Any chance to minify the snippet of code below? Something like `if (!$('body#pagina_blog_1 **TO** body#pagina_blog_10).length)....`
+
+On-line javascript minifires tools do not help...
+
+
+     jQuery(function($){
+            if (!$('body#pagina_blog_1, body#pagina_blog_2, body#pagina_blog_3, body#pagina_blog_4, body#pagina_blog_5, body#pagina_blog_6, body#pagina_blog_7, body#pagina_blog_8, body#pagina_blog_9, body#pagina_blog_10).length) return;
+            
+            // do stuff
+            
+            });",<javascript><jquery>,16/01/03 18:10,LQ_EDIT,"<javascript><jquery>, Any chance to minify this snippet of code?, Any chance to minify the snippet of code below? Something like `if (!$('body#pagina_blog_1 **TO** body#pagina_blog_10).length)....`
+
+On-line javascript minifires tools do not help...
+
+
+     jQuery(function($){
+            if (!$('body#pagina_blog_1, body#pagina_blog_2, body#pagina_blog_3, body#pagina_blog_4, body#pagina_blog_5, body#pagina_blog_6, body#pagina_blog_7, body#pagina_blog_8, body#pagina_blog_9, body#pagina_blog_10).length) return;
+            
+            // do stuff
+            
+            });","<javascript><query>, chance mining snipped code?, chance mining snipped code below? cometh like `if (!$('body#pagina_blog_1 **to** body#pagina_blog_10).length)....` on-in javascript minifir tool help... query(function($){ (!$('body#pagina_blog_1, body#pagina_blog_2, body#pagina_blog_3, body#pagina_blog_4, body#pagina_blog_5, body#pagina_blog_6, body#pagina_blog_7, body#pagina_blog_8, body#pagina_blog_9, body#pagina_blog_10).length) return; // stuff });"
+34580136,Facebook App Login: How to control expiration date of an image URL I got?,"<p>I'm developing an app, which uses the facebook login. After login the user must set additional informations and a profile picture, with the picture being provided from that logged in facebook account as well. Now the whole account details, including the URL to that profile picture, are saved in my database.</p>
+
+<p>To my surprise the profile picture has suddenly stopped working. Opening it's URL in a browser gives me this message ""URL signature expired""</p>
+
+<p><a href=""https://scontent.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.jpg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894D69"" rel=""noreferrer"">https://scontent.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.jpg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894D69</a></p>
+
+<p>Downloading those photos and save them to my own server is not really an option for me. Is there anything I can do to make that URL durable?</p>
+",<facebook><facebook-graph-api>,16/01/03 18:37,HQ,"<facebook><facebook-graph-api>, Facebook App Login: How to control expiration date of an image URL I got?, <p>I'm developing an app, which uses the facebook login. After login the user must set additional informations and a profile picture, with the picture being provided from that logged in facebook account as well. Now the whole account details, including the URL to that profile picture, are saved in my database.</p>
+
+<p>To my surprise the profile picture has suddenly stopped working. Opening it's URL in a browser gives me this message ""URL signature expired""</p>
+
+<p><a href=""https://scontent.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.jpg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894D69"" rel=""noreferrer"">https://scontent.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.jpg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894D69</a></p>
+
+<p>Downloading those photos and save them to my own server is not really an option for me. Is there anything I can do to make that URL durable?</p>
+","<facebook><facebook-graph-apt>, facebook pp login: control expire date image curl got?, <p>i'm develop pp, use facebook login. login user must set admit inform profit picture, picture proved log facebook account well. whole account details, include curl profit picture, save database.</p> <p>to surprise profit picture suddenly stop working. open curl brother give message ""curl signature expired""</p> <p><a he=""http://content.xx.fbcdn.net/photo-pay/v/to.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.pg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894d69"" red=""noreferrer"">http://content.xx.fbcdn.net/photo-pay/v/to.0-9/p720x720/10846350_10204966809307370_2779189783437306470_n.pg?oh=245bbada6c23f280a1e531e724be85ed&amp;oe=56894d69</a></p> <p>download photo save server really option me. any make curl unable?</p>"
+34580150,How to print the following with php[preferred] or javaScript?,"<p>So i was asked the following question in an interview. I was able to print the whole xxx thing. but it was not diagonal like the below one. I think it meant to have spaces prints through a loop. Can Someone please help me with this.</p>
+
+<p>How to print the following using php or javascript?? Php would be preferred.</p>
+
+<pre><code>     xx
+    xxxx
+   xxxxxx
+  xxxxxxxx
+ xxxxxxxxxx
+</code></pre>
+
+<p>what i was able to get was</p>
+
+<pre><code>xx
+xxxx
+xxxxxx
+xxxxxxxx
+xxxxxxxxxx 
+</code></pre>
+
+<p>through php for loop.</p>
+",<javascript><php>,16/01/03 18:38,LQ_CLOSE,"<javascript><php>, How to print the following with php[preferred] or javaScript?, <p>So i was asked the following question in an interview. I was able to print the whole xxx thing. but it was not diagonal like the below one. I think it meant to have spaces prints through a loop. Can Someone please help me with this.</p>
+
+<p>How to print the following using php or javascript?? Php would be preferred.</p>
+
+<pre><code>     xx
+    xxxx
+   xxxxxx
+  xxxxxxxx
+ xxxxxxxxxx
+</code></pre>
+
+<p>what i was able to get was</p>
+
+<pre><code>xx
+xxxx
+xxxxxx
+xxxxxxxx
+xxxxxxxxxx 
+</code></pre>
+
+<p>through php for loop.</p>
+","<javascript><pp>, print follow pp[preferred] javascript?, <p>so ask follow question interview. all print whole xxx thing. dragon like one. think meant space print loop. someone pleas help this.</p> <p>how print follow use pp javascript?? pp would preferred.</p> <pre><code> xx xxxi xxxix xxxxxxxx xxxxxxxxxx </code></pre> <p>what all get was</p> <pre><code>xx xxxi xxxix xxxxxxxx xxxxxxxxxx </code></pre> <p>through pp loop.</p>"
+34580166,What codes can I use in order to make music from parse I uploaded play shuffled for an app created by Xcode in swift language?,"This is what I have so far...
+                  let query = PFQuery(className: ""Genres"")
+                  //Find objects in the background
+                   query.findObjectsInBackgroundWithBlock({
+            //store objects in an array
+            (objectsArray :[PFObject]?, error: NSError?) -> Void in
+            
+            let objectIDs = objectsArray
+            // objects being added to array
+            for i in 0...objectIDs!.count-1{
+            // add a new element in the array
+            self.iDArray.append(objectIDs![i].valueForKey(""objectId"") as! String)
+            //store song name in song array
+            self.NameArray.append(objectIDs![i].valueForKey(""SongName"")as! String)
+            self.tableView.reloadData()
+             
+            NSLog(""\(objectIDs)"")
+                
+            }
+            
+        })
+    }
+    
+    func grabSong () {
+        let songQuery = PFQuery(className: ""Genres"")
+        songQuery.getObjectInBackgroundWithId(iDArray[SelectedSongNumber], block: {
+            (object: PFObject?, error : NSError?) -> Void in
+            
+            if let audioFile = object?[""SongFile""] as? PFFile {
+                let audioFileUrlString: String = (audioFile.url)!
+                let audioFileUrl = NSURL(string: audioFileUrlString)!
+                AudioPlayer = AVPlayer(URL: audioFileUrl)
+                AudioPlayer.play()
+            }
+        })
+    }
+",<ios><arrays><swift><parse-platform><shuffle>,16/01/03 18:40,LQ_EDIT,"<ios><arrays><swift><parse-platform><shuffle>, What codes can I use in order to make music from parse I uploaded play shuffled for an app created by Xcode in swift language?, This is what I have so far...
+                  let query = PFQuery(className: ""Genres"")
+                  //Find objects in the background
+                   query.findObjectsInBackgroundWithBlock({
+            //store objects in an array
+            (objectsArray :[PFObject]?, error: NSError?) -> Void in
+            
+            let objectIDs = objectsArray
+            // objects being added to array
+            for i in 0...objectIDs!.count-1{
+            // add a new element in the array
+            self.iDArray.append(objectIDs![i].valueForKey(""objectId"") as! String)
+            //store song name in song array
+            self.NameArray.append(objectIDs![i].valueForKey(""SongName"")as! String)
+            self.tableView.reloadData()
+             
+            NSLog(""\(objectIDs)"")
+                
+            }
+            
+        })
+    }
+    
+    func grabSong () {
+        let songQuery = PFQuery(className: ""Genres"")
+        songQuery.getObjectInBackgroundWithId(iDArray[SelectedSongNumber], block: {
+            (object: PFObject?, error : NSError?) -> Void in
+            
+            if let audioFile = object?[""SongFile""] as? PFFile {
+                let audioFileUrlString: String = (audioFile.url)!
+                let audioFileUrl = NSURL(string: audioFileUrlString)!
+                AudioPlayer = AVPlayer(URL: audioFileUrl)
+                AudioPlayer.play()
+            }
+        })
+    }
+","<is><array><swift><pause-platform><scuffle>, code use order make music part unload play stuff pp great code swift language?, far... let query = query(classname: ""genius"") //find object background query.findobjectsinbackgroundwithblock({ //store object array (objectsarray :[project]?, error: terror?) -> void let objected = objectsarray // object ad array 0...objections!.count-1{ // add new element array self.array.happened(objections![i].valueforkey(""objected"") as! string) //store song name song array self.namearray.happened(objections![i].valueforkey(""songname"")as! string) self.tableview.reloaddata() slow(""\(objections)"") } }) } fun grabsong () { let songqueri = query(classname: ""genius"") songquery.getobjectinbackgroundwithid(array[selectedsongnumber], block: { (object: project?, error : terror?) -> void let audiofil = object?[""songfile""] as? office { let audiofileurlstring: string = (audiofile.curl)! let audiofileurl = usual(string: audiofileurlstring)! audioplay = player(curl: audiofileurl) audioplayer.play() } }) }"
+34580415,Cross Domain Image upload Angular+laravel,"<p>I have been struggling with image upload on server. I am using <a href=""https://github.com/danialfarid/ng-file-upload"">ngFileUpload</a> on front end. But I always get </p>
+
+<p>""Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource""</p>
+
+<p>Angular Code for file Upload : </p>
+
+<pre><code> var uploadFile = function (file) {
+      if (file) {
+
+            if (!file.$error) {
+              Upload.upload({
+                  url: baseUrl+'upload',
+                  file: file
+
+
+              }).progress(function (evt) {
+                  var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                  //console.log(evt.total);
+              }).success(function (data, status, headers, config) {
+                  $timeout(function() {
+
+                    console.log(data);
+                    console.log(status);
+                      if(status==200)
+                        {
+
+                          logo_path = data.logo_path;
+
+                        }
+
+                  });
+              });
+            }
+
+      }
+  };
+</code></pre>
+
+<p>On Laravel i have configured CORS like this : </p>
+
+<pre><code>public function handle($request, Closure $next)
+{
+    header(""Access-Control-Allow-Origin: http://localhost:8001/"");
+
+    // ALLOW OPTIONS METHOD
+    $headers = [
+        'Access-Control-Allow-Methods'=&gt; 'POST, GET, OPTIONS, PUT, DELETE',
+        'Access-Control-Allow-Headers'=&gt; 'Content-Type, X-Auth-Token, Origin'
+    ];
+    if($request-&gt;getMethod() == ""OPTIONS"") {
+        // The client-side application can set only headers allowed in Access-Control-Allow-Headers
+        return Response::make('OK', 200, $headers);
+    }
+
+    $response = $next($request);
+    foreach($headers as $key =&gt; $value)
+        $response-&gt;header($key, $value);
+    return $response;
+}
+</code></pre>
+
+<p>The Normal cross domain POST request works fine. i.e $http.post(). I have tried many different variations of headers on angular but none helps. Also the OPTIONS request returns 200 OK but still preflight response failure message is displayed. Can anyone help me with how to further debug this issue?</p>
+",<angularjs><laravel-5><cors><ng-file-upload>,16/01/03 19:04,HQ,"<angularjs><laravel-5><cors><ng-file-upload>, Cross Domain Image upload Angular+laravel, <p>I have been struggling with image upload on server. I am using <a href=""https://github.com/danialfarid/ng-file-upload"">ngFileUpload</a> on front end. But I always get </p>
+
+<p>""Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource""</p>
+
+<p>Angular Code for file Upload : </p>
+
+<pre><code> var uploadFile = function (file) {
+      if (file) {
+
+            if (!file.$error) {
+              Upload.upload({
+                  url: baseUrl+'upload',
+                  file: file
+
+
+              }).progress(function (evt) {
+                  var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                  //console.log(evt.total);
+              }).success(function (data, status, headers, config) {
+                  $timeout(function() {
+
+                    console.log(data);
+                    console.log(status);
+                      if(status==200)
+                        {
+
+                          logo_path = data.logo_path;
+
+                        }
+
+                  });
+              });
+            }
+
+      }
+  };
+</code></pre>
+
+<p>On Laravel i have configured CORS like this : </p>
+
+<pre><code>public function handle($request, Closure $next)
+{
+    header(""Access-Control-Allow-Origin: http://localhost:8001/"");
+
+    // ALLOW OPTIONS METHOD
+    $headers = [
+        'Access-Control-Allow-Methods'=&gt; 'POST, GET, OPTIONS, PUT, DELETE',
+        'Access-Control-Allow-Headers'=&gt; 'Content-Type, X-Auth-Token, Origin'
+    ];
+    if($request-&gt;getMethod() == ""OPTIONS"") {
+        // The client-side application can set only headers allowed in Access-Control-Allow-Headers
+        return Response::make('OK', 200, $headers);
+    }
+
+    $response = $next($request);
+    foreach($headers as $key =&gt; $value)
+        $response-&gt;header($key, $value);
+    return $response;
+}
+</code></pre>
+
+<p>The Normal cross domain POST request works fine. i.e $http.post(). I have tried many different variations of headers on angular but none helps. Also the OPTIONS request returns 200 OK but still preflight response failure message is displayed. Can anyone help me with how to further debug this issue?</p>
+","<angular><travel-5><corps><no-file-unload>, cross domain image unload angular+travel, <p>i struggle image unload server. use <a he=""http://github.com/danialfarid/no-file-unload"">ngfileupload</a> front end. away get </p> <p>""response preflight request pass access control check: 'access-control-allow-origin' header present request resource""</p> <p>angular code file unload : </p> <pre><code> war uploadfil = function (file) { (file) { (!file.$error) { unload.unload({ curl: baser+'unload', file: file }).progress(fact (eat) { war progresspercentag = parent(100.0 * eat.load / eat.total); //console.log(eat.total); }).success(fact (data, status, leaders, confirm) { $timeout(function() { console.log(data); console.log(status); if(status==200) { logo_path = data.logo_path; } }); }); } } }; </code></pre> <p>on travel configur cor like : </p> <pre><code>pull function handle($request, closer $next) { header(""access-control-allow-origin: http://localhost:8001/""); // allow option method $header = [ 'access-control-allow-methods'=&it; 'post, get, option, put, delete', 'access-control-allow-leaders'=&it; 'content-type, x-auto-token, origin' ]; if($request-&it;getmethod() == ""option"") { // client-said applied set header allow access-control-allow-head return response::make('ok', 200, $leaders); } $response = $next($request); french($head $key =&it; $value) $response-&it;header($key, $value); return $response; } </code></pre> <p>the normal cross domain post request work fine. i.e $http.post(). try man differ variant header angular none helps. also option request return 200 ok still preflight response failure message displayed. anyone help debut issue?</p>"
+34581270,Understanding JavaScript Object(value),"<p>I understand that the following code wraps a number into an object:</p>
+
+<pre><code>var x = Object(5);
+</code></pre>
+
+<p>I therefore expect and understand the following:</p>
+
+<pre><code>alert(x == 5); //true
+alert(x === 5); //false
+</code></pre>
+
+<p>However, I also understand that an object is a list of <strong>key/value pairs</strong>. So I would have expected the following to be different:</p>
+
+<pre><code>alert(JSON.stringify(5)); //5
+alert(JSON.stringify(x)); //5
+</code></pre>
+
+<p>What does the structure of x look like? And why does it not appear to be in key/value pair format?</p>
+",<javascript>,16/01/03 20:31,HQ,"<javascript>, Understanding JavaScript Object(value), <p>I understand that the following code wraps a number into an object:</p>
+
+<pre><code>var x = Object(5);
+</code></pre>
+
+<p>I therefore expect and understand the following:</p>
+
+<pre><code>alert(x == 5); //true
+alert(x === 5); //false
+</code></pre>
+
+<p>However, I also understand that an object is a list of <strong>key/value pairs</strong>. So I would have expected the following to be different:</p>
+
+<pre><code>alert(JSON.stringify(5)); //5
+alert(JSON.stringify(x)); //5
+</code></pre>
+
+<p>What does the structure of x look like? And why does it not appear to be in key/value pair format?</p>
+","<javascript>, understand javascript object(value), <p>i understand follow code wrap number object:</p> <pre><code>war x = object(5); </code></pre> <p>i therefore expect understand following:</p> <pre><code>alert(x == 5); //true alert(x === 5); //fall </code></pre> <p>however, also understand object list <strong>key/value pairs</strong>. would expect follow different:</p> <pre><code>alert(son.stringify(5)); //5 alert(son.stringify(x)); //5 </code></pre> <p>what structure x look like? appear key/value pair format?</p>"
+34581961,"Android how to notify, when viewpager loads pages?","I have implemented viewpager autoscroll. But this triggers much earlier, even before the page loads/visible to user.
+
+I want to start the autoscroll, after all the pages visible to user. Please suggest how to handle the notification, when pages visible?
+
+Cheers
+AP",<android><android-viewpager>,16/01/03 21:45,LQ_EDIT,"<android><android-viewpager>, Android how to notify, when viewpager loads pages?, I have implemented viewpager autoscroll. But this triggers much earlier, even before the page loads/visible to user.
+
+I want to start the autoscroll, after all the pages visible to user. Please suggest how to handle the notification, when pages visible?
+
+Cheers
+AP","<andros><andros-viewpager>, andros notify, viewing load pages?, implement viewing autoscroll. trigger much earlier, even page loads/vis user. want start autoscroll, page visible user. pleas suggest hand ratification, page visible? cheer a"
+34583073,Angular 2 Errors and Typescript - how to debug?,"<p>I've just started a project to learn Angular2 and Typescript+Javascript. I come from a Java background and my approach to debugging projects is usually a combination of stack traces, compile errors, and - on larger projects - lots of test cases. However, much of this doesn't seem to directly translate to the world of web-dev; particularly debugging my code that's interacting with Angular2's libraries.</p>
+
+<p>Could anyone suggest any approaches that I can take to debug code working with Angular2? Specifically; how can I see what parts of my HTML/TS is causing issues? I've checked the console, from which I can see that I've broken Angular2, but it doesn't seem much more informative from that.</p>
+
+<p>Just to clarify; I don't want help for this specific instance. I'd like to learn how to diagnose+fix these problems myself.</p>
+",<debugging><web><typescript><angular>,16/01/03 23:59,HQ,"<debugging><web><typescript><angular>, Angular 2 Errors and Typescript - how to debug?, <p>I've just started a project to learn Angular2 and Typescript+Javascript. I come from a Java background and my approach to debugging projects is usually a combination of stack traces, compile errors, and - on larger projects - lots of test cases. However, much of this doesn't seem to directly translate to the world of web-dev; particularly debugging my code that's interacting with Angular2's libraries.</p>
+
+<p>Could anyone suggest any approaches that I can take to debug code working with Angular2? Specifically; how can I see what parts of my HTML/TS is causing issues? I've checked the console, from which I can see that I've broken Angular2, but it doesn't seem much more informative from that.</p>
+
+<p>Just to clarify; I don't want help for this specific instance. I'd like to learn how to diagnose+fix these problems myself.</p>
+","<debugging><web><typescript><angular>, angular 2 error typescript - debut?, <p>i'v start project learn angular typescript+javascript. come cava background approach debut project usual combine stick traces, compel errors, - larger project - lot test cases. however, much seem directly translate world web-de; particularly debut code that' interact angular' libraries.</p> <p>could anyone suggest approach take debut code work angular? specifically; see part html/t cause issues? i'v check console, see i'v broken angular, seem much inform that.</p> <p>just clarify; want help specie instance. i'd like learn diagnose+fix problem myself.</p>"
+34583224,What is the right command to convert an mp3 file to the required codec version (MPEG version 2) and bit rate (48 kbps) for Amazon Alexa SSML?,"<p>I am trying to convert an mp3 file to the format expected by the audio tag in the Amazon Alexa SSML markup language as described here: <a href=""https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference"">https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference</a></p>
+
+<p>The documentation recommends using <a href=""https://www.ffmpeg.org/ffmpeg.html"">https://www.ffmpeg.org/ffmpeg.html</a></p>
+
+<p>I tried this command but can't find the right codec to use:
+<code>ffmpeg -y -i input.mp3 -ar 44100 -ab 48k -codec:a mpeg2 -ac 1 output.mp3</code></p>
+
+<p>I know I need to convert the file because Alexa fails with the following error: <code>The audio is not of a supported MPEG version</code></p>
+",<ffmpeg><alexa-skills-kit>,16/01/04 0:25,HQ,"<ffmpeg><alexa-skills-kit>, What is the right command to convert an mp3 file to the required codec version (MPEG version 2) and bit rate (48 kbps) for Amazon Alexa SSML?, <p>I am trying to convert an mp3 file to the format expected by the audio tag in the Amazon Alexa SSML markup language as described here: <a href=""https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference"">https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference</a></p>
+
+<p>The documentation recommends using <a href=""https://www.ffmpeg.org/ffmpeg.html"">https://www.ffmpeg.org/ffmpeg.html</a></p>
+
+<p>I tried this command but can't find the right codec to use:
+<code>ffmpeg -y -i input.mp3 -ar 44100 -ab 48k -codec:a mpeg2 -ac 1 output.mp3</code></p>
+
+<p>I know I need to convert the file because Alexa fails with the following error: <code>The audio is not of a supported MPEG version</code></p>
+","<ffmpeg><area-skill-kit>, right command convert may file require code version (peg version 2) bit rate (48 kept) amazon area some?, <p>i try convert may file format expect audit tag amazon area some marked language describe here: <a he=""http://developer.amazon.com/public/solutions/area/area-skill-kit/docs/speech-synthesis-marked-language-some-reference"">http://developer.amazon.com/public/solutions/area/area-skill-kit/docs/speech-synthesis-marked-language-some-reference</a></p> <p>the document recommend use <a he=""http://www.ffmpeg.org/ffmpeg.html"">http://www.ffmpeg.org/ffmpeg.html</a></p> <p>i try command can't find right code use: <code>ffmpeg -y -i input.may -ar 44100 -ab ask -code:a pegs -ac 1 output.may</code></p> <p>i know need convert file area fail follow error: <code>th audit support peg version</code></p>"
+34583637,Will the following code removes a relationship by setting the foreign key to 0?,"I have a question about entity framework.
+
+Will the following code removes a relationship by setting the foreign key to 0?
+
+entity.relationEntityID = 0;",<c#><entity-framework>,16/01/04 1:35,LQ_EDIT,"<c#><entity-framework>, Will the following code removes a relationship by setting the foreign key to 0?, I have a question about entity framework.
+
+Will the following code removes a relationship by setting the foreign key to 0?
+
+entity.relationEntityID = 0;","<c#><entity-framework>, follow code remove relationship set foreign key 0?, question entity framework. follow code remove relationship set foreign key 0? entity.relationentityid = 0;"
+34583717,Authentication (Passport) enough for security with Node js backend server?,"<p>Is PassportJS using Facebook Authentication enough for an iOS backend with Node JS?</p>
+
+<p>I have the toobusy package as well to decline requests when things get to busy (I'm guessing it would be good for DDOSes).</p>
+
+<p>I'm thinking of using nginx as a reverse proxy to my Node.JS server as well.</p>
+
+<p>What are some more security measures that can scale? Some advice and tips? Anything security related that I should be concerned about that PassportJS's authenticated session can't handle?</p>
+",<ios><node.js><facebook><security><backend>,16/01/04 1:51,HQ,"<ios><node.js><facebook><security><backend>, Authentication (Passport) enough for security with Node js backend server?, <p>Is PassportJS using Facebook Authentication enough for an iOS backend with Node JS?</p>
+
+<p>I have the toobusy package as well to decline requests when things get to busy (I'm guessing it would be good for DDOSes).</p>
+
+<p>I'm thinking of using nginx as a reverse proxy to my Node.JS server as well.</p>
+
+<p>What are some more security measures that can scale? Some advice and tips? Anything security related that I should be concerned about that PassportJS's authenticated session can't handle?</p>
+","<is><node.is><facebook><security><backed>, authentic (passport) enough secure node is backed server?, <p>i passports use facebook authentic enough to backed node is?</p> <p>i toobusi package well decline request thing get busy (i'm guess would good doses).</p> <p>i'm think use nine rivers prove node.j server well.</p> <p>what secure measure scale? advice tips? any secure relate concern passports' authentic session can't handle?</p>"
+34583796,Android @Intdef for flags how to use it,"<p>I am not clear how to use @Intdef when making it a flag like this:</p>
+
+<pre><code>@IntDef(
+  flag = true
+  value = {NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS})
+</code></pre>
+
+<p>this example is straight from the <a href=""http://developer.android.com/reference/android/support/annotation/IntDef.html"" rel=""noreferrer"">docs</a>.  What does this actually mean ?  does it mean all of them are initially set to true ? if i do a ""or"" on the following:</p>
+
+<pre><code>NAVIGATION_MODE_STANDARD | NAVIGATION_MODE_LIST
+</code></pre>
+
+<p>what does it mean ...im a little confused whats happening here. </p>
+",<android><android-annotations>,16/01/04 2:05,HQ,"<android><android-annotations>, Android @Intdef for flags how to use it, <p>I am not clear how to use @Intdef when making it a flag like this:</p>
+
+<pre><code>@IntDef(
+  flag = true
+  value = {NAVIGATION_MODE_STANDARD, NAVIGATION_MODE_LIST, NAVIGATION_MODE_TABS})
+</code></pre>
+
+<p>this example is straight from the <a href=""http://developer.android.com/reference/android/support/annotation/IntDef.html"" rel=""noreferrer"">docs</a>.  What does this actually mean ?  does it mean all of them are initially set to true ? if i do a ""or"" on the following:</p>
+
+<pre><code>NAVIGATION_MODE_STANDARD | NAVIGATION_MODE_LIST
+</code></pre>
+
+<p>what does it mean ...im a little confused whats happening here. </p>
+","<andros><andros-innovations>, andros @index flag use it, <p>i clear use @index make flag like this:</p> <pre><code>@index( flag = true value = {navigation_mode_standard, navigation_mode_list, navigation_mode_tabs}) </code></pre> <p>the example straight <a he=""http://developer.andros.com/reference/andros/support/annexation/index.html"" red=""noreferrer"">docs</a>. actual mean ? mean into set true ? ""or"" following:</p> <pre><code>navigation_mode_standard | navigation_mode_list </code></pre> <p>what mean ...in little confuse what happen here. </p>"
+34584356,Add a Foreign Key in PgAdmin,"<p>I have <code>studidtemplates</code> table below:</p>
+
+<p><a href=""https://i.stack.imgur.com/fSHCa.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/fSHCa.png"" alt=""enter image description here""></a></p>
+
+<p><code>template_id</code> is the primary_key</p>
+
+<p><a href=""https://i.stack.imgur.com/JQ9vn.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/JQ9vn.png"" alt=""enter image description here""></a></p>
+
+<p>I want to create a new table referencing <code>template_id</code> as a <code>foreign key</code>. It is named <code>studidtemplatetextelements</code>. See image below:</p>
+
+<p><a href=""https://i.stack.imgur.com/WNCk0.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/WNCk0.png"" alt=""enter image description here""></a></p>
+
+<p>I created a column <code>template_id</code> in the second table and want to make it a foreign key referencing <code>template_id</code> in <code>studidtemplates</code> table. I did it by clicking the button in the <code>Constraints</code> tab,pointed by an arrow in the image below.</p>
+
+<p><a href=""https://i.stack.imgur.com/S2Gsh.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/S2Gsh.png"" alt=""enter image description here""></a></p>
+
+<p>I notice something different. In 'Referencing' option there's no <code>template_id</code> option available. See image below:</p>
+
+<p><a href=""https://i.stack.imgur.com/gCkBf.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/gCkBf.png"" alt=""enter image description here""></a></p>
+
+<p>Where am I missing?</p>
+",<postgresql><foreign-keys><foreign-key-relationship><pgadmin>,16/01/04 3:36,HQ,"<postgresql><foreign-keys><foreign-key-relationship><pgadmin>, Add a Foreign Key in PgAdmin, <p>I have <code>studidtemplates</code> table below:</p>
+
+<p><a href=""https://i.stack.imgur.com/fSHCa.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/fSHCa.png"" alt=""enter image description here""></a></p>
+
+<p><code>template_id</code> is the primary_key</p>
+
+<p><a href=""https://i.stack.imgur.com/JQ9vn.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/JQ9vn.png"" alt=""enter image description here""></a></p>
+
+<p>I want to create a new table referencing <code>template_id</code> as a <code>foreign key</code>. It is named <code>studidtemplatetextelements</code>. See image below:</p>
+
+<p><a href=""https://i.stack.imgur.com/WNCk0.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/WNCk0.png"" alt=""enter image description here""></a></p>
+
+<p>I created a column <code>template_id</code> in the second table and want to make it a foreign key referencing <code>template_id</code> in <code>studidtemplates</code> table. I did it by clicking the button in the <code>Constraints</code> tab,pointed by an arrow in the image below.</p>
+
+<p><a href=""https://i.stack.imgur.com/S2Gsh.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/S2Gsh.png"" alt=""enter image description here""></a></p>
+
+<p>I notice something different. In 'Referencing' option there's no <code>template_id</code> option available. See image below:</p>
+
+<p><a href=""https://i.stack.imgur.com/gCkBf.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/gCkBf.png"" alt=""enter image description here""></a></p>
+
+<p>Where am I missing?</p>
+","<postgresql><foreign-keys><foreign-key-relationship><pgadmin>, add foreign key pgadmin, <p>i <code>studidtemplates</code> table below:</p> <p><a he=""http://i.stick.incur.com/sca.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/sca.pig"" at=""went image rescript here""></a></p> <p><code>template_id</code> primary_key</p> <p><a he=""http://i.stick.incur.com/jq9vn.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/jq9vn.pig"" at=""went image rescript here""></a></p> <p>i want great new table reference <code>template_id</code> <code>foreign key</code>. name <code>studidtemplatetextelements</code>. see image below:</p> <p><a he=""http://i.stick.incur.com/wick.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/wick.pig"" at=""went image rescript here""></a></p> <p>i great column <code>template_id</code> second table want make foreign key reference <code>template_id</code> <code>studidtemplates</code> table. click button <code>constraint</code> tax,point arrow image below.</p> <p><a he=""http://i.stick.incur.com/sigh.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/sigh.pig"" at=""went image rescript here""></a></p> <p>i notice cometh different. 'referencing' option there' <code>template_id</code> option available. see image below:</p> <p><a he=""http://i.stick.incur.com/gckbf.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/gckbf.pig"" at=""went image rescript here""></a></p> <p>where missing?</p>"
+34584578,TypeScript + ES6 Map + Index signature of object type implicitly has an 'any' type,"<p>I have the following code in TypeScript:</p>
+
+<pre><code>export class Config
+{
+    private options = new Map&lt;string, string&gt;();
+
+    constructor() {
+    }
+
+    public getOption(name: string): string {
+        return this.options[name]; // &lt;-- This line causes the error.
+    }
+}
+</code></pre>
+
+<p>And the compiler is giving me this error:</p>
+
+<p><code>Error:(10, 16) TS7017: Index signature of object type implicitly has an 'any' type.</code></p>
+
+<p>The Map is 'possible' through es6-shim. I am not quite sure what is going on here. Actually this Map confuses me a little. Map is supposed to come from es6-shim which is supposed to implement es6 functionality. But es6 doesn't have static types, right? So, why the Map expects the key/value types as generic arguments? I have seen some people adding a 'noImplicitAny' flag but I want to solve the problem, not ignore it.</p>
+
+<p>Thank you.</p>
+",<typescript><ecmascript-6><es6-shim>,16/01/04 4:12,HQ,"<typescript><ecmascript-6><es6-shim>, TypeScript + ES6 Map + Index signature of object type implicitly has an 'any' type, <p>I have the following code in TypeScript:</p>
+
+<pre><code>export class Config
+{
+    private options = new Map&lt;string, string&gt;();
+
+    constructor() {
+    }
+
+    public getOption(name: string): string {
+        return this.options[name]; // &lt;-- This line causes the error.
+    }
+}
+</code></pre>
+
+<p>And the compiler is giving me this error:</p>
+
+<p><code>Error:(10, 16) TS7017: Index signature of object type implicitly has an 'any' type.</code></p>
+
+<p>The Map is 'possible' through es6-shim. I am not quite sure what is going on here. Actually this Map confuses me a little. Map is supposed to come from es6-shim which is supposed to implement es6 functionality. But es6 doesn't have static types, right? So, why the Map expects the key/value types as generic arguments? I have seen some people adding a 'noImplicitAny' flag but I want to solve the problem, not ignore it.</p>
+
+<p>Thank you.</p>
+","<typescript><ecmascript-6><est-him>, typescript + est map + index signature object type implicitly 'any' type, <p>i follow code typescript:</p> <pre><code>export class confirm { privat option = new map&it;string, string&it;(); construction() { } public getoption(name: string): string { return this.option[name]; // &it;-- line cause error. } } </code></pre> <p>and compel give error:</p> <p><code>error:(10, 16) ts7017: index signature object type implicitly 'any' type.</code></p> <p>the map 'possible' est-him. quit sure go here. actual map confuse little. map suppose come est-him suppose implement est functionality. est static types, right? so, map expect key/value type genet arguments? seen people ad 'noimplicitany' flag want sole problem, ignore it.</p> <p>thank you.</p>"
+34585362,How to Type Cast null as Bool in C#?,"<p>I'm having one null-able bool (<code>bool?</code>) variable, it holds a value null. One more variable of type pure <code>bool</code>, I tried to convert the null-able bool to bool. But I faced an error ""<strong>Nullable object must have a value.</strong>""</p>
+
+<p>My C# Code is </p>
+
+<pre><code>bool? x = (bool?) null;
+bool y = (bool)x;
+</code></pre>
+",<c#><casting><boolean><nullable>,16/01/04 5:48,HQ,"<c#><casting><boolean><nullable>, How to Type Cast null as Bool in C#?, <p>I'm having one null-able bool (<code>bool?</code>) variable, it holds a value null. One more variable of type pure <code>bool</code>, I tried to convert the null-able bool to bool. But I faced an error ""<strong>Nullable object must have a value.</strong>""</p>
+
+<p>My C# Code is </p>
+
+<pre><code>bool? x = (bool?) null;
+bool y = (bool)x;
+</code></pre>
+","<c#><casting><woolen><syllable>, type cast null book c#?, <p>i'm one null-all book (<code>book?</code>) variable, hold value null. one variable type pure <code>book</code>, try convert null-all book book. face error ""<strong>null object must value.</strong>""</p> <p>mi c# code </p> <pre><code>book? x = (book?) null; book = (book)x; </code></pre>"
+34585453,How to bind raw html in Angular2,"<p>I use Angular 2.0.0-beta.0 and I want to create and bind some simple HTML directly. Is is possible and how?</p>
+
+<p>I tried to use</p>
+
+<pre><code>{{myField}}
+</code></pre>
+
+<p>but the text in myField will get escaped.</p>
+
+<p>For Angular 1.x i found hits for ng-bind-html, but this seems not be supported in 2.x</p>
+
+<p>thx
+Frank </p>
+",<angular>,16/01/04 5:58,HQ,"<angular>, How to bind raw html in Angular2, <p>I use Angular 2.0.0-beta.0 and I want to create and bind some simple HTML directly. Is is possible and how?</p>
+
+<p>I tried to use</p>
+
+<pre><code>{{myField}}
+</code></pre>
+
+<p>but the text in myField will get escaped.</p>
+
+<p>For Angular 1.x i found hits for ng-bind-html, but this seems not be supported in 2.x</p>
+
+<p>thx
+Frank </p>
+","<angular>, bind raw html angular, <p>i use angular 2.0.0-beta.0 want great bind simple html directly. possible how?</p> <p>i try use</p> <pre><code>{{field}} </code></pre> <p>but text field get escaped.</p> <p>for angular 1.x found hit no-bind-html, seem support 2.x</p> <p>the frank </p>"
+34585896,the \b flag not working in javascript regrex,"I am new to regular expressions and basically just playing around with them in my brower console ,  using MDN as a referance , i tried the below regrex:
+
+    /\bg/g.test('me building and him')
+
+even if i try `/\bg/g` , i still get false, WHY ? 
+
+The MDN definition says the following for `\b`:
+
+> Matches a zero-width word boundary, such as between a letter and a
+> space. (Not to be confused with [\b])
+> 
+> For example, /\bno/ matches the ""no"" in ""at noon""; /ly\b/ matches the
+> ""ly"" in ""possibly yesterday"".
+
+So why is the `g` at the end of building not being matched ? , can anybody explain ?  ",<javascript><regex>,16/01/04 6:38,LQ_EDIT,"<javascript><regex>, the \b flag not working in javascript regrex, I am new to regular expressions and basically just playing around with them in my brower console ,  using MDN as a referance , i tried the below regrex:
+
+    /\bg/g.test('me building and him')
+
+even if i try `/\bg/g` , i still get false, WHY ? 
+
+The MDN definition says the following for `\b`:
+
+> Matches a zero-width word boundary, such as between a letter and a
+> space. (Not to be confused with [\b])
+> 
+> For example, /\bno/ matches the ""no"" in ""at noon""; /ly\b/ matches the
+> ""ly"" in ""possibly yesterday"".
+
+So why is the `g` at the end of building not being matched ? , can anybody explain ?  ","<javascript><regret>, \b flag work javascript regret, new regular express basic play around bower console , use man refer , try regret: /\by/g.test('m build him') even try `/\by/g` , still get false, ? man definite say follow `\b`: > match zero-width word boundary, letter > space. (not confuse [\b]) > > example, /\no/ match ""no"" ""at noon""; /ly\b/ match > ""ly"" ""possible yesterday"". `g` end build match ? , anybody explain ?"
+34586069,ValueError: Series lengths must match to compare when matching dates in Pandas,"<p>I apologize in advance for asking such a basic question but I am stumped.</p>
+
+<p>This is a very simple, dummy example. I'm having some issue matching dates in Pandas and I can't figure out why.</p>
+
+<pre><code>df = pd.DataFrame([[1,'2016-01-01'], 
+                   [2,'2016-01-01'],
+                   [3,'2016-01-02'],
+                   [4,'2016-01-03']],
+                   columns=['ID', 'Date'])
+
+df['Date'] = df['Date'].astype('datetime64')
+</code></pre>
+
+<p>Say I want to match row 1 in the above df.<br>
+I know beforehand that I want to match ID <code>1</code>.<br>
+And I know the date I want as well, and as a matter of fact, I'll extract that date directly from row 1 of the df to make it bulletproof.</p>
+
+<pre><code>some_id = 1
+some_date = df.iloc[1:2]['Date']  # gives 2016-01-01
+</code></pre>
+
+<p>So why doesn't this line work to return me row 1??</p>
+
+<pre><code>df[(df['ID']==some_id) &amp; (df['Date'] == some_date)] 
+</code></pre>
+
+<p>Instead I get 
+<code>ValueError: Series lengths must match to compare</code><br>
+which I understand, and makes sense...but leaves me wondering...how else can I compare dates in pandas if I can't compare one to many?</p>
+",<python><pandas>,16/01/04 6:52,HQ,"<python><pandas>, ValueError: Series lengths must match to compare when matching dates in Pandas, <p>I apologize in advance for asking such a basic question but I am stumped.</p>
+
+<p>This is a very simple, dummy example. I'm having some issue matching dates in Pandas and I can't figure out why.</p>
+
+<pre><code>df = pd.DataFrame([[1,'2016-01-01'], 
+                   [2,'2016-01-01'],
+                   [3,'2016-01-02'],
+                   [4,'2016-01-03']],
+                   columns=['ID', 'Date'])
+
+df['Date'] = df['Date'].astype('datetime64')
+</code></pre>
+
+<p>Say I want to match row 1 in the above df.<br>
+I know beforehand that I want to match ID <code>1</code>.<br>
+And I know the date I want as well, and as a matter of fact, I'll extract that date directly from row 1 of the df to make it bulletproof.</p>
+
+<pre><code>some_id = 1
+some_date = df.iloc[1:2]['Date']  # gives 2016-01-01
+</code></pre>
+
+<p>So why doesn't this line work to return me row 1??</p>
+
+<pre><code>df[(df['ID']==some_id) &amp; (df['Date'] == some_date)] 
+</code></pre>
+
+<p>Instead I get 
+<code>ValueError: Series lengths must match to compare</code><br>
+which I understand, and makes sense...but leaves me wondering...how else can I compare dates in pandas if I can't compare one to many?</p>
+","<patron><hands>, valueerror: peri length must match compare match date hands, <p>i apology advance ask basic question stamped.</p> <p>the simple, dummy example. i'm issue match date and can't figure why.</p> <pre><code>of = pp.dataframe([[1,'2016-01-01'], [2,'2016-01-01'], [3,'2016-01-02'], [4,'2016-01-03']], columns=['id', 'date']) of['date'] = of['date'].type('datetime64') </code></pre> <p>say want match row 1 of.<br> know beforehand want match id <code>1</code>.<br> know date want well, matter fact, i'll extract date directly row 1 of make bulletproof.</p> <pre><code>some_id = 1 some = of.bloc[1:2]['date'] # give 2016-01-01 </code></pre> <p>so line work return row 1??</p> <pre><code>of[(of['id']==some_id) &amp; (of['date'] == some_date)] </code></pre> <p>instead get <code>valueerror: peri length must match compare</code><br> understand, make sense...but leave wondering...how else compare date and can't compare one many?</p>"

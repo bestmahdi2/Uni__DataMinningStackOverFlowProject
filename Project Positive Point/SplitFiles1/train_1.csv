@@ -1,0 +1,1036 @@
+Id,Title,Body,Tags,CreationDate,Y
+34552656,Java: Repeat Task Every Random Seconds,"<p>I'm already familiar with repeating tasks every n seconds by using Java.util.Timer and Java.util.TimerTask. But lets say I want to print ""Hello World"" to the console every random seconds from 1-5. Unfortunately I'm in a bit of a rush and don't have any code to show so far. Any help would be apriciated.  </p>
+",<java><repeat>,16/01/01 0:21,LQ_CLOSE
+34553034,Why are Java Optionals immutable?,"<p>I'd like to understand why Java 8 Optionals were designed to be immutable.  Is it just for thread-safety?</p>
+",<java><optional>,16/01/01 2:03,HQ
+34553174,Text Overlay Image with Darkened Opacity React Native,"<p>I am attempting to overlay a title over an image - with the image darkened with a lower opacity. However, the opacity effect is changing the overlaying text as well - making it dim. Any fix to this? Here is what is looks like:</p>
+
+<p><a href=""https://i.stack.imgur.com/1HzD7.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/1HzD7.png"" alt=""enter image description here""></a></p>
+
+<p>And here is my code for the custom component (article preview - which the above image is a row of article preview components): </p>
+
+<pre><code>//component for article preview touchable image
+/* will require the following
+- rss feed and api
+- user's keyword interests from parse In home.js
+- parse db needs to be augmented to include what they heart
+- parse db needs to be augmented to include what they press on (like google news)
+*/
+var React = require('react-native');
+var {
+  View, 
+  StyleSheet, 
+  Text, 
+  Image, 
+  TouchableHighlight, 
+} = React;
+
+//dimensions
+var Dimensions = require('Dimensions');
+var window = Dimensions.get('window');
+var ImageButton = require('../../common/imageButton');
+var KeywordBox = require('../../authentication/onboarding/keyword-box');
+
+//additional libraries
+
+module.exports = React.createClass({
+  //onPress function that triggers when button pressed
+  //this.props.text is property that can be dynamically filled within button 
+  /* following props:
+    - source={this.props.source}
+    - onPress={this.props.onPress}
+    - {this.props.text}
+    - {this.props.heartText}
+    - key={this.props.key} 
+    - text={this.props.category} 
+    - this.props.selected
+  */
+  render: function() {
+    return (
+      &lt;TouchableHighlight 
+        underlayColor={'transparent'}
+        onPress={this.props.onPress} &gt;
+          &lt;Image 
+            source={this.props.source} 
+            style={[styles.articlePreview, this.border('red')]}&gt;
+                  &lt;View style={[styles.container, this.border('organge')]}&gt;
+                      &lt;View style={[styles.header, this.border('blue')]}&gt;
+                          &lt;Text style={[styles.previewText]}&gt;{this.props.text}&lt;/Text&gt;
+                      &lt;/View&gt;
+                      &lt;View style={[styles.footer, this.border('white')]}&gt;
+                        &lt;View style={[styles.heartRow, this.border('black')]}&gt;
+                          &lt;ImageButton
+                              style={[styles.heartBtn, , this.border('red')]}
+                              resizeMode={'contain'}
+                              onPress={this.onHeartPress}
+                              source={require('../../img/heart_btn.png')} /&gt;
+                          &lt;Text style={[styles.heartText]}&gt;{this.props.heartText + ' favorites'}&lt;/Text&gt;
+                        &lt;/View&gt;
+                          &lt;KeywordBox 
+                              style={[styles.category, this.border('blue')]}
+                              key={this.props.key} 
+                              text={this.props.category} 
+                              onPress={this.props.categoryPress}
+                              selected={this.props.selected} /&gt;
+                      &lt;/View&gt;
+                  &lt;/View&gt;
+          &lt;/Image&gt;
+      &lt;/TouchableHighlight&gt;
+    );
+  }, 
+  onHeartPress: function() {
+    //will move this function to a general module
+  }, 
+  border: function(color) {
+      return {
+        //borderColor: color, 
+        //borderWidth: 4,
+      } 
+   },
+});
+
+var styles = StyleSheet.create({
+  heartText: {
+    color: 'white', 
+    fontSize: 12, 
+    fontWeight: 'bold',
+    alignSelf: 'center', 
+    marginLeft: 5, 
+    fontFamily: 'SFCompactText-Medium'
+  }, 
+  heartRow: {
+    flexDirection: 'row', 
+    justifyContent: 'space-around', 
+    alignSelf: 'center', 
+    justifyContent: 'center', 
+  }, 
+  heartBtn: {
+    height: (92/97)*(window.width/13), 
+    width: window.width/13, 
+    alignSelf:'center', 
+  }, 
+  category: {
+    fontFamily: 'Bebas Neue', 
+    fontSize: 10,
+    fontWeight: 'bold'
+  }, 
+  header: {
+    flex: 3, 
+    alignItems: 'center', 
+    justifyContent: 'space-around', 
+    marginTop: window.height/30,
+  }, 
+  footer: {
+    flex: 1, 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    margin: window.height/50,
+  }, 
+  container: {
+    flex: 1, 
+    backgroundColor: 'black', 
+    opacity: 0.6, 
+  }, 
+  articlePreview: {
+    flex: 1, 
+    height: window.height/3.2, 
+    width: window.width, 
+    flexDirection: 'column'
+  }, 
+  previewText: {
+    fontFamily: 'Bebas Neue', 
+    fontSize: 23,
+    color: 'white', 
+    alignSelf: 'center', 
+    textAlign: 'center', 
+    margin: 5, 
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+  }, 
+
+});
+</code></pre>
+",<javascript><image><overlay><react-native><opacity>,16/01/01 2:48,HQ
+34553318,Why ternary operator in swift is so picky?,"<p>The question is very simple, but I just could not find the answer!</p>
+
+<p>Why doesn't</p>
+
+<pre><code>return x == 0? """" : ""Hello""
+</code></pre>
+
+<p>compile but</p>
+
+<pre><code>return x == 0 ? """" : ""Hello""
+</code></pre>
+
+<p>does?</p>
+
+<p>This is really weird because all the other operators don't need an extra white space. e.g.</p>
+
+<pre><code>let x = 1+1
+let y = 1 + 1
+</code></pre>
+
+<p>are the same.</p>
+
+<p>I think it has something to do with optionals. But when you use a <code>?</code> operator on a variable, it must be used like this:</p>
+
+<pre><code>let s: String? = nil
+let x = s?.startIndex
+</code></pre>
+
+<p>I mean it must follow another operator, right?</p>
+",<swift><operators><whitespace><ternary-operator><optional>,16/01/01 3:30,HQ
+34553755,hide/show fab with scale animation,"<p>I'm using custom floatingactionmenu. I need to implement scale animation on show/hide menu button like here
+<a href=""https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsZU1kZWhRYWZpUDg/components-buttons-fab-behavior_01_xhdpi_012.mp4"" rel=""noreferrer"">floating action button behaviour</a></p>
+
+<p>Is there any way to do this ?</p>
+",<android><material-design><floating-action-button>,16/01/01 5:21,HQ
+34554026,Accessing pointer member of the structure using structure pointer,"<p>I have defined integer pointer inside the structure.And i want to use that member pointer using the structure pointer.My code is as shown below:</p>
+
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+
+struct abc
+{
+        int *x;
+};
+
+int main()
+{
+
+        struct abc *p = (struct abc*)malloc(sizeof(struct abc));
+        p-&gt;x = (int*)malloc(sizeof(int));
+        p-&gt;x = 10;
+        printf(""The value is %d\n"",p-&gt;x);
+        free(p);
+}
+</code></pre>
+
+<p>Now i am getting output as per my expectation.But i have got warning message while compiling.The warning messages are:</p>
+
+<pre><code>temp.c:14:7: warning: assignment makes pointer from integer without a cast [enabled by default]
+temp.c:15:2: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int *’ [-Wformat]
+</code></pre>
+
+<p>I have also tried,</p>
+
+<pre><code>*p-&gt;x = 10
+ printf(""The value is %d\n"",*p-&gt;x);
+</code></pre>
+
+<p>but it is not working.</p>
+
+<p>How to solve this warning?</p>
+",<c><pointers><data-structures>,16/01/01 6:21,LQ_CLOSE
+34554206,"How To Disable 2nd Saturday 4th Saturday ,Sunday And Holiday Date Using JQuery Calendar","  i want to Disable 2nd Saturday 4th saturday, Sunday And Public Holiday Date Using jQuery calendar 
+
+All year of 2nd Saturday And 4th Saturday ,Sunday Disable from Calendar
+
+Please Help Me",<javascript><jquery><jquery-ui>,16/01/01 6:55,LQ_EDIT
+34554671,Resizing containers in bootstrap,"I am new to bootstrap and i would like to find out how do i automatically resize my image to fit it into the container. And i would like to have a blank background for my container. Currently it is like this 
+
+   <div class=""row"">
+                        <div class=""col-md-3"">
+                            <div class=""panel panel-primary"">
+                                <div class=""panel-heading"">
+                                    <div class=""row"">
+                                        <img src =""haha.png""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                [![enter image description here][1]][1]
+
+I plugged the whole code from some template form and i was playing around with it. 
+
+I would like to have a container where i could fit the image inside automatically resizing the image.
+
+
+  [1]: http://i.stack.imgur.com/s16WB.png",<jquery><html><css><twitter-bootstrap>,16/01/01 8:32,LQ_EDIT
+34554871,Changing Theme in Windows 10 UWP App Programmatically,"<p>I was able to change theme using <code>this.RequestedTheme = ElementTheme.Dark;</code>
+But what I need is the whole application level, since this one only change the theme of the current page to dark.</p>
+
+<p>Whenever I try this <code>App.Current.RequestedTheme = ApplicationTheme.Dark;</code>
+I always get this error</p>
+
+<blockquote>
+  <p>An exception of type 'System.NotSupportedException' occurred in UWPApp.exe but was not handled in user code</p>
+</blockquote>
+
+<p>Is there such a way that I can change the whole application theme from Light to Dark or vice versa?</p>
+
+<p>I'm using VS2015</p>
+",<c#><windows-10><windows-10-mobile><windows-10-universal>,16/01/01 9:05,HQ
+34554982,TextBox Value Disappears VB6,"I my case I am having two form Form 1 and Form 2.
+Form 1 having two Buttons and Form 2 is having one textbox.
+On Button 1 Click event I am writing ""My Text"" in my Form 2 TextBox and on button 2 I am showing Form 2.
+What is happening is When I close my Form 2 using close [X] button and reopen it value in my Form 2 Textbox Disappears.
+Please Help how can I resolve this,
+",<vb6>,16/01/01 9:27,LQ_EDIT
+34555603,MongoDB Failing to Start - ***aborting after fassert() failure,"<p>I am new to Ubuntu (Linux tbh). I encountered problem with starting MongoDB service. I want to created web app using Ruby on Rails and MongoDB but mongo seems to fail to start.</p>
+
+<p>I followed this <a href=""https://docs.mongodb.org/v3.0/tutorial/install-mongodb-on-ubuntu/"">MongoDB installation on Ubuntu</a> all of installation went without problems until I got to <code>sudo service mongod start</code> </p>
+
+<p><strong>mongod.log</strong></p>
+
+<pre><code>2016-01-01T10:58:15.545+0000 I CONTROL  ***** SERVER RESTARTED *****
+2016-01-01T10:58:15.548+0000 I CONTROL  [initandlisten] MongoDB starting : pid=3868 port=27017 dbpath=/var/lib/mongodb 64-bit host=damian-CX61-0NC-CX61-0ND-CX61-0NF-CX61-0NE
+2016-01-01T10:58:15.548+0000 I CONTROL  [initandlisten] db version v3.0.8
+2016-01-01T10:58:15.548+0000 I CONTROL  [initandlisten] git version: 83d8cc25e00e42856924d84e220fbe4a839e605d
+2016-01-01T10:58:15.548+0000 I CONTROL  [initandlisten] build info: Linux ip-10-187-89-126 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-01-01T10:58:15.548+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-01-01T10:58:15.548+0000 I CONTROL  [initandlisten] options: { config: ""/etc/mongod.conf"", net: { bindIp: ""127.0.0.1"", port: 27017 }, storage: { dbPath: ""/var/lib/mongodb"", journal: { enabled: true } }, systemLog: { destination: ""file"", logAppend: true, path: ""/var/log/mongodb/mongod.log"" } }
+2016-01-01T10:58:15.567+0000 E NETWORK  [initandlisten] Failed to unlink socket file /tmp/mongodb-27017.sock errno:1 Operation not permitted
+2016-01-01T10:58:15.567+0000 I -        [initandlisten] Fatal Assertion 28578
+2016-01-01T10:58:15.567+0000 I -        [initandlisten] 
+
+***aborting after fassert() failure
+</code></pre>
+
+<p>So what I am doing wrong or its different issue?</p>
+",<linux><mongodb><ubuntu><ubuntu-14.04><startup>,16/01/01 11:08,HQ
+34555643,What's the best way to store text data?,"<p>I am kinda new to Android development, but I coded a lot of C#(WinF,WPF). I created an quiz app (German words) for app and I'm not quite sure how to store and load dictionaries (a file, where lines contain 2 words). What is the best way to store these dictionaries? I googled a bit, but didn't find exact answers. At the moment I generate the words directly in the code. 
+Thanks!</p>
+",<android><android-file>,16/01/01 11:15,LQ_CLOSE
+34556569,ios/objective-c/xcode: Expand Label based on quantity of text using Storyboard,"I have a UIlabel linked to a property that can contain text of many different possible lengths.
+
+How can I get the label to expand vertically to accommodate different quantities of text?
+
+I have set lines to 0 in storyboard.  And I've experimented with different heights in the Size Inspector.  But the label is not adjusting and I am only seeing one line of text that ends at edge of label.
+
+Would prefer not to use auto layout if possible unless there is no other way.
+
+Thanks in advance for any suggestions.
+
+",<ios><storyboard><uilabel>,16/01/01 13:33,LQ_EDIT
+34556906,"output FILE ,is this a fault?","
+my code here
+
+        #include <stdio.h>
+    #include<iostream>
+    #include<conio.h>
+    
+    char filename[100];
+    FILE *stream, *stream2;
+    char s[20];
+    struct date
+    {
+    	int day, month, year;
+    };
+    struct employee
+    {
+    	int ID;
+    	char name[100];
+    	date birthdate;
+    	char address[20];
+    	char rank[20];
+    	int money;
+    };
+    void main()
+    {
+    
+    	
+    	errno_t err;
+    
+    	// Open for read (will fail if file ""crt_fopen_s.c"" does not exist)
+    	
+    	// Open for write 
+    	err = fopen_s(&stream2, ""C:/Users/Van/Desktop/LAALAL/fool.txt"", ""w+"");
+    	if (err == 0)
+    	{
+    	
+    		
+    
+    		employee nv;
+    		std::cout << ""\nInput information of an employee:\n"";
+    		std::cout << ""\tInput ID : "";
+    		std::cin >> nv.ID;
+    		std::cin.sync();
+    		std::cout << ""\tInput name : "";
+    		std::cin.clear();
+    		gets_s(s);
+    		gets_s(nv.name);
+    		std::cout << ""\tInput birthdate (Day Month Year ) : "";
+    		std::cin >> nv.birthdate.day >> nv.birthdate.month >> nv.birthdate.year;
+    
+    		std::cout << ""\tInput address: "";
+    		std::cin.clear();
+    		gets_s(s);
+    		gets_s(nv.address);
+    		std::cout << ""\tInput rank : "";
+    		std::cin.clear();
+    		gets_s(s);
+    		gets_s(nv.rank);
+    		std::cout << ""\tMoney : "";
+    		std::cin >> nv.money;
+    		std::cin.sync();
+    
+    		std::fwrite(&nv, sizeof(nv), 1, stream2);
+    		std::fclose(stream2);
+    	}
+    	
+    	
+    }
+Well i don't meet the problem with code but when i input my information to txt file , i cant read the output in txt file ,here is the picture of my output
+[enter image description here][1]
+What is my problems??
+Thanks in advance for your time !!!
+
+
+  [1]: http://i.stack.imgur.com/gaPqY.png",<c++>,16/01/01 14:20,LQ_EDIT
+34556991,Pod install displaying error in cocoapods version 1.0.0.beta.1,"<p>My podfile was working but after updating to cocoapods version 1.0.0.beta.1</p>
+
+<p>pod install displays following error</p>
+
+<pre><code>MacBook-Pro:iOS-TuneIn home$ pod install
+Fully deintegrating due to major version update
+Deleted 1 'Copy Pods Resources' build phases.
+Deleted 1 'Check Pods Manifest.lock' build phases.
+Deleted 1 'Embed Pods Frameworks' build phases.
+- libPods.a
+- Pods.debug.xcconfig
+- Pods.release.xcconfig
+Deleted 1 'Copy Pods Resources' build phases.
+Deleted 1 'Check Pods Manifest.lock' build phases.
+- libPods.a
+Deleted 1 'Copy Pods Resources' build phases.
+Deleted 1 'Check Pods Manifest.lock' build phases.
+- libPods.a
+Deleted 1 'Copy Pods Resources' build phases.
+Deleted 1 'Check Pods Manifest.lock' build phases.
+- libPods.a
+Deleted 1 'Copy Pods Resources' build phases.
+Deleted 1 'Check Pods Manifest.lock' build phases.
+- libPods.a
+- libPods.a
+Deleted 1 empty `Pods` groups from project.
+Removing `Pods` directory.
+
+Project has been deintegrated. No traces of CocoaPods left in project.
+Note: The workspace referencing the Pods project still remains.
+Updating local specs repositories
+Analyzing dependencies
+[!] The dependency `AFNetworking (= 2.6.3)` is not used in any concrete target.
+The dependency `MBProgressHUD (~&gt; 0.9.1)` is not used in any concrete target.
+The dependency `PDKeychainBindingsController (~&gt; 0.0.1)` is not used in any concrete target.
+The dependency `FMDB/SQLCipher` is not used in any concrete target.
+The dependency `ZXingObjC (~&gt; 3.1.0)` is not used in any concrete target.
+The dependency `SDWebImage (~&gt; 3.7.2)` is not used in any concrete target.
+The dependency `SignalR-ObjC (~&gt; 2.0.0.beta3)` is not used in any concrete target.
+The dependency `CJPAdController (from `https://github.com/nabeelarif100/CJPAdController.git`)` is not used in any concrete target.
+The dependency `ECSlidingViewController (~&gt; 2.0.3)` is not used in any concrete target.
+The dependency `VGParallaxHeader` is not used in any concrete target.
+The dependency `EMString` is not used in any concrete target.
+The dependency `Google/SignIn` is not used in any concrete target.
+The dependency `VIPhotoView (~&gt; 0.1)` is not used in any concrete target.
+The dependency `EncryptedCoreData (from `https://github.com/project-imas/encrypted-core-data.git`)` is not used in any concrete target.
+MacBook-Pro:iOS-TuneIn home$ 
+</code></pre>
+
+<p>Podfile:</p>
+
+<pre><code>source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '7.0'
+pod 'AFNetworking', '2.6.3'
+pod 'MBProgressHUD', '~&gt; 0.9.1'
+pod 'PDKeychainBindingsController', '~&gt; 0.0.1'
+pod 'FMDB/SQLCipher'
+pod 'ZXingObjC', '~&gt; 3.1.0'
+pod 'SDWebImage', '~&gt;3.7.2'
+pod 'SignalR-ObjC','~&gt;2.0.0.beta3'
+pod 'CJPAdController', :git =&gt; 'https://github.com/nabeelarif100/CJPAdController.git'
+pod 'ECSlidingViewController', '~&gt; 2.0.3'
+pod 'VGParallaxHeader'
+pod 'EMString'
+pod 'Google/SignIn'
+pod 'VIPhotoView', '~&gt; 0.1'
+pod 'EncryptedCoreData', :git =&gt; 'https://github.com/project-imas/encrypted-core-data.git'
+</code></pre>
+",<ios><cocoapods>,16/01/01 14:30,HQ
+34558002,Haskell Stack Ghci test-suite,"<p>I'm trying to use stack to load my test-suite in ghci and have it load the QuickCheck and hspec dependency.</p>
+
+<p>How can I do this?</p>
+
+<p>I'm using the franklinchen template. <br />
+<a href=""https://github.com/commercialhaskell/stack-templates/blob/master/franklinchen.hsfiles"">https://github.com/commercialhaskell/stack-templates/blob/master/franklinchen.hsfiles</a></p>
+
+<p>I have tried <br />
+stack ghci spec <br />
+stack ghci test-suite <br />
+stack ghci --main-is spec <br /></p>
+
+<p>I modified the test-suite spec to target the main-is: LibSpec.hs file</p>
+
+<pre><code>test-suite spec
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             LibSpec.hs
+  build-depends:       base
+                     , chapterexercises
+                     , hspec
+                     , QuickCheck
+</code></pre>
+",<haskell><cabal><haskell-stack>,16/01/01 16:48,HQ
+34558390,Why does the reverse() function in the Swift standard library return ReverseRandomAccessCollection?,"<p>Now that I've learned Swift (to a reasonable level) I'm trying to get to grips with the standard library, but in truth it's mainly ελληνικά to me!</p>
+
+<p>So a specific question: I have an array of strings and I can call reverse() on it.</p>
+
+<pre><code>let arr = [""Mykonos"", ""Rhodes"", ""Naxos""].reverse()
+</code></pre>
+
+<p>Now naively I thought I'd get back a type of Array from this. (Ruby for example has a similar method that you pass an array and get back an array)</p>
+
+<p>But arr is now actually of type</p>
+
+<pre><code>ReverseRandomAccessCollection&lt;Array&lt;String&gt;&gt;
+</code></pre>
+
+<p>which is actually a struct, which conforms to CollectionType:</p>
+
+<pre><code>public struct ReverseRandomAccessCollection&lt;Base : CollectionType where Base.Index : RandomAccessIndexType&gt; : _ReverseCollectionType
+</code></pre>
+
+<p>This means I can do this:</p>
+
+<pre><code>for item in arr {
+  print(item)
+}
+</code></pre>
+
+<p>but I can't do</p>
+
+<pre><code>print(arr[0])
+</code></pre>
+
+<p>Why is this designed to be this way?</p>
+
+<p>Dictionaries in Swift also implement CollectionType, so I can do this:</p>
+
+<pre><code>let dict = [""greek"" : ""swift sometimes"", ""notgreek"" : ""ruby for this example""].reverse()
+</code></pre>
+
+<p>But dictionaries are not ordered like arrays, so why can I call reverse() on dicts?</p>
+
+<p>Bonus points if anyone can point me in the direction of where I can read up and improve my Swift stdlib foo, Ευχαριστώ!</p>
+",<arrays><swift><standard-library>,16/01/01 17:35,HQ
+34558996,eb deploy does not update the code,"<p>I am trying to deploy an application version but <code>eb deploy</code> command fails with: </p>
+
+<blockquote>
+  <p>ERROR: Update environment operation is complete, but with errors. For
+  more information, see troubleshooting documentation.</p>
+</blockquote>
+
+<p>I checked the logs, made some changes to the code, committed and deployed again and guess what, it failed again. The logs indicate the same error, disregarding my changes. The error occurs in a file in this directory <code>/var/app/ondeck/app/</code>, when I go check, I can see the previous version is there. </p>
+
+<p>I tried deploying using the Elastic Beanstalk dashboard, but somehow the instance is not receiving the new version. Can someone help me with this? Thanks.</p>
+",<amazon-web-services><amazon-ec2><amazon-elastic-beanstalk>,16/01/01 18:52,HQ
+34559058,How to create a function that returns a byte array in C++? Arduino project.,"I am currently starting to learn C++ via Arduino programming. I am programming an 8*8 LED Matrix, and currently have a semi-working code that uses a joystick to control a dot on screen. Only problem is: its nearly 1000 lines long. It's equivalent to writing an 1000 page essay only saying ""Pig, blanket, market"" over and over again until I get to the actual logic involved.
+
+My friend suggested to make it shorter, I could make a function which returns a byte. 
+
+How does one do this?
+
+http://pastebin.com/8ud9ny2U <-- This is my code. !WARNING! Not a pretty code. At all. 
+
+Help is much appreciated.
+",<c++><arduino>,16/01/01 18:59,LQ_EDIT
+34559458,bluebird.js vs bluebird.core.js what is the difference?,"<p>What is the difference between bluebird.js and bluebird.core.js? </p>
+
+<p>When should I use bluebird.core.js instead of bluebird.js? </p>
+
+<p>I haven't been able to find anything in the <a href=""http://bluebirdjs.com/docs/getting-started.html"">bluebird site</a> or elsewhere.</p>
+",<bluebird>,16/01/01 19:49,HQ
+34559553,Create a temporary directory in PowerShell?,"<p><a href=""http://blogs.technet.com/b/heyscriptingguy/archive/2015/08/05/create-temporary-files-with-powershell-5-0.aspx"" rel=""noreferrer"">PowerShell 5 introduces the <code>New-TemporaryFile</code> cmdlet</a>, which is handy.  How can I do the same thing but instead of a file create a directory?  Is there a <code>New-TemporaryDirectory</code> cmdlet?</p>
+",<powershell><temporary-directory>,16/01/01 19:59,HQ
+34559616,how to make sure a file's integrity in C#,"<p>I am deploying a file along with a C# application. And I want to make sure that file is same as it was supplied otherwise the C# application will show error. Now, a file's creation and modification date can be changed after it is modified. Is there any checksum/hash etc. in C# to make sure file is not changed by user.</p>
+",<c#><.net>,16/01/01 20:10,LQ_CLOSE
+34559807,Stopwatch and ReadKey doesn't work properly,"I'm working on my multi threading password cracker, only numbers. It must show the how much time has passed to find the password. I used Stopwatch to find it, but in functions, stopwatch doesn't works..
+
+here is my code
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+    using System.Threading;
+
+
+    namespace ConsoleApplication4
+    {
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            int psw = 14995399;
+
+
+            Stopwatch time = new Stopwatch();
+
+            Thread Thread1 = new Thread(islem1);
+            Thread Thread2 = new Thread(islem2);
+            Thread Thread3 = new Thread(islem3);
+            Thread Thread4 = new Thread(islem4);
+
+            time.Start();
+
+            Thread1.Start();
+            Thread2.Start();
+            Thread3.Start();
+            Thread4.Start();
+
+            Thread.Sleep(1000);
+
+            time.Stop();
+            System.Console.WriteLine(""Time elapsed: {0}"", time.Elapsed);
+            Console.ReadKey();
+        }
+
+
+
+
+
+        static void islem1()
+        {
+            for (int i = 00000000; i < 25000000; i++)
+            {
+                int psw = 14995399;
+                if (i == psw)
+                {
+                    System.Console.WriteLine(""Şifre="" + i);
+                    
+                    time.Stop();
+                    Console.WriteLine(""Time elapsed: {0}"", time.Elapsed);
+                    Console.ReadKey();
+                }
+            }
+        }
+
+
+        static void islem2()
+        {
+            for (int i = 25000000; i < 50000000; i++)
+            {
+                int psw = 14995399;
+                if (i == psw)
+                {
+                    System.Console.WriteLine(""Şifre="" + i);
+
+                    time.Stop();
+                    Console.WriteLine(""Time elapsed: {0}"", time.Elapsed);
+                    Console.ReadKey();
+
+
+
+                }
+            }
+        }
+
+
+        static void islem3()
+        {
+            for (int i = 50000000; i < 75000000; i++)
+            {
+                int psw = 14995399;
+                if (i == psw)
+                {
+                    System.Console.WriteLine(""Şifre="" + i);
+
+                    time.Stop();
+                    Console.WriteLine(""Time elapsed: {0}"", time.Elapsed);
+                    Console.ReadKey();
+                }
+            }
+        }
+
+
+        static void islem4()
+        {
+            for (int i = 75000000; i < 100000000; i++)
+            {
+                int psw = 14995399;
+                if (i == psw)
+                {
+                    System.Console.WriteLine(""Şifre="" + i);
+
+                    time.Stop();
+                    Console.WriteLine(""Time elapsed: {0}"", time.Elapsed);
+                    Console.ReadKey();
+                }
+            }
+        }
+
+    }
+    }
+",<c#><multithreading><stopwatch><console.readkey>,16/01/01 20:33,LQ_EDIT
+34560087,Vbscript email attachment,"I'm writing a vbscript to send email notification when file arrives in Test folder
+
+I want to attach that file to my email.please help
+
+The file name is not constant,each time a file arrives with different name.
+Below is my code 
+
+
+Const PATH = ""F:\Test""
+
+dim fso: set fso = CreateObject(""Scripting.FileSystemObject"")
+
+dim folder: set folder = fso.getFolder(PATH)
+
+if folder.files.Count <> 0 then
+
+strSMTPFrom = ""errorfile@test.com""
+
+strSMTPTo = ""test@test.com""
+
+strSMTPRelay = ""127.0.0.1""
+
+strTextBody = ""The attached file arrived in Test folder""
+
+strSubject = ""File arrived in Test folder""
+
+strAttachment = 
+
+Set oMessage = CreateObject(""CDO.Message"")
+
+oMessage.Configuration.Fields.Item(""http://schemas.microsoft.com/cdo/configuration/sendusing"") = 2 
+
+oMessage.Configuration.Fields.Item(""http://schemas.microsoft.com/cdo/configuration/smtpserver"") = strSMTPRelay
+
+oMessage.Configuration.Fields.Item(""http://schemas.microsoft.com/cdo/configuration/smtpserverport"") = 25 
+
+oMessage.Configuration.Fields.Update
+
+oMessage.Subject = strSubject
+oMessage.From = strSMTPFrom
+
+oMessage.To = strSMTPTo
+
+oMessage.TextBody = strTextBody
+
+oMessage.AddAttachment strAttachment
+
+oMessage.Send
+
+end if
+
+
+",<vbscript>,16/01/01 21:10,LQ_EDIT
+34560768,Can I throw from class init() in Swift with constant string loaded from file?,"<p>I'd like my class <em>init()</em> in Swift to throw an error if something goes wrong with loading a file into a string within the class. Once the file is loaded, the string will not be altered, so I would prefer to use <em>let</em>. This works:</p>
+
+<pre><code>class FileClass {    
+    var text: NSString = """"   
+    init() throws {   
+        do {
+            text = try NSString( contentsOfFile: ""/Users/me/file.txt"", encoding: NSUTF8StringEncoding ) }
+        catch let error as NSError {
+            text = """"
+            throw error
+        }      
+    }
+}
+</code></pre>
+
+<p>but when I replace</p>
+
+<pre><code>var text: NSString = """"
+</code></pre>
+
+<p>with</p>
+
+<pre><code>let text: NSString
+</code></pre>
+
+<p>I get an <strong>All stored properties of a class instance must be initialized before throwing from an initializer</strong> error.</p>
+
+<p>I've tried various approaches such as to make <em>text</em> optional</p>
+
+<pre><code>let text: NSString?
+</code></pre>
+
+<p>but haven't found any that work. It it possible to have <em>text</em> be loaded from a file, immutable, and for <em>init()</em> to throw an error? Can I have my cake and eat it three?</p>
+
+<p>Many thanks in advance!</p>
+",<swift>,16/01/01 22:42,HQ
+34560942,C# - Count a specific word in richTextBox1 and send the result to label1,"<p>I'm not sure, if this question is unique, but I couldn't find the answer that I was looking for.</p>
+
+<p>I simply need a C# code that counts how many times a word appear in richTextBox1 and send the result to label1.</p>
+
+<p>Example;
+label1.text = how many times the word ""house"" appears in richTextBox1.</p>
+
+<p>I know that I should try first but believe me I tried and I failed. I am new to this so I hope someone can show me.</p>
+
+<p>Regards</p>
+",<c#>,16/01/01 23:06,LQ_CLOSE
+34561323,Android: Create bigger Floating Action Button with bigger icon,"<p>I want to create a bigger Floating Action Button (FAB), more than the usual 56 dp, with a bigger icon inside.
+(For my purpose an icon will never be self-explanatory so I will create a png-file containing a short text and use this png as icon.)</p>
+
+<p>Increasing the size of the FAB works fine:<br>
+as i don't use the mini-FloatingActionButton, i redefined the mini-button-size.<br>
+in my <strong>layout-xml</strong> i specify: </p>
+
+<pre><code>&lt;android.support.design.widget.FloatingActionButton
+    ...
+    app:fabSize=""mini""
+    ....
+</code></pre>
+
+<p>and in the <strong>dimensions.xml</strong> i redefine the size for the mini-fab: </p>
+
+<pre><code>&lt;dimen name=""fab_size_mini""&gt;80dp&lt;/dimen&gt;
+</code></pre>
+
+<p>However, I didn't manage to get a bigger icon on the FAB.
+I tried icons with different dp's from the material icons library - no success. Also setting a padding on the FAB-layout did not work.</p>
+
+<p>Any suggestions? Thanks!</p>
+",<android><floating-action-button>,16/01/02 0:00,HQ
+34561614,Should I use the final modifier when declaring case classes?,"<p>According to <a href=""https://github.com/puffnfresh/wartremover"">scala-wartremover</a> static analysis tool I have to put ""final"" in front of every case classes I create: error message says ""case classes must be final"".</p>
+
+<p>According to <a href=""https://github.com/sksamuel/scapegoat"">scapegoat</a> (another static analysis tool for Scala) instead I shouldn't (error message: ""Redundant final modifier on case class"")</p>
+
+<p>Who is right, and why?</p>
+",<scala><static-analysis><case-class><scala-wartremover>,16/01/02 1:07,HQ
+34561843,I need to create an array with numbers given by the user,"    System.out.println(""Please enter a coefficients of a polynomial’s terms:"");
+		String coefficents = keyboard.nextLine();
+		String[] three = coefficents.split("" "");
+		int[] intArray1 = new int[three.length];
+
+//Does anyone know how i can make this work because right not it builds but when i run it, it gives me [I@33909752
+
+//if someone could show me or explain to me what's wrong that would help",<java><arrays><compiler-errors>,16/01/02 1:54,LQ_EDIT
+34562200,How do I make the Kotlin compiler treat warnings as errors?,"<p>I have a Kotlin project where I'd like to have Kotlin warnings treated as errors. How can I do that?</p>
+",<kotlin>,16/01/02 3:06,HQ
+34562551,c++ vector type function implemetation,"    class City
+    {
+       private:
+       int id;
+       string name;
+       int populations;
+    int nooftourist;
+    vector<Attraction*>&attractions;
+    public:
+        City(int id,string name,int populations,int        nooftourist):id(id),name(name),populations(populations),nooftourist(nooftourist){}
+     void setId(int _id);
+    void setName(string _name);
+    int getId();
+    string getName();
+    void display(){}
+    vector<Attraction*>getAttractions() { return attractions;}
+
+};
+
+what wrong with my program,i dont understand the vector type function
+",<c++>,16/01/02 4:17,LQ_EDIT
+34562708,Java and enum [Novice],"<p>I've got ome fail in java enums;</p>
+
+<p>I'd like to have individual id number for specified enum created, but number seems to propagate to next enum object unfortunately.
+Look at my case:</p>
+
+<pre><code>enum type{ int i;}
+int id=1;
+type t1.i=id;
+id=2;
+type t2.i=id;
+</code></pre>
+
+<p>But t1 has got t2 id number, but I want to have different id's.</p>
+
+<p>Is there any solution in this case ?</p>
+
+<p>I inform that it's simplification of my case and I can't change enum type to class.</p>
+",<java><enums><integer><int>,16/01/02 4:48,LQ_CLOSE
+34562730,Difference between uwsgi_pass and proxy_pass in Nginx?,"<p>I'm running uWSGI behind Nginx and have been using <code>proxy_pass</code> to get Nginx to hit uWSGI. Is there any benefit to switch to <code>uwsgi_pass</code>. If so, what is it?</p>
+",<nginx><uwsgi>,16/01/02 4:54,HQ
+34562879,How to play gif in android from url?,"<p>I want to play animated gif from url in android app like imgur app. Imagur is superb and very fast. I am loading gif with webview but its not up to the mark.</p>
+",<android><animated-gif>,16/01/02 5:21,HQ
+34563750,undefined reference to SIGN in C using GCC,"<p>Many questions have been asked here about functions from math.h not being found in C code during compilation and I am facing a similar problem. Having gone through all of them, none seems to apply to my problem. I have some C code in a file called test1.c - </p>
+
+<pre><code>#include &lt;math.h&gt;
+int main(void) {
+  int j = SQR(4);
+  int i = (int)(sqrt(16.0));
+}
+</code></pre>
+
+<p>Now, I compile this using - </p>
+
+<pre><code>gcc -c -o ../../obj/test1.o test1.c -I../../include
+</code></pre>
+
+<p>And it produces the .o file. </p>
+
+<p>Now, I try and create the executable using - </p>
+
+<pre><code>gcc -o ../../bin/test1../../obj/test1.o -I../../include -lm
+</code></pre>
+
+<p>But this gives me the error below (most previous questions were solved by the -lm switch but I have that) - </p>
+
+<pre><code>../../obj/test1.o:test1.c:(.text+0x13): undefined reference to `SQR'
+../../obj/test1.o:test1.c:(.text+0x13): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `SQR'
+</code></pre>
+
+<p>Strangely, sqrt works but a host of other functions like SQR, SIGN etc lead to problems (the case doesn't matter). Note that these commands were generated by a make file - </p>
+
+<pre><code>IDIR =../../include
+CC=gcc
+CFLAGS=-I$(IDIR)
+
+ODIR=../../obj
+LDIR =../../lib
+
+LIBS=-lm
+
+_DEPS = nrutil.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = test1.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+
+$(ODIR)/%.o: %.c $(DEPS)
+  $(CC) -c -o $@ $&lt; $(CFLAGS)
+
+../../bin/svdcmp: $(OBJ)
+  gcc -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+
+clean:
+   rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
+</code></pre>
+
+<p>I'm using Cygwin with Windows.</p>
+",<c><makefile>,16/01/02 7:39,LQ_CLOSE
+34563884,What does the double backslash mean in a function parameter in Elixir?,"<p>I recently came across a code snippet such as:</p>
+
+<pre><code>def loop(ring_pid \\ self, nil, true) do
+  #some code 
+end
+</code></pre>
+
+<p>What do the double backslashes mean?  I googled around and found <a href=""http://elixir-lang.org/getting-started/sigils.html"" rel=""noreferrer"">http://elixir-lang.org/getting-started/sigils.html</a>, but that applies to regular expressions not function params.</p>
+",<elixir>,16/01/02 8:01,HQ
+34563947,Sending a positive octet of zero bits over a socket,"I am currently attempting to communicate with an external application over TCP/IP based socket. I have successfully established a connection with the client and received some data. This manual [here][1] states that 
+
+>   After this command is received, the client must read an acknowledgement 
+> octet from the daemon.  A positive acknowledgement is an octet of  zero bits.  A negative acknowledgement is an octet of any other pattern.
+
+I would like to send a positive acknowledgment and I am sending it this way
+
+    void WriteData(std::string content)
+    {
+        send(newsockfd,content.c_str(),content.length(),0);
+    }
+
+    WriteData(""00000000"");
+
+My question is if I am sending this data corectly ?
+
+
+  [1]: https://www.ietf.org/rfc/rfc1179.txt",<linux><sockets><c++11>,16/01/02 8:15,LQ_EDIT
+34564198,any one can help me with this sql syntax error? what should i use near the select statement,"Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Len(Trim(TextBox1.Text)) = 0 Then
+            MsgBox(""Please Enter Current Odometer For Specified Vehicle"", MsgBoxStyle.Critical, ""Error"")
+            TextBox1.Focus()
+        Else
+            Dim time As DateTime = DateTimePicker1.Value.Date
+            Dim format As String = ""yy-MM-dd""
+            Dim newdate = time.ToString(format)
+            Dim SQLStatement As String = ""IF EXISTS (SELECT * FROM services_list WHERE vehicle_id='"" & Label7.Text & ""' AND service='"" & ComboBox1.Text & ""') BEGIN UPDATE services_list Set service_date='"" & newdate & ""', note='"" & RichTextBox1.Text & ""', odometer='"" & TextBox1.Text & ""' WHERE vehicle_id='"" & Label7.Text & ""' AND service='"" & ComboBox1.Text & ""' End Else BEGIN INSERT INTO services_list(vehicle_id,service,service_date,note,odometer,milesorkm) VALUES('"" & Label7.Text & ""', '"" & ComboBox1.Text & ""', '"" & newdate & ""', '"" & RichTextBox1.Text & ""', '"" & TextBox1.Text & ""', '"" & Label8.Text & ""') END""
+            Dim Query2 As String = ""Select * from customers_cars where vin_number='"" & ComboBox3.Text & ""'""
+            Dim cmd As MySqlCommand = New MySqlCommand(Query2, MySqlConn)
+            Reader = cmd.ExecuteReader
+            Try
+                While Reader.Read()
+                    Dim lastod = Reader.GetInt32(""last_visit_odometer"").ToString
+                    Label9.Text = lastod
+                    If TextBox1.Text <= Label9.Text Then
+                        MsgBox(""Incorrect Odometer"")
+                    Else
+                        Reader.Dispose()
+                        cmd.CommandText = SQLStatement
+                        cmd.CommandType = CommandType.Text
+                        cmd.Connection = MySqlConn
+                        cmd.ExecuteNonQuery()
+                        MsgBox(""Successfully Added!"")
+                    End If
+                    Reader.Dispose()
+                End While
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub",<mysql><vb.net>,16/01/02 8:57,LQ_EDIT
+34564253,How to make Xcode automatically conform to a protocol,"<p>When I use a prototype table view, I always have to conform to the protocol <code>TableViewDataSource</code>. I always forget what methods I need to implement, so I have to look at the source of the protocol every time. This is really time consuming.</p>
+
+<p>I think Xcode must have a feature that automatically implements the needed methods for you, right? Just like IntelliJ IDEA, Eclipse, and Visual Studio.</p>
+
+<p>I want to know where can I find this feature. If there's isn't, is there a workaround for this? At least I don't have to open the source code of the protocol each time I conform to it.</p>
+
+<p>If you don't understand what I mean, here's some code:</p>
+
+<p>I have a protocol</p>
+
+<pre><code>protocol Hello {
+    func doStuff ()
+}
+</code></pre>
+
+<p>When I conform to it,</p>
+
+<pre><code>class MyClass: Hello {
+
+}
+</code></pre>
+
+<p>I often don't remember the names of the methods that I need to implement. If Xcode has a feature that turns the above code, into this:</p>
+
+<pre><code>class MyClass: Hello {
+    func doStuff () {
+        code
+    }
+}
+</code></pre>
+
+<p>Now you understand what I mean? I just want to ask where to find such a feature.</p>
+",<ios><xcode><swift><interface><code-generation>,16/01/02 9:05,HQ
+34564466,java mongodb driver how do you catch exceptions?,"<p>I want to be able to detect if a mongo server is available from the java driver for the purpose of reacting to any abnormal events as one would in JDBC land etc. It all works fine when the server is up but I am struggling to understand why it is so difficult to detect errors. I have a feeling its because the mongo client runs in a different thread and it doesn't re throw to me or something?</p>
+
+<pre><code>try {
+        MongoClient mongoClient = new MongoClient(""localhost"", 27017);
+        MongoDatabase db = mongoClient.getDatabase(""mydb"");
+        // if db is down or error getting people collection handle it in catch block
+        MongoCollection&lt;Document&gt; people = commentarr.getCollection(""people"");
+    } catch (Exception e) {
+        // handle server down or failed query here.
+    }
+</code></pre>
+
+<p>The result is </p>
+
+<pre><code>INFO: Exception in monitor thread while connecting to server localhost:27017
+</code></pre>
+
+<p>With the resulting stack trace containing a few different exceptions which I have tried to catch but my catch blocks still didn't do anything.</p>
+
+<pre><code>com.mongodb.MongoSocketOpenException: Exception opening socket
+Caused by: java.net.ConnectException: Connection refused
+</code></pre>
+
+<p>I am using the java mongodb driver 3.0.4, most posts I read are from an older API with hacks like <code>MongoClient.getDatabaseNames()</code> which throws a <code>MongoException</code> if errors, except this is deprecated now and replaced with <code>MongoClient.listDatabaseNames()</code> which doesn't have the same error throwing semantics.</p>
+
+<p>Is there a way to just execute a mongo query from the java driver in a try catch block and actually have the exception caught?</p>
+",<mongodb-java>,16/01/02 9:36,HQ

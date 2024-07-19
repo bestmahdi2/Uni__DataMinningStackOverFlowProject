@@ -1,0 +1,251 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34718369,"Python, PHP-style","I have used Python and PHP a lot, but just out of curiosity, **is there a version of Python that uses a similar paradigm to PHP for dynamic creation of html pages**, i.e. like this:
+
+    <html>
+    <body>
+    
+    <?py                        # similar to <?php ... ?>
+    for i in range(10):
+        print '<div>Hello%i</div>' % i
+    ?>
+    
+    </body>
+    </html>
+
+?
+
+Note: I'm **not** speaking about Django, Flask, Bottle, Twisted, etc. that don't use such syntax.",<php><python><html><preprocessor><web-frameworks>,16/01/11 9:48,LQ_EDIT,"<php><python><html><preprocessor><web-frameworks>, Python, PHP-style, I have used Python and PHP a lot, but just out of curiosity, **is there a version of Python that uses a similar paradigm to PHP for dynamic creation of html pages**, i.e. like this:
+
+    <html>
+    <body>
+    
+    <?py                        # similar to <?php ... ?>
+    for i in range(10):
+        print '<div>Hello%i</div>' % i
+    ?>
+    
+    </body>
+    </html>
+
+?
+
+Note: I'm **not** speaking about Django, Flask, Bottle, Twisted, etc. that don't use such syntax.","<pp><patron><html><preprocessor><web-framework>, patron, pp-style, use patron pp lot, curiosity, **i version patron use similar paradise pp dream creation html pages**, i.e. like this: <html> <body> <?i # similar <?pp ... ?> range(10): print '<did>hello%i</did>' % ?> </body> </html> ? note: i'm **not** speak django, flask, bottle, twisted, etc. use santa."
+34718946,"invalid number (error token is ""16##0x00a002"")","i want to convert an hexadecimal value to decimal value perform some arithmetic operation and convert back to hexadecimal.
+In an attempt to do so, i am facing the following error,
+
+""myshell.sh: line 77: 16##0x00a002: invalid number (error token is ""16##0x00a002"")
+
+The related line of code is 
+""SUBVER3_1=$((16##$SUBVER3_1))""
+
+Can someone let me know 
+1) what this error is and how can i fix it.
+2) How to perform Arithmetic operation on hexadecimal number in shell",<shell><sh>,16/01/11 10:16,LQ_EDIT,"<shell><sh>, invalid number (error token is ""16##0x00a002""), i want to convert an hexadecimal value to decimal value perform some arithmetic operation and convert back to hexadecimal.
+In an attempt to do so, i am facing the following error,
+
+""myshell.sh: line 77: 16##0x00a002: invalid number (error token is ""16##0x00a002"")
+
+The related line of code is 
+""SUBVER3_1=$((16##$SUBVER3_1))""
+
+Can someone let me know 
+1) what this error is and how can i fix it.
+2) How to perform Arithmetic operation on hexadecimal number in shell","<shell><s>, invalid number (error token ""16##0x00a002""), want convert hexadecim value devil value perform arithmetic over convert back hexadecimal. attempt so, face follow error, ""myself.s: line 77: 16##0x00a002: invalid number (error token ""16##0x00a002"") relate line code ""subver3_1=$((16##$subver3_1))"" someone let know 1) error fix it. 2) perform arithmetic over hexadecim number shell"
+34721504,how to store array within dictionary in objective c-(how i modify my codes. im newbie only,"studentDict=[[NSMutableDictionary alloc]init];
+    studentArray=[[NSMutableArray alloc]init];
+
+    [studentArray addObject:name.text];
+    [studentArray addObject:regno.text];
+    [studentArray addObject:marks.text];
+    [studentArray addObject:rank.text];
+    studentDict=[NSMutableDictionary dictionaryWithObjects:[NSMutableArray arrayWithObjects:studentArray, nil] forKeys:[NSMutableArray arrayWithObjects:studentArray, nil]];
+    NSLog(@""%@"",studentArray);
+",<ios>,16/01/11 12:22,LQ_EDIT,"<ios>, how to store array within dictionary in objective c-(how i modify my codes. im newbie only, studentDict=[[NSMutableDictionary alloc]init];
+    studentArray=[[NSMutableArray alloc]init];
+
+    [studentArray addObject:name.text];
+    [studentArray addObject:regno.text];
+    [studentArray addObject:marks.text];
+    [studentArray addObject:rank.text];
+    studentDict=[NSMutableDictionary dictionaryWithObjects:[NSMutableArray arrayWithObjects:studentArray, nil] forKeys:[NSMutableArray arrayWithObjects:studentArray, nil]];
+    NSLog(@""%@"",studentArray);
+","<is>, store array within dictionary object c-(how modify codes. in newby only, studentdict=[[nsmutabledictionari allow]knit]; studentarray=[[nsmutablearray allow]knit]; [studentarray addobject:name.text]; [studentarray addobject:region.text]; [studentarray addobject:marks.text]; [studentarray addobject:rank.text]; studentdict=[nsmutabledictionari dictionarywithobjects:[nsmutablearray arraywithobjects:studentarray, nail] forces:[nsmutablearray arraywithobjects:studentarray, nail]]; slow(@""%@"",studentarray);"
+34722226,how to add route inside android mapfragment?,"<p>I am using google map in my app and i want to show route between two points.below are the latitudes and longitude.</p>
+
+<pre><code>    LatLng pune = new LatLng(18.6099, 73.8171);
+    map.addMarker(new MarkerOptions().position(pune).title(""Marker in pune""));
+    map.moveCamera(CameraUpdateFactory.newLatLng(pune));
+    mo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+
+    LatLng mumbai = new LatLng(19.0829, 72.8831);
+    map.addMarker(new MarkerOptions().position(mumbai).title(""Marker in mumbai""));
+    map.moveCamera(CameraUpdateFactory.newLatLng(mumbai));
+    mo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+</code></pre>
+
+<p>Please help </p>
+",<android><google-maps>,16/01/11 13:01,LQ_CLOSE,"<android><google-maps>, how to add route inside android mapfragment?, <p>I am using google map in my app and i want to show route between two points.below are the latitudes and longitude.</p>
+
+<pre><code>    LatLng pune = new LatLng(18.6099, 73.8171);
+    map.addMarker(new MarkerOptions().position(pune).title(""Marker in pune""));
+    map.moveCamera(CameraUpdateFactory.newLatLng(pune));
+    mo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+
+    LatLng mumbai = new LatLng(19.0829, 72.8831);
+    map.addMarker(new MarkerOptions().position(mumbai).title(""Marker in mumbai""));
+    map.moveCamera(CameraUpdateFactory.newLatLng(mumbai));
+    mo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+</code></pre>
+
+<p>Please help </p>
+","<andros><goose-maps>, add rout inside andros mapfragment?, <p>i use good map pp want show rout two points.below latitude longitude.</p> <pre><code> laying pure = new laying(18.6099, 73.8171); map.addmarker(new markeroptions().position(pure).title(""mark pure"")); map.movecamera(cameraupdatefactory.newlatlng(pure)); mo.icon(bitmapdescriptorfactory.defaultmarker(bitmapdescriptorfactory.hue_azure)); laying lumbar = new laying(19.0829, 72.8831); map.addmarker(new markeroptions().position(lumbar).title(""mark lumbar"")); map.movecamera(cameraupdatefactory.newlatlng(lumbar)); mo.icon(bitmapdescriptorfactory.defaultmarker(bitmapdescriptorfactory.hue_azure)); </code></pre> <p>pleas help </p>"
+34727248,How do I change first elements of 2 dimensions array in Ruby?,"I have an array 
+`[[-20,23],[-80,65], ... []]` , 
+but I need `[[""20"",23],[""80"",65], ... []]`. 
+Have no idea how to deal with it... ",<arrays><ruby>,16/01/11 17:10,LQ_EDIT,"<arrays><ruby>, How do I change first elements of 2 dimensions array in Ruby?, I have an array 
+`[[-20,23],[-80,65], ... []]` , 
+but I need `[[""20"",23],[""80"",65], ... []]`. 
+Have no idea how to deal with it... ","<array><ruby>, change first element 2 times array ruby?, array `[[-20,23],[-80,65], ... []]` , need `[[""20"",23],[""80"",65], ... []]`. idea deal it..."
+34729248,Printing multiple characters from a string,"<p>If I have a string ""SSSAAADDDCCC"" how would I print just ""SADC"". Can it be done using SubString or would I have to use charAt()?</p>
+",<java>,16/01/11 19:13,LQ_CLOSE,"<java>, Printing multiple characters from a string, <p>If I have a string ""SSSAAADDDCCC"" how would I print just ""SADC"". Can it be done using SubString or would I have to use charAt()?</p>
+","<cava>, print multiple character string, <p>if string ""sssaaadddccc"" would print ""sad"". done use substr would use chart()?</p>"
+34729697,Squares as rating bars,"<p>I'm looking for some help trying to create squares for a rating bars but I'm a little confused on where to start. I added a image of what I want them to look like</p>
+
+<p><img src=""https://i.stack.imgur.com/HQGV4.png""></p>
+",<html><css>,16/01/11 19:40,LQ_CLOSE,"<html><css>, Squares as rating bars, <p>I'm looking for some help trying to create squares for a rating bars but I'm a little confused on where to start. I added a image of what I want them to look like</p>
+
+<p><img src=""https://i.stack.imgur.com/HQGV4.png""></p>
+","<html><iss>, square rate bars, <p>i'm look help try great square rate bar i'm little confuse start. ad image want look like</p> <p><ing sac=""http://i.stick.incur.com/hqgv4.pig""></p>"
+34734716,remove duplicates based on one column and combine certain value in one column,"<p>I am a beginner in R. I have this kind of data,
+<a href=""http://i.stack.imgur.com/fiSZK.png"" rel=""nofollow"">data1</a></p>
+
+<p>And I wanted to have a data like this:
+<a href=""http://i.stack.imgur.com/FNjR9.png"" rel=""nofollow"">data2</a></p>
+
+<p>I have found examples of people removing duplicates and combine the some data as list. but majority of examples only consist of 2 columns. </p>
+
+<p>Hope anyone can help me</p>
+",<r><duplicates>,16/01/12 2:42,LQ_CLOSE,"<r><duplicates>, remove duplicates based on one column and combine certain value in one column, <p>I am a beginner in R. I have this kind of data,
+<a href=""http://i.stack.imgur.com/fiSZK.png"" rel=""nofollow"">data1</a></p>
+
+<p>And I wanted to have a data like this:
+<a href=""http://i.stack.imgur.com/FNjR9.png"" rel=""nofollow"">data2</a></p>
+
+<p>I have found examples of people removing duplicates and combine the some data as list. but majority of examples only consist of 2 columns. </p>
+
+<p>Hope anyone can help me</p>
+","<r><duplicates>, remove public base one column combine certain value one column, <p>i begin r. kind data, <a he=""http://i.stick.incur.com/risk.pig"" red=""follow"">data</a></p> <p>and want data like this: <a he=""http://i.stick.incur.com/fnjr9.pig"" red=""follow"">data</a></p> <p>i found example people remove public combine data list. major example consist 2 columns. </p> <p>hope anyone help me</p>"
+34737853,C++ : RAII idiom for classes with container members,"I have the following questions about the class described in the code below:
+
+    using namespace std;
+
+    class Collector
+    {
+    public:
+        Collector(const InfoPool& pool) { collect(pool) };
+
+        collect(const InfoPool& pool)
+        {
+            for ( auto v : pool )
+            {
+              tuple<int,int> key = v.get_tuple();
+              auto value = make_shared<Widget>(v.x(), v.y(), v.z());
+              m_collection.insert(key, value);
+            }
+        }
+
+    private:
+        map< tuple<int,int>, shared_ptr<Widget> > m_collection;
+    }
+
+    int foo()
+    {
+        const InfoPool& pool = // ...
+        auto c = std::make_shared<Widget>{ pool };
+    }
+
+1. I would like to know if it is RAII compliant. If not, how do I modify its implementation to make it so.
+
+2. I wanted to confirm that the map Collector::m_container is stored on the free-store. Are both the tuple-keys and the Widgets both stored on the free-store?
+
+3. Does foo leak memory?
+",<c++><c++11><containers><raii>,16/01/12 7:31,LQ_EDIT,"<c++><c++11><containers><raii>, C++ : RAII idiom for classes with container members, I have the following questions about the class described in the code below:
+
+    using namespace std;
+
+    class Collector
+    {
+    public:
+        Collector(const InfoPool& pool) { collect(pool) };
+
+        collect(const InfoPool& pool)
+        {
+            for ( auto v : pool )
+            {
+              tuple<int,int> key = v.get_tuple();
+              auto value = make_shared<Widget>(v.x(), v.y(), v.z());
+              m_collection.insert(key, value);
+            }
+        }
+
+    private:
+        map< tuple<int,int>, shared_ptr<Widget> > m_collection;
+    }
+
+    int foo()
+    {
+        const InfoPool& pool = // ...
+        auto c = std::make_shared<Widget>{ pool };
+    }
+
+1. I would like to know if it is RAII compliant. If not, how do I modify its implementation to make it so.
+
+2. I wanted to confirm that the map Collector::m_container is stored on the free-store. Are both the tuple-keys and the Widgets both stored on the free-store?
+
+3. Does foo leak memory?
+","<c++><c++11><container><rain>, c++ : rain idiot class contain members, follow question class describe code below: use namespac st; class collector { public: collector(cost infopool& pool) { collect(pool) }; collect(cost infopool& pool) { ( auto v : pool ) { table<in,in> key = v.get_tuple(); auto value = make_shared<wide>(v.x(), v.y(), v.z()); collection.insert(key, value); } } private: map< table<in,in>, shared_ptr<wide> > collection; } in foo() { cost infopool& pool = // ... auto c = st::make_shared<wide>{ pool }; } 1. would like know rain complaint. not, modify implement make so. 2. want confirm map collector::contain store free-store. table-key wide store free-store? 3. foo leak memory?"
+34739082,C# singelton for global data,"I'm starting with C# and I would like to ask how can I make globaly avaiable bellow structured data in my C# app to all classes:
+
+    class clsData1
+    {
+       int Num1;
+       int Num2;
+       string Str1;
+    }
+    
+    class clsData2
+    { 
+       int Num3;
+       int Num4;
+       string Str2;
+    }
+    
+    class Main
+    {
+       clsData1 clsData1A;
+       clsData2 clsData2A;
+    }
+
+I gues solution is with singleton, but example would be helpfull.",<c#>,16/01/12 8:49,LQ_EDIT,"<c#>, C# singelton for global data, I'm starting with C# and I would like to ask how can I make globaly avaiable bellow structured data in my C# app to all classes:
+
+    class clsData1
+    {
+       int Num1;
+       int Num2;
+       string Str1;
+    }
+    
+    class clsData2
+    { 
+       int Num3;
+       int Num4;
+       string Str2;
+    }
+    
+    class Main
+    {
+       clsData1 clsData1A;
+       clsData2 clsData2A;
+    }
+
+I gues solution is with singleton, but example would be helpfull.","<c#>, c# singelton global data, i'm start c# would like ask make global available fellow structure data c# pp classes: class clsdata1 { in numb; in numb; string sir; } class clsdata2 { in numb; in numb; string sir; } class main { clsdata1 clsdata1a; clsdata2 clsdata2a; } due slut simpleton, example would helpful."

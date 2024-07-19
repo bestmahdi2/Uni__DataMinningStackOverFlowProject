@@ -1,0 +1,411 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34597768,"Visual Studio 2015- How to disable ""based on your project, we have identified extensions you may find helpful"" message?","<p>Since the latest update to Visual Studio 2015, I get this message when I open <code>.html</code> or <code>.cshtml</code> files. Clicking ""Don't Ask Again"" only disables this until VS is restarted. How can I turn it off permanently?</p>
+
+<p><a href=""https://i.stack.imgur.com/j0jIj.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/j0jIj.png"" alt=""enter image description here""></a></p>
+",<html><asp.net-mvc><visual-studio><visual-studio-2015>,16/01/04 18:47,HQ,"<html><asp.net-mvc><visual-studio><visual-studio-2015>, Visual Studio 2015- How to disable ""based on your project, we have identified extensions you may find helpful"" message?, <p>Since the latest update to Visual Studio 2015, I get this message when I open <code>.html</code> or <code>.cshtml</code> files. Clicking ""Don't Ask Again"" only disables this until VS is restarted. How can I turn it off permanently?</p>
+
+<p><a href=""https://i.stack.imgur.com/j0jIj.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/j0jIj.png"" alt=""enter image description here""></a></p>
+","<html><asp.net-mac><visual-studio><visual-studio-2015>, visual studio 2015- distal ""base project, identify extent may find helpful"" message?, <p>since latest update visual studio 2015, get message open <code>.html</code> <code>.html</code> files. click ""don't ask again"" distal vs restarted. turn permanently?</p> <p><a he=""http://i.stick.incur.com/j0jij.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/j0jij.pig"" at=""went image rescript here""></a></p>"
+34598541,How can I add new elements to an array inside of another struct array in C?,"<p><strong>Right now my code looks like this,</strong></p>
+
+<pre><code>    typedef struct veiculo
+{
+    char matricula[8];
+    int nreixos;
+    float alturaeixo;
+    int tag;
+    int classe;
+
+}veiculo;
+
+typedef struct portagem
+{
+    int nome;
+    int kilometros;
+    float preco;
+    float total_recebido;
+    struct veiculo carro[100];
+}portagem;
+
+(...)
+
+int encontrar_ult_elemento(struct veiculo v[]){
+    int d;
+    int i;
+    for(i=0;i&lt;100;i++){
+        if (v[i]!= 0)
+        d++;
+        else
+            return d;
+    }
+}
+void guardar_veiculo(struct portagem p[] ,struct veiculo v, int d){
+    int i;
+        if(v.tag==""1"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[1].carro[n]=v;
+        else if(v.tag==""2"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[2].carro[n]=v;
+        else if(v.tag==""3"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[3].carro[n]=v;
+        else if(v.tag==""4"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[4].carro[n]=v;
+        else if(v.tag==""5"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[5].carro[n]=v;
+        else if(v.tag==""6"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[6].carro[n]=v;
+        else if(v.tag=""7"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[7].carro[n]=v;
+        else if(v.tag=""8"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[8].carro[n]=v;
+        else if(v.tag=""9"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[9].carro[n]=v;
+        else if(v.tag=""10"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[10].carro[n]=v;
+    }
+
+
+    int main()
+{
+struct portagem portagem1;
+portagem1.nome = 1;
+portagem1.kilometros=14;
+portagem1.preco=1.00;
+portagem1.total_recebido;
+
+struct portagem portagem2;
+portagem2.nome = 2;
+portagem2.kilometros=15;
+portagem2.preco=1.05;
+portagem2.total_recebido;
+
+struct portagem portagem3;
+portagem3.nome = 3;
+portagem3.kilometros=7;
+portagem3.preco=1.20;
+portagem3.total_recebido;
+
+(...)
+
+
+
+struct portagem p[]={portagem1,portagem2,portagem3,portagem4,portagem5,portagem6,portagem7,portagem8,portagem9};
+</code></pre>
+
+<p>****I have another functions going on, to ask the user to register the veicule, assigning the respective tag etc...I just don't if this is the correct way to do it.
+thanks for your help guys! ****</p>
+",<c><arrays>,16/01/04 19:37,LQ_CLOSE,"<c><arrays>, How can I add new elements to an array inside of another struct array in C?, <p><strong>Right now my code looks like this,</strong></p>
+
+<pre><code>    typedef struct veiculo
+{
+    char matricula[8];
+    int nreixos;
+    float alturaeixo;
+    int tag;
+    int classe;
+
+}veiculo;
+
+typedef struct portagem
+{
+    int nome;
+    int kilometros;
+    float preco;
+    float total_recebido;
+    struct veiculo carro[100];
+}portagem;
+
+(...)
+
+int encontrar_ult_elemento(struct veiculo v[]){
+    int d;
+    int i;
+    for(i=0;i&lt;100;i++){
+        if (v[i]!= 0)
+        d++;
+        else
+            return d;
+    }
+}
+void guardar_veiculo(struct portagem p[] ,struct veiculo v, int d){
+    int i;
+        if(v.tag==""1"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[1].carro[n]=v;
+        else if(v.tag==""2"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[2].carro[n]=v;
+        else if(v.tag==""3"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[3].carro[n]=v;
+        else if(v.tag==""4"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[4].carro[n]=v;
+        else if(v.tag==""5"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[5].carro[n]=v;
+        else if(v.tag==""6"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[6].carro[n]=v;
+        else if(v.tag=""7"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[7].carro[n]=v;
+        else if(v.tag=""8"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[8].carro[n]=v;
+        else if(v.tag=""9"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[9].carro[n]=v;
+        else if(v.tag=""10"")
+            encontrar_ult_elemento(p[1].carro[])=n;
+            p[10].carro[n]=v;
+    }
+
+
+    int main()
+{
+struct portagem portagem1;
+portagem1.nome = 1;
+portagem1.kilometros=14;
+portagem1.preco=1.00;
+portagem1.total_recebido;
+
+struct portagem portagem2;
+portagem2.nome = 2;
+portagem2.kilometros=15;
+portagem2.preco=1.05;
+portagem2.total_recebido;
+
+struct portagem portagem3;
+portagem3.nome = 3;
+portagem3.kilometros=7;
+portagem3.preco=1.20;
+portagem3.total_recebido;
+
+(...)
+
+
+
+struct portagem p[]={portagem1,portagem2,portagem3,portagem4,portagem5,portagem6,portagem7,portagem8,portagem9};
+</code></pre>
+
+<p>****I have another functions going on, to ask the user to register the veicule, assigning the respective tag etc...I just don't if this is the correct way to do it.
+thanks for your help guys! ****</p>
+","<c><array>, add new element array inside not struck array c?, <p><strong>right code look like this,</strong></p> <pre><code> typedef struck veiculo { chair matricula[8]; in nreixos; float alturaeixo; in tag; in class; }veiculo; typedef struck portages { in some; in kilometre; float press; float total_recebido; struck veiculo carry[100]; }portages; (...) in encontrar_ult_elemento(struck veiculo v[]){ in d; in i; for(i=0;i&it;100;i++){ (v[i]!= 0) d++; else return d; } } void guardar_veiculo(struck portages p[] ,struck veiculo v, in d){ in i; if(v.tag==""1"") encontrar_ult_elemento(p[1].carry[])=n; p[1].carry[n]=v; else if(v.tag==""2"") encontrar_ult_elemento(p[1].carry[])=n; p[2].carry[n]=v; else if(v.tag==""3"") encontrar_ult_elemento(p[1].carry[])=n; p[3].carry[n]=v; else if(v.tag==""4"") encontrar_ult_elemento(p[1].carry[])=n; p[4].carry[n]=v; else if(v.tag==""5"") encontrar_ult_elemento(p[1].carry[])=n; p[5].carry[n]=v; else if(v.tag==""6"") encontrar_ult_elemento(p[1].carry[])=n; p[6].carry[n]=v; else if(v.tag=""7"") encontrar_ult_elemento(p[1].carry[])=n; p[7].carry[n]=v; else if(v.tag=""8"") encontrar_ult_elemento(p[1].carry[])=n; p[8].carry[n]=v; else if(v.tag=""9"") encontrar_ult_elemento(p[1].carry[])=n; p[9].carry[n]=v; else if(v.tag=""10"") encontrar_ult_elemento(p[1].carry[])=n; p[10].carry[n]=v; } in main() { struck portages portages; portages.nom = 1; portages.kilometre=14; portages.press=1.00; portages.total_recebido; struck portages portages; portages.nom = 2; portages.kilometre=15; portages.press=1.05; portages.total_recebido; struck portages portages; portages.nom = 3; portages.kilometre=7; portages.press=1.20; portages.total_recebido; (...) struck portages p[]={portages,portages,portages,portages,portages,portages,portages,portages,portages}; </code></pre> <p>****i not function go on, ask user resist vehicle, assign respect tag etc...i correct way it. thank help guns! ****</p>"
+34598845,i want to get the keys and values of each set using java,"<p>Am new to java i have formed a set of result in </p>
+
+<pre><code>       `Map&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;`
+</code></pre>
+
+<p>now i want to get the keys and values of each set</p>
+
+<p>How should get this. anyone please suggest me</p>
+
+<p>thanks in advance.</p>
+",<java>,16/01/04 19:58,LQ_CLOSE,"<java>, i want to get the keys and values of each set using java, <p>Am new to java i have formed a set of result in </p>
+
+<pre><code>       `Map&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt;`
+</code></pre>
+
+<p>now i want to get the keys and values of each set</p>
+
+<p>How should get this. anyone please suggest me</p>
+
+<p>thanks in advance.</p>
+","<cava>, want get key value set use cava, <p>am new cava form set result </p> <pre><code> `map&it;string, map&it;string, list&it;string&it;&it;&it;` </code></pre> <p>now want get key value set</p> <p>how get this. anyone pleas suggest me</p> <p>thank advance.</p>"
+34600588,"I want to use the output of `gcloud` in a script, but the format changes. What should I do?","<p>I’m using the command <code>gcloud compute instances list</code> in a script, but I’m worried that the exact output format isn’t static. What should I do?</p>
+",<gcloud>,16/01/04 21:56,HQ,"<gcloud>, I want to use the output of `gcloud` in a script, but the format changes. What should I do?, <p>I’m using the command <code>gcloud compute instances list</code> in a script, but I’m worried that the exact output format isn’t static. What should I do?</p>
+","<cloud>, want use output `cloud` script, format changes. do?, <p>i’m use command <code>cloud compute instant list</code> script, i’m worry exact output format isn’t static. do?</p>"
+34600612,Weird checkbox behaviour,"I've recently solved browser neutral check boxes issue which I was having in IE vs Chrome. we have a theme for the application in the background. theme color get applies if I checked the check box in chrome but not in IE11
+
+how should I force or tell the chrome check box to ignore the theme. it's working fine in IE but not in chrome that's the problem.
+
+http://jsfiddle.net/LnL7b/
+
+            .mycheckbox:checked {
+             background: url(icon.png)no-repeat center center;
+             background-size: 100%;
+             }
+
+ 
+  [Here's how ugly it's Chrome][1]
+
+
+
+  [1]: http://i.stack.imgur.com/ZNEjD.png
+  ",<html><css><google-chrome><internet-explorer>,16/01/04 21:57,LQ_EDIT,"<html><css><google-chrome><internet-explorer>, Weird checkbox behaviour, I've recently solved browser neutral check boxes issue which I was having in IE vs Chrome. we have a theme for the application in the background. theme color get applies if I checked the check box in chrome but not in IE11
+
+how should I force or tell the chrome check box to ignore the theme. it's working fine in IE but not in chrome that's the problem.
+
+http://jsfiddle.net/LnL7b/
+
+            .mycheckbox:checked {
+             background: url(icon.png)no-repeat center center;
+             background-size: 100%;
+             }
+
+ 
+  [Here's how ugly it's Chrome][1]
+
+
+
+  [1]: http://i.stack.imgur.com/ZNEjD.png
+  ","<html><iss><goose-come><internet-explorer>, weird checkbox behaviour, i'v recent sole brother neutral check box issue in vs come. theme applied background. theme color get apply check check box come ie11 for tell come check box ignore theme. work fine in come that' problem. http://fiddle.net/lnl7b/ .mycheckbox:check { background: curl(icon.pig)no-repeat center center; background-size: 100%; } [here' ugly come][1] [1]: http://i.stick.incur.com/need.pig"
+34600833,I want to populate a single element in a 2D array randomly with a single char value?,"<p>How can I randomly choose a single element out of a 2D array and fill that one element with char 'M'?</p>
+",<java><arrays><multidimensional-array>,16/01/04 22:13,LQ_CLOSE,"<java><arrays><multidimensional-array>, I want to populate a single element in a 2D array randomly with a single char value?, <p>How can I randomly choose a single element out of a 2D array and fill that one element with char 'M'?</p>
+","<cava><array><multidimensional-array>, want soul single element d array random single chair value?, <p>how random choose single element d array fill one element chair 'm'?</p>"
+34604508,How to create a duplicate of a stack in Java,"<p>My teacher requested that I create a duplicate of a Stack that returns a new Stack containing the same elements and in the same order as the specified Stack.</p>
+
+<p>If I am only able to use methods that are unique to Stack, I would pop every element off the Stack and onto a que. Then I would pop from the bottom of the que onto a new Stack and return the new Stack.</p>
+
+<p>However, I figured that since Stack inherits from Vector I could just use the addAll() method from Vector!</p>
+
+<p>Here is the Java code implementation:</p>
+
+<pre><code>public class DuplicateStack {
+
+private Stack backStack;
+
+public Stack duplicateStack(Stack s) {
+    backStack.addAll(s);
+    return backStack;
+}
+</code></pre>
+
+<p>This would seem to do all the work for me. Only problem is, I keep getting a nullPointerException when I run this in my main:</p>
+
+<pre><code>Stack s1 = new Stack();
+s1.push(""c"");
+s1.push(""b"");
+s1.push(""a"");
+
+DuplicateStack dup = new DuplicateStack();
+Stack s2 = dup.duplicateStack(s1);
+
+while(!s2.empty())
+    System.out.println(s2.pop());
+</code></pre>
+
+<p>The error comes from the addAll() call in my DuplicateStack class.
+So my question is why am I getting a nullPointerException from the addAll(), and is there any way to make a duplicate copy other than using the method stated earlier (using only Stack unique methods)?</p>
+",<java><nullpointerexception><stack>,16/01/05 5:05,LQ_CLOSE,"<java><nullpointerexception><stack>, How to create a duplicate of a stack in Java, <p>My teacher requested that I create a duplicate of a Stack that returns a new Stack containing the same elements and in the same order as the specified Stack.</p>
+
+<p>If I am only able to use methods that are unique to Stack, I would pop every element off the Stack and onto a que. Then I would pop from the bottom of the que onto a new Stack and return the new Stack.</p>
+
+<p>However, I figured that since Stack inherits from Vector I could just use the addAll() method from Vector!</p>
+
+<p>Here is the Java code implementation:</p>
+
+<pre><code>public class DuplicateStack {
+
+private Stack backStack;
+
+public Stack duplicateStack(Stack s) {
+    backStack.addAll(s);
+    return backStack;
+}
+</code></pre>
+
+<p>This would seem to do all the work for me. Only problem is, I keep getting a nullPointerException when I run this in my main:</p>
+
+<pre><code>Stack s1 = new Stack();
+s1.push(""c"");
+s1.push(""b"");
+s1.push(""a"");
+
+DuplicateStack dup = new DuplicateStack();
+Stack s2 = dup.duplicateStack(s1);
+
+while(!s2.empty())
+    System.out.println(s2.pop());
+</code></pre>
+
+<p>The error comes from the addAll() call in my DuplicateStack class.
+So my question is why am I getting a nullPointerException from the addAll(), and is there any way to make a duplicate copy other than using the method stated earlier (using only Stack unique methods)?</p>
+","<cava><nullpointerexception><stick>, great public stick cava, <p>mi teacher request great public stick return new stick contain element order specific stick.</p> <p>if all use method unique stick, would pop every element stick onto que. would pop bottom que onto new stick return new stick.</p> <p>however, figure since stick inherit vector could use addall() method vector!</p> <p>here cava code implementation:</p> <pre><code>pull class duplicatestack { privat stick backstack; public stick duplicatestack(stick s) { backstack.addall(s); return backstack; } </code></pre> <p>the would seem work me. problem is, keep get nullpointerexcept run main:</p> <pre><code>stick s = new stick(); s.push(""c""); s.push(""b""); s.push(""a""); duplicatestack up = new duplicatestack(); stick s = up.duplicatestack(s); while(!s.empty()) system.out.print(s.pop()); </code></pre> <p>the error come addall() call duplicatestack class. question get nullpointerexcept addall(), way make public copy use method state earlier (use stick unique methods)?</p>"
+34605604,Magento Error :There has been an error processing your request ?,"I changed the port of mysql 3306 to 3307 and after this localhost url not opening for Magento.
+ 
+Exception printing is disabled by default for security reasons.
+Error log record number: 1108316134
+
+a:4:{i:0;s:100:""SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+"";i:1;s:2928:""#0 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Pdo\Mysql.php(111): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#1 C:\xampp\htdocs\magento\lib\Varien\Db\Adapter\Pdo\Mysql.php(396): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#2 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#3 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#4 C:\xampp\htdocs\magento\lib\Varien\Db\Adapter\Pdo\Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#5 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource.php(179): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#6 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#7 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#8 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#9 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#10 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(360): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#11 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Collection\Abstract.php(134): Mage_Core_Model_Resource_Db_Abstract->getReadConnection()
+#12 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Config.php(1348): Mage_Core_Model_Resource_Db_Collection_Abstract->__construct(Object(Mage_Core_Model_Resource_Website))
+#13 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Config.php(1380): Mage_Core_Model_Config->getModelInstance('core_resource/w...', Object(Mage_Core_Model_Resource_Website))
+#14 C:\xampp\htdocs\magento\app\Mage.php(491): Mage_Core_Model_Config->getResourceModelInstance('core/website_co...', Object(Mage_Core_Model_Resource_Website))
+#15 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Abstract.php(208): Mage::getResourceModel('core/website_co...', Object(Mage_Core_Model_Resource_Website))
+#16 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Abstract.php(213): Mage_Core_Model_Abstract->getResourceCollection()
+#17 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(619): Mage_Core_Model_Abstract->getCollection()
+#18 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(477): Mage_Core_Model_App->_initStores()
+#19 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(360): Mage_Core_Model_App->_initCurrentStore('', 'store')
+#20 C:\xampp\htdocs\magento\app\Mage.php(684): Mage_Core_Model_App->run(Array)
+#21 C:\xampp\htdocs\magento\index.php(83): Mage::run('', 'store')
+#22 {main}"";s:3:""url"";s:78:""/magento/index.php/admin/dashboard/index/key/008099640c2b60fc343428e925bb560f/"";s:11:""script_name"";s:18:""/magento/index.php"";}",<mysql><apache><magento>,16/01/05 6:37,LQ_EDIT,"<mysql><apache><magento>, Magento Error :There has been an error processing your request ?, I changed the port of mysql 3306 to 3307 and after this localhost url not opening for Magento.
+ 
+Exception printing is disabled by default for security reasons.
+Error log record number: 1108316134
+
+a:4:{i:0;s:100:""SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+"";i:1;s:2928:""#0 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Pdo\Mysql.php(111): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#1 C:\xampp\htdocs\magento\lib\Varien\Db\Adapter\Pdo\Mysql.php(396): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#2 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#3 C:\xampp\htdocs\magento\lib\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#4 C:\xampp\htdocs\magento\lib\Varien\Db\Adapter\Pdo\Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#5 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource.php(179): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#6 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#7 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#8 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#9 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#10 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Abstract.php(360): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#11 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Resource\Db\Collection\Abstract.php(134): Mage_Core_Model_Resource_Db_Abstract->getReadConnection()
+#12 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Config.php(1348): Mage_Core_Model_Resource_Db_Collection_Abstract->__construct(Object(Mage_Core_Model_Resource_Website))
+#13 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Config.php(1380): Mage_Core_Model_Config->getModelInstance('core_resource/w...', Object(Mage_Core_Model_Resource_Website))
+#14 C:\xampp\htdocs\magento\app\Mage.php(491): Mage_Core_Model_Config->getResourceModelInstance('core/website_co...', Object(Mage_Core_Model_Resource_Website))
+#15 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Abstract.php(208): Mage::getResourceModel('core/website_co...', Object(Mage_Core_Model_Resource_Website))
+#16 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\Abstract.php(213): Mage_Core_Model_Abstract->getResourceCollection()
+#17 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(619): Mage_Core_Model_Abstract->getCollection()
+#18 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(477): Mage_Core_Model_App->_initStores()
+#19 C:\xampp\htdocs\magento\app\code\core\Mage\Core\Model\App.php(360): Mage_Core_Model_App->_initCurrentStore('', 'store')
+#20 C:\xampp\htdocs\magento\app\Mage.php(684): Mage_Core_Model_App->run(Array)
+#21 C:\xampp\htdocs\magento\index.php(83): Mage::run('', 'store')
+#22 {main}"";s:3:""url"";s:78:""/magento/index.php/admin/dashboard/index/key/008099640c2b60fc343428e925bb560f/"";s:11:""script_name"";s:18:""/magento/index.php"";}","<myself><apache><agents>, agents error :there error process request ?, change port myself 3306 3307 localhost curl open agents. except print distal default secure reasons. error log record number: 1108316134 a:4:{i:0;s:100:""sqlstate[hy000] [2002] connect could made target machine active refuse it. "";i:1;s:2928:""#0 c:\camp\docs\agents\limb\end\do\adapted\do\myself.pp(111): zend_db_adapter_pdo_abstract->connect() #1 c:\camp\docs\agents\limb\varies\do\adapted\do\myself.pp(396): zend_db_adapter_pdo_mysql->connect() #2 c:\camp\docs\agents\limb\end\do\adapted\abstract.pp(460): varien_db_adapter_pdo_mysql->connect() #3 c:\camp\docs\agents\limb\end\do\adapted\do\abstract.pp(238): zend_db_adapter_abstract->query('set name utf', array) #4 c:\camp\docs\agents\limb\varies\do\adapted\do\myself.pp(504): zend_db_adapter_pdo_abstract->query('set name utf', array) #5 c:\camp\docs\agents\pp\code\core\made\core\model\resource.pp(179): varien_db_adapter_pdo_mysql->query('set name utf') #6 c:\camp\docs\agents\pp\code\core\made\core\model\resource.pp(110): mage_core_model_resource->_newconnection('pdo_mysql', object(mage_core_model_config_element)) #7 c:\camp\docs\agents\pp\code\core\made\core\model\resource\do\abstract.pp(320): mage_core_model_resource->getconnection('core_write') #8 c:\camp\docs\agents\pp\code\core\made\core\model\resource\do\abstract.pp(350): mage_core_model_resource_db_abstract->_getconnection('write') #9 c:\camp\docs\agents\pp\code\core\made\core\model\resource\do\abstract.pp(335): mage_core_model_resource_db_abstract->_getwriteadapter() #10 c:\camp\docs\agents\pp\code\core\made\core\model\resource\do\abstract.pp(360): mage_core_model_resource_db_abstract->_getreadadapter() #11 c:\camp\docs\agents\pp\code\core\made\core\model\resource\do\collection\abstract.pp(134): mage_core_model_resource_db_abstract->getreadconnection() #12 c:\camp\docs\agents\pp\code\core\made\core\model\confirm.pp(1348): mage_core_model_resource_db_collection_abstract->construct(object(mage_core_model_resource_website)) #13 c:\camp\docs\agents\pp\code\core\made\core\model\confirm.pp(1380): mage_core_model_config->getmodelinstance('core_resource/w...', object(mage_core_model_resource_website)) #14 c:\camp\docs\agents\pp\made.pp(491): mage_core_model_config->getresourcemodelinstance('core/website_co...', object(mage_core_model_resource_website)) #15 c:\camp\docs\agents\pp\code\core\made\core\model\abstract.pp(208): made::getresourcemodel('core/website_co...', object(mage_core_model_resource_website)) #16 c:\camp\docs\agents\pp\code\core\made\core\model\abstract.pp(213): mage_core_model_abstract->getresourcecollection() #17 c:\camp\docs\agents\pp\code\core\made\core\model\pp.pp(619): mage_core_model_abstract->recollection() #18 c:\camp\docs\agents\pp\code\core\made\core\model\pp.pp(477): mage_core_model_app->_initstores() #19 c:\camp\docs\agents\pp\code\core\made\core\model\pp.pp(360): mage_core_model_app->_initcurrentstore('', 'store') #20 c:\camp\docs\agents\pp\made.pp(684): mage_core_model_app->run(array) #21 c:\camp\docs\agents\index.pp(83): made::run('', 'store') #22 {main}"";s:3:""curl"";s:78:""/agents/index.pp/admit/dashboard/index/key/008099640c2b60fc343428e925bb560f/"";s:11:""script_name"";s:18:""/agents/index.pp"";}"
+34606196,Create a post activate script in Conda,"<p>I'm creating a Django web app and using Conda to manage the required packages and virtual environment. I want to set an environmental variable (the Django settings location) as soon as I activate the environment. It should also change the current directory to my project directory. </p>
+
+<p>I previously used virtualenvwrapper and I just added the commands to the postactivate script.</p>
+
+<p>How can I achieve this using Conda?</p>
+",<python><django><conda>,16/01/05 7:20,HQ,"<python><django><conda>, Create a post activate script in Conda, <p>I'm creating a Django web app and using Conda to manage the required packages and virtual environment. I want to set an environmental variable (the Django settings location) as soon as I activate the environment. It should also change the current directory to my project directory. </p>
+
+<p>I previously used virtualenvwrapper and I just added the commands to the postactivate script.</p>
+
+<p>How can I achieve this using Conda?</p>
+","<patron><django><conde>, great post active script conde, <p>i'm great django web pp use conde manage require package virtual environment. want set environment variable (the django set location) soon active environment. also change current director project directory. </p> <p>i previous use virtualenvwrapp ad command postactiv script.</p> <p>how achieve use conde?</p>"
+34606601,How can I set different opacity of edgecolor and facecolor of a patch in Matplotlib,"<p>I am trying to plot a set of triangles with different orientations and sizes. The inner overlapped shape is what i wanted, which is the darkest area. 
+But when I set opacity (alpha) in mpatches.RegularPolygon, the edges become transparent too. 
+How can I solve this problem?
+Thank you!</p>
+",<python><matplotlib>,16/01/05 7:49,HQ,"<python><matplotlib>, How can I set different opacity of edgecolor and facecolor of a patch in Matplotlib, <p>I am trying to plot a set of triangles with different orientations and sizes. The inner overlapped shape is what i wanted, which is the darkest area. 
+But when I set opacity (alpha) in mpatches.RegularPolygon, the edges become transparent too. 
+How can I solve this problem?
+Thank you!</p>
+","<patron><matplotlib>, set differ opal edgecolor facecolor patch matplotlib, <p>i try plot set triangle differ orient sizes. inner overlap shape wanted, darkness area. set opal (alpha) patches.regularpolygon, edge become transport too. sole problem? thank you!</p>"

@@ -1,0 +1,1202 @@
+Id,Title,Body,Tags,CreationDate,Y
+34814952,Javascript: find english word in string,"<p>i want to find any english word (min 4 letters) in one string.</p>
+
+<pre><code>Eg: hello123fdwelcome =&gt; [""hello"", ""welcome""]; 
+</code></pre>
+
+<p>Could you suggest for me any solution or javascript lib to match english word.</p>
+
+<p>Thanks</p>
+",<javascript><node.js><dictionary>,16/01/15 15:54,LQ_CLOSE
+34815482,Accessing credentials in Jenkins with the Credentials Parameter plugin,"<p>My Jenkins box needs to access Stash and Jira through their REST apis. For that I need to store their credentials.</p>
+
+<p>The way I am doing is via the Credentials Parameter, which asks me for a Name, Credential type, Required, Default Value, and a Description.</p>
+
+<p>I define a Name as CREDENTIAL_PARAMETER, in the type I set it as ""Username with password"", and then I pick one credential from the list in the Default Value.</p>
+
+<p>Next in the Build section I define that a shell should be executed, which is something like</p>
+
+<pre><code>echo $CREDENTIAL_PARAMETER
+</code></pre>
+
+<p>I was expecting to get something like ""username:password"" as the CREDENTIAL_PARAMETER. However, I get a hash that I think is how the username and password can be retrieved.</p>
+
+<p>How can I get the credentials based on the hash using bash?</p>
+",<jenkins><jenkins-plugins>,16/01/15 16:22,HQ
+34816577,"When can I use a SFSafariViewController, WKWebView, or UIWebView with universal links?","<p>In the <a href=""https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12-SW1"" rel=""noreferrer"">Universal Links</a> section of the <a href=""https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/index.html"" rel=""noreferrer"">iOS App Search Programming Guide</a>, Apple says:</p>
+
+<blockquote>
+  <p>If you instantiate a SFSafariViewController, WKWebView, or UIWebView
+  object to handle a universal link, iOS opens your website in Safari
+  instead of opening your app. However, if the user taps a universal
+  link from within an embedded SFSafariViewController, WKWebView, or
+  UIWebView object, iOS opens your app.</p>
+</blockquote>
+
+<p>What does ""handle a universal link"" mean? Can I not ever open the given URL with an <code>SFSafariViewController</code>, <code>WKWebView</code>, or <code>UIWebView</code>? Does it only apply during <code>-[UIApplicationDelegate application:continueUserActivity:restorationHandler:]</code>, or is there a timeout in place? Does this mean we can't ever open the URL in a <code>SFSafariViewController</code>, <code>WKWebView</code>, or <code>UIWebView</code>?</p>
+",<ios><uiwebview><wkwebview><applinks><sfsafariviewcontroller>,16/01/15 17:27,HQ
+34816578,How to detect API modifications when mocking e2e tests?,"<p>I'd like to setup a solid e2e testing foundation on our team's project but I can't find a simple solution to that question :</p>
+
+<p><strong>When you are mocking all of your calls, what is the best way to detect if the actual model of the objects returned by your server has been modified ?</strong></p>
+
+<p>Your tests would still pass because they're testing an outdated version of the model but the app is potentially broken.</p>
+
+<p>For example, if a mock assumes that <code>/api/users/1</code> returns <code>null</code> if the user doesn't exist, when it actually returns an empty object, then although the tests may pass, the behaviour being tested relies on incorrect assumptions and may therefore fail in unexpected ways.</p>
+
+<p>Or maybe the backend is somehow providing static json files with the latest up-to-date model and the frontend relies on this ?</p>
+
+<p>This of course supposes that the people working on the backend and the people working on the frontend are separate teams.</p>
+
+<p>I am using Angular 1.x and Protractor here but this doesn't really depend on the technology.</p>
+",<angularjs><unit-testing><mocking><protractor><e2e-testing>,16/01/15 17:27,HQ
+34816593,C scanf ignored when invalid input,"<p>I wrote this code, and all it meant to do is input ints until a negative is entered:</p>
+
+<pre><code>int result = 0, input_number = 0;
+while(input_number &gt;= 0){
+    printf(""Please enter students IDs(negetive to stop)= "");
+    result = scanf(""%d"", &amp;input_number);
+
+    if(result != 1){
+        printf(""Invalid input! try again...\n"");
+        continue;
+    }
+}
+</code></pre>
+
+<p>When the input is an int- everything works fine,</p>
+
+<p>But when entering a char (any char the is not int),</p>
+
+<p>The loop becomes endlessly and scanf doesn't request any input anymore.</p>
+
+<p>DO NOT suggest I use a replacement for scanf cause it's a work for school,
+and scanf must be used.</p>
+
+<p>After entering char output:</p>
+
+<pre><code>Please enter students IDs(negetive to stop)= 4
+Please enter students IDs(negetive to stop)= 5
+Please enter students IDs(negetive to stop)= r
+Please enter students IDs(negetive to stop)= Invalid input! try again...
+Please enter students IDs(negetive to stop)= Invalid input! try again...
+Please enter students IDs(negetive to stop)= Invalid input! try again...
+Please enter students IDs(negetive to stop)= Invalid input! try again...
+Please enter students IDs(negetive to stop)= Invalid input! try again...
+Please enter students IDs(negetive to stop)= Invalid input! try again...
+...
+</code></pre>
+",<c><scanf>,16/01/15 17:29,LQ_CLOSE
+34816628,await await vs Unwrap(),"<p>Given a method such as</p>
+
+<pre><code>public async Task&lt;Task&gt; ActionAsync()
+{
+    ...
+}
+</code></pre>
+
+<p>What is the difference between</p>
+
+<pre><code>await await ActionAsync();
+</code></pre>
+
+<p>and</p>
+
+<pre><code>await ActionAsync().Unwrap();
+</code></pre>
+
+<p>if any.</p>
+",<c#><async-await>,16/01/15 17:32,HQ
+34817231,is there any way to restict the data into table if it is already present,"I have an sp which when triggered, data will be inserted into the data. if the data being inserted is already present oin the table, I don't want the data to be inserted into the table. is there anyway i could use a logic to restrict the data into table.
+
+my query is 
+
+    declare @ident int =  IDENT_CURRENT( 'SADEV.RO_Transcript.ETQueueCtrl' )
+    
+    insert into SADEV.RO_Transcript.ETQueueCtrl ([STU_ID],[STU_ORD_SEQ_NUM],[CreatedDate],[LastUpdatedDate],[ETQueueCtrlStatusCd],[ErrorFl])
+    select STU_ID
+    	  ,STU_ORD_SEQ_NUM
+    	  ,getdate()
+    	  ,getdate()
+    	  ,[ETQueueCtrlStatusCd] = 'N'
+    	  ,'N'
+    	 
+    from srdb_sr2_qa.dbo.SR0ROT rt
+    where STU_ORD_TYP_CD = 'A'
+    and ORD_DLVY_MTHD_CD = 'ET'
+    and STU_ORD_STAT_CD = 'C'
+    
+    --and convert(varchar(1),STU_ORD_XPDT_FL) = @stu_ord_xpdt_fl
+    and case when @stu_ord_xpdt_fl = 'y' then GETDATE()
+    							else case when ORD_PEND_INST_CD = '' then  STU_ORD_SBM_DT+ DATEADD (mi,480,STU_ORD_SBM_TM) 
+    									else  LAST_UPD_DT+ DATEADD (mi,480,LAST_UPD_TM) 
+    								 end 
+    		 end <= GETDATE()
+    
+    select et.ETQueueCtrlID,
+    	   ro.STU_ID,
+    	   ro.STU_ORD_SEQ_NUM,
+    	   ty.CAREER_CD,
+    	   ty.CAREER_SUFX_CD
+    
+    
+    from SADEV.RO_Transcript.ETQueueCtrl et join srdb_sr2_qa.dbo.SR0ROT ro on et.STU_ID = ro.STU_ID 
+    													  and et.STU_ORD_SEQ_NUM = ro.STU_ORD_SEQ_NUM
+    								   left join srdb_sr2_qa.dbo.SR0TYT ty on ro.STU_ID = ty.STU_ID
+    								   where et.ETQueueCtrlID > @ident",<sql><sql-server><tsql><tsql-sequence>,16/01/15 18:13,LQ_EDIT
+34817380,How do we set constant variables while building R packages?,"<p>We are building a package in R for our service (a robo-advisor here in Brazil) and we send requests all the time to our external API inside our functions. </p>
+
+<p>As it is the first time we build a package we have some questions. :(</p>
+
+<p>When we will use our package to run some scripts we will need some information as <code>api_path, login, password</code>.</p>
+
+<p>How do we place this information inside our package? </p>
+
+<p>Here is a real example:</p>
+
+<pre><code>get_asset_daily &lt;- function(asset_id) {
+    api_path &lt;- ""https://api.verios.com.br""
+
+    url &lt;- paste0(api_path, ""/assets/"", asset_id, ""/dailies?asc=d"")
+    data &lt;- fromJSON(url)
+    data
+}
+</code></pre>
+
+<p>Sometimes we use a <code>staging</code> version of the API and we have to constantly switch paths. How we should call it inside our function? </p>
+
+<p>Should we set a global environment variable, a package environment variable, just define <code>api_path</code> in our scripts or a package config file?</p>
+
+<p>How do we do that? </p>
+
+<p>Thanks for your help in advance.</p>
+
+<p>Ana</p>
+",<r><global-variables><environment-variables><packages><environment>,16/01/15 18:22,HQ
+34817549,How to convert Spark RDD to pandas dataframe in ipython?,"<p>I have a <code>RDD</code> and I want to convert it to <code>pandas</code> <code>dataframe</code>. I know that to convert and <code>RDD</code> to a normal <code>dataframe</code> we can do</p>
+
+<pre><code>df = rdd1.toDF()
+</code></pre>
+
+<p>But I want to convert the <code>RDD</code> to <code>pandas</code> <code>dataframe</code> and not a normal <code>dataframe</code>. How can I do it?</p>
+",<python><pandas><ipython><pyspark><rdd>,16/01/15 18:34,HQ
+34818057,Unity C#: Help editing script to use Right Mouse Button instead of OnMouseDrag,"I am having trouble figuring out how to adjust this script to use the Middle Mouse Button instead of Left.  The script currently uses OnMouseDown, OnMouseUp, and OnMouseDrag.  I need those to be middle mouse instead.  (mouse button 3)
+
+I appreciate any help, as I am new to coding.  Everything I have tried so far has broken the script in one way or another.
+
+Thank you very much for your time.
+
+
+    using UnityEngine;
+    using System.Collections;
+
+    public class FPH_DoorObject_Drag : MonoBehaviour {
+
+	/*
+	 * This script is for doors which can be opened dragging on the screen
+	 */
+
+	public float factor = 2.0f; // How fast will be the movement
+	public float minRot = 0.0f;
+	public float maxRot = 90.0f;
+
+
+	public string[] observeKind = new string[] {""Normal"", ""Closeup""};
+	public int observeInt = 0; // this variable is used inside of the Editor script
+	
+	public float secToOserve = 1.3f; // After this amount of seconds the text will reset
+	
+	public GameObject inGameCamera;
+	public GameObject closeupCamera;
+	
+	public bool removeItemWhenUsed;
+	public string hasBeenUnlockedKey;
+	
+	public bool canBeObserved;
+	public AudioClip lockedSound;
+	
+	public string observMessage_English;
+	public string observMessage_Italian;
+	public string observMessage_Spanish;
+	public string observMessage_German;
+	public string observMessage_French;
+	public string observMessage_Japanese;
+	public string observMessage_Chinese;
+	public string observMessage_Russian;
+	
+	public string lockedMessage_English;
+	public string lockedMessage_Italian;
+	public string lockedMessage_Spanish;
+	public string lockedMessage_German;
+	public string lockedMessage_French;
+	public string lockedMessage_Japanese;
+	public string lockedMessage_Chinese;
+	public string lockedMessage_Russian;
+	
+	public string wrongItemMessage_English;
+	public string wrongItemMessage_Italian;
+	public string wrongItemMessage_Spanish;
+	public string wrongItemMessage_German;
+	public string wrongItemMessage_French;
+	public string wrongItemMessage_Japanese;
+	public string wrongItemMessage_Chinese;
+	public string wrongItemMessage_Russian;
+
+
+	public int doorType = 0;
+	/*
+	 * A dor can be:
+	 * "" Normally Open "" - The door is always open
+	 * "" Locked "" - The door is always locked and CAN'T be opened
+	 * "" Need Equipped Object "" - The door is locked but can be opened if the player equip an object
+	 * "" Need Activated Key "" - The door is locked but can be opened if a PlayerPres key is "" 1 "" which means true
+	 */
+	public string[] doorTypeArray = new string[] {""Normally Open"", ""Locked"", ""Need Equipped Object"", ""Need Activated Key""};
+	public string neededObject_Name;
+	public string neededKey;
+
+
+	private Vector3 startRot;
+	private float startPlayerRot;
+	private float currRot;
+	private float playerRot;
+	private float delta = 0;
+	private Transform playerTransform;
+	private bool canbeOpen;
+	public float openDirection;
+	private bool hasBeenUnlocked;
+
+
+	void Start(){
+		openDirection = -1.0f;
+
+		playerTransform = GameObject.FindWithTag(""Player"").transform;
+		startRot = this.gameObject.GetComponent<Transform>().eulerAngles;
+		delta = 0;
+
+		hasBeenUnlocked = FPH_ControlManager.LoadBool(hasBeenUnlockedKey);
+		if(hasBeenUnlocked){
+			doorType = 0;
+		}
+	}
+
+	void Update(){
+		if(doorType == 0){
+			canbeOpen = true;
+		}
+		if(doorType == 1){
+			canbeOpen = false;
+		}
+		if(doorType == 2){
+			if(FPH_InventoryManager.equippedItem != neededObject_Name && FPH_InventoryManager.equippedItem != """" && FPH_InventoryManager.equippedItem != "" ""){
+				canbeOpen = false;
+			}
+			if(FPH_InventoryManager.equippedItem == """" || FPH_InventoryManager.equippedItem == "" ""){
+				canbeOpen = false;
+			}
+			if(FPH_InventoryManager.equippedItem == neededObject_Name){
+				canbeOpen = true;
+			}
+		}
+		if(doorType == 3){
+			bool boolValue = FPH_ControlManager.LoadBool(neededKey);
+			if(boolValue){
+				canbeOpen = true;
+			}
+			else{
+				canbeOpen = false;
+			}
+		}
+	}
+	
+	public void OnMouseDown(){
+		if(canbeOpen){
+			startPlayerRot = playerTransform.eulerAngles.y;
+		}
+	}
+
+	public void OnMouseUp(){
+		if(doorType == 1){
+			StartCoroutine(""PrivateLocked"");
+		}
+		if(doorType == 2){
+			if(FPH_InventoryManager.equippedItem != neededObject_Name && FPH_InventoryManager.equippedItem != """" && FPH_InventoryManager.equippedItem != "" ""){
+				StartCoroutine(""PrivateWrongItem"");
+			}
+			if(FPH_InventoryManager.equippedItem == """" || FPH_InventoryManager.equippedItem == "" ""){
+				StartCoroutine(""PrivateLocked"");
+			}
+		}
+		if(doorType == 3 && !canbeOpen){
+			StartCoroutine(""PrivateLocked"");
+		}
+		
+		if(canbeOpen){
+			startRot.y = currRot;
+			delta = 0;
+
+			if(FPH_InventoryManager.equippedItem == neededObject_Name && !hasBeenUnlocked){
+				hasBeenUnlocked = true;
+				FPH_ControlManager.SaveBool(hasBeenUnlockedKey, hasBeenUnlocked);
+				doorType = 0;
+				
+				//Afte we used the item we unequip it
+				FPH_InventoryManager.equippedItem = """";
+				FPH_InventoryManager.equippedItem_Index = -1;
+				if(removeItemWhenUsed){
+					FPH_InventoryManager.RemoveInventoryItem(FPH_InventoryManager.equippedItem_Index);
+					FPH_InventoryManager.SaveInventory();
+				}
+			}
+		}
+	}
+
+	void OnMouseDrag(){
+		if(canbeOpen){
+			playerRot = playerTransform.eulerAngles.y;
+			delta = (playerRot - startPlayerRot) * openDirection; // openDirection si important or player rotation will be the inverse of door rot
+			currRot = (startRot.y + (delta * factor));
+			currRot = Mathf.Clamp(currRot, minRot, maxRot); // door rotation can't be bigger or smaller than min and max rot
+			transform.eulerAngles = new Vector3(startRot.x, currRot, startRot.z);
+
+			if(FPH_InventoryManager.equippedItem == neededObject_Name && !hasBeenUnlocked){
+				hasBeenUnlocked = true;
+				FPH_ControlManager.SaveBool(hasBeenUnlockedKey, hasBeenUnlocked);
+				doorType = 0;
+				
+				//Afte we used the item we unequip it
+				FPH_InventoryManager.equippedItem = """";
+				FPH_InventoryManager.equippedItem_Index = -1;
+				if(removeItemWhenUsed){
+					FPH_InventoryManager.RemoveInventoryItem(FPH_InventoryManager.equippedItem_Index);
+					FPH_InventoryManager.SaveInventory();
+				}
+			}
+		}
+	}
+	
+	public void Observe(){
+		if(observeInt == 0){
+			StartCoroutine(""PrivateObserve_Normal"");
+		}
+		if(observeInt == 1){
+			StartCoroutine(""PrivateObserve_Closeup"");
+		}
+	}
+	
+	IEnumerator PrivateLocked(){
+		FPH_LanguageManager.static_observeTextMesh.text = """";
+		if(lockedSound){
+			GetComponent<AudioSource>().PlayOneShot(lockedSound);
+		}
+		
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.English){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_English;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Italian){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_Italian;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Spanish){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_Spanish;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.German){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_German;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.French){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_French;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Japanese){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_Japanese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Chinese){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_Chinese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Russian){
+			FPH_LanguageManager.static_observeTextMesh.text = lockedMessage_Russian;
+		}
+		
+		yield return new WaitForSeconds(secToOserve);
+		
+		FPH_LanguageManager.static_observeTextMesh.text = """";
+	}
+	
+	IEnumerator PrivateWrongItem(){
+		FPH_LanguageManager.static_observeTextMesh.text = """";
+		if(lockedSound){
+			GetComponent<AudioSource>().PlayOneShot(lockedSound);
+		}
+		
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.English){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_English;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Italian){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_Italian;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Spanish){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_Spanish;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.German){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_German;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.French){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_French;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Japanese){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_Japanese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Chinese){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_Chinese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Russian){
+			FPH_LanguageManager.static_observeTextMesh.text = wrongItemMessage_Russian;
+		}
+		
+		yield return new WaitForSeconds(secToOserve);
+		
+		FPH_LanguageManager.static_observeTextMesh.text = """";
+	}
+	
+	IEnumerator PrivateObserve_Normal(){
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.English){ // If language is ....
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_English; // Set this thext
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Italian){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Italian;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Spanish){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Spanish;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.German){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_German;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.French){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_French;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Japanese){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Japanese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Chinese){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Chinese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Russian){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Russian;
+		}
+		
+		yield return new WaitForSeconds(secToOserve); // After "" secToOserve "" ...
+		
+		FPH_LanguageManager.static_observeTextMesh.text = """"; // Reset the text
+	}
+
+	/*
+	 * We toggle the cameras and  show a text, everything will be reset
+	 * after "" secToOserve ""
+	 */
+	IEnumerator PrivateObserve_Closeup(){
+		inGameCamera.SetActive(false);
+		closeupCamera.SetActive(true);
+		FPH_ControlManager.canBeControlled = false;
+		
+		yield return new WaitForSeconds(0.1f);
+
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.English){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_English;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Italian){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Italian;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Spanish){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Spanish;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.German){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_German;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.French){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_French;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Japanese){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Japanese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Chinese){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Chinese;
+		}
+		if(FPH_LanguageManager.gameLanguage == FPH_LanguageManager.LanguagesEnum.Russian){
+			FPH_LanguageManager.static_observeTextMesh.text = observMessage_Russian;
+		}
+		
+		yield return new WaitForSeconds(secToOserve);
+		
+		FPH_LanguageManager.static_observeTextMesh.text = """";
+		
+		yield return new WaitForSeconds(0.3f);
+		
+		inGameCamera.SetActive(true);
+		closeupCamera.SetActive(false);
+		FPH_ControlManager.canBeControlled = true;
+	}
+    }",<c#><unity3d><unityscript>,16/01/15 19:07,LQ_EDIT
+34818088,jax-rs vs HttpServlet in jee,"<p>I'm so confused.
+I worked servlet.</p>
+
+<p>which one is newest?</p>
+
+<p>which one is better for implementing <strong>restful</strong> architecture?</p>
+
+<p>jax-rs example :</p>
+
+<pre><code>// This method is called if XML is request
+  @GET
+  @Produces(MediaType.TEXT_XML)
+  public String sayXMLHello() {
+    return ""&lt;?xml version=\""1.0\""?&gt;"" + ""&lt;hello&gt; Hello Jersey"" + ""&lt;/hello&gt;"";
+  }  
+</code></pre>
+
+<p>servlet example :</p>
+
+<pre><code>/** Servlet implementation class FetchTest */
+@WebServlet( urlPatterns = {""/users"", ""/Users/""})
+public class Users extends HttpServlet
+{
+    /** @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response) */
+    protected void doGet( HttpServletRequest request , HttpServletResponse response ) throws ServletException , IOException
+    {
+        m_showUsers( response);
+    }
+
+    /** @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response) */
+    protected void doPost( HttpServletRequest request , HttpServletResponse response ) throws ServletException , IOException
+    {
+        m_updateUser(request , response);
+    }
+    @Override
+    protected void doDelete( HttpServletRequest req , HttpServletResponse resp ) throws ServletException , IOException
+    {
+        m_deleteUser(req , resp);
+    }
+    @Override
+    protected void doPut( HttpServletRequest req , HttpServletResponse resp ) throws ServletException , IOException
+    {
+        m_insertUser(req , resp);
+    }
+</code></pre>
+",<java><servlets><jakarta-ee><jax-rs><jax-ws>,16/01/15 19:09,LQ_CLOSE
+34818533,How to compare two Streams in Java 8,"<p>What would be a good way to compare two <code>Stream</code> instances in Java 8 and find out whether they have the same elements, specifically for purposes of unit testing?</p>
+
+<p>What I've got now is:</p>
+
+<pre><code>@Test
+void testSomething() {
+  Stream&lt;Integer&gt; expected;
+  Stream&lt;Integer&gt; thingUnderTest;
+  // (...)
+  Assert.assertArrayEquals(expected.toArray(), thingUnderTest.toArray());
+}
+</code></pre>
+
+<p>or alternatively:</p>
+
+<pre><code>Assert.assertEquals(
+    expected.collect(Collectors.toList()),
+    thingUnderTest.collect(Collectors.toList()));
+</code></pre>
+
+<p>But that means I'm constructing two collections and discarding them. It's not a performance issue, given the size of my test streams, but I'm wondering whether there's a canonical way to compare two streams.</p>
+",<java><junit><java-8>,16/01/15 19:36,HQ
+34819252,How to pass 'this' into a Promise without caching outside?,"<p>I have a variable called <code>LangDataService.isDataReady</code> that is a Promise wawiting to be resolved.  Upon resolve some logic will happen.  How can I pass this into that Promise?</p>
+
+<pre><code>LangDataService.isDataReady.then(function () {
+    this.modalOn()
+});
+</code></pre>
+
+<p>I know i can cache <code>var self_ = this;</code> but I'm curious of other alternatives? </p>
+",<javascript><caching><asynchronous><promise><this>,16/01/15 20:21,HQ
+34819557,How to find and replace with regex in excel,"<p>I have an excel file with 1 column and multiple rows.</p>
+
+<p>The rows contain various text, here's an example:</p>
+
+<pre><code>texts are home
+texts are whatever
+dafds
+dgretwer
+werweerqwr
+texts are 21412
+texts are 346345
+texts are rwefdg
+terfesfasd
+rwerw
+</code></pre>
+
+<p>I want to replace ""texts are *"" where * is anything after ""texts are"" with a specific word, for example ""texts are replaced"". How can I do that in Excel?</p>
+",<regex><excel><replace>,16/01/15 20:45,HQ
+34819642,Appending a to-do list,"<p>I am trying to make a ""to do list"" app. I am trying to append what I put in the input into a list under ""To Do"" with a ""Done"" button. Here is what I have so far:</p>
+
+<p>HTML:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;link rel=""stylesheet"" text=""text/css"" href=""doneit.css""&gt;
+        &lt;head&gt;
+            &lt;script     src=""http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js""&gt;
+            &lt;/script&gt;
+        &lt;/head&gt;
+  &lt;body&gt;
+        &lt;div id=""container""&gt;
+             &lt;input type=""text"" id=""task"" placeholder=""New Task""/&gt;
+                &lt;button id=""enter""&gt;Enter&lt;/button&gt;
+                    &lt;div class=""todo""&gt;
+                        &lt;ul id=""chores""&gt;&lt;h2&gt;To Do:&lt;/h2&gt;&lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;button id=""reset""&gt;New List&lt;/button&gt;
+        &lt;/div&gt;
+
+    &lt;script type=""text/javascript"" src=""doneit.js""&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>and the Javascript:</p>
+
+<pre><code>$(document).ready(
+ function() {
+
+var chores=[];
+
+$(""#enter"").click(function () {
+    var task = $(""#task"").val();
+    var $btn = $('&lt;button /&gt;', {
+        id: ""check"",
+        type: ""button"",
+        text: ""Done"",
+        value: task,
+        click: function(){
+            var did = this.value;
+            $(""#todo"").append('&lt;p&gt;'+  check+'&lt;/p&gt;');
+            chores.push(check); 
+        }
+    });
+
+
+$("".reset"").click(function() {
+    location.reload();
+
+});
+</code></pre>
+",<javascript><jquery>,16/01/15 20:50,LQ_CLOSE
+34820239,Seaborn Heatmap Colorbar Label as Percentage,"<p>Given this heat map:</p>
+
+<pre><code>import numpy as np; np.random.seed(0)
+import seaborn as sns; sns.set()
+uniform_data = np.random.rand(10, 12)
+ax = sns.heatmap(uniform_data)
+</code></pre>
+
+<p>How would I go about making the color bar values display in percent format?
+Also, what if I just wanted to show the first and last values on the color bar?</p>
+
+<p>Thanks in advance!</p>
+",<python-3.x><heatmap><seaborn>,16/01/15 21:35,HQ
+34820653,My comand prompt exits right after I test my code,"<p>Right after I start my PYTHON code my comand prompt exits.I can't even test it out or see the result becaues it exits too fast.Any help?</p>
+",<python>,16/01/15 22:04,LQ_CLOSE
+34820755,Gitlab docker executor - cache image after before_script,"<p>In <code>gitlab-ci</code> there's an option in the <a href=""http://doc.gitlab.com/ce/ci/yaml/README.html"" rel=""noreferrer""><code>.gitlab-ci.yml</code></a> file to execute commands before any of the actual script runs, called <code>before_script</code>. <code>.gitlab-ci.yml</code> examples illustrate installing ancillary programs here. However, what I've noticed is that these changes are not cached in Docker when using a docker executor. I had naively assumed that after running these commands, docker would cache the image, so for the next run or test, docker would just load the cached image produced after <code>before_script</code>. This would drastically speed up builds.</p>
+
+<p>As an example, my <code>.gitlab-ci.yml</code> looks a little like:</p>
+
+<pre><code>image: ubuntu
+
+before_script:
+    - apt-get update -qq &amp;&amp; apt-get install -yqq make ...
+
+build:
+    script:
+        - cd project &amp;&amp; make
+</code></pre>
+
+<p>A possible solution is to go to the runner machine and create a docker image that can build my software without any other installation and then reference it in the <code>image</code> section of the yaml file. The downside of this is that whenever I want to add a dependency, I need to log in to the runner machine and update the image before builds will succeed. It would be much nicer if I just had to add the dependency to to the end of <code>apt-get install</code> and have docker / gitlab-ci handle the appropriate caching.</p>
+
+<p>There is also a <code>cache</code> command in <code>.gitlab-ci.yml</code>, which I tried setting to <code>untracked: true</code>, which I thought would cache everything that wasn't a byproduct of my project, but it didn't seem to have any effect.</p>
+
+<p>Is there any way to get the behavior I desire?</p>
+",<docker><gitlab><gitlab-ci><gitlab-ci-runner>,16/01/15 22:12,HQ
+34820817,"ESLint's ""no-undef"" rule is calling my use of Underscore an undefined variable","<p>I am using Grunt as my Build Tool and ESLint as my linting tool for an app I am working on. I am also using the Underscore Node package, and have made use of it in my app. Unfortunately, when I run ESLint on my code, it thinks that _ is an undefined variable in the following line:</p>
+
+<p><code>return _.pluck(objects, nameColumn);</code></p>
+
+<p>This is the error it is giving me:</p>
+
+<p><code>78:21  error  ""_"" is not defined  no-undef</code></p>
+
+<p>I would prefer not to disable the no-undef rule for ESLint, and I have tried installing the Underscore plugin, but I am still receiving this error. If anyone else has any ideas for what to try with this, I would be very appreciative!</p>
+
+<p>If there is any further information I can give that would help anyone with helping me get this figured out, just let me know!</p>
+",<javascript><angularjs><gruntjs><underscore.js><eslint>,16/01/15 22:17,HQ
+34820975,Git clone: Redirect stderr to stdout but keep errors being written to stderr,"<p><code>git clone</code> writes its output to <code>stderr</code> as documented <a href=""https://www.kernel.org/pub/software/scm/git/docs/git-clone.html"">here</a>. I can redirect this with the following command:</p>
+
+<pre><code>git clone https://myrepo c:\repo 2&gt;&amp;1
+</code></pre>
+
+<p>But this will redirect all output, including errors, from <code>stderr</code>to <code>stdout</code>. Is there a way to redirect progress messages to <code>stdout</code> but have error messages still written to <code>stderr</code>. </p>
+",<git><powershell><git-clone>,16/01/15 22:31,HQ
+34821625,What perl web framework to use for the old CGI based perl code?,"<p>Yes, while i'm working on node.js, i still love perl, :)</p>
+
+<p>The old web product is based on old perl CGI, i'm looking to the simplest way to fix XSS/Sql injection/etc. web security holes, within a week including testing, :(</p>
+
+<p>So for
+Catalyst
+Dancer
+Mason
+Maypole 
+Mojolicious</p>
+
+<p>which one should i use in the ARM platform ?
+Thank you !</p>
+",<perl>,16/01/15 23:30,LQ_CLOSE
+34821742,Where to set cookie in Isomorphic Redux Application?,"<p>I have 3 general questions about redux and isomorphic application:</p>
+
+<ul>
+<li><strong>What is the best way to share 'runtime' data between client and server?</strong> 
+For instance, when the user logged in a distant API, I store the session object in cookies. In that way, <strong>next time</strong> the client requests my front-end, the front-end server can read the cookies and initialize the redux store with it's previous session. The downside of this is that the client HAS to validate/invalidate the session on boot (eg in componentDidMount of the root component).
+Should I request the session server side rather than read it from cookies?</li>
+<li><strong>Where should I execute the operation of cookie storing, in action creators or in reducers?</strong> Should I store the cookie in my reducer that handle the user session?</li>
+<li><strong>Where should I execute the operation of redirect the user (via react-router)?</strong> I mean when my user is successfully logged in, from where should I dispatch the redirect action (from the loginActionCreator once the login promise is resolved?, somewhere else? )</li>
+</ul>
+
+<p>Thanks in advance.</p>
+",<javascript><node.js><reactjs><redux><isomorphic-javascript>,16/01/15 23:42,HQ
+34822072,Why does Windows 10 start extra threads in my program?,"<p>With Visual Studio 2015, in a new, empty C++ project, build the following for Console application:</p>
+
+<pre><code>int main() {
+    return 0;
+}
+</code></pre>
+
+<p>Set a break point on the return and launch the program in the debugger.  On Windows 7, as of the break point, this program has only one thread.  But on Windows 10, it has five(!) threads: the main thread and four ""worker threads"" waiting on a synchronization object.</p>
+
+<p>Who's starting up the thread pool (or how do I find out)?</p>
+",<c++><windows><multithreading><threadpool>,16/01/16 0:21,HQ
+34822381,Error: Connection strategy not found MongoDB,"<p>here is a simple connection to use express session store, it keeps banging out this error even though the text is right from the book. I am pretty sure is has something to do with 'new MongoStore' object initialization.</p>
+
+<pre><code>var express = require('express'),
+    expressSession = require('express-session');
+
+var MongoStore = require('connect-mongo/es5')(expressSession);
+var sessionStore = new MongoStore({
+  host: '127.0.0.1',
+  port: '27017',
+  db: 'session'
+});
+
+var app = express()
+    .use(expressSession({
+      secret: 'my secret sign key',
+      store: sessionStore
+     }))
+    .use('/home', function (req, res) {
+      if (req.session.views) {
+        req.session.views++;
+      }
+      else {
+        req.session.views = 1;
+      }
+      res.end('Total views for you:' + req.session.views);
+    })
+    .use('/reset', function(req, res) {
+      delete req.session.views;
+      res.end('Cleared all your views');
+    })
+    .listen(3000);
+</code></pre>
+",<mongodb><express-session><connect-mongo>,16/01/16 1:02,HQ
+34822580,updata query from access to sql server,"I have this query below from access and I need to convert it into sql server:
+
+UPDATE (CASE_INFO INNER JOIN CASE_PRICE ON CASE_INFO.CASE_TYPE = CASE_PRICE.CASE_TYPE) INNER JOIN [CASECHANGE|INPUT] ON CASE_INFO.CASE_NUMBER = [CASECHANGE|INPUT].CASE_NUMBER SET CASE_INFO.FF_REVENUE_AMT = [FF_Payment], CASE_INFO.CM_REVENUE_AMT = [CM_Payment]
+WHERE (((CASE_INFO.SCHEDULED_DATE) Between [CASE_PRICE].[POP_START] And [CASE_PRICE].[POP_END]) AND ((CASE_INFO.DISCONTINUE_30)=No));
+",<sql><sql-server><ms-access>,16/01/16 1:35,LQ_EDIT
+34822786,UIImage Caching is hight,"Everyone.My English is not good..
+
++ (nullable UIImage *)imageNamed:(NSString *)name;
+
+I use this method.
+
+---------------------------------------------------------------
+e.g `UIImage *image=[UIImage imageNamed:@""test""];`
+---------------------------------------------------------------
+
+But my image's type is png.
+
+[enter image description here][1]
+
+In my project,loads a lot of different images.
+
+
+So,My cashe is very hight
+
+
+[enter image description here][2]
+
+
+Please help me,thanks!
+
+
+  [1]: http://i.stack.imgur.com/M2SAI.png
+  [2]: http://i.stack.imgur.com/mCNpx.png",<ios><memory-management><uiimage>,16/01/16 2:10,LQ_EDIT
+34823611,Android dataBinding - how to use bool resource to trigger visibility of layout,"<p>I currently have a bool.xml file in android which looks like this:</p>
+
+<pre><code>   &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;resources&gt;
+&lt;bool name=""showAds""&gt;true&lt;/bool&gt;
+    &lt;/resources&gt;
+</code></pre>
+
+<p>Now i have a layout.xml file which uses databinding.  I want to show or hide the visilibity of a adView based on a the boolean showAds defined above. So far i have this:</p>
+
+<pre><code>  &lt;com.google.android.gms.ads.AdView
+        android:id=""@+id/adView""
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+android:visibility=""@{@bool/showAds ? View.Visible:View:gone}""
+        ads:adSize=""BANNER""
+        ads:adUnitId=""ca-app-pub-1234567/34343""&gt;
+</code></pre>
+
+<p>but it does not compile. how can i get the boolean to decide if the ad should show or not ?The syntax is wrong. </p>
+",<android><data-binding>,16/01/16 4:45,HQ
+34823654,How would I import a module within an npm package subfolder with webpack?,"<p>Lets say theres a package in <code>node_modules</code> called foo and I want to import a module within a library such as <code>foo/module</code> via webpack &amp; babel...</p>
+
+<p><code>import Foo from 'foo';</code> works</p>
+
+<p><code>import SomeOtherModule from 'foo/module';</code> fails with the following:</p>
+
+<blockquote>
+  <p>Module not found: Error: Cannot resolve module 'foo/module' in
+  /Users/x/Desktop/someproject/js</p>
+</blockquote>
+
+<p>Which makes make it seem like webpack is looking for the file in the wrong place instead of <code>node_modules</code></p>
+
+<p>My webpack.config looks like this:</p>
+
+<pre><code>var webpack = require('webpack');
+var path = require('path');
+
+module.exports = {
+    entry: ['babel-polyfill','./js/script.js'],
+    output: {
+        path: __dirname,
+        filename: './build/script.js'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015']
+                }
+            }
+        ],
+    },
+    plugins: [
+        new webpack.NoErrorsPlugin()
+    ],
+    stats: {
+        colors: true
+    },
+    devtool: 'source-map'
+
+};
+</code></pre>
+",<npm><webpack><babeljs>,16/01/16 4:54,HQ
+34823715,Cake PHP show Internal Server Error 500,"Following cake php code is in index.php file when it runs on server it shows internal server error 500.
+
+  
+  <?php
+    
+    if (!defined('DS')) {
+    	define('DS', DIRECTORY_SEPARATOR);
+    }
+    
+    
+    if (!defined('ROOT')) {
+    	define('ROOT', dirname(dirname(dirname(__FILE__))));
+    }
+    
+    if (!defined('APP_DIR')) {
+    	define('APP_DIR', basename(dirname(dirname(__FILE__))));
+    }
+    
+    $vendorPath = ROOT . DS . APP_DIR . DS . 'Vendor' . DS . 'cakephp' . DS . 'cakephp' . DS . 'lib';
+    $dispatcher = 'Cake' . DS . 'Console' . DS . 'ShellDispatcher.php';
+    if (!defined('CAKE_CORE_INCLUDE_PATH') && file_exists($vendorPath . DS . $dispatcher)) {
+    	define('CAKE_CORE_INCLUDE_PATH', $vendorPath);
+    }
+    
+    if (!defined('WEBROOT_DIR')) {
+    	define('WEBROOT_DIR', basename(dirname(__FILE__)));
+    }
+    if (!defined('WWW_ROOT')) {
+    	define('WWW_ROOT', dirname(__FILE__) . DS);
+    }
+    
+    if (php_sapi_name() === 'cli-server') {
+    	if ($_SERVER['REQUEST_URI'] !== '/' && file_exists(WWW_ROOT . $_SERVER['PHP_SELF'])) {
+    		return false;
+    	}
+    	$_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
+    }
+    
+    if (!defined('CAKE_CORE_INCLUDE_PATH')) {
+    	if (function_exists('ini_set')) {
+    		ini_set('include_path', ROOT . DS . 'lib' . PATH_SEPARATOR . ini_get('include_path'));
+    	}
+    	if (!include 'Cake' . DS . 'bootstrap.php') {
+    		$failed = true;
+    	}
+    } else {
+    	if (!include CAKE_CORE_INCLUDE_PATH . DS . 'Cake' . DS . 'bootstrap.php') {
+    		$failed = true;
+    	}
+    }
+    if (!empty($failed)) {
+    	trigger_error(""CakePHP core could not be found. Check the value of CAKE_CORE_INCLUDE_PATH in APP/webroot/index.php. It should point to the directory containing your "" . DS . ""cake core directory and your "" . DS . ""vendors root directory."", E_USER_ERROR);
+    }
+    
+    App::uses('Dispatcher', 'Routing');
+    
+    $Dispatcher = new Dispatcher();
+    $Dispatcher->dispatch(
+    	new CakeRequest(),
+    	new CakeResponse()
+    );
+
+Cake PHP show Internal Server Error 500
+Cake PHP show Internal Server Error 500
+Cake PHP show Internal Server Error 500",<php><cakephp>,16/01/16 5:05,LQ_EDIT
+34824098,Why is SVG scrolling performance so much worse than PNG?,"<p>A site I'm working on displays a large number (>50) of complex SVG images in a scrolling dialog window.  When viewing the site in Chrome, the scrolling performance of the dialog window is very poor - it is noticeably laggy and slow.  However, if I replace the SVG images with PNG images, the scrolling is perfectly smooth and responsive.</p>
+
+<p>Here's a demonstration of the difference: <a href=""https://jsfiddle.net/NathanFriend/42knwc1s/"" rel=""noreferrer"">https://jsfiddle.net/NathanFriend/42knwc1s/</a></p>
+
+<p>Why is the SVG scrolling performance so much worse than the PNG scrolling performance?  After the browser renders an SVG image, I would assume it doesn't need to rerender the image until the image is manipulated in some way (like resizing).  Does scrolling an element that contains SVG images cause the images to be rerendered for every frame of the scroll animation?</p>
+
+<p><br /></p>
+
+<pre><code>                                                                                          `
+</code></pre>
+",<performance><google-chrome><svg><png><render>,16/01/16 6:08,HQ
+34824375,how can i display first 3list data instead of displaying all data in ul li using Html and css only?,"<ul>
+<li>Karnataka</li>
+<li>Assam</li>
+<li>Gujarath</li>
+<li>Westbengal</li>
+<li>Karnataka</li>
+<li>Assam</li>
+<li>Gujarath</li>
+<li>Westbengal</li>
+<li>Karnataka</li>
+<li>Assam</li>
+<li>Gujarath</li>
+<li>Westbengal</li>
+</ul>
+in this i have to display first three data.",<html><css>,16/01/16 6:50,LQ_EDIT
+34824487,When is --thunder-lock beneficial?,"<p>This long, detailed, and entertaining article describes the history and design of <code>--thunder-lock</code>: <a href=""http://uwsgi-docs.readthedocs.org/en/latest/articles/SerializingAccept.html"" rel=""noreferrer"">http://uwsgi-docs.readthedocs.org/en/latest/articles/SerializingAccept.html</a></p>
+
+<p>But it doesn't help me decide when I need it!</p>
+
+<p>When is and isn't <code>--thunder-lock</code> beneficial?</p>
+",<python><uwsgi>,16/01/16 7:08,HQ
+34824621,Opening non-default browser with lite-server in angular2 quick start guide,"<p>Having followed the TypeScript version of the <a href=""https://angular.io/docs/ts/latest/quickstart.html"">Angular 2 Quick Start guide</a>, I was wondering if it is possible, and if so how to configure the lite-server to launch a browser other than the default.</p>
+
+<p>It seems lite-server will take command line args, served to it via <code>yargs.argv</code>.  And it seems <code>yargs</code> will attempt to parse command line args based on fairly common standards (i.e. If a token begins with a <code>--</code>, it represents an argument name, otherwise an argument value) to obtain <code>argv</code>.  lite-server will attempt to use the <code>open</code> property that it gets from <code>argv</code>, which is ultimately what launches the browser via [one of the of the node packages that launches processes]. node-open? xdg -open? Not sure, not really as important to me right now as long as my assumption (based on looking at several of these process launchers) is correct, that they all optionally take an argument defining the process to launch.  If omitted, the default browser would be used since the file type to open is html, which is what happens.</p>
+
+<p>If all that is correct, or at least the gist  of it, then it seems I just need to specify <code>--open chrome</code>, for example (assuming chrome is in my <code>PATH</code> - working on a win machine btw), at the end of the <code>lite</code> command defined in <code>package.json</code>.</p>
+
+<p>So something like...</p>
+
+<pre><code>""scripts"": {
+    ""tsc"": ""tsc"",
+    ""tsc:w"": ""tsc -w"",
+    ""lite"": ""lite-server"",
+    ""lite:c"": ""lite-server --open chrome"",
+    ""lite:f"": ""lite-server --open firefox "",
+    ""start"": ""concurrent \""npm run tsc:w\"" \""npm run lite\"" ""
+},
+</code></pre>
+
+<p>I apologize if this seems inane, but I won't be at a computer where I can test this for a few days, and I need to know if I have the answer and can stop researching this :). Thanks!</p>
+",<node.js><angular><launching>,16/01/16 7:30,HQ
+34824826,How 2 fragments communicate each other inside an activity,"<p>Consider an activity we can call as a  base activity. Two fragments are added to this base activity , call as fragmentOne and fragentTwo.How can fragmentOne can communicate with fragentTwo and vice versa .</p>
+",<android><android-fragments><android-activity>,16/01/16 7:59,LQ_CLOSE
+34825119,Difficulty in creating program for admission in schools.,"I had just made a project program that functions as an easy way to apply for admission in school. So far, everything went kinda okay but I am not getting the proper output. Please look into the material posted below and help me.
+
+    def search(t2):
+       t2=(('xxx',1),('yyy',2),('zzz',3))
+       s=input('Enter student ID=')
+       for i in range(len(t2)):
+           for ch in t2:
+               if ch==s:
+                   print'Student =>',t2[i],'of Id number',t2[i+1]
+                   break
+       else:
+           print'Invalid Entry, try again'
+   
+
+    def details(t1):
+           n=raw_input('Enter applicant name=')
+           t2=(('xxx',1),('yyy',2),('zzz',3))
+           for i in range(len(t1)):
+               if len(t1)<5:
+                   t2=t2+(n,i)
+                   break
+               elif len(t1)==5:
+                   print'Sorry, class full'
+               else:
+                   print'Sorry, class full'
+           print'Student added successfully to class'
+       def delete(t2):
+           l=list(t2)
+           j=input('Enter the student ID=')
+           for i in range(len(t2)):
+               for ch in l:
+                   if j==ch:
+                       del l[i]
+                       del l[i+1]
+                       break
+                   else:
+                       print'Student not found. Please try again'
+           print tuple(l)
+       n=input('Enter the number of students=')
+       t1=tuple()
+       t2=(('xxx',1),('yyy',2),('zzz',3)) 
+       name=raw_input('Enter the student name=')
+       idn=input('Enter the Id no.=')
+       for i in range(n):
+           t1=t1+(name,)
+           t1=t1+(idn,)
+       while True:
+           print'\n\n\t\t----Admission Menu----'
+           print'\t\t1->Apply for admission'
+           print'\t\t2->Search for a student'
+           print'\t\t3->Remove a student'
+           print'\t\t4->Exit'
+    
+           ch=input('Enter your choice=')
+           if ch==1:
+               details(t1)
+           elif ch==2:
+               search(t1)
+           elif ch==3:
+               delete(t1)
+           elif ch==4:
+               print'Thank You for visiting --School Name--'
+               exit()
+           else:
+               print'Wrong choice, please select a valid choice and try again'",<python><python-2.7>,16/01/16 8:42,LQ_EDIT
+34825400,simple login php not working,"<p>Created a simple login form but it doesnt seem to work.It always opens the admin page. </p>
+
+<pre><code>$username=$_POST[""username""];
+$password=$_POST[""password""];
+
+if(mysql_query(""SELECT * FROM users WHERE username='$username' AND password='$password'"",$con)){
+session_start();
+$_SESSION[""username""]=$username;
+$_SESSION[""password""]=$password;
+header('location:admin.html');
+}
+else{
+echo ""Login Failed.&lt;a href=index.html&gt;Re Login&lt;/a"";
+}
+</code></pre>
+
+<p>Need help.And here is the html part.</p>
+
+<pre><code> &lt;form method=""post"" id=""loginform"" action=""validate.php""&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;label&gt;Username :&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=""text"" name=""username""/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;br&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;label&gt;Password :&lt;/label&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=""password"" name=""password""/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;br&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+        &lt;input type=""submit"" id=""login"" value=""Log In"" class=""btn btn-primary""/&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;input type=""reset"" id=""reset"" value=""Reset"" class=""btn btn-primary""/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>
+Need the working code in 2hrs else im dommed</p>
+",<php><mysql><login>,16/01/16 9:23,LQ_CLOSE
+34825675,IntelliJ annotate vs git blame,"<p>I am using IntelliJ's annotate feature to see in the editor who last changed a line in a file. </p>
+
+<p>Now I am using JGit to read the same annotations and they differ. For me it seems that Intellij checks that a line has not been changed between commits and still uses the old commit message. JGit does not see it and so makes an other message. </p>
+
+<p>Can anybody confirm that the behavior of JGit blame and IntelliJ differs? Whats the reason and how can I force IntelliJ to behave the same like JGit? Maybe IntelliJ ignores whitespace changes?</p>
+
+<p>I am using IntelliJ 15.0.1 and JGit 4.1.1</p>
+",<git><intellij-idea><jgit><git-blame>,16/01/16 9:57,HQ
+34826163,sql sever date column sorting dates automatically,"I have a table with a date column.
+I am inserting dates in that column using DateTimePicker in c#.
+
+Everything works fine. But I want the dates inserted in the table to be ordered. Currently when I add today's date in one row and then add yesterday's date or any past date, it gets added in the 2nd row ofc.
+I want that to be added in 1st row instead. Before today's date, to make all the dates in order.
+
+Is there any property of the date column I can use to ensure the dates order?",<sql><sql-server><sorting><date>,16/01/16 10:58,LQ_EDIT
+34826433,Platform invoke #define directive,"<p>I am trying to understand platform invokes. So, i understood many concepts but how can i invoke <code>#define</code> directives in c#.</p>
+
+<p>Example:</p>
+
+<p>in C++ side i have this: </p>
+
+<pre><code>#define dont_care_how_you_invoke_me (ptr)   
+</code></pre>
+
+<p>I've tried this:</p>
+
+<pre><code>[DllImport(""mydll.dll"")]
+static extern void dont_care_how_you_invoke_me(IntPtr ptr);
+</code></pre>
+
+<p>This didn't work. I've searched on google for a while and couldn't find anything so i'm not even sure if this is possible or not.</p>
+
+<p>Thanks in advance</p>
+",<c#><c++><c><pinvoke>,16/01/16 11:31,LQ_CLOSE
+34826520,How to send post parameters dynamically (or in loop) in OKHTTP 3.x in android?,"<p>I am using OKHTTP 3.x version. I want to post multiple  parameters and would like to add the params in a loop.
+I know that in version 2.x , I can use FormEncodingBuilder and add params to it in loop and then from it create a request body.
+But In 3.x , the class has been removed.</p>
+
+<p>Here is my current code :</p>
+
+<pre><code>RequestBody formBody = new FormBody.Builder()
+            .add(""Param1"", value1)
+            .add(""Param2"", value2)
+            .build();
+Request request = new Request.Builder()
+            .url(""url"")
+            .post(formBody)
+            .build();
+</code></pre>
+
+<p>Now I want to add 5 params but in a loop i.e create request body by building formbody in a loop.
+Like I wrote above, I know how to do it in OKHTTP version 2.x but I am using version  3.x.</p>
+
+<p>Any help or guidance is appreciated.</p>
+
+<p>Thanks in Advance</p>
+",<android><okhttp3>,16/01/16 11:40,HQ

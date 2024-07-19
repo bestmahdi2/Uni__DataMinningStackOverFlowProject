@@ -1,0 +1,796 @@
+Id,Title,Body,Tags,CreationDate,Y
+34628088,I want to assign strings to the student constructor's parameters based on what is typed into the JOptionPane,"I want to assign strings to the student constructor's parameters based on what is typed into the JOptionPane input boxes . I have the user inputted information set to go to a variable but when I try and use those variables as my Parameters for the constructor I get an error. 
+
+This is the Main
+
+    import javax.swing.JOptionPane;
+    public class main
+    {
+        public static void main (String [] args)
+        {
+    
+     String nameinput ;
+     String gradeinput ;
+     String resourceinput ;
+     String whatMissinginput;
+    
+     int infoComformation = 1;
+   
+     if  ( infoComformation == 1)
+    { nameinput =JOptionPane.showInputDialog(""What is the students name"");
+      gradeinput =JOptionPane.showInputDialog(""What is the students grade"");
+      resourceinput =JOptionPane.showInputDialog(""What resource are you pulling the child out for "");
+      whatMissinginput =JOptionPane.showInputDialog(""What subject are you pulling the child out of "");
+      infoComformation = JOptionPane.showConfirmDialog (null, ""Is this the correct informtion \n "" 
+                                             +""Name = ""  + nameinput +  ""\n""  
+                                             + ""Grade = "" + gradeinput + ""\n""
+                                             +""Resouce = "" + resourceinput + ""\n""
+                                             +""Subject Missing = "" + whatMissinginput );
+                                            }
+    else
+     if (infoComformation == 0)
+     //THIS IS WHERE THE PROBLEM IS 
+    {student pupil = new student( nameinput, gradeinput ,resourceinput,whatMissinginput);  
+      }                        
+   
+          
+      }
+      }
+
+
+
+Here is the Constructor Class
+
+
+
+    import javax.swing.JOptionPane;
+    public class student
+    {
+
+    
+    
+        public String studentinfo  (String nameinput, String gradeinput , String             resourceinput,String whatMissinginput )
+     {
+         String name ="""" ;
+        String grade= """";
+        String resource ="""";
+         String whatMissing="""";
+
+  
+     name=nameinput;
+     grade=gradeinput;
+     resource=resourceinput;
+     whatMissing=whatMissinginput ;
+    
+     return name+grade+resource+whatMissing;
+  
+
+
+    }
+    }
+
+What do I Do?",<java>,16/01/06 7:51,LQ_EDIT
+34628957,"apache cordova game development, is it valid?","<p>I've been developing a game using libgdx (Java), it's basically a super mario game, a few moving objects, some sound effects, could something like that be done with html5 and javascript?</p>
+
+<p>I tried searching the world wide web for some info, but didn't find a lot, I guess it's not common, or even possible?</p>
+
+<p>I'm asking because I want to create non-game apps as well, and will be using apache cordova for those, would be nice to use the same language. </p>
+",<javascript><html><cordova>,16/01/06 8:52,LQ_CLOSE
+34628958,How do i implement the algorithm below,"Get a list of numbers L1, L2, L3....LN as argument
+Assume L1 is the largest, Largest = L1
+Take next number Li from the list and do the following
+If Largest is less than Li
+Largest = Li
+If Li is last number from the list then
+return Largest and come out
+Else repeat same process starting from step 3
+
+Create a function prime_number that does the following
+Takes as parameter an integer and
+Returns boolean value true if the value is prime or
+Returns boolean value false if the value is not prime
+
+
+So far my code is :
+
+def get_algorithm_result(num_list):
+
+    largest =num_list[0]
+    
+    for item in range(0,len(num_list)):
+
+        if largest < num_list[item]:
+            
+            largest = num_list[item]
+
+    return largest
+
+    
+def prime_number(integer):
+
+    if integer%2==0:
+        return False
+    else:
+        return True
+        
+
+
+
+After executing the code i get 
+""Test Spec Failed
+
+Your solution failed to pass all the tests"" 
+
+where I'm i going wrong because i believe my code is correct 
+
+",<python><algorithm>,16/01/06 8:52,LQ_EDIT
+34628979,"Format date with ""/"" to ""-"" with javascript","<p>I have this Javascript function that takes X number of days and returns a date in the past</p>
+
+<pre><code> var GetDateInThePastFromDays = function (days) {
+
+        var today = new Date();
+        _date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - days);
+
+        return _date.toLocaleDateString();
+    }
+</code></pre>
+
+<p>That works absolutely fine, but it returns the date as <code>06/01/2016</code> but I want it returned as <code>06-01-2016</code> but I can't seem to find out how to do it correctly.</p>
+",<javascript><jquery><html><date>,16/01/06 8:53,LQ_CLOSE
+34628999,swift force-unwrapping exception not propagated,"<p>I've run into this silly behaviour in swift where force-unwrapping an optional does not propagate.</p>
+
+<p>From the documentation:</p>
+
+<blockquote>
+  <p>Trying to use ! to access a non-existent optional value triggers a runtime error. Always make sure that an optional contains a non-nil value before using ! to force-unwrap its value.</p>
+</blockquote>
+
+<p>To reproduce:</p>
+
+<pre><code>func foo(bar:String?) throws{
+    print(bar!);
+}
+</code></pre>
+
+<p>And</p>
+
+<pre><code>try foo(nil);
+</code></pre>
+
+<p>This does not seem logical or consistent to me and I can't find any documentation on this subject.</p>
+
+<p>Is this by design?</p>
+",<ios><swift><swift2>,16/01/06 8:54,HQ
+34629085,How to output the name in their id,"I have a problem, I want that each id in the foreign key can output the name instead of their  id. [Here's the image][1]
+
+Here's my code :
+
+    <table class=""altrowstable"" data-responsive=""table"" >
+    				<thead >
+    					<tr>
+    						<th> IDno</th>
+    						<th> Lastname </th>
+    						<th> Firstname </th>
+    						<th> Department </th>
+    						<th> Program </th>
+    						<th> Action</th>
+    	
+    					</tr>
+    				</thead>
+    				<tbody>	
+    				 <div style=""text-align:center; line-height:50px;""> 
+    						<?php
+    						include('../connection/connect.php');
+    						$YearNow=Date('Y');
+    						
+    						$result = $db->prepare(""SELECT * FROM student,school_year  where  user_type =3 AND student.syearid = school_year.syearid AND school_year.from_year like $YearNow "");
+    						$result->execute();
+    						for($i=0; $row = $result->fetch(); $i++){
+    						?>
+    					<tr class=""record"">
+    						<td><?php echo $row['idno']; ?></td>
+    						<td><?php echo $row['lastname']; ?></td>
+    						<td><?php echo $row['firstname']; ?></td>
+    //name belong's to their id's
+        						<td><?php echo $row['dept_id']; ?></td>
+        						<td><?php echo $row['progid']; ?></td>
+        					
+    					<td><a style=""border:1px solid grey; background:grey; border-radius:10%; padding:7px 12px; color:white; text-decoration:none; "" href=""addcandidates.php?idno=<?php echo $row['idno']; ?>"" > Running</a></div></td>
+    </tr>
+    		<?php
+    			}
+    		?>
+    			</tbody>
+    				</table>	
+Thanks guys need a help
+  [1]: http://i.stack.imgur.com/aOWkd.png
+
+",<php>,16/01/06 8:58,LQ_EDIT
+34629249,Inject namespace experimental to std,"<p>Is it bad or good parctice to inject namespace <code>std::experimental</code> into <code>std</code> like following?</p>
+
+<pre><code>namespace std
+{
+namespace experimental
+{
+}
+using namespace experimental;    
+}
+
+#include &lt;experimental/optional&gt;
+
+int main()
+{
+    std::optional&lt; int &gt; o;
+    return 0;
+}
+</code></pre>
+
+<p>Or even in more modern form:</p>
+
+<pre><code>#if __has_include(&lt;optional&gt;)
+# include &lt;optional&gt;
+#elif __has_include(&lt;experimental/optional&gt;)
+# include &lt;experimental/optional&gt;
+namespace std
+{
+using namespace experimental;    
+}
+#else
+#error !
+#endif
+
+int main()
+{
+    std::optional&lt; int &gt; o;
+    return 0;
+}
+</code></pre>
+
+<p>The intention to introduce <code>std::experimental</code> ""sub-namespace"" is clear because <code>std::experimental</code> currently contains <a href=""http://en.cppreference.com/w/cpp/experimental"">a plenty of <strong>new</strong> libraries</a>. I think it is very likely all them will migrate into <code>namespace std</code> without any substantial changes and user code written currently can rely upon this (am I totally wrong?). Otherwise all this code should be refactored to change from <code>std::experimental::</code> to <code>std::</code> in the future. It is not big deal, but there may be reasons not to do so.</p>
+
+<p>The question is about both production code and not-too-serious code.</p>
+",<c++><c++11><stl><c++14>,16/01/06 9:08,HQ
+34629261,Django render_to_string() ignores {% csrf_token %},"<p>I am trying to perform unit tests in Django. I have the following form in <code>index.html</code>:</p>
+
+<pre><code>&lt;form method=POST&gt;
+  {% csrf_token %}
+  &lt;input name=itemT&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>And I am testing if the view render the template correctly:</p>
+
+<p>views.py</p>
+
+<pre><code>def homePage(request):
+    return render(request, 'index.html')
+</code></pre>
+
+<p>tests.py:</p>
+
+<pre><code>request = HttpRequest()
+
+response = homePage(request)
+if response:
+    response = response.content.decode('UTF-8')
+
+expectedHTML = render_to_string('index.html')
+self.assertEqual(response, expectedHTML)
+</code></pre>
+
+<p>The <code>response</code> has a hidden input field with a csrf token; however, the <code>expectedHTML</code> does not (there is just a blank line at the place of <code>{% csrf_token %}</code>). So the assertion always fails.</p>
+
+<p>Is it possible to have <code>render_to_string()</code> generate a csrf input field? If so, would the token of <code>response</code> the same as that of <code>expectedHTML</code>?</p>
+
+<p>Or, is there any way to ignore the input field such that the test can be successful?</p>
+",<django>,16/01/06 9:09,HQ
+34629362,C++ - create new constructor for std::vector<double>?,"<p>I have written a custom container class which contains a <code>std::vector&lt;double&gt;</code> instance - works nicely. For compatibility with other API's I would like to export     the content of the container as a <code>std::vector&lt;double&gt;</code> copy . Currently this works:</p>
+
+<pre><code>MyContainer container;
+....
+std::vector&lt;double&gt; vc(container.begin(), container.end());
+</code></pre>
+
+<p>But if possible would like to be able to write:</p>
+
+<pre><code>MyContainer container;
+....
+std::vector&lt;double&gt; vc(container);
+</code></pre>
+
+<p>Can I (easily) create such a <code>std::vector&lt;double&gt;</code> constructor?</p>
+",<c++>,16/01/06 9:15,HQ
+34629387,Checking the value of a key in an hasmap,"I would like to know how to check the value of a specific key in an hashmap, for example,
+if the hashmap ""map"" contains the key ""Key"" then what is the value of the key ""Key""?",<java><dictionary><hashmap><key-value>,16/01/06 9:17,LQ_EDIT
+34629424,how to load bitmap directly with picasso library like following,"<pre><code>Picasso.with(context).load(""url"").into(imageView);
+</code></pre>
+
+<p>Here instead of url i want bitmap how can i achieve this.
+like below-</p>
+
+<pre><code>Picasso.with(context).load(bitmap).into(imageView);
+</code></pre>
+",<picasso>,16/01/06 9:18,HQ
+34629540,TaskStackBuilder.addParentStack not working when I was building a notification,"<p>I did everything as the official docs writes.But when i navigate backwards,the MainActivity(parent) doesn't open.Instead, the application closes.</p>
+
+<p><strong>here is my code:</strong></p>
+
+<pre><code>Intent resultIntent = new Intent(context, TestActivity.class);
+
+TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+stackBuilder.addParentStack(TestActivity.class);
+stackBuilder.addNextIntent(resultIntent);
+</code></pre>
+
+<p><strong>the manifest is as below:</strong></p>
+
+<pre><code>    &lt;activity
+        android:name="".MainActivity""
+        android:label=""@string/app_name""
+        android:theme=""@style/AppTheme.NoActionBar""&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=""android.intent.action.MAIN"" /&gt;
+
+            &lt;category android:name=""android.intent.category.LAUNCHER"" /&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+
+    &lt;activity
+        android:name="".TestActivity""
+        android:parentActivityName="".MainActivity""&gt;
+        &lt;meta-data
+            android:name=""android.support.PARENT_ACTIVITY""
+            android:value="".Main2Activity"" /&gt;
+    &lt;/activity&gt;
+</code></pre>
+
+<p>Thank you.</p>
+",<android><notifications><taskstackbuilder>,16/01/06 9:25,HQ
+34629574,Can bash script be written inside a AWS Lambda function,"<p>Can I write a bash script inside a Lambda function? I read in the aws docs that it can execute code written in Python, NodeJS and Java 8.</p>
+
+<p>It is mentioned in some documents that it might be possible to use Bash but there is no concrete evidence supporting it or any example</p>
+",<bash><amazon-web-services><aws-lambda>,16/01/06 9:27,HQ
+34630253,c# adding a string to an array,"<p>i want to simply add a string to an array, like this:</p>
+
+<pre><code>string[] arrayName = new string[0];
+        arrayName.Add(""raptor"");
+</code></pre>
+
+<p>But this doesn't work, can someone help me?</p>
+",<c#><arrays>,16/01/06 9:59,LQ_CLOSE
+34630552,Why This Query Not Work Properly,"why this query not show more than one data.even I have 10/12 data but this line only show 1.check I have limit it 3 but it show only 1
+
+$getAds=mysql_query(""SELECT * FROM advertises WHERE status='RUNNING' AND adult='0' AND (country LIKE '%$test%' OR country='ALL') AND (device LIKE '%$pabu%' OR device='ALL') ORDER BY rand() LIMIT 0,3"");",<php><mysql>,16/01/06 10:14,LQ_EDIT
+34630669,Python: ImportError: No module named 'HTMLParser',"<p>I am new to Python. I have tried to ran this code but I am getting an error message for ImportError: No module named 'HTMLParser'. I am using Python 3.x. Any reason why this is not working ?</p>
+
+<pre><code>#Import the HTMLParser model
+from HTMLParser import HTMLParser
+
+#Create a subclass and override the handler methods
+class MyHTMLParser(HTMLParser):
+
+#Function to handle the processing of HTML comments
+    def handle_comment(self,data):
+        print (""Encountered comment: "", data)
+        pos = self.getpos()
+        print (""At line: "", pos[0], ""position "", pos[1])
+
+def main():
+    #Instantiate the parser and feed it some html
+    parser= MyHTMLParser()
+
+    #Open the sample file and read it
+    f = open(""myhtml.html"")
+    if f.mode== ""r"":
+        contents= f.read()  #read the entire FileExistsError
+        parser.feed()
+
+
+if __name__== ""__main__"":
+    main()
+</code></pre>
+
+<p>I am getting the following error:</p>
+
+<pre><code>Traceback (most recent call last):
+  File ""C:\Users\bm250199\workspace\test\htmlparsing.py"", line 3, in &lt;module&gt;
+    from HTMLParser import HTMLParser
+ImportError: No module named 'HTMLParser'
+</code></pre>
+",<python-3.x>,16/01/06 10:20,HQ
+34631634,Oracle data types variations,"<p>I'm a new beginner to Oracle ,I'm so confused about the data types .</p>
+
+<hr>
+
+<p>I don't know the difference between :</p>
+
+<ul>
+<li><code>INT</code>,<code>INTEGER</code>,<code>NUMBER</code></li>
+<li><code>CHAR</code>,<code>CHAR VARYING</code> ,<code>CHARACTER</code>,<code>CHARACTER VARYING</code></li>
+</ul>
+",<sql><database><oracle><oracle11g>,16/01/06 11:08,LQ_CLOSE
+34631806,Fail during installation of Pillow (Python module) in Linux,"<p>I'm trying to install Pillow (Python module) using pip, but it throws this error:</p>
+
+<pre><code>ValueError: jpeg is required unless explicitly disabled using --disable-jpeg, aborting
+</code></pre>
+
+<p>So as the error says, I tried:</p>
+
+<pre><code>pip install pillow --global-option=""--disable-jpeg""
+</code></pre>
+
+<p>But it fails with:</p>
+
+<pre><code>error: option --disable-jpeg not recognized
+</code></pre>
+
+<p>Any hints how to deal with it?</p>
+",<python><linux><pillow>,16/01/06 11:16,HQ
+34631956,Encryption in URL,"<p>I have an URL.
+My URL type: ""<a href=""http://myweb.com/id=W5OAGejZ1HpuHri7BB1c%2BXHSYs2c47eyJFhpmroalPXZ5SUIgeUbqu7hJUVFVwPOA0xRI3ILJVHQ5QgBwtWpE1x0%2Fq10VVrmduMU5PiYguW1cXog4azzDvjcbb3%2BVpMDKe5QmvjLgJ9M4TXosTYR%2FOVzIPvXD%2BjeTEFtIM2g6siUcPBOeK5ubQh1QYB%2FCSbgnFsh2mpx3r%2FXBXI09I4q%2Be7hDSITcyIeYzFf1LoovBKotYcYSxhrZkbtIz2utl8PbpGa5G49EAwcKyossEo21dumTfkfJFoXUfmhH7amGcqbKUBOvtmhRwaMqrqoR6Vjd%2FKBCLrszpCRXX%2FdY6Kg0A7AUUNWdedizKCiDYdYL1IMUZ12od7HZNuHCruWPe43uhoxhjyhzx9oFl4rf6f8aM58b6KDtgiBbDwZNiICltUHq6htdzq2KwPRz8tl0WvZaaV3UC7vkfzfH%2FsRrv%2BB8MlsPrW6YfDOwupf0ax%2BJjc8oy%2BD%2BXv53swU5%2BS0dKQv94sgPNoQKG05oi4%2BO7M4gcw5Otp7O6qDFv5yhYnywJD8F6CXWUmHU9WoFRGoQnwdDwoMySYsiM4jCT9aq4s08%2Bx2m8EngPHr36aN7xJbc1yVgJUJjmCea5xCl4Hp6X3h%2BJMvUm25jbzi9ZXOFHHsp2lboLgXY1cM0b%2F1azWMaEgWLEXXbhIL36fC%2FQCQTk%2FvNnFZJLeye2LVbxBWVpyKxvC9ire1lxm0OrugnhhJle0lDFpl5O1cJwwORx2eUqwdmAJvWqh6SxBPyoxISKoIO6t4gRN%2BWMCHrwylBTsLvVKqwHdv2ulv88a3HHpOvTWuDlUb%2B0ADjnhAZ2jnVadSgX3r%2FQTaWVswD4rfRTPqdzmmHmIdC%2B%2BmOiUuMRL9qDXei4kxfeyODgkVJ4P9yEplsB2HfVM9cHU1ks4oq8bXIRb9j%2FqE%2FRsEFuQs%2FfQvBZXjEQK%2FnUiIHJ%2BZQcVTEPgsBPcewNjH85vc61WKd%2B3R6mbFuY4%2BJUdIt%2BaUjRohUP8P7R4Bh5WWA%2F%2B2odAn1fT5Xkn07XCWmoE5MBBTyFRXQBU6HImYDJ2Gk95xVn65jGrs5XbsKUjYEis1MQe4N59RjA%3D%3D"" rel=""nofollow"">http://myweb.com/id=W5OAGejZ1HpuHri7BB1c%2BXHSYs2c47eyJFhpmroalPXZ5SUIgeUbqu7hJUVFVwPOA0xRI3ILJVHQ5QgBwtWpE1x0%2Fq10VVrmduMU5PiYguW1cXog4azzDvjcbb3%2BVpMDKe5QmvjLgJ9M4TXosTYR%2FOVzIPvXD%2BjeTEFtIM2g6siUcPBOeK5ubQh1QYB%2FCSbgnFsh2mpx3r%2FXBXI09I4q%2Be7hDSITcyIeYzFf1LoovBKotYcYSxhrZkbtIz2utl8PbpGa5G49EAwcKyossEo21dumTfkfJFoXUfmhH7amGcqbKUBOvtmhRwaMqrqoR6Vjd%2FKBCLrszpCRXX%2FdY6Kg0A7AUUNWdedizKCiDYdYL1IMUZ12od7HZNuHCruWPe43uhoxhjyhzx9oFl4rf6f8aM58b6KDtgiBbDwZNiICltUHq6htdzq2KwPRz8tl0WvZaaV3UC7vkfzfH%2FsRrv%2BB8MlsPrW6YfDOwupf0ax%2BJjc8oy%2BD%2BXv53swU5%2BS0dKQv94sgPNoQKG05oi4%2BO7M4gcw5Otp7O6qDFv5yhYnywJD8F6CXWUmHU9WoFRGoQnwdDwoMySYsiM4jCT9aq4s08%2Bx2m8EngPHr36aN7xJbc1yVgJUJjmCea5xCl4Hp6X3h%2BJMvUm25jbzi9ZXOFHHsp2lboLgXY1cM0b%2F1azWMaEgWLEXXbhIL36fC%2FQCQTk%2FvNnFZJLeye2LVbxBWVpyKxvC9ire1lxm0OrugnhhJle0lDFpl5O1cJwwORx2eUqwdmAJvWqh6SxBPyoxISKoIO6t4gRN%2BWMCHrwylBTsLvVKqwHdv2ulv88a3HHpOvTWuDlUb%2B0ADjnhAZ2jnVadSgX3r%2FQTaWVswD4rfRTPqdzmmHmIdC%2B%2BmOiUuMRL9qDXei4kxfeyODgkVJ4P9yEplsB2HfVM9cHU1ks4oq8bXIRb9j%2FqE%2FRsEFuQs%2FfQvBZXjEQK%2FnUiIHJ%2BZQcVTEPgsBPcewNjH85vc61WKd%2B3R6mbFuY4%2BJUdIt%2BaUjRohUP8P7R4Bh5WWA%2F%2B2odAn1fT5Xkn07XCWmoE5MBBTyFRXQBU6HImYDJ2Gk95xVn65jGrs5XbsKUjYEis1MQe4N59RjA%3D%3D</a>""</p>
+
+<p>I want to need decode the line behind the id ""W5OAGejZ1HpuHri7BB.....9RjA%3D%3D"". I think it encryption base 64. But when I decode it, it not true. If you know about it, please tell me more info it. Thank you..</p>
+",<php><encryption>,16/01/06 11:23,LQ_CLOSE
+34632845,Relative import error with py2exe,"<p>I was trying to generate an executable for a simple Python script. My setup.py code looks like this:</p>
+
+<pre><code>from distutils.core import setup
+import py2exe
+setup(console=[""script.py""])
+</code></pre>
+
+<p>However, I am getting the error shown in the screenshot. Is there something I could try to fix this? I am using Windows 10.</p>
+
+<p><a href=""https://i.stack.imgur.com/LDbbL.png""><img src=""https://i.stack.imgur.com/LDbbL.png"" alt=""enter image description here""></a></p>
+",<python><py2exe><relative-import>,16/01/06 12:11,HQ
+34632959,Redirecting command output in docker,"<p>I want to do some simple logging for my server which is a small Flask app running in a Docker container.</p>
+
+<p>Here is the Dockerfile</p>
+
+<pre><code># Dockerfile
+FROM dreen/flask
+MAINTAINER dreen
+WORKDIR /srv
+
+# Get source
+RUN mkdir -p /srv
+COPY perfektimprezy.tar.gz /srv/perfektimprezy.tar.gz
+RUN tar x -f perfektimprezy.tar.gz
+RUN rm perfektimprezy.tar.gz
+
+# Run server
+EXPOSE 80
+CMD [""python"", ""index.py"", ""1&gt;server.log"", ""2&gt;server.log""]
+</code></pre>
+
+<p>As you can see on the last line I redirect stderr and stdout to a file. Now I run this container and shell into it</p>
+
+<pre><code>docker run -d -p 80:80 perfektimprezy
+docker exec -it ""... id of container ..."" bash
+</code></pre>
+
+<p>And observe the following things:</p>
+
+<p>The server is running and the website working</p>
+
+<p>There is no <code>/srv/server.log</code></p>
+
+<p><code>ps aux | grep python</code> yields:</p>
+
+<pre><code>root         1  1.6  3.2  54172 16240 ?        Ss   13:43   0:00 python index.py 1&gt;server.log 2&gt;server.log
+root        12  1.9  3.3 130388 16740 ?        Sl   13:43   0:00 /usr/bin/python index.py 1&gt;server.log 2&gt;server.log
+root        32  0.0  0.0   8860   388 ?        R+   13:43   0:00 grep --color=auto python
+</code></pre>
+
+<p>But there are no logs... HOWEVER, if I <code>docker attach</code> to the container I can see the app generating output in the console.</p>
+
+<p>How do I properly redirect stdout/err to a file when using Docker?</p>
+",<linux><bash><logging><docker><output>,16/01/06 12:16,HQ
+34633308,How to pass parameters to AWS Lambda function,"<p>I know that it is possible to pass parameters to a Java program running on AWS Lambda in order to test it. But I do not know how to pass those parameters if this program gets called by a schedule event.</p>
+
+<p>Does anyone know if this is possible? If yes, how?
+I was not able to find anything about it.</p>
+
+<p>Thanks in advance</p>
+",<java><amazon-web-services><aws-lambda>,16/01/06 12:35,HQ
+34633805,Add Remote option not shown in PyCharm,"<p>I am trying to set up a remote debugger with PyCharm on a Vagrant Machine. 
+I am following <a href=""https://www.jetbrains.com/pycharm/help/configuring-remote-interpreters-via-ssh.html"">this</a> PyCharm tutorial. However, the Add Remote option is not available for me. Just Add local and Create VirtualEnv.</p>
+
+<p>Any idea why is this happening?</p>
+",<python><debugging><pycharm><remote-debugging>,16/01/06 12:59,HQ
+34634040,"jQuery image scrolling, selecting and lightbox-like-fx","<p>I have a webpage in which I need to realize something that looks like the following sketch: <a href=""https://i.stack.imgur.com/iZN5A.jpg"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/iZN5A.jpg"" alt=""sketch""></a></p>
+
+<p>As you can see, there are basically two sections:</p>
+
+<ul>
+<li>a side-block (preferably) on the right that serves as image-thumbnails scroller;</li>
+<li>a contents-block on the left (in my draw) in which there are text parts and an image that is selected from the right side-scroller.</li>
+</ul>
+
+<p>Side scrolling may be achieved by a browser sidebar or (<em>very much</em> preferably better) by apposite up/down buttons.
+ When clicking on a different image on the side-scroller that image get shown in place of the previous one.
+Last thing, clicking the image selected shall make it show in full-size (not larger than browser window anyway) with a lightbox-like-effect.</p>
+
+<p>Anyone know of a jQuery plugin that already provide all this?</p>
+
+<p>Thank you very much.</p>
+",<javascript><jquery><html><css><jquery-plugins>,16/01/06 13:12,LQ_CLOSE
+34634366,Android ActionBar Backbutton Default Padding,"<p>I am creating a custom <code>ActionBar</code> using a <code>RelativeLayout</code> with an <code>ImageButton</code> to the left to <strong>replace</strong> it. I have downloaded the Back icon from google's website to use on the <code>ImageButton</code></p>
+
+<p>The problem is that I need to create a Back button to replace the original <code>ActionBar</code>'s Back Button, and I need it to be exactly identical to the original <code>ActionBar</code>'s back button.</p>
+
+<p><strong>I am wondering what is the system's default padding for the Back button image?</strong>  </p>
+",<android><android-layout><android-actionbar><android-toolbar>,16/01/06 13:30,HQ
+34634637,How can I extract price of mobile phone from different ecommerce websites in php,"<p>How can I extract price of <strong>mobile</strong> phone from different ecommerce websites in php tell me code</p>
+",<php><html><css>,16/01/06 13:44,LQ_CLOSE
+34634659,How to properly autostart an asp.net application in IIS10,"<p>I'm trying to get my ASP.NET application to automatically start whenever the application pool is running.</p>
+
+<p>As per the lots and lots of references online I have already done the following:</p>
+
+<ul>
+<li>Set the Application Pool to <code>StartMode=AlwaysRunning</code></li>
+<li>Set the site in question (that belongs to beforementioned Pool) to <code>preloadEnabled=true</code></li>
+<li>Install the <code>Application Initialization</code> feature to the Windows installation</li>
+<li>Add the <code>&lt;applicationInitialization&gt;</code> node to the web.config's <code>&lt;system.webServer&gt;</code> node</li>
+</ul>
+
+<p>The web application is based on Owin and has a simple log4net logging statement in it's <code>Startup.Configuration()</code> method. Now when restarting IIS I see that the w3svc.exe process is running, so I know the <code>StartMode=AlwaysRunning</code> is working. There are however no logging messages in the log file.</p>
+
+<p>Navigating to any url (even a nonexisting one) in the application will start the app and add the log line.</p>
+
+<p>Because of the actual work that's done in the startup of the application I really want the application to truly preload, but I seem to be unable to get it done.</p>
+
+<p>Searching this site I have unfortunately not been able to find a solution. </p>
+
+<p>Thanks in advance.</p>
+",<asp.net><iis><autostart>,16/01/06 13:45,HQ
+34635269,How to pass @Input() params to an angular 2 component created with DynamicComponentLoader,"<p>The DynamicContentLoader docs don't explain how I can properly load a child component's inputs. Let's say I have a child like:</p>
+
+<pre><code>@Component({
+  selector: 'child-component',
+  template: '&lt;input type=""text"" [(ngModel)]=""thing.Name"" /&gt;'
+})
+class ChildComponent {
+  @Input() thing : any;
+}
+</code></pre>
+
+<p>and a parent like:</p>
+
+<pre><code>@Component({
+  selector: 'my-app',
+  template: 'Parent (&lt;div #child&gt;&lt;/div&gt;)'
+})
+class MyApp {
+  thing : any;
+  constructor(dcl: DynamicComponentLoader, elementRef: ElementRef) {
+    dcl.loadIntoLocation(ChildComponent, elementRef, 'child');
+  }
+}
+</code></pre>
+
+<p>How should I go about passing <code>thing</code> into the child component such that the two components can be data bound against the same thing. </p>
+
+<p>I tried to do this:</p>
+
+<pre><code>@Component({
+  selector: 'my-app',
+  template: 'Parent (&lt;div #child&gt;&lt;/div&gt;)'
+})
+class MyApp {
+  thing : any;
+  constructor(dcl: DynamicComponentLoader, elementRef: ElementRef) {
+    dcl.loadIntoLocation(ChildComponent, elementRef, 'child').then(ref =&gt; {
+        ref.instance.thing = this.thing;
+    });
+  }
+}
+</code></pre>
+
+<p>It sort of works, but they are not synchronised as you would expect. </p>
+
+<p>Basically I am trying to achieve the same thing that would have been achieved by using ng-include in angular 1 where the child is a dynamically determined component and shares the model with its parent. </p>
+
+<p>Thanks in advance ...</p>
+",<angular>,16/01/06 14:15,HQ
+34635588,How do I remove outline on link click?,"<p>When I click a link on my website it is creating an outline around the link like so</p>
+
+<p><a href=""https://i.stack.imgur.com/d7IrT.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/d7IrT.png"" alt=""enter image description here""></a></p>
+
+<p>I've tried adding:</p>
+
+<pre><code>a.image-link:focus { outline: 0; }
+</code></pre>
+
+<p>and</p>
+
+<pre><code>a {outline : none;}
+</code></pre>
+
+<p>But nothing seems to get rid of it. Is there a way to remove it?</p>
+",<html><css><hyperlink><outline>,16/01/06 14:31,HQ
+34636001,iOS - How to ignore the duplicates in NSMutableArray.,"<p>For example I have an array = [12,13,13,13,14,15,16,16,17];</p>
+
+<p>and my output will be 12,13,14,15,16,17.</p>
+
+<p>Please help me on  this.</p>
+",<ios>,16/01/06 14:50,LQ_CLOSE
+34636191,unable to pass the context to the another class in android,"[enter image description here][1]ServiceCalls serviceCalls = new ServiceCalls(this, ""ks"");
+        serviceCalls.execute(requestParams);
+
+
+  [1]: http://i.stack.imgur.com/DTjw1.png
+
+Note:pls check the image.I am not good at english.thanks in advance",<android>,16/01/06 14:59,LQ_EDIT
+34636423,"syntax error, unexpected end of file in ... on line 31","<p>I didn't have any code here on line 31 in this code so what do you think what's the problem here? :)</p>
+
+<pre><code>&lt;?php
+
+require('config.php');
+
+if(isset($_POST['submit'])) {
+
+$uname = mysqli_real_escape_string($con, $_POST['uname']);
+$pass = mysqli_real_escape_string($con, $_POST['pass']);
+
+$sql = mysqli_query($con, ""SELECT * FROM users WHERE uname = '$uname' AND pass = '$pass'"");
+if (mysqli_num_rows($sql) &gt; 0) {
+  echo ""You are now logged in."";
+  exit();
+}
+
+} else {
+
+  $form = &lt;&lt;&lt;EOT
+  &lt;form action=""login.php"" method=""POST""&gt;
+  Username: &lt;input type=""text"" name=""uname"" /&gt;&lt;/br&gt;
+  Password: &lt;input type=""password"" name=""pass"" /&gt;&lt;/br&gt;
+  &lt;input type=""submit"" name=""submit"" value=""Log in"" /&gt;
+  &lt;/form&gt;
+  EOT;
+  echo $form;
+}
+
+
+
+?&gt;
+</code></pre>
+
+<p>I think that all my brackets are fine :D</p>
+",<php><mysqli>,16/01/06 15:11,LQ_CLOSE
+34636644,Creating a Program to pick out random strings from an array,"<p>So, i wanted to create a program that picks out simple strings from an array, it sounded pretty simple to me but then i ran into problems. Here's what i wrote:</p>
+
+<pre><code>int pickjob;
+string jobs[] = {Police Officer, Fireman, Vet, Doctor, Nurse, Chemist, Waiter};
+job1 = jobs[rand()%7];
+job2 = jobs[rand()%7];
+job3 = jobs[rand()%7];
+cout &lt;&lt; ""Here i found some jobs for you, check them out\n1."" &lt;&lt; job1 &lt;&lt; ""\n2."" &lt;&lt; job2 &lt;&lt; ""\n3."" &lt;&lt; job3 &lt;&lt; ""\nGo Head and pick one out"" &lt;&lt; endl;
+cin &gt;&gt; pickjob;
+//Rest of code is below, i'll put it in if you need it ;)
+</code></pre>
+
+<p>But my problem was that everytime i ran the program the same jobs appeared everytime (Im a amaetur at C++, so if i sound stupid forgive me), so how do i make a program where it prints out diffrent jobs every time from the array.</p>
+",<c++><arrays>,16/01/06 15:21,LQ_CLOSE
+34637034,Curl -u equivalent in HTTP request,"<p>I've been trying to plug into the Toggl API for a project, and their examples are all using CURL. I'm trying to use the C# wrapper which causes a bad request when trying to create a report, so I thought I'd use Postman to try a simple HTTP request.</p>
+
+<p>I can't seem to get the HTTP request to accept my API Token though. Here's the example that they give (CURL):</p>
+
+<pre><code>curl -u my-secret-toggl-api-token:api_token -X GET ""https://www.toggl.com/reports/api/v2/project/?page=1&amp;user_agent=devteam@example.com&amp;workspace_id=1&amp;project_id=2""
+</code></pre>
+
+<p>I've tried the following HTTP request with Postman with a header called
+api_token with my token as the value:</p>
+
+<pre><code>https://www.toggl.com/reports/api/v2/project/?user_agent=MYEMAIL@EMAIL.COM&amp;project_id=9001&amp;workspace_id=9001
+</code></pre>
+
+<p>(changed ids and email of course).</p>
+
+<p>Any help on how to use the CURL -u in HTTP would be appreciated, thanks.</p>
+",<http><curl>,16/01/06 15:41,HQ
+34637035,Are global static variables within a file comparable to a local static variable within a function?,"<p>I know declaring a global variable as STATIC will make it visible to the current file. Does the variable retain its data every time functions are called within the file?</p>
+
+<p>For example,</p>
+
+<p>Let's say some file calls func1() below, which modifies the static global variable data and then calls func2() which modifies it again.</p>
+
+<p>The next time a file calls func1(), will it be modifying a new data variable struct? or will it preserve the previous data that was modified in the first call?</p>
+
+<pre><code>STATIC MY_DATA  Data1;
+
+void func1( ){
+   //modify Data1
+   func2(Data1);
+}
+
+void func2 (MY_DATA data){
+    // modify data 
+}
+</code></pre>
+",<c><variables><static><global>,16/01/06 15:41,LQ_CLOSE
+34637162,I wants to add images in repeatbox,"i m new in smartface.io software.I wants to add images in repeatbox, can someone help me to add images in repeatbox.
+
+Thanks 
+",<image><smartface.io>,16/01/06 15:48,LQ_EDIT
+34637657,It's possible ignore child dependency in Composer config?,"<p>When I run composer install, it will install all my ""require"" and the ""require"" of the other package.</p>
+
+<p>My composer.json</p>
+
+<pre><code>{
+    ""name"": ""my_app"",
+    ""require"": {
+        ""some/package"": ""0.0.0""
+    }
+}
+</code></pre>
+
+<p>The ""child"" dependency</p>
+
+<pre><code>{
+    ""name"": ""some/package"",
+    ""require"": {
+        ""zendframework/zend-mail"": ""2.4.*@dev"",
+        ""soundasleep/html2text"": ""~0.2"",
+        ""mpdf/mpdf"": ""6.0.0"",
+        ""endroid/qrcode"": ""1.*@dev""
+    }
+}
+</code></pre>
+
+<p>I know that it's possible ignore the php extensions, but what about these second require package?</p>
+",<composer-php>,16/01/06 16:13,HQ
+34637896,"gitk will not start on Mac: unknown color name ""lime""","<p>I've installed git on a mac via <code>brew install git</code>. When I try to start gitk I get the following error:</p>
+
+<pre><code>Error in startup script: unknown color name ""lime""
+    (processing ""-fore"" option)
+    invoked from within
+""$ctext tag conf m2 -fore [lindex $mergecolors 2]""
+    (procedure ""makewindow"" line 347)
+    invoked from within
+""makewindow""
+    (file ""/usr/local/bin/gitk"" line 12434)
+</code></pre>
+
+<p>It appears that my Mac doesn't have a color named <code>lime</code>. </p>
+
+<p>Can I add a lime color to the environment, or is there a better fix? </p>
+
+<p>The git version is 2.7.0, and the Mac is running Yosemite 10.10.5</p>
+",<gitk>,16/01/06 16:27,HQ
+34638462,Using git with ssh-agent on Windows,"<p>I'm on Windows. I installed git and posh-git (some helpers for Windows PowerShell). I can add keys with <code>ssh-add</code> and can authenticate with github and my webserver. I can also use git from the PowerShell to interact with my repositories.</p>
+
+<p>But there is one thing I can't do: I use git-plus for the Atom editor. And I don't get it to push to my repo. What is my problem?</p>
+",<git><powershell><ssh><atom-editor><ssh-agent>,16/01/06 16:55,HQ
+34638895,iOS app rejected due to copyright issues,"<p>an app I have been working on got rejected by Apple,
+here is the message I got from Apple when it got rejected:</p>
+
+<p>From Apple
+    22.2 - Apps that contain false, fraudulent or misleading representations or use names or icons similar to other Apps will be rejected </p>
+
+<p>22.2 Details 
+Your app or its metadata contains misleading content.</p>
+
+<p>Specifically, the app screenshots and splash screen are from a well known TV show belonging to Keshet without the rights to use it.</p>
+
+<p>We’ve attached screenshot for your reference.</p>
+
+<p>Next Steps</p>
+
+<p>Please remove or revise any misleading content in your app and its metadata.</p>
+
+<p>Since your iTunes Connect Application State is Rejected, a new binary will be required. Make the desired metadata changes when you upload the new binary.</p>
+
+<p>NOTE: Please be sure to make any metadata changes to all App Localizations by selecting each specific localization and making appropriate changes.*</p>
+
+<p>some background,
+I did develop this app for Keshet with permission, but I did not include any kind of permission from Keshet when submitting.
+Yes, my bad, I just didn't know it was required.</p>
+
+<p>Anyway, my question is,
+would replying to Apple through the resolution center and including a document from Keshet's legel dept. be enough to resolve this issue?
+or do I need to go through the whole process again, submitting a new binary etc.?
+or perhaps something else?</p>
+
+<p>Also, does this kind of rejection means that every other aspect of the game I submitted is okay?
+because they only reacted to the rights to use Keshet's properties.</p>
+",<ios>,16/01/06 17:18,LQ_CLOSE

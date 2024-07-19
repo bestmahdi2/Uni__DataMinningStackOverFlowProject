@@ -1,0 +1,744 @@
+Id,Title,Body,Tags,CreationDate,Y
+34564543,Android Studio Import Failing,"Ok guys i am trying to implement spinner in in Android Studio
+
+These are my imports
+
+    import android.widget.ArrayAdapter;
+    import android.widget.EditText;
+    import android.widget.Spinner;
+    import android.widget.AdapterView;
+    import android.widget.Toast;
+    import android.widget.AdapterView.OnItemSelectedListener;
+
+This is my java. Here I get the the setOnItemSelectedListner in red and says cannot be resolved. I am importing it above despite that it is showing. What could be the issue.
+
+     Spinner spinner = (Spinner) findViewById(R.id.spinner);
+     spinner.setOnItemSelectedListner(this);
+
+The whole code is like this....
+
+
+    import android.location.Address;
+    import android.location.Geocoder;
+    import android.location.Location;
+    import android.support.v4.app.FragmentActivity;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.ArrayAdapter;
+    import android.widget.EditText;
+    import android.widget.Spinner;
+    import android.widget.AdapterView;
+    import android.widget.Toast;
+    import android.widget.AdapterView.OnItemSelectedListener;
+    import android.widget.AdapterView.OnItemSelectedListener;
+    import com.google.android.gms.maps.CameraUpdateFactory;
+    import com.google.android.gms.maps.GoogleMap;
+    import com.google.android.gms.maps.OnMapReadyCallback;
+    import com.google.android.gms.maps.SupportMapFragment;
+    import com.google.android.gms.maps.model.LatLng;
+    import com.google.android.gms.maps.model.MarkerOptions;
+    
+    import java.io.IOException;
+    import java.util.ArrayList;
+    import java.util.List;
+    
+    public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+    
+        private GoogleMap mMap;
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_maps);
+            
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+    
+        }
+    
+        
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+    
+        spinner.setOnItemSelectedListner(this);
+    
+        
+        List<String> categories = new ArrayList<String>();
+        categories.add(""Automobile"");
+        categories.add(""Business Services"");
+        categories.add(""Computers"");
+        categories.add(""Education"");
+        categories.add(""Personal"");
+        categories.add(""Travel"");
+    
+        
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+    
+        
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    
+        
+        spinner.setAdapter(dataAdapter);
+            }
+    
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        
+            String item = parent.getItemAtPosition(position).toString();
+    
+        
+            Toast.makeText(parent.getContext(), ""Selected: "" + item, Toast.LENGTH_LONG).show();
+        }
+        public void onNothingSelected(AdapterView<?> arg0) {
+        
+        }
+
+",<java><android><android-layout><android-studio><android-spinner>,16/01/02 9:46,LQ_EDIT
+34565520,Is it possible to track user activity in his iDevice,"As the title Describe to Track,
+   Is it possible to track every activity of a user in his iphone and display it 
+   
+For example - A user ""X"" unlock his iphone(slide to unlock)<br> then he make a call after that played a game<br> then open a camera and taken a picture <br>then enter some reminder<br> and finally he close / lock his iphone
+
+The challenge is to display all details  when user unlock his phone, lock his phone and other activity he has done in his iphone<br>
+
+
+   [Example - user open a UITableView application where the tableview data is populated with those activity like  the image below<br>
+..........            
+any link or any tutorial for reference
+Thanks you in advance friends
+
+[![UITableView][1]][1]
+        
+
+
+  [1]: http://i.stack.imgur.com/zSENr.png",<ios><swift><uitableview>,16/01/02 11:46,LQ_EDIT
+34565872,How to delete compiled JS files from previous typescript(.ts) files?,"<p>I am following <a href=""https://angular.io/docs/ts/latest/quickstart.html"" rel=""noreferrer"">Angular 2 quick start</a> tutorial. Following is my folder structure - </p>
+
+<pre><code>├── gulpfile.js
+├── index.html
+├── js
+|   ├── app.component.js
+|   └── boot.js
+├── source
+|   ├── app.component.ts
+|   └── boot.ts
+├── node_modules
+    ├── module 1
+    └── module 2
+</code></pre>
+
+<p>My typescript files are in <code>source/</code> directory. I'm compiling it to <code>js/</code> directory. I'm using gulp-typescript.</p>
+
+<p>The problem is when I, for example, rename the file <code>boot.ts</code> to <code>bootstrap.ts</code> and compile again, corresponding <code>bootstrap.js</code> file is created but the old <code>boot.js</code> file still remains in the js/ directory.</p>
+
+<p>Now the folder structure looks like following-</p>
+
+<pre><code>├── gulpfile.js
+├── index.html
+├── js
+|   ├── app.component.js
+|   └── bootstrap.js
+|   └── boot.js
+├── source
+|   ├── app.component.ts
+|   └── bootstrap.ts
+├── node_modules
+    ├── module 1
+    └── module 2
+</code></pre>
+
+<p>I want to delete this <code>boot.js</code> autonomically via gulp task. How to achieve this?</p>
+",<javascript><typescript><gulp><angular>,16/01/02 12:27,HQ
+34566061,AndroidStudio show usage of RAM,"<p>I have seen on other AndroidStudio-pictures, that there is a RAM usage at the right bottom. I tried to setup this statuslist o the bottom. But a rightclick didn`t help me. How can I switch on the RAM usage in AndroidStudio ?</p>
+",<android-studio><ram>,16/01/02 12:49,HQ
+34566063,Why is the const&& overload of as_const deleted?,"<p>On a <a href=""http://talesofcpp.fusionfenix.com/post-23/interlude"" rel=""noreferrer"">blog on the progress of C++17</a> I read the following:</p>
+
+<blockquote>
+  <p><code>P0007</code> proposes a helper function template <code>as_const</code>, which simply
+  takes a reference and returns it as a reference to <code>const</code>.</p>
+
+<pre><code>template &lt;typename T&gt; std::add_const_t&lt;T&gt;&amp; as_const(T&amp; t) { return t }
+template &lt;typename T&gt; void as_const(T const&amp;&amp;) = delete;
+</code></pre>
+</blockquote>
+
+<p>Why is the <code>const&amp;&amp;</code> overload deleted?</p>
+",<c++><templates><constants><c++17>,16/01/02 12:49,HQ
+34566111,How to backspace or delete?,"<p>In Windows 10, when I launch MS PowerShell to ssh through a container in Kitematic at windows, I've noticed that I can't backspace or delete, instead I get ^H for backspace instead of actually delete previous character.</p>
+
+<p>Do I miss something?</p>
+",<powershell><docker><kitematic>,16/01/02 12:55,HQ
+34566113,Has set been deprecated in python 2?,"<p>Has <code>set</code> been deprecated in python?</p>
+
+<p>I am learning python online <a href=""http://www.python-course.eu/sets_frozensets.php"" rel=""nofollow"">here</a> and trying to implement the following command - </p>
+
+<pre><code>x = set([""Perl"", ""Python"", ""Java""])
+Traceback (most recent call last):
+File ""&lt;stdin&gt;"", line 1, in &lt;module&gt;
+TypeError: 'list' object is not callable
+</code></pre>
+
+<p>So has it been deprecated in python 2.7?</p>
+",<python><python-2.7>,16/01/02 12:55,LQ_CLOSE
+34566176,"visualvm fails with ""No jdkhome found"" on Ubuntu 15.10 with Oracle JDK","<p>I installed Oracle JDK from the <code>webupd8team/java</code> PPA, and then installed the <code>visualvm</code> package. When starting <code>visualvm</code>, I get the following error message:</p>
+
+<pre><code>[beni:~]$ visualvm
+No jdkhome found
+</code></pre>
+
+<p>My <code>$JAVA_HOME</code> is set correctly to <code>/usr/lib/jvm/java-7-oracle</code>.</p>
+
+<p>Also, when starting <code>visualvm</code> with the <code>jdkhome</code> property set, I get the same error:</p>
+
+<pre><code>[beni:~]$ visualvm --jdkhome $JAVA_HOME
+No jdkhome found
+</code></pre>
+",<java><visualvm><oraclejdk>,16/01/02 13:00,HQ
+34566364,japanese and portuguese language cannot support,"My site Japanese supported. But Portuguese  language cannot fully display 
+
+Display on In�Cio Sobre N�S.
+
+I have use for header('Content-type: text/html; charset=UTF-8') ;
+
+this only Japanese language support.
+
+I need to both language (Japanese and Portuguese) should be display.
+
+I need to helper for best solution.
+
+Thanks, 
+",<php>,16/01/02 13:20,LQ_EDIT
+34566633,Display simple text on vertices,"<p>So I am trying to make a simple program (I'm a student) and it works fine so far, but I can't figure out how to display the ""i"" value from the loop in the drawCircle() function in Shapes.cpp </p>
+
+<p>code:</p>
+
+<p><a href=""http://pastebin.com/4kDPNjy8"" rel=""nofollow noreferrer"">http://pastebin.com/4kDPNjy8</a></p>
+
+<p>example:
+<a href=""https://i.stack.imgur.com/Me9kV.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/Me9kV.png"" alt=""enter image description here""></a></p>
+
+<p>When I compile my code right now it looks like on the image to the left, but I want to get something like on the right but I have no idea how to do that kind of stuff or what function should I use for that.</p>
+
+<p>Please help </p>
+",<c++><opengl><glut><glew>,16/01/02 13:54,LQ_CLOSE
+34566697,Set ImageView from Real path,"I have the real path of an image which I am retrieving from my Database. I want to set the imageView using the real path (/storage/emulated/0/DCIM/100MEDIA/image.jpg)
+
+How can this be done.
+
+    public void getIMG(){
+        Cursor res = myDb.GetRow(id);
+        if(res.moveToFirst()){
+            String path = res.getString(DatabaseHelper.ROWIMG);
+            /*img.set'???'*/
+            
+
+        }
+    }
+
+",<java><android><imageview>,16/01/02 14:00,LQ_EDIT
+34566724,Precision issues with dlmwrite / dlmread,"<p>I recently discovered, quite harshly, that Matlab's <code>dlmread</code> and <code>dlmwrite</code> don't store numerical values at <code>double</code> accuracy. It effects my code, and I need to store big arrays with more precision.</p>
+
+<p>A (not) working example : </p>
+
+<pre><code>pi1 = pi;
+dlmwrite('pi',pi1);
+pi2 = dlmread('pi');
+pi1-pi2
+
+ans =
+
+-7.3464e-06
+</code></pre>
+
+<p>While I'd expect machine-error answer, of 10^-14 accuracy.</p>
+
+<p>I'd much rather keep using a simple function as <code>dlmwrite</code>, but I will consider other solutions.</p>
+
+<p>Thanks</p>
+",<matlab><double><precision><writefile>,16/01/02 14:03,LQ_CLOSE
+34566806,Why use contextlib.suppress as opposed to try/except with pass?,"<p>Why would one use <a href=""https://docs.python.org/3/library/contextlib.html#contextlib.suppress""><code>contextlib.suppress</code></a> to suppress an exception, instead of <code>try</code>/<code>except</code> with a <code>pass</code>?</p>
+
+<p>There is no difference in the amount of characters between these two methods (if anything, <code>suppress</code> has more characters), and even though code is often counted in LOC instead of characters, <code>suppress</code> also seems to be much slower than <code>try</code>/<code>except</code> in both cases, when an error is raised and when it's not:</p>
+
+<pre><code>Python 3.5.0 (v3.5.0:374f501f4567, Sep 13 2015, 02:27:37) [MSC v.1900 64 bit (AMD64)] on win32
+Type ""copyright"", ""credits"" or ""license()"" for more information.
+&gt;&gt;&gt; from timeit import timeit
+&gt;&gt;&gt; # With an error
+&gt;&gt;&gt; timeit(""""""with suppress(ValueError):
+    x = int('a')"""""", setup=""from contextlib import suppress"")
+1.9571568971892543
+&gt;&gt;&gt; timeit(""""""try:
+    x = int('a')
+except ValueError:
+    pass"""""")
+1.0758466499161656
+&gt;&gt;&gt; # With no error
+&gt;&gt;&gt; timeit(""""""with suppress(ValueError):
+    x = int(3)"""""", setup=""from contextlib import suppress"")
+0.7513525708063895
+&gt;&gt;&gt; timeit(""""""try:
+    x = int(3)
+except ValueError:
+    pass"""""")
+0.10141028937128027
+&gt;&gt;&gt; 
+</code></pre>
+",<python><python-3.x>,16/01/02 14:13,HQ
+34566901,"In Android Studio 2.0, Cannot find local variable of method in debug mode","<p>After Updating the android version 1.5 to 2.0 Preview4. Android studio Debugger unable to find the local variable defined in method definition. For reference, find the below screenshot.</p>
+
+<p><a href=""https://i.stack.imgur.com/U971h.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/U971h.png"" alt=""enter image description here""></a></p>
+",<android><android-studio><gradle>,16/01/02 14:23,HQ
+34566903,reading data from serial port c#,"I'm trying to read char from port. writing to the port works perfectly, reading - not so much.
+here is my code:
+
+           private void Com_Port_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            char val;
+            try
+            {
+                val = Convert.ToChar(Com_Port.ReadByte()); // get the new byte from port
+                
+                label6.Text = Convert.ToString(val);
+
+            }
+            catch (Exception) { }
+        }
+cracking my head over it for the past 4 hours.",<c#><serial-port>,16/01/02 14:23,LQ_EDIT
+34566999,Cannot resolve symbol 'RequestQueue',"<p>I am new to android studio and volley library so please bear with me.</p>
+
+<p>I've added volley library by GitHub and then and added this line to build gradle file: compile 'com.android.support:appcompat-v7:23.0.1'</p>
+
+<p>And now I am trying some tutorials about request and response from api, but for some reason I cannot make an instance of RequestQueue why? 
+I am using Android 4.0.3 IceCreamSandwish</p>
+
+<p>Thank you</p>
+",<android><android-studio><android-volley>,16/01/02 14:32,HQ
+34567027,Shell script to mail script output in table format,"<p>I am new to shell script. I need your help on below scenario.</p>
+
+<p>Script: wc file1 file2 file3 file4</p>
+
+<pre><code>results :
+1488 2977 2248 file1
+123  345 657 file2
+123 896 456 file3
+567 987 124 file4
+</code></pre>
+
+<p>Now I need to mail this result in below format with header name</p>
+
+<p>Here,2nd column is always default value.</p>
+
+<pre><code>Filename  Destname rowcount  bytesize
+file1     default  1488    2248
+file2     default  123     657
+file3     default  123     456
+file4     default  567     124
+</code></pre>
+
+<p>Please some one help me to write this script.</p>
+",<linux><bash><shell>,16/01/02 14:34,LQ_CLOSE
+34567743,Duplicate file is getting created in linux,"<p>I created a file called <code>file2.txt</code> in Linux, opened it in text editor and saved it. When I closed the text editor I see two files <code>file2.txt</code> and <code>file2.txt~</code></p>
+
+<p>I guess <code>file2.txt~</code> is temporary file created when I am editing the <code>file2.txt</code> but it should get removed when I finished saving and closed text editor.</p>
+",<linux>,16/01/02 15:54,LQ_CLOSE
+34568008,How do I run webpack from SBT,"<p>I'm developing a Play 2.4 application and would like SBT to run webpack to generate static assets during compilation. </p>
+
+<p>I tried <a href=""https://github.com/stejskal/sbt-webpack"">https://github.com/stejskal/sbt-webpack</a> but it does't seem to work for me.</p>
+",<playframework><sbt><webpack>,16/01/02 16:26,HQ
+34568011,Add an element on the last Jekyll loop of posts,"<p>I'm sure this is simple but cant find the answer.</p>
+
+<p>There is a standard Jekyll/Liquid post iterator. How do i use the <code>{% if %}</code> statement below to put the <code>&lt;hr&gt;</code> element for each post <strong>except</strong> the last?</p>
+
+<pre><code>&lt;ul class=""post-list""&gt;
+    {% for post in site.posts %}
+      {% if post.url %}
+      &lt;br&gt;
+        &lt;li&gt;
+          &lt;h2&gt;
+            &lt;a class=""post-link"" href=""{{ post.url | prepend: site.baseurl }}""&gt;{{ post.title }}&lt;/a&gt;
+          &lt;/h2&gt;
+          &lt;span class=""post-meta""&gt;{{ post.date | date: ""%b %-d, %Y"" }}&lt;/span&gt;
+        &lt;/li&gt;
+
+        **** {% if post != $last %} ***** How do i do this??
+          &lt;hr&gt;
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  &lt;/ul&gt;
+</code></pre>
+",<jekyll><liquid>,16/01/02 16:26,HQ
+34568045,if..else..if..else code not working properly(coding in C),"<p>I have a question.I think I may have a mistake in my code because my code program(Dev C++) seems not to recognize the ""else if"" statement.</p>
+
+<p>Here is the code:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+int main()
+{
+int a = 80;
+if(a == 10);
+printf(""value of a is 10\n"");
+else if(a == 20);
+printf(""value of a is 20\n"");
+else if(a == 30);
+printf(""value of a is 30\n"");
+else
+printf(""none of the values match"");
+printf(""the real value of a is: &amp;d"", a);
+
+system(""PAUSE"");
+return 0;
+}
+</code></pre>
+",<c>,16/01/02 16:28,LQ_CLOSE
+34568493,why datepicker is lost after window.print,"I have to print part of my page by `window.print()`.
+Here is the code:
+
+    function printDiv(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+      var originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+      }
+
+I know that copy innerHTML and pasting it after print command can cause lost of event listener. But it can be overcome by a `$('body').on` attachment. But as I am novice to jquery, I do not know how can I use this jquery on method in case of datepicker attachment. So, everytime I print part of my webpage using this type of javascript print method, datepicker is lost and it is not attaching in the desired input fields.
+
+Please visit my site to check the situation:
+[http://infomamun.xyz][1]
+
+and click on the `#dob` or other input fields to see the workable datepicker. Then please press `Print` button and cancel or done the print job. After that you can see that there is no datepicker attached on click of `#dob` and other input fields of the table.
+
+How to resolve this issue?
+
+[NB: please don't recommend css print system, I have to use this method. Also, please don't downvote my Question. I am very novice to jquery]
+
+
+  [1]: http://infomamun.xyz",<jquery><printing>,16/01/02 17:15,LQ_EDIT
+34569489,Getting proportions from data sets in R,"<p>I have a data set called 'md' which consists of 40 numbers 1-6, I need to get the proportion that the number 1 appears in the list, I've been looking for ways to get proportions but none of which seem to be relevant to my data set, the proportion is easily calculable, however, it is required to be done in R.</p>
+",<r><statistics>,16/01/02 18:52,LQ_CLOSE
+34569802,"Using Java, How do I check using orignal image that if shape01(circle) exists in image02(square) after converting both into binary images?","I am newbie to openCV and JAVA. It is been two days I am searching for the solutions continuously.
+I want to check form this
+[Image][1] that red circle exists inside the square after convert getting following binary images.
+See Binary Images of [circle and square][1]
+
+Please help me ASAP. Thanks in advance.
+
+
+  [1]: http://i.stack.imgur.com/WrZXq.png",<java><opencv>,16/01/02 19:27,LQ_EDIT
+34570584,"Can't find Python executable ""/path/to/executable/python2.7"", you can set the PYTHON env variable","<blockquote>
+  <p>bufferutil@1.2.1 install /home/sudthenerd/polymer-starter-kit-1.2.1/node_modules/bufferutil > <strong>node-gyp rebuild  gyp ERR! configure error  gyp ERR! stack Error: Can't find Python executable ""/path/to/executable/python2.7"", you can set the PYTHON env variable</strong>. gyp ERR! stack     at failNoPython (/usr/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:401:14) gyp ERR! stack     at /usr/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:330:11 gyp ERR! stack     at F (/usr/lib/node_modules/npm/node_modules/which/which.js:78:16) gyp ERR! stack     at E (/usr/lib/node_modules/npm/node_modules/which/which.js:82:29) gyp ERR! stack     at /usr/lib/node_modules/npm/node_modules/which/which.js:93:16 gyp ERR! stack     at FSReqWrap.oncomplete (fs.js:82:15) gyp ERR! System Linux 3.13.0-74-generic gyp ERR! command ""/usr/bin/nodejs"" ""/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js"" ""rebuild"" gyp ERR! cwd /home/sudthenerd/polymer-starter-kit-1.2.1/node_modules/bufferutil gyp ERR! node -v v5.3.0 gyp ERR! node-gyp -v v3.2.1 gyp ERR! not ok  npm WARN install:bufferutil@1.2.1 bufferutil@1.2.1 install: <code>node-gyp rebuild</code> npm WARN install:bufferutil@1.2.1 Exit status 1  > utf-8-validate@1.2.1 install /home/sudthenerd/polymer-starter-kit-1.2.1/node_modules/utf-8-validate > node-gyp rebuild  gyp ERR! configure error  gyp ERR! stack Error: Can't find Python executable ""/path/to/executable/python2.7"", you can set the PYTHON env variable. gyp ERR! stack     at failNoPython (/usr/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:401:14) gyp ERR! stack     at /usr/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:330:11 gyp ERR! stack     at F (/usr/lib/node_modules/npm/node_modules/which/which.js:78:16) gyp ERR! stack     at E (/usr/lib/node_modules/npm/node_modules/which/which.js:82:29) gyp ERR! stack     at /usr/lib/node_modules/npm/node_modules/which/which.js:93:16 gyp ERR! stack     at FSReqWrap.oncomplete (fs.js:82:15) gyp ERR! System Linux 3.13.0-74-generic gyp ERR! command ""/usr/bin/nodejs"" ""/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js"" ""rebuild"" gyp ERR! cwd /home/sudthenerd/polymer-starter-kit-1.2.1/node_modules/utf-8-validate gyp ERR! node -v v5.3.0 gyp ERR! node-gyp -v v3.2.1 gyp ERR! not ok  npm WARN install:utf-8-validate@1.2.1 utf-8-validate@1.2.1 install: <code>node-gyp rebuild</code> npm WARN install:utf-8-validate@1.2.1 Exit status 1</p>
+</blockquote>
+",<node.js><polymer-1.0><node-gyp><npm-install>,16/01/02 20:49,HQ
+34570817,Empty atom in Ecto changeset,"<p>Why in an Ecto <code>changeset</code> method do you set the params to the default <code>:empty</code> atom?  e.g.</p>
+
+<pre><code>def changeset(user, params \\ :empty) do
+   ...
+</code></pre>
+
+<p>Does this allow you to call the changeset method with nil for params?</p>
+",<elixir><ecto>,16/01/02 21:15,HQ
+34570992,Getting parent of AST node in Python,"<p>I'm working with Abstract Syntax Trees in Python 3. The <code>ast</code> library gives many ways to get children of the node (you can use <code>iter_child_nodes()</code> or <code>walk()</code>) but no ways to get <strong>parent</strong> of one. Also, every node has links to its children, but it hasn't links to its parent.</p>
+
+<p><strong>How I can get the parent of AST node</strong> if I don't want to write some plugin to <code>ast</code> library?</p>
+
+<p>What is the most correct way to do this?</p>
+",<python><python-3.x><abstract-syntax-tree>,16/01/02 21:38,HQ
+34571593,What is .tpl.html files? (angularjs),"<p>I'm doing a angularjs blog tutorial, in the code example I see this new file type ""<strong>tpl.html</strong>"":</p>
+
+<pre><code>$routeProvider
+.when('/', {
+templateUrl: 'views/post-list.tpl.html',
+controller: 'PostListController',
+controllerAs: 'postlist'
+})
+.when('/post/:postId', {
+templateUrl: 'views/post-detail.tpl.html',
+controller: 'PostDetailController',
+controllerAs: 'postdetail'
+})
+.when('/new', {
+templateUrl: 'views/post-create.tpl.html',
+controller: 'PostCreateController',
+controllerAs: 'postcreate'
+});
+</code></pre>
+
+<p>What is this file type? Is different to html files?</p>
+",<html><angularjs>,16/01/02 22:58,HQ
+34572040,Restore a mongo DB from a compose.io backup?,"<p>If you download a compose.io backup of a mongodb instance and uncompress the .tar file you end up with <code>.ns</code> and extensions that are single digits.  How do you restore the db from these?</p>
+",<mongodb><restore><compose>,16/01/03 0:07,HQ
+34572212,Is there a naming convention for C language implementation only (private) constants?,"<p>Let's say that I am writing a library named <code>my</code>, which has a module <code>myString</code>.</p>
+
+<p>Publicly exposed functions and constants for <code>myString</code> are declared in <code>myString.h</code> with the following convention:</p>
+
+<pre><code>typedef struct myString myString;
+extern const size_t MY_STRING_MAX_LEN;
+myString *my_string_new();
+</code></pre>
+
+<p>Private implementation only functions and struct members are declared in <code>myString.c</code> with the following convention:</p>
+
+<pre><code>_grow_buffer(myString *this);
+char *_buffer;
+</code></pre>
+
+<p>My question: Is there a similar convention for private, implementation only constants?</p>
+
+<p>For example, <code>_CHUNK_SIZE</code> is what I initially wanted to go with. Then I read that the C language specification says not to use an underscore followed by an uppercase letter at the start of a name, as such names may be used in future versions of the language.</p>
+
+<p>I like using the starting underscore convention, as it removes a lot of verbosity. I could use <code>MY_STRING_CHUNK_SIZE</code> or some variation, but that's not as pretty IMO.</p>
+",<c><naming>,16/01/03 0:34,LQ_CLOSE
+34572553,Django: AttributeError: 'NoneType' object has no attribute 'split',"<p>I'm trying to build a static site generator using Django (because its resourceful that way), and right now my problems are dealing with the Django command that is supposed to build my static site content into a directory. Apparently my 'NoneType' object has no attribute 'split', but I dont know what that 'NoneType' object is.</p>
+
+<pre><code>(thisSite) C:\Users\Jaysp_000\thisSite\PROJECTx&gt;python prototype.py build
+Traceback (most recent call last):
+  File ""prototype.py"", line 31, in &lt;module&gt;
+    execute_from_command_line(sys.argv)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\core\management\__init__.py"",
+ line 338, in execute_from_command_line
+    utility.execute()
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\core\management\__init__.py"",
+ line 330, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\core\management\base.py"", lin
+e 390, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\core\management\base.py"", lin
+e 441, in execute
+    output = self.handle(*args, **options)
+  File ""C:\Users\Jaysp_000\thisSite\PROJECTx\sitebuilder\management\commands\build.py"", li
+ne 38, in handle
+    response = this_client_will.get(the_page_url)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\test\client.py"", line 500, in
+ get
+    **extra)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\test\client.py"", line 303, in
+ get
+    return self.generic('GET', path, secure=secure, **r)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\test\client.py"", line 379, in
+ generic
+    return self.request(**r)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\test\client.py"", line 466, in
+ request
+    six.reraise(*exc_info)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\utils\six.py"", line 659, in r
+eraise
+    raise value
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\core\handlers\base.py"", line
+132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File ""C:\Users\Jaysp_000\thisSite\PROJECTx\sitebuilder\views.py"", line 35, in page
+    return render(request, 'page.html', context)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\shortcuts.py"", line 67, in re
+nder
+    template_name, context, request=request, using=using)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\template\loader.py"", line 99,
+ in render_to_string
+    return template.render(context, request)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\template\backends\django.py"",
+ line 74, in render
+    return self.template.render(context)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\template\base.py"", line 208,
+in render
+    with context.bind_template(self):
+  File ""C:\Python34\Lib\contextlib.py"", line 59, in __enter__
+    return next(self.gen)
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\template\context.py"", line 23
+5, in bind_template
+    updates.update(processor(self.request))
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\template\context_processors.p
+y"", line 56, in i18n
+    context_extras['LANGUAGE_BIDI'] = translation.get_language_bidi()
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\utils\translation\__init__.py
+"", line 177, in get_language_bidi
+    return _trans.get_language_bidi()
+  File ""C:\Users\Jaysp_000\thisSite\lib\site-packages\django\utils\translation\trans_real.
+py"", line 263, in get_language_bidi
+    base_lang = get_language().split('-')[0]
+AttributeError: 'NoneType' object has no attribute 'split'
+</code></pre>
+
+<p>It seems that my problem lies in my command file, which I call <code>build</code>. The traceback also brings up my <code>views</code> file, which works well on its own (that is, my html files can be properly served on the local server), but I will include it anyway.</p>
+
+<p><strong>build.py</strong></p>
+
+<pre><code>import os, shutil
+from django.conf import settings
+from django.core.management import call_command
+from django.core.management.base import BaseCommand
+from django.core.urlresolvers import reverse
+from django.test.client import Client
+
+def get_pages():
+    for name in os.listdir(settings.STATIC_PAGES_DIRECTORY):
+        if name.endswith('.html'):
+            yield name[:-5]
+
+
+class Command(BaseCommand):
+    help = 'Build static site output.'
+
+    def handle(self, *args, **options):
+        """"""Request pages and build output.""""""
+        if os.path.exists(settings.SITE_OUTPUT_DIRECTORY):
+            shutil.rmtree(settings.SITE_OUTPUT_DIRECTORY)
+        os.mkdir(settings.SITE_OUTPUT_DIRECTORY) 
+        os.makedirs(settings.STATIC_ROOT)   
+        call_command('collectstatic', interactive=False, clear=True, verbosity=0)
+        this_client_will = Client()
+
+        for page in get_pages():
+            the_page_url = reverse('page',kwargs={'slug': page})      # PROBLEM SEEMS TO GENERATE STARTING HERE
+            response = this_client_will.get(the_page_url)
+            if page == 'index.html':
+                output_dir = settings.SITE_OUTPUT_DIRECTORY
+            else:
+                output_dir = os.path.join(settings.SITE_OUTPUT_DIRECTORY, page)
+                os.makedirs(output_dir)
+            with open(os.path.join(output_dir, 'index.html'), 'wb', encoding='utf8') as f:
+                f.write(response.content)
+</code></pre>
+
+<p><strong>views.py</strong></p>
+
+<pre><code>import os
+from django.conf import settings
+from django.http import Http404
+from django.shortcuts import render
+from django.template import Template
+from django.utils._os import safe_join
+
+# Create your views here.
+
+def get_page_or_404(name):
+    """"""Returns page content as a Django template or raise 404 error""""""
+    try:
+        file_path = safe_join(settings.STATIC_PAGES_DIRECTORY, name)
+    except ValueError:
+        raise Http404(""Page Not Found"")
+    else:
+        if not os.path.exists(file_path):
+            raise Http404(""Page Not Found"")
+
+    with open(file_path,""r"", encoding='utf8') as f:
+        the_page = Template(f.read())
+
+    return the_page
+
+def page(request, slug='index'):
+    """""" Render the requested page if found """"""
+    file_name = '{0}.html'.format(slug)
+    page = get_page_or_404(file_name)
+    context = {'slug': slug, 'page': page} 
+    return render(request, 'page.html', context)   # THE TRACEBACK POINTS AT THIS LINE, TOO
+</code></pre>
+
+<p>and just in case it becomes useful to know, here is my <strong>urls.py</strong>:</p>
+
+<pre><code>from django.conf.urls import include, url
+
+urlpatterns = [
+    url(r'^page/(?P&lt;slug&gt;[-\w]+)/$', 'sitebuilder.views.page', name='page'),
+    url(r'^page$', 'sitebuilder.views.page', name='homepage'),
+]
+</code></pre>
+
+<p>I find this frustrating, primarily because this problem seems to be tied to the reverse() function, as seen in the build module, and I havent had a great time using that function for as long as I can remember, but I dont know if this is really my problem. Can someone help me figure out where my issue is coming from and how to solve it (if you have any tips)? It would be much appreciated.</p>
+",<python><django><python-3.x><static-site><django-commands>,16/01/03 1:41,HQ
+34572580,Get superclass name in ES6,"<p>I have a class, and another class that extends that class.</p>
+
+<pre><code>class Shape {
+  constructor() {
+    return this;
+  }
+}
+class Circle extends Shape {
+  constructor() {
+    super();
+    return this;
+  }
+}
+let foo = new Circle();
+</code></pre>
+
+<p>I can get foo's class with</p>
+
+<pre><code>let className = foo.constructor.name 
+// returns string 'Circle'
+</code></pre>
+
+<p>Is it possible to get the name of foo's superclass ('Shape') in a similar manner?</p>
+",<javascript><ecmascript-6>,16/01/03 1:47,HQ
+34572659,Separate Int from String on file input,"<p>i was wondering if anyone could help me with a little problem in Java:
+I have a file with some equations like:</p>
+
+<pre><code>Z=1X1+3X2
+-1X1+5X2&lt;=2
+1X1-1X2&lt;=56
+</code></pre>
+
+<p>and so on..</p>
+
+<p>and i wanted to read this file and separate the values 1 and 3 (of Z=1X1+3X2) in one string and -1,5,2,1,-1,56 in another.</p>
+",<java>,16/01/03 2:06,LQ_CLOSE
+34573137,Codename one - lib install in NetBeans,"<p>I have downloaded the library for including Toasts in CN1, but I am not sure how to install/add it to NetBeans.</p>
+
+<p>Could you guide me?</p>
+",<codenameone>,16/01/03 3:47,LQ_CLOSE
+34573248,How to call SOAP web services from AngularJS,"<p>Is there anyway to call soap web services from angularJS ? is there any service like $http to call SOAP web services?</p>
+",<angularjs><soap>,16/01/03 4:11,LQ_CLOSE
+34573279,How to unzip .gz files in a new directory in hadoop?,"<p>I have a bunch of .gz files in a folder in hdfs. I want to unzip all of these .gz files to a new folder in hdfs. How should i do this?</p>
+",<hadoop><hdfs><gzip>,16/01/03 4:18,HQ
+34573527,how to Mail script output in table format,"I am very new to shell scripting. I need your help on below senario.
+
+I have the script output like below.
+
+    Filename  Destname  rowcount  bytesize
+    file1     default   1488      2248
+    file2     default   123       657
+    file3     default   123       456
+    file4     default   567       124
+
+Now I need to mail this ouput in table format with proper indentation. Please help me to write the script for the same. 
+",<linux><bash><shell><email>,16/01/03 5:09,LQ_EDIT
+34573546,"Linux, Android, Lack of Compatablility with C","<p>If android is based on the linux kernel and is basicly a linux distro why can't it run C in front end apps. Why can't you download linux apps onto android with out special compilers and software. Should it not be built into the system. In some way i know it is becuase look at NetHunter. Its Kali backend with android frontend. So how dose this work? (Im a newb with Linux, just starting, need help, looking for a mentor) Are .DEB files cross platform and can i take a linux app and compile it as a .APK and it will work on android? Help me plz</p>
+",<android><c><linux>,16/01/03 5:12,LQ_CLOSE
+34573779,es6 - import all named module without alias,"<p>I know that we can import all named modules with alias as below, </p>
+
+<pre><code>import * as name from ""module-name"";
+</code></pre>
+
+<p>Ref: <a href=""https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"" rel=""noreferrer"">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import</a></p>
+
+<p>Actually, I have re-exported my modules in A.js and the same is inherited in B.js. PFB. Now, it's two level of inheritance, so it's not a big deal to import the named modules. But, when I'm taking this to 5 level of inheritance (A -> B -> C -> D -> E), I need to import all named modules in all files and need to do the (re)export the same in all. Instead of doing this, </p>
+
+<ul>
+<li>Is there any other way to copy scope of all named modules into all level without reiterating the wheel (Import and Export)</li>
+<li>Behind the scene of this design is to make them to follow Opps concept and to avoid the redeclaration of the same modules.</li>
+</ul>
+
+<p><strong>A.js</strong> </p>
+
+<pre><code>import React from 'react';
+import I18n from 'i18n-js';
+import m1 from 'module1';
+import m2 from 'module2';
+
+export default class A extends React.Component {}
+
+export {React, I18n, m1, m2)
+</code></pre>
+
+<p><strong>B.js</strong></p>
+
+<pre><code>import BaseComponent from './A';
+import {React, I18n, m1, m2) from './A;
+
+export default class B extends A {}
+</code></pre>
+
+<p>Is there any way to import all named modules without alias like <code>import {*} from './A'</code> (instead of 2nd in B.js) </p>
+",<javascript><reactjs>,16/01/03 5:52,HQ
+34573813,How to Take Database Backup without using phpmyadmin?,"<p>How can I take backup of  all tables of a database from ftp without using phpmyadmin and get the backup as a .sql file ??</p>
+",<php><mysql>,16/01/03 5:57,LQ_CLOSE

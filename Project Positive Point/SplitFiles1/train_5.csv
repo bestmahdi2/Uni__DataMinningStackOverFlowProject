@@ -1,0 +1,1123 @@
+Id,Title,Body,Tags,CreationDate,Y
+34601582,what is the difference between import and const and which is preferred in commonjs,"<p>I have noticed a bit of switching between using const and import for referencing libraries in node.js applications using es6 syntax with Babel.</p>
+
+<p>What is the preferred method and what is the difference between using const and import? Assuming you may be importing the same library in many files/components.</p>
+
+<p><strong>const</strong></p>
+
+<pre><code>const React = require('react')
+</code></pre>
+
+<p><strong>import</strong></p>
+
+<pre><code>import React from 'react'
+</code></pre>
+
+<p>Here are the definitions of each but I am still not sure which to use.</p>
+
+<p><a href=""https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"">import</a></p>
+
+<p>The import statement is used to import functions, objects or primitives that have been exported from an external module, another script, etc.</p>
+
+<p><a href=""https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"">const</a></p>
+
+<p>The const declaration creates a read-only reference to a value. It does not mean the value it holds is immutable, just that the variable identifier cannot be reassigned.</p>
+",<javascript><node.js><reactjs><babeljs><commonjs>,16/01/04 23:12,HQ
+34603157,How to get a text from SearchView?,"<p>I need to get a text from SearchView and compare it to strings in my activity's ListView and show a Toast if the word in a SearchView is in my ListView. How do I do that? Here's my working code for the SearchView:</p>
+
+<pre><code>MenuItem ourSearchItem = menu.findItem(R.id.menu_item_search);
+
+        SearchView sv = (SearchView) ourSearchItem.getActionView();
+
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.getFilter().filter(newText);
+                }
+                return false;
+            }
+        });
+</code></pre>
+",<android>,16/01/05 2:14,HQ
+34603355,"Android Device Monitor ""data"" folder is empty","<p>I have tested creating, inserting and retrieving data into my apps db, and know it works through usage of Log statements. </p>
+
+<p>However, I wish to expedite testing and use the Android Device Monitor. However, though the db exists and data is stored, when accessing below, the <code>data</code> folder is empty:</p>
+
+<p><a href=""https://i.stack.imgur.com/2y1zs.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/2y1zs.png"" alt=""enter image description here""></a></p>
+
+<p>Why would this be the case? How can this be configured to show the db file and contents?</p>
+",<android><sqlite><android-studio>,16/01/05 2:40,HQ
+34603388,Should Comparable ever compare to another type?,"<p>I'm wondering if there's ever a valid use case for the following:</p>
+
+<pre><code>class Base {}
+
+class A implements Comparable&lt;Base&gt; {
+    //...
+}
+</code></pre>
+
+<p>It seems to be a common pattern (see <a href=""https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html"" rel=""noreferrer"">Collections</a> for a number of examples) to accept a collection of type <code>T</code>, where <code>T extends Comparable&lt;? super T&gt;</code>.</p>
+
+<p>But it seems technically impossible to fulfill the contract of <a href=""https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html#compareTo-T-"" rel=""noreferrer""><code>compareTo()</code></a> when comparing to a base class, because there's no way to ensure that another class doesn't extend the base with a contradictory comparison. Consider the following example:</p>
+
+<pre><code>class Base {
+    final int foo;
+    Base(int foo) {
+        this.foo = foo;
+    }
+}
+
+class A extends Base implements Comparable&lt;Base&gt; {
+    A(int foo) {
+        super(foo);
+    }
+    public int compareTo(Base that) {
+        return Integer.compare(this.foo, that.foo); // sort by foo ascending
+    }
+}
+
+class B extends Base implements Comparable&lt;Base&gt; {
+    B(int foo) {
+        super(foo);
+    }
+    public int compareTo(Base that) {
+        return -Integer.compare(this.foo, that.foo); // sort by foo descending
+    }
+}
+</code></pre>
+
+<p>We have two classes extending <code>Base</code> using comparisons that don't follow a common rule (if there were a common rule, it would almost certainly be implemented in <code>Base</code>). Yet the following broken sort will compile:</p>
+
+<pre><code>Collections.sort(Arrays.asList(new A(0), new B(1)));
+</code></pre>
+
+<p>Wouldn't it be safer to only accept <code>T extends Comparable&lt;T&gt;</code>? Or is there some use case that would validate the wildcard?</p>
+",<java><comparable>,16/01/05 2:43,HQ
+34603680,What is squeeze testing?,"<p>In the talk ""<a href=""http://www.infoq.com/presentations/netflix-operations-devops"" rel=""noreferrer"">Beyond DevOps: How Netflix Bridges the Gap</a>,"" around 29:10 Josh Evans mentions squeeze testing as something that can help them understand system drift. What is squeeze testing and how is it implemented?</p>
+",<testing><architecture><devops>,16/01/05 3:22,HQ
+34603937,Print type of variable in python3.5 on django 1.8,"<p>I am having a hard time of determining the type of my variable since I am used on python2 and have just migrated to python3</p>
+
+<pre><code>from django.http import HttpResponse
+
+def myview(request):
+    x = ""Name""
+    print (x)
+    print type(x)
+    return HttpResponse(""Example output"")
+</code></pre>
+
+<p>This code will throw an error because of print type(x). However if you changed that syntax line  to type(x). The type does not return an output on the runserver of django.</p>
+",<django><python-3.5>,16/01/05 3:59,HQ
+34604439,Reference variables and pointers,"Is `int &y=x` same as `int y=&x`?
+
+Also in the below code, why is `*s++` giving me some wrong results? I was expecting `*s` value to be 12
+
+Are `s++` and `*s++` the same?
+
+    #include <iostream>
+    using namespace std;
+    
+    int main()
+    {
+    	int p=10;
+    	int &q=p;	//q is a reference variable to p
+    	//int r=&p;	//error: invalid conversion from 'int*' to 'int'
+    	int *s=&p;	//valid
+    	q++;		
+    	*s++;		//here even s++ works, and cout<<*s does not give 12 but some lengthy number
+    				//and cout<<s gives some hexadecimal, I'm guessing thats the address
+    	cout<<p<<endl<<q<<endl<<*s;
+    }
+
+Output I'm getting:
+
+11
+
+11
+
+6422280",<c++><variables><pointers>,16/01/05 4:58,LQ_EDIT
+34604646,"whick keyword can be used to replace ""FROM"" in sql?","I am trying to bypass a waf ,and whick keyword can be used to replace ""FROM"" in sql ?",<sql><security><web-application-firewall>,16/01/05 5:19,LQ_EDIT
+34605166,Actionscript error :(,"im just a beginner at this and i would really appreciate some help :)
+This is my code:
+
+    import flash.events.MouseEvent;
+    import flash.display.MovieClip;
+    
+    var currentButton:MovieClip
+    button1.addEventListener(MouseEvent.CLICK, mouseClick);
+    button2.addEventListener(MouseEvent.CLICK, mouseClick);
+    button3.addEventListener(MouseEvent.CLICK, mouseClick);
+    button4.addEventListener(MouseEvent.CLICK, mouseClick);
+    function mouseClick(event:MouseEvent):void {
+    	currentButton.alpha = 1;
+    	currentButton.mouseEnabled = true;
+    	currentButton = event.target as MovieClip;
+    	trace(""CLICK"");
+    	currentButton.alpha = 0.7;
+    	currentButton.mouseEnabled = false;
+    }
+
+But i get this error when i click on a button:
+TypeError: Error #1009: Cannot access a property or method of a null object reference.
+	at Untitled_fla::MainTimeline/mouseClick()
+sorry if i didnt post this question right, im just new here
+",<actionscript-3><flash>,16/01/05 6:03,LQ_EDIT
+34605384,What is the correct way to put multiple controls inside update panel?,"<p>I have one registration form which contains 3 to 4 dropdown controls and 2 datepickers and now when dropdown controls value are selected(selectedindex change are fired)
+then i dont want my page to postback.</p>
+
+<p>I have use update panel to stop this behaviour of post like below:</p>
+
+<pre><code>&lt;asp:UpdatePanel ID=""UpdatePanel1"" runat=""server""&gt;
+        &lt;ContentTemplate&gt;
+
+      &lt;%--Update Panel for date picker%&gt;
+      &lt;asp:UpdatePanel ID=""UpdatePanelDatepicker"" runat=""server""&gt;
+                    &lt;ContentTemplate&gt;
+                      &lt;telerik:RadDatePicker ID=""rdpDate1"" runat=""server""&gt;
+                      &lt;/telerik:RadDatePicker&gt;
+                    &lt;/ContentTemplate&gt;
+      &lt;/asp:UpdatePanel&gt;
+
+       &lt;%--Update Panel for Dropdown--%&gt;
+       &lt;asp:UpdatePanel ID=""updatepaneldata"" runat=""server""&gt; 
+                      &lt;ContentTemplate&gt;
+                     &lt;telerik:RadComboBox ID=""ddlCountry"" runat=""server""&gt;
+                      &lt;/telerik:RadComboBox&gt;
+                    &lt;/ContentTemplate&gt;
+      &lt;/asp:UpdatePanel&gt;
+
+
+  &lt;/ContentTemplate&gt;
+    &lt;/asp:UpdatePanel&gt;
+</code></pre>
+
+<p>So i just wanted to ask that is this correct way to put multiple controls under update panels??</p>
+",<c#><asp.net><telerik><updatepanel>,16/01/05 6:21,HQ
+34605832,How to Write Json Array to file using jackson,"<p>I created a Json file where i wanted to write write java object as Array element. Im using jackson.</p>
+
+<pre><code>    try{
+           String json;
+           String phyPath = request.getSession().getServletContext().getRealPath(""/"");
+           String filepath = phyPath + ""resources/"" + ""data.json"";
+           File file = new File(filepath);
+           if (!file.exists()) {
+               System.out.println(""pai nai"");
+               file.createNewFile();               
+           }  
+           json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(story);
+           Files.write(new File(filepath).toPath(), Arrays.asList(json), StandardOpenOption.APPEND);    
+    } 
+</code></pre>
+
+<p>This is not what i exactly want .it creates data like </p>
+
+<pre><code>{
+  ""storyTitle"" : ""ttt"",
+  ""storyBody"" : ""tttt"",
+  ""storyAuthor"" : ""tttt""
+}
+{
+  ""storyTitle"" : ""a"",
+  ""storyBody"" : ""a"",
+  ""storyAuthor"" : ""a""
+}
+</code></pre>
+
+<p>I just need to create a Array of Json where i add java object, data should be like this </p>
+
+<pre><code>[{
+  ""storyTitle"" : ""ttt"",
+  ""storyBody"" : ""tttt"",
+  ""storyAuthor"" : ""tttt""
+}
+,{
+  ""storyTitle"" : ""a"",
+  ""storyBody"" : ""a"",
+  ""storyAuthor"" : ""a""
+}]
+</code></pre>
+",<java><json><jackson>,16/01/05 6:57,HQ
+34606402,Printing Different Paterns in Single Program,"Here User enter X Coordinate, Y coordinate ,Length L,number n. if user enters n
+ we have to print ""stright Line"" with (x,y) cordinates, if n=2 print bisecting Lines if n=3 print triangle like.... Here  Length purpose is to Print Length of side is equal to L. Is there any solutions for this question please comment because it was asked me for interview?",<c#>,16/01/05 7:34,LQ_EDIT
+34606570,$_SERVER['HTTP_REFERER'] and RewriteCond %{HTTP_REFERER},"Some problem.
+
+.htaccess:
+
+    RewriteEngine on
+    RewriteBase /
+    
+    RewriteCond %{HTTP_HOST} !^example\.com
+    RewriteRule ^(.*)$ http://example.com/$1 [R=301,L]
+    
+    RewriteRule ^page([0-9]+).html$ index.php?page=$1
+    
+    RewriteRule ^p([0-9]+)-([a-zA-Z0-9_]+).html$ index.php?id_post=$1&title_post=$2
+    RewriteRule ^([a-zA-Z0-9_\-]+)/page([0-9]+).html$ index.php?mpoint=$1&page=$2 [L]
+    RewriteRule ^([a-zA-Z0-9_\-]+).html$ index.php?mpoint=$1
+    RewriteRule ^.*.html$ index.php?mpoint=$1
+    
+    
+    RewriteCond %{HTTP_REFERER} ^www.example111.com$ [NC,OR]
+    RewriteCond %{HTTP_REFERER} ^example222.ml$ 
+    RewriteRule .* – [F]
+
+index.php 
+
+    echo $_SERVER['HTTP_REFERER'];
+
+result: http://www.example111.com/xxxx/yyy.html
+
+**Why RewriteCond  dont work?**",<apache><.htaccess><mod-rewrite><http-referer>,16/01/05 7:46,LQ_EDIT
+34607230,Crashing Pointer Array C++,"<p>Code::Blocks, Win7, C++</p>
+
+<p>Hi, I'm creating an overview project for myself, and an integral part includes doing an Exchange Sort in descending order. I've created a simple trial run to test the concept.</p>
+
+<p>Embarrassingly enough, I can't get past creating the array without the project crashing. This only happens when I create the array with pointers (My project's arrays are pointers, which is why I need this to work). The code compiles fine, but when I run it, I get a Window's notification that ""ArrayTest.exe has stopped working""</p>
+
+<p>When I print out each dereferenced value, I get:</p>
+
+<p>""The original order: 1 13 5 7 2 ""</p>
+
+<p>When I print out each value's address, I get: </p>
+
+<p>""The original order: 0x28ff08 0x28ffc4 0x760c8cd5 0x6aadab61 0xfffffffe ""</p>
+
+<p>The last address showed up when using an array length of 6, and crashes as well. Am I blind to a simple error in my code, or is this a hardware issue?</p>
+
+<pre><code>//filename ArrayTest
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    int *j[5];
+    (*j)[0] = 1;
+    (*j)[1] = 13;
+    (*j)[2] = 5;
+    (*j)[3] = 7;
+    (*j)[4] = 2;
+
+    cout &lt;&lt; ""The original order: "";
+    for (int i = 0; i &lt; 5; i++)
+    {
+        cout &lt;&lt; (*j)[i] &lt;&lt; "" "";
+    }
+
+     return 0;
+}
+</code></pre>
+",<c++><arrays><pointers>,16/01/05 8:32,LQ_CLOSE
+34607935,How to work with database in asp.net,"I am php web developer .now i want to work with asp.net but it's very difficult for me to work with databases in asp.net.I need some source link from where i can easily learn asp.net.
+----------------------------------
+-----------------------------------=
+   ",<asp.net>,16/01/05 9:14,LQ_EDIT
+34607961,"Why am I getting ""cannot convert from Dequeu<int> to int"" error?","<p>I am currently trying to write my first template class as an assignment for my c++ class, but I don't understand why I keep getting this error:</p>
+
+<pre><code>g++ -c main.cpp
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:12:14: error: cannot convert ‘Dequeu&lt;int&gt;’ to ‘int’ in initialization
+  int ou = i[0];
+</code></pre>
+
+<p>main.cpp:</p>
+
+<pre><code>#include ""main.h""
+#include &lt;stdio.h&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+int main (int args, char ** argc){
+
+    Dequeu&lt;int&gt;* i = new Dequeu&lt;int&gt;();
+
+    i-&gt;push_back (10);
+
+    int ou = i[0];
+
+    cout&lt;&lt;""i[0]: ""&lt;&lt;ou&lt;&lt;endl;
+}
+</code></pre>
+
+<p>with main.h:</p>
+
+<pre><code>#include ""Dequeu.h""
+</code></pre>
+
+<p>dequeu.h:</p>
+
+<pre><code>#ifndef MAIN_H
+#define MAIN_H
+#endif
+
+#include ""Node.h""
+#include &lt;stddef.h&gt; //NULL
+
+template&lt;typename T&gt;
+class Dequeu {
+public:
+    Dequeu();   ~Dequeu();
+
+    void push_back(T);
+
+    T &amp;operator[] (int i) {
+        if (i&lt;size &amp;&amp; i&gt;=0){
+
+            //head?
+            if (i == 0)
+                return head-&gt;value;
+            //tail?
+            if (i == size-1)
+                return tail-&gt;value;
+
+            //other:
+            Node&lt;T&gt;* temp = head;
+            i--;
+
+            while (i != 0 ){
+                temp = temp-&gt;next;
+                i--;
+            }
+
+            return temp-&gt;Value();
+        }
+    }
+
+private:
+    Node&lt;T&gt; * head;
+    Node&lt;T&gt; * tail;
+    int size;
+};
+
+template&lt;typename T&gt;
+Dequeu&lt;T&gt;::Dequeu() {
+    head-&gt;nullify();
+    tail-&gt;nullify();
+}
+
+template&lt;typename T&gt;
+Dequeu&lt;T&gt;::~Dequeu(){
+    Node&lt;T&gt;* temp = head;
+
+    while (temp-&gt;Next() != NULL) {
+        temp = temp-&gt;next;
+        delete(head);
+        head=temp;
+    }
+}
+
+template&lt;typename T&gt;
+void Dequeu&lt;T&gt;::push_back(T t){
+    Node&lt;T&gt;* newNode;
+
+    newNode-&gt;Value(t);
+    newNode-&gt;prev = tail;
+
+    tail-&gt;next = newNode;
+    tail = newNode;
+
+    if (head == NULL)
+        head = tail;
+
+    size++;
+}
+</code></pre>
+
+<p>and Node.h:</p>
+
+<pre><code>#include &lt;stddef.h&gt; //NULL
+
+template &lt;typename T&gt;
+class Node {
+public:
+    Node&lt;T&gt;* prev;
+    Node&lt;T&gt;* next;
+    T value;
+
+    Node(); ~Node();
+
+    void nullify ();
+
+private:
+};
+
+template &lt;typename T&gt;
+void Node&lt;T&gt;::nullify() {
+    this-&gt;value = NULL;
+    this-&gt;next = NULL;
+    this-&gt;prev = NULL;}
+</code></pre>
+
+<p>The last thing I tried was event just returning <code>this-&gt;head-&gt;value</code> without checking the input integer in operator[].</p>
+
+<p>The class is not finished yet, so don't wonder why there are only two functions implemented...</p>
+
+<p><strong>Please feel free to tell me how to write this code better if you find something very bad in it</strong>, I am really bad in this.</p>
+",<c++><class><templates>,16/01/05 9:16,LQ_CLOSE
+34608361,How to reset form validation on submission of the form in ANGULAR 2,"<p>I have to reset my form along with validation. is there any method to reset the state of form from ng-dirty to ng-pristine.</p>
+",<angular><angular2-forms>,16/01/05 9:38,HQ
+34608712,Dynamicly Button in Android studio,"[dynamicly button][1]
+
+
+  [1]: http://i.stack.imgur.com/Nnx4B.png
+
+hey guys, im trying to create an Add button that can create dynamicly button, but i have a problem in 
+Button mybutton = new Button (this);
+
+i have no idea why ""this"" can be applied in OnClickListner.
+Anyone can help me please ?
+Thanks before",<android>,16/01/05 9:54,LQ_EDIT
+34609572,Is it possible to set a hostname in a Kubernetes replication controller?,"<p>I need to set a static hostname in a Kubernetes replication controller. Docker supports it with some runtime flags, however, Kubernetes replication controllers don't appear to support it.
+The environment: OS - CentOS 6.6
+Approach to use sysctl to change the variable kernel.hostname does not work for a K8s replication controller. The host name is not changed.
+Use:
+sysctl kernel.hostname
+to read the current hostname, and
+sysctl kernel.hostname=NEW_HOSTNAME</p>
+
+<p>Is it possible to set a hostname in a Kubernetes replication controller?</p>
+",<kubernetes>,16/01/05 10:35,HQ
+34609650,How to split file in windows just like linux,"<p>How can we split file in windows system in command prompt based on size. like linux system we use </p>
+
+<pre><code>""split -b 10M filename.xyz new_filename""
+</code></pre>
+",<windows-7-x64>,16/01/05 10:39,HQ
+34610133,xUnit Equivelant of MSTest's Assert.Inconclusive,"<p>What is the xUnit equivalent of the following MSTest code:</p>
+
+<pre><code>Assert.Inconclusive(""Reason"");
+</code></pre>
+
+<p>This gives a yellow test result instead of the usual green or red. I want to assert that the test could not be run due to certain conditions and that the test should be re-run after those conditions have been met.</p>
+",<unit-testing><mstest><assert><xunit><assertion>,16/01/05 11:03,HQ
+34610787,Undefined index,"<p>I get Undefined index: image error in this code. Can I know the exact solution? I wanna know workflow from line abc to xyz that I commented in the code using //.Thanks for your help..</p>
+
+<pre><code>   &lt;?php session_start();
+  include(""config.php"");
+ if(isset($_SESSION['name']))
+ {
+if(!$_SESSION['name']=='admin')
+{
+header(""Location:login.php?id=You are not authorised to access this page unless you are administrator of this website"");
+}
+}
+?&gt;
+ &lt;?php
+  $name=$_FILES['image']['name'];
+ $tmp=$_FILES['image']['tmp_name'];
+  $err=$_FILES['image']['error'];
+   }
+ if($err==0)
+ {
+ move_uploaded_file($tmp, $name);
+  //xyz}
+ $category=$_POST['category'];
+ $title=$_POST['title'];
+$image=$_FILES[""image""][""name""];
+$content=$_POST['content'];
+}
+&lt;?php
+ $qry=mysql_query(""INSERT INTO articles(title,image,content,category)VALUES('$title','$image','$content','$category')"");
+if(!$qry)
+ {
+die(""Query Failed: "". mysql_error());
+}
+else
+{
+echo ""Article Added Successfully"";
+}
+ ?&gt;
+
+  The form code is here:
+&lt;?php
+include(""config.php"");
+$sql=mysql_query(""select * from category"");
+if(!$sql)
+{
+mysql_error();  
+}
+?&gt;
+&lt;form action=""created_article.php"" method=""post""&gt;
+Category:
+&lt;select name=""category""&gt;
+&lt;?php
+while($row=mysql_fetch_array($sql))
+{
+echo""&lt;option value='"".$row['category'].""'&gt;"".$row['category'].""&lt;/option&gt;"";
+}
+?&gt;
+&lt;/select&gt;
+Title:
+&lt;input type=""text"" name=""title""/&gt;
+Upload Image:
+&lt;input type=""file"" name=""image"" id=""image"" /&gt;
+Contents:
+&lt;textarea name=""content"" cols=""100"" rows=""12"" &gt;&lt;/textarea&gt;
+&lt;input type=""submit"" name=""button""  value=""Submit"" /&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>I need help with these code, I need to make project and I'm stuck here, so please kindly I request for your help,</p>
+",<php><undefined-index>,16/01/05 11:35,LQ_CLOSE
+34611077,Save me from writing 500 lines of if/else statements in PHP?,"I am in a big trouble,
+Me and my friend doing a mini project that.How a Person is popular in his city.
+
+**My situation**
+How the algorithm should work like
+If a person ""mark"" has 500 friends in his city out of 500,000.
+
+(500/500,000)*50,000 = 5
+
+So 5 in 50,000 people Know him right.
+
+But When  friends count increase the 50,000 should decrease
+
+like:-
+
+If ""sam"" has 1000 friends then
+
+(1000/500,000)*25000 = 5
+
+So 5 in 25000 people know his name
+
+Yes we could implement this in if/else condition 
+If so then i have to write 500 lines of code.
+
+Is there is a another way to do this in PHP.
+
+Help !
+
+
+
+",<php><mysql>,16/01/05 11:51,LQ_EDIT
+34611358,get position of marker in google maps,"I am trying to get the current position that mean longitude and latitude of the marker. First a marker becomes created at the users location and when the user click on the map the previous one becomes deleted and a new one becomes created at the users clickpoint. I tried it by my own with `var lat1 = markers.position.lat(); var lng1 = markers.position.lng();` but that havent work and I get with this the error message `Uncaught TypeError: Cannot read property 'lat' of undefined`. How can I get the current position of the marker and save it in a variable?
+
+    var markers = [];
+ 
+        	  // This event listener will call addMarker() when the map is clicked.
+        	  map.addListener('click', function(event) {
+        addMarkers(event.latLng);            	
+        		
+              });
+              //draw a marker at the position of the user
+        	  addMarkers(pos);
+        	  // Adds a marker to the map and push to the array.
+              function addMarkers(location) {
+              var marker = new google.maps.Marker({
+                position: location,
+                map: map
+              });
+              markers.push(marker);
+            }
+          // Sets the map on all markers in the array.
+          function setMapOnAll(map) {
+          for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+          }
+        }
+        // Removes the markers from the map, but keeps them in the array.
+        function clearMarkers() {
+          setMapOnAll(null);
+        }
+         
+              
+        	// Deletes all markers in the array by removing references to them.
+        	function deleteMarkers() {
+        		clearMarkers();
+              marker = [];
+            }
+        	  
+              
+              ",<javascript><google-maps><google-maps-api-3>,16/01/05 12:08,LQ_EDIT
+34611531,Element printed shows unexpected value,"<p>This is my code. It calls a few functions but nothing that is related to the issue.</p>
+
+<pre><code>int main()
+{
+
+
+
+    srand((unsigned int)time(NULL)); //initializing srand
+
+    struct card *deckAr = createDeck(); //creating the struct card deck array
+
+    for (int i = 0; i &lt; 100000; i++)
+    {
+        shuffleDeck(deckAr);
+    }
+
+
+
+        struct card *player1hand = (struct card*)malloc(sizeof(player1hand));
+        struct card *player2hand = (struct card*)malloc(sizeof(player2hand));
+        struct card *househand = (struct card*)malloc(sizeof(househand));
+
+        player1hand = (struct card*)realloc(player1hand, sizeof(player1hand) * 2);
+        player1hand[0] = deckAr[0];
+        player1hand[1] = deckAr[1];
+
+        printf(""Card 1 %s of %s\n\n"", valueName(player1hand[0].suit), suitName(player1hand[0].suit));
+        printf(""Card 2 %s of %s\n\n"", valueName(player1hand[1].suit), suitName(player1hand[1].suit));
+        printf(""%s of %s\n"", valueName(deckAr[0].value), suitName(deckAr[0].suit));
+
+
+    return 0;
+}
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Card 1 Three of Hearts
+
+Card 2 Three of Hearts
+
+Ten of Hearts
+</code></pre>
+
+<p>Since nothing is manipulating deckAr, shouldn't deckAr[0] be the same as player1hand[0]?</p>
+",<c>,16/01/05 12:17,LQ_CLOSE
+34612223,Eclipse JFrame empty textField error,"I'm working on eclipse JFrame and my purpose is calculating regression analysis with 26 variables x and y.But i have a problem with textField. For example; if the user have 10 variables x and y after enter the values the other textFields remains blank because of this frame gives an error like // Exception in thread ""AWT-EventQueue-0"" java.lang.NumberFormatException: For input string: """" // how can ı fix it ? thanks",<java><swing><jtextfield><numberformatexception>,16/01/05 12:53,LQ_EDIT
+34612816,Adobe Air application has black bars on iPhone 6 plus,"<p>I am having problem with my ios air app, shown in picture bellow. I can not get rid of black bars. Despite I added all launching images:</p>
+
+<p>Any advice would be great help!</p>
+
+<p>Images:</p>
+
+<p><img src=""https://i.imgur.com/bT1cOt2.png"" alt=""launching images""> [1]</p>
+
+<p>Iphone6 plus screen</p>
+
+<p><img src=""https://i.imgur.com/11bTbxI.png"" alt=""screen from iphone""> [2]</p>
+",<ios><iphone><actionscript-3><air>,16/01/05 13:24,LQ_CLOSE
+34613076,adding delete button to a div,"I am going to add a delete button to new items made. this delete button removes the item my-item from the page without affecting others.
+
+I have coded like this but I`m not sure if I`m on the right path.
+
+I`ll be glad if you can help me. :)
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+    <meta charset = ""UTF-8"">
+    <title>Simple Demo</title>
+    <style>
+	.my-item{
+	width:250px;
+	heigth:180px;
+	margin:10px;
+	padding:20px;
+	background:green;
+	border:2px solid black;
+	}
+	.item-header{
+	width:150px;
+	heigth:120px;
+	margin:5px;
+	padding:10px;
+	background:yellow;
+	border:1px solid black;
+	}
+	.item-body{
+	width:70px;
+	heigth:50px;
+	margin:3px;
+	padding:5px;
+	background:purple;
+	border:1px solid black;
+	}
+	
+	</style>
+    <script src=""http://code.jquery.com/jquery-latest.min.js""></script>
+    <script>
+	$(document).ready(function() {
+	
+	$(""#divButton"").click(function(){
+	$("".my-item"").clone().appendTo(""body"")
+	
+	
+	});
+	$(""#toggle"").click(function(){
+	if ($("".item-body"").is("":visible"")){
+	$("".item-body"").slideUp(""normal"");
+	}else{
+	$("".item-body"").slideDown(""normal"");
+	}
+	});
+	$(""#deleteButton"").click(function(){
+	$("".my-item"").append("".my-item""+ ""button        class=""deleteButton"">Delete</button>"");
+	});
+    });
+
+    
+	
+	</script>
+    </head>
+    <body>
+	<div class=""my-item"">
+	<div class=""item-header"">
+	<h2 id=""toggle"">Click Me!</h2>
+	<div class=""item-body"">My Text!
+	</div>
+	</div>
+	</div>
+	<button id=""divButton"">Click!</button>
+	<button id=""deleteButton"">Delete!</button>
+	</body>
+    </html>   ",<javascript><jquery>,16/01/05 13:37,LQ_EDIT
+34613083,CNAME and TXT record for same subdomain not working,"<p>I need to add a TXT record for the subdomain test.domain.com in the zone file. In this zone file there is an existing CNAME for the same subdomain. The two records looking like this:</p>
+
+<pre><code>test IN CNAME asdf.someotherdomain.com. 
+test IN TXT ""Some text i need to add""
+</code></pre>
+
+<p>But when I try to save this I get an error:</p>
+
+<pre><code>dns_master_load: :45: test.domain.com: CNAME and other data
+zone domain.com/IN: loading from master file  failed: CNAME and other data
+zone domain.com/IN: not loaded due to errors.
+status: FAIL
+</code></pre>
+
+<p>It works if I do it with different subdomains, for example:</p>
+
+<pre><code>test IN CNAME asdf.someotherdomain.com. 
+testing IN TXT ""Some text i need to add""
+</code></pre>
+
+<p>I'm not exactly the best there is when it comes to DNS. Is it not possible to have the same subdomain in this scenario? Or am I missing something?</p>
+
+<p>The servers are running bind.</p>
+",<dns><cname>,16/01/05 13:37,HQ
+34613353,"When I run it I get indentation Errors in many lines, such as line 6 and lines where I put exit(0).","from sys import exit
+
+def gold_room():
+    print ""This room is full of gold, How much do you take?""
+	
+	next = raw_input(""> "")
+	if ""0"" in next or ""1"" in next:
+		how_much = int(next)
+	else:
+	    dead(""Man learn to type a number!"")
+	
+	if how_much < 50:
+	    print ""Nice, you're not greedy, you win!""
+		exit(0)
+	else:
+		dead(""You greedy bastard!"")
+
+
+def bear_room():
+	print ""There is a bear here.""
+	print ""The bear has a bunch of honey.""
+	print ""The fat bear is in front of another door.""
+	print ""How are you going to move a bear?""
+	bear_moved = False
+	
+	while True:
+		next = raw_input(""> "")
+		
+		if next == ""take honey"":
+			dead(""The bear looks at you and slaps your face off."")
+		elif next == ""taunt bear"" and not bear_moved:	
+			print ""The bear has moved from the door and you can go now.""
+			bear_moved = True
+		elif next == ""taunt bear"" and bear_moved:
+			dead(""The bear gets pissed off and chews your leg off."")
+		elif next == ""open door"" and bear_moved:	
+			gold_room()
+		else:
+			print ""I got no idea waht that means.""
+
+
+def cthulhu_room():
+	print ""Here you see the great evil Cthulhu.""
+	print "" He, it, whatever stares at you and you go insane.""
+	print ""Do you flee for your life or eat your head?""
+	
+	next = raw_input(""> "")
+	
+	if  ""flee"" in next:
+		start()
+	elif ""head"" in next:
+		dead(""Well that was tasty!"")
+	else:
+		cthulhu_room()
+		
+
+def dead(why):
+    print why, ""Good job!""
+	exit(0)
+	
+def start():
+	print ""You are in dark room.""
+	print ""There is a door on your right and left.""
+	print ""Which one do you take?""
+	
+	next = raw_input(""> "")
+	
+	if next == ""left"":
+		bear_room()
+	elif next == ""right"":
+		cthulhu_room()
+	else:
+		dead(""You stumble around the room until you starved."")
+		
+		
+start()		
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	
+
+
+
+
+		",<python><indentation>,16/01/05 13:52,LQ_EDIT
+34613530,how to connect an android application to MySQL database?,"<p>I am developing an android application,and I have create a MySQL database in my computer,and I want to know how can I get the information in android application from the database ?</p>
+",<android>,16/01/05 14:03,LQ_CLOSE
+34613761,detect non ascii characters in a string,"<p>How can I detect non-ascii characters in a vector f strings in a grep like fashion.  For example below I'd like to return <code>c(1, 3)</code> or <code>c(TRUE, FALSE, TRUE, FALSE)</code>:</p>
+
+<pre><code>x &lt;- c(""façile test of showNonASCII(): details{"", 
+    ""This is a good line"", ""This has an ümlaut in it."", ""OK again. }"")
+</code></pre>
+
+<p>Attempt:</p>
+
+<pre><code>y &lt;- tools::showNonASCII(x)
+str(y)
+p &lt;- capture.output(tools::showNonASCII(x))
+</code></pre>
+",<r>,16/01/05 14:15,HQ
+34613832,Is this ER Diagram of a Bank Account correct?,"> • Each customer has a name, a permanent address, and a social security
+> number.  • Each customer can have multiple phone numbers, and the same
+> phone number may be shared by multiple customers.  • A customer can
+> own multiple accounts, but each account is owned by a single customer.
+> • Each account has an account number, a type (such as saving,
+> checking, etc.), and a balance  • The bank issues an account statement
+> for each account and mails it to its account owner every month. As
+> time goes on, there will be multiple statements of the same account. 
+> • Each statement has an issued date and a statement ID.  All the
+> statements of the same account have different statement IDs, but two
+> different accounts could have statements with the same statement ID. 
+> For example, it is possible that account A has a statement with ID
+> ‘123', while account B has another statement with the same ID '123'.
+
+[![enter image description here][1]][1]
+
+I have a few questions:
+
+(1) Can Min-Max notation be used in case of any relationships, or, just when there is an indication for that in the description?
+
+(2) Are my many-to-many relationships portrayed correctly here?
+
+(3) Could I properly portray the relationships among Account vs Account Statement vs StatementID? 
+
+(4) As per my assumption, Is Account Statement really a weak entity and is `Has` really a weak relation that is dependent on Statement ID? Is issue-date a weak key?
+
+  [1]: http://i.stack.imgur.com/pCyHQ.png",<relational-database><entity-relationship-model>,16/01/05 14:18,LQ_EDIT
+34614379,python 2.7 : find nested keys in dictionary,"I have several dictionaries , dictionary keys are tupples.
+
+Keys are always same length in each dictionary.  
+
+I'd like to find nested keys and print them .
+
+dictionaries example :
+
+    dic_1 =
+    {
+     (u'A_String', u'B_String', u'C_String', u'D_String', u'E_String'): 111, 
+     (u'A_String', u'B_String', u'C_String', u'D_String' ,u'F_String'): 112
+    }
+
+
+     dic_2 = 
+    {
+     (u'A_String', u'B_String', u'C_String', u'D_String'): 300, 
+     (u'A_String', u'B_String', u'C_String', u'F_String'): 301,
+     }
+
+
+    dic_3 = 
+    {
+     (u'A_String', u'B_String', u'C_String'): 200, 
+     (u'A_String', u'B_String', u'F_String'): 201,
+    }
+
+First row in dic_3 is nested in first row in dic_2 and dic_1
+
+First row in dic_2 is nested in first row of dic_1 
+
+I tried  :
+  
+    for key in dic_1:
+    print '-',key
+    for k in dic_2:
+        if k in tuple(key):
+            print '--', k
+            for i in dic_3:
+                if i in tuple(k):
+                    print '---', i
+
+Thank you in advance !
+",<python><python-2.7><dictionary>,16/01/05 14:43,LQ_EDIT
+34614551,Why Android Fragment showing incompatible?,"<p>I going to add a fragment to an Activity . But its shows following problems . May be it's not compatible .Has there any solution ?</p>
+
+<pre><code>    media/arifhasnat/1ED0E5663F78E3C1/
+AjkerDeal/CustomNavigation/MyApplication/
+app/src/main/java/navigationdrawer/arifhasnat
+/com/androidcustomnavigationdrawer/
+MainActivity.java:22: error: incompatible types:
+ FragmentOne cannot be converted to Fragment
+fragmentTransaction.replace(R.id.frame_one, new FragmentOne()).commit();
+</code></pre>
+
+<p>Here my code: Its the Main Activity where i called Fragment class </p>
+
+<pre><code>   package navigationdrawer.arifhasnat.com.androidcustomnavigationdrawer;
+
+    import android.os.Bundle;
+
+    import android.support.v4.app.FragmentTransaction;
+    import android.support.v4.widget.DrawerLayout;
+    import android.support.v7.app.AppCompatActivity;
+    import android.widget.ListView;
+
+
+    public class MainActivity extends AppCompatActivity {
+
+        private String[] mNavigationDrawerItemTitles;
+        private DrawerLayout mDrawerLayout;
+        private ListView mDrawerList;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.nav);
+
+
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame_one, new FragmentOne()).commit();
+
+
+        }
+
+    }
+</code></pre>
+
+<p>Fragment :</p>
+
+<pre><code>package navigationdrawer.arifhasnat.com.androidcustomnavigationdrawer;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * Created by arifhasnat on 1/5/16.
+ */
+public class FragmentOne extends Fragment {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view= inflater.inflate(R.layout.fragment1,container,false);
+        return view;
+
+
+    }
+}
+</code></pre>
+",<android><android-fragments>,16/01/05 14:52,LQ_CLOSE
+34614584,setCloseButtonIcon() method doesn't change default Close button,"<p>I try to change default icon for Close Button in Chrome custom tabs (CustomTabsIntent.Builder)</p>
+
+<p>Simple code for testing:</p>
+
+<pre><code>Bitmap closeIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+intentBuilder.setCloseButtonIcon(closeIcon);
+</code></pre>
+
+<p>But nothing happens. Why? (Nexus 7, Marshmallow)</p>
+",<android><chrome-custom-tabs>,16/01/05 14:53,HQ
+34614653,Is the arguments object supposed to be an iterable in ES6?,"<p>In ES6, I was trying to use the <code>arguments</code> object as an iterable when passed to the <code>Set</code> constructor.  It works fine in IE11 and in Chrome 47.  It does not work in Firefox 43 (throws a <code>TypeError: arguments is not iterable</code>).  I've looked through the ES6 spec and cannot really find a definition of whether the <code>arguments</code> object should be an iterable or not.</p>
+
+<p>Here's an example of what I was trying to do:</p>
+
+<pre><code>function destroyer(arr) {
+  var removes = new Set(arguments);
+  return arr.filter(function(item) {
+    return !removes.has(item);
+  });
+}
+
+// remove items 2, 3, 5 from the passed in array
+var result = destroyer([3, 5, 1, 2, 2], 2, 3, 5);
+log(result);
+</code></pre>
+
+<p>FYI, I know there are various work-arounds for this code such as copying the arguments object into a real array or using rest arguments.  This question is about whether the <code>arguments</code> object is supposed to be an <code>iterable</code> or not in ES6 that can be used anywhere iterables are expected.</p>
+",<javascript><ecmascript-6><iterable>,16/01/05 14:57,HQ
+34614772,Change path symbols \ to / [C++],"I have a string path to my file that I want to execute .
+It is for example :
+
+    E:\folderA\folderB\myfile.exe
+If I write this path and I try to execute file there it says that file doesn't exist.
+
+When I write it like that. Then it works.
+
+  
+
+      E:/folderA/folderB/myFile.exe
+How do I change \ to /  ?
+
+",<c++><string><windows>,16/01/05 15:01,LQ_EDIT
+34614818,Angular2 - root relative imports,"<p>I have a problem with imports in angular2/typescript. I'd like to use imports with some root like 'app/components/calendar', instead only way I am able to use is something like:</p>
+
+<pre><code>//app/views/order/order-view.ts
+import {Calendar} from '../../components/calendar 
+</code></pre>
+
+<p>where Calendar is defined like:</p>
+
+<pre><code>//app/components/calendar.ts
+export class Calendar {
+}
+</code></pre>
+
+<p>and this obviously gets much worse the lower in hierarchy you go, deepest is '../../..' but it is still very bad and brittle. Is there any way how to use paths relative to project root? </p>
+
+<p>I am working in Visual Studio, and relative imports seem to be the only thing that makes VS able to recognize these imports.y</p>
+",<typescript><angular>,16/01/05 15:04,HQ
+34615503,Vue.js in Chrome extension,"<h2>Vue.js in Chrome extension</h2>
+
+<p>Hi! I'm trying to make a Chrome extension using Vue.js but when I write</p>
+
+<pre><code>&lt;input v-model=""email"" type=""email"" class=""form-control"" placeholder=""Email""&gt;
+</code></pre>
+
+<p>Chrome removes the v-model-part of the code and makes it</p>
+
+<pre><code>&lt;input type=""email"" class=""form-control"" placeholder=""Email""&gt;
+</code></pre>
+
+<p>Is there a way to prevent this?</p>
+",<javascript><google-chrome><google-chrome-extension><vue.js>,16/01/05 15:37,HQ

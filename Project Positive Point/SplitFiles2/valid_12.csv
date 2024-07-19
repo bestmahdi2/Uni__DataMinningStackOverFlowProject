@@ -1,0 +1,143 @@
+Id,Title,Body,Tags,CreationDate,Y
+34655141,Compare camera feed to a stored image using objective-c iOS,"<p>I am a beginner in iOS development and I want to create an application that will compare an image stored in the project with the camera preview feed. It must then show a rectangle around the matched image in the preview.</p>
+
+<p>I developed a c++ lib that will do the comparison. I also display the preview, but I want to get the feed and convert it to bytes so I will be able to use the lib.</p>
+
+<p>how can i do that?</p>
+",<ios><objective-c>,16/01/07 12:27,LQ_CLOSE
+34655445,AppCompact dont work on Xperia Z2,"I have question, I create application with Theme.AppCompat.NoActionBar, but on Xperia Z2 dont work application, on this phone is only background color and nothing other, but on other phone work all, when I use holo theme, it is ok, but i use Toolbar and need setSupportActionBar();
+
+Thanks you",<android><android-theme>,16/01/07 12:43,LQ_EDIT
+34659366,"With Bootstrap, how do I show radio inputs as buttons?","<p>My form currently contains this code:</p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;link href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"" rel=""stylesheet""/&gt;
+&lt;label for=""opt-0""&gt;&lt;input type=""radio"" name=""opt"" id=""opt-0"" checked&gt;Option 0&lt;/label&gt;
+&lt;label for=""opt-1""&gt;&lt;input type=""radio"" name=""opt"" id=""opt-1""&gt;Option 1&lt;/label&gt;
+&lt;label for=""opt-2""&gt;&lt;input type=""radio"" name=""opt"" id=""opt-2""&gt;Option 2&lt;/label&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>Instead of showing the radio buttons as radio buttons, I'd like to make them look like regular buttons, like this:</p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;link href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"" rel=""stylesheet""/&gt;
+&lt;button class=""btn btn-primary""&gt;Option 0&lt;/button&gt;
+&lt;button class=""btn btn-default""&gt;Option 1&lt;/button&gt;
+&lt;button class=""btn btn-default""&gt;Option 2&lt;/button&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>I have radios and I want to make them look like toggleable buttons. How am I supposed to do that with Bootstrap?</p>
+",<html><css><twitter-bootstrap><radio-button><radio-group>,16/01/07 15:46,HQ
+34659761,Stop until in ruby when condition is met,"I have a test that I want to make sure can't be stuck in an infinite loop, what I would like to try is to make the loop run only a certain amount of times, but I'm not sure how to limit the code to only run a certain amount of time. I think I need to use a counter but I'm not sure how to implement it, here is the code for the test.
+
+    When /^I click the Settings link$/ do
+      footer = @browser.div(:id, 'iwinbottombar')
+      footer.wait_until_present
+      unless footer.html.include?('Settings')
+        throw Exception.new(""Expected to see the settings button but it was not there"")
+      end
+      until
+      @browser.div(:id , 'dialogcontainer').div(:class , 'settings_browsebutton button clickable').present? do
+      footer.a(:class , 'button_settings').when_present.click
+      end
+    end",<ruby><selenium><automated-tests><watir>,16/01/07 16:04,LQ_EDIT
+34659935,sendmail.php - send email to variable AND email address,"<p>I have a PHP sendmail script that sends to an email address from user input:</p>
+
+<pre><code>$to = $_POST['email'];
+</code></pre>
+
+<p>How do I add an actual email address to go alongside that - for example:</p>
+
+<pre><code>$to = $_POST['email', 'foo@bar.com'];
+</code></pre>
+
+<p>Thanks</p>
+",<php><sendmail>,16/01/07 16:12,LQ_CLOSE
+34659962,What would happen if Create a object in non-static method of class in java?,"    
+
+    class Data
+    {
+    int x=20; // instance variable
+	public void show()
+	{
+		Data d1=new Data();
+		int x=10;
+		System.out.println(x); //  local x
+		System.out.println(d1.x);// instance variable x
+	}
+	public static void main(String...args)
+	{
+		Data d=new Data();
+		d.show(); // ""10 20""
+	}
+}
+
+So my question when an object is created in show() namely 'd1' , it must have its own set of data members and must have allocated a new stack for its show() method , which in return should create a new object and thus the cycle should go on and stack-overflow occurs??
+But this is working perfectly fine??",<java><instance><stack-overflow><heap-memory><local-variables>,16/01/07 16:13,LQ_EDIT
+34660263,Angular2 conditional routing,"<p>This might be a basic question, but in Angular2 is there any way to do conditional routing ? Or, would someone do that outside the router ?</p>
+
+<p>I know ui-router had some ability to do this, but I haven't seen anything similar in Angular2s router</p>
+",<angular><router>,16/01/07 16:28,HQ
+34660417,"Beautiful Soup if Class ""Contains"" or Regex?","<p>If my class names are constantly different say for example:</p>
+
+<pre><code>listing-col-line-3-11 dpt 41
+listing-col-block-1-22 dpt 41
+listing-col-line-4-13 CWK 12
+</code></pre>
+
+<p>Normally I could do:</p>
+
+<pre><code>for EachPart in soup.find_all(""div"", {""class"" : ""ClassNamesHere""}):
+            print EachPart.get_text()
+</code></pre>
+
+<p>There are way too many class names to work with here so a bunch of these are out.</p>
+
+<p>I know Python doesn't have a "".contains"" I would normally use but it does have an ""in"". Though I haven't been able to work out a way to incorporate that.</p>
+
+<p>I'm hoping there's a way to do this with regex. Though again my Python syntax is really letting me down I've been trying variations on:</p>
+
+<pre><code>regex = re.compile('.*listing-col-.*')
+    for EachPart in soup.find_all(regex):
+</code></pre>
+
+<p>But that doesn't seem to be doing the trick.</p>
+",<python><regex><web-scraping><beautifulsoup>,16/01/07 16:34,HQ
+34660698,download zip file using URL in java,"i have the below code to download the file using the httpclient from a URL. though the program works it only downloads 3k everytime i run it.. I have setup few proxies to overcome the corporate network and trying the below code to automate the downloads from an external website.. 
+
+The site has few other files(like video, audio as well)..even when i try with them the size is 3k..i am using their REST interface to get the files.. is there something i need to change in my code to make it work still.. ?
+
+Thank you for your time..
+
+
+            url = ""https://samforloogin.com/video.zip"";
+         
+			URI uri = URI.create(url);
+		
+			DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(proxy);
+			CloseableHttpClient httpclient = HttpClients.custom()
+			                    .setRoutePlanner(routePlanner)
+			                    .build();
+			HttpGet httpGet = new HttpGet(uri); 
+			httpGet.setHeader(""Authorization"", ""Basic "" + encoding);
+			CloseableHttpResponse response = httpclient.execute(httpGet); 
+			java.io.InputStream is = response.getEntity().getContent(); 
+
+			String filePath = ""C:\\Users\\smandodd\\AppData\\Local\\Temp\\8ee47df6c5a44c9d9c8ff3326d932819\\screenshots.flv"";
+			FileOutputStream fos = new FileOutputStream(new File(filePath )); 
+			 int inByte; 
+			 while((inByte = is.read()) != -1) {
+				 System.out.println(""The number of bytes read are"" + inByte);
+			 fos.write(inByte); 
+			 }
+			 is.close(); 
+			 fos.close(); 
+",<java><rest><httpclient>,16/01/07 16:47,LQ_EDIT
+34661072,Do you need license for publishing android apps?,"<p>Do you need license for publishing android apps? (Not on play store but the direct download way)</p>
+",<android>,16/01/07 17:05,LQ_CLOSE

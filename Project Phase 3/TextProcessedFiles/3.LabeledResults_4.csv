@@ -1,0 +1,1171 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+61749304,Connection between DBeaver & MySQL,"I use DBeaver to watch an SQL database on MySQL 8+.
+Everything is working, but sometimes, opening DBeaver, I have the following error message :
+Public Key Retrieval is not allowed
+And then, DBeaver can't connect to MySQL.
+In order to fix this problem, I have to reconfigure MySQL.
+Is there any simplest way to fix this problem ?
+",<mysql><dbeaver>,329,0,7,1086,3,14,32,41,56032,0.0,313,4,36,2020-05-12 10:24,2020-05-16 6:37,2020-05-16 6:37,4.0,4.0,Basic,14
+49252670,Iterate rows and columns in Spark dataframe,"I have the following Spark dataframe that is created dynamically:
+val sf1 = StructField(""name"", StringType, nullable = true)
+val sf2 = StructField(""sector"", StringType, nullable = true)
+val sf3 = StructField(""age"", IntegerType, nullable = true)
+val fields = List(sf1,sf2,sf3)
+val schema = StructType(fields)
+val row1 = Row(""Andy"",""aaa"",20)
+val row2 = Row(""Berta"",""bbb"",30)
+val row3 = Row(""Joe"",""ccc"",40)
+val data = Seq(row1,row2,row3)
+val df = spark.createDataFrame(spark.sparkContext.parallelize(data), schema)
+df.createOrReplaceTempView(""people"")
+val sqlDF = spark.sql(""SELECT * FROM people"")
+Now, I need to iterate each row and column in sqlDF to print each column, this is my attempt:
+sqlDF.foreach { row =&gt;
+  row.foreach { col =&gt; println(col) }
+}
+row is type Row, but is not iterable that's why this code throws a compilation error in row.foreach. How to iterate each column in Row?
+",<scala><apache-spark><apache-spark-sql>,894,0,25,1329,23,137,340,44,179916,0.0,4482,9,36,2018-03-13 9:35,2018-03-13 9:41,2018-09-02 1:37,0.0,173.0,Basic,10
+50936251,"ERROR: function dblink(unknown, unknown) does not exist","I have defined a foreign server pointing to another database. I then want to execute a function in that database and get back the results.
+When I try this:
+SELECT * FROM  dblink('mylink','select someschema.somefunction(''test'', ''ABC'')')
+or this:
+SELECT t.n FROM  dblink('mylink', 'select * from someschema.mytable') as t(n text)
+I get the error:
+  ERROR: function dblink(unknown, unknown) does not exist
+Running as superuser.
+",<postgresql><dblink>,429,0,2,521,2,6,9,55,36166,,0,3,35,2018-06-19 20:13,2019-08-05 12:08,,412.0,,Basic,10
+53610385,Docker - Postgres and pgAdmin 4 : Connection refused,"Newbie with docker, I am trying to connect throught localhost my pgAdmin container to the postgres one.
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
+0b00555238ba        dpage/pgadmin4      ""/entrypoint.sh""         43 minutes ago      Up 43 minutes       0.0.0.0:80-&gt;80/tcp, 443/tcp   pedantic_turing
+e79fb6440a95        postgres            ""docker-entrypoint.s…""   About an hour ago   Up About an hour    0.0.0.0:5432-&gt;5432/tcp        pg-docker
+I succeed connecting with psql command.
+psql -h localhost -U postgres -d postgres
+But when I create the server on pgAdmin with the same parameters as psql I got the following error.
+  Unable to connect to server:
+  could not connect to server: Connection refused Is the server running
+  on host ""localhost"" (127.0.0.1) and accepting TCP/IP connections on
+  port 5432? could not connect to server: Address not available Is the
+  server running on host ""localhost"" (::1) and accepting TCP/IP
+  connections on port 5432?
+I succeed to connect throught the IPAddress given by docker inspect on the container.
+By the way, I checked postgresql.conf and assert that listen_addresses = '*' and also that pg_hba.conf contain host all all all md5.
+But I don't get it, why shouldn't I be able to use the localhost address ? And why does docker even give me an address that is not local ?
+",<postgresql><docker>,1423,0,7,720,1,9,23,74,45493,0.0,26,8,35,2018-12-04 10:05,2019-05-08 7:59,2019-05-28 3:11,155.0,175.0,Basic,9
+53434849,Cannot install postgres on Ubuntu (E: Unable to locate package postgresql),"So I'm having this problem where for some reason I can't install any package on my ubuntu system.
+I'm currently on Ubuntu 16.10.
+terminal install logs
+Update:
+I've done entered those commands and got this.
+after update and apt-cache
+What should I do now?
+",<postgresql><ubuntu><ubuntu-16.10>,255,2,1,371,1,4,7,35,99536,0.0,6,5,35,2018-11-22 16:15,2018-11-22 16:26,,0.0,,Intermediate,18
+49361088,String_agg for SQL Server before 2017,"Can anyone help me make this query work for SQL Server 2014?
+This is working on Postgresql and probably on SQL Server 2017. On Oracle it is listagg instead of string_agg.
+Here is the SQL:
+select 
+    string_agg(t.id,',') AS id
+from 
+    Table t
+I checked on the site some xml option should be used but I could not understand it.
+",<sql><sql-server><string-aggregation><string-agg>,329,0,6,1648,4,21,38,36,43394,0.0,197,2,35,2018-03-19 10:47,2018-03-19 10:49,2018-03-19 10:49,0.0,0.0,Intermediate,18
+62697071,"Docker-Compose postgres upgrade initdb: error: directory ""/var/lib/postgresql/data"" exists but is not empty","I had postgres 11 installed using docker-compose. I wanted to upgrade it to 12 but even though I have removed the container and its volume but the status of the container says &quot;Restarting&quot;.
+Here is my docker-compose file
+version: '3.5'
+services:
+  postgres:
+    image: postgres:12
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: &quot;trust&quot;
+    ports:
+    - &quot;5432&quot;
+    restart: always
+    volumes:
+    - /etc/postgresql/12/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+    - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
+However it is not working and the logs has the following issue
+2020-07-02T12:54:47.012973448Z The files belonging to this database system will be owned by user &quot;postgres&quot;.
+2020-07-02T12:54:47.013030445Z This user must also own the server process.
+2020-07-02T12:54:47.013068962Z 
+2020-07-02T12:54:47.013222608Z The database cluster will be initialized with locale &quot;en_US.utf8&quot;.
+2020-07-02T12:54:47.013261425Z The default database encoding has accordingly been set to &quot;UTF8&quot;.
+2020-07-02T12:54:47.013281815Z The default text search configuration will be set to &quot;english&quot;.
+2020-07-02T12:54:47.013293326Z 
+2020-07-02T12:54:47.013303793Z Data page checksums are disabled.
+2020-07-02T12:54:47.013313919Z 
+2020-07-02T12:54:47.013450079Z initdb: error: directory &quot;/var/lib/postgresql/data&quot; exists but is not empty
+2020-07-02T12:54:47.013487706Z If you want to create a new database system, either remove or empty
+2020-07-02T12:54:47.013501126Z the directory &quot;/var/lib/postgresql/data&quot; or run initdb
+2020-07-02T12:54:47.013512379Z with an argument other than &quot;/var/lib/postgresql/data&quot;.
+How could I remove or empty this /var/lib/postgresql/data when the container is constantly restarting?
+Thanks in advance
+",<postgresql><docker><docker-compose>,1835,0,27,495,2,6,16,49,60805,0.0,10,6,34,2020-07-02 13:06,2020-09-10 7:21,,70.0,,Intermediate,19
+54472165,What is wrong with this code. Why can't I use SqlConnection?,"I am 100% newbie to SQl and wanted to make a ConsoleApp with the use of database. I read some about it and tried. When I needed to make SqlConnection, my VS 2019 Preview showed me this 
+  Severity   Code    Description Project File    Line    Suppression State
+  Error
+      CS1069  The type name 'SqlConnection' could not be found in the namespace 'System.Data.SqlClient'.
+   This type has been forwarded to assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' Consider adding a reference to that assembly.
+      ConsoleApp1 C:\Users\User\Desktop\Bald Code\ConsoleApp1\ConsoleApp1\Program.cs  12
+      Active
+i don't get why it doesn't work
+Here's my code
+using System;
+using System.Data;
+using System.Data.SqlClient;
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string connectionString;
+            SqlConnection cnn;
+        }
+    }
+}
+",<c#><sql><sqlclient>,950,0,19,479,1,4,6,63,60516,0.0,2,11,34,2019-02-01 2:44,2019-02-01 2:50,,0.0,,Basic,2
+50770862,The certificate chain was issued by an authority that is not trusted,"I studied the help here on upgrading to aspnetcore 2.1.0
+My database is SQLExpress 2016SP1
+I am able to add a migration but when I issue 
+update-database
+at the Package Manager Console, I get an error
+  A connection was successfully established with the server, but then an error occurred during the login process.
+  (provider: SSL Provider, error: 0 - The certificate chain was issued by an authority that is not trusted.)
+The connection string is of the form 
+   Server=""Server=myserver;Initial Catalog=mydatabase;Trusted_Connection=True;MultipleActiveResultSets=true
+The DbContext is
+public class ApiDbContext : IdentityDbContext&lt;ApplicationUser&gt;
+{
+    public ApiDbContext(DbContextOptions&lt;ApiDbContext&gt; options)
+        : base(options)
+    {
+    }
+}
+The Context Factory is
+public class MyContextFactory : IDesignTimeDbContextFactory&lt;ApiDbContext&gt;
+{
+    public ApiDbContext CreateDbContext(string[] args)
+    {
+        var optionsBuilder = new DbContextOptionsBuilder&lt;ApiDbContext&gt;();
+        var builder = new ConfigurationBuilder();
+        builder.AddJsonFile(""appsettings.json"");
+        var config = builder.Build();
+        var connectionString = config.GetConnectionString(""MyDatabase"");
+        optionsBuilder.UseSqlServer(connectionString);
+        return new ApiDbContext(optionsBuilder.Options);
+    }
+}
+[Update]
+If I hard code the connection string inside the implementation of  IDesignTimeDbContextFactory  then I can run the migrations
+public class MyContextFactory : IDesignTimeDbContextFactory&lt;ApiDbContext&gt;
+{
+    public ApiDbContext CreateDbContext(string[] args)
+    {
+        var optionsBuilder = new DbContextOptionsBuilder&lt;ApiDbContext&gt;();
+        var connectionString =    ""Server=myserver;Initial Catalog=mydatabase;Trusted_Connection=True;MultipleActiveResultSets=true"";
+        optionsBuilder.UseSqlServer(connectionString);
+        return new ApiDbContext(optionsBuilder.Options);
+    }
+}
+Hard coding the connection string is not desirable so I would like a better answer.
+I am unclear as to why the implementation of  IDesignTimeDbContextFactory is needed.  (my migration does fail without it )
+I have updated my Startup.cs and Progam.cs to match those of a newly generated program where the implementation is not needed.
+ public class Program
+ {
+   public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =&gt;
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup&lt;Startup&gt;();
+}
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+    public IConfiguration Configuration { get; }
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure&lt;CookiePolicyOptions&gt;(options =&gt;
+        {
+            options.CheckConsentNeeded = context =&gt; true;
+            options.MinimumSameSitePolicy = SameSiteMode.None;
+        });
+        services.AddDbContext&lt;ApiDbContext&gt;(options =&gt;
+            options.UseSqlServer(
+                Configuration.GetConnectionString(""MyDatabase"")));
+        services.AddDefaultIdentity&lt;IdentityUser&gt;()
+            .AddEntityFrameworkStores&lt;ApiDbContext&gt;();
+services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        }
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseDatabaseErrorPage();
+        }
+        else
+        {
+            app.UseExceptionHandler(""/Error"");
+            app.UseHsts();
+        }
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseCookiePolicy();
+        app.UseAuthentication();
+        app.UseMvc();
+    }
+}
+[Update]
+I updated to VS2017 version 15.7.3.
+When I went to repeat the problem and create the first migration, PM displayed the message
+The configuration file 'appsettings.json' was not found and is not optional
+When I marked this file copy always then both the add-migration and the update-database worked.
+",<sql-server><asp.net-core><asp.net-identity><entity-framework-core>,4400,1,91,16220,42,184,322,41,48600,,1471,4,34,2018-06-09 4:15,2018-06-11 16:35,2018-06-11 16:35,2.0,2.0,Basic,14
+48550653,JOIN same table twice with aliases on SQLAlchemy,"I am trying to port the following query to SQLAlchemy:
+SELECT u.username, GROUP_CONCAT(DISTINCT userS.name)
+FROM Skills AS filterS 
+INNER JOIN UserSkills AS ufs ON filterS.id = ufs.skill_id
+INNER JOIN Users AS u ON ufs.user_id = u.id
+INNER JOIN UserSkills AS us ON u.id = us.user_id
+INNER JOIN Skills AS userS ON us.skill_id = userS.id
+WHERE filterS.name IN ('C#', 'SQL')
+GROUP BY u.id;
+I don't understand how to achieve AS statement in SQLAlchemy. Here is what I currently have:
+# User class has attribute skills, that points to class UserSkill
+# UserSkill class has attribute skill, that points to class Skill
+db.session.query(User.id, User.username, func.group_concat(Skill.name).label('skills')).\
+   join(User.skills).\
+   join(UserSkill.skill).filter(Skill.id.in_(skillIds)).\
+   order_by(desc(func.count(Skill.id))).\
+   group_by(User.id).all()
+Please help.
+",<python><sqlalchemy>,865,0,15,2465,2,22,34,40,36687,0.0,636,2,34,2018-01-31 20:10,2018-02-01 16:18,2018-02-01 16:18,1.0,1.0,Basic,2
+48815341,Why is Apache-Spark - Python so slow locally as compared to pandas?,"A Spark newbie here.
+I recently started playing around with Spark on my local machine on two cores by using the command:
+pyspark --master local[2]
+I have a 393Mb text file which has almost a million rows. I wanted to perform some data manipulation operation. I am using the built-in dataframe functions of PySpark to perform simple operations like groupBy, sum, max, stddev.
+However, when I do the exact same operations in pandas on the exact same dataset, pandas seems to defeat pyspark by a huge margin in terms of latency.
+I was wondering what could be a possible reason for this. I have a couple of thoughts.
+Do built-in functions do the process of serialization/de-serialization inefficiently? If yes, what are the alternatives to them?
+Is the data set too small that it cannot outrun the overhead cost of the underlying JVM on which spark runs?
+Thanks for looking. Much appreciated.
+",<python><pandas><apache-spark><pyspark><apache-spark-sql>,889,0,5,447,0,6,11,81,9139,0.0,3,1,34,2018-02-15 20:01,2018-02-15 20:26,2018-02-15 20:26,0.0,0.0,Intermediate,23
+49518683,The server time zone value 'CEST' is unrecognized,"I am using hibernate (Hibernate Maven 5.2.15.Final, Mysql-connector Maven 8.0.9-rc) whith mysql 5.7 on lampp environment on linux so. 
+I am in Italy (Central European Summer Time) and once March 25, occurs follow error on connection db: 
+  The server time zone value 'CEST' is unrecognized or represents more
+  than one time zone. You must configure either the server or JDBC
+  driver (via the serverTimezone configuration property) to use a more
+  specifc time zone value if you want to utilize time zone support.
+On mysql console, I ran: 
+SHOW GLOBAL VARIABLES LIKE 'time_zone';
+SET GLOBAL time_zone='Europe/Rome'; 
+but that did not persist. 
+Then I added to my.cnf file (in /etc/mysql):
+[mysqld] 
+default-time-zone = 'Europe/Rome' 
+and also:
+default_time_zone = 'Europe/Rome' 
+but the db server did not start still... 
+Why does the error occur? 
+Could someone help me? 
+Thank you!
+",<mysql><timezone><lamp>,884,0,6,489,1,5,9,61,51370,0.0,1,4,33,2018-03-27 17:06,2018-05-06 15:40,,40.0,,Basic,14
+55958103,Tests using embedded postgres fail with Illegal State Exception,"I'm running some tests against an embedded postgres database using otj-pg-embedded. While the tests run fine locally they fail when run by Gitlab-CI with an Illegal State Exception. 
+Gitlab CI builds it and runs tests that don't include otj-pg-embedded just fine.
+I've commented out most of the test class and pinpointed the problem to:  
+public static SingleInstancePostgresRule pg = EmbeddedPostgresRules.singleInstance();
+import com.goldfinger.models.AuditLog;
+import com.opentable.db.postgres.embedded.FlywayPreparer;
+import com.opentable.db.postgres.junit.EmbeddedPostgresRules;
+import com.opentable.db.postgres.junit.PreparedDbRule;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+@RunWith(SpringJUnit4ClassRunner.class)
+public class SQLAuditRepositoryTest {
+    private static SQLAuditRepository sqlAuditRepository;
+    private static AuditLog auditLog_1;
+    private static AuditLog auditLog_2;
+    private static AuditLog auditLog_3;
+    private static List&lt;AuditLog&gt; auditLogList;
+    @ClassRule
+        public static SingleInstancePostgresRule pg = EmbeddedPostgresRules.singleInstance();
+    @Test
+    public void simpleTest() {
+        assert (2 == 2);
+    }
+}
+This is the stack trace:
+java.lang.IllegalStateException: Process [/tmp/embedded-pg/PG-06e3a92a2edb6ddd6dbdf5602d0252ca/bin/initdb, -A, trust, -U, postgres, -D, /tmp/epg6584640257265165384, -E, UTF-8] failed
+    at com.opentable.db.postgres.embedded.EmbeddedPostgres.system(EmbeddedPostgres.java:626)
+    at com.opentable.db.postgres.embedded.EmbeddedPostgres.initdb(EmbeddedPostgres.java:240)
+...
+... many lines here
+...
+    at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+    at java.lang.Thread.run(Thread.java:745)
+This is the gitlab-ci.yml
+image: java:latest
+services:
+  - postgres:latest
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+package:
+  stage: build
+  script:
+    - ./gradlew assemble
+test:
+  stage: test
+  script:
+  - ./gradlew check
+  artifacts:
+    reports:
+      junit: build/test-results/test/*.xml
+Any help will be appreciated.
+",<java><postgresql><gitlab-ci>,2249,0,55,331,1,3,4,71,19067,0.0,1,7,33,2019-05-02 18:18,2019-11-07 9:16,,189.0,,Basic,14
+50709059,MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 message lis teners added. Use emitter.setMaxListeners() to increase limit,"I know this might flag as a duplicate solution but the solution on stack overflow is not working for me.
+Problem
+(node:5716) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 message lis
+teners added. Use emitter.setMaxListeners() to increase limit.
+My codebase is huge and I facing this error sometimes I don't know why it is happening. I tried to increase the listeners limit but unfortunately, it is not working.
+const EventEmitter = require('events');
+const emitter = new EventEmitter()
+emitter.setMaxListeners(50)
+UPDATE
+After Some browsing, I run this command to trace warning
+node --trace-warnings index.babel.js
+Turns out be my socket.io code is the problem I am using socket.io with Redis. This is the error
+node:14212) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 message li
+steners added. Use emitter.setMaxListeners() to increase limit
+    at _addListener (events.js:281:19)
+    at RedisClient.addListener (events.js:298:10)
+    at Namespace.&lt;anonymous&gt; (D:/newProject/services/socket.js:21:17)
+    at emitOne (events.js:115:13)
+    at Namespace.emit (events.js:210:7)
+    at Namespace.emit (D:\newProject\node_modules\socket.io\lib\namespace.js:213:10)
+    at D:\newProject\node_modules\socket.io\lib\namespace.js:181:14
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+this is the code (But this code is for more specific tasks it will not execute all the time).
+const redis = require('redis');
+const config = require('../config');
+const sub = redis.createClient(config.REDIS.port, config.REDIS.host);
+const pub = redis.createClient(config.REDIS.port, config.REDIS.host);
+sub.subscribe('spread');
+module.exports = io =&gt; {
+  io.on('connection', socket =&gt; {
+    /* To find the User Login  */
+    let passport = socket.handshake.session.passport; 
+    if (typeof passport !== 'undefined') {
+      socket.on('typing:send', data =&gt; {
+        pub.publish('spread', JSON.stringify(data));
+      });
+      sub.on('message', (ch, msg) =&gt; {
+        // This is the Exact line where I am getting this error
+        io.emit(`${JSON.parse(msg).commonID}:receive`, { ...JSON.parse(msg) });
+      });
+    }
+  });
+};
+",<javascript><mysql><node.js><reactjs>,2274,0,41,2420,6,35,77,42,119087,0.0,77,4,33,2018-06-05 21:16,2018-06-05 22:11,2018-07-04 6:03,0.0,29.0,Basic,14
+50702865,Entity Framework Attach/Update confusion (EF Core),"As I understand, when ""Update"" is called, every property within a specific entity is modified. 
+The ""Attach"" method, on the other hand, starts the entity off in the ""Unmodified"" state. Then, when an operation takes place on a particular property, that specific property only is modified. So ""Attach"" is more useful for individual property changes, and ""Update"" is more useful when you want to update every property in the entity (I may be wrong in this understanding).
+However, what I don't understand is what happens when neither of these two methods are called during a property change. For instance, consider an example with a table called ""students"":
+student.City = ""Calgary"";
+student.Name = ""John Smith"";
+database.SaveChanges();
+As we are not marking any property in the entity as modified, how will the generated query from the above code differ?
+",<c#><entity-framework><sql-update>,853,0,3,774,1,5,11,48,35009,0.0,12,2,33,2018-06-05 14:41,2018-06-06 6:43,2018-06-06 6:43,1.0,1.0,Basic,9
+64198359,"pg Admin 4 - password for ""postgres"" user when trying to connect to PostgreSQL 13 server","I know that this question has been asked other times but I didn't find a solution to this problem!
+I downloaded PostgreSQL 13 with pg Admin 4 and when I open it for the first time after installation it asks me for the master password that I was asked to set during installation, after I give the master password and this gets accepted I try to connect to the default server created during the installation: &quot;PostgreSQL 13&quot;.
+At this point, it asks me for a password for the user &quot;postgres&quot; that I don't know where to find. Specifically, it says: Please enter the password for the user 'postgres' to connect the server - &quot;PostgreSQL 13&quot;.
+I've already tried all the &quot;default&quot; passwords I managed to find on the internet but the error is always the same:
+FATAL: password authentication failed for user &quot;postgres&quot;
+I've also tried not to insert any password with the resulting error:
+fe_sendauth: no password supplied
+I don't know what to do. In PostgreSQL 13 the authentication method is encrypted via scram-sha-256. I already tried to set the method to trust, restart the mac, and open pg Admin 4 that keeps asking me for the password to access the server.
+I've also tried to use the command line tool but end up encountering the same errors.
+Finally, this is how my pg_hba.conf looks like:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+# &quot;local&quot; is for Unix domain socket connections only
+local   all             all                                     scram-sha-256
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            scram-sha-256
+# IPv6 local connections:
+host    all             all             ::1/128                 scram-sha-256
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     scram-sha-256
+host    replication     all             127.0.0.1/32            scram-sha-256
+host    replication     all             ::1/128                 scram-sha-256
+PS. I've also tried to uninstall PostgreSQL 13, deleting the postgres user and re-download and re-install everything... nothing changed.
+If someone could help me would become my savior, thanks beforehand!
+",<postgresql><pgadmin><pgadmin-4><postgresql-13>,2288,0,15,357,1,3,6,79,120510,0.0,4,20,33,2020-10-04 18:25,2020-10-05 14:12,2020-10-10 4:43,1.0,6.0,Basic,14
+48605130,How to convert List<Object> into comma separated String,"I am getting list of Address objects from the DB call. 
+ArrayList&lt;Address&gt; addresses = new ArrayList&lt;&gt;();
+Each Address has an int addressId property.
+I am writing an update query where in the IN clause I am sending this whole list of Address objects and I am getting ibatis TypeException. How can I convert List&lt;Address&gt; to a comma separated string which can be sent to update query?
+My update query looks like:::
+Update tablename set postcode = #{postCode} where id in #{addressID}.
+",<java><sql><ibatis>,502,0,9,373,1,4,12,56,57038,0.0,0,8,33,2018-02-04 5:43,2018-02-04 5:51,,0.0,,Basic,10
+50373427,Node.js can't authenticate to MySQL 8.0,"I have a Node.js program that connects to a local MySQL database with the root account (this is not a production setup).
+This is the code that creates the connection:
+const mysql = require('mysql');
+const dbConn = mysql.createConnection({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: 'myRootPassword',
+    database: 'decldb'
+});
+dbConn.connect(err =&gt; {
+    if (err) throw err;
+    console.log('Connected!');
+});
+It worked with MySQL 5.7, but since installing MySQL 8.0 I get this error when starting the Node.js app:
+&gt; node .\api-server\main.js
+[2018-05-16T13:53:53.153Z] Server launched on port 3000!
+C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\Parser.js:80
+        throw err; // Rethrow non-MySQL errors
+        ^
+Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+    at Handshake.Sequence._packetToError (C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Handshake.ErrorPacket (C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\sequences\Handshake.js:130:18)
+    at Protocol._parsePacket (C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.&lt;anonymous&gt; (C:\Users\me\project\node_server\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    --------------------
+    at Protocol._enqueue (C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\Protocol.js:145:48)
+    at Protocol.handshake (C:\Users\me\project\node_server\node_modules\mysql\lib\protocol\Protocol.js:52:23)
+    at Connection.connect (C:\Users\me\project\node_server\node_modules\mysql\lib\Connection.js:130:18)
+    at Object.&lt;anonymous&gt; (C:\Users\me\project\node_server\main.js:27:8)
+    at Module._compile (module.js:652:30)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+It seems that the root account uses a new password hashing method:
+&gt; select User,Host,plugin from user where User=""root"";
++------+-----------+-----------------------+
+| User | Host      | plugin                |
++------+-----------+-----------------------+
+| root | localhost | caching_sha2_password |
++------+-----------+-----------------------+
+...but I don't know why Node.js is unable to connect to it. I have updated all the npm packages and it's still an issue.
+I would like to keep the new password hashing method. Can I still make this connection work? Do I have to wait for an update of the MySQL Node.js package, or change a setting on my side?
+",<mysql><node.js><authentication><mysql-8.0>,3124,0,48,1721,5,24,44,71,32919,0.0,4265,5,32,2018-05-16 14:19,2018-05-16 18:40,2018-05-16 18:40,0.0,0.0,Basic,13
+48420438,"""could not identify an equality operator for type json"" when using distinct","I have the following query:
+SELECT 
+  distinct(date(survey_results.created_at)), 
+  json_build_object(
+    'high', 
+    ROUND( 
+      COUNT(*) FILTER (WHERE ( scores#&gt;&gt;'{medic,categories,motivation}' in('high', 'medium'))) OVER(order by date(survey_results.created_at) ) * 1.0 / 
+      (
+        CASE (COUNT(*) FILTER (WHERE (scores#&gt;&gt;'{medic,categories,motivation}' in('high','medium','low'))) OVER(order by date(survey_results.created_at))) 
+        WHEN 0.0 THEN 1.0 
+        ELSE (COUNT(*) FILTER (WHERE (scores#&gt;&gt;'{medic,categories,motivation}' in('high','medium','low'))) OVER(order by date(survey_results.created_at))) 
+        END)* 100, 2 ) ) AS childcare FROM survey_results GROUP BY date, scores ORDER BY date asc; 
+The problem is with using distinct(date(survey_results.created_at)). With that in place query returns error:
+could not identify an equality operator for type json
+Here is db fiddle that show that problem. How can I fix that?
+",<postgresql>,970,1,13,7462,15,68,135,44,59461,0.0,499,4,32,2018-01-24 10:40,2018-01-24 10:48,2018-01-24 10:48,0.0,0.0,Basic,2
+49083573,PHP 7.2.2 + mysql 8.0 PDO gives: authentication method unknown to the client [caching_sha2_password],"I'm using php 7.2.2 and mysql 8.0.
+When I try to connect with the right credential I get this error:
+PDOException::(""PDO::__construct(): The server requested authentication method unknown to the client [caching_sha2_password]"")
+Need help to troubleshoot the problem.
+",<php><mysql><pdo>,267,0,1,1042,2,11,26,41,64856,0.0,141,4,32,2018-03-03 11:20,2018-04-30 5:38,2018-06-11 20:06,58.0,100.0,Basic,3
+49274390,PostgreSQL and Hibernate java.io.IOException: Tried to send an out-of-range integer as a 2-byte value,"I have hibernate query:
+getSession()                     
+        .createQuery(""from Entity where id in :ids"") 
+        .setParameterList(""ids"", ids)
+        .list();
+where ids is Collection ids, that can contain a lot of ids.
+Currently I got exception when collection is very large:
+ java.io.IOException: Tried to send an out-of-range integer as a 2-byte value
+I heard that postgre has some problem with it. But I can't find the solution how to rewrite it on hql.
+",<postgresql><hibernate><exception><ioexception>,465,0,4,320,1,3,4,70,27364,0.0,0,4,32,2018-03-14 9:47,2018-03-14 10:20,,0.0,,Basic,6
+50570592,Mysql 8 remote access,"I usualy setup correctly MySQL for having remote access.
+And currently I got stuck with MySQL 8.
+The first thing is that on the mysql.conf.d/mysqld.cnf , I don't have any bind-address line, so I added it by hand (bind-address 0.0.0.0)
+And I granted access to the user on '%' 
+When I connected I got the message ""Authentication failed""
+But it works well on localhost/command line
+",<mysql><authentication><mysql-8.0>,379,0,0,617,2,8,14,67,84475,0.0,7,4,32,2018-05-28 16:44,2018-08-05 11:13,,69.0,,Advanced,38
+64829748,Pgadmin is not loading,"i have recently installed pgadmin4 onto my laptop and when I launch the application, it just gets stuck on the loading. I had a look at the logs and this is what I see:
+The logs
+2020-11-14 00:22:46: Checking for system tray...
+2020-11-14 00:22:46: Starting pgAdmin4 server...
+2020-11-14 00:22:46: Creating server object, port:64222, key:2a079549-63da-44d2-8931-efa9de3a847f, logfile:C:/Users/yonis/AppData/Local/pgadmin4.d41d8cd98f00b204e9800998ecf8427e.log
+2020-11-14 00:22:46: Python Path: C:/Program Files/PostgreSQL/13/pgAdmin 4/venv/Lib/site-packages;C:/Program Files/PostgreSQL/13/pgAdmin 4/venv/DLLs;C:/Program Files/PostgreSQL/13/pgAdmin 4/venv/Lib
+2020-11-14 00:22:46: Python Home: C:/Program Files/PostgreSQL/13/pgAdmin 4/venv
+2020-11-14 00:22:46: Initializing Python...
+2020-11-14 00:22:46: Python initialized.
+2020-11-14 00:22:46: Adding new additional path elements
+2020-11-14 00:22:46: Redirecting stderr...
+2020-11-14 00:22:46: stderr redirected successfully.
+2020-11-14 00:22:46: Initializing server...
+2020-11-14 00:22:46: Webapp Path: C:/Program Files/PostgreSQL/13/pgAdmin 4/web/pgAdmin4.py
+2020-11-14 00:22:46: Server initialized, starting server thread...
+2020-11-14 00:22:46: Open the application code and run it.
+2020-11-14 00:22:46: Set the port number, key and force SERVER_MODE off
+2020-11-14 00:22:46: PyRun_SimpleFile launching application server...
+2020-11-14 00:22:47: Application Server URL: http://127.0.0.1:64222/?key=2a079549-63da-44d2-8931-efa9de3a847f
+2020-11-14 00:22:47: The server should be up. Attempting to connect and get a response.
+2020-11-14 00:22:53: Attempt to connect one more time in case of a long network timeout while looping
+2020-11-14 00:22:53: Everything works fine, successfully started pgAdmin4.
+",<python><postgresql><pgadmin><heroku-postgres><pgadmin-4>,1753,2,20,321,1,3,3,64,51325,0.0,0,10,32,2020-11-14 0:34,2020-11-14 10:50,,0.0,,Basic,14
+51375439,Postgres on conflict do update on composite primary keys,"I have a table where a user answers to a question. The rules are that the user can answer to many questions or many users can answer one question BUT a user can answer to a particular question only once. If the user answers to the question again, it should simply replace the old one. Generally the on conflict do update works when we are dealing with unique columns. In this scenario the columns person_id and question_id cannot be unique. However the combination of the two is always unique. How do I implement the insert statement that does update on conflict?
+CREATE TABLE ""answer"" (
+  ""person_id"" integer NOT NULL REFERENCES person(id), 
+  ""question_id"" integer NOT NULL REFERENCES question(id) ON DELETE CASCADE, /* INDEXED */
+  ""answer"" character varying (1200) NULL,
+  PRIMARY KEY (person_id, question_id) 
+);
+",<sql><postgresql><upsert>,818,0,8,3055,4,32,59,35,33711,0.0,111,2,32,2018-07-17 7:20,2018-07-17 7:39,2018-07-17 7:39,0.0,0.0,Basic,10
+52064130,"QueryFailedError: the column ""price"" contain null values - TypeORM - PostgreSQL","I've created a simple table:
+import { Column, Entity, PrimaryGeneratedColumn } from &quot;typeorm&quot;
+@Entity()
+export class Test {
+    @PrimaryGeneratedColumn()
+    public id!: number
+    @Column({ nullable: false })
+    public name!: string
+    @Column({ nullable: false, type: &quot;float&quot; })
+    public price!: number
+}
+I generate the migration and run it also. When I have no data in the database and I run the server it succeed. But when I add 1 row in the database and I run it again it appears the following error:
+QueryFailedError: the column «price» contain null values
+The databse definetely has the row with all the data. I tried a lot of cases and none of them was correct.
+Has anybody some idea for it?
+",<node.js><postgresql><typescript><typeorm>,724,0,14,1468,4,15,27,68,46673,0.0,26,8,32,2018-08-28 18:21,2018-08-31 9:36,,3.0,,Basic,13
+52372165,mysql ERROR 1064 (42000): You have an error in your SQL syntax;,"i have installed mysql 8.0.12 into one linux node and when i try to give below grant permission to get access from other nodes, i am getting 42000 error
+command issued :
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';
+Return results:
+  ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IDENTIFIED BY 'secure1t'' at line 1
+Any help would be appreciated.
+",<mysql>,478,0,1,407,1,4,8,79,84805,0.0,0,3,32,2018-09-17 16:29,2018-09-17 16:41,2018-09-17 16:41,0.0,0.0,Basic,8
+55286397,How to compare character varying (varcar) to UUID in PostgreSQL?,"Operator does not exist: character varying = uuid
+Client id is UUId and should be why it is not working.
+Where I am wrong, since I have tried almost everything I imagined.
+SELECT * FROM ""cobranca_assinatura""
+INNER JOIN ""cadastro_cliente"" ON (""cobranca_assinatura"".""cliente_id"" = ""cadastro_cliente"".""id"")
+WHERE ""cadastro_cliente"".""nome"" LIKE marcelo% ESCAPE '\'
+  [2019-03-21 14:40:34] [42883] ERROR: operator does not exist:
+  character varying = uuid [2019-03-21 14:40:34] 
+  Dica: No operator
+  matches the given name and argument type(s). You might need to add
+  explicit type casts.
+",<postgresql>,587,0,3,2832,6,39,73,73,47759,,81,3,31,2019-03-21 17:47,2019-03-21 18:04,2019-03-21 18:04,0.0,0.0,Basic,2
+50088142,Authentication method 'caching_sha2_password' not supported by any of the available plugins,"When I try to connect MySQL (8.0) database with Visual Studio 2018 I get this error message 
+  ""Authentication method 'caching_sha2_password' not supported by any of the available plugins""
+Also I am unable to retrieve Database name.
+I use mysql-for-visualstudio-1.2.7 and mysql-connector-net-8.0.11 for connection.
+Is there any possible way to fix it.
+",<c#><mysql><authentication><visual-studio-2017>,352,0,2,347,1,4,11,61,85143,0.0,2,9,31,2018-04-29 15:18,2018-05-01 20:43,2019-11-15 5:06,2.0,565.0,Basic,14
+48406304,GroupBy and concat array columns pyspark,"I have this data frame
+df = sc.parallelize([(1, [1, 2, 3]), (1, [4, 5, 6]) , (2,[2]),(2,[3])]).toDF([&quot;store&quot;, &quot;values&quot;])
++-----+---------+
+|store|   values|
++-----+---------+
+|    1|[1, 2, 3]|
+|    1|[4, 5, 6]|
+|    2|      [2]|
+|    2|      [3]|
++-----+---------+
+and I would like to convert into the follwing df:
++-----+------------------+
+|store|      values      |
++-----+------------------+
+|    1|[1, 2, 3, 4, 5, 6]|
+|    2|            [2, 3]|
++-----+------------------+
+I did this:
+from  pyspark.sql import functions as F
+df.groupBy(&quot;store&quot;).agg(F.collect_list(&quot;values&quot;))
+but the solution has this WrappedArrays
++-----+----------------------------------------------+
+|store|collect_list(values)                          |
++-----+----------------------------------------------+
+|1    |[WrappedArray(1, 2, 3), WrappedArray(4, 5, 6)]|
+|2    |[WrappedArray(2), WrappedArray(3)]            |
++-----+----------------------------------------------+
+Is there any way to transform the WrappedArrays into concatenated arrays? Or can I do it differently?
+",<pyspark><apache-spark-sql>,1091,0,26,1039,2,12,15,63,56011,0.0,10,6,31,2018-01-23 16:17,2018-01-23 17:05,2018-01-23 17:05,0.0,0.0,Basic,10
+56118095,Type hints for SQLAlchemy engine and session objects,"I'm trying to add type hints to my SQLAlchemy script:
+connection_string: str = ""sqlite:///:memory:""
+engine = create_engine(connection_string)
+session = Session(bind=engine)
+reveal_type(engine)
+reveal_type(session)
+I've ran this script against mypy but both types comes back as Any. What type should the engine and session variable be?
+",<python><sqlalchemy><mypy><type-hinting>,335,0,9,5261,20,85,155,76,17483,,400,2,31,2019-05-13 18:37,2019-05-13 21:07,2019-05-13 21:07,0.0,0.0,Basic,3
+49148754,Docker container shuts down giving 'data directory has wrong ownership' error when executed in windows 10,"I have my docker installed in Windows. I am trying to install this application. It has given me the following docker-compose.yml file:
+version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+    - &quot;8085:80&quot;
+    networks:
+      - attendizenet
+    volumes:
+      - .:/usr/share/nginx/html/attendize
+    depends_on:
+      - php
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    depends_on:
+      - db
+      - maildev
+      - redis
+    volumes:
+      - .:/usr/share/nginx/html/attendize
+    networks: 
+      - attendizenet
+  php-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    depends_on:
+      - db
+      - maildev
+      - redis
+    volumes:
+      - .:/usr/share/nginx/html/attendize
+    command: php artisan queue:work --daemon
+    networks:
+      - attendizenet
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=attendize
+      - POSTGRES_PASSWORD=attendize
+      - POSTGRES_DB=attendize
+    ports:
+      - &quot;5433:5432&quot;
+    volumes:
+      - ./docker/pgdata:/var/lib/postgresql/data
+    networks:
+    - attendizenet
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+      - &quot;1080:80&quot;
+    networks:
+      - attendizenet
+  redis:
+    image: redis
+    networks:
+      - attendizenet
+networks:
+  attendizenet:
+    driver: bridge
+All the installation goes well, but the PostgreSQL container stops after starting for a moment giving following error.
+2018-03-07 08:24:47.927 UTC [1] FATAL:  data directory &quot;/var/lib/postgresql/data&quot; has wrong ownership
+2018-03-07 08:24:47.927 UTC [1] HINT:  The server must be started by the user that owns the data directory
+A simple PostgreSQL container from Docker Hub works smoothly, but the error occurs when we try to attach a volume to the container.
+I am new to docker, so please ignore usage of terms wrongly.
+",<postgresql><docker><docker-compose><docker-for-windows>,1895,1,68,717,1,7,19,77,27966,0.0,17,7,31,2018-03-07 9:48,2018-03-07 9:58,2019-03-11 20:52,0.0,369.0,Basic,14
+54302088,"How to fix ""Error: The server does not support SSL connections"" when trying to access database in localhost?","I am following Heroku's node.js tutorial to provision a Postgres database. 
+After creating a simple table and connecting to localhost:5000/db, I get an error saying ""Error: The server does not support SSL connections"".
+I've been searching for solutions for hours but can't seem to fix it. Your help will be greatly appreciated. Thank you!
+",<node.js><postgresql><heroku>,339,1,0,313,1,3,5,64,58725,0.0,14,8,31,2019-01-22 5:59,2020-04-14 0:24,2020-04-14 0:24,448.0,448.0,Basic,13
+56089400,Postgres Sql `could not determine data type of parameter` by Hibernate,"I have JpaRepository:
+@Repository
+public interface CardReaderRepository extends JpaRepository&lt;CardReaderEntity, Integer &gt; {
+}
+when i execute query in this repo same as this:
+@Query(
+    value = ""SELECT new ir.server.component.panel.response."" +
+            ""InvalidCardReaderDataDigestResponse("" +
+            ""    cr.driverNumber, cr.exploiterCode, cr.lineCode, "" +
+            ""    cr.transactionDate, cr.offLoadingDate, "" +
+            ""    cr.cardReaderNumber, "" +
+            ""    sum(cr.count) , sum(cr.remind) "" +
+            "") "" +
+            ""FROM CardReaderEntity cr "" +
+            ""WHERE cr.company.id = :companyId "" +
+            ""AND cr.status.id in :statusIds "" +
+            ""AND cr.deleted = false "" +
+            ""AND  (:fromDate is null or cr.offLoadingDate &gt;= :fromDate ) "" +
+            ""AND  (:toDate   is null or cr.offLoadingDate &lt;= :toDate   ) "" +
+            ""group by cr.driverNumber, cr.exploiterCode, cr.lineCode, cr.transactionDate, cr.offLoadingDate, cr.cardReaderNumber""
+)
+Page&lt;InvalidCardReaderDataDigestResponse&gt; findAllInvalidCardReaderDataDigestByCompanyIdAndStatusIdIn(
+        @Param( ""companyId"" )   int companyId,
+        @Param( ""fromDate"" )    Date fromDate,
+        @Param( ""toDate"" )      Date toDate,
+        @Param( ""statusIds"" )   List&lt;Integer&gt; statusIds,
+        Pageable pageable
+);
+error is :
+org.postgresql.util.PSQLException: ERROR: could not determine data type of parameter $3
+    at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2433) ~[postgresql-42.2.2.jar:42.2.2]
+    at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2178) ~[postgresql-42.2.2.jar:42.2.2]
+    at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:306) ~[postgresql-42.2.2.jar:42.2.2]
+but when a change query to:
+@Query(
+    value = ""SELECT new ir.server.component.panel.response."" +
+            ""InvalidCardReaderDataDigestResponse("" +
+            ""    cr.driverNumber, cr.exploiterCode, cr.lineCode, "" +
+            ""    cr.transactionDate, cr.offLoadingDate, "" +
+            ""    cr.cardReaderNumber, "" +
+            ""    sum(cr.count) , sum(cr.remind) "" +
+            "") "" +
+            ""FROM CardReaderEntity cr "" +
+            ""WHERE cr.company.id = :companyId "" +
+            ""AND cr.status.id in :statusIds "" +
+            ""AND cr.deleted = false "" +
+            ""AND  (:fromDate is null ) "" +
+            ""AND  (:toDate   is null ) "" +
+            ""group by cr.driverNumber, cr.exploiterCode, cr.lineCode, cr.transactionDate, cr.offLoadingDate, cr.cardReaderNumber""
+)
+Page&lt;InvalidCardReaderDataDigestResponse&gt; findAllInvalidCardReaderDataDigestByCompanyIdAndStatusIdIn(
+        @Param( ""companyId"" )   int companyId,
+        @Param( ""fromDate"" )    Date fromDate,
+        @Param( ""toDate"" )      Date toDate,
+        @Param( ""statusIds"" )   List&lt;Integer&gt; statusIds,
+        Pageable pageable
+);
+this work without error but a want run with fromDate and toDate
+note:
+offLoadingDate in CardReaderEntity:
+@Basic
+@Temporal( TemporalType.TIMESTAMP )
+public Date getOffLoadingDate() {
+    return offLoadingDate;
+}
+public void setOffLoadingDate(Date offLoadingDate) {
+    this.offLoadingDate = offLoadingDate;
+}
+all of Date import in my java files is java.util.Date.
+",<sql><postgresql><hibernate><spring-boot><jpa>,3321,0,63,2225,6,21,37,41,60156,0.0,1936,3,31,2019-05-11 10:23,2020-10-06 9:53,,514.0,,Basic,12
+57451719,"Since Spark 2.3, the queries from raw JSON/CSV files are disallowed when the referenced columns only include the internal corrupt record column","I have a json file:
+{
+  &quot;a&quot;: {
+    &quot;b&quot;: 1
+  }
+}
+I am trying to read it:
+val path = &quot;D:/playground/input.json&quot;
+val df = spark.read.json(path)
+df.show()
+But getting an error:
+Exception in thread &quot;main&quot; org.apache.spark.sql.AnalysisException:
+Since Spark 2.3, the queries from raw JSON/CSV files are disallowed
+when the referenced columns only include the internal corrupt record
+column (named _corrupt_record by default). For example:
+spark.read.schema(schema).json(file).filter($&quot;_corrupt_record&quot;.isNotNull).count()
+and
+spark.read.schema(schema).json(file).select(&quot;_corrupt_record&quot;).show().
+Instead, you can cache or save the parsed results and then send the
+same query. For example, val df =
+spark.read.schema(schema).json(file).cache() and then
+df.filter($&quot;_corrupt_record&quot;.isNotNull).count().;
+So I tried to cache it as they suggest:
+val path = &quot;D:/playground/input.json&quot;
+val df = spark.read.json(path).cache()
+df.show()
+But I keep getting the same error.
+",<json><scala><apache-spark><apache-spark-sql>,1038,0,11,10709,24,92,152,80,42093,0.0,886,4,31,2019-08-11 16:27,2019-08-12 6:28,2019-08-12 6:28,1.0,1.0,Basic,14
+65398641,Docker connect SQL Server container non-zero code: 1,"I'm trying to create a SQL Server container from a docker-compose.yml but when I run it, it directly stops with some errors. Note: it's running on an Apple M1 chip with docker Preview
+docker-compose.yml:
+version: &quot;3.7&quot;
+services:
+  sql-server-db:
+    container_name: sql-server-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports: 
+      - &quot;1433:1433&quot;
+    environment: 
+      SA_PASSWORD: &quot;ApplePassDockerConnect&quot;
+      ACCEPT_EULA: &quot;Y&quot;
+The errors I'm getting:
+sql-server-db | /opt/mssql/bin/sqlservr: Invalid mapping of address 0x40092b8000 in reserved address space below 0x400000000000. Possible causes:
+sql-server-db | 1) the process (itself, or via a wrapper) starts-up its own running environment sets the stack size limit to unlimited via syscall setrlimit(2);
+sql-server-db | 2) the process (itself, or via a wrapper) adjusts its own execution domain and flag the system its legacy personality via syscall personality(2);
+sql-server-db | 3) sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layout.
+sql-server-db |
+sql-server-db exited with code 1
+",<sql-server><docker><apple-m1>,1170,0,11,301,1,3,3,57,16478,0.0,0,6,30,2020-12-21 19:12,2020-12-21 21:58,,0.0,,Basic,13
+53489250,"Price aside, why ever choose Google Cloud Bigtable over Google Cloud Datastore?","If I have a use case for both huge data storage and searchability, why would I ever choose Google Cloud Bigtable over Google Cloud Datastore?
+I've seen a few questions on SO and other sides ""comparing"" Bigtable and Datastore, but it seems to boil down to the same non-specific answers.
+Here's my current knowledge and my thoughts:
+  Datastore is more expensive.
+In the context of this question, let's forget entirely about pricing.
+  Bigtable is good for huge datasets.
+It seems like Datastore is, too? I'm not seeing what specifically makes Bigtable objectively superior here.
+  Bigtable is better than Datastore for analytics.
+How? Why? It seems like I can do analytics in Datastore as well, no problem. Why is Bigtable seemingly the unanimous decision industry-wide for analytics? What value do GMail, eBay, etc. get from Bigtable that Datastore can't provide?
+  Bigtable is integrated with Hadoop, Spark, etc.
+Is Datastore not as well, considering it's built on Bigtable?
+From this question, this statement was made in an answer: 
+  Bigtable and Datastore are extremely different. Yes, the datastore is build on top of Bigtable, but that does not make it anything like it. That is kind of like saying a car is build on top of [car] wheels, and so a car is not much different from wheels.
+However, this seems analogy seems nonsensical, since the car (including the wheels) intrinsically provides more value than just the wheels of a car by themselves. 
+It seems at first glance that Bigtable is strictly worse than Datastore, only providing a single index and limiting quick searchability.  What am I missing?
+",<google-cloud-platform><nosql><google-cloud-datastore><bigtable><google-cloud-bigtable>,1613,1,0,435,1,6,9,41,15053,0.0,2,1,30,2018-11-26 21:21,2018-11-27 19:41,2018-11-27 19:41,1.0,1.0,Intermediate,17
+50927740,"SQLAlchemy: ""create schema if not exists""","I want to do the ""CREATE SCHEMA IF NOT EXISTS"" query in SQLAlchemy.
+Is there a better way than this:
+    engine = sqlalchemy.create_engine(connstr)
+    schema_name = config.get_config_value('db', 'schema_name')
+    #Create schema; if it already exists, skip this
+    try:
+        engine.execute(CreateSchema(schema_name))
+    except sqlalchemy.exc.ProgrammingError:
+        pass
+I am using Python 3.5.
+",<python><sql><database><python-3.x><sqlalchemy>,402,0,9,1103,3,14,29,40,25948,0.0,987,5,30,2018-06-19 11:51,2019-03-25 19:50,2019-03-25 19:50,279.0,279.0,Basic,10
+50974851,How to optimise this MySQL query? Millions of Rows,"I have the following query:
+SELECT 
+    analytics.source AS referrer, 
+    COUNT(analytics.id) AS frequency, 
+    SUM(IF(transactions.status = 'COMPLETED', 1, 0)) AS sales
+FROM analytics
+LEFT JOIN transactions ON analytics.id = transactions.analytics
+WHERE analytics.user_id = 52094 
+GROUP BY analytics.source 
+ORDER BY frequency DESC 
+LIMIT 10 
+The analytics table has 60M rows and the transactions table has 3M rows.
+When I run an EXPLAIN on this query, I get:
++------+--------------+-----------------+--------+---------------------+-------------------+----------------------+---------------------------+----------+-----------+-------------------------------------------------+
+| # id |  select_type |      table      |  type  |    possible_keys    |        key        |        key_len       |            ref            |   rows   |   Extra   |                                                 |
++------+--------------+-----------------+--------+---------------------+-------------------+----------------------+---------------------------+----------+-----------+-------------------------------------------------+
+| '1'  |  'SIMPLE'    |  'analytics'    |  'ref' |  'analytics_user_id | analytics_source' |  'analytics_user_id' |  '5'                      |  'const' |  '337662' |  'Using where; Using temporary; Using filesort' |
+| '1'  |  'SIMPLE'    |  'transactions' |  'ref' |  'tran_analytics'   |  'tran_analytics' |  '5'                 |  'dijishop2.analytics.id' |  '1'     |  NULL     |                                                 |
++------+--------------+-----------------+--------+---------------------+-------------------+----------------------+---------------------------+----------+-----------+-------------------------------------------------+
+I can't figure out how to optimise this query as it's already very basic. It takes around 70 seconds to run this query.
+Here are the indexes that exist:
++-------------+-------------+----------------------------+---------------+------------------+------------+--------------+-----------+---------+--------+-------------+----------+----------------+
+|   # Table   |  Non_unique |          Key_name          |  Seq_in_index |    Column_name   |  Collation |  Cardinality |  Sub_part |  Packed |  Null  |  Index_type |  Comment |  Index_comment |
++-------------+-------------+----------------------------+---------------+------------------+------------+--------------+-----------+---------+--------+-------------+----------+----------------+
+| 'analytics' |  '0'        |  'PRIMARY'                 |  '1'          |  'id'            |  'A'       |  '56934235'  |  NULL     |  NULL   |  ''    |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_user_id'       |  '1'          |  'user_id'       |  'A'       |  '130583'    |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_product_id'    |  '1'          |  'product_id'    |  'A'       |  '490812'    |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_affil_user_id' |  '1'          |  'affil_user_id' |  'A'       |  '55222'     |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_source'        |  '1'          |  'source'        |  'A'       |  '24604'     |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_country_name'  |  '1'          |  'country_name'  |  'A'       |  '39510'     |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_gordon'        |  '1'          |  'id'            |  'A'       |  '56934235'  |  NULL     |  NULL   |  ''    |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_gordon'        |  '2'          |  'user_id'       |  'A'       |  '56934235'  |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'analytics' |  '1'        |  'analytics_gordon'        |  '3'          |  'source'        |  'A'       |  '56934235'  |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
++-------------+-------------+----------------------------+---------------+------------------+------------+--------------+-----------+---------+--------+-------------+----------+----------------+
++----------------+-------------+-------------------+---------------+-------------------+------------+--------------+-----------+---------+--------+-------------+----------+----------------+
+|    # Table     |  Non_unique |      Key_name     |  Seq_in_index |    Column_name    |  Collation |  Cardinality |  Sub_part |  Packed |  Null  |  Index_type |  Comment |  Index_comment |
++----------------+-------------+-------------------+---------------+-------------------+------------+--------------+-----------+---------+--------+-------------+----------+----------------+
+| 'transactions' |  '0'        |  'PRIMARY'        |  '1'          |  'id'             |  'A'       |  '2436151'   |  NULL     |  NULL   |  ''    |  'BTREE'    |  ''      |  ''            |
+| 'transactions' |  '1'        |  'tran_user_id'   |  '1'          |  'user_id'        |  'A'       |  '56654'     |  NULL     |  NULL   |  ''    |  'BTREE'    |  ''      |  ''            |
+| 'transactions' |  '1'        |  'transaction_id' |  '1'          |  'transaction_id' |  'A'       |  '2436151'   |  '191'    |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'transactions' |  '1'        |  'tran_analytics' |  '1'          |  'analytics'      |  'A'       |  '2436151'   |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'transactions' |  '1'        |  'tran_status'    |  '1'          |  'status'         |  'A'       |  '22'        |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'transactions' |  '1'        |  'gordon_trans'   |  '1'          |  'status'         |  'A'       |  '22'        |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
+| 'transactions' |  '1'        |  'gordon_trans'   |  '2'          |  'analytics'      |  'A'       |  '2436151'   |  NULL     |  NULL   |  'YES' |  'BTREE'    |  ''      |  ''            |
++----------------+-------------+-------------------+---------------+-------------------+------------+--------------+-----------+---------+--------+-------------+----------+----------------+
+Simplified schema for the two tables before adding any extra indexes as suggested as it didn't improve the situation.
+CREATE TABLE `analytics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `affil_user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `medium` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `source` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `terms` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_browser` tinyint(1) DEFAULT NULL,
+  `is_mobile` tinyint(1) DEFAULT NULL,
+  `is_robot` tinyint(1) DEFAULT NULL,
+  `browser` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `robot` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `platform` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `referrer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `domain` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `continent_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `analytics_user_id` (`user_id`),
+  KEY `analytics_product_id` (`product_id`),
+  KEY `analytics_affil_user_id` (`affil_user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=64821325 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `pay_key` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sender_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `currency` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `analytics` int(11) DEFAULT NULL,
+  `ip_address` varchar(46) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `session_id` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `eu_vat_applied` int(1) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `tran_user_id` (`user_id`),
+  KEY `transaction_id` (`transaction_id`(191)),
+  KEY `tran_analytics` (`analytics`),
+  KEY `tran_status` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=10019356 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+If the above can not be optimised any further. Any implementation advice on summary tables will be great. We are using a LAMP stack on AWS. The above query is running on RDS (m1.large).
+",<mysql><sql><query-optimization><amazon-rds><sql-optimization>,9303,0,91,56442,101,275,411,39,4394,0.0,706,13,30,2018-06-21 17:54,2018-06-21 17:55,2018-06-24 13:19,0.0,3.0,Intermediate,23
+48703318,MySql.Data.EntityFrameworkCore vs Pomelo.EntityFrameworkCore.MySql,"Which database connector should I use in .Net Core 2 enterprise level web app which is going to handle large amount of data.
+I have two choices:
+Pomelo.EntityFrameworkCore.MySql
+MySql.Data.EntityFrameworkCore
+But still confuse which one to choose for the development.
+I started with MySql.Data.EntityFrameworkCore, which is MySQL official provider but after facing several issues while code first migration I had to google again for some better alternative.
+After some research I found Pomelo.EntityFrameworkCore.MySql bit more helpful for my application and it also covered the issues I was facing before.
+But it still left me a bit confuse about which one to choose for long term.
+Pomelo is workign fine currently but I am not sure if they (pomelo team) will keep always keep it updating and will keep it in sync with the latest .Net Core version available in the market??
+MySql is not working as expected but the only plus point with this is : It is provided by MySQl itself.
+Please help me to decide
+",<mysql><entity-framework><entity-framework-core><asp.net-core-2.0><pomelo-entityframeworkcore-mysql>,1004,0,0,910,1,7,20,78,21118,0.0,11,0,30,2018-02-09 10:05,,,,,Intermediate,21
+48872965,Postgres: \copy syntax,"With PostgreSQL 9.5 on CentOS 7, I have created a database named sample along with several tables.  I have .csv data in /home/MyUser/data for each table. 
+ For example, there exists TableName.csv for the table ""TableName"".
+How do I load the csv files into each table?
+What I've tried doesn't work and I can't figure out what I'm doing wrong.
+Load from within the DB
+$ psql sample
+sample=# COPY ""TableName"" FROM '/home/MyUser/data/TableName.csv' WITH CSV;
+ERROR:  could not open file ""/home/MyUser/data/TableName.csv"" for reading: Permission denied
+This implies a file permission problem.  All the files in data/ are -rw-r--r-- and the directory itself is drwxr-xr-x.  So file permissions shouldn't be the problem (unless I'm missing something).  The internet says that COPY has problems with permissions and to try \copy.  
+Load from CLI
+$ psql \copy sample FROM /home/MyUser/data/TableName.csv WITH CSV
+psql: warning: extra command-line argument ""FROM"" ignored
+psql: warning: extra command-line argument ""/home/MyUser/data/TableName.csv"" ignored
+psql: warning: extra command-line argument ""WITH"" ignored
+psql: warning: extra command-line argument ""CSV"" ignored
+psql: FATAL:  Peer authentication failed for user ""sample""
+This appears to be a syntax error, but I'm not finding the documentation particularly helpful (man psql then /\copy).  I've also tried the following to the same result.
+$ psql \copy sample.""TableName"" FROM /home/MyUser/data/TableName.csv WITH CSV
+$ psql \copy sample FROM /home/MyUser/data/TableName.csv WITH DELIMITER ','
+There are several other permutations which yield similar errors.
+Web Resources Used
+https://www.postgresql.org/docs/9.5/static/app-psql.html
+https://www.postgresql.org/docs/9.5/static/sql-copy.html
+The correct COPY command to load postgreSQL data from csv file that has single-quoted data?
+https://soleil4716.wordpress.com/2010/08/19/using-copy-command-in-postgresql/
+Can I use \copy command into a function of postgresql?
+https://wiki.postgresql.org/wiki/COPY
+",<postgresql>,2005,10,26,4120,4,43,69,36,91883,0.0,406,2,30,2018-02-19 19:31,2018-02-20 9:14,2018-02-20 9:14,1.0,1.0,Intermediate,21
+48446399,SQL auto increment pgadmin 4,"I am trying to make a simple database with an number generator but why do I get the error below?
+  ERROR:  syntax error at or near ""AUTO_INCREMENT""
+  LINE 2: IDNumber int NOT NULL AUTO_INCREMENT,
+Code:
+CREATE TABLE Finance
+(
+    IDNumber int NOT NULL AUTO_INCREMENT,
+    FinName varchar(50) NOT NULL,
+    PRIMARY KEY(IDNumber)
+);
+",<sql>,330,0,6,497,1,5,14,78,80449,0.0,9,6,29,2018-01-25 15:27,2018-01-25 15:30,2018-01-25 15:32,0.0,0.0,Basic,8
+63585525,SQLSTATE[HY000]: General error: 3780 Referencing column 'user_id' and referenced column 'id' in foreign key are incompatible,"I´m doing migrations in Laravel and this error happens when I proceed with the command PHP artisan migrate:
+In Connection.php line 664:
+SQLSTATE[HY000]: General error: 3780 Referencing column 'user_id' and referenced column 'id' in foreign key constraint 'almacen_movimientos_user_id_foreign' are incompatible. (SQL: alter table almacen_movimientos add constraint almacen_movimientos_user_id_foreign foreign key (user_id) references users (id
+) on delete restrict)
+In PDOStatement.php line 129:
+SQLSTATE[HY000]: General error: 3780 Referencing column 'user_id' and referenced column 'id' in foreign key constraint 'almacen_movimientos_user_id_foreign' are incompatible.
+My migrations look like this:
+almacen_movimientos table
+public function up()
+{
+    Schema::create('almacen_movimientos', function (Blueprint $table) {
+        $table-&gt;unsignedBigInteger('id');
+        $table-&gt;integer('cliente_proveedor_id');
+        $table-&gt;integer('empresa_id');
+        $table-&gt;integer('user_id');
+        $table-&gt;enum('tipo' , ['ENTRADA' , 'SALIDA' , 'REUBICACION' , 'TRASPASO' , 'DEVOLUCION' , 'MSRO' , 'ENTRADA POR TRASPASO' , 'SALIDA POR TRASPASO'])-&gt;nullable();
+        $table-&gt;string('referencia' , 255)-&gt;nullable();
+        $table-&gt;string('observaciones' , 255)-&gt;nullable();
+        $table-&gt;timestamp('created_at');
+        $table-&gt;timestamp('updated_at');
+        $table-&gt;timestamp('deleted_at');
+        $table-&gt;string('transportista' , 255)-&gt;nullable();
+        $table-&gt;string('operador' , 255)-&gt;nullable();
+        $table-&gt;string('procedencia' , 255)-&gt;nullable();
+        $table-&gt;integer('almacen_id')-&gt;nullable();
+        $table-&gt;foreign('cliente_proveedor_id')-&gt;references('id')-&gt;on('empresas')-&gt;onDelete('restrict');
+        $table-&gt;foreign('empresa_id')-&gt;references('id')-&gt;on('empresas')-&gt;onDelete('restrict');
+        $table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users')-&gt;onDelete('restrict');
+        $table-&gt;foreign('almacen_id')-&gt;references('id')-&gt;on('almacenes')-&gt;onDelete('restrict');
+    });
+}
+Users Table
+public function up()
+{
+    Schema::create('users', function (Blueprint $table) {
+        $table-&gt;unsignedBigInteger('id');
+        $table-&gt;string('name' , 255);
+        $table-&gt;string('apellido_paterno' , 115)-&gt;nullable();
+        $table-&gt;string('apellido_materno' , 115)-&gt;nullable();
+        $table-&gt;dateTime('fecha_nacimiento')-&gt;nullable();
+        $table-&gt;string('telefono1' , 10)-&gt;nullable();
+        $table-&gt;string('telefono2' , 10)-&gt;nullable();
+        $table-&gt;string('calle' , 255)-&gt;nullable();
+        $table-&gt;string('numero' , 45)-&gt;nullable();
+        $table-&gt;string('colonia' , 255)-&gt;nullable();
+        $table-&gt;string('codigo_postal' , 6)-&gt;nullable();
+        $table-&gt;string('email' , 255)-&gt;unique();
+        $table-&gt;string('user' , 20)-&gt;nullable()-&gt;unique();
+        $table-&gt;string('password' , 255);
+        $table-&gt;string('palabra_secreta' , 255);
+        $table-&gt;string('remember_token' , 100)-&gt;nullable();
+        $table-&gt;unsignedInteger('empresa_id')-&gt;nullable();
+        $table-&gt;timestamp('created_at');
+        $table-&gt;timestamp('updated_at');
+        $table-&gt;timestamp('deleted_at');
+        $table-&gt;foreign('empresa_id')-&gt;references('id')-&gt;on('empresas')-&gt;onDelete('restrict');
+    });
+}
+Can somebopdy tell me what am I doing wrong? I cannot fix this.
+Thank you.
+Regards.
+",<php><mysql><laravel>,3540,0,57,429,1,6,14,57,50082,0.0,7,6,29,2020-08-25 19:03,2020-08-25 19:09,,0.0,,Basic,10
+55509638,"Could not load file or assembly 'System.Memory, Version=4.0.1.' in Visual Studio 2015","For a couple of months i had no issue generating the model from DB by deleting it and recreating it . After a pull from git, an issue has been occurred while trying to make the same process . After the second step (connection string creation with DB) there is no further proceed at the 3rd step and no connection string with the data base is being created at the app.config file.I have tried to test the connection with the database credentials and i am getting the following .
+When i try to update specific tables from the model diagram as an alternative i get also the below :
+System.Data.Entity.Core.EntityException: An error occurred while
+closing the provider connection. See the inner exception for details.
+---&gt; System.IO.FileNotFoundException: Could not load file or assembly 'System.Memory, Version=4.0.1.0, Culture=neutral,
+PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies.
+I have reinstalled Entity Framework and npgsql packages and tried to add all (the same) assemblies but with no success . Similar answers at Stack did not solve my issue . (I am allowed to work with the current versions with no further updates at VS or any of its packages.)
+!Notice : i get all the appropriate data from my services when i use the API calls with the current model (proper communication with DB), but i cannot generate a new model from DB .
+Any solutions ?
+I am using
+Windows 10
+VS 2015
+EntityFrameWork 6.2.0
+Npgsql 3.1.1
+.Net v.4.6.2
+Asp.net
+Thanks in advance !
+",<c#><.net><visual-studio-2015><entity-framework-6><npgsql>,1476,1,0,1039,2,16,28,74,69750,0.0,62,10,29,2019-04-04 6:59,2019-04-04 7:08,,0.0,,Basic,14
+51126162,Laravel Eloquent: is SQL injection prevention done automatically?,"Given the example code (Message is an Eloquent model.):
+public function submit(Request $request){
+    $this-&gt;validate($request, [
+        'name' =&gt; ""required"",
+        ""email"" =&gt; ""required""
+    ]);
+    //database connection
+    $message = new Message;
+    $message-&gt;name = $request-&gt;input(""name"");
+    $message-&gt;email = $request-&gt;input(""email"");
+    $message-&gt;save();
+}
+Does Eloquent use parameterized queries (like PDO) or any other mechanisms to prevent SQL injection?
+",<php><sql><laravel><eloquent>,495,0,13,459,1,4,9,42,28881,0.0,7,1,29,2018-07-01 19:01,2018-07-01 19:18,2018-07-01 19:18,0.0,0.0,Basic,14
+49695990,Authenticate from Linux to Windows SQL Server with pyodbc,"I am trying to connect from a linux machine to a windows SQL Server with pyodbc.
+I do have a couple of constraints:
+Need to log on with a windows domain account
+Need to use python3
+Need to do it from Linux to Windows
+Need to connect to a specific instance
+I set up the environment as described by microsoft and have it working (I can import pyodbc and use the configured mussel driver).
+I am not familiar with Windows domain authentication and what not, so there is where my problem is.
+My connection string:
+DRIVER={ODBC Driver 17 for SQL Server};SERVER=myserver.mydomain.com;PORT=1433;DATABASE=MyDatabase;Domain=MyCompanyDomain;Instance=MyInstance;UID=myDomainUser;PWD=XXXXXXXX;Trusted_Connection=yes;Integrated_Security=SSPI
+Supposedly one should use ""Trusted_Connection"" to use the Windows domain authentication instead of directly authenticating with the SQL server.
+The error I get when running pyodbc.connect(connString):
+pyodbc.Error: ('HY000', '[HY000] [unixODBC][Microsoft][ODBC Driver 17 for SQL Server]SSPI Provider: No Kerberos credentials available (851968) (SQLDriverConnect)')
+From other sources I read this should work on Windows as this code would use the credentials of the currently logged in user.
+My question is how can I connect to a Windows SQL Server instance from Linux using Windows Domain credentials.
+",<python><sql><linux><windows><pyodbc>,1330,0,2,820,1,9,19,73,48752,0.0,18,7,29,2018-04-06 15:16,2018-04-06 16:09,2018-04-13 16:51,0.0,7.0,Advanced,36
+49959601,Configure time zone to mysql docker container,"I have a mysql 5.7 docker container. When I run the mysql command:
+SELECT now();
+It shows the time -3 hours to my current time (which is logical). I want to set the time zone in a config file. Following the documentation in https://hub.docker.com/_/mysql/ I create a volume in my docker-compose.yml file like the following:
+mysqldb:
+    image: mysql:5.7.21
+    container_name: mysql_container
+    ports:
+      - ""3306:3306""
+    volumes:
+      - ./.docker/etc/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+When I browse the files inside the container the file custom.cnf is there.
+In that file, I tried some of the ways I found as solutions like:
+[mysqld]
+default_time_zone='Europe/Sofia'
+or a compromise solution which is less elegant as the zone will have to be changed twice a year (summer / winter):
+[mysqld]
+default_time_zone='+03:00'
+but none works. I have the sensation the this file is not loaded by mysql at all because if I try to put invalid configuration in there nothing happens either (the container starts normally).
+Any suggestions on that?
+",<mysql><docker><docker-compose><my.cnf>,1056,2,14,1442,3,21,29,56,52256,0.0,101,4,29,2018-04-21 19:43,2018-04-24 12:04,2018-04-24 12:31,3.0,3.0,Basic,14
+50177907,com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server,"I'm new in Databases just started to learn them. I have MySQL Server 8.0., Workbench 8.0, Java connector 5.1.31, Java 1.8 itself. Followed multiple guides for newbies how to start with. 
+So there is the case. I have database on localhost and successfully connect to it with workbench and via windows prompt. But after I execute code in java:
+        Driver sqlDriver = new FabricMySQLDriver();
+        DriverManager.registerDriver(sqlDriver);
+        Connection sqlConnection = DriverManager.getConnection(""jdbc:mysql://localhost:3306/?user=root"", ""root"", ""root"");
+I get exception com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server.
+Why it could happen? I've tried to reinstall MySQL, Cleaned OS variables, looked everywhere and couldn't find solution. Would be glad to find it here.
+UPD:
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+    at com.mysql.jdbc.Util.getInstance(Util.java:383)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1023)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:997)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:983)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:928)
+    at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2407)
+    at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2328)
+    at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:832)
+    at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:46)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+    at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:417)
+    at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:344)
+    at java.sql.DriverManager.getConnection(DriverManager.java:664)
+    at java.sql.DriverManager.getConnection(DriverManager.java:247)
+    at com.company.Main.main(Main.java:11)
+Caused by: java.lang.NullPointerException
+    at com.mysql.jdbc.ConnectionImpl.getServerCharacterEncoding(ConnectionImpl.java:3309)
+    at com.mysql.jdbc.MysqlIO.sendConnectionAttributes(MysqlIO.java:1985)
+    at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1911)
+    at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1288)
+    at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2508)
+    at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2346)
+    ... 13 more
+",<java><mysql><jdbc>,3352,0,37,471,1,4,11,72,88224,0.0,35,2,29,2018-05-04 15:02,2018-05-05 7:21,,1.0,,Basic,12
+54824209,Indexing JSONField in Django PostgreSQL,"I am using a simple model with an attribute that stores all the data for that object in a JSONField. Think of it as way to transfer NoSQL data to my PostgreSQL database. Kinda like this:
+from django.contrib.postgres.fields import JSONField   
+class Document(models.Model):
+    content = JSONField()
+Each Document object has (more or less) the same keys in its content field, so I am querying and ordering those documents using those keys. For the querying and ordering, I am using Django's annotate() function. I recently came across this:
+https://docs.djangoproject.com/en/2.1/ref/contrib/postgres/indexes/
+I also know that PostgreSQL using JSONB, which is apparently indexible. So my question is this: Can I index my content field somehow to make my read operations faster for complex queries? And if so, then how do I do it? The documentation page I linked has no examples.
+",<django><postgresql>,877,2,8,8342,21,74,153,45,7275,0.0,320,3,29,2019-02-22 9:43,2020-09-22 16:45,2022-11-29 19:50,578.0,1376.0,Basic,1
+49797786,How to get cursor in SQLAlchemy,"I am newbie in Python Flask. In my project we are creating db object using below code.    
+    app = Flask(__name__)  
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'  
+    db = SQLAlchemy(app)   
+I want to get cursor object from db. Can someone please help me on it. 
+I know using connection object we can get cursor. But can we get cursor from db object which is created by above way? Thanks. 
+",<python><flask><sqlalchemy><flask-sqlalchemy><database-cursor>,417,0,3,1519,3,13,19,48,57414,0.0,101,4,29,2018-04-12 13:25,2018-04-12 20:15,2018-04-13 11:50,0.0,1.0,Basic,3

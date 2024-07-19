@@ -1,0 +1,840 @@
+Id,Title,Body,Tags,CreationDate,Y
+34837026,What's the meaning of pool_connections in requests.adapters.HTTPAdapter?,"<p>When initializing a requests' <code>Session</code>, two <a href=""http://docs.python-requests.org/en/latest/api/#requests.adapters.HTTPAdapter"" rel=""noreferrer""><code>HTTPAdapter</code></a> will be created and <a href=""https://github.com/kennethreitz/requests/blob/master/requests/sessions.py#L340-L341"" rel=""noreferrer"">mount to <code>http</code> and <code>https</code></a>.</p>
+
+<p>This is how <code>HTTPAdapter</code> is defined:</p>
+
+<pre><code>class requests.adapters.HTTPAdapter(pool_connections=10, pool_maxsize=10,
+                                    max_retries=0, pool_block=False)
+</code></pre>
+
+<p>While I understand the meaning of <code>pool_maxsize</code>(which is the number of session a pool can save), I don't understand what <code>pool_connections</code> means or what it does. Doc says:</p>
+
+<pre><code>Parameters: 
+pool_connections – The number of urllib3 connection pools to cache.
+</code></pre>
+
+<p>But what does it mean ""to cache""? And what's the point using multiple connection pools?</p>
+",<python><python-requests><urllib3>,16/01/17 9:50,HQ
+34837102,How to put a song in android?,"<p>I have a game and I want to put a background song. I read that you have to put an mp3 in the raw folder, but I don't know where is it. Thanks.</p>
+",<android><android-studio>,16/01/17 10:01,LQ_CLOSE
+34837150,Applicative is to monad what X is to comonad,"<p>Can we solve this equation for X ?</p>
+
+<blockquote>
+  <p>Applicative is to monad what X is to comonad</p>
+</blockquote>
+",<haskell><monads><applicative><comonad>,16/01/17 10:08,HQ
+34837725,Spring Data Repositories - Find where field in list,"<p>I'm trying to use spring <code>PagingAndSortingRepository</code> with a <code>find MyEntity where field in fieldValues</code> query as follows:</p>
+
+<pre><code>@Repository
+public interface MyEntity extends PagingAndSortingRepository&lt;MyEntity, String&gt; {
+
+    List&lt;MyEntity&gt; findByMyField(Set&lt;String&gt; myField);
+
+}
+</code></pre>
+
+<p>But of no success.</p>
+
+<p>I expected the above function to return all entities whose field matches one of the field values but it only returns <strong>empty results</strong>.</p>
+
+<p>Even though it seems like a pretty straight forward ability i could not find any reference to it in the <a href=""http://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html"" rel=""noreferrer"">docs</a>.</p>
+
+<p>Is / How that could be achieved?</p>
+
+<p>Thanks.</p>
+",<java><spring><spring-data><spring-data-mongodb><spring-data-commons>,16/01/17 11:18,HQ
+34838210,What is the differenect between spring cloud and spring cloud Netflix?,"<p>Could somebody explain what the difference between spring cloud and spring cloud netflix? I am just starting to learn and the difference is not very clear for me. The spring cloud is an ""interface"" (or standart or base implenetation) and Netflix is another ""implementation""? Or netflix provide something different things? (what exactly?)</p>
+
+<p>Also Netflix is private company - is there any restriction about using they components? Is spring cloud netflix free?</p>
+",<java><spring><spring-cloud><netflix>,16/01/17 12:18,LQ_CLOSE
+34838294,What is difference between creating object using Object.create() and Object.assign()?,"<p>Considering following code:</p>
+
+<pre><code>var obj1 = Object.create({}, {myProp: {value: 1}});
+var obj2 = Object.assign({}, {myProp: 1});
+</code></pre>
+
+<p>Is there any difference between <code>obj1</code> and <code>obj2</code> since each object has been created in a different way?</p>
+",<javascript><object-create>,16/01/17 12:27,HQ
+34838463,Regex match and count,"Using Regex how would you count triplicates in a string?
+
+example 122244445577777 
+
+1 222 444 4 55 777 77
+
+answer 3",<regex><match>,16/01/17 12:45,LQ_EDIT
+34838542,How to get Timezone offset from moment Object?,"<p>I have <code>moment</code> Object defined as:</p>
+
+<pre><code>var moment = require('moment');
+
+moment('2015-12-20T12:00:00+02:00');
+</code></pre>
+
+<p>When I print it, I get:</p>
+
+<pre><code>_d: Sun Dec 20 2015 12:00:00 GMT+0200 (EET)
+_f: ""YYYY-MM-DDTHH:mm:ssZ""
+_i: ""2015-12-20T12:00:00+02:00""
+_isAMomentObject: true
+_isUTC: false
+_locale: r
+_pf: Object
+_tzm: 120
+</code></pre>
+
+<p>How to fetch by right way <code>_tzm</code>? (suppose its offset in minutes)</p>
+
+<p>Thanks,</p>
+",<javascript><node.js><momentjs>,16/01/17 12:54,HQ
+34839339,for loop with table wchich return 12 values(month) php,"I write this code when i try to return 12 numbers from 1 to 12:
+
+    public function getMonths() 
+    { 
+        for($monthNum = 1; $monthNum <= 12; $monthNum++)
+            { 
+              $month[$monthNum]=$monthNum;
+            } 
+    return [$month]; 
+    }
+
+How can i return this 12 numbers? I have now zero in my first return value. Anyone know how to resolve this? I need only 12 numbers without 0?
+",<php><arrays>,16/01/17 14:17,LQ_EDIT
+34839399,How to access the $container within middleware class in Slim v3?,"<p>I've been reading that in Slim v2, $app was bound to the middleware class. I'm finding this not to be the case in v3? Below is my middleware class, but I'm just getting undefined:</p>
+
+<pre><code>&lt;?php
+namespace CrSrc\Middleware;
+
+class Auth
+{
+    /**
+     * Example middleware invokable class
+     *
+     * @param  \Psr\Http\Message\ServerRequestInterface $request  PSR7 request
+     * @param  \Psr\Http\Message\ResponseInterface      $response PSR7 response
+     * @param  callable                                 $next     Next middleware
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function __invoke($request, $response, $next)
+    {
+        // before
+
+var_dump($this-&gt;getContainer()); // method undefined
+var_dump($this-&gt;auth); exit; // method undefined
+        if (! $this-&gt;get('auth')-&gt;isAuthenticated()) {
+            // Not authenticated and must be authenticated to access this resource
+            return $response-&gt;withStatus(401);
+        }
+
+        // pass onto the next callable
+        $response = $next($request, $response);
+
+        // after
+
+
+        return $response;
+    }
+}
+</code></pre>
+
+<p>What's the correct way to access the DI container within middleware? I'm guessing there ought to be a way?</p>
+",<php><slim><slim-3>,16/01/17 14:24,HQ
+34839449,AWS Configure Bash One Liner,"<p>Can anybody tell me how to automate the aws configure in bash with a one liner?</p>
+
+<p>Example:</p>
+
+<pre><code>$ aws configure --profile user2
+AWS Access Key ID [None]: AKIAI44QH8DHBEXAMPLE
+AWS Secret Access Key [None]: je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+Default region name [None]: us-east-1
+Default output format [None]: text
+</code></pre>
+
+<p>Application: I want to automate this inside a Docker Entrypoint!</p>
+",<bash><amazon-web-services><docker>,16/01/17 14:29,HQ
+34839492,Swift2 - Drawing from dictionary,I'm trying to copy image pixel by pixel and I save the data from the image in dictionary:[UIColor:CGPoint] how to draw on CGContext all points pixel by pixel with the exact color for certain pixel?,<ios><swift><dictionary><uicolor><cgpoint>,16/01/17 14:32,LQ_EDIT
+34839615,Cumulative values of a column for each group (R),"<p>I have a data frame that looks like this :</p>
+
+<pre><code>&gt; year&lt;-c(2014,2014,2014,2015,2015,2015,2016,2016,2016)
+&gt; group&lt;-c(""A"",""B"",""C"",""A"",""B"",""C"",""A"",""B"",""C"")
+&gt; n&lt;-c(1,1,1,1,2,0,2,1,1)
+&gt; df&lt;-data.frame(year=year,group=group,n=n)
+&gt; df
+
+year group n
+2014     A 1
+2014     B 1
+2014     C 1
+2015     A 1
+2015     B 2
+2015     C 0
+2016     A 2
+2016     B 1
+2016     C 1
+</code></pre>
+
+<p>I want to create a column that contains the cumulated values of n for each group to have something like this : </p>
+
+<pre><code>year group n  sum
+2014     A 1  1
+2014     B 1  1
+2014     C 1  1
+2015     A 1  2
+2015     B 2  3
+2015     C 0  1
+2016     A 2  4
+2016     B 1  4
+2016     C 1  2
+</code></pre>
+",<r>,16/01/17 14:45,LQ_CLOSE
+34839848,un able to insert data into database using php,"<p>this php code is written at the end of of my file </p>
+
+<pre><code> &lt;?php
+
+if(isset($_POST['submit']))
+{
+  $Jobtitle = $_POST['jobtitle'];
+  $Firstname = $_POST['firstname'];
+  $Lastname = $_POST['lastname'];
+  $Name=$Firstname+$Lastname;
+  $Sin = $_POST['sin'];
+  $Phone = $_POST['phone'];
+  $Email = $_POST['email'];
+  $Address = $_POST['address'];
+  $Postal = $_POST['postal'];
+  $State = $_POST['state'];
+  $Country = $_POST['country'];
+  $Skill = $_POST['skill'];
+  $Owntransport = $_POST['owntransport'];
+  $ADate = $_POST['a-date'];
+  $Workpermit = $_POST['workpermit'];
+  $Daysavailable = $_POST['days-available'];
+  $Strength = $_POST['strength'];
+  $eFirstname = $_POST['efirstname'];
+  $eLastname = $_POST['elastname'];
+  $eName=$eFirstname+$eLastname;
+  $ePhone = $_POST['ephone'];
+  $query="" INSERT INTO `general`(`jobtitle`, `name`, `sin`, `pno`, `email`, `address`, `doc`, `skills`, `transport`, `avadate`, `authorize`, `days`, `strength`, `ename`, `ephone`) VALUES ('{$Jobtitle}','{$Name}','{$Sin}','{$Phone}','{$Email}','{$Address}','{$Postal}','{$State}','{$Country}','{$Skill}','{$Owntransport}','{$ADate}','{$Workpermit}','{$Daysavailable}','{$Strength}','{$eName}','{$ePhone}')"";
+ // $query = ""INSERT INTO info (name,password,gender,hobby,phone no,dob,message) VALUES ('{$Name}','{$Password}','{$Gender}','{$Hobby}','{$Phone}','{$Dob}','{$Message}')"";
+  $result = mysql_query($query);
+  if($result)
+  {
+    echo ""data entered"";
+  }
+  unset($_POST);
+}
+else{
+  echo ""error in entering data"";
+}
+</code></pre>
+
+<p>?></p>
+
+<p>this is the button tag</p>
+
+<pre><code>&lt;button type=""button"" class=""btn btn-primary""name=""submit""value=""submit"" id=""submit""&gt;Submit&lt;/button&gt;
+</code></pre>
+
+<p>this is the form tag</p>
+
+<pre><code>&lt;form method=""post"" id=""contactform"" action=""#"" role=""form""&gt;
+</code></pre>
+
+<p>connection .php file giving me the connection to database but I am unable to store the data in databse it gives me the error that 
+data is not entered</p>
+",<php><mysql>,16/01/17 15:08,LQ_CLOSE
+34840001,how to make smooth grayscale on hover using CSS,"<p>I have logo in my website, it is grayscaled on hover i want it to be colored smoothly. it is working but not smoothly. i am using CSS transition.</p>
+
+<p>This is my code</p>
+
+<pre><code>&lt;img alt=""TT ltd logo"" src=""./img/tt-logo.png"" class=""tt-logo"" /&gt;
+
+   &lt;style&gt;
+    img.tt-logo {
+      filter: grayscale(1);
+      transition: grayscale 0.5s;
+    }
+
+    img.tt-logo:hover {
+      filter: grayscale(0);
+    }
+   &lt;/style&gt;
+</code></pre>
+",<css><css-transitions><grayscale>,16/01/17 15:21,HQ
+34840153,npm deprecated warnings – do I need to update something?,"<p>After doing <code>npm install</code> to fetch a project's dependencies, I regularly get a lot messages like this:</p>
+
+<p><code>npm WARN deprecated lodash@1.0.2: lodash@&lt;2.0.0 is no longer maintained. Upgrade to lodash@^3.0.0</code></p>
+
+<p>Obviously I don't understand node good enough to conclude what I should do – the project doesn't even include lodash directly.</p>
+
+<p>Do I need to update something on my side? Or is it the package maintainers task?</p>
+",<node.js><npm>,16/01/17 15:37,HQ
+34840662,Android Country codes,"<p>How i use Country codes String in my android code using edittext startswith number
+here my code m using.</p>
+
+<p>String</p>
+
+<pre><code>private static final String[] mCodes = {
+
+        ""+93"", ""+355"", ""+213"", ""+376"", ""+244"", ""+672"", ""+54"", ""+374"",
+        ""+297"", ""+61"", ""+43"", ""+994"", ""+973"", ""+880"", ""+375"", ""+32"",
+        ""+501"", ""+229"", ""+975"", ""+591"", ""+387"", ""+267"", ""+55"", ""+673"",
+        ""+359"", ""+226"", ""+95"", ""+257"", ""+855"", ""+237"", ""+1"", ""+238"",
+        ""+236"", ""+235"", ""+56"", ""+86"", ""+61"", ""+61"", ""+57"", ""+269"",
+        ""+242"", ""+243"", ""+682"", ""+506"", ""+385"", ""+53"", ""+357"", ""+420"",
+        ""+45"", ""+253"", ""+670"", ""+593"", ""+20"", ""+503"", ""+240"", ""+291"",
+        ""+372"", ""+251"", ""+500"", ""+298"", ""+679"", ""+358"", ""+33"", ""+689"",
+        ""+241"", ""+220"", ""+995"", ""+49"", ""+233"", ""+350"", ""+30"", ""+299"",
+        ""+502"", ""+224"", ""+245"", ""+592"", ""+509"", ""+504"", ""+852"", ""+36"",
+        ""+91"", ""+62"", ""+98"", ""+964"", ""+353"", ""+44"", ""+972"", ""+39"",
+        ""+225"", ""+81"", ""+962"", ""+254"", ""+686"", ""+965"", ""+996"", ""+856"",
+        ""+371"", ""+961"", ""+266"", ""+231"", ""+218"", ""+423"", ""+370"", ""+352"",
+        ""+853"", ""+389"", ""+261"", ""+265"", ""+60"", ""+960"", ""+223"", ""+356"",
+        ""+692"", ""+222"", ""+230"", ""+262"", ""+52"", ""+691"", ""+373"", ""+377"",
+        ""+976"", ""+382"", ""+212"", ""+258"", ""+264"", ""+674"", ""+977"", ""+31"",
+        ""+599"", ""+687"", ""+64"", ""+505"", ""+227"", ""+234"", ""+683"", ""+850"",
+        ""+47"", ""+968"", ""+92"", ""+680"", ""+507"", ""+675"", ""+595"", ""+51"",
+        ""+63"", ""+870"", ""+48"", ""+351"", ""+974"", ""+40"", ""+7"", ""+250"",
+        ""+590"", ""+685"", ""+378"", ""+239"", ""+966"", ""+221"", ""+381"", ""+248"",
+        ""+232"", ""+65"", ""+421"", ""+386"", ""+677"",  ""+252"", ""+27"", ""+82"",
+        ""+34"", ""+94"", ""+290"", ""+508"", ""+249"", ""+597"", ""+268"", ""+46"",
+        ""+41"", ""+963"", ""+886"", ""+992"", ""+255"", ""+66"", ""+228"", ""+690"",
+        ""+676"", ""+216"", ""+90"", ""+993"", ""+688"", ""+971"", ""+256"", ""+380"",
+        ""+598"", ""+998"", ""+678"", ""+58"", ""+84"", ""+681"", ""+967"", ""+260"",
+        ""+263""
+};
+</code></pre>
+
+<p>Edittext</p>
+
+<pre><code>etAddNumber = (EditText) findViewById(R.id.etAddNumber);
+String addnumber = etAddNumber.getText().toString();
+</code></pre>
+
+<p>And also use edittext code, if user enter number without country code show Toast</p>
+
+<pre><code> if (!addnumber.startsWith(mCodes.toString())) {
+     Toast.makeText(getApplicationContext(), ""You did not enter country code"", Toast.LENGTH_SHORT).show();
+ }
+</code></pre>
+
+<p>Thanks Advance</p>
+",<android>,16/01/17 16:30,LQ_CLOSE
+34840986,"MySQL query with increment based on already existing values and only in rows with collum ""Confirmed"" not zero","I have a table that is manually edited from a webstore.
+
+I would like to do this faster with a query.
+
+Table: Orders
+
+I would like to auto increment collum 'Invoice number' in all rows  if collum 'status id' (is not zero / 1-5)
+
+And i would like to start from a ceratain row (The next row after last manual input)",<mysql>,16/01/17 16:59,LQ_EDIT
+34840994,Javascript Redux - how to get an element from store by id,"<p>For the past weeks I've been trying to learn React and Redux. 
+Now I have met a problem thay I haven't found a right answer to.</p>
+
+<p>Suppose I have a page in React that gets props from the link.</p>
+
+<pre><code>const id = this.props.params.id;
+</code></pre>
+
+<p>Now on this page, I'd like to display an object from STORE with this ID.</p>
+
+<pre><code> const initialState = [
+      {
+        title: 'Goal',
+        author: 'admin',
+        id: 0
+      },
+      {
+        title: 'Goal vol2',
+        author: 'admin',
+        id: 1
+      }
+    ]
+</code></pre>
+
+<p>My question is:
+should the function to query the the object from the STORE be in the page file, before the render method, or should I use action creators and include the function in reducers.
+I've noticed that the reduceres seem to contain only actions that have an impoact on store, but mine just queries the store.</p>
+
+<p>Thank you in advance.</p>
+",<javascript><reactjs><flux><redux>,16/01/17 17:00,HQ
+34841065,"Hello, i need jquery function for symbol counter in text box when click on button","i need jquery function for symbol counter in text box   when click on button. I dont know how work this.
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-html -->
+
+    <!doctype html>
+    <html lang=""en"">
+    <head>
+      <meta charset=""utf-8"">
+      <title></title>
+     
+      <script src=""https://code.jquery.com/jquery-1.10.2.js""></script>
+    </head>
+    <body>
+      <input type=""text""id=""id1""></input></div><br/><br/>
+    	<button onclick=""#""id=""id2""> Count Symbols</button>
+    	<p id=""id1""></p>
+    <script>
+    $( document.#id1 )
+      .click(function() {
+        $( document.#id1 ).append( $( ""#id2"" ) );
+        var n = $( ""#id2"" ).length;
+        $( ).text( ""There are "" + n + "" symbols."");
+      })
+     
+    </script>
+     
+    </body>
+    </html>
+
+<!-- end snippet -->
+",<javascript><jquery>,16/01/17 17:07,LQ_EDIT
+34841440,IntelliJ: find code path between two methods,"<p>I have two methods in my code base. I would like to figure out, if there exists a path in which one will be called from the other. Is there some way to achieve this easily in IntelliJ without digging manually through call hierarchies?</p>
+",<intellij-idea>,16/01/17 17:39,HQ
+34841813,How to install Angular2 beta with Bower?,"<p>I'm trying to install Angular2 with Bower with command <code>bower install -S angular2</code> and have next messages in console:</p>
+
+<pre><code>$ bower install -S angular2
+bower angular2#*                cached git://github.com/angular/bower-angular.git#1.4.8
+bower angular2#*              validate 1.4.8 against git://github.com/angular/bower-angular.git#*
+bower angular#~1.4.8           install angular#1.4.8
+
+angular#1.4.8 bower_components/angular
+</code></pre>
+
+<p>My <code>bower.json</code> file now contains next info in <code>dependencies</code> section:</p>
+
+<pre><code>""dependencies"": {
+  ""angular"": ""angular2#~1.4.8""
+}
+</code></pre>
+
+<p>And I have Angular 1.4.8 after that in <code>bower_components</code> path.</p>
+
+<p>So, how to install Angular2 beta with Bower?</p>
+",<bower><angular>,16/01/17 18:11,HQ
+34842526,Update console without flickering - c++,"<p>I'm attempting to make a console side scrolling shooter, I know this isn't the ideal medium for it but I set myself a bit of a challenge.</p>
+
+<p>The problem is that whenever it updates the frame, the entire console is flickering. Is there any way to get around this?</p>
+
+<p>I have used an array to hold all of the necessary characters to be output, here is my <code>updateFrame</code> function. Yes, I know <code>system(""cls"")</code> is lazy, but unless that's the cause of problem I'm not fussed for this purpose. </p>
+
+<pre><code>void updateFrame()
+{
+system(""cls"");
+updateBattleField();
+std::this_thread::sleep_for(std::chrono::milliseconds(33));
+for (int y = 0; y &lt; MAX_Y; y++)
+{
+    for (int x = 0; x &lt; MAX_X; x++)
+    {
+        std::cout &lt;&lt; battleField[x][y];
+    }
+    std::cout &lt;&lt; std::endl;
+}
+}
+</code></pre>
+",<c++>,16/01/17 19:16,HQ
+34842806,Ruby : Generate Random number in a range less one element,"<p>Folks, </p>
+
+<p>I'm trying to generate a random number between (0..10) less, say, 5. </p>
+
+<pre><code>new_index = rand(0..(old_index - 1)) || new_index = rand((old_index + 1)..10)
+</code></pre>
+
+<p>Can anyone shed any light?</p>
+",<ruby>,16/01/17 19:42,LQ_CLOSE
+34842812,Create php form to allow create new XMPP accounts,"<p>I want create a simple PHP form (nickname and username) to allow users register a new jabber account in the server through the website. I'm using prosody as XMPP server and I can create new accounts through clients such Pidgin, etc but although I was reading about it, I found that to use XMPP over http I should enable a bosh server but I don't know if it can help me to find a solution for my problem and the few libraries which I found of XMPP in PHP haven't any function to create new accounts in the server (or unless I didn't see any function...). And I don't want use the exec function due to that the command to register new users ask me for sudo privileges.
+If someone can teach me about how deal with it to learn I will be very grateful.</p>
+",<php><xmpp><xmpphp><prosody-im>,16/01/17 19:42,LQ_CLOSE
+34843297,Modify @OneToMany entity in Spring Data Rest without its repository,"<p>In my project I use object of type <em>A</em> which has OneToMany relation (orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER) to objects of type <em>B</em>. I need SpringDataRest (SDR) to store complete full <em>A</em> object with its <em>B</em> objects (children) using single one POST request. I tried several combinations in SDR, the only one which worked for me, was to create @RepositoryRestResource for object <em>A</em> and to create @RepositoryRestResource also for object <em>B</em>, but mark this (<em>B</em>) as exported=false (if I did not create repository out of object <em>B</em> at all, it would not work -> just <em>A</em> object would be stored on single POST request, but not its children (@OneToMany relation) of type <em>B</em>; the same outcome occurs if exported=false is omitted for <em>B</em> repository).
+ Is this ok and the only way how to achieve it (single POST request with storing all objects at once)?</p>
+
+<p>The reason I'm asking, in my previous example, I have to (I would like to) control all objects ""lifecycle"" by using <em>A</em>'s repository. I am ok with it, because <em>A</em>-><em>B</em> relation is composition (<em>B</em> does not exists outside of <em>A</em>). But I have serious problem of editing (also removing) one certain object of type <em>B</em> by SDR using its parent repository (since object <em>B</em> doest not have its own repository exported). Maybe, this is not possible by definition. I have tried these solutions:</p>
+
+<ul>
+<li>PATCH for ""/A/1/B/2"" does not work -> method not allowed (in headers
+is ""Allow: GET, DELETE"") -> so, also PUT is out of question</li>
+<li>Json Patch would not work either - PATCH for ""/A/1"" using json patch
+content-type [{""op"": ""add"", ""path"": ""/B/2"", ....}] -> ""no such index
+in target array"" - because Json Patch uses scalar ""2"" after ""array""
+as a index to its array. This is not practical in Java world, when
+relations are kept in Set of objects - indexing has no meaning
+at all.</li>
+<li>I could export repository (exported=true) of object <em>B</em> for
+manipulating it ""directly"", but this way I would loose ability to
+store the whole object <em>A</em> with its <em>B</em> objects at one single POST
+request as I have mentioned before.</li>
+</ul>
+
+<p>I would like to avoid sending the whole <em>A</em> object with one single tiny   modification of its <em>B</em> object for PUT, if possible.
+Thank you.</p>
+",<java><rest><spring-data-rest><json-patch>,16/01/17 20:30,HQ
+34843363,Visual Studio hangs when creating Azure App Service,"<p>I'm trying to follow a tutorial on Azure deployment. I'm stuck on one of the first steps creating the App Service. It seams that the form tries to find all App Service Plans but can't, so all of Visual Studio hangs. I had to kill it with Task Manager. Any clues on how I can fix this? Do I need to create something at the Azure management console?</p>
+
+<p><a href=""https://i.stack.imgur.com/ofRSU.png""><img src=""https://i.stack.imgur.com/ofRSU.png"" alt=""enter image description here""></a></p>
+",<visual-studio><azure>,16/01/17 20:37,HQ
+34843364,how can i copy an array from a class and double the size of the new array?,"    CDCatalogue::CDCatalogue() //creates array of 4
+    {
+	    maxsize=4;
+	    numcds = 0;
+    	cds = new CD[maxsize];
+    }
+
+
+//this copy cat into new array with double the size of cat
+
+    CDCatalogue::CDCatalogue(const CDCatalogue& cat)
+    {
+	
+
+    }
+    
+",<c++><arrays><copying>,16/01/17 20:37,LQ_EDIT
+34843826,Create Regular Expression with exact 2 repetition of single charcter,"I am fighting with regular expression - I want to create one for validation in REST resource, the id which is queried needs to have two : , for example key1:key2:key3
+
+how can i create it?
+the length of key1-3 can change and not equal
+thanks",<regex><scala>,16/01/17 21:20,LQ_EDIT
+34844209,"Consumer not receiving messages, kafka console, new consumer api, Kafka 0.9","<p>I am doing the <a href=""http://kafka.apache.org/documentation.html#quickstart"">Kafka Quickstart</a> for Kafka 0.9.0.0.</p>
+
+<p>I have zookeeper listening at <code>localhost:2181</code> because I ran</p>
+
+<pre><code>bin/zookeeper-server-start.sh config/zookeeper.properties
+</code></pre>
+
+<p>I have a single broker listening at <code>localhost:9092</code> because I ran</p>
+
+<pre><code>bin/kafka-server-start.sh config/server.properties
+</code></pre>
+
+<p>I have a producer posting to topic ""test"" because I ran</p>
+
+<pre><code>bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+yello
+is this thing on?
+let's try another
+gimme more
+</code></pre>
+
+<p>When I run the old API consumer, it <em>works</em> by running</p>
+
+<pre><code>bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+</code></pre>
+
+<p>However, when I run the new API consumer, I don't get anything when I run</p>
+
+<pre><code>bin/kafka-console-consumer.sh --new-consumer --topic test --from-beginning \
+    --bootstrap-server localhost:9092
+</code></pre>
+
+<p>Is it possible to subscribe to a topic from the console consumer using the new api? How can I fix it?</p>
+",<apache-kafka><kafka-consumer-api>,16/01/17 21:55,HQ
+34844258,code 7: How to replace an image by another by clicking a button?,"I started Xcoding a few days ago and get stopped by the following problem: image does not change by clicking. The former image disappears.
+Thanks for any help, Peter
+
+ViewController.h
+#import <UIKit/UIKit.h>
+
+@interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIImageView *imgView;
+- (IBAction)changeImage:(id)sender;
+@end
+
+ViewController.m
+#import ""ViewController.h""
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+@synthesize imgView;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)changeImage:(id)sender {
+    UIImage *img = [UIImage imageNamed:@""animal_3.png""];
+    [imgView setImage: img];}
+@end
+",<ios><objective-c><uiimageview>,16/01/17 21:59,LQ_EDIT
+34844385,How can i create object from a file in c++?,"Im learning c++.
+I have my class complex: 
+
+    
+    #include ""Complejo.h""
+    #include <sstream>
+    Complejo::Complejo() {
+    	// TODO Auto-generated constructor stub
+    	real = 0;
+    	imaginary = 0;
+    }
+    Complejo::Complejo(int a, int b){
+    	real = a;
+    	imaginary = b;
+    }
+    
+    
+    Complejo::~Complejo() {
+    	// TODO Auto-generated destructor stub
+    }
+    std::string Complejo::mostrar()const{
+    	std::stringstream  s;
+    	s << real << ""+"" << imaginary <<""i"";
+    	return s.str();
+    }
+
+and in my main i need to read a file(every line has a complex) like this:
+
+    3 + 5i
+    4 + 2i
+    3 + 3i
+
+and create objects. How i can do it?",<c++><fgets>,16/01/17 22:12,LQ_EDIT
+34844435,java program for poerball lottery,"I have to check all test cases which i have given in arrays but i am not getting perfect answer.Please help me with this question.Create a PowerBall class that contains:
+ - A field for an int array of size 6. 
+ - A constructor that initializes this array with 6 random values (0-9). 
+ - A method called checkMatch that takes as an argument an int array and returns how many numbers match the class's int array. To match, the same numbers must be in the same position.
+
+Write a main class which asks to user to enter 6 numbers as their lottery ticket and store it in an array. Then create a PowerBall object and give the user's ticket to the checkMatch method. Then figure out the amount won based on the return value.
+
+The winnings are determined as follows:
+If 0 numbers match, no winnings
+If 1 number matches, win $4
+If 2 numbers match, win $7
+If 3 numbers match, win $100
+If 4 numbers match, win $10,000
+If 5 numbers match, win $1 Million
+If all 6 numbers match, win Grand Prize of $450 Million
+
+Output the user's lottery ticket, the powerball numbers, how many matched, and the amount of money won. (JAVA PROGRAM HELP)
+
+
+
+
+class PowerBall {
+    /*
+     * ALL PRIVATE DATA BELOW
+     */
+
+    private int[] winningNumber;
+    private int[] ticketNumber;
+    private long cash;
+    static private IntUtil u = new IntUtil();
+    int matchBalCount ;
+    int powerBallMatchCount;
+
+    public int cash() {
+        
+        for (int i = 0; i < winningNumber.length; i++) {
+            for (int j = 0; j < ticketNumber.length; j++) {
+                if (i == winningNumber.length-1 && ticketNumber[i] == winningNumber[j]) {
+                    powerBallMatchCount=1;
+                } else if (ticketNumber[i] == winningNumber[j]) {
+                    matchBalCount++;
+                }
+            }
+    
+            }
+        return 100;
+    }
+   
+
+    public void check(int matchBalCount,int powerBalCount){
+        
+        System.out.println(""prize---matchBalCount::""+matchBalCount+"" ,powerBallMatchCount::""+powerBallMatchCount);
+        if (matchBalCount == 0 && powerBallMatchCount>0) {
+            System.out.println(""4"");
+        }else if (matchBalCount == 1 && powerBallMatchCount>0) {
+            System.out.println(""4"");
+        }else if (matchBalCount == 2 && powerBallMatchCount>0) {
+            System.out.println(""7"");
+        }else if (matchBalCount == 3 && powerBallMatchCount<0) {
+            System.out.println(""7"");
+        }else if (matchBalCount == 3&& powerBallMatchCount>0) {
+            System.out.println(""100"");
+        }else if (matchBalCount == 4 && powerBallMatchCount<0) {
+            System.out.println(""100"");
+        }else if (matchBalCount == 4 && powerBallMatchCount>0) {
+            System.out.println(""50000"");
+        }else if (matchBalCount == 5 && powerBallMatchCount>0) {
+            System.out.println(""1lakh"");
+        } 
+     
+     
+    }
+ 
+
+    PowerBall(int[] w, int[] t) {
+        winningNumber = w;
+        ticketNumber = t;
+        cash = 0;
+     check(matchBalCount,powerBallMatchCount);
+    }
+
+    private static void test1() {
+        int[] w = {4, 8, 19, 27, 24, 10};
+        {
+            int[] n = {4, 8, 19, 27, 24, 10};
+            PowerBall x = new PowerBall(w, n);
+           // x.cash();
+        }
+        {
+            int[] n = {24, 27, 19, 8, 4, 10};
+            PowerBall x = new PowerBall(w, n);
+        }
+        {
+            int[] n = {24, 27, 19, 8, 4, 5};
+            PowerBall x = new PowerBall(w, n);
+        }
+        {
+            int[] n = {124, 127, 119, 18, 14, 10};
+            PowerBall x = new PowerBall(w, n);
+        }
+        {
+            int[] n = {124, 127, 119, 18, 14, 5};
+            PowerBall x = new PowerBall(w, n);
+        }
+        {
+            int[] n = {124, 127, 119, 18, 14};
+            PowerBall x = new PowerBall(w, n);
+        }
+        {
+            int[] n = {124, 124, 19, 119, 18, 14};
+            PowerBall x = new PowerBall(w, n);
+        }
+    }
+
+    private static void testRandom() {
+        int[] w = {4, 8, 19, 27, 24, 10};
+        int max = 10;
+        long c = 0;
+        for (int i = 0; i < max; ++i) {
+            int[] n = u.generateRandomNumber(6, true, 1, 99);
+            PowerBall x = new PowerBall(w, n);
+            c = c + x.cash();
+        }
+        System.out.println(""Out of "" + max + "" times you win "" + c + ""$"");
+    }
+
+    private static void testBench() {
+        test1();
+        testRandom();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(""PowerBall.java"");
+        testBench();
+        System.out.println(""Done"");
+    }
+
+}",<java><arrays>,16/01/17 22:18,LQ_EDIT
+34844514,"""Protocols cannot be used with isinstance()"" - why not?","<p>The new <code>typing</code> module contains several objects with names like ""SupportsInt"" (-Float, -Bytes, etc.). The name, and the descriptions on <a href=""https://docs.python.org/3/library/typing.html"">the documentation page for the module</a>, might be read to suggest that you can test whether an object is of a type that ""supports <code>__int__()</code>"". But if you try to use <code>isinstance()</code>, it gives a response that makes it clear that that isn't something you are meant to do:</p>
+
+<pre><code>&gt;&gt;&gt; isinstance(5, typing.SupportsInt)
+(Traceback omitted)
+TypeError: Protocols cannot be used with isinstance().
+</code></pre>
+
+<p>On the other hand, you can use <code>issubclass()</code>:</p>
+
+<pre><code>&gt;&gt;&gt; issubclass((5).__class__, typing.SupportsInt)
+True
+&gt;&gt;&gt; issubclass(type(5), typing.SupportsInt)
+True
+</code></pre>
+
+<p>What is a ""protocol"" in this context? Why does it disallow the use of <code>isinstance()</code> in this way?</p>
+",<python><python-3.x><isinstance>,16/01/17 22:27,HQ
+34844561,Difference between Notifications API and Push API from Web perspective,"<p>What is the difference between <a href=""https://developer.chrome.com/apps/notifications"" rel=""noreferrer"">Chrome Notifications API</a> and the <a href=""https://developers.google.com/web/updates/2015/03/push-notifications-on-the-open-web?hl=en"" rel=""noreferrer"">Push Notification API</a> when developing Web notifications. When each one should be used and how are they different?</p>
+",<javascript><web-services><web><notifications><push-notification>,16/01/17 22:32,HQ
+34844765,Can't update or install package: An item with the same key has already been added,"<h3>Problem</h3>
+
+<p>In a particular project, I can't update or install any NuGet packages. When I try to do so using the NuGet GUI, it does some work and then stops without saying anything. When I try to do so using the package manager console, I get this output:</p>
+
+<pre><code>PM&gt; Update-Package –reinstall EntityFramework
+Attempting to gather dependencies information for multiple packages with respect to project 'SmartCentre', targeting '.NETFramework,Version=v4.5.2'
+Update-Package : An item with the same key has already been added.
+At line:1 char:15
++ Update-Package &lt;&lt;&lt;&lt;  –reinstall EntityFramework
+    + CategoryInfo          : NotSpecified: (:) [Update-Package], Exception
+    + FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PackageManagement.PowerShellCmdlets.UpdatePackageCommand
+</code></pre>
+
+<h3>Environment</h3>
+
+<ul>
+<li>Visual Studio Professional 2015 Update 1</li>
+<li>NuGet 3.3.0.167</li>
+</ul>
+
+<h3>What I've tried</h3>
+
+<ul>
+<li>Deleting the <code>packages</code> folder</li>
+<li>Restarting Visual Studio</li>
+<li>Restarting the computer</li>
+</ul>
+",<nuget>,16/01/17 22:54,HQ
+34844778,"C language - death loop, maybe it's the scanf","    scanf(""%d"",&jogadores[pos].dados[4][2]);
+    while(jogadores[pos].dados[4][2]<0){
+        printf(""O valor não pode ser menor que 0, introduz novamente: "");                       
+        scanf(""%d"",&jogadores[pos].dados[4][2]);  
+    };
+
+Do you know what is wrong is this piece of code, I think it skips the first scanf because it keeps printing ""O valor não pode ser menor que 0, introduz novamente: """,<c><loops><scanf>,16/01/17 22:55,LQ_EDIT
+34845729,BETTER query and faster,"<p>i would like to ask between these two query, what query is faster? if the data is 20k to 100k..</p>
+
+<pre><code>SELECT SUM(price * quantity) as sales
+FROM
+(
+  SELECT price, quantity, date
+  FROM orderline
+  UNION ALL
+  SELECT price, quantity, date
+  FROM creditorderline
+)
+WHERE date BETWEEN '2010-01-01' AND '2016-01-01'
+</code></pre>
+
+<p>OR</p>
+
+<pre><code>SELECT SUM(price * quantity) as sales
+FROM
+(
+  SELECT price, quantity, date
+  FROM orderline
+  WHERE date BETWEEN '2010-01-01' AND '2016-01-01'
+  UNION ALL
+  SELECT price, quantity, date
+  FROM creditorderline
+ WHERE date BETWEEN '2010-01-01' AND '2016-01-01'
+)
+</code></pre>
+",<mysql>,16/01/18 0:56,LQ_CLOSE
+34845786,Set Default/Null Value with Select TagHelper,"<p>In asp.net mvc you can use:</p>
+
+<pre><code>@Html.DropDownListFor(model =&gt; model.Category, ViewBag.Category as IEnumerable&lt;SelectListItem&gt;, ""-- SELECT --"", new { @class = ""form-control"" })
+</code></pre>
+
+<p>Using asp.net 5, how do I include the default or null value <strong>(-- SELECT --)</strong>  in a taghelper:</p>
+
+<pre><code>&lt;select asp-for=""Category"" asp-items=""@ViewBag.Category""  class=""form-control""&gt;&lt;/select&gt;
+</code></pre>
+",<c#><asp.net-core><asp.net-core-mvc><tag-helpers>,16/01/18 1:04,HQ
+34845990,Spring use one application.properties for production and another for debug,"<p>I have a Spring application and I would like to be able to switch between configurations depending if I'm debugging the server or if the server is running in production. (the difference in configurations being things like database location.)</p>
+
+<p>Ideally, I'd like to pass in a command line argument to my Spring application on boot-up and set the application configuration.</p>
+
+<p>I have two separate application.properties files, one with the production values, and another with the debug values. How can I switch between the two of them?</p>
+",<java><spring>,16/01/18 1:34,HQ

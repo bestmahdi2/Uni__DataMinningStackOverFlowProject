@@ -1,0 +1,312 @@
+Id,Title,Body,Tags,CreationDate,Y
+34552974,How to get all the child records from different tables based on given parent ID in sql server,"I am having 4 different tables like 
+select * from System 
+ 
+select * from Set 
+select * from Item 
+select * from Versions 
+
+Now for each system Id there will be **n no.of Sets**, and foe **each set** there qill be **n no. of Items** and for **each item** there will be **n no.of Versions**.
+
+**each system has  <br/>
+n no of set <br/>
+each Set has <br/>
+n no of Items <br/>
+each Item has <br/>
+n no of Versions**
+
+
+So, Now when i give **SystemId** then i have to retrieve all the records from 
+
+**Set and Items of each set and Versions of each Items** in single storedprocedure.",<sql><sql-server>,16/01/01 1:44,LQ_EDIT
+34554721,Retrieve all except some data of the another table,"I have two table m_master and tbl_appointment
+[This is tbl_appointment table][1]
+
+
+[This is m_master table][2]
+
+
+  [1]: http://i.stack.imgur.com/c7f7y.png
+  [2]: http://i.stack.imgur.com/hD6Qf.png",<php><mysql><sql><codeigniter><mysqli>,16/01/01 8:43,LQ_EDIT
+34555135,Pandas: read_html,"<p>I'm trying to extract US states from wiki URL, and for which I'm using Python Pandas. </p>
+
+<pre><code>import pandas as pd
+import html5lib
+f_states = pd.read_html('https://simple.wikipedia.org/wiki/List_of_U.S._states') 
+</code></pre>
+
+<p>However, the above code is giving me an error L</p>
+
+<blockquote>
+  <p>ImportError                               Traceback (most recent call last)
+   in ()
+        1 import pandas as pd
+  ----> 2 f_states = pd.read_html('<a href=""https://simple.wikipedia.org/wiki/List_of_U.S._states"">https://simple.wikipedia.org/wiki/List_of_U.S._states</a>')</p>
+  
+  <p>if flavor in ('bs4', 'html5lib'):
+      662         if not _HAS_HTML5LIB:
+  --> 663             raise ImportError(""html5lib not found, please install it"")
+      664         if not _HAS_BS4:
+      665             raise ImportError(""BeautifulSoup4 (bs4) not found, please install it"")
+  ImportError: html5lib not found, please install it</p>
+</blockquote>
+
+<p>I installed html5lib and beautifulsoup4 as well, but it is not working. 
+Can someone help pls.</p>
+",<python><pandas>,16/01/01 9:55,HQ
+34555448,Reader Always gimme NULL,"I'm so new to C#, I wanna make an application that can easily connect to the SqlServer database, I have a separated DBConnection class, and I want to call this class from any form.
+
+the problem is my ""reader"" always give Null
+
+    class DBconnection
+    {
+        private SqlConnection conn;
+        private SqlCommand cmd;
+        private SqlDataReader rdr;
+        private DataTable dt;
+
+
+
+        private SqlConnection MyConnection
+        {
+            get
+            {
+                if (this.conn == null)
+                {
+                    this.conn = new SqlConnection(DrivingSchool.Properties.Settings.Default.cdsConnectionString);
+                }
+                return conn;
+            }
+        }
+
+        private SqlCommand MyCommand
+        { 
+            get
+            {
+                if (cmd == null)
+                {
+                    cmd = new SqlCommand();
+                    MyCommand.Connection = conn;
+                }
+
+                return cmd;
+            }
+        }
+
+        public DataTable RunQuery(string query)
+        {
+
+            dt = new DataTable();
+            MyCommand.CommandText = query;
+            MyCommand.Connection = conn;
+            MyConnection.Open();
+
+            rdr = MyCommand.ExecuteReader(CommandBehavior.CloseConnection);
+
+            if(rdr.HasRows)
+                     { dt.Load(rdr); }
+
+            MyConnection.Close();
+
+            return dt;
+        }
+    }",<sql-server><c#-4.0>,16/01/01 10:43,LQ_EDIT
+34555752,php rearrange array elements based on condition,"basically i have this array:
+
+    array(
+	'08:00-08:40' => array(
+		't' => '39',
+		'sub' => 'COMP'
+	),
+	'08:40-09:20' => array(
+		't' => '17',
+		'sub' => 'KIS'
+	),
+	'09:20-10:00' => array(
+		't' => '36',
+		'sub' => 'B/ST'
+	),
+	'10:20-11:00' => array(
+		't' => '7',
+		'sub' => 'ENG'
+	),
+	'11:00-11:40' => array(
+		't' => '36',
+		'sub' => 'B/ST'
+	),
+	'11:40-12:20' => array(
+		't' => '31',
+		'sub' => 'HIS'
+	),
+	'12:20-13:00' => array(
+		't' => '26',
+		'sub' => 'PHY'
+	),
+	'14:00-14:40' => array(
+		't' => '33',
+		'sub' => 'GEO'
+	),
+	'14:40-15:20' => array(
+		't' => '31',
+		'sub' => 'HIS'
+	),
+	'15:20-16:00' => array(
+		't' => '20',
+		'sub' => 'BIO'
+	)
+)
+
+My requirement is that if an **element['sub']** appears twice in the whole array then both instances should be next to each other in the array.
+
+so for the above array i expect to have the following output:
+
+    array(
+	'08:00-08:40' => array(
+		't' => '39',
+		'sub' => 'COMP'
+	),
+	'08:40-09:20' => array(
+		't' => '17',
+		'sub' => 'KIS'
+	),
+	'09:20-10:00' => array(
+		't' => '36',
+		'sub' => 'B/ST'
+	),
+    '11:00-11:40' => array(
+		't' => '36',
+		'sub' => 'B/ST'
+	),
+	'10:20-11:00' => array(
+		't' => '7',
+		'sub' => 'ENG'
+	),
+	'11:40-12:20' => array(
+		't' => '31',
+		'sub' => 'HIS'
+	),
+    '14:40-15:20' => array(
+		't' => '31',
+		'sub' => 'HIS'
+	),
+	'12:20-13:00' => array(
+		't' => '26',
+		'sub' => 'PHY'
+	),
+	'14:00-14:40' => array(
+		't' => '33',
+		'sub' => 'GEO'
+	),
+	'15:20-16:00' => array(
+		't' => '20',
+		'sub' => 'BIO'
+	)
+)
+
+i cant figure out how to adapt [this solution][1]  to my case..any help much appreciated
+
+
+  [1]: http://stackoverflow.com/questions/3286006/reposition-array-elements-based-on-a-condition-in-php",<php>,16/01/01 11:34,LQ_EDIT
+34557209,How do I make a constructor for a derived class?,"<p>I am trying to make a constructor for a derived class. Doing it this way doesn't seem to work: </p>
+
+<pre><code>#include &lt;iostream&gt;
+
+class FirstClass
+{
+public:
+    int X;
+    FirstClass(int x)
+    {
+        this-&gt;X = x;
+    }
+    int getXpow() { return pow(X, 2); }
+
+};
+
+class SecondClass : FirstClass
+{
+public:
+    SecondClass(int x)
+    {
+        FirstClass::FirstClass(X);
+    }
+
+    int getXpow() { return pow(X, 3); }
+};
+
+int main()
+{
+    using namespace std;
+    FirstClass FCobj(3);
+    cout &lt;&lt; FCobj.getXpow() &lt;&lt; endl;
+    SecondClass SCobj(3);
+    cout &lt;&lt; SCobj.getXpow() &lt;&lt; endl;
+
+    system(""pause"");
+    return 0;
+}
+</code></pre>
+
+<p>because it says at the first <code>{</code> bracket of <code>SecondClass(int x)</code> the following thing <code>Error: no default constructor exists for class ""FirstClass""</code>. And how does constructor inheritance even work?</p>
+",<c++><inheritance><constructor><derived-class>,16/01/01 14:58,LQ_CLOSE
+34557363,how can i create a dynamic tow dimensional array in c++?," I am using c++ in my lesson and for solving a program i should create an array that may be change in dimensions. 
+for example:
+
+    {
+    int I,J;
+    cin>>I;
+    cin>>J;
+    double X[I][J];
+    double B[I][J];
+   }
+",<c++>,16/01/01 15:21,LQ_EDIT
+34557587,Re-exporting ES6 modules in TS 1.7?,"<p>I'm getting a bit lost in TS re-exports. Say I create a pair of test modules;</p>
+
+<p>test1.ts;</p>
+
+<pre><code>export function test1() {
+    return 'test';
+}
+</code></pre>
+
+<p>test2.ts;</p>
+
+<pre><code>export function test2() {
+    return 'test';
+}
+</code></pre>
+
+<p>I believe I should be able to then do something like this;</p>
+
+<p>combined.ts;</p>
+
+<pre><code>export * from './test1';
+export * from './test2';
+
+module.exports = {
+    test1: test1,
+    test2: test2
+};
+</code></pre>
+
+<p>But, no such luck. There seem to be lots of GitHub issues discussing various approaches to this, including an old hack using <code>export import * from './test1'</code> but they all seem to argue what the ES6 spec really means, and none actually work..</p>
+
+<p>What's the right way to do a rollup like this? Am I just going down the wrong path to split a module up across files? Are namespaces more appropriate here?</p>
+",<typescript><ecmascript-6><es6-module-loader><typescript1.7>,16/01/01 15:50,HQ
+34558264,Fetch API with Cookie,"<p>I am trying out the new Fetch API but is having trouble with Cookies. Specifically, after a successful login, there is a Cookie header in future requests, but Fetch seems to ignore that headers, and all my requests made with Fetch is unauthorized.</p>
+
+<p>Is it because Fetch is still not ready or Fetch does not work with Cookies?</p>
+
+<p>I build my app with Webpack. I also use Fetch in React Native, which does not have the same issue.</p>
+",<cookies><fetch-api>,16/01/01 17:21,HQ
+34559136,Print list content in a given order,"<pre><code>lt = ['7,777.7', '777.7', '77,777.7', '77.7']
+</code></pre>
+
+<p>How can I proceed to print the list content like this ?</p>
+
+<pre><code> 7,777.7
+   777.7
+77,777.7
+    77.7
+</code></pre>
+",<python><list><python-2.7><for-loop>,16/01/01 19:08,LQ_CLOSE

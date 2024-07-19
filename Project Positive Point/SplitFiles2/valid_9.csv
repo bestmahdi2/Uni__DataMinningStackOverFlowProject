@@ -1,0 +1,226 @@
+Id,Title,Body,Tags,CreationDate,Y
+34619582,Generate a Stripe test card token for testing,"<p>I am using Stripe in my app. I want to write an integration test for placing a payment that checks Stripe that a payment was created. I'm using Stripe.js.</p>
+
+<p>In my test I need a card token to perform the test charge. Usually this token would be generated client side with stripe.js and sent in the request to perform the charge. As this is a server-side only test is there some way I can generate a token from within the test?</p>
+
+<p>For reference the test would be something like this (uses php but the principle is the same):</p>
+
+<pre><code>/** @test **/
+public function it_creates_a_charge()
+{
+    $order = factory(Order::class)-&gt;create();
+    $stripe_token = Stripe::generateToken([
+                                          'card' =&gt; '4242424242424242'
+                                          'exp'  =&gt; '04/2017',
+                                          'cvc'  =&gt; '123'
+                                          ]); // does not exist afaik
+
+    $response = $this-&gt;post('charges/store', [
+                'stripe_token' =&gt; $stripe_token,
+                'order_id' =&gt; $order-&gt;id,
+                //etc
+                ]);
+
+    // assertions...
+}
+</code></pre>
+
+<p>Essentially I'm asking if there's something within the Stripe API that allows server-side token generation.</p>
+",<php><stripe-payments>,16/01/05 19:18,HQ
+34620169,Swap position of number in a 4 digit number without array,"<p>in 4 digit number how to swap 1 number with 3 and 2 with 4 number
+I need to solve one problem in javascript.Thank you</p>
+",<javascript>,16/01/05 19:55,LQ_CLOSE
+34620695,Docker: what is the equivalent of the legacy --link parameter,"<p>I need to connect my db container with my server container. Now I just red about the legacy parameter <code>--link</code>, which works perfect</p>
+
+<pre><code>$&gt; docker run -d -P --name rethinkdb1 rethinkdb
+$&gt; docker run -d --link rethinkdb:db my-server
+</code></pre>
+
+<p>But, if this parameter will be dropped eventually, how would I do something like the above ?</p>
+",<docker><legacy>,16/01/05 20:32,HQ
+34621375,DateDiff use current date if enddate is null,"<p>I am calculating two dates and returning days but want to exclude weekends and holidays. I also want to say, if the enddate is null, then use the current date? </p>
+
+<p>How do I do that with datediff? </p>
+",<sql><sql-server><tsql>,16/01/05 21:16,LQ_CLOSE
+34622076,Calling an explicit constructor with a braced-init list: ambiguous or not?,"<p>Consider the following:</p>
+
+<pre><code>struct A {
+    A(int, int) { }
+};
+
+struct B {
+    B(A ) { }                   // (1)
+    explicit B(int, int ) { }   // (2)
+};
+
+int main() {
+    B paren({1, 2});   // (3)
+    B brace{1, 2};     // (4)
+}
+</code></pre>
+
+<p>The construction of <code>brace</code> in <code>(4)</code> clearly and unambiguously calls <code>(2)</code>. On clang, the construction of <code>paren</code> in <code>(3)</code> unambiguously calls <code>(1)</code> where as on gcc 5.2, it fails to compile with:</p>
+
+<pre><code>main.cpp: In function 'int main()':
+main.cpp:11:19: error: call of overloaded 'B(&lt;brace-enclosed initializer list&gt;)' is ambiguous
+     B paren({1, 2});
+                   ^
+main.cpp:6:5: note: candidate: B::B(A)
+     B(A ) { }  
+     ^
+main.cpp:5:8: note: candidate: constexpr B::B(const B&amp;)
+ struct B {
+        ^
+main.cpp:5:8: note: candidate: constexpr B::B(B&amp;&amp;)
+</code></pre>
+
+<p>Which compiler is right? I suspect clang is correct here, as the ambiguity in gcc can only arise through a path that involves implicitly constructing <code>B{1,2}</code> and passing that to the copy/move constructor - yet that constructor is marked <code>explicit</code>, so such implicit construction should not be allowed. </p>
+",<c++><c++11><gcc><language-lawyer>,16/01/05 22:06,HQ
+34623257,What kind of Cloud do I need?,"<p>There's a program MetaTrader4 that can run scripts.
+My script reading data from text files (up to 3 gb) and analyse them. 
+It's like Excel vba script analysing sheet's data.
+Billions of iterations. Results of calculating stored in another txt file (up to few GBs)</p>
+
+<ol>
+<li>Is it possible to run many instances of MetaTrader4 using cloud (Azure?)</li>
+<li>If no I can recode script to Delphi application is that possible for Azure or other cloud service?</li>
+</ol>
+
+<p>If so how can I do that? I have a trial in Azure but don't know where to start.</p>
+",<delphi><azure><cloud>,16/01/05 23:41,LQ_CLOSE
+34624636,Can anyone help me with performance tuning algorithms (queries) for oracle 11g express?,"<p>I am lost with finding examples or algorithms showing the use of performance tuning for oracle 11g express or how is it used in oracle. I have been looking at some youtube videos but most of them just mention what tuning is about and dont show any good examples or use some oracle cmd. (If this is done in oracle cmd I would want to know how to do a performance tuning process)</p>
+",<oracle><oracle11g>,16/01/06 2:25,LQ_CLOSE
+34629646,Configure proxy settings in Notepad++ via Plugin Manager,"<p>I would like to configure proxy settings in Notepad++ to allow downloads from the internet via a proxy. After searching how to do that from the net I understand that I need to do that in the Plugin Manager, via the Settings button. When I go to Plugins>Plugin Manager>Show Plugin Manager>Settings I get the dialog box below which does not give me any option for indicating the proxy settings. How do I get to the point that I need to indicate the proxy settings? </p>
+
+<p><a href=""https://i.stack.imgur.com/bNpU5.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/bNpU5.png"" alt=""enter image description here""></a></p>
+",<windows><proxy><notepad++>,16/01/06 9:31,HQ
+34630823,IOException -> number format exception,"    public static void main(String[] args)throws IOException {
+     String s =""12312a"";
+      int x = Integer.parseInt(s);
+     System.out.println (x+2);
+    }
+and all what I've got is :
+
+Exception in thread ""main"" java.lang.NumberFormatException: For input string: ""12312a"".... 
+
+any hints ?",<java><parseint><numberformatexception>,16/01/06 10:28,LQ_EDIT
+34631374,"Structures in C, keytab program","<p>I am trying to run a c program from C lang by K&amp;R. (chapter 6. before 6.1 exercise)</p>
+
+<p>here is the code: </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;string.h&gt;
+#define BUFSIZE 100
+
+#define MAXWORD 100
+#define NKEYS (sizeof keytab)
+
+struct key {
+    char *word;
+    int count;
+    } keytab[] = {
+        ""auto"", 0,
+        ""break"", 0,
+        ""case"", 0,
+        ""char"", 0,
+        ""const"", 0,
+        ""continue"", 0,
+        ""default"", 0,
+        ""unsigned"", 0,
+        ""void"", 0,
+        ""volatile"", 0,
+        ""while"", 0
+    };
+
+
+
+char buf[BUFSIZE];
+int bufp = 0;
+int getch(void);
+void ungetch(int);
+
+
+int getword(char *, int);
+struct key *binsearch(char *, struct key *, int);
+
+
+
+main()
+{
+
+
+    char word[MAXWORD];
+    struct key *p;
+    while (getword(word, MAXWORD) != EOF)
+        if (isalpha(word[0]))           
+        if ((p=binsearch(word, keytab, NKEYS)) != NULL)
+            p-&gt;count++;
+        for (p = keytab; p &lt; keytab + NKEYS; p++)
+            if (p-&gt;count &gt; 0)
+                printf(""%4d %s\n"", p-&gt;count, p-&gt;word);
+        return 0;
+}
+
+struct key *binsearch(char *word, struct key *tab, int n)
+{
+    int cond;
+    struct key *low = &amp;tab[0];
+    struct key *high = &amp;tab[n];
+    struct key *mid;
+
+
+    while (low &lt; high) {
+        mid = low + (high-low) / 2;
+        if ((cond = strcmp(word, mid-&gt;word)) &lt; 0)
+            high = mid;
+        else if (cond &gt; 0)
+            low = mid + 1;
+        else
+            return mid;
+    }
+    return NULL;
+}
+
+
+int getword(char *word, int lim)
+{
+
+    int c, getch(void);
+    void ungetch(int);
+    char *w = word;
+
+    while (isspace(c = getch()))
+        ;
+    if (c != EOF)
+        *w++ = c;
+    if (!isalpha(c)) {
+        *w = '\0';
+        return c;
+    }
+    for ( ; --lim &gt; 0; w++)
+        if (!isalnum(*w = getch())) {
+            ungetch(*w);
+            break;
+        }
+    *w = '\0';
+    return word[0];
+}
+
+
+int getch(void)
+{
+      return (bufp &gt; 0) ? buf[--bufp] : getchar();
+}
+
+void ungetch(int c)
+{ 
+      if (bufp &gt;= BUFSIZE)
+         printf(""ungetch: too many characters\n"");
+      else 
+         buf[bufp++] = c;
+}
+</code></pre>
+
+<p>I have checked the code like 10 times I cannot find any mistakes. I do understand the logic behind how the code should be working. I am using ubuntu 15.04 and I compile the code through a terminal. </p>
+",<c><structure>,16/01/06 10:55,LQ_CLOSE

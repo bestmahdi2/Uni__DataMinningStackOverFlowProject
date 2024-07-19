@@ -1,0 +1,1284 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+48481028,Building SQL Server Database Project In Ubuntu,"I'm building an ASP.NET Core 2.0 Web API application that is hosted in an Ubuntu environment. So far, I've had great success getting things building and running (for the .NET Core app) in Ubuntu.
+For the database, I have a SqlProj included in my solution. The project includes typical things such as tables, SPs, and pre/post deployment scripts. I'm using the following command (on my Windows-based dev machine) to build and deploy this project:
+msbuild .\MyProject.DB.sqlproj /t:Build /t:Publish /P:SqlPublishProfilePath=""./PublishProfiles/MyProject.DB.publish.xml""
+When I take this approach, everything builds and deploys properly; however, since I will be taking advantage of the .NET Core CLI commands + CI/CD that targets an Ubuntu environment, I'd like to do something more like:
+dotnet msbuild .\MyProject.DB.sqlproj /t:Build /t:Publish /P:SqlPublishProfilePath=""./PublishProfiles/MyProject.DB.publish.xml""
+In Windows, I immediately get the error:
+error MSB4019: The imported project ""C:\Program Files\dotnet\sdk\2.1.4\Microsoft\VisualStudio\v11.0\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets"" was not found. Confirm that the path in the &lt;Import&gt; declaration is correct, and that the file exists on disk.
+Basically, what I'm asking is how to successfully build and deploy a SqlProj project in an Ubuntu environment. I've tried Googling, but I have had zero luck thus far. All of the similar issues that I've found were for individuals who were editing their .proj file to target their VS folder's SSDT. All of these individuals were fixing the issue in Windows. This approach will not work in Ubuntu, since the targets file uses Windows registry keys.
+EDIT: I'm aware that SSDT is needed in order to perform such a deployment using MSBuild. I've found no evidence that installing/using SSDT is even possible in Ubuntu. If it is not, perhaps there is an alternative solution?
+FYI, I'm aware that using a code-first approach with EF Core is possible. I'm attempting to take the raw SP approach (along with leveraging indexes) and keep track of all of my code using SqlProj instead. This will all be stored and CI/CDed from a Git repo.
+",<sql-server><ubuntu><msbuild><.net-core><sql-server-data-tools>,2151,0,3,669,0,5,21,62,5222,0.0,146,7,23,2018-01-27 22:05,2018-01-28 18:10,2020-04-28 18:14,1.0,822.0,Intermediate,17
+50833992,Postgresql | No space left on device,"I am getting space issue while running a batch process on PostgreSQL database.
+However, df -h command shows that machine has enough space
+below is the exact error 
+org.springframework.dao.DataAccessResourceFailureException: PreparedStatementCallback; SQL [INSERT into BATCH_JOB_INSTANCE(JOB_INSTANCE_ID, JOB_NAME, JOB_KEY, VERSION) values (?, ?, ?, ?)]; ERROR: could not extend file ""base/16388/16452"": No space left on device
+  Hint: Check free disk space.
+What is causing this issue? 
+EDIT
+postgres data directory is /var/opt/rh/rh-postgresql96/lib/pgsql/data
+df -h /var/opt/rh/rh-postgresql96/lib/pgsql/data
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda2      100G   63G   38G  63% /
+",<postgresql><database-administration><postgresql-9.6>,700,1,7,1636,2,22,44,68,67654,0.0,105,1,23,2018-06-13 9:40,2018-06-13 11:22,2018-06-13 11:22,0.0,0.0,Advanced,33
+50813493,NameError: name 'dbutils' is not defined in pyspark,"I am running a pyspark job in databricks cloud. I need to write some of the csv files to databricks filesystem (dbfs) as part of this job and also i need to use some of the dbutils native commands like,
+#mount azure blob to dbfs location
+dbutils.fs.mount (source=""..."",mount_point=""/mnt/..."",extra_configs=""{key:value}"")
+I am also trying to unmount once the files has been written to the mount directory. But, when i am using dbutils directly in the pyspark job it is failing with 
+NameError: name 'dbutils' is not defined
+Should i import any of the package to use dbutils in pyspark code ? Thanks in advance.
+",<apache-spark-sql><azure-blob-storage><databricks>,610,0,3,1079,5,12,18,37,25162,0.0,73,3,23,2018-06-12 9:16,2018-10-23 11:17,,133.0,,Basic,12
+59850951,When to use float vs decimal,"I'm building this API, and the database will store values that represent one of the following:
+percentage
+average
+rate
+I honestly have no idea how to represent something that the range is between 0 and 100% in numbers. Should it be
+0.00 - 1.00
+0.00 - 100.00
+any other alternative that I don't know
+Is there a clear choice for that? A global way of representing on databases something that goes from 0 to 100% percent? Going further, what's the correct that type for it, float or decimal?
+Thank you.
+",<mysql><sql><types><floating-point><decimal>,499,0,0,1198,7,17,30,66,8111,0.0,33,7,23,2020-01-22 0:08,2020-01-22 0:20,,0.0,,Basic,8
+49035178,Unable to locate System.Data.SqlClient reference,"I have a fresh Visual Studio 2017 Professional install. I'm building a quick POC Console application using .NET 4.7.1, and I'm unable to find the reference for System.Data.SqlClient.
+I have scoured my system, and located 4 versions of System.Data.SqlClient.dll, but none are correct and won't compile.
+I have also attempted to use System.Data, but no reference to SqlClient is located within. I have manually added the dll/reference for System.Data, but also did not resolve the reference issue.
+My application is really simple at the moment, and it will NOT compile due to this missing reference.
+What steps do I need to do to get this resolved?
+using System;
+using System.Data;
+using System.Data.SqlClient;
+namespace ConsoleApp1
+{
+    class Database
+    {
+        public void Start()
+        {
+            string connString = @""server=(local);initial     catalog=MyDatabase;Integrated Security=SSPI;"";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(""SELECT TOP 10 ID, Name FROM TableA"", conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            Console.WriteLine(""ID: [{0}], Name: [{1}]"", reader.GetValue(0), reader.GetValue(1));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+",<c#><sqlclient>,1511,0,29,267,1,2,9,37,70492,,3,7,23,2018-02-28 17:17,2018-08-15 14:53,2019-03-06 20:52,168.0,371.0,Basic,9
+53249276,docker-compose mysql init sql is not executed,"I am trying to set up a mysql docker container and execute init sql script. Unfortunately the sql script is not executed. What am I doing wrong?
+version: '3.3'
+services:
+  api:
+    container_name: 'api'
+    build: './api'
+  ports:
+    - target: 8080
+      published: 8888
+      protocol: tcp
+      mode: host
+  volumes:
+    - './api:/go/src/app'
+  depends_on:
+    - 'mysql'
+ mysql:
+  image: 'mysql:latest'
+  container_name: 'mysql'
+  volumes:
+    - ./db_data:/var/lib/mysql:rw
+    - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+  restart: always
+  environment:
+    MYSQL_USER: test
+    MYSQL_PASSWORD: test
+    MYSQL_ROOT_PASSWORD: test
+    MYSQL_DATABASE: test
+  ports:
+    - '3306:3306'
+volumes:
+  db_data:
+I execute file with docker-compose up -d --build
+",<mysql><sql><database><docker><docker-compose>,773,0,31,479,1,4,12,44,21615,0.0,16,3,23,2018-11-11 13:35,2018-11-11 14:56,2018-11-12 2:32,0.0,1.0,Basic,9
+48967318,SQL Server Web vs Standard edition,"I have found out that there's two versions of SQL Server types that are very different in terms of pricing...
+The Web version from my host provider costs about 13$ per 2 core packs, whereas the Standard edition is right around 200$.
+From my standpoint, we expect our database to be around 150-200GB in size, only few tables would take up most of that space.
+So my only concern is would the web version of SQL Server support this large database and not cause any performance issues to the end users?
+How different is index rebuilding on Web and Standard version?
+Can someone help me out with this?
+",<sql><sql-server><performance><sql-server-2008><database-indexes>,597,0,0,3693,15,55,120,81,95448,0.0,406,1,23,2018-02-24 20:32,2018-02-24 21:28,2018-02-24 21:28,0.0,0.0,Basic,9
+52148305,How to cascade delete document in mongodb?,"I have user and photo documents in Mongodb. Each photo belongs to user and a photo maybe shared among users. Lets say user1 has p1,p2,p3 photos and user2 has p3,p4,p5 photos. If I delete user1 (manually using tools like Compass), p1 and p2 should also be deleted but not p3. How to achieve this and what kind of database structure I need to define?
+Currently if I delete user1, no photos are deleted and remain in databse which now makes the database corrupted from the point of view of the application using the database.
+Its Spring Boot app and User and Photo are declared as:
+import lombok.Builder;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document
+@Data
+@Builder
+public class User {
+    @Id
+    private String id;
+    @DBRef
+    private Set&lt;Photo&gt; photos;
+    private String name;
+}
+@Document
+@Data
+@Builder
+public class Photo {
+    @Id
+    private String id;
+    private String fileName;
+}
+",<mongodb><spring-boot><nosql>,1051,0,33,11616,40,116,195,69,20278,0.0,416,4,23,2018-09-03 10:54,2018-09-11 0:04,2018-09-11 0:04,8.0,8.0,Basic,9
+52048778,"OperationalError: cursor ""_django_curs_<id>"" does not exist","We have an online store web-app which is powered by django, postgresql and heroku. 
+For a specific campaign (you can think a campaign like a product to purchase), we have sold 10k+ copies successfully. Yet some of our users are encountered this error according to our Sentry reports. Common specification of these users is; none of them have address information before the purchase. Generally, users fill out address form right after registering. If they don't, they need to fill the form while purchasing the product and submit them together. 
+This is how the trace looks like:
+OperationalError: cursor ""_django_curs_140398688327424_146"" does not exist
+(66 additional frame(s) were not displayed)
+...
+  File ""store/apps/store_main/templatetags/store_form_filters.py"", line 31, in render_form
+    return render_to_string('widgets/store_form_renderer.html', ctx)
+  File ""store/apps/store_main/templatetags/store_form_filters.py"", line 20, in render_widget
+    return render_to_string('widgets/store_widget_renderer.html', ctx)
+  File ""store/apps/store_main/widgets.py"", line 40, in render
+    attrs=attrs) + ""&lt;span class='js-select-support select-arrow'&gt;&lt;/span&gt;&lt;div class='js-select-support select-arrow-space'&gt;&lt;b&gt;&lt;/b&gt;&lt;/div&gt;""
+OperationalError: cursor ""_django_curs_140398688327424_146"" does not exist 
+So another weird common thing, there are exception messages between sql queries before the failure. You can see it in the image below: 
+I'm adding it if they are somehow related. What may also be related is, the users who get this error are the users who tries to purchase the campaign right after a bulk mailing. So, extensive traffic might be the reason yet we are also not sure.
+We asked Heroku about the problem since they are hosting the postgres, yet they do not have any clue either.
+I know the formal reason of this error is trying to reach the cursor after a commit. Since it is destroyed after transaction, trying to reach it cause this error yet I don't see this in our scenario. We are not touching the cursor in any way. What am I missing? What may produce this error? How to prevent it? Any ideas would be appreciated.
+",<python><django><postgresql><sentry><heroku-postgres>,2170,1,12,408,1,3,16,74,19009,0.0,69,4,23,2018-08-28 1:13,2019-04-29 11:11,,244.0,,Advanced,32
+53117988,sequelize select and include another table alias,"I'm using sequelize to acess a postgres database and I want to query for a city and for example include the ""Building"" table but I want to rename the output to ""buildings"" and return the http response  but I have this error:
+  { SequelizeEagerLoadingError: building is associated to city using an alias. You'v
+  e included an alias (buildings), but it does not match the alias defined in your a
+  ssociation.
+    City.findById(req.params.id,{
+      include: [
+        {
+          model: Building, as: ""buildings""
+        }
+      ]
+    }).then(city =&gt;{
+      console.log(city.id);
+         res.status(201).send(city);
+    }) .catch(error =&gt; {
+     console.log(error);
+     res.status(400).send(error)
+   });
+city Model
+            const models = require('../models2');
+            module.exports = (sequelize, DataTypes) =&gt; {
+              const City = sequelize.define('city', {
+              name: { type: DataTypes.STRING, allowNull: false },
+                status: { type: DataTypes.INTEGER, allowNull: false },
+                latitude: { type: DataTypes.BIGINT, allowNull: false },
+                longitude: { type: DataTypes.BIGINT, allowNull: false },
+              }, { freezeTableName: true});
+              City.associate = function(models) {
+                // associations can be defined here
+                 City.hasMany(models.building,{as: 'building', foreignKey: 'cityId'})
+              };
+              return City;
+            };
+",<node.js><postgresql><sequelize.js><sequelize-cli><sequelize-typescript>,1461,0,28,1835,4,28,54,60,58794,0.0,84,1,23,2018-11-02 11:44,2018-11-02 13:00,2018-11-02 13:00,0.0,0.0,Advanced,37
+52081473,Aggregate Overlapping Segments to Measure Effective Length,"I have a road_events table:
+create table road_events (
+    event_id number(4,0),
+    road_id number(4,0),
+    year number(4,0),
+    from_meas number(10,2),
+    to_meas number(10,2),
+    total_road_length number(10,2)
+    );
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (1,1,2020,25,50,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (2,1,2000,25,50,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (3,1,1980,0,25,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (4,1,1960,75,100,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (5,1,1940,1,100,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (6,2,2000,10,30,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (7,2,1975,30,60,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (8,2,1950,50,90,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (9,3,2050,40,90,100);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (10,4,2040,0,200,200);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (11,4,2013,0,199,200);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (12,4,2001,0,200,200);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (13,5,1985,50,70,300);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (14,5,1985,10,50,300);
+insert into road_events (event_id, road_id, year, from_meas, to_meas, total_road_length) values (15,5,1965,1,301,300);
+commit;
+select * from road_events;
+  EVENT_ID    ROAD_ID       YEAR  FROM_MEAS    TO_MEAS TOTAL_ROAD_LENGTH
+---------- ---------- ---------- ---------- ---------- -----------------
+         1          1       2020         25         50               100
+         2          1       2000         25         50               100
+         3          1       1980          0         25               100
+         4          1       1960         75        100               100
+         5          1       1940          1        100               100
+         6          2       2000         10         30               100
+         7          2       1975         30         60               100
+         8          2       1950         50         90               100
+         9          3       2050         40         90               100
+        10          4       2040          0        200               200
+        11          4       2013          0        199               200
+        12          4       2001          0        200               200
+        13          5       1985         50         70               300
+        14          5       1985         10         50               300
+        15          5       1965          1        301               300
+I want to select the events that represent the most recent work on each road.
+This is a tricky operation, because the events often pertain to only a portion of the road. This means that I can't simply select the most recent event per road; I need to only select the most recent event mileage that doesn't overlap.
+Possible logic (in order):
+I'm reluctant to guess at how this problem could be solved, because it could end up hurting more than it helps (kind of like the XY Problem). On the other hand, it might provide insight into the nature of the problem, so here it goes:
+Select the most recent event for each road. We'll call the most recent event: event A.
+If event A  is &gt;= total_road_length, then that's all I need. The algorithm ends here.
+Else, get the next chronological event (event B) that does not have the same extents as event A. 
+If the extents of event B overlap the extents of event A, then only get the portion(s) of event B that do not overlap. 
+Repeat steps 3 and 4 until the total event length is = total_road_length. Or stop when there are no more events for that road.
+Question:
+I know it's a tall order, but what would it take to do this?
+This is a classic linear referencing problem. It would be extremely helpful if I could do linear referencing operations as part of queries.
+The result would be:
+  EVENT_ID    ROAD_ID       YEAR  TOTAL_ROAD_LENGTH   EVENT_LENGTH
+---------- ---------- ----------  -----------------   ------------
+         1          1       2020                100             25
+         3          1       1980                100             25
+         4          1       1960                100             25
+         5          1       1940                100             25
+         6          2       2000                100             20
+         7          2       1975                100             30
+         8          2       1950                100             30
+         9          3       2050                100             50
+        10          4       2040                200            200
+        13          5       1985                300             20
+        14          5       1985                300             40
+        15          5       1965                300            240
+Related question: Select where number range does not overlap 
+",<sql><oracle><select><oracle12c><asset-management>,5605,2,80,296,1,18,66,48,764,0.0,683,6,22,2018-08-29 15:46,2018-08-29 23:44,2018-08-30 21:05,0.0,1.0,Intermediate,17
+52517529,"How to create schema in Postgres DB, before liquibase start to work?","I have standalone application. It’s on java, spring-boot, postgres and it has liquibase. 
+I need to deploy my app and liquibase should create all tables, etc. But it should do it into custom schema not in public. All service tables of liquibase (databasechangelog and databasechangeloglock) should be in custom schema too. How can I create my schema in DB before liquibase start to work? I must do it inside my app when it’s deploying, in config or some like. Without any manual intervention into the DB.
+application.properties:
+spring.datasource.jndi-name=java:/PostgresDS
+spring.jpa.properties.hibernate.default_schema=my_schema
+spring.jpa.show-sql = false
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.continue-on-error=true
+spring.datasource.sql-script-encoding=UTF-8
+liquibase.change-log = classpath:liquibase/changelog-master.yaml
+liquibase.default-schema = my_schema
+UPD:
+When liquibase start, it's create two tables databasechangelogs and one more table. After that, liquibase start working. But I want liquibase in liquibase.default-schema = my_schema, but it's not exist when liquibase start to work and it an error: exception is liquibase.exception.LockException: liquibase.exception.DatabaseException: ERROR: schema ""my_schema"" does not exist
+I want liquibase work in custom schema, not in public:
+liquibase.default-schema = my_schema
+but before liquibase can do it, the schema must be created. Liquibase can't do this because it not started yet and for start it needs schema.
+Vicious circle.
+",<java><spring><postgresql><liquibase>,1559,0,11,480,1,3,16,71,20783,0.0,99,4,22,2018-09-26 12:13,2018-09-27 14:21,2018-09-27 14:21,1.0,1.0,Basic,4
+49390115,How to find my permissions in a SQL Server database?,"I'm a user of a SQL Sever database, and I want to know my access rights / permissions in the database I'm using. What SQL query should I use to do so?
+Thanks
+",<sql><sql-server><database><user-permissions><access-rights>,158,0,0,632,1,9,19,61,45192,,63,2,22,2018-03-20 17:00,2018-03-20 17:16,2018-03-20 17:16,0.0,0.0,Basic,9
+60301008,Failed to validate connection (This connection has been closed.). Possibly consider using a shorter maxLifetime value,"I see the following error message:
+HikariPool-1 - Failed to validate connection
+org.postgresql.jdbc.PgConnection@f162126 (This connection has been
+closed.). Possibly consider using a shorter maxLifetime value.
+frequently refreshing the same page gives the above warning after
+exceeding maxLifetime
+This was my original database configuration:
+spring.datasource.hikari.auto-commit=false  
+spring.datasource.hikari.idleTimeout=180000  
+spring.datasource.hikari.minimumIdle=5  
+spring.datasource.hikari.leakDetectionThreshold=240000    
+spring.datasource.hikari.maximumPoolSize=10  
+logging.level.com.zaxxer.hikari=TRACE  
+spring.datasource.hikari.connectionTimeout=30000  
+spring.datasource.hikari.maxLifetime=300000  
+logging.level.com.zaxxer.hikari.HikariConfig=DEBUG  
+The application is working fine if I change the following properties:
+spring.datasource.hikari.maximumPoolSize=100
+spring.datasource.hikari.maxLifetime=60000
+Can any one explain what is happening exactly?
+",<postgresql><spring-boot><database-connection><connection-pooling>,975,0,13,329,1,2,3,63,33427,0.0,0,2,22,2020-02-19 13:02,2021-01-15 10:26,,331.0,,Intermediate,23
+52473260,Count distinct multiple columns in redshift,"I am trying to count rows which have a distinct combination of 2 columns in Amazon redshift. The query I am using is - 
+select count(distinct col1, col2)
+from schemaname.tablename
+where some filters
+It is throwing me this error - 
+  Amazon Invalid operation: function count(character varying, bigint) does not exist`
+I tried casting bigint to char but it didn't work.
+",<sql><amazon-redshift>,368,0,5,507,2,4,12,70,26861,0.0,113,5,22,2018-09-24 5:41,2018-09-24 5:45,2018-09-24 5:45,0.0,0.0,Basic,2
+57914342,visual studio 2019 open solution file incompatible,"I think I was using visual studio 2017 and wrote a SSIS package. Now I installed visual studio 2019 and can't open the solution file. Error:
+  Unsupported This version of Visual Studio is unable to open the
+  following projects. The project types may not be installed or this
+  version of Visual Studio may not support them.  For more information
+  on enabling these project types or otherwise migrating your assets,
+  please see the details in the ""Migration Report"" displayed after
+  clicking OK.
+     - ABC, ""C:\Users\XYZ\ABC.dtproj""
+  Non-functional changes required Visual Studio will automatically make
+  non-functional changes to the following projects in order to enable
+  them to open in Visual Studio 2015, Visual Studio 2013, Visual Studio
+  2012, and Visual Studio 2010 SP1. Project behavior will not be
+  impacted.
+     - ABC_SSIS, ""C:\Users\XYZ\ABC_SSIS.sln""
+I tried ""Right-click on the project and reload"" - didn't work.
+I tried to confirm SSDT is installed:
+it is installed at the installation interface, but doesn't exist in extension manager:
+",<visual-studio><ssis><sql-server-data-tools>,1061,2,0,3984,11,43,67,59,55613,0.0,135,5,22,2019-09-12 20:52,2019-09-17 16:25,2019-09-17 16:25,5.0,5.0,Basic,6
+50070877,Postgres Psycopg2 Create Table,"I am new to Postgres and Python. I try to create a simple user table but I don't know why it isn't created.
+The error message doesn't appear,
+    #!/usr/bin/python
+    import psycopg2
+    try:
+        conn = psycopg2.connect(database = &quot;projetofinal&quot;, user = &quot;postgres&quot;, password = &quot;admin&quot;, host = &quot;localhost&quot;, port = &quot;5432&quot;)
+    except:
+        print(&quot;I am unable to connect to the database&quot;) 
+    cur = conn.cursor()
+    try:
+        cur.execute(&quot;CREATE TABLE test (id serial PRIMARY KEY, num integer, data varchar);&quot;)
+    except:
+        print(&quot;I can't drop our test database!&quot;)
+    conn.close()
+    cur.close()
+Any help or hint would be appreciated.
+Thank you.
+",<python><database><postgresql><python-3.6><postgresql-10>,745,0,16,353,1,2,11,74,31830,0.0,3,1,22,2018-04-27 22:06,2018-04-27 22:10,2018-04-27 22:10,0.0,0.0,Basic,6
+56462616,How to use pg_restore with AWS RDS correctly to restore postgresql database,"I am trying to restore my Postgresql database to AWS RDS. I think I am almost there. I can get a dump, and recreate the db locally, but I am missing the last step to restore it to AWS RDS. 
+Here is what I am doing: 
+I get my dump
+$ pg_dump -h my_public dns -U myusername -f dump.sql myawsdb
+I create a local db in my shell called test: 
+create database test;
+I put the dump into my test db
+$ psql -U myusername -d test -f dump.sql
+so far so good. 
+I get an error: psql:dump.sql:2705: ERROR:  role ""rdsadmin"" does not exist, but I think I can ignore it, because my db is there with all the content. (I checked with \list and \connect test).
+Now I want to restore this dump/test to my AWS RDS. 
+Following this https://gist.github.com/syafiqfaiz/5273cd41df6f08fdedeb96e12af70e3b 
+I now should do: 
+pg_restore -h &lt;host&gt; -U &lt;username&gt; -c -d &lt;database name&gt; &lt;filename to be restored&gt;
+But what is my filename and what is my database name?
+I tried: 
+pg_restore -h mydns -U myusername -c -d myawsdbname test
+pg_restore -h mydns -U myusername -c -d myawsdbname dump.sql
+and a couple of more options that I don't recall. 
+Most of the times it tells me something like: pg_restore: [archiver] could not open input file ""test.dump"": No such file or directory
+Or, for the second: input file appears to be a text format dump. Please use psql.
+Can somone point me into the right direction? Help is very much appreciated!
+EDIT: So I created a .dump file using $ pg_dump -Fc mydb &gt; db.dump
+Using this file I think it works. Now I get the error [archiver (db)] could not execute query: ERROR:  role ""myuser"" does not exist
+    Command was: ALTER TABLE public.users_user_user_permissions_id_seq OWNER TO micromegas;
+Can I ingore that?
+EDIT2: I got rid of the error adding the flags--no-owner --role=mypguser --no-privileges --no-owner
+",<django><postgresql><amazon-rds><restore><dump>,1841,2,12,1549,2,20,49,53,22116,0.0,141,2,22,2019-06-05 14:31,2020-11-20 17:25,2020-11-20 17:25,534.0,534.0,Intermediate,31
+56538035,Finding sum and grouping in sequelize,"I have a donations table as follows.
+Donations Table
+| id| amount | member_id |
+|---|--------|-----------|
+| 0 |   500  |         01|
+| 1 |  1000  |         02|
+| 2 |  2000  |         01|
+How to find sum and group the table by member id as follows.
+| amount | member_id |
+|--------|-----------|
+|  2500  |         01|
+|  1000  |         02|
+I tried to use the following code but it doesnt seem to work.
+const salesValue = await DONATIONS.sum('amount', {
+    group: 'member_id'
+});
+",<mysql><node.js><sequelize.js>,481,0,12,3658,10,31,55,47,55042,0.0,97,2,22,2019-06-11 6:49,2019-06-11 9:24,,0.0,,Basic,2
+56013334,Spark dynamic frame show method yields nothing,"So I am using AWS Glue auto-generated code to read csv file from S3 and write it to a table over a JDBC connection. Seems simple, Job runs successfully with no error but it writes nothing. When I checked the Glue Spark Dynamic Frame it does contents all the rows (using .count()). But when do a .show() on it yields nothing.
+.printSchema() works fine. Tried logging the error while using .show(), but no errors or nothing is printed. Converted the DynamicFrame to the data frame using .toDF and the show method it works. 
+I thought there is some problem with the file, trying to narrow to certain columns. But even with just 2 columns in the file same thing. Clearly marked string in double quotes, still no success.
+We have things like JDBC connection that needs to be picked from Glue configuration. Which I guess regular spark data frame can't do. Hence need dynamic frame working.
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from awsglue.dynamicframe import DynamicFrame
+import logging
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+glueContext = GlueContext(SparkContext.getOrCreate())
+spark = glueContext.spark_session
+datasource0 = glueContext.create_dynamic_frame.from_options('s3', {'paths': ['s3://bucket/file.csv']}, 'csv', format_options={'withHeader': True,'skipFirst': True,'quoteChar':'""','escaper':'\\'})
+datasource0.printSchema()
+datasource0.show(5)
+Output
+root
+|-- ORDERID: string
+|-- EVENTTIMEUTC: string
+Here is what the converting to regular data frame yields.
+datasource0.toDF().show()
+Output
++-------+-----------------+
+|ORDERID|     EVENTTIMEUTC|
++-------+-----------------+
+|      2| ""1/13/2018 7:50""|
+|      3| ""1/13/2018 7:50""|
+|      4| ""1/13/2018 7:50""|
+|      5| ""1/13/2018 7:50""|
+|      6| ""1/13/2018 8:52""|
+|      7| ""1/13/2018 8:52""|
+|      8| ""1/13/2018 8:53""|
+|      9| ""1/13/2018 8:53""|
+|     10| ""1/16/2018 1:33""|
+|     11| ""1/16/2018 2:28""|
+|     12| ""1/16/2018 2:37""|
+|     13| ""1/17/2018 1:17""|
+|     14| ""1/17/2018 2:23""|
+|     15| ""1/17/2018 4:33""|
+|     16| ""1/17/2018 6:28""|
+|     17| ""1/17/2018 6:28""|
+|     18| ""1/17/2018 6:36""|
+|     19| ""1/17/2018 6:38""|
+|     20| ""1/17/2018 7:26""|
+|     21| ""1/17/2018 7:28""|
++-------+-----------------+
+only showing top 20 rows
+Here is the some data.
+ORDERID, EVENTTIMEUTC
+1, ""1/13/2018 7:10""
+2, ""1/13/2018 7:50""
+3, ""1/13/2018 7:50""
+4, ""1/13/2018 7:50""
+5, ""1/13/2018 7:50""
+6, ""1/13/2018 8:52""
+7, ""1/13/2018 8:52""
+8, ""1/13/2018 8:53""
+9, ""1/13/2018 8:53""
+10, ""1/16/2018 1:33""
+11, ""1/16/2018 2:28""
+12, ""1/16/2018 2:37""
+13, ""1/17/2018 1:17""
+14, ""1/17/2018 2:23""
+15, ""1/17/2018 4:33""
+16, ""1/17/2018 6:28""
+17, ""1/17/2018 6:28""
+18, ""1/17/2018 6:36""
+19, ""1/17/2018 6:38""
+20, ""1/17/2018 7:26""
+21, ""1/17/2018 7:28""
+22, ""1/17/2018 7:29""
+23, ""1/17/2018 7:46""
+24, ""1/17/2018 7:51""
+25, ""1/18/2018 2:22""
+26, ""1/18/2018 5:48""
+27, ""1/18/2018 5:50""
+28, ""1/18/2018 5:50""
+29, ""1/18/2018 5:51""
+30, ""1/18/2018 5:53""
+100, ""1/18/2018 10:32""
+101, ""1/18/2018 10:33""
+102, ""1/18/2018 10:33""
+103, ""1/18/2018 10:42""
+104, ""1/18/2018 10:59""
+105, ""1/18/2018 11:16""
+",<python><pyspark><apache-spark-sql><aws-glue>,3183,0,84,657,4,11,21,77,23237,,33,1,22,2019-05-06 22:51,2023-05-19 15:42,,1474.0,,Intermediate,25
+48879601,How do I query the length of a Django ArrayField?,"I have an ArrayField in a model, I'm trying to annotate the length of this field ( so far without any luck) 
+F('field_name__len') won't work since join is not allowed inside F().  Even 
+ModelName.objets.values('field_name__len') is not working
+Any idea?
+I'm using django 1.11
+",<django><postgresql><django-models><django-queryset>,276,0,3,1424,1,13,29,51,8829,0.0,272,3,22,2018-02-20 7:06,2018-02-20 7:16,2018-07-31 11:50,0.0,161.0,Basic,10
+57646341,Check if table exists in hive metastore using Pyspark,"I am trying to check if a table exists in hive metastore if not, create the table. And if the table exists, append data.
+I have a snippet of the code below:
+spark.catalog.setCurrentDatabase(&quot;db_name&quot;)
+db_catalog = spark.catalog.listTables(dbName = 'table_name)
+if any(table_name in row for row in db_catalog):
+    add data
+else:
+    create table
+However, I am getting an error.
+&gt;&gt;&gt; ValueError: Some of types cannot be determined after inferring
+I am unable to resolve the value error as I get the same errors for other databases' tables created in hive metastore. Is there another way to check if table exists in hive metastore?
+",<python-3.x><apache-spark><hive><pyspark><apache-spark-sql>,648,0,7,3097,10,55,81,69,52330,0.0,30,9,22,2019-08-25 13:15,2019-08-26 4:12,,1.0,,Basic,10
+49379538,How take mysqldump with UTF8?,"I am trying to take mysql dump with command:
+mysqldump -u xxxx -p dbxxx &gt; xxxx270613.sql
+what is command to take mysqldump with UTF8 ?
+",<mysql>,138,0,1,3483,2,20,30,65,49695,0.0,166,3,22,2018-03-20 8:36,2018-03-20 8:46,2018-03-20 8:46,0.0,0.0,Basic,10
+56807876,ODCIAggregateMerge without parallel_enabled,"These are quotes from Oracle docs:
+  [Optional] Merge by combining the two aggregation contexts and return a single context. This operation combines the results of aggregation over subsets in order to obtain the aggregate over the entire set. This extra step can be required during either serial or parallel evaluation of an aggregate. If needed, it is performed before step 4:  
+,
+  The ODCIAggregateMerge() interface is invoked to compute super aggregate values in such rollup operations.
+We have an aggregate function, that we do NOT want to ever run in parallel.
+The reason is that the merging of contexts would be resource consuming and would force us to use different data structures than we are using now, effectively offseting any performance benefits from parallel execution.
+Thus, we did not declare our function as parallel_enabled, and instead return ODCIconst.Error in ODCIAggregateMerge 'just in case'.
+However, the first quote docs claim, that merge may occur even in serial evaluation.
+Super-aggregates (rollup, cube) are obvious examples, but are there any others?
+I've been totally unable to reproduce it with simple group by, merge is never called without parallel_enabled and it seems that always only one context is created within the group.  
+Is it safe to assume that without the parallel_enabled set, merge will never be run?
+Have you ever seen a counterexample to that rule?
+",<sql><oracle><plsql><aggregate>,1400,1,0,925,0,6,24,44,660,0.0,172,1,22,2019-06-28 13:30,2020-07-06 5:56,,374.0,,Intermediate,18
+55950386,"BigQuery - No matching signature for operator = for argument types: INT64, STRING","Im getting a weird error(Maybe im getting this error for the first time) from BQ.
+No matching signature for operator = for argument types: INT64, STRING. 
+Supported signatures: ANY = ANY at [27:1]
+Query:
+SELECT col1
+    ,col2
+    ,col3
+FROM tbl1
+JOIN t2 ON t1.id = t2.id
+JOIN t3 on t2.id = t3.id
+JOIN t4 on t4.id = t1.id
+Error line JOIN t2.id = t3.id  t2.id is showing this error.
+its an integer column.
+",<sql><google-cloud-platform><google-bigquery>,404,0,10,2832,6,40,91,38,128667,0.0,57,3,22,2019-05-02 10:25,2019-05-02 10:30,,0.0,,Basic,2
+51075096,Flask-Admin create view with SQLAlchemy context-sensitive functions,"I have a data model which has a column that depends on other column values, following the instructions in this page I've created a context-sensitive function which is used to determine the value of this particular column on creation, something like this:
+def get_column_value_from_context(context):
+    # Instructions to produce value
+    return value
+class MyModel(db.Model):
+    id = db.Column(db.Integer,
+                   primary_key=True)
+    my_column = db.Column(db.String(64),
+                          nullable=False,
+                          default=get_column_value_from_context)
+    name = db.Column(db.String(32),
+                     nullable=False,
+                     unique=True,
+                     index=True)
+    title = db.Column(db.String(128),
+                      nullable=False)
+    description = db.Column(db.String(256),
+                            nullable=False)
+This approach works pretty decent, I can create rows without problems from the command line or using a script.
+I've also added a ModelView to the app using Flask-Admin:
+class MyModelView(ModelView):
+    can_view_details = True
+    can_set_page_size = True
+    can_export = True
+admin.add_view(MyModelView(MyModel, db.session))
+This also works pretty decent until I click the Create button in the list view. I receive this error:
+  AttributeError: 'NoneType' object has no attribute 'get_current_parameters'
+Because the implementation of the create_model handler in the ModelView is this:
+def create_model(self, form):
+    """"""
+        Create model from form.
+        :param form:
+            Form instance
+    """"""
+    try:
+        model = self.model()
+        form.populate_obj(model)
+        self.session.add(model)
+        self._on_model_change(form, model, True)
+        self.session.commit()
+    except Exception as ex:
+        if not self.handle_view_exception(ex):
+            flash(gettext('Failed to create record. %(error)s', error=str(ex)), 'error')
+            log.exception('Failed to create record.')
+        self.session.rollback()
+        return False
+    else:
+        self.after_model_change(form, model, True)
+    return model
+and here there isn't a context when the model is instantiated. So, I've created a custom view where the model instantiation in the creation handler could be redefined:
+class CustomSQLAView(ModelView):
+    def __init__(self, *args, **kwargs):
+        super(CustomSQLAView, self).__init__(*args, **kwargs)
+    def create_model(self, form):
+        """"""
+            Create model from form.
+            :param form:
+                Form instance
+        """"""
+        try:
+            model = self.get_populated_model(form)
+            self.session.add(model)
+            self._on_model_change(form, model, True)
+            self.session.commit()
+        except Exception as ex:
+            if not self.handle_view_exception(ex):
+                flash(gettext('Failed to create record. %(error)s', error=str(ex)), 'error')
+                log.exception('Failed to create record.')
+            self.session.rollback()
+            return False
+        else:
+            self.after_model_change(form, model, True)
+        return model
+    def get_populated_model(self, form):
+        model = self.model()
+        form.populate_obj(model)
+        return model
+Now I can redefine the get_populated_model method to instantiate the model in the usual way:
+class MyModelView(CustomSQLAView):
+    can_view_details = True
+    can_set_page_size = True
+    can_export = True
+    def get_populated_model(self, form):
+        model = self.model(
+            name=form.name.data,
+            title=form.title.data,
+            description=form.description.data,
+        )
+        return model
+Despite that this works, I suspect it breaks something. Flask-Admin has several implementation of the populate_obj method of forms and fields, so I would like to keep everything safe.
+What is the proper way to do this?
+",<python><flask><flask-sqlalchemy><flask-admin>,3931,2,104,626,2,8,20,37,2001,0.0,226,1,22,2018-06-28 5:11,2018-09-21 21:54,,85.0,,Basic,6
+56373970,Insert multiple records in Sqflite,"How to insert quickly multiple records in sqflite? The standard quickly method is:
+await database.insert(table, object.toMap())
+But I don't think that insert record one to one with a cycle is a good idea.
+Or I can insert all list with a transaction?
+",<sqlite><flutter><sqflite>,250,0,2,10529,3,42,48,41,22138,0.0,480,7,21,2019-05-30 7:51,2019-05-30 8:33,,0.0,,Basic,9
+58352334,Spring Data / Hibernate save entity with Postgres using Insert on Conflict Update Some fields,"I have a domain object in Spring which I am saving using JpaRepository.save method and using Sequence generator from Postgres to generate id automatically.
+@SequenceGenerator(initialValue = 1, name = ""device_metric_gen"", sequenceName = ""device_metric_seq"")
+public class DeviceMetric extends BaseTimeModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = ""device_metric_gen"")
+    @Column(nullable = false, updatable = false)
+    private Long id;
+///// extra fields
+My use-case requires to do an upsert instead of normal save operation (which I am aware will update if the id is present). I want to update an existing row if a combination of three columns (assume a composite unique) is present or else create a new row.
+This is something similar to this:
+INSERT INTO customers (name, email)
+VALUES
+   (
+      'Microsoft',
+      'hotline@microsoft.com'
+   ) 
+ON CONFLICT (name) 
+DO
+      UPDATE
+     SET email = EXCLUDED.email || ';' || customers.email;
+One way of achieving the same in Spring-data that I can think of is:
+Write a custom save operation in the service layer that
+Does a get for the three-column and if a row is present
+Set the same id in current object and do a repository.save
+If no row present, do a normal repository.save
+Problem with the above approach is that every insert now does a select and then save which makes two database calls whereas the same can be achieved by postgres insert on conflict feature with just one db call.
+Any pointers on how to implement this in Spring Data?
+One way is to write a native query insert into values (all fields here). The object in question has around 25 fields so I am looking for an another better way to achieve the same.
+",<spring><postgresql><spring-boot><spring-data-jpa>,1713,1,25,1395,3,17,34,65,10096,0.0,200,2,21,2019-10-12 8:34,2022-12-26 14:50,,1171.0,,Intermediate,18
+50664648,Why even use *DB.exec() or prepared statements in Golang?,"I'm using golang with Postgresql.
+It says here that for operations that do not return rows (insert, delete, update) we should use exec()
+  If a function name includes Query, it is designed to ask a question of the database, and will return a set of rows, even if it’s empty. Statements that don’t return rows should not use Query functions; they should use Exec().
+Then it says here:
+  Go creates prepared statements for you under the covers. A simple db.Query(sql, param1, param2), for example, works by preparing the sql, then executing it with the parameters and finally closing the statement.
+If query() uses under the covers prepared statements why should I even bother using prepared statements?
+",<sql><database><postgresql><go><prepared-statement>,702,2,2,23944,33,137,186,56,32402,0.0,1968,1,21,2018-06-03 8:38,2018-06-03 11:52,2018-06-03 11:52,0.0,0.0,Intermediate,18
+54159964,How to remove nulls with array_remove Spark SQL built-in function,"Spark 2.4 introduced new useful Spark SQL functions involving arrays, but I was a little bit puzzled when I found out that the result of
+select array_remove(array(1, 2, 3, null, 3), null) is null and not [1, 2, 3, 3].
+Is this the expected behavior? Is it possible to remove nulls using array_remove?
+As a side note, for now the alternative I am using is a higher order function in Databricks:
+select filter(array(1, 2, 3, null, 3), x -&gt; x is not null)
+",<arrays><dataframe><apache-spark><apache-spark-sql><null>,455,0,5,2291,1,17,33,78,19343,0.0,1097,6,21,2019-01-12 13:17,2019-01-14 6:20,2019-01-14 6:20,2.0,2.0,Intermediate,15
+56411055,Function uuid_generate_v4() does not exist postgres 11,"I am trying to use node-pg-migrate and run migrations to create tables in my node project.
+When I run migrations I get function uuid_generate_v4() does not exist.
+I did check in my extensions and uuid-ossp is available.
+extname  | extowner | extnamespace | extrelocatable | extversion | extconfig | extcondition 
+-----------+----------+--------------+----------------+------------+-----------+--------------
+ plpgsql   |       10 |           11 | f              | 1.0        |           | 
+ uuid-ossp |    16384 |         2200 | t              | 1.1        |           | 
+(2 rows)
+I expect my migrations to run but it fails. I am using Postgres 11 on Mac.
+Postgres installed from here - https://postgresapp.com/
+",<postgresql><postgresql-11>,712,2,6,329,1,2,11,37,31257,0.0,5,3,21,2019-06-01 23:07,2019-06-01 23:33,,0.0,,Basic,14
+63301495,PDOException: Packets out of order. Expected 0 received 1. Packet size=23,"I have a Laravel Spark project that uses Horizon to manage a job queue with Redis.
+Locally, (on my Homestead box, Mac OS) everything works as expected, but on our new Digital Ocean (Forge provisioned) Droplet, which is a memory-optimized 256GB, 32vCPUs, 10TB, and 1x 800GB VPS, I keep getting the error:
+PDOException: Packets out of order. Expected 0 received 1. Packet size=23
+Or some variation of that error, where the packet size info may be different.
+After many hours/days of debugging and research, I have come across many posts on StackOverflow and elsewhere, that seem to indicate that this can be fixed by doing a number of things, listed below:
+Set PDO::ATTR_EMULATE_PREPARES to true in my database.php config. This has absolutely no effect on the problem, and actually introduces another issue, whereby integers are cast as strings.
+Set DB_HOST to 127.0.0.1 instead of localhost, so that it uses TCP instead of a UNIX socket. Again, this has no effect.
+Set DB_SOCKET to the socket path listed in MySQL by logging into MySQL (MariaDB) and running show variables like '%socket%'; which lists the socket path as /run/mysqld/mysqld.sock. I also leave DB_HOST set to localhost. This has no effect either. One thing I did note, was that the pdo_mysql.default_socket variable is set to /var/run/mysqld/mysqld.sock, I'm not sure if this is part of the problem?
+I have massively increased the MySQL configuration settings found in /etc/mysql/mariadb.conf.d/50-server.cnf to the following:
+key_buffer_size = 2048M
+max_allowed_packet = 2048M
+max_connections = 1000
+thread_concurrency = 100
+query_cache_size = 256M
+I must admit, that changing these settings was a last resort/clutching at straws type scenario. However, this did alleviate the issue to some degree, but it did not fix it completely, as MySQL still fails 99% of the time, albeit at a later stage.
+In terms of the queue, I have a total of 1,136 workers split between 6 supervisors/queues and it's all handled via Laravel Horizon, which is being run as a Daemon.
+I am also using the Laravel Websockets PHP package for broadcasting, again, which is also being run as a Daemon.
+My current environment configuration is as follows (sensitive info omitted).
+APP_NAME=&quot;App Name&quot;
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=thekey
+APP_URL=https://appurl.com
+LOG_CHANNEL=single
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=databse
+DB_USERNAME=username
+DB_PASSWORD=password
+BROADCAST_DRIVER=pusher
+CACHE_DRIVER=file
+QUEUE_CONNECTION=redis
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=name@email.com
+MAIL_PASSWORD=password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=name@email.com
+MAIL_FROM_NAME=&quot;${APP_NAME}&quot;
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=&quot;us-east-1&quot;
+AWS_BUCKET=
+PUSHER_APP_ID=appid
+PUSHER_APP_KEY=appkey
+PUSHER_APP_SECRET=appsecret
+PUSHER_APP_CLUSTER=mt1
+MIX_PUSHER_APP_KEY=&quot;${PUSHER_APP_KEY}&quot;
+MIX_PUSHER_APP_CLUSTER=&quot;${PUSHER_APP_CLUSTER}&quot;
+AUTHY_SECRET=
+CASHIER_CURRENCY=usd
+CASHIER_CURRENCY_LOCALE=en
+CASHIER_MODEL=App\Models\User
+STRIPE_KEY=stripekey
+STRIPE_SECRET=stripesecret
+# ECHO SERVER
+LARAVEL_WEBSOCKETS_PORT=port
+The server setup is as follows:
+Max File Upload Size: 1024
+Max Execution Time: 300
+PHP Version: 7.4
+MariaDB Version: 10.3.22
+I have checked all logs (see below) at the time the MySQL server crashes/goes away, and there is nothing in the MySQL logs at all. No error whatsoever. I also don't see anything in:
+/var/log/nginx/error.log
+/var/log/nginx/access.log
+/var/log/php7.4-fpm.log
+I'm currently still digging through and debugging, but right now, I'm stumped. This is the first time I've ever come across this error.
+Could this be down to hitting the database (read/write) too fast?
+A little information on how the queues work.
+I have an initial controller that dispatches a job to the queue.
+Once this job completes, it fires an event which then starts the process of running several other listeners/events in sequence, all of which depend on the previous jobs completing before new events are fired and new listeners/jobs take up the work.
+In total, there are 30 events that are broadcast.
+In total, there are 30 listeners.
+In total there are 5 jobs.
+These all work sequentially based on the listener/job that was run and the event that it fires.
+I have also monitored the laravel.log live and when the crash occurs, nothing is logged at all. Although, I do occasionally get production.ERROR: Failed to connect to Pusher. whether MySQL crashes or not, so I don't think that has any bearing on this problem.
+I even noticed that the Laravel API rate limit was being hit, so I made sure to drastically increase that from 60 to 500. Still no joy.
+Lastly, it doesn't seem to matter which Event, Job, or Listener is running as the error occurs on random ones. So, not sure it's code-specific, although, it may well be.
+Hopefully, I've provided enough background and detailed information to get some help with this, but if I've missed anything, please do let me know and I'll add it to the question. Thanks.
+",<php><mysql><laravel><sockets><pdo>,5198,1,80,4076,5,41,67,48,54687,0.0,46,6,21,2020-08-07 12:05,2020-11-27 16:33,,112.0,,Advanced,32
+64061101,"Microsoft SQL Server - best way to 'Update if exists, or Insert'","I've been searching around for the answers to this question, and there's some conflicting or ambiguous information out there, finding it hard to find a for-sure answer.
+My context: I'm in node.js using the 'mssql' npm package. My SQL server is Microsoft SQL Server 2014.
+I have a record that may or may not exist in a table already -- if it exists I want to update it, otherwise I want to insert it. I'm not sure what the optimal SQL is, or if there's some kind of 'transaction' I should be running in mssql. I've found some options that seem good, but I'm not sure about any of them:
+Option 1:
+how to update if exists or insert
+Problem with this is I'm not even sure this is valid syntax in MSSQL. I do like it though, and it seems to support doing multiple rows at once too which I like.
+INSERT INTO table (id, user, date, points)
+    VALUES (1, 1, '2017-03-03', 25),
+           (2, 1, '2017-03-04', 25),
+           (3, 2, '2017-03-03', 100),
+           (4, 2, '2017-03-04', 150)
+    ON DUPLICATE KEY UPDATE points = VALUES(points)
+Option 2:
+don't know if there's any problem with this one, just not sure if it's optimal. Doesn't seem to support multiple simultaneous rows
+update test set name='john' where id=3012
+IF @@ROWCOUNT=0
+   insert into test(name) values('john');
+Option 3: Merge, https://dba.stackexchange.com/questions/89696/how-to-insert-or-update-using-single-query
+Some people say this is a bit buggy or something? This also apparently supports multiple at once which I like.
+MERGE dbo.Test WITH (SERIALIZABLE) AS T
+USING (VALUES (3012, 'john')) AS U (id, name)
+    ON U.id = T.id
+WHEN MATCHED THEN 
+    UPDATE SET T.name = U.name
+WHEN NOT MATCHED THEN
+    INSERT (id, name) 
+    VALUES (U.id, U.name);
+",<sql><sql-server>,1719,2,17,13274,3,40,77,46,24210,0.0,996,3,21,2020-09-25 9:05,2020-09-25 9:18,2020-09-25 9:18,0.0,0.0,Advanced,32
+62821983,"TypeORM: ""No migrations pending"" when attempting to run migrations manually","I have a new web app and I've written a migrator to create a user table. However, no matter what I try, typeorm does not appear to find this migrator and hence, does not run it.
+My file structure (other files/folders not shown):
+├── Server
+│   ├── dist
+|   |   ├── Migrations
+|   |   |   ├── 1234567891234567890-AddUserTable.js
+|   |   |   ├── 1234567891234567890-AddUserTable.js.map
+|   |   |   ├── 1234567891234567890-AddUserTable.d.ts
+│   ├── src
+|   |   ├── Migrations
+|   |   |   ├── 1234567891234567890-AddUserTable.ts
+|   |   ├── app.module.ts
+app.module.ts
+@Module({
+    imports: [
+        ConfigModule.forRoot({ envFilePath: '.env' }),
+        TypeOrmModule.forRootAsync({
+            imports: [ConfigModule],
+            useFactory: (configService: ConfigService) =&gt; ({
+                type: 'mysql',
+                host: configService.get('TYPEORM_HOST'),
+                port: +configService.get&lt;number&gt;('TYPEORM_PORT'),
+                username: configService.get('TYPEORM_USERNAME'),
+                password: configService.get('TYPEORM_PASSWORD'),
+                database: configService.get('TYPEORM_DATABASE'),
+                synchronize: configService.get('TYPEORM_SYNCHRONIZE'),
+                entities: [__dirname + '/**/*.entity{.ts,.js}'],
+                migrations: [__dirname + '/Migrations/**/*.js'],
+                migrationsRun: false,
+                cli: {
+                    migrationsDir: './Migrations',
+                },
+            }),
+            inject: [ConfigService],
+        }),
+    ],
+    controllers: [],
+    providers: [],
+})
+export class AppModule {
+    constructor(private connection: Connection) {}
+}
+In order to run this, in my console window, I type: nest start in order get my Server started.
+Then, I run npx typeorm migration:run which I get:
+query: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'myDB' AND `TABLE_NAME` = 'migrations'
+query: SELECT * FROM `myDB`.`migrations` `migrations` ORDER BY `id` DESC
+No migrations are pending
+If I look in my DB, I see a migrations table with no entries inside.
+I have tried to delete my migrator file and create it again with a more recent timestamp and that does not work either.
+npx typeorm migration:create -n &quot;MyMigratorName&quot;
+Any help would be greatly appreciated.
+",<mysql><nestjs><typeorm>,2309,0,46,10553,24,79,146,65,25335,0.0,234,5,21,2020-07-09 19:07,2020-08-27 13:40,,49.0,,Advanced,32
+50456780,Run MySQL on Port 3307 Using Docker Compose,"I am trying to create multiple Prisma database services on a single machine. I have been unable to create a MySQL database on a port other than 3306 using Docker Compose. 
+docker-compose.yml 
+version: '3'
+services:
+hackernews:
+    image: prismagraphql/prisma:1.8
+    restart: always
+    ports:
+    - ""${CLIENT_PORT}:${INTERNAL_PORT}""
+    environment:
+    PRISMA_CONFIG: |
+        port: $INTERNAL_PORT
+        managementApiSecret: $PRISMA_MANAGEMENT_API_SECRET
+        databases:
+        default:
+            connector: mysql
+            host: mysql
+            port: $SQL_INTERNAL_PORT
+            user: root
+            password: $SQL_PASSWORD
+            migrations: true
+mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+    MYSQL_ROOT_PASSWORD: $SQL_PASSWORD
+    volumes:
+    - ./custom/:/etc/mysql/conf.d/my.cnf
+    - mysql:/var/lib/mysql
+volumes:
+mysql:
+docker-compose.override.yml 
+version: '3'
+services:
+mysql:
+    expose:
+    - ""${SQL_INTERNAL_PORT}""
+    ports:
+    - ""${SQL_CLIENT_PORT}:${SQL_INTERNAL_PORT}""
+Error:
+hackernews_1  | Exception in thread ""main"" java.sql.SQLTransientConnectionException: database - Connection is not available, request timed out after 5008ms.
+hackernews_1  |     at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:548)
+hackernews_1  |     at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:186)
+hackernews_1  |     at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:145)
+hackernews_1  |     at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:83)
+hackernews_1  |     at slick.jdbc.hikaricp.HikariCPJdbcDataSource.createConnection(HikariCPJdbcDataSource.scala:18)
+hackernews_1  |     at slick.jdbc.JdbcBackend$BaseSession.&lt;init&gt;(JdbcBackend.scala:439)
+hackernews_1  |     at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:47)
+hackernews_1  |     at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:38)
+hackernews_1  |     at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:218)
+hackernews_1  |     at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:217)
+hackernews_1  |     at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:38)
+hackernews_1  |     at slick.basic.BasicBackend$DatabaseDef$$anon$2.run(BasicBackend.scala:239)
+hackernews_1  |     at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+hackernews_1  |     at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+hackernews_1  |     at java.lang.Thread.run(Thread.java:748)
+hackernews_1  | Caused by: java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=mysql)(port=3307)(type=master) : Connection refused (Connection refused)
+hackernews_1  |     at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:161)
+hackernews_1  |     at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:79)
+hackernews_1  |     at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1040)
+hackernews_1  |     at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:490)
+hackernews_1  |     at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:144)
+hackernews_1  |     at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+hackernews_1  |     at slick.jdbc.DriverDataSource.getConnection(DriverDataSource.scala:101)
+hackernews_1  |     at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:341)
+hackernews_1  |     at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:193)
+hackernews_1  |     at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:430)
+hackernews_1  |     at com.zaxxer.hikari.pool.HikariPool.access$500(HikariPool.java:64)
+hackernews_1  |     at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:570)
+hackernews_1  |     at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:563)
+hackernews_1  |     at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+docker ps 
+CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS                                  PORTS                              NAMES
+ab721996469d        mysql:5.7                  ""docker-entrypoint.s…""   42 minutes ago      Up 55 seconds                           3306/tcp, 0.0.0.0:3307-&gt;3307/tcp   two_mysql_1
+7aab98e2b8d7        prismagraphql/prisma:1.8   ""/bin/sh -c /app/sta…""   2 hours ago         Restarting (1) Less than a second ago                                      two_hackernews_1
+.env
+SQL_PASSWORD=myuniquepassword
+SQL_INTERNAL_PORT=3307
+SQL_CLIENT_PORT=3307
+",<mysql><docker><docker-compose><prisma>,4804,0,73,343,2,3,9,40,52457,0.0,0,3,21,2018-05-21 21:21,2018-05-21 22:17,2018-05-21 22:17,0.0,0.0,Basic,10
+56760683,"Windows API call ""RegGetValueW"" returned error code: 0","I am getting Windows API Call Error Code :  0 
+I have installed SSMS 2018 and was trying to find out if I have any other versions installed. For that I ran sqllocaldb versions in CMD but got the following message:
+  Windows API call ""RegGetValueW"" returned error code: 0.
+When I checked manually (via Control Panel), I saw that I have 2015 and 2016 versions installed. So Why it are they not showing in CMD. 
+I tried to find other solutions but found nothing that made sense to me. 
+",<sql-server><ssms><localdb>,483,0,1,221,0,3,6,57,8219,0.0,0,3,21,2019-06-25 19:16,2019-10-07 18:49,,104.0,,Basic,14
+65184035,Alembic ignore specific tables,"I'm using alembic to manage database migrations as per user defined sqlalchemy models. My challenge is that I'd like for alembic to ignore any creation, deletion, or changes to a specific set of tables.
+Note: My Q is similar to this question Ignoring a model when using alembic autogenerate but is different in that I want to control alembic from outside the model definition.
+Here's a sample table I want to ignore:
+from sqlalchemy import MetaData
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base(metadata=MetaData())
+class Ignore1(Base):
+    &quot;&quot;&quot;
+    Signed in to the account...
+    &quot;&quot;&quot;
+    __tablename__ = 'ignore_1'
+    __table_args__ = {
+        'info':{'skip_autogenerate':True}
+        }
+    id = Column(Integer, primary_key=True)
+    foo = Column(String(20), nullable=True)
+Example code (which does not solve my issue): 
+In alembic/env.py
+# Ideally this is stored in my actual database, but for now, let's assume we have a list...
+IGNORE_TABLES = ['ignore_1', 'ignore_2']
+def include_object(object, name, type_, reflected, compare_to):
+    &quot;&quot;&quot;
+    Should you include this table or not?
+    &quot;&quot;&quot;
+    if type_ == 'table' and (name in IGNORE_TABLES or object.info.get(&quot;skip_autogenerate&quot;, False)):
+        return False
+    elif type_ == &quot;column&quot; and object.info.get(&quot;skip_autogenerate&quot;, False):
+        return False
+    return True
+# Then add to config
+context.configure(
+    ...
+    include_object=include_object,
+    ...
+    )
+",<python><sqlalchemy><alembic>,1553,1,37,9698,2,51,73,68,6140,0.0,6370,1,21,2020-12-07 14:55,2020-12-11 22:23,2020-12-11 22:23,4.0,4.0,Basic,14
+52943627,Convert a pandas dataframe to a PySpark dataframe,"I have a script with the below setup.
+I am using:
+1) Spark dataframes to pull data in
+2) Converting to pandas dataframes after initial aggregatioin
+3) Want to convert back to Spark for writing to HDFS
+The conversion from Spark --> Pandas was simple, but I am struggling with how to convert a Pandas dataframe back to spark.
+Can you advise?
+from pyspark.sql import SparkSession
+import pyspark.sql.functions as sqlfunc
+from pyspark.sql.types import *
+import argparse, sys
+from pyspark.sql import *
+import pyspark.sql.functions as sqlfunc
+import pandas as pd
+def create_session(appname):
+    spark_session = SparkSession\
+        .builder\
+        .appName(appname)\
+        .master('yarn')\
+        .config(""hive.metastore.uris"", ""thrift://uds-far-mn1.dab.02.net:9083"")\
+        .enableHiveSupport()\
+        .getOrCreate()
+    return spark_session
+### START MAIN ###
+if __name__ == '__main__':
+    spark_session = create_session('testing_files')
+I've tried the below - no errors, just no data! To confirm, df6 does have data &amp; is a pandas dataframe
+df6 = df5.sort_values(['sdsf'], ascending=[""true""])
+sdf = spark_session.createDataFrame(df6)
+sdf.show()
+",<python-3.x><pandas><pyspark><apache-spark-sql>,1156,0,23,1906,2,23,46,51,67478,,122,1,21,2018-10-23 7:40,2018-10-23 13:05,2018-10-23 13:05,0.0,0.0,Basic,6
+53634650,Hash function in spark,"I'm trying to add a column to a dataframe, which will contain hash of another column.
+I've found this piece of documentation:
+https://spark.apache.org/docs/2.3.0/api/sql/index.html#hash
+And tried this:  
+import org.apache.spark.sql.functions._
+val df = spark.read.parquet(...)
+val withHashedColumn = df.withColumn(""hashed"", hash($""my_column""))
+But what is the hash function used by that hash()? Is that murmur, sha, md5, something else?  
+The value I get in this column is integer, thus range of values here is probably [-2^(31) ... +2^(31-1)].
+Can I get a long value here? Can I get a string hash instead?
+How can I specify a concrete hashing algorithm for that?
+Can I use a custom hash function?
+",<scala><apache-spark><hash><apache-spark-sql>,698,2,8,4199,6,47,66,68,27595,0.0,2310,2,21,2018-12-05 14:34,2019-05-23 14:38,,169.0,,Basic,3
+48348366,"Eloquent join using ""USING"" clause with N query","I'm using Slim Framework with Illuminate Database.
+I want to make JOIN query with USING clause. Let's say given Sakila database. Diagram:
+How to make join with USING clause (not ON) in eloquent model?
+SELECT film_id,title,first_name,last_name 
+FROM film_actor 
+INNER join film USING(film_id) -- notice 
+INNER join actor USING(actor_id) -- notice 
+What I want is an eager loading with EXACT 1 query. The use of eloquent relationships described in the API is not meeting my expectation, since any eager relation use N+1 query. I want to make it less IO to database.
+FilmActor model :
+class FilmActor extends Model
+{
+    protected $table = 'film_actor';
+    protected $primaryKey = [&quot;actor_id&quot;, &quot;film_id&quot;];
+    protected $incrementing = false;
+    protected $appends = ['full_name'];
+    // i need to make it in Eloquent model way, so it easier to manipulate
+    public function getFullNameAttribute()  
+    {
+        $fn = &quot;&quot;;
+        $fn .= isset($this-&gt;first_name) ? $this-&gt;first_name .&quot; &quot;: &quot;&quot;;
+        $fn .= isset($this-&gt;last_name) ? $this-&gt;last_name .&quot; &quot;: &quot;&quot;;
+        return $fn; 
+    }
+    public function allJoin()
+    {
+        // how to join with &quot;USING&quot; clause ?
+        return self::select([&quot;film.film_id&quot;,&quot;title&quot;,&quot;first_name&quot;,&quot;last_name&quot;])
+            -&gt;join(&quot;film&quot;, &quot;film_actor.film_id&quot;, '=', 'film.film_id')  
+            -&gt;join(&quot;actor&quot;, &quot;film_actor.actor_id&quot;, '=', 'actor.actor_id');  
+        //something like
+        //return self::select(&quot;*&quot;)-&gt;joinUsing(&quot;film&quot;,[&quot;film_id&quot;]);
+        //or
+        //return self::select(&quot;*&quot;)-&gt;join(&quot;film&quot;,function($join){
+        //    $join-&gt;using(&quot;film_id&quot;);
+        //});
+    }
+}
+So, in the controller I can get the data like
+$data = FilmActor::allJoin()  
+        -&gt;limit(100)  
+        -&gt;get();`  
+But there's a con, if I need to add extra behavior (like where or order).
+$data = FilmActor::allJoin()
+        -&gt;where(&quot;film.film_id&quot;,&quot;1&quot;)   
+        -&gt;orderBy(&quot;film_actor.actor_id&quot;)  
+        -&gt;limit(100)  
+        -&gt;get();`  
+I need to pass table name to avoid ambiguous field. Not good. So I want for further use, I can do
+$kat = $request-&gt;getParam(&quot;kat&quot;,&quot;first_name&quot;);  
+// [&quot;film_id&quot;, &quot;title&quot;, &quot;first_name&quot;, &quot;last_name&quot;]  
+// from combobox html  
+// adding &quot;film.film_id&quot; to combo is not an option  
+// passing table name to html ?? big NO
+$search = $request-&gt;getParam(&quot;search&quot;,&quot;&quot;);
+$order = $request-&gt;getParam(&quot;order&quot;,&quot;&quot;);
+$data = FilmActor::allJoin()
+        -&gt;where($kat,&quot;like&quot;,&quot;%$search%&quot;)   
+        -&gt;orderBy($order)  
+        -&gt;limit(100)  
+        -&gt;get();`  
+",<php><mysql><sql><eloquent><slim>,2969,4,60,3402,6,34,58,62,1075,0.0,84,3,21,2018-01-19 19:38,2018-02-09 1:48,,21.0,,Basic,3
+57257965,DBeaver restore SQL Server .bak file,"I am just trying to restore a SQL Server .bak file in my DBeaver UI. But I have no idea how to do this - can someone help please? 
+I created a database, but when I right click on it, there are no restore options.
+",<sql-server><restore><dbeaver>,213,1,2,2114,7,23,49,56,37217,0.0,59,4,21,2019-07-29 16:31,2019-07-29 18:50,,0.0,,Intermediate,20
+55755095,PostgreSQL- ModuleNotFoundError: No module named 'psycopg2',"I can confirm psycopg2 is install (using conda install -c anaconda psycopg2) but the it seems psycopg2 cannot be imported to my python script or the interpreter is unable to locate it. I also tried installing using pip3, requirements are satisfied, meaning psycopg2 is already istalled, but cannot understand why I script isn't able to import it. Using Mac (OS v10.14.4) 
+$ python create_tables.py
+Traceback (most recent call last):
+  File ""create_tables.py"", line 1, in &lt;module&gt;
+    import psycopg2
+ModuleNotFoundError: No module named 'psycopg2'
+$ pip3 install psycopg2
+Requirement already satisfied: psycopg2 in /usr/local/lib/python3.7/site-packages (2.8.2)
+$ pip3 install psycopg2-binary
+Requirement already satisfied: psycopg2-binary in /usr/local/lib/python3.7/site-packages (2.8.2)
+python -V
+Python 3.7.0
+Any idea why  this happen?
+EDIT: create_table.py
+import psycopg2
+from config import config
+def create_tables():
+    """""" create tables in the PostgreSQL database""""""
+    commands = (
+        """"""
+        CREATE TABLE vendors (
+            vendor_id SERIAL PRIMARY KEY,
+            vendor_name VARCHAR(255) NOT NULL
+        )
+        """""",
+        """""" CREATE TABLE parts (
+                part_id SERIAL PRIMARY KEY,
+                part_name VARCHAR(255) NOT NULL
+                )
+        """""",
+        """"""
+        CREATE TABLE part_drawings (
+                part_id INTEGER PRIMARY KEY,
+                file_extension VARCHAR(5) NOT NULL,
+                drawing_data BYTEA NOT NULL,
+                FOREIGN KEY (part_id)
+                REFERENCES parts (part_id)
+                ON UPDATE CASCADE ON DELETE CASCADE
+        )
+        """""",
+        """"""
+        CREATE TABLE vendor_parts (
+                vendor_id INTEGER NOT NULL,
+                part_id INTEGER NOT NULL,
+                PRIMARY KEY (vendor_id , part_id),
+                FOREIGN KEY (vendor_id)
+                    REFERENCES vendors (vendor_id)
+                    ON UPDATE CASCADE ON DELETE CASCADE,
+                FOREIGN KEY (part_id)
+                    REFERENCES parts (part_id)
+                    ON UPDATE CASCADE ON DELETE CASCADE
+        )
+        """""")
+    conn = None
+    try:
+        # read the connection parameters
+        params = config()
+        # connect to the PostgreSQL server
+        conn = psycopg2.connect(**params)
+        cur = conn.cursor()
+        # create table one by one
+        for command in commands:
+            cur.execute(command)
+        # close communication with the PostgreSQL database server
+        cur.close()
+        # commit the changes
+        conn.commit()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+if __name__ == '__main__':
+    create_tables()
+",<python><python-3.x><psycopg2><postgresql-9.1>,2788,0,77,3495,6,29,62,80,32251,0.0,439,3,21,2019-04-19 0:08,2019-04-19 0:19,2019-04-19 1:09,0.0,0.0,Basic,9
+48112591,Generate ansi sql INSERT INTO,"I have Oracle database with 10 tables. Some of the tables have CLOB data text. I need to export data from these tables pro-grammatically using java. The export data should be in ANSI INSERT INTO SQL format, for example: 
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+The main idea is that I need to import this data into three different databases:
+ORACLE, MSSQL and MySQL. As I know all these databases support ANSI INSERT INTO. But I have not found any java API/framework for generating data SQL scripts. And I do not know how to deal with CLOB data, how to export it. 
+What is the best way to export data from a database with java? 
+UPDATE: (01.07.2018) 
+I guess it is impossible to insert text data more than 4000 bytes according to this answer. How to generate PL\SQL scripts using java programmatically? Or is there any other export format which supports ORACLE, MSSQL, etc?
+",<java><sql><oracle>,928,1,2,2689,3,33,50,76,2959,0.0,2360,7,21,2018-01-05 11:21,2018-01-05 11:27,,0.0,,Basic,9
+49783108,PostgreSQL 10 on Linux - LC_COLLATE locale en_US.utf-8 not valid,"
+  ERROR: invalid locale name: ""en_US.utf-8""
+Running Ubuntu server 18.04 Beta 2 with PostgreSQL 10.
+In running a database creation script that worked on 9.5, I am now seeing an issue with 'en_US.UTF-8' as a locale:
+CREATE DATABASE db WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+I know this may be redundant as I understand the default to be 'en_US.etf-8'.  Removing the LC_COLLATE and LC_CTYPE parameters let me run my script.
+So did the locale definitions change somehow for V 10?  Or is there something else now happening?  I couldn't find anything on this in the Postgres 10 manual.
+",<postgresql>,639,0,1,1603,2,10,17,81,44629,0.0,0,6,21,2018-04-11 19:31,2018-04-12 19:40,2018-04-12 19:40,1.0,1.0,Basic,9
+59065629,"A field with precision 10, scale 2 must round to an absolute value less than 10^8","I have a django-field total_price in postgres database version 9.3.11.
+Here is the code:
+total_value = models.DecimalField(decimal_places=100, default=0, max_digits=300)
+I want to convert it to proper 2 decimal place. So I wrote this:
+total_value = models.DecimalField(decimal_places=2, default=0, max_digits=10)
+My migration file
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from django.db import models, migrations
+class Migration(migrations.Migration):
+    dependencies = [
+        ('my_table', '0040_my_table_skipped'),
+    ]
+    operations = [
+        migrations.AlterField(
+            model_name='my_table',
+            name='total_value',
+            field=models.DecimalField(default=0, 
+                                      max_digits=10, 
+                                      decimal_places=2),
+        ),
+    ]
+When I run command python manage.py migrate
+I get an error from postgresql:
+A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+",<python><django><postgresql><django-models><postgresql-9.3>,1003,0,26,9182,13,57,85,55,61396,,327,3,21,2019-11-27 8:03,2020-04-26 7:43,,151.0,,Basic,9
+49088401,Spark from_json with dynamic schema,"I am trying to use Spark for processing JSON data with variable structure(nested JSON). Input JSON data could be very large with more than 1000 of keys per row and one batch could be more than 20 GB. 
+Entire batch has been generated from 30 data sources and 'key2' of each JSON can be used to identify the source and structure for each source is predefined.
+What would be the best approach for processing such data?
+I have tried using from_json like below but it works only with fixed schema and to use it first I need to group the data based on each source and then apply the schema. 
+Due to large data volume my preferred choice is to scan the data only once and extract required values from each source, based on predefined schema.
+import org.apache.spark.sql.types._ 
+import spark.implicits._
+val data = sc.parallelize(
+    """"""{""key1"":""val1"",""key2"":""source1"",""key3"":{""key3_k1"":""key3_v1""}}""""""
+    :: Nil)
+val df = data.toDF
+val schema = (new StructType)
+    .add(""key1"", StringType)
+    .add(""key2"", StringType)
+    .add(""key3"", (new StructType)
+    .add(""key3_k1"", StringType))
+df.select(from_json($""value"",schema).as(""json_str""))
+  .select($""json_str.key3.key3_k1"").collect
+res17: Array[org.apache.spark.sql.Row] = Array([xxx])
+",<json><apache-spark><apache-spark-sql>,1233,0,19,284,1,2,9,70,44295,0.0,2,3,21,2018-03-03 19:37,2018-03-04 3:54,,1.0,,Intermediate,18
+55581114,COUNT(id) or MAX(id) - which is faster?,"I have a web server on which I've implemented my own messaging system.
+I am at a phase where I need to create an API that checks if the user has new messages.
+My DB table is simple:
+ID - Auto Increment, Primary Key (Bigint)
+Sender - Varchar (32) // Foreign Key to UserID hash from Users DB Table
+Recipient - Varchar (32) // Foreign Key to UserID hash from Users DB Table
+Message - Varchar (256) //UTF8 BIN
+I am considering making an API that will estimate if there are new messages for a given user. I am thinking of using one of these methods:
+A) Select count(ID) of messages where sender or recipient is me.
+(if this number &gt; previous number, I have a new message)
+B) Select max(ID) of messages where sender or recipient is me.
+(if max(ID) &gt; than previous number, I have a new message)
+My question is:  Can I calculate somehow what method will consume fewer server resources? Or is there some article? Maybe another method I didn't mention?
+",<php><mysql><performance>,949,0,6,336,0,6,18,50,4952,0.0,9,4,21,2019-04-08 20:15,2019-04-08 20:19,2019-04-08 20:19,0.0,0.0,Intermediate,23
+53784468,Postgres 10.3: SELECT queries hang for hours,"My application is using Postgres as DBMS, the version of Postgres that i'm using is 10.3 with the extension Postgis installed. 
+Occasionally i noticed that in random interval of times the dbms become slow and get stuck on a few SELECT queries.
+From pg_stat_activity i noticed that the wait_event_type and wait_event of these queries is as follows: 
+ select wait_event_type, wait_event from pg_stat_activity where state='active'; 
+ wait_event_type |  wait_event  
+-----------------+--------------
+ IO              | DataFileRead
+ IO              | DataFileRead
+ IO              | DataFileRead
+ IO              | DataFileRead
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ IO              | DataFileRead
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ IO              | DataFileRead
+ IO              | DataFileRead
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ IO              | DataFileRead
+ LWLock          | buffer_io
+ IO              | DataFileRead
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+ IO              | DataFileRead
+ IO              | DataFileRead
+                 | 
+ IO              | DataFileRead
+ LWLock          | buffer_io
+ LWLock          | buffer_io
+(33 rows)
+My assumption, after checking the docs, is that the hardware underneath has some issues and then the problem i'm facing is not related to the application, or the type of query, but to the hardware itself.
+Anybody ever faced this kind of issue? 
+",<postgresql><postgresql-10>,1735,1,40,1490,2,12,22,74,12768,0.0,67,1,21,2018-12-14 17:37,2021-04-28 11:28,,866.0,,Intermediate,23
+55297807,When do Postgres column or table names need quotes and when don't they?,"Let's consider the following postgres query:
+SELECT * 
+FROM ""MY_TABLE""
+WHERE ""bool_var""=FALSE 
+ AND ""str_var""='something';
+The query fails to respond properly when I remove quotes around ""str_var"" but not when I do the same around ""bool_var"". Why? What is the proper way to write the query in that case, no quotes around the boolean column and quotes around the text column? Something else?
+",<postgresql><quoted-identifier>,391,0,6,594,1,5,10,68,19822,0.0,144,2,21,2019-03-22 10:39,2019-03-22 10:46,2019-03-22 12:21,0.0,0.0,Basic,8

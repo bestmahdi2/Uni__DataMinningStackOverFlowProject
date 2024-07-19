@@ -1,0 +1,339 @@
+Id,Title,Body,Tags,CreationDate,Y
+34565049,I cant UPDATE datetime to MySQL,"<p>I need a little help.
+I'm try to UPDATE a datetime to MySQL, but it didn't work.</p>
+
+<p>The declaration is like this:</p>
+
+<pre><code>    $startDate = time();
+    $time = date(""Y-m-d H:i:s"", strtotime('+7 days', $startDate));
+</code></pre>
+
+<p>After this i want to UPDATE, but in MySQL is still blank always.</p>
+
+<p>UPDATE:</p>
+
+<pre><code>mtquery(""UPDATE table SET end_time = "".$time."" WHERE id = "".$table['id']."""");
+</code></pre>
+
+<p>If i use NOW() instead of "".$time."", it works perfectly.</p>
+
+<p>If someone can help, please write the solution.</p>
+
+<p>Thanks,</p>
+
+<p>KoLi</p>
+",<php><mysql>,16/01/02 10:50,LQ_CLOSE
+34566278,How to correctly share JAX-RS 2.0 client,"<p>To give a little context to my issue...</p>
+
+<p>I have a Java EE web application (as a UI / client) that accesses services for data / business logic via a REST interface using the JAX-RS 2.0 client API (Resteasy implementation).</p>
+
+<p>Currently I inject a new JAXRS Client instance per request using a RequestScoped CDI managed bean, the thinking being that the client app may call multiple backend resources per request and I reuse the same JAXRS Client for the whole request (although I read somewhere this may not be correct as I am potentially changing the URI for each invocation)</p>
+
+<p>The documentation for JAXRS Client seems to suggest that the client is a potentially expensive operation and the app should limit the amount of connections it creates.  It also seems to contradict itself and suggest the client should be closed once all the requests to a particular WebTarget are finished.</p>
+
+<p>The client application could potentially support thousands of simultaneous users  so creating and destroying thousands of 'expensive clients' does not seem to be the correct approach so am thinking a shared client pool is more appropriate but there doesn't seem to be any information on how this should be achieved.</p>
+
+<p>All examples appear to show creating a new client for the request and a) closing it after or b) not closing it but not really explaining what happens on a second request.</p>
+
+<p>Can you help provide some answers on how you think this would be solved or information on what the best practice for this approach is.</p>
+
+<p>Thanks.</p>
+",<rest><jakarta-ee><rest-client>,16/01/02 13:11,HQ
+34566996,argument of type'NoneType' is not itrable,"I want to  build a list of words. For each word on each line check to see if the word is already in the list and if not append it to the list. When the program completes, sort and print the resulting words in alphabetical order.
+But when I add sting to list ,it shows ""argument of type'NoneType' is not itrable"".What' worry?
+
+    
+		fh = (""But soft what light through yonder window breaks""
+		""It is the east and Juliet is the sun""
+		""Arise fair sun and kill the envious moon""
+		""Who is already sick and pale with grief"")
+		lst = list()
+		for line in fh:
+			words = line.split()
+			for word in line:
+					if word not in lst:
+						lst = lst.append(word)
+		lst.sort()
+		print lst",<python><list><sorting><iterable><nonetype>,16/01/02 14:32,LQ_EDIT
+34567406,I am getting a StringIndexOutOfBoundsException when I attempt to use array parts from the children classes,"                //Ticket parent class
+                import java.util.ArrayList;
+                import java.util.Scanner;
+                import java.io.*;
+                public class Ticket
+                {
+                   public Ticket()
+                   {
+                      seatArray = new ArrayList<TicketObject>();
+                      
+                   }
+                   public void loadIn()
+                   {
+                	   //generic seating for plays and concerts
+                	  seatArray.add(new TicketObject(""A1"", 40));
+                      seatArray.add(new TicketObject(""A2"", 40));
+                      seatArray.add(new TicketObject(""A3"", 40));
+                      seatArray.add(new TicketObject(""A4"", 40));
+                      seatArray.add(new TicketObject(""A5"", 40));
+                      seatArray.add(new TicketObject(""B1"", 35));
+                      seatArray.add(new TicketObject(""B2"", 35));
+                      seatArray.add(new TicketObject(""B3"", 35));
+                      seatArray.add(new TicketObject(""B4"", 35));
+                      seatArray.add(new TicketObject(""B5"", 35));
+                   }
+                   public String getSeats(int x)
+                   {
+                	   return seatArray.get(x).getName() + ""    $"" + seatArray.get(x).getPrice();
+                   }
+                   protected ArrayList<TicketObject> seatArray;
+                }
+               //Concert ticket child class
+            import java.util.ArrayList;
+            import java.util.Scanner;
+            import java.io.*;
+            public class ConcertTicket extends Ticket
+            {
+               public ConcertTicket()
+               {
+                  super();
+               }
+               public void loadIn()
+               {
+                  super.loadIn();
+                  //Special option for concerts
+                  seatArray.add(new TicketObject(""Backstage Pass"", 100));
+                  seatArray.add(new TicketObject(""Backstage Pass"", 100)); 
+                  seatArray.add(new TicketObject(""Backstage Pass"", 100)); 
+                  seatArray.add(new TicketObject(""Backstage Pass"", 100)); 
+                  seatArray.add(new TicketObject(""Backstage Pass"", 100)); 
+               }
+               
+            }
+               //Play ticket child class
+            import java.util.ArrayList;
+            import java.util.Scanner;
+            import java.io.*;
+            public class PlayTicket extends Ticket
+            {
+               public PlayTicket()
+               {
+                  super();
+               } 
+               public void loadIn()
+               {
+            	   super.loadIn();
+            	   	  //Specialized seating for plays
+            	      seatArray.add(new TicketObject(""Box 1"", 150));
+            	      seatArray.add(new TicketObject(""Box 2"", 150));
+            	      seatArray.add(new TicketObject(""Box 3"", 150));
+            	      seatArray.add(new TicketObject(""Box 4"", 150));
+            	      seatArray.add(new TicketObject(""Box 5"", 150)); 
+               }
+            }
+        //Ticket object for each seat; also used to populate array
+        public class TicketObject
+        {
+           public TicketObject(String inSeatName, int inSeatPrice)
+           {
+              seatName = inSeatName;
+              seatPrice = inSeatPrice;
+           }
+           public String getName()
+           {
+        	   return seatName;
+           }
+           public int getPrice()
+           {
+        	   return seatPrice;
+           }
+           private String seatName;
+           private int seatPrice;
+        }
+        //Price calculation class
+        public class Calculations 
+        {
+        	public static double addTax(int total)
+        	{
+        		return total * 1.07;
+        	}
+        }
+      //Tester class
+    import java.util.Scanner;
+    public class TicketTester
+    {
+       public static void main(String[] args)
+       {
+    	   Scanner in = new Scanner(System.in);
+    	try {
+          //Introduction for user
+          System.out.println(""Welcome to the ticket purchasing program!"");
+          System.out.println(""You will be able to purchase either a concert or play ticket"");
+          System.out.println(""\n"");
+          System.out.println(""Type concert or play to display available seats and deals"");
+          running = true;
+          
+          
+        	  //Displaying tickets of either a concert or play
+        	  String answer = in.next();
+        	  if (answer.equalsIgnoreCase(""Concert""))
+        	  {
+        		  	ConcertTicket journeyConcert = new ConcertTicket();
+        		  	journeyConcert.loadIn();
+        		  	System.out.println(""Seat  Price"");
+        		  	for(int i=0;i<15;i++)
+        		  		{
+        		  		System.out.println(journeyConcert.getSeats(i));
+        		  		}
+        		  	System.out.println(""\n"");
+        		  	System.out.println(""Type in a seat name/option and press enter to reserve it."");
+        		  	System.out.println(""Type purchase and press enter to finalize your ticket purchase"");  
+        	  }
+        	  else if(answer.equalsIgnoreCase(""Play""))
+        	  {
+        		  	PlayTicket catsPlay = new PlayTicket();
+        		  	catsPlay.loadIn();
+        		  	System.out.println(""Seat  Price"");
+        		  	for(int i=0;i<15;i++)
+        	  			{
+        		  		System.out.println(catsPlay.getSeats(i));
+        	  			}
+        		  	System.out.println(""\n"");
+        		  	System.out.println(""Type in a seat name/option and press enter to reserve it."");
+        		  	System.out.println(""Type purchase and press enter to finalize your ticket purchase"");
+        	  }
+        	  else
+        		  System.out.println(""Enter a valid input"");
+    
+        	  //Adding up chosen seat numbers and costs
+        	  while(running)
+        	  { 
+        	  String seatChoice = in.next();
+        	  if ((seatChoice.substring(0,1)).equalsIgnoreCase(""A"") && seatChoice.length() == 2)
+        	  	{
+        		  total = total + 40;
+        		  seats = seats + 1;
+        	  	}
+        	  else if ((seatChoice.substring(0,1)).equalsIgnoreCase(""B"")&& seatChoice.length() == 2)
+      			{
+        		  total = total + 35;
+        		  seats = seats + 1;
+      			}
+        	  else if ((seatChoice.substring(0,3)).equalsIgnoreCase(""Box"")&& seatChoice.length() == 5)
+    			{
+      		  total = total + 150;
+      		  seats = seats + 1;
+    			}
+        	  else if ((seatChoice.substring(0,14)).equalsIgnoreCase(""Backstage Pass"") && seatChoice.length() == 14)
+    			{
+    		  total = total + 100;
+    		  seats = seats + 1;
+    			}
+        	  else if (seatChoice.equalsIgnoreCase(""Purchase""))
+        	  {
+        	  		System.out.println(""You reserved "" + seats + "" seats at a price of $"" + Calculations.addTax(total));
+        	  		running = false;
+        	  }
+        	  else
+        		  System.out.println(""Enter a valid input"");
+        	  }
+    	 }
+    	finally {
+    		if(in!=null)
+    			in.close();
+    			}
+    	}
+       private static Boolean running;
+       private static int total = 0;
+       private static int seats = 0;
+       }
+       
+When I run the TicketTester class, everything runs correctly until I attempt to add either a backstage pass or a box office seat. I am given this error:
+ ""Exception in thread ""main"" java.lang.StringIndexOutOfBoundsException: String index out of range: 14 	at java.lang.String.substring(Unknown Source)	at TicketTester.main(TicketTester.java:67)"" 
+
+From this I can see that the error is occurring at the following line, but I don't know how to resolve it.
+    	  else if ((seatChoice.substring(0,13)).equalsIgnoreCase(""Backstage Pass"") && seatChoice.length() == 14)
+			",<java><arraylist>,16/01/02 15:14,LQ_EDIT
+34567920,In python-telegram-bot how to get all participants of the group?,"<p>In <a href=""https://github.com/python-telegram-bot/python-telegram-bot"" rel=""noreferrer"">Python-telegram-bot</a> how to get, <em>if possible</em>, the complete list of all participants of the group at which the bot was added?</p>
+",<telegram><telegram-bot><python-telegram-bot>,16/01/02 16:16,HQ
+34568849,GIT Split Repository directory preserving *move / renames* history,"<p>Let's say you have the repository:</p>
+
+<pre><code>myCode/megaProject/moduleA
+myCode/megaProject/moduleB
+</code></pre>
+
+<p>Over time (months), you re-organise the project. Refactoring the code to make the modules independent. Files in the megaProject directory get moved into their own directories. Emphasis on <strong>move</strong> - the history of these files is preserved.</p>
+
+<pre><code>myCode/megaProject
+myCode/moduleA
+myCode/moduleB
+</code></pre>
+
+<p>Now you wish to move these modules to their own GIT repos. Leaving the original with just megaProject on its own.</p>
+
+<pre><code>myCode/megaProject
+newRepoA/moduleA
+newRepoB/moduleB
+</code></pre>
+
+<p>The <code>filter-branch</code> command is documentated to do this but it doesn't follow history when files were moved outside of the target directory. So the history begins when the files were moved into their new directory, not the history the files had then they lived in the old megaProject directory.</p>
+
+<p>How to split a GIT history based on a target directory, and, follow history outside of this path - leaving only commit history related to these files and nothing else?</p>
+
+<p>The numerous other answers on SO focus on generally splitting apart the repo - but make no mention of splitting apart and following the move history.</p>
+",<git>,16/01/02 17:49,HQ
+34570193,React Native Post Request via Fetch throws Network Request Failed,"<p>I´ve came across the following error. 
+At the moment I developing an Android App with React Native therefore I´m planning to use fetch for doing a post request for me.</p>
+
+<pre><code>fetch(""https://XXreachable-domainXX.de/api/test"", {
+            method: ""post"",
+
+            body: JSON.stringify({
+                param: 'param',
+                param1: 'param',
+
+            })
+        }
+    )
+        .then((response) = &gt; response.json()
+    )
+    .
+    then((responseData) = &gt; {
+        ToastAndroid.show(
+        ""Response Body -&gt; "" + JSON.stringify(responseData.message), ToastAndroid.SHORT
+    )
+})
+    .
+    catch((error) = &gt; {
+        console.warn(error);
+})
+    ;
+</code></pre>
+
+<p>The app now throws an error:</p>
+
+<blockquote>
+  <p>TypeError: Network request failed</p>
+</blockquote>
+
+<p>When I change the code to a GET-Request it´s working fine, in the browser with a window.alert() as a return it´s cool and also the chrome extension Postman returns data correctly.</p>
+",<javascript><android><react-native><fetch>,16/01/02 20:07,HQ
+34571454,What is the mathematical definition of (f(n)) and O(f(n)),"    (f(n)) and O(f(n))
+Can someone please give the mathematical definition of (f(n)) and O(f(n))?
+ 
+",<algorithm><math><big-o>,16/01/02 22:40,LQ_EDIT
+34572496,Turn Android into USB host,"<p>My exploration here comes from a recent Arduino project.</p>
+
+<p>I have an old(ish) Android LG Tribute. I removed the broken screen so now the device is missing visual output. I have rooted it and can control it from shell commands and other ways.</p>
+
+<p>I want to write an application for the device to communicate over usb.</p>
+
+<p>Basically what I want to accomplish:</p>
+
+<p>Plug in USB cord to android. Press button on cord plugged into android device -> Snap picture with devices camera - Output data in visual blinks via LED programmed blink logic for debug.</p>
+
+<p>I feel I should be able to handle nearly everything on the device. I just need to know where to begin looking for Android USB output and input programming.</p>
+
+<p>Basically want to use my android as a microcontroller...</p>
+",<android><arduino><usb>,16/01/03 1:30,LQ_CLOSE
+34572819,I want to insert a couple of sentences into an array,"<p>Like instance, 
+in online purchasing a bill is created. I want to insert the items into the array and display it along with the rates. But I am unable to insert the items into the array. How do I do that?</p>
+",<java>,16/01/03 2:45,LQ_CLOSE

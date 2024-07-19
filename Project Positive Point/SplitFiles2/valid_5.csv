@@ -1,0 +1,301 @@
+Id,Title,Body,Tags,CreationDate,Y
+34583168,Safe navigation operator (&.) for nil,"<p>As Ruby 2.3 introduces the Safe navigation operator(<code>&amp;.</code>), a.k.a lonely operator, the behavior on <code>nil</code> object seems odd.</p>
+
+<pre><code>nil.nil?    # =&gt; true
+nil&amp;.nil?   # =&gt; nil
+</code></pre>
+
+<p>Is that designed to behave like this way? Or some edge case that slipped away when adding the lonely operator?</p>
+",<ruby><ruby-2.3><safe-navigation-operator>,16/01/04 0:15,HQ
+34583357,Fastest way to convert a integer to arbitrarily ordered byte arrays in JavaScript?,"<p>I'm looking to convert the <code>MIN_SAFE_INTEGER</code> through <code>MAX_SAFE_INTEGER</code> range of a JavaScript number (53-bits not including the sign) into a string of bits spread over 7 bytes shifted two to allow for sign and null identifiers.</p>
+
+<p>Thus far the best I've come up with is:</p>
+
+<pre><code>function toUint8Array(data) {
+    data = data.toString(2);
+    data = new Array(65 - data.length).join('0') + data;
+    var ret = new Uint8Array(data.length / 8);
+    for (var i = 0; i &lt; 8; i++) {
+        ret[i] = 0;
+        ret[i] += (data[i * 8] == '1' ? 128 : 0);
+        ret[i] += (data[(i * 8) + 1] == '1' ? 64 : 0);
+        ret[i] += (data[(i * 8) + 2] == '1' ? 32 : 0);
+        ret[i] += (data[(i * 8) + 3] == '1' ? 16 : 0);
+        ret[i] += (data[(i * 8) + 4] == '1' ? 8 : 0);
+        ret[i] += (data[(i * 8) + 5] == '1' ? 4 : 0);
+        ret[i] += (data[(i * 8) + 6] == '1' ? 2 : 0);
+        ret[i] += (data[(i * 8) + 7] == '1' ? 1 : 0);
+    }
+    return (ret);
+}
+</code></pre>
+
+<p><a href=""https://jsfiddle.net/voupa8u7/11/"" rel=""noreferrer"">Fiddle</a></p>
+
+<p>As you can tell right off, this would be abominably slow (and the bits still haven't been shifted two places across all 7 active bytes.)</p>
+
+<p>Is there any way to do this faster?  Ideally by avoiding the string parsing altogether?</p>
+",<javascript><numbers><bitmask>,16/01/04 0:45,HQ
+34583878,Planning to make web app like Canva,"<p>I want to make app like canva but i dont know where to start, i have good experience in html and css but a basic javascript.</p>
+
+<p>I need to know what they use.</p>
+
+<ul>
+<li>How to save html data to image like canva functions.</li>
+<li>How they save the data and load it again.</li>
+</ul>
+
+<p>I already try Html2canvas but problem in images limit.</p>
+",<javascript><html><css><web>,16/01/04 2:20,LQ_CLOSE
+34583925,Cannot find alphabet symbol,"<p>I'm trying to compile this code, but I get a <code>cannot find symbol - variable alphabet</code> . I don't understand why, because <code>alphabet</code> is being declared its value, that much is apparent. Is there something I'm missing here? My code aims to encrypt and decrypt messages, by using two keys that work by dividing up the letters so that every other letter is encrypted by one key starting from index 0, and every other letter from the index of 1 is encrypted by another key. These two sets of letters are calculated and weaved back together to form one decrypted string. In any case I'm only interested in finding out why I get a <code>cannot find symbol - variable alphabet</code>error. Any other suggestions for my code is appreciated but not necessary. Thanks!   </p>
+
+<pre><code>public class CaesarCipherTwo {
+    private int encrypt_key = 0;
+    private int key1 = -1;
+    private int key2 = -1;
+    private CaesarCipher cc1;
+    private CaesarCipher cc2;
+    private void generateEncryptionLookup(){
+        String alphabet_uppercase = ""ABCDEFGHIJKLMNOPQRSTUVWXYZ"";
+        String alphabet_lowercase = ""abcdefghijklmnopqrstuvwxyz"";   
+
+        String e_alphabet_uppercase = alphabet_uppercase.substring(encrypt_key) + alphabet_uppercase.substring(0,encrypt_key);
+        String e_alphabet_lowercase = alphabet_lowercase.substring(encrypt_key) + alphabet_lowercase.substring(0,encrypt_key);
+
+
+        alphabet = alphabet_uppercase + alphabet_lowercase;
+        e_alphabet = e_alphabet_uppercase + e_alphabet_lowercase;
+    }
+     /**
+     * Setter function for key used by cipher
+     * @param key
+     *            input key
+    **/
+
+    public void set_key(int key){
+        this.encrypt_key = key;
+        this.generateEncryptionLookup();
+
+    }
+    /**
+     * Constructor - Takes in the two keys used for encryption. Use this constructor when you want to use this object for encryption (&amp; then subsequent 
+     * decryption of same string)
+     * 
+     * @param key1
+     *              Key1 used in encryption process
+     * @param key2
+     *              Key2 used in encryption process
+     */
+
+    public CaesarCipherTwo(int key1, int key2){
+        this.key1 = key1;
+        this.key2 = key2;
+        cc1 = new CaesarCipher();
+        cc1.set_key(key1);
+        cc2 = new CaesarCipher();
+        cc2.set_key(key2);
+
+    }
+
+    /**
+     * Constructor - To be used when you want to use this class for decryption &amp; the method needs to figure out the decryption keys
+     */
+    public CaesarCipherTwo(){
+        cc1 = new CaesarCipher();
+        cc2 = new CaesarCipher();
+    }
+
+    /**
+     * Takes a String as input and encrypts it using 2 keys
+     * @param s 
+     *          Input String
+     * @return
+     *          Encrypted String
+     */
+
+    public String encrypt(String s){
+        cc1.set_string_under_action(s);
+        cc2.set_string_under_action(s);
+        String encrypted1 = cc1.encryptString();
+        String encrypted2 = cc2.encryptString();
+        String encrypted = CaesarCipher.interleave(encrypted1, encrypted2);
+        return encrypted;
+
+    }
+
+    /**
+     * Takes a String and decrypts it using 2 keys
+     * @param s
+     *          String input for decryption
+     * @param mode
+     *          Accepts either 1 or 2 as input
+     *          Mode 1 - Use the complement of key used for encryption while doing decryption. Its critical that this mode be used with the same
+     *                   key settings as used while encrypting the String
+     *          Mode 2 - The method figures out the right decryption key to be used 
+     * @return
+     *          Decrypted String
+     */
+
+    public String decrypt(String s, int mode){
+
+        String [] decrypt = CaesarCipherTwo.halfOfString(s);
+        cc1.set_string_under_action(decrypt[0]);
+        cc2.set_string_under_action(decrypt[1]);
+        String d1 = cc1.decryptString(mode);
+        String d2 = cc2.decryptString(mode);
+        String d = CaesarCipherTwo.weaveTwoStrings(d1, d2);
+        return d;   
+    }
+
+    /**
+     * Break a string into 2 (alternate chars in each of the 2 resultant strings)
+     * @param s 
+     *          Input String
+     * @return
+     *          Returns an array of 2 strings. These are the resultant strings from breaking the input string
+     */
+
+    public static String[] halfOfString(String s){
+        StringBuilder sb1 = new StringBuilder(10000);
+        StringBuilder sb2 = new StringBuilder(10000);
+        String [] decrypt = new String[2];
+
+        for (int i = 0; i&lt;s.length();i++){
+            if (i%2 == 0){
+                sb1.append(s.charAt(i));
+            }else {
+                sb2.append(s.charAt(i));
+            }
+        }
+
+        decrypt[0] = sb1.toString();
+        decrypt[1] = sb2.toString();
+        return decrypt;
+    }
+
+    /**
+     * This method weaves 2 strings together into a single string. Letters from each of the input strings form alternate letters in final string
+     * @param s1
+     *          First input String
+     * @param s2
+     *          Second input String
+     * @return
+     *          Final resultant String
+     */
+
+    public static String weaveTwoStrings(String s1,String s2){
+        int len = Math.max(s1.length(), s2.length());
+        StringBuilder sb = new StringBuilder(10000);
+
+            for (int i=0; i&lt; len; i++){
+                if (i &lt; s1.length() &amp;&amp; i &lt; s2.length()){
+                    sb.append(s1.charAt(i));
+                    sb.append(s2.charAt(i));
+                }else if (i &lt; s1.length() &amp;&amp; i &gt;= s2.length()){
+                    sb.append(s1.charAt(i));
+                }else if (i &gt;= s1.length() &amp;&amp; i &lt; s2.length()){
+                    sb.append(s2.charAt(i)); 
+                }
+            }        
+        return sb.toString();
+
+    }
+}
+</code></pre>
+",<java><encryption><symbols>,16/01/04 2:27,LQ_CLOSE
+34584576,What is the easiest way to use material design in a react-native iOS app?,"<p>I have found these partial implementations on Github as the leading contenders although they have a way to go:</p>
+
+<ul>
+<li><a href=""https://github.com/xinthink/react-native-material-kit"">react-native-material-kit</a></li>
+<li><a href=""https://github.com/react-native-material-design/react-native-material-design"">react-native-material-design</a></li>
+</ul>
+
+<p>They are lacking some components at this time that I would like to utilize. Is there an alternative solution that I'm missing?</p>
+",<material-design><react-native><material-ui>,16/01/04 4:12,HQ
+34584959,cross or one to many in c#,"Table :              
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-html -->
+
+    <table border=""1"">
+      <tr>
+        <td><b>Name</b></td>
+        <td><b>Selection</b></td>
+      </tr>
+      <tr>
+        <td>Color</td>
+        <td>1,2,3</td>
+      </tr>
+      <tr>
+        <td>Shape</td>
+        <td>a,b</td>
+      </tr>
+      <tr>
+        <td>Cut</td>
+        <td>x</td>
+      </tr>
+      <tr>
+        <td>Range</td>
+        <td>y</td>
+      </tr>
+      <tr>
+        <td>Purity</td>
+        <td>8,9</td>
+      </tr>
+    </table>
+
+<!-- end snippet -->
+
+I have one key like : Color | Shape | Cut | Range | Purity
+
+And I want to loop on Selection columns and need result like following
+
+1axy8
+1axy9
+1bxy8
+1bxy9
+2axy8
+2axy9
+2bxy8
+2bxy9
+3axy8
+3axy9
+3bxy8
+3bxy9
+
+How can I loop on selection columns?",<c#><loops><for-loop><one-to-many>,16/01/04 5:05,LQ_EDIT
+34587588,Need Help UnPIckling as String on Python,"I need help UnPickling using Python 3.4.3, and I need to do it as an Integer. However it results in an Error. How do I unpickle data that I saved before as an Integer
+    def LoadPickle(file):
+     global shop_revenue
+     global stock_coke
+     global stock_mint
+     global stock_sandwich
+     shop_revenue = pickle.Unpickler(file)
+     stock_coke = pickle.Unpickler(file)
+     stock_mint =  pickle.Unpickler(file)
+     stock_sandwich = pickle.Unpickler(file)",<python><io><typeerror><pickle>,16/01/04 9:00,LQ_EDIT
+34588421,How to log to journald (systemd) via Python?,"<p>I would like <code>logging.info()</code> to go to journald (systemd).</p>
+
+<p>Up to now I only found python modules which read journald (not what I want) or modules which work like this: <code>journal.send('Hello world')</code></p>
+",<python><logging><systemd>,16/01/04 9:51,HQ
+34588464,Python: how to capture image from webcam on click using OpenCV,"<p>I want to capture and save a number of images from my webcam using OpenCV. This is my code currently:</p>
+
+<pre><code>import cv2
+
+camera = cv2.VideoCapture(0)
+for i in range(10):
+    return_value, image = camera.read()
+    cv2.imwrite('opencv'+str(i)+'.png', image)
+del(camera)
+</code></pre>
+
+<p>The problem with this is that I do not know when the images are being taken, so a lot of them end up blurry. My question is: <strong>Is there a way to have the image taken on the click of a keyboard key?</strong> </p>
+
+<p>Also is there a better way to take multiple images, instead of range?</p>
+",<python><python-2.7><opencv>,16/01/04 9:53,HQ
+34589286,i have json file on local computer i want to use that file in javascript how can i use that in js,">Following is the code snippet which i am trying
+
+
+    var json = require('dictonery.json'); //(with path)
+     console.log(json);",<javascript><json>,16/01/04 10:40,LQ_EDIT

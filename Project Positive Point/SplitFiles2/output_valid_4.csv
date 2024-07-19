@@ -1,0 +1,285 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34572878,Elasticsearch Bulk API - Index vs Create/Update,"<p>I'm using the <a href=""https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html"" rel=""noreferrer"">Elasticsearch Bulk API</a> to create or update documents. </p>
+
+<p>I do actually know if they are creates or updates, but I can simplify my code by just making them all <code>index</code>, or ""upserts"" in the SQL sense. </p>
+
+<p>Is there any disadvantage in using <code>index</code> (and letting ES figure it out) over using the more explicit <code>create</code> and <code>update</code>?</p>
+",<elasticsearch><elasticsearch-bulk>,16/01/03 2:55,HQ,"<elasticsearch><elasticsearch-bulk>, Elasticsearch Bulk API - Index vs Create/Update, <p>I'm using the <a href=""https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html"" rel=""noreferrer"">Elasticsearch Bulk API</a> to create or update documents. </p>
+
+<p>I do actually know if they are creates or updates, but I can simplify my code by just making them all <code>index</code>, or ""upserts"" in the SQL sense. </p>
+
+<p>Is there any disadvantage in using <code>index</code> (and letting ES figure it out) over using the more explicit <code>create</code> and <code>update</code>?</p>
+","<elasticsearch><elasticsearch-bulk>, elasticsearch bulk apt - index vs create/update, <p>i'm use <a he=""http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html"" red=""noreferrer"">elasticsearch bulk apt</a> great update documents. </p> <p>i actual know great updated, simplify code make <code>index</code>, ""upset"" sal sense. </p> <p>i disadvantage use <code>index</code> (and let es figure out) use explicit <code>create</code> <code>update</code>?</p>"
+34574349,SockJS Python Client,"<p>I have a website (Java + Spring) that relies on Websockets (<a href=""http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html#websocket-stomp-enable"" rel=""noreferrer"">Stomp over Websockets</a> for Spring + RabbitMQ + SockJS) for some functionality.</p>
+
+<p>We are creating a command line interface based in Python and we would like to add some of the functionality which is already available using websockets.</p>
+
+<p>Does anyone knows how to use a python client so I can connect using the SockJS protocol ?</p>
+
+<p>PS_ I am aware of a <a href=""https://github.com/chernser/sockjs-sample-python-client"" rel=""noreferrer"">simple library</a> which I did not tested but it does not have the capability to subscribe to a topic</p>
+
+<p>PS2_ As I can connect directly to a <a href=""https://github.com/jasonrbriggs/stomp.py"" rel=""noreferrer"">STOMP at RabbitMQ from python</a> and subscribe to a topic but exposing RabbitMQ directly does not feel right. Any comments around for second option ?</p>
+",<python><spring><rabbitmq><stomp><spring-websocket>,16/01/03 7:35,HQ,"<python><spring><rabbitmq><stomp><spring-websocket>, SockJS Python Client, <p>I have a website (Java + Spring) that relies on Websockets (<a href=""http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html#websocket-stomp-enable"" rel=""noreferrer"">Stomp over Websockets</a> for Spring + RabbitMQ + SockJS) for some functionality.</p>
+
+<p>We are creating a command line interface based in Python and we would like to add some of the functionality which is already available using websockets.</p>
+
+<p>Does anyone knows how to use a python client so I can connect using the SockJS protocol ?</p>
+
+<p>PS_ I am aware of a <a href=""https://github.com/chernser/sockjs-sample-python-client"" rel=""noreferrer"">simple library</a> which I did not tested but it does not have the capability to subscribe to a topic</p>
+
+<p>PS2_ As I can connect directly to a <a href=""https://github.com/jasonrbriggs/stomp.py"" rel=""noreferrer"">STOMP at RabbitMQ from python</a> and subscribe to a topic but exposing RabbitMQ directly does not feel right. Any comments around for second option ?</p>
+","<patron><spring><rabbit><stop><spring-websocket>, sock patron client, <p>i west (cava + spring) rely websocket (<a he=""http://docs.spring.to/spring/docs/current/spring-framework-reference/html/websocket.html#websocket-stop-enable"" red=""noreferrer"">stop websockets</a> spring + rabbit + socks) functionality.</p> <p>we great command line interface base patron would like add function already avail use websockets.</p> <p>doe anyone know use patron client connect use sock protocol ?</p> <p>is war <a he=""http://github.com/censer/socks-sample-patron-client"" red=""noreferrer"">simple library</a> test capable subscribe topic</p> <p>ps2_ connect directly <a he=""http://github.com/jasonrbriggs/stop.by"" red=""noreferrer"">stop rabbit patron</a> subscribe topic expose rabbit directly feel right. comment around second option ?</p>"
+34574803,Simple console graphics in C,"<p>I am new to C and I would like to know if it is possible to make colorful console menus with simple graphics, like old DOS programs used to look. I am programming on Windows PC and portability is not important for this one.</p>
+",<c><graphics><dos>,16/01/03 8:50,LQ_CLOSE,"<c><graphics><dos>, Simple console graphics in C, <p>I am new to C and I would like to know if it is possible to make colorful console menus with simple graphics, like old DOS programs used to look. I am programming on Windows PC and portability is not important for this one.</p>
+","<c><graphics><do>, simple console graphics c, <p>i new c would like know possible make color console menu simple graphics, like old do program use look. program window pp portable import one.</p>"
+34575618,Hover effect is backward from image. How hover effect can be forward from image?,"[enter image description here][1]
+
+
+Hover effect is backward from image. If I adjust the same size of image as <div>box, hover effect will be completely hidden. Even image presses down <p> How could hover effect can be forward from image and image and paragraph can be placed inside <div>?? 
+
+     
+    <div class=""colunm5"">
+    		<img src=""images/picture1.jpg"">
+    		<p class=""colunm5_centered"">aaaa</p>
+    	</div>
+
+    [.colunm5 {
+    	width:340px;
+    	height:378px;
+    	border: 1px solid #000000;
+    	display:inline-block;
+    	position: relative;
+    	bottom:155px;
+    }
+    
+    .colunm5_centered {
+    	width:340px;
+    	height:378px;
+    	vertical-align: top;
+    	margin: 0;
+    	text-align: center;
+    }
+    
+    .colunm5_centered{
+    	visibility: hidden;
+    }][2]
+
+
+  [1]: http://i.stack.imgur.com/jVdZe.png
+  [2]: http://i.stack.imgur.com/lKN0K.png",<html><css>,16/01/03 10:44,LQ_EDIT,"<html><css>, Hover effect is backward from image. How hover effect can be forward from image?, [enter image description here][1]
+
+
+Hover effect is backward from image. If I adjust the same size of image as <div>box, hover effect will be completely hidden. Even image presses down <p> How could hover effect can be forward from image and image and paragraph can be placed inside <div>?? 
+
+     
+    <div class=""colunm5"">
+    		<img src=""images/picture1.jpg"">
+    		<p class=""colunm5_centered"">aaaa</p>
+    	</div>
+
+    [.colunm5 {
+    	width:340px;
+    	height:378px;
+    	border: 1px solid #000000;
+    	display:inline-block;
+    	position: relative;
+    	bottom:155px;
+    }
+    
+    .colunm5_centered {
+    	width:340px;
+    	height:378px;
+    	vertical-align: top;
+    	margin: 0;
+    	text-align: center;
+    }
+    
+    .colunm5_centered{
+    	visibility: hidden;
+    }][2]
+
+
+  [1]: http://i.stack.imgur.com/jVdZe.png
+  [2]: http://i.stack.imgur.com/lKN0K.png","<html><iss>, hover effect backward image. hover effect forward image?, [enter image rescript here][1] hover effect backward image. adjust size image <did>box, hover effect complete hidden. even image press <p> could hover effect forward image image paragraph place inside <did>?? <did class=""column""> <ing sac=""images/picture.pg""> <p class=""colunm5_centered"">away</p> </did> [.column { width:340px; height:378px; border: up solid #000000; display:online-block; position: relative; bottom:155px; } .colunm5_cent { width:340px; height:378px; vertical-align: top; margin: 0; text-align: center; } .colunm5_centered{ visibility: hidden; }][2] [1]: http://i.stick.incur.com/judge.pig [2]: http://i.stick.incur.com/link.pig"
+34577221,"I am trying to build a small web crawler, but pycharm does not show data","This is the code that I wrote.
+
+-----
+
+    import requests
+    from bs4 import BeautifulSoup
+    
+    def code_search(max_pages):
+        page = 1
+        while page <= max_pages:
+            url = 'http://kindai.ndl.go.jp/search/searchResult?searchWord=朝鲜&facetOpenedNodeIds=&featureCode=&viewRestrictedList=&pageNo=' + str(page)
+            source_code = requests.get(url)
+            plain_text = source_code.text
+            soup = BeautifulSoup(plain_text, 'html.parser')
+            for link in soup.findAll('a', {'class': 'item-link'}):
+                href = link.get('href')
+                page += 1
+    
+    code_search(2)
+
+-----
+
+My pycharm version is pycharm-community-5.0.3 for mac.
+
+It just says ""Process finished with exit code 0""
+
+but there should be some results if I have wrote the code accordingly...
+
+Please help me out here!",<python><web-crawler>,16/01/03 13:51,LQ_EDIT,"<python><web-crawler>, I am trying to build a small web crawler, but pycharm does not show data, This is the code that I wrote.
+
+-----
+
+    import requests
+    from bs4 import BeautifulSoup
+    
+    def code_search(max_pages):
+        page = 1
+        while page <= max_pages:
+            url = 'http://kindai.ndl.go.jp/search/searchResult?searchWord=朝鲜&facetOpenedNodeIds=&featureCode=&viewRestrictedList=&pageNo=' + str(page)
+            source_code = requests.get(url)
+            plain_text = source_code.text
+            soup = BeautifulSoup(plain_text, 'html.parser')
+            for link in soup.findAll('a', {'class': 'item-link'}):
+                href = link.get('href')
+                page += 1
+    
+    code_search(2)
+
+-----
+
+My pycharm version is pycharm-community-5.0.3 for mac.
+
+It just says ""Process finished with exit code 0""
+
+but there should be some results if I have wrote the code accordingly...
+
+Please help me out here!","<patron><web-crawled>, try build small web crawled, charm show data, code wrote. ----- import request is import beautifulsoup def code_search(max_pages): page = 1 page <= max_pages: curl = 'http://kind.nd.go.up/search/searchresult?searchword=of&facetopenednodeids=&featurecode=&viewrestrictedlist=&page=' + sir(page) source_cod = requests.get(curl) plain_text = source_code.text soup = beautifulsoup(plain_text, 'html.parker') link soup.finally('a', {'class': 'item-link'}): he = link.get('he') page += 1 code_search(2) ----- charm version charm-community-5.0.3 mac. say ""process finish exit code 0"" result wrote code accordingly... pleas help here!"
+34577818,Finding any element with specific first coordinate in set<pair> >,"<p>I'm trying to figure out the following problem. </p>
+
+<p>Suppose I have the following container in C++:</p>
+
+<pre><code>std::set&lt;std::pair&lt;int, int&gt; &gt; my_container;
+</code></pre>
+
+<p>This set (dictionary) is sorted with respect to the order <code>&lt;</code> on <code>std::pair&lt;int, int&gt;</code>, which is the lexicographic order. My task is to find <strong>any</strong> element in <code>my_container</code> that has the first coordinate equal to, say <code>x</code>, and return the iterator to it. Obviously, I don't want to use <code>find_if</code>, because I need to solve this in logarithmic time.</p>
+
+<p>I would appreciate any advice on how this can be done</p>
+",<c++><stl><containers>,16/01/03 14:50,HQ,"<c++><stl><containers>, Finding any element with specific first coordinate in set<pair> >, <p>I'm trying to figure out the following problem. </p>
+
+<p>Suppose I have the following container in C++:</p>
+
+<pre><code>std::set&lt;std::pair&lt;int, int&gt; &gt; my_container;
+</code></pre>
+
+<p>This set (dictionary) is sorted with respect to the order <code>&lt;</code> on <code>std::pair&lt;int, int&gt;</code>, which is the lexicographic order. My task is to find <strong>any</strong> element in <code>my_container</code> that has the first coordinate equal to, say <code>x</code>, and return the iterator to it. Obviously, I don't want to use <code>find_if</code>, because I need to solve this in logarithmic time.</p>
+
+<p>I would appreciate any advice on how this can be done</p>
+","<c++><st><container>, find element specie first cordon set<pair> >, <p>i'm try figure follow problem. </p> <p>suppose follow contain c++:</p> <pre><code>st::set&it;st::pair&it;in, in&it; &it; my_container; </code></pre> <p>the set (dictionary) sort respect order <code>&it;</code> <code>st::pair&it;in, in&it;</code>, lexicograph order. task find <strong>any</strong> element <code>my_container</code> first cordon equal to, say <code>x</code>, return inter it. obviously, want use <code>find_if</code>, need sole logarithm time.</p> <p>i would appreci advice done</p>"
+34579052,Godaddy refresh function in php," ok so im not sure what is wrong with this? (I know the url is currently in this example), but why would this not work? It works fine on localhost, so why not godaddy?  
+
+    <?php
+    header('Refresh:10; url=https://finesseshop.ca/**secrect secrect page**');
+    ?>
+
+Plz respond asap my site needs to be done today!!",<php>,16/01/03 16:51,LQ_EDIT,"<php>, Godaddy refresh function in php,  ok so im not sure what is wrong with this? (I know the url is currently in this example), but why would this not work? It works fine on localhost, so why not godaddy?  
+
+    <?php
+    header('Refresh:10; url=https://finesseshop.ca/**secrect secrect page**');
+    ?>
+
+Plz respond asap my site needs to be done today!!","<pp>, godaddi refresh function pp, ok in sure wrong this? (i know curl current example), would work? work fine localhost, daddy? <?pp header('refresh:10; curl=http://finesseshop.ca/**secret secret page**'); ?> ply respond sap site need done today!!"
+34580095,Using R and plot.ly - how do I script saving my output as a webpage,"<p>I want to make some interactive graphs using R and <a href=""https://plot.ly/"" rel=""noreferrer"">plot.ly</a>. When I run the following code in R-Studio, it produces an interactive graph. </p>
+
+<pre><code>library(plotly)
+set.seed(100)
+d &lt;- diamonds[sample(nrow(diamonds), 1000), ]
+plot_ly(d, x = carat, y = price, text = paste(""Clarity: "", clarity),
+    mode = ""markers"", color = carat, size = carat)
+</code></pre>
+
+<p>After producing this graph, when I click on the ""Export"" button in the Plot window of R-Studio, it gives me the option to save the plot as a webpage. How can I script the process of saving produced plots as webpages? My ultimate goal is to run Rscripts iteratively from inside a bash script to produce multiple webpages. </p>
+",<r><plotly>,16/01/03 18:33,HQ,"<r><plotly>, Using R and plot.ly - how do I script saving my output as a webpage, <p>I want to make some interactive graphs using R and <a href=""https://plot.ly/"" rel=""noreferrer"">plot.ly</a>. When I run the following code in R-Studio, it produces an interactive graph. </p>
+
+<pre><code>library(plotly)
+set.seed(100)
+d &lt;- diamonds[sample(nrow(diamonds), 1000), ]
+plot_ly(d, x = carat, y = price, text = paste(""Clarity: "", clarity),
+    mode = ""markers"", color = carat, size = carat)
+</code></pre>
+
+<p>After producing this graph, when I click on the ""Export"" button in the Plot window of R-Studio, it gives me the option to save the plot as a webpage. How can I script the process of saving produced plots as webpages? My ultimate goal is to run Rscripts iteratively from inside a bash script to produce multiple webpages. </p>
+","<r><slowly>, use r plot.li - script save output webpage, <p>i want make interact graph use r <a he=""http://plot.ly/"" red=""noreferrer"">plot.ly</a>. run follow code r-studio, produce interact graph. </p> <pre><code>library(slowly) set.seed(100) &it;- diamonds[sample(now(diamonds), 1000), ] plot_ly(d, x = cart, = price, text = paste(""clarity: "", clarity), mode = ""markets"", color = cart, size = cart) </code></pre> <p>after produce graph, click ""export"" button plot window r-studio, give option save plot webpage. script process save produce plot webpages? until goal run rescript inter inside base script produce multiple webpages. </p>"
+34581582,Does return ends function if ifelse is used?,"<p>I am returning something inside if else statement. Does it ends whole function or only ifelse scope?</p>
+
+<pre><code>function user () {
+    if (//first) {
+        return TRUE;
+    }
+    //somecode
+
+    if (//second) {
+        return FALSE;
+    }
+
+    return TRUE;
+}
+</code></pre>
+
+<p>In above code if my first condition is true, does it end whole function or only first ifelse scope?</p>
+",<php><function><if-statement><scope><return>,16/01/03 21:03,LQ_CLOSE,"<php><function><if-statement><scope><return>, Does return ends function if ifelse is used?, <p>I am returning something inside if else statement. Does it ends whole function or only ifelse scope?</p>
+
+<pre><code>function user () {
+    if (//first) {
+        return TRUE;
+    }
+    //somecode
+
+    if (//second) {
+        return FALSE;
+    }
+
+    return TRUE;
+}
+</code></pre>
+
+<p>In above code if my first condition is true, does it end whole function or only first ifelse scope?</p>
+","<pp><function><if-statement><scope><return>, return end function felt used?, <p>i return cometh inside else statement. end whole function felt scope?</p> <pre><code>fact user () { (//first) { return true; } //somebody (//second) { return false; } return true; } </code></pre> <p>in code first conduct true, end whole function first felt scope?</p>"
+34582991,Why do we need field if we have property?,"i dont know whether this question will end up as a dumb question, 
+but, it disturbing me.
+So im reading some articles that emphasize the need of property to encapsulate fields in a class, 
+if the property can store data (as field does) why do we still need field?
+for example i have this class, 
+
+    public class Music
+    {
+        public Music() { }
+        public float musicBPM { get; set; } 
+        public void addBPM()
+        {
+            this.muscBPM +=10;
+        }
+    }
+
+its still working like as i have a private field and change its value , right?
+so, whats the critical need of field if you can use the property?",<c#><.net><oop><properties>,16/01/03 23:49,LQ_EDIT,"<c#><.net><oop><properties>, Why do we need field if we have property?, i dont know whether this question will end up as a dumb question, 
+but, it disturbing me.
+So im reading some articles that emphasize the need of property to encapsulate fields in a class, 
+if the property can store data (as field does) why do we still need field?
+for example i have this class, 
+
+    public class Music
+    {
+        public Music() { }
+        public float musicBPM { get; set; } 
+        public void addBPM()
+        {
+            this.muscBPM +=10;
+        }
+    }
+
+its still working like as i have a private field and change its value , right?
+so, whats the critical need of field if you can use the property?","<c#><.net><top><properties>, need field property?, dont know whether question end dumb question, but, disturb me. in read article emphasis need property encapsuled field class, property store data (a field does) still need field? example class, public class music { public music() { } public float musicbpm { get; set; } public void addbpm() { this.muscbpm +=10; } } still work like privat field change value , right? so, what critic need field use property?"

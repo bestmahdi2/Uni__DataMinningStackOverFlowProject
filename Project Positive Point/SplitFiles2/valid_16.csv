@@ -1,0 +1,131 @@
+Id,Title,Body,Tags,CreationDate,Y
+34718369,"Python, PHP-style","I have used Python and PHP a lot, but just out of curiosity, **is there a version of Python that uses a similar paradigm to PHP for dynamic creation of html pages**, i.e. like this:
+
+    <html>
+    <body>
+    
+    <?py                        # similar to <?php ... ?>
+    for i in range(10):
+        print '<div>Hello%i</div>' % i
+    ?>
+    
+    </body>
+    </html>
+
+?
+
+Note: I'm **not** speaking about Django, Flask, Bottle, Twisted, etc. that don't use such syntax.",<php><python><html><preprocessor><web-frameworks>,16/01/11 9:48,LQ_EDIT
+34718946,"invalid number (error token is ""16##0x00a002"")","i want to convert an hexadecimal value to decimal value perform some arithmetic operation and convert back to hexadecimal.
+In an attempt to do so, i am facing the following error,
+
+""myshell.sh: line 77: 16##0x00a002: invalid number (error token is ""16##0x00a002"")
+
+The related line of code is 
+""SUBVER3_1=$((16##$SUBVER3_1))""
+
+Can someone let me know 
+1) what this error is and how can i fix it.
+2) How to perform Arithmetic operation on hexadecimal number in shell",<shell><sh>,16/01/11 10:16,LQ_EDIT
+34721504,how to store array within dictionary in objective c-(how i modify my codes. im newbie only,"studentDict=[[NSMutableDictionary alloc]init];
+    studentArray=[[NSMutableArray alloc]init];
+
+    [studentArray addObject:name.text];
+    [studentArray addObject:regno.text];
+    [studentArray addObject:marks.text];
+    [studentArray addObject:rank.text];
+    studentDict=[NSMutableDictionary dictionaryWithObjects:[NSMutableArray arrayWithObjects:studentArray, nil] forKeys:[NSMutableArray arrayWithObjects:studentArray, nil]];
+    NSLog(@""%@"",studentArray);
+",<ios>,16/01/11 12:22,LQ_EDIT
+34722226,how to add route inside android mapfragment?,"<p>I am using google map in my app and i want to show route between two points.below are the latitudes and longitude.</p>
+
+<pre><code>    LatLng pune = new LatLng(18.6099, 73.8171);
+    map.addMarker(new MarkerOptions().position(pune).title(""Marker in pune""));
+    map.moveCamera(CameraUpdateFactory.newLatLng(pune));
+    mo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+
+    LatLng mumbai = new LatLng(19.0829, 72.8831);
+    map.addMarker(new MarkerOptions().position(mumbai).title(""Marker in mumbai""));
+    map.moveCamera(CameraUpdateFactory.newLatLng(mumbai));
+    mo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+</code></pre>
+
+<p>Please help </p>
+",<android><google-maps>,16/01/11 13:01,LQ_CLOSE
+34727248,How do I change first elements of 2 dimensions array in Ruby?,"I have an array 
+`[[-20,23],[-80,65], ... []]` , 
+but I need `[[""20"",23],[""80"",65], ... []]`. 
+Have no idea how to deal with it... ",<arrays><ruby>,16/01/11 17:10,LQ_EDIT
+34729248,Printing multiple characters from a string,"<p>If I have a string ""SSSAAADDDCCC"" how would I print just ""SADC"". Can it be done using SubString or would I have to use charAt()?</p>
+",<java>,16/01/11 19:13,LQ_CLOSE
+34729697,Squares as rating bars,"<p>I'm looking for some help trying to create squares for a rating bars but I'm a little confused on where to start. I added a image of what I want them to look like</p>
+
+<p><img src=""https://i.stack.imgur.com/HQGV4.png""></p>
+",<html><css>,16/01/11 19:40,LQ_CLOSE
+34734716,remove duplicates based on one column and combine certain value in one column,"<p>I am a beginner in R. I have this kind of data,
+<a href=""http://i.stack.imgur.com/fiSZK.png"" rel=""nofollow"">data1</a></p>
+
+<p>And I wanted to have a data like this:
+<a href=""http://i.stack.imgur.com/FNjR9.png"" rel=""nofollow"">data2</a></p>
+
+<p>I have found examples of people removing duplicates and combine the some data as list. but majority of examples only consist of 2 columns. </p>
+
+<p>Hope anyone can help me</p>
+",<r><duplicates>,16/01/12 2:42,LQ_CLOSE
+34737853,C++ : RAII idiom for classes with container members,"I have the following questions about the class described in the code below:
+
+    using namespace std;
+
+    class Collector
+    {
+    public:
+        Collector(const InfoPool& pool) { collect(pool) };
+
+        collect(const InfoPool& pool)
+        {
+            for ( auto v : pool )
+            {
+              tuple<int,int> key = v.get_tuple();
+              auto value = make_shared<Widget>(v.x(), v.y(), v.z());
+              m_collection.insert(key, value);
+            }
+        }
+
+    private:
+        map< tuple<int,int>, shared_ptr<Widget> > m_collection;
+    }
+
+    int foo()
+    {
+        const InfoPool& pool = // ...
+        auto c = std::make_shared<Widget>{ pool };
+    }
+
+1. I would like to know if it is RAII compliant. If not, how do I modify its implementation to make it so.
+
+2. I wanted to confirm that the map Collector::m_container is stored on the free-store. Are both the tuple-keys and the Widgets both stored on the free-store?
+
+3. Does foo leak memory?
+",<c++><c++11><containers><raii>,16/01/12 7:31,LQ_EDIT
+34739082,C# singelton for global data,"I'm starting with C# and I would like to ask how can I make globaly avaiable bellow structured data in my C# app to all classes:
+
+    class clsData1
+    {
+       int Num1;
+       int Num2;
+       string Str1;
+    }
+    
+    class clsData2
+    { 
+       int Num3;
+       int Num4;
+       string Str2;
+    }
+    
+    class Main
+    {
+       clsData1 clsData1A;
+       clsData2 clsData2A;
+    }
+
+I gues solution is with singleton, but example would be helpfull.",<c#>,16/01/12 8:49,LQ_EDIT

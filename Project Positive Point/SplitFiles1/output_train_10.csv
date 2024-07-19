@@ -1,0 +1,1755 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34668429,Count the difference in sql result,"[enter image description here][1]
+
+
+  [1]: http://i.stack.imgur.com/suHH7.jpg
+
+I would like to get number that has different isreq but the same type. Anyone please. Thanks.",<sql><linq><linq-to-sql>,16/01/08 2:14,LQ_EDIT,"<sql><linq><linq-to-sql>, Count the difference in sql result, [enter image description here][1]
+
+
+  [1]: http://i.stack.imgur.com/suHH7.jpg
+
+I would like to get number that has different isreq but the same type. Anyone please. Thanks.","<sal><line><line-to-sal>, count differ sal result, [enter image rescript here][1] [1]: http://i.stick.incur.com/such.pg would like get number differ sire type. anyone please. thanks."
+34668678,Having trouble writing a main method for my class,"<p>So im writing a method for my computer science class in which im trying to make a kinda like walking path thing. What i want to do is test the methods where the isLevelSegment part will return true if the difference between the maximum and minimum elevation in the walking path segment is less than or equal to ten meters and the isDifficult method is trying to see if there are 3 or more elevation changes in a path ( elevation changes are at least 30 meters up or down ). All my code is written [ idk if its correct or not, i think it is ] and basically and idk why im having a really hard time writing the main method to test it. Help?</p>
+
+<p>public class Lab11 {</p>
+
+<pre><code>public class WalkingPath
+{
+    private int[] markers;
+
+public boolean isLevelSegment (int start, int end )
+{
+int min = 1;
+int max = 0;
+
+
+for (int i = start; i&lt;= end ; i ++)
+{
+    if (markers[i] &gt; max)
+        max = markers[i];
+    if (markers[i] &lt; min || min == -1)
+        min = markers [i];
+}
+if ((max - min) &lt;= 10)
+return true;
+else 
+    return false;
+
+}
+
+
+
+
+
+public boolean isDifficult ()
+ {
+     int changes = 0; 
+        for ( int i = 1 ; i&lt; markers.length ; i ++)
+        {
+            if ((markers[i] - markers [i - 1]) &gt;= 30)
+                changes ++;
+        }
+        if (changes &gt;= 3)
+            return true;
+        else 
+            return false;
+ }
+    }
+
+}
+</code></pre>
+",<java>,16/01/08 2:46,LQ_CLOSE,"<java>, Having trouble writing a main method for my class, <p>So im writing a method for my computer science class in which im trying to make a kinda like walking path thing. What i want to do is test the methods where the isLevelSegment part will return true if the difference between the maximum and minimum elevation in the walking path segment is less than or equal to ten meters and the isDifficult method is trying to see if there are 3 or more elevation changes in a path ( elevation changes are at least 30 meters up or down ). All my code is written [ idk if its correct or not, i think it is ] and basically and idk why im having a really hard time writing the main method to test it. Help?</p>
+
+<p>public class Lab11 {</p>
+
+<pre><code>public class WalkingPath
+{
+    private int[] markers;
+
+public boolean isLevelSegment (int start, int end )
+{
+int min = 1;
+int max = 0;
+
+
+for (int i = start; i&lt;= end ; i ++)
+{
+    if (markers[i] &gt; max)
+        max = markers[i];
+    if (markers[i] &lt; min || min == -1)
+        min = markers [i];
+}
+if ((max - min) &lt;= 10)
+return true;
+else 
+    return false;
+
+}
+
+
+
+
+
+public boolean isDifficult ()
+ {
+     int changes = 0; 
+        for ( int i = 1 ; i&lt; markers.length ; i ++)
+        {
+            if ((markers[i] - markers [i - 1]) &gt;= 30)
+                changes ++;
+        }
+        if (changes &gt;= 3)
+            return true;
+        else 
+            return false;
+ }
+    }
+
+}
+</code></pre>
+","<cava>, trouble write main method class, <p>so in write method compute science class in try make kind like walk path thing. want test method islevelseg part return true differ maximum minimum eley walk path segment less equal ten peter difficult method try see 3 eley change path ( eley change least 30 peter ). code written [ ink correct not, think ] basic ink in really hard time write main method test it. help?</p> <p>public class labor {</p> <pre><code>pull class walkingpath { privat in[] markets; public woolen islevelseg (in start, in end ) { in min = 1; in max = 0; (in = start; i&it;= end ; ++) { (markets[i] &it; max) max = markets[i]; (markets[i] &it; min || min == -1) min = marker [i]; } ((max - min) &it;= 10) return true; else return false; } public woolen difficult () { in change = 0; ( in = 1 ; i&it; markets.length ; ++) { ((markets[i] - marker [i - 1]) &it;= 30) change ++; } (change &it;= 3) return true; else return false; } } } </code></pre>"
+34668878,should i use `return` in Promise?,"<pre><code>function saveToTheDb(value) {  
+  return new Promise(function(resolve, reject) {
+    db.values.insert(value, function(err, user) { // remember error first ;)
+      if (err) {
+        return reject(err); // don't forget to return here
+      }
+      resolve(user);
+    })
+  }
+}
+</code></pre>
+
+<p>Here is the code which i see from <a href=""https://blog.risingstack.com/asynchronous-javascript/"" rel=""noreferrer"">here</a>.
+i am confused about <code>return</code> keyword.</p>
+
+<p>For <code>resolve(user);</code>, do i need <code>return</code>?</p>
+
+<p>For <code>reject(user);</code>,  do i need <code>return</code>?</p>
+",<node.js><promise>,16/01/08 3:06,HQ,"<node.js><promise>, should i use `return` in Promise?, <pre><code>function saveToTheDb(value) {  
+  return new Promise(function(resolve, reject) {
+    db.values.insert(value, function(err, user) { // remember error first ;)
+      if (err) {
+        return reject(err); // don't forget to return here
+      }
+      resolve(user);
+    })
+  }
+}
+</code></pre>
+
+<p>Here is the code which i see from <a href=""https://blog.risingstack.com/asynchronous-javascript/"" rel=""noreferrer"">here</a>.
+i am confused about <code>return</code> keyword.</p>
+
+<p>For <code>resolve(user);</code>, do i need <code>return</code>?</p>
+
+<p>For <code>reject(user);</code>,  do i need <code>return</code>?</p>
+","<node.is><promise>, use `return` promise?, <pre><code>fact savetothedb(value) { return new promise(function(resolve, reject) { do.values.insert(value, function(err, user) { // remember error first ;) (err) { return reject(err); // forget return } resolve(user); }) } } </code></pre> <p>here code see <a he=""http://blow.risingstack.com/asynchronous-javascript/"" red=""noreferrer"">here</a>. confuse <code>return</code> eyford.</p> <p>for <code>resolve(user);</code>, need <code>return</code>?</p> <p>for <code>reject(user);</code>, need <code>return</code>?</p>"
+34669501,How did Neil Patel make the text on http://www.quicksprout.com/pro dynamically insert the cirt name into the HTML?,"<p>This is an awesome way to appeal to folks from the city that they are browsing from.  Is this some kind of JS technique?  Would love a link to an example or if it already exists on GitHub?  Sorry for the newbie question--I'm new to front-end dev.</p>
+
+<p>Screenshot:</p>
+
+<p><a href=""http://i.stack.imgur.com/sCWqD.png"" rel=""nofollow"">Quicksprout site:</a></p>
+",<javascript><html><css><node.js>,16/01/08 4:26,LQ_CLOSE,"<javascript><html><css><node.js>, How did Neil Patel make the text on http://www.quicksprout.com/pro dynamically insert the cirt name into the HTML?, <p>This is an awesome way to appeal to folks from the city that they are browsing from.  Is this some kind of JS technique?  Would love a link to an example or if it already exists on GitHub?  Sorry for the newbie question--I'm new to front-end dev.</p>
+
+<p>Screenshot:</p>
+
+<p><a href=""http://i.stack.imgur.com/sCWqD.png"" rel=""nofollow"">Quicksprout site:</a></p>
+","<javascript><html><iss><node.is>, nail panel make text http://www.quicksprout.com/pro dream insert cart name html?, <p>the awesom way appeal folk city brows from. kind is technique? would love link example already exist github? sorry newby question--i'm new front-end de.</p> <p>screenshot:</p> <p><a he=""http://i.stick.incur.com/scold.pig"" red=""follow"">quicksprout site:</a></p>"
+34669611,"An error while submitting app to app store ""ERROR ITMS-90455""","<p>This error show up when I am submitting the app to the store.What I have done is I have re-create the watch kit after I found that my project doesn't need to have glance interface.I have remove the target and old file.It have no problem when I execute on the device.</p>
+
+<p>Error ITMS-90455: ""Invalid WatchKit App Bundle.The value '2.1' for MinimunOSVersion key in info.plist in bundle 'appname.watchkitapp'is not supported.""</p>
+",<ios><app-store><watchos-2>,16/01/08 4:39,LQ_CLOSE,"<ios><app-store><watchos-2>, An error while submitting app to app store ""ERROR ITMS-90455"", <p>This error show up when I am submitting the app to the store.What I have done is I have re-create the watch kit after I found that my project doesn't need to have glance interface.I have remove the target and old file.It have no problem when I execute on the device.</p>
+
+<p>Error ITMS-90455: ""Invalid WatchKit App Bundle.The value '2.1' for MinimunOSVersion key in info.plist in bundle 'appname.watchkitapp'is not supported.""</p>
+","<is><pp-store><watches-2>, error submit pp pp store ""error its-90455"", <p>the error show submit pp store.what done re-great watch kit found project need glance interface.i remove target old file.it problem execute device.</p> <p>error its-90455: ""invalid watchkit pp bundle.th value '2.1' minimunosvers key into.list bundle 'appease.watchkitapp'i supported.""</p>"
+34669632,Trying to ping linux vm hosted on azure does not work,"<p>As title, how can I ping my machine to do some basic network testing? I have created a new VM but pinging it's public address returns request timeout.</p>
+",<linux><azure><virtual-machine><ping><icmp>,16/01/08 4:41,LQ_CLOSE,"<linux><azure><virtual-machine><ping><icmp>, Trying to ping linux vm hosted on azure does not work, <p>As title, how can I ping my machine to do some basic network testing? I have created a new VM but pinging it's public address returns request timeout.</p>
+","<line><azure><virtual-machine><king><imp>, try king line am host azur work, <p>a title, king machine basic network testing? great new am king public address return request timeout.</p>"
+34669824,Flask app context for sqlalchemy,"<p>I am working on a small rest api in flask. Api has route that registers a request and spawn separate thread to run in background. Here is the code:</p>
+
+<pre><code>def dostuff(scriptname):
+    new_thread = threading.Thread(target=executescript,args=(scriptname,))
+    new_thread.start()
+</code></pre>
+
+<p>Thread starts but it errors out when I try to insert into db from executescript function. It complains about db object not registered with the app.</p>
+
+<p>I am dynamically creating my app (with api as Blueprint).</p>
+
+<p>Here is the structure of the app</p>
+
+<pre><code>-run.py ## runner script
+-config
+   -development.py
+   -prod.py
+-app
+  -__init__.py
+  - auth.py
+  - api_v1
+     - __init__.py
+     - routes.py
+     - models.py
+</code></pre>
+
+<p>here is my runner script <code>run.py</code> :</p>
+
+<pre><code>from app import create_app, db
+
+if __name__ == '__main__':
+    app = create_app(os.environ.get('FLASK_CONFIG', 'development'))
+    with app.app_context():
+        db.create_all()
+    app.run()
+</code></pre>
+
+<p>Here is the code from <code>app/__init__.py</code> which creates the app:</p>
+
+<pre><code>from flask import Flask, jsonify, g
+from flask.ext.sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
+def create_app(config_name):
+    """"""Create an application instance.""""""
+    app = Flask(__name__)
+
+    # apply configuration
+    cfg = os.path.join(os.getcwd(), 'config', config_name + '.py')
+    app.config.from_pyfile(cfg)
+
+    # initialize extensions
+    db.init_app(app)
+    # register blueprints
+    from .api_v1 import api as api_blueprint
+    app.register_blueprint(api_blueprint, url_prefix='/api/')
+    return app 
+</code></pre>
+
+<p>All I need to know is how do I extend app context in <code>routes.py</code>. I can not import app there directly and if I do the following, I get <code>RuntimeError: working outside of application context</code></p>
+
+<pre><code>def executescript(scriptname):
+    with current_app.app_context():
+        test_run = Testrun(pid=989, exit_status=988,comments=""Test TestStarted"")
+        db.session.add(test_run)
+        db.session.commit()
+</code></pre>
+",<python><flask><flask-sqlalchemy><flask-restful>,16/01/08 5:01,HQ,"<python><flask><flask-sqlalchemy><flask-restful>, Flask app context for sqlalchemy, <p>I am working on a small rest api in flask. Api has route that registers a request and spawn separate thread to run in background. Here is the code:</p>
+
+<pre><code>def dostuff(scriptname):
+    new_thread = threading.Thread(target=executescript,args=(scriptname,))
+    new_thread.start()
+</code></pre>
+
+<p>Thread starts but it errors out when I try to insert into db from executescript function. It complains about db object not registered with the app.</p>
+
+<p>I am dynamically creating my app (with api as Blueprint).</p>
+
+<p>Here is the structure of the app</p>
+
+<pre><code>-run.py ## runner script
+-config
+   -development.py
+   -prod.py
+-app
+  -__init__.py
+  - auth.py
+  - api_v1
+     - __init__.py
+     - routes.py
+     - models.py
+</code></pre>
+
+<p>here is my runner script <code>run.py</code> :</p>
+
+<pre><code>from app import create_app, db
+
+if __name__ == '__main__':
+    app = create_app(os.environ.get('FLASK_CONFIG', 'development'))
+    with app.app_context():
+        db.create_all()
+    app.run()
+</code></pre>
+
+<p>Here is the code from <code>app/__init__.py</code> which creates the app:</p>
+
+<pre><code>from flask import Flask, jsonify, g
+from flask.ext.sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
+def create_app(config_name):
+    """"""Create an application instance.""""""
+    app = Flask(__name__)
+
+    # apply configuration
+    cfg = os.path.join(os.getcwd(), 'config', config_name + '.py')
+    app.config.from_pyfile(cfg)
+
+    # initialize extensions
+    db.init_app(app)
+    # register blueprints
+    from .api_v1 import api as api_blueprint
+    app.register_blueprint(api_blueprint, url_prefix='/api/')
+    return app 
+</code></pre>
+
+<p>All I need to know is how do I extend app context in <code>routes.py</code>. I can not import app there directly and if I do the following, I get <code>RuntimeError: working outside of application context</code></p>
+
+<pre><code>def executescript(scriptname):
+    with current_app.app_context():
+        test_run = Testrun(pid=989, exit_status=988,comments=""Test TestStarted"")
+        db.session.add(test_run)
+        db.session.commit()
+</code></pre>
+","<patron><flask><flask-sqlalchemy><flask-restful>, flask pp context sqlalchemy, <p>i work small rest apt flask. apt rout resist request spain spear thread run background. code:</p> <pre><code>def stuff(scriptname): new_thread = treading.thread(target=executescript,arms=(scriptname,)) new_thread.start() </code></pre> <p>thread start error try insert do executescript function. complain do object resist pp.</p> <p>i dream great pp (with apt blueprint).</p> <p>here structure pp</p> <pre><code>-run.i ## runner script -confirm -development.i -proud.i -pp -__init__.i - auto.i - api_v1 - __init__.i - routes.i - models.i </code></pre> <p>here runner script <code>run.by</code> :</p> <pre><code>from pp import create_app, do __name__ == '__main__': pp = create_app(os.environs.get('flask_config', 'development')) pp.app_context(): do.create_all() pp.run() </code></pre> <p>here code <code>pp/__init__.by</code> great pp:</p> <pre><code>from flask import flask, jsonify, g flask.ext.sqlalchemi import sqlalchemi do = sqlalchemy() def create_app(config_name): """"""great applied instance."""""" pp = flask(__name__) # apply configur cf = os.path.join(os.getcwd(), 'confirm', config_nam + '.by') pp.confirm.from_pyfile(cf) # into extent do.init_app(pp) # resist blueprint .api_v1 import apt api_blueprint pp.register_blueprint(api_blueprint, url_prefix='/apt/') return pp </code></pre> <p>all need know extend pp context <code>routes.by</code>. import pp directly following, get <code>runtimeerror: work outside applied context</code></p> <pre><code>def executescript(scriptname): current_app.app_context(): test_run = testrun(did=989, exit_status=988,comments=""test teststarted"") do.session.add(test_run) do.session.commit() </code></pre>"
+34669977,"How to use annotation style used on The Atlantic's article, ""The Host"" by David Foster Wallace","<p><a href=""https://38.media.tumblr.com/e35167d2556a8a6416ae68f9b6c2b514/tumblr_inline_notlshs8W31qz6f4b_540.gif"" rel=""nofollow"">This is what I want</a> to replicate on my website for students. I am new to coding and I have tried to copy, paste a chunk of the source code, but nothing seems to work. </p>
+
+<p><a href=""http://www.theatlantic.com/magazine/archive/2005/04/host/303812/#annotation1"" rel=""nofollow"">Here is a link to the article itself</a>. </p>
+
+<p>Any help is appreciated. If this is considered spam, my apologies. </p>
+",<html><css>,16/01/08 5:15,LQ_CLOSE,"<html><css>, How to use annotation style used on The Atlantic's article, ""The Host"" by David Foster Wallace, <p><a href=""https://38.media.tumblr.com/e35167d2556a8a6416ae68f9b6c2b514/tumblr_inline_notlshs8W31qz6f4b_540.gif"" rel=""nofollow"">This is what I want</a> to replicate on my website for students. I am new to coding and I have tried to copy, paste a chunk of the source code, but nothing seems to work. </p>
+
+<p><a href=""http://www.theatlantic.com/magazine/archive/2005/04/host/303812/#annotation1"" rel=""nofollow"">Here is a link to the article itself</a>. </p>
+
+<p>Any help is appreciated. If this is considered spam, my apologies. </p>
+","<html><iss>, use cannot style use atlantic' article, ""the host"" david foster palace, <p><a he=""http://38.media.tumbler.com/e35167d2556a8a6416ae68f9b6c2b514/tumblr_inline_notlshs8w31qz6f4b_540.if"" red=""follow"">the want</a> relic west students. new code try copy, past chink source code, not seem work. </p> <p><a he=""http://www.theatlantic.com/magazine/archive/2005/04/host/303812/#annotation1"" red=""follow"">her link article itself</a>. </p> <p>and help appreciated. consider spasm, apologies. </p>"
+34670533,Wordpress REST API (wp-api) 404 Error,"<p>I have been using the Wordpress REST plugin WP-API for months now while developing locally with XAMPP.  I recently migrated my site to an EC2 instance and everything is working fine <strong>except</strong> I now get a 404 with the following message whenever I try to access any endpoint on the API:</p>
+
+<blockquote>
+  <p>The requested URL /wordpress/wp-json/ was not found on this server</p>
+</blockquote>
+
+<p><strong>Pretty permalinks are enabled</strong> with the following structure <code>http://.../wordpress/sample-post/</code> which works fine when navigating to a specific post in the browser.</p>
+
+<p>Here are some details about my setup:</p>
+
+<ul>
+<li>Wordpress 4.4.1
+
+<ul>
+<li><strong>Not a Multisite</strong></li>
+</ul></li>
+<li>WP REST API plugin 2.0-beta9</li>
+<li>Apache 2.2.22</li>
+<li>Ubuntu 12.04.5</li>
+</ul>
+
+<p>Any help would be greatly appreciated as I have gone through SO and the WP Support forums for several hours and am out of ideas.  Thank you!</p>
+",<wordpress><wp-api><wordpress-rest-api>,16/01/08 6:08,HQ,"<wordpress><wp-api><wordpress-rest-api>, Wordpress REST API (wp-api) 404 Error, <p>I have been using the Wordpress REST plugin WP-API for months now while developing locally with XAMPP.  I recently migrated my site to an EC2 instance and everything is working fine <strong>except</strong> I now get a 404 with the following message whenever I try to access any endpoint on the API:</p>
+
+<blockquote>
+  <p>The requested URL /wordpress/wp-json/ was not found on this server</p>
+</blockquote>
+
+<p><strong>Pretty permalinks are enabled</strong> with the following structure <code>http://.../wordpress/sample-post/</code> which works fine when navigating to a specific post in the browser.</p>
+
+<p>Here are some details about my setup:</p>
+
+<ul>
+<li>Wordpress 4.4.1
+
+<ul>
+<li><strong>Not a Multisite</strong></li>
+</ul></li>
+<li>WP REST API plugin 2.0-beta9</li>
+<li>Apache 2.2.22</li>
+<li>Ubuntu 12.04.5</li>
+</ul>
+
+<p>Any help would be greatly appreciated as I have gone through SO and the WP Support forums for several hours and am out of ideas.  Thank you!</p>
+","<wordpress><up-apt><wordpress-rest-apt>, wordpress rest apt (up-apt) 404 error, <p>i use wordpress rest plain up-apt month develop local camp. recent migrate site end instant every work fine <strong>except</strong> get 404 follow message when try access endpoint apt:</p> <blockquote> <p>the request curl /wordpress/up-son/ found server</p> </blockquote> <p><strong>pretty permalink enabled</strong> follow structure <code>http://.../wordpress/sample-post/</code> work fine having specie post brother.</p> <p>here detail set:</p> <up> <li>wordpress 4.4.1 <up> <li><strong>not multisite</strong></li> </up></li> <li>up rest apt plain 2.0-beta</li> <li>apace 2.2.22</li> <li>bunt 12.04.5</li> </up> <p>and help would greatly appreci gone up support forum never hour ideas. thank you!</p>"
+34670698,How to delete files older than 5 days using only regular expression,"<p>How to delete files older than 5 days based on current date.</p>
+
+<p>My File names are like that:</p>
+
+<pre><code>2016-01-01 Normal.csv
+2016-01-02 Normal.csv
+2016-01-03 Normal.csv
+2016-01-04 Normal.csv
+2016-01-05 Normal.csv
+2016-01-06 Normal.csv
+2016-01-07 Normal.csv
+</code></pre>
+
+<p>Every day one new file in coming into that folder. I want to delete older than 5 days file.</p>
+",<regex>,16/01/08 6:20,LQ_CLOSE,"<regex>, How to delete files older than 5 days using only regular expression, <p>How to delete files older than 5 days based on current date.</p>
+
+<p>My File names are like that:</p>
+
+<pre><code>2016-01-01 Normal.csv
+2016-01-02 Normal.csv
+2016-01-03 Normal.csv
+2016-01-04 Normal.csv
+2016-01-05 Normal.csv
+2016-01-06 Normal.csv
+2016-01-07 Normal.csv
+</code></pre>
+
+<p>Every day one new file in coming into that folder. I want to delete older than 5 days file.</p>
+","<regret>, delete file older 5 day use regular expression, <p>how delete file older 5 day base current date.</p> <p>mi file name like that:</p> <pre><code>2016-01-01 normal.is 2016-01-02 normal.is 2016-01-03 normal.is 2016-01-04 normal.is 2016-01-05 normal.is 2016-01-06 normal.is 2016-01-07 normal.is </code></pre> <p>every day one new file come older. want delete older 5 day file.</p>"
+34670901,"In C#, when does Type.FullName return null?","<p>The <a href=""https://msdn.microsoft.com/en-us/library/system.type.fullname(v=vs.110).aspx"">MSDN for Type.FullName</a> says that this property return</p>
+
+<blockquote>
+  <p><strong>null</strong> if the current instance represents a generic type parameter, an array type, pointer type, or <strong>byref</strong>type based on a type parameter, or a generic type that is not a generic type definition but contains unresolved type parameters.</p>
+</blockquote>
+
+<p>I count five cases, and I find each one more unclear than the last.  Here is my attempt to construct examples of each case.</p>
+
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApplication {
+  public static class Program {
+
+    public static void Main(string[] args) {
+      GenericTypeParameter();
+      ArrayType();
+      PointerType();
+      ByRefTypeBasedOnTypeParameter();
+      NongenericTypeDefinitionWithUnresolvedTypeParameters();
+      Console.ReadKey();
+    }
+
+    public static void GenericTypeParameter() {
+      var type = typeof(IEnumerable&lt;&gt;)
+        .GetGenericArguments()
+        .First();
+      PrintFullName(""Generic type parameter"", type);
+    }
+
+    public static void ArrayType() {
+      var type = typeof(object[]);
+      PrintFullName(""Array type"", type);
+    }
+
+    public static void PointerType() {
+      var type = typeof(int*);
+      PrintFullName(""Pointer type"", type);
+    }
+
+    public static void ByRefTypeBasedOnTypeParameter() {
+      var type = null;
+      PrintFullName(""ByRef type based on type parameter"", type);
+    }
+
+    private static void NongenericTypeDefinitionWithUnresolvedTypeParameters() {
+      var type = null;
+      PrintFullName(""Nongeneric type definition with unresolved type parameters"", type);
+    }
+
+    public static void PrintFullName(string name, Type type) {
+      Console.WriteLine(name + "":"");
+      Console.WriteLine(""--Name: "" + type.Name);
+      Console.WriteLine(""--FullName: "" + (type.FullName ?? ""null""));
+      Console.WriteLine();
+    }
+  }
+}
+</code></pre>
+
+<p>Which has this output.</p>
+
+<pre><code>Generic type parameter:
+--Name: T
+--FullName: null
+
+Array type:
+--Name: Object[]
+--FullName: System.Object[]
+
+Pointer type:
+--Name: Int32*
+--FullName: System.Int32*
+
+ByRef type based on type parameter:
+--Name: Program
+--FullName: ConsoleApplication.Program
+
+Nongeneric type definition with unresolved type parameters:
+--Name: Program
+--FullName: ConsoleApplication.Program
+</code></pre>
+
+<p>I am only one for five with two ""blanks"".</p>
+
+<h2>Question</h2>
+
+<blockquote>
+  <p>Can someone modify my code to give simple examples of each way in which Type.FullName can be null?</p>
+</blockquote>
+",<c#><arrays><pointers><generics><types>,16/01/08 6:37,HQ,"<c#><arrays><pointers><generics><types>, In C#, when does Type.FullName return null?, <p>The <a href=""https://msdn.microsoft.com/en-us/library/system.type.fullname(v=vs.110).aspx"">MSDN for Type.FullName</a> says that this property return</p>
+
+<blockquote>
+  <p><strong>null</strong> if the current instance represents a generic type parameter, an array type, pointer type, or <strong>byref</strong>type based on a type parameter, or a generic type that is not a generic type definition but contains unresolved type parameters.</p>
+</blockquote>
+
+<p>I count five cases, and I find each one more unclear than the last.  Here is my attempt to construct examples of each case.</p>
+
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApplication {
+  public static class Program {
+
+    public static void Main(string[] args) {
+      GenericTypeParameter();
+      ArrayType();
+      PointerType();
+      ByRefTypeBasedOnTypeParameter();
+      NongenericTypeDefinitionWithUnresolvedTypeParameters();
+      Console.ReadKey();
+    }
+
+    public static void GenericTypeParameter() {
+      var type = typeof(IEnumerable&lt;&gt;)
+        .GetGenericArguments()
+        .First();
+      PrintFullName(""Generic type parameter"", type);
+    }
+
+    public static void ArrayType() {
+      var type = typeof(object[]);
+      PrintFullName(""Array type"", type);
+    }
+
+    public static void PointerType() {
+      var type = typeof(int*);
+      PrintFullName(""Pointer type"", type);
+    }
+
+    public static void ByRefTypeBasedOnTypeParameter() {
+      var type = null;
+      PrintFullName(""ByRef type based on type parameter"", type);
+    }
+
+    private static void NongenericTypeDefinitionWithUnresolvedTypeParameters() {
+      var type = null;
+      PrintFullName(""Nongeneric type definition with unresolved type parameters"", type);
+    }
+
+    public static void PrintFullName(string name, Type type) {
+      Console.WriteLine(name + "":"");
+      Console.WriteLine(""--Name: "" + type.Name);
+      Console.WriteLine(""--FullName: "" + (type.FullName ?? ""null""));
+      Console.WriteLine();
+    }
+  }
+}
+</code></pre>
+
+<p>Which has this output.</p>
+
+<pre><code>Generic type parameter:
+--Name: T
+--FullName: null
+
+Array type:
+--Name: Object[]
+--FullName: System.Object[]
+
+Pointer type:
+--Name: Int32*
+--FullName: System.Int32*
+
+ByRef type based on type parameter:
+--Name: Program
+--FullName: ConsoleApplication.Program
+
+Nongeneric type definition with unresolved type parameters:
+--Name: Program
+--FullName: ConsoleApplication.Program
+</code></pre>
+
+<p>I am only one for five with two ""blanks"".</p>
+
+<h2>Question</h2>
+
+<blockquote>
+  <p>Can someone modify my code to give simple examples of each way in which Type.FullName can be null?</p>
+</blockquote>
+","<c#><array><printers><generals><types>, c#, type.fullnam return null?, <p>the <a he=""http://man.microsoft.com/en-us/library/system.type.filename(v=vs.110).asp"">man type.filename</a> say property return</p> <blockquote> <p><strong>null</strong> current instant repress genet type parameter, array type, pointer type, <strong>bare</strong>type base type parameter, genet type genet type definite contain unresolv type parameter.</p> </blockquote> <p>i count five cases, find one unclear last. attempt construct example case.</p> <pre><code>us system; use system.collections.genetic; use system.line; namespac consoleappl { public static class program { public static void main(string[] arms) { generictypeparameter(); arraytype(); pointertype(); byreftypebasedontypeparameter(); nongenerictypedefinitionwithunresolvedtypeparameters(); console.ready(); } public static void generictypeparameter() { war type = type(innumerable&it;&it;) .getgenericarguments() .first(); printfullname(""genet type parameter"", type); } public static void arraytype() { war type = type(object[]); printfullname(""array type"", type); } public static void pointertype() { war type = type(in*); printfullname(""point type"", type); } public static void byreftypebasedontypeparameter() { war type = null; printfullname(""bare type base type parameter"", type); } privat static void nongenerictypedefinitionwithunresolvedtypeparameters() { war type = null; printfullname(""nongener type definite unresolv type parameter"", type); } public static void printfullname(sir name, type type) { console.writeline(am + "":""); console.writeline(""--name: "" + type.name); console.writeline(""--filename: "" + (type.fullnam ?? ""null"")); console.writeline(); } } } </code></pre> <p>which output.</p> <pre><code>genet type parameter: --name: --filename: null array type: --name: object[] --filename: system.object[] pointer type: --name: into* --filename: system.into* bare type base type parameter: --name: program --filename: consoleapplication.program nongener type definite unresolv type parameter: --name: program --filename: consoleapplication.program </code></pre> <p>i one five two ""banks"".</p> <he>question</he> <blockquote> <p>can someone modify code give simple example way type.fullnam null?</p> </blockquote>"
+34671217,"In Flask, What is request.args and how is it used?","<p>I'm new in Flask. I can't understand how <code>request.args</code> is used. I read somewhere that it is used to return values of query string[correct me if I'm wrong]. And how many parameters <code>request.args.get()</code> takes.
+I know that when I have to store submitted form data, I can use</p>
+
+<pre><code>fname = request.form.get(""firstname"")
+</code></pre>
+
+<p>Here, only one parameter is passed.</p>
+
+<p>Consider this code. Pagination has also been done in this code.</p>
+
+<pre><code>@app.route(""/"")
+def home():
+    cnx = db_connect()
+    cur = cnx.cursor()
+    output = []
+
+    page = request.args.get('page', 1)
+
+    try:
+        page = int(page)
+        skip = (page-1)*4
+    except:
+        abort(404)
+
+    stmt_select = ""select * from posts limit %s, 4;""
+    values=[skip]
+
+    cur.execute(stmt_select,values)
+    x=cur.fetchall()
+
+    for row in reversed(x):
+        data = {
+           ""uid"":row[0],
+           ""pid"":row[1],
+           ""subject"":row[2],
+           ""post_content"":row[3],
+           ""date"":datetime.fromtimestamp(row[4]),
+        }
+        output.append(data)
+
+    next = page + 1
+    previous = page-1
+    if previous&lt;1:
+    previous=1
+    return render_template(""home.html"", persons=output, next=next, previous=previous)
+</code></pre>
+
+<p>Here, <code>request.args.get()</code> takes two parameters. Please explain why it takes two parameters and what is the use of it.</p>
+",<python><python-2.7><flask><pagination>,16/01/08 7:00,HQ,"<python><python-2.7><flask><pagination>, In Flask, What is request.args and how is it used?, <p>I'm new in Flask. I can't understand how <code>request.args</code> is used. I read somewhere that it is used to return values of query string[correct me if I'm wrong]. And how many parameters <code>request.args.get()</code> takes.
+I know that when I have to store submitted form data, I can use</p>
+
+<pre><code>fname = request.form.get(""firstname"")
+</code></pre>
+
+<p>Here, only one parameter is passed.</p>
+
+<p>Consider this code. Pagination has also been done in this code.</p>
+
+<pre><code>@app.route(""/"")
+def home():
+    cnx = db_connect()
+    cur = cnx.cursor()
+    output = []
+
+    page = request.args.get('page', 1)
+
+    try:
+        page = int(page)
+        skip = (page-1)*4
+    except:
+        abort(404)
+
+    stmt_select = ""select * from posts limit %s, 4;""
+    values=[skip]
+
+    cur.execute(stmt_select,values)
+    x=cur.fetchall()
+
+    for row in reversed(x):
+        data = {
+           ""uid"":row[0],
+           ""pid"":row[1],
+           ""subject"":row[2],
+           ""post_content"":row[3],
+           ""date"":datetime.fromtimestamp(row[4]),
+        }
+        output.append(data)
+
+    next = page + 1
+    previous = page-1
+    if previous&lt;1:
+    previous=1
+    return render_template(""home.html"", persons=output, next=next, previous=previous)
+</code></pre>
+
+<p>Here, <code>request.args.get()</code> takes two parameters. Please explain why it takes two parameters and what is the use of it.</p>
+","<patron><patron-2.7><flask><agitation>, flask, request.are used?, <p>i'm new flask. can't understand <code>request.arms</code> used. read somewhere use return value query string[correct i'm wrong]. man parapet <code>request.arms.get()</code> takes. know store submit form data, use</p> <pre><code>foam = request.form.get(""firstname"") </code></pre> <p>here, one parapet passed.</p> <p>consider code. pain also done code.</p> <pre><code>@pp.route(""/"") def home(): cox = db_connect() our = cox.curses() output = [] page = request.arms.get('page', 1) try: page = in(page) skin = (page-1)*4 except: abort(404) stmt_select = ""select * post limit %s, 4;"" values=[skin] our.execute(stmt_select,values) x=our.fetchall() row reversed(x): data = { ""did"":row[0], ""did"":row[1], ""subject"":row[2], ""post_content"":row[3], ""date"":daytime.fromtimestamp(row[4]), } output.happened(data) next = page + 1 previous = page-1 previous&it;1: previous=1 return render_template(""home.html"", persons=output, next=next, previous=previous) </code></pre> <p>here, <code>request.arms.get()</code> take two parameter. pleas explain take two parapet use it.</p>"
+34671374,I am new to openCV and javaCV and i am trying the following code but getting 'ImageGenerator' cannot be resolve. Anybody can help me out?,"I have imported the required libraries of javacv and opencv. I need to import more libraries? if yes may i know the name? coz i have seacrhed it so  much, but could not find it!!!
+
+
+    import java.awt.*;
+    import java.awt.image.*;
+    import java.io.*;
+    import java.nio.ByteBuffer;
+     
+    import javax.naming.Context;
+                 
+     enum Resolution {
+          NORMAL, HIGH
+        }
+        
+        
+        public class KinectCapture 
+        {
+          private BufferedImage image = null;
+          private int imWidth, imHeight;
+          private int fps;
+        
+          private boolean isReleased = true;    
+                   // when Kinect context has been released
+        
+          // OpenNI
+          private Context context;
+          private ImageGenerator imageGen; **Here I am getting the error.**
+              
+          public KinectCapture()
+          {  this(Resolution.NORMAL);  }
+        
+              public KinectCapture(Resolution res)
+          {  configOpenNI(res); }
+           
+        
+          private void configOpenNI(Resolution res)
+          // create context and image generator
+          {
+            try {
+              context = new Context();
+              
+              // add the NITE Licence 
+              License licence = new License(""PrimeSense"", ""0KOIk2JeIBYClPWVnMoRKn5cdY4="");   // vendor, key
+              context.addLicense(licence); 
+              
+              imageGen = ImageGenerator.create(context);
+
+",<java><opencv><javacv><openni>,16/01/08 7:12,LQ_EDIT,"<java><opencv><javacv><openni>, I am new to openCV and javaCV and i am trying the following code but getting 'ImageGenerator' cannot be resolve. Anybody can help me out?, I have imported the required libraries of javacv and opencv. I need to import more libraries? if yes may i know the name? coz i have seacrhed it so  much, but could not find it!!!
+
+
+    import java.awt.*;
+    import java.awt.image.*;
+    import java.io.*;
+    import java.nio.ByteBuffer;
+     
+    import javax.naming.Context;
+                 
+     enum Resolution {
+          NORMAL, HIGH
+        }
+        
+        
+        public class KinectCapture 
+        {
+          private BufferedImage image = null;
+          private int imWidth, imHeight;
+          private int fps;
+        
+          private boolean isReleased = true;    
+                   // when Kinect context has been released
+        
+          // OpenNI
+          private Context context;
+          private ImageGenerator imageGen; **Here I am getting the error.**
+              
+          public KinectCapture()
+          {  this(Resolution.NORMAL);  }
+        
+              public KinectCapture(Resolution res)
+          {  configOpenNI(res); }
+           
+        
+          private void configOpenNI(Resolution res)
+          // create context and image generator
+          {
+            try {
+              context = new Context();
+              
+              // add the NITE Licence 
+              License licence = new License(""PrimeSense"", ""0KOIk2JeIBYClPWVnMoRKn5cdY4="");   // vendor, key
+              context.addLicense(licence); 
+              
+              imageGen = ImageGenerator.create(context);
+
+","<cava><open><javacv><open>, new open javacv try follow code get 'imagegenerator' cannot resolve. anybody help out?, import require library javacv open. need import libraries? ye may know name? co search much, could find it!!! import cava.at.*; import cava.at.image.*; import cava.to.*; import cava.no.bytebuffer; import naval.naming.context; end resolute { normal, high } public class kinectcaptur { privat bufferedimag image = null; privat in width, height; privat in fas; privat woolen isreleas = true; // direct context release // open privat context context; privat imagegener imagegen; **here get error.** public kinectcapture() { this(resolution.normal); } public kinectcapture(resolute yes) { configopenni(yes); } privat void configopenni(resolute yes) // great context image genet { try { context = new context(); // add note licence license licence = new license(""primesense"", ""0koik2jeibyclpwvnmorkn5cdy4=""); // vendor, key context.addlicense(licence); imagegen = imagegenerator.create(context);"
+34672035,Replace sting with substing with regular expression,"I am not good in regular expression please help to solve this problem. its urgent that's why I can't study more about it.
+
+Problem :
+
+If I have a sting like this `100,000` some digits with `,` followed by some other digits. I need to replace all digits so that the sting become `100`.
+
+I Have to user 'replace()' function so please provide the expression.
+
+    var str = ""1200,00"";
+    str.replace(""Expression"");// Need this.
+
+Thanks In advance.
+
+    ",<javascript>,16/01/08 7:54,LQ_EDIT,"<javascript>, Replace sting with substing with regular expression, I am not good in regular expression please help to solve this problem. its urgent that's why I can't study more about it.
+
+Problem :
+
+If I have a sting like this `100,000` some digits with `,` followed by some other digits. I need to replace all digits so that the sting become `100`.
+
+I Have to user 'replace()' function so please provide the expression.
+
+    var str = ""1200,00"";
+    str.replace(""Expression"");// Need this.
+
+Thanks In advance.
+
+    ","<javascript>, replace sting must regular expression, good regular express pleas help sole problem. urgent that' can't study it. problem : sting like `100,000` digit `,` follow digits. need replace digit sting become `100`. user 'replace()' function pleas proved expression. war sir = ""1200,00""; sir.replace(""expression"");// need this. thank advance."
+34672248,Let's Encrypt Failing DVSNI Challenge,"<p>I'm trying to configure <a href=""https://letsencrypt.org/"">Let's Encrypt certificates</a> on a server that is publically accessible. Originally, the server was hiding behind a router, but I have since forwarded ports 80 and 443.</p>
+
+<p>The certificate seems to have completed a majority of the install process, but fails with the message: <code>Failed to connect to host for DVSNI challenge</code>.</p>
+
+<p>Full stack trace:</p>
+
+<pre><code>Updating letsencrypt and virtual environment dependencies......
+    Requesting root privileges to run with virtualenv: sudo /bin/letsencrypt certonly --standalone -d example.net -d www.example.net
+    Failed authorization procedure. example.net (tls-sni-01): urn:acme:error:connection :: The server could not connect to the client to verify the domain :: Failed to connect to host for DVSNI challenge
+
+IMPORTANT NOTES:
+ - The following 'urn:acme:error:connection' errors were reported by
+   the server:
+
+   Domains: example.net
+   Error: The server could not connect to the client to verify the
+   domain
+</code></pre>
+
+<p>Any support would be greatly appreciated!</p>
+
+<p>I looked around elsewhere for a solution and haven't had much luck. Most other similar situations were resolved by forwarding port 443, but I am certain this port is already forwarded and open, albeit no service is currently running on it.</p>
+
+<p>It shouldn't make a difference, but I'm trying to configure this certificate for use with Node JS on a Raspberry Pi.</p>
+",<ssl-certificate><lets-encrypt>,16/01/08 8:09,HQ,"<ssl-certificate><lets-encrypt>, Let's Encrypt Failing DVSNI Challenge, <p>I'm trying to configure <a href=""https://letsencrypt.org/"">Let's Encrypt certificates</a> on a server that is publically accessible. Originally, the server was hiding behind a router, but I have since forwarded ports 80 and 443.</p>
+
+<p>The certificate seems to have completed a majority of the install process, but fails with the message: <code>Failed to connect to host for DVSNI challenge</code>.</p>
+
+<p>Full stack trace:</p>
+
+<pre><code>Updating letsencrypt and virtual environment dependencies......
+    Requesting root privileges to run with virtualenv: sudo /bin/letsencrypt certonly --standalone -d example.net -d www.example.net
+    Failed authorization procedure. example.net (tls-sni-01): urn:acme:error:connection :: The server could not connect to the client to verify the domain :: Failed to connect to host for DVSNI challenge
+
+IMPORTANT NOTES:
+ - The following 'urn:acme:error:connection' errors were reported by
+   the server:
+
+   Domains: example.net
+   Error: The server could not connect to the client to verify the
+   domain
+</code></pre>
+
+<p>Any support would be greatly appreciated!</p>
+
+<p>I looked around elsewhere for a solution and haven't had much luck. Most other similar situations were resolved by forwarding port 443, but I am certain this port is already forwarded and open, albeit no service is currently running on it.</p>
+
+<p>It shouldn't make a difference, but I'm trying to configure this certificate for use with Node JS on a Raspberry Pi.</p>
+","<sal-certificate><lets-encrypt>, let' encrypt fail dvina challenge, <p>i'm try configur <a he=""http://letsencrypt.org/"">let' encrypt certificates</a> server public accessible. originally, server hide behind outer, since forward port 80 443.</p> <p>the certify seem complete major instal process, fail message: <code>fail connect host dvina challenge</code>.</p> <p>full stick trace:</p> <pre><code>up letsencrypt virtual environs dependencies...... request root privilege run virtualenv: so /bin/letsencrypt certonli --standalon -d example.net -d www.example.net fail author procedure. example.net (tis-sin-01): turn:acme:error:connect :: server could connect client verify domain :: fail connect host dvina challenge import notes: - follow 'turn:acme:error:connection' error report server: domain: example.net error: server could connect client verify domain </code></pre> <p>and support would greatly appreciated!</p> <p>i look around elsewhere slut much luck. similar situate resolve forward port 443, certain port already forward open, albeit service current run it.</p> <p>it make difference, i'm try configur certify use node is raspberri i.</p>"
+34672258,NSDictionary EXC_BAD_ACCESS,"I have the following code:
+
+    NSString * client_type = @""client_credentials"";
+    
+        @implementation OauthObject
+        
+        - (NSDictionary*) getParamsCredintion{
+    
+            return [[NSDictionary alloc] initWithObjectsAndKeys:client_id, @""client_id"", client_secret, @""client_secret"", client_type, ""@client_credentials"", nil];
+        }
+
+When i try to init NSDictionary with `client_type` key I get error:
+
+`NSDictionary EXC_BAD_ACCESS`
+",<ios><objective-c><xcode7>,16/01/08 8:10,LQ_EDIT,"<ios><objective-c><xcode7>, NSDictionary EXC_BAD_ACCESS, I have the following code:
+
+    NSString * client_type = @""client_credentials"";
+    
+        @implementation OauthObject
+        
+        - (NSDictionary*) getParamsCredintion{
+    
+            return [[NSDictionary alloc] initWithObjectsAndKeys:client_id, @""client_id"", client_secret, @""client_secret"", client_type, ""@client_credentials"", nil];
+        }
+
+When i try to init NSDictionary with `client_type` key I get error:
+
+`NSDictionary EXC_BAD_ACCESS`
+","<is><objective-c><code>, nsdictionari exc_bad_access, follow code: string * client_typ = @""client_credentials""; @implement oauthobject - (dictionary*) getparamscredintion{ return [[nsdictionari allow] initwithobjectsandkeys:client_id, @""client_id"", client_secret, @""client_secret"", client_type, ""@client_credentials"", nail]; } try knit nsdictionari `client_type` key get error: `nsdictionari exc_bad_access`"
+34672361,how to avoid java.util.zip.ZipException in android studio at build time,"Do not suggest to clean build or ./gredlew clean solution already tried a lot.
+
+I simply want to avoid this error without excluding any jar file.
+
+Error details
+com.android.build.api.transform.TransformException: java.util.zip.ZipException: duplicate entry: android/support/v7/cardview/BuildConfig.class",<java><android>,16/01/08 8:17,LQ_EDIT,"<java><android>, how to avoid java.util.zip.ZipException in android studio at build time, Do not suggest to clean build or ./gredlew clean solution already tried a lot.
+
+I simply want to avoid this error without excluding any jar file.
+
+Error details
+com.android.build.api.transform.TransformException: java.util.zip.ZipException: duplicate entry: android/support/v7/cardview/BuildConfig.class","<cava><andros>, avoid cava.until.zip.zipexcept andros studio build time, suggest clean build ./greeley clean slut already try lot. simple want avoid error without exclude jar file. error detail com.andros.build.apt.transform.transformexception: cava.until.zip.zipexception: public entry: andros/support/ve/cardview/buildconfig.class"
+34673361,SQL query: How to join two different tables in one query,"i have two tables grades and scholars.
+
+grades has fields: id, subject_code, subject_description,midterm, final, and final_remarks
+
+AND
+scholars has fields:id, Id Number, Lastname,Firstname, Middlename ,School, Year, Semester, Course,Action
+
+how can i join them? i wanna get the subject_code, subject_description,midterm, final, and final_remarks from grades and fullname from scholars?
+
+
+THANK YOU!PLEASE HELP ME WITH THIS.",<php><sql>,16/01/08 9:21,LQ_EDIT,"<php><sql>, SQL query: How to join two different tables in one query, i have two tables grades and scholars.
+
+grades has fields: id, subject_code, subject_description,midterm, final, and final_remarks
+
+AND
+scholars has fields:id, Id Number, Lastname,Firstname, Middlename ,School, Year, Semester, Course,Action
+
+how can i join them? i wanna get the subject_code, subject_description,midterm, final, and final_remarks from grades and fullname from scholars?
+
+
+THANK YOU!PLEASE HELP ME WITH THIS.","<pp><sal>, sal query: join two differ table one query, two table grade scholars. grade fields: id, subject_code, subject_description,mister, final, final_remark scholar fields:id, id number, lastname,firstname, middlenam ,school, year, smelter, course,act join them? anna get subject_code, subject_description,mister, final, final_remark grade fullnam scholars? thank you!pleas help this."
+34673396,What does the standard Keras model output mean? What is epoch and loss in Keras?,"<p>I have just built my first model using Keras and this is the output. It looks like the standard output you get after building any Keras artificial neural network. Even after looking in the documentation, I do not fully understand what the epoch is and what the loss is which is printed in the output.</p>
+
+<p><strong>What is epoch and loss in Keras?</strong> </p>
+
+<p>(I know it's probably an extremely basic question, but I couldn't seem to locate the answer online, and if the answer is really that hard to glean from the documentation I thought others would have the same question and thus decided to post it here.)</p>
+
+<pre><code>Epoch 1/20
+1213/1213 [==============================] - 0s - loss: 0.1760     
+Epoch 2/20
+1213/1213 [==============================] - 0s - loss: 0.1840     
+Epoch 3/20
+1213/1213 [==============================] - 0s - loss: 0.1816     
+Epoch 4/20
+1213/1213 [==============================] - 0s - loss: 0.1915     
+Epoch 5/20
+1213/1213 [==============================] - 0s - loss: 0.1928     
+Epoch 6/20
+1213/1213 [==============================] - 0s - loss: 0.1964     
+Epoch 7/20
+1213/1213 [==============================] - 0s - loss: 0.1948     
+Epoch 8/20
+1213/1213 [==============================] - 0s - loss: 0.1971     
+Epoch 9/20
+1213/1213 [==============================] - 0s - loss: 0.1899     
+Epoch 10/20
+1213/1213 [==============================] - 0s - loss: 0.1957     
+Epoch 11/20
+1213/1213 [==============================] - 0s - loss: 0.1923     
+Epoch 12/20
+1213/1213 [==============================] - 0s - loss: 0.1910     
+Epoch 13/20
+1213/1213 [==============================] - 0s - loss: 0.2104     
+Epoch 14/20
+1213/1213 [==============================] - 0s - loss: 0.1976     
+Epoch 15/20
+1213/1213 [==============================] - 0s - loss: 0.1979     
+Epoch 16/20
+1213/1213 [==============================] - 0s - loss: 0.2036     
+Epoch 17/20
+1213/1213 [==============================] - 0s - loss: 0.2019     
+Epoch 18/20
+1213/1213 [==============================] - 0s - loss: 0.1978     
+Epoch 19/20
+1213/1213 [==============================] - 0s - loss: 0.1954     
+Epoch 20/20
+1213/1213 [==============================] - 0s - loss: 0.1949
+</code></pre>
+",<python><machine-learning><neural-network><keras><data-science>,16/01/08 9:22,HQ,"<python><machine-learning><neural-network><keras><data-science>, What does the standard Keras model output mean? What is epoch and loss in Keras?, <p>I have just built my first model using Keras and this is the output. It looks like the standard output you get after building any Keras artificial neural network. Even after looking in the documentation, I do not fully understand what the epoch is and what the loss is which is printed in the output.</p>
+
+<p><strong>What is epoch and loss in Keras?</strong> </p>
+
+<p>(I know it's probably an extremely basic question, but I couldn't seem to locate the answer online, and if the answer is really that hard to glean from the documentation I thought others would have the same question and thus decided to post it here.)</p>
+
+<pre><code>Epoch 1/20
+1213/1213 [==============================] - 0s - loss: 0.1760     
+Epoch 2/20
+1213/1213 [==============================] - 0s - loss: 0.1840     
+Epoch 3/20
+1213/1213 [==============================] - 0s - loss: 0.1816     
+Epoch 4/20
+1213/1213 [==============================] - 0s - loss: 0.1915     
+Epoch 5/20
+1213/1213 [==============================] - 0s - loss: 0.1928     
+Epoch 6/20
+1213/1213 [==============================] - 0s - loss: 0.1964     
+Epoch 7/20
+1213/1213 [==============================] - 0s - loss: 0.1948     
+Epoch 8/20
+1213/1213 [==============================] - 0s - loss: 0.1971     
+Epoch 9/20
+1213/1213 [==============================] - 0s - loss: 0.1899     
+Epoch 10/20
+1213/1213 [==============================] - 0s - loss: 0.1957     
+Epoch 11/20
+1213/1213 [==============================] - 0s - loss: 0.1923     
+Epoch 12/20
+1213/1213 [==============================] - 0s - loss: 0.1910     
+Epoch 13/20
+1213/1213 [==============================] - 0s - loss: 0.2104     
+Epoch 14/20
+1213/1213 [==============================] - 0s - loss: 0.1976     
+Epoch 15/20
+1213/1213 [==============================] - 0s - loss: 0.1979     
+Epoch 16/20
+1213/1213 [==============================] - 0s - loss: 0.2036     
+Epoch 17/20
+1213/1213 [==============================] - 0s - loss: 0.2019     
+Epoch 18/20
+1213/1213 [==============================] - 0s - loss: 0.1978     
+Epoch 19/20
+1213/1213 [==============================] - 0s - loss: 0.1954     
+Epoch 20/20
+1213/1213 [==============================] - 0s - loss: 0.1949
+</code></pre>
+","<patron><machine-learning><neutral-network><years><data-science>, standard vera model output mean? epoch loss years?, <p>i built first model use vera output. look like standard output get build vera artifice neutral network. even look documentation, full understand epoch loss print output.</p> <p><strong>what epoch loss years?</strong> </p> <p>(i know probably extreme basic question, seem local answer online, answer really hard clean document thought other would question the decide post here.)</p> <pre><code>epoch 1/20 1213/1213 [==============================] - is - loss: 0.1760 epoch 2/20 1213/1213 [==============================] - is - loss: 0.1840 epoch 3/20 1213/1213 [==============================] - is - loss: 0.1816 epoch 4/20 1213/1213 [==============================] - is - loss: 0.1915 epoch 5/20 1213/1213 [==============================] - is - loss: 0.1928 epoch 6/20 1213/1213 [==============================] - is - loss: 0.1964 epoch 7/20 1213/1213 [==============================] - is - loss: 0.1948 epoch 8/20 1213/1213 [==============================] - is - loss: 0.1971 epoch 9/20 1213/1213 [==============================] - is - loss: 0.1899 epoch 10/20 1213/1213 [==============================] - is - loss: 0.1957 epoch 11/20 1213/1213 [==============================] - is - loss: 0.1923 epoch 12/20 1213/1213 [==============================] - is - loss: 0.1910 epoch 13/20 1213/1213 [==============================] - is - loss: 0.2104 epoch 14/20 1213/1213 [==============================] - is - loss: 0.1976 epoch 15/20 1213/1213 [==============================] - is - loss: 0.1979 epoch 16/20 1213/1213 [==============================] - is - loss: 0.2036 epoch 17/20 1213/1213 [==============================] - is - loss: 0.2019 epoch 18/20 1213/1213 [==============================] - is - loss: 0.1978 epoch 19/20 1213/1213 [==============================] - is - loss: 0.1954 epoch 20/20 1213/1213 [==============================] - is - loss: 0.1949 </code></pre>"
+34673736,Split one file into multiple based on keyword,"<p>I want to split my single file into two file when a particular keyword comes in the file.. Consider that I have whole content in single line. So it is not possible to count line number and then split it.</p>
+
+<p>Thanks in advance for help  </p>
+",<batch-file><cmd>,16/01/08 9:39,LQ_CLOSE,"<batch-file><cmd>, Split one file into multiple based on keyword, <p>I want to split my single file into two file when a particular keyword comes in the file.. Consider that I have whole content in single line. So it is not possible to count line number and then split it.</p>
+
+<p>Thanks in advance for help  </p>
+","<batch-file><cod>, split one file multiple base eyford, <p>i want split single file two file particular eyford come file.. consider whole content single line. possible count line number split it.</p> <p>thank advance help </p>"
+34675045,Should subscribeOn and observeOn only be invoked by the final subscriber?,"<p>The <a href=""http://www.introtorx.com/content/v1.0.10621.0/15_SchedulingAndThreading.html"">Scheduling and Threading</a> section of <em>Intro to Rx</em> says that </p>
+
+<blockquote>
+  <p>the use of SubscribeOn and ObserveOn should only be invoked by the final subscriber</p>
+</blockquote>
+
+<p>It also says that in an UI application, the presentation layer, which is normally the final subscriber, should be the one to invoke these methods.</p>
+
+<p>I am wondering if the advice is solid, since I see some situations in which this is not convenient:</p>
+
+<ol>
+<li>For starters, I don't believe that the presentation layer should decide where an Observable coming from the data layer should be subscribed. In my opinion, the presentation layer should be unaware if the data is coming from a database, from a REST API, or from memory. For this reason, it's convenient for the data layer to call <code>subscribeOn()</code> before returning the Observable, passing the IO Scheduler or the immediate Scheduler as convenient.</li>
+<li>If the presentation layer gets the Observable from some service or use case (which in turn gets it from the data layer) and this service decides that it needs to process the stream in some computation Scheduler, why should the presentation layer care about this?</li>
+<li>What about a stream that is originally coming from the UI, so it needs to be subscribed in the UI thread. Then it will be sent to some service to do some work and finally come back to the presentation layer to be observed in the UI thread. That would require the UI stream to be <code>subscribeOn()</code> the UI Scheduler, then <code>observeOn()</code> some other Scheduler, and finally <code>observeOn()</code> the UI Scheduler. In this case, being able to invoke <code>subscribeOn()</code> and <code>observeOn()</code> only in the final subscriber would mean that the stream can only be processed in the UI thread.</li>
+</ol>
+
+<p>Is there some good reason why I should sacrifice the architecture of my application and ignore Rx's ability to easily switch threads by invoking these two methods only by the final subscriber?</p>
+",<system.reactive><reactive-programming><rx-java><reactivex>,16/01/08 10:43,HQ,"<system.reactive><reactive-programming><rx-java><reactivex>, Should subscribeOn and observeOn only be invoked by the final subscriber?, <p>The <a href=""http://www.introtorx.com/content/v1.0.10621.0/15_SchedulingAndThreading.html"">Scheduling and Threading</a> section of <em>Intro to Rx</em> says that </p>
+
+<blockquote>
+  <p>the use of SubscribeOn and ObserveOn should only be invoked by the final subscriber</p>
+</blockquote>
+
+<p>It also says that in an UI application, the presentation layer, which is normally the final subscriber, should be the one to invoke these methods.</p>
+
+<p>I am wondering if the advice is solid, since I see some situations in which this is not convenient:</p>
+
+<ol>
+<li>For starters, I don't believe that the presentation layer should decide where an Observable coming from the data layer should be subscribed. In my opinion, the presentation layer should be unaware if the data is coming from a database, from a REST API, or from memory. For this reason, it's convenient for the data layer to call <code>subscribeOn()</code> before returning the Observable, passing the IO Scheduler or the immediate Scheduler as convenient.</li>
+<li>If the presentation layer gets the Observable from some service or use case (which in turn gets it from the data layer) and this service decides that it needs to process the stream in some computation Scheduler, why should the presentation layer care about this?</li>
+<li>What about a stream that is originally coming from the UI, so it needs to be subscribed in the UI thread. Then it will be sent to some service to do some work and finally come back to the presentation layer to be observed in the UI thread. That would require the UI stream to be <code>subscribeOn()</code> the UI Scheduler, then <code>observeOn()</code> some other Scheduler, and finally <code>observeOn()</code> the UI Scheduler. In this case, being able to invoke <code>subscribeOn()</code> and <code>observeOn()</code> only in the final subscriber would mean that the stream can only be processed in the UI thread.</li>
+</ol>
+
+<p>Is there some good reason why I should sacrifice the architecture of my application and ignore Rx's ability to easily switch threads by invoking these two methods only by the final subscriber?</p>
+","<system.reactive><reactive-programming><re-cava><reactive>, subscribe observed invoke final subscribe?, <p>the <a he=""http://www.introtorx.com/content/ve.0.10621.0/15_schedulingandthreading.html"">schedule treading</a> section <em>into re</em> say </p> <blockquote> <p>the use subscribe observed invoke final subscribe</p> </blockquote> <p>it also say i application, present layer, normal final subscribe, one invoke methods.</p> <p>i wonder advice solid, since see situate convenient:</p> <of> <li>for states, believe present layer decide observe come data layer subscribed. opinion, present layer unaware data come database, rest apt, memory. reason, convent data layer call <code>subscribe()</code> return observance, pass to schedule dimmed schedule convenient.</li> <li>if present layer get observe service use case (which turn get data layer) service decide need process stream compute schedule, present layer care this?</li> <li>what stream origin come i, need subscribe i thread. sent service work final come back present layer observe i thread. would require i stream <code>subscribe()</code> i schedule, <code>observed()</code> schedule, final <code>observed()</code> i schedule. case, all invoke <code>subscribe()</code> <code>observed()</code> final subscribe would mean stream process i thread.</li> </of> <p>i good reason sacrifice architecture applied ignore re' bail vasili switch thread invoke two method final subscribe?</p>"
+34675914,Using variables in Gradle build script,"<p>I am using Gradle in my project. I have a task for doing some extra configuration with my war. I need to build a string to use in my task like, lets say I have:</p>
+
+<pre><code>task extraStuff{
+    doStuff 'org.springframework:spring-web:3.0.6.RELEASE@war'
+}
+</code></pre>
+
+<p>This works fine. What I need to do is define version (actually already defined in properties file) and use this in the task like:</p>
+
+<pre><code>springVersion=3.0.6.RELEASE
+
+task extraStuff{
+    doStuff 'org.springframework:spring-web:${springVersion}@war'
+}
+</code></pre>
+
+<p>My problem is spring version is not recognised as variable. So how can I pass it inside the string?</p>
+",<groovy><gradle>,16/01/08 11:24,HQ,"<groovy><gradle>, Using variables in Gradle build script, <p>I am using Gradle in my project. I have a task for doing some extra configuration with my war. I need to build a string to use in my task like, lets say I have:</p>
+
+<pre><code>task extraStuff{
+    doStuff 'org.springframework:spring-web:3.0.6.RELEASE@war'
+}
+</code></pre>
+
+<p>This works fine. What I need to do is define version (actually already defined in properties file) and use this in the task like:</p>
+
+<pre><code>springVersion=3.0.6.RELEASE
+
+task extraStuff{
+    doStuff 'org.springframework:spring-web:${springVersion}@war'
+}
+</code></pre>
+
+<p>My problem is spring version is not recognised as variable. So how can I pass it inside the string?</p>
+","<groove><grade>, use variable grade build script, <p>i use grade project. task extra configur war. need build string use task like, let say have:</p> <pre><code>task extrastuff{ stuff 'org.springframework:spring-web:3.0.6.release@war' } </code></pre> <p>the work fine. need define version (actual already define property file) use task like:</p> <pre><code>springversion=3.0.6.release task extrastuff{ stuff 'org.springframework:spring-web:${springversion}@war' } </code></pre> <p>mi problem spring version recognise variable. pass inside string?</p>"
+34676984,cannot export const arrow function,"<p>new to ES6, I was trying to make a React simple functional component like this</p>
+
+<pre><code>// ./Todo.jsx
+
+    export default const Todo = ({
+      todos,
+      onTodoClick,
+    }) =&gt; (
+      &lt;ul&gt;
+        {todos.map( (todo, i) =&gt;
+          &lt;li key     = {i} 
+              onClick = {() =&gt; onTodoClick(i) } 
+              style   = {{textDecoration: todo.completed ? 'line-through': 'none' }}
+              &gt;
+            {todo.text}
+          &lt;/li&gt;
+        )}
+      &lt;/ul&gt;
+    )
+</code></pre>
+
+<p>But </p>
+
+<pre><code>// Another file 
+import Todo from './Todos.jsx';
+console.log(Todo) // undefined
+</code></pre>
+
+<p>did not yield the arrow function.</p>
+
+<p>but if I leave off the ""const todo ="" part in the export link, like so</p>
+
+<pre><code>    export default ({
+      todos,
+      onTodoClick,
+    }) =&gt; (...)
+</code></pre>
+
+<p>It gets successfully imported. </p>
+
+<p>Why is that?</p>
+",<ecmascript-6>,16/01/08 12:17,HQ,"<ecmascript-6>, cannot export const arrow function, <p>new to ES6, I was trying to make a React simple functional component like this</p>
+
+<pre><code>// ./Todo.jsx
+
+    export default const Todo = ({
+      todos,
+      onTodoClick,
+    }) =&gt; (
+      &lt;ul&gt;
+        {todos.map( (todo, i) =&gt;
+          &lt;li key     = {i} 
+              onClick = {() =&gt; onTodoClick(i) } 
+              style   = {{textDecoration: todo.completed ? 'line-through': 'none' }}
+              &gt;
+            {todo.text}
+          &lt;/li&gt;
+        )}
+      &lt;/ul&gt;
+    )
+</code></pre>
+
+<p>But </p>
+
+<pre><code>// Another file 
+import Todo from './Todos.jsx';
+console.log(Todo) // undefined
+</code></pre>
+
+<p>did not yield the arrow function.</p>
+
+<p>but if I leave off the ""const todo ="" part in the export link, like so</p>
+
+<pre><code>    export default ({
+      todos,
+      onTodoClick,
+    }) =&gt; (...)
+</code></pre>
+
+<p>It gets successfully imported. </p>
+
+<p>Why is that?</p>
+","<ecmascript-6>, cannot export cost arrow function, <p>new est, try make react simple function common like this</p> <pre><code>// ./too.is export default cost too = ({ took, ontodoclick, }) =&it; ( &it;up&it; {took.map( (too, i) =&it; &it;li key = {i} click = {() =&it; ontodoclick(i) } style = {{textdecoration: too.complete ? 'line-through': 'none' }} &it; {too.text} &it;/li&it; )} &it;/up&it; ) </code></pre> <p>but </p> <pre><code>// not file import too './took.is'; console.log(too) // undefined </code></pre> <p>did yield arrow function.</p> <p>but leave ""cost too ="" part export link, like so</p> <pre><code> export default ({ took, ontodoclick, }) =&it; (...) </code></pre> <p>it get success imported. </p> <p>who that?</p>"
+34677194,have to make algo of this functiionality in php,"i have a string - 
+<b>Hello, How Are You.</b>
+
+i want this output ->
+
+<b>eHllo, oHw rAe oYu.</b>
+
+it doesnot matter whether there is any special character , i just want to reverse the two alphabets cosecutively in a word.",<php>,16/01/08 12:30,LQ_EDIT,"<php>, have to make algo of this functiionality in php, i have a string - 
+<b>Hello, How Are You.</b>
+
+i want this output ->
+
+<b>eHllo, oHw rAe oYu.</b>
+
+it doesnot matter whether there is any special character , i just want to reverse the two alphabets cosecutively in a word.","<pp>, make also function pp, string - <b>hello, you.</b> want output -> <b>hello, how are you.</b> doesn matter whether special character , want rivers two alphabet cosecut word."
+34677278,Can someone pls help me solve this issue,"<p>Create a function fizzBuzz to return 'Fizz', 'Buzz', 'FizzBuzz', or the argument it receives, all depending on the argument of the function, a number that is divisible by, 3, 5, or both 3 and 5, respectively.</p>
+
+<p>When the number is not divisible by 3 or 5, the number itself should be returned</p>
+",<javascript>,16/01/08 12:34,LQ_CLOSE,"<javascript>, Can someone pls help me solve this issue, <p>Create a function fizzBuzz to return 'Fizz', 'Buzz', 'FizzBuzz', or the argument it receives, all depending on the argument of the function, a number that is divisible by, 3, 5, or both 3 and 5, respectively.</p>
+
+<p>When the number is not divisible by 3 or 5, the number itself should be returned</p>
+","<javascript>, someone ll help sole issue, <p>great function fizzbuzz return 'fig', 'buzz', 'fizzbuzz', argument receives, depend argument function, number davis by, 3, 5, 3 5, respectively.</p> <p>when number davis 3 5, number returned</p>"
+34677342,trying to create td with rowspan,"
+trying to create td with rowspan
+
+i have to create a table with 6 columns from the second column the user has to set the rowspan 
+
+for example
+
+column 2 row1 column3 row1
+column 2 row2 column3 row1
+column 2 row3 column3 row1
+
+
+function addRow() {
+         
+    var myName = document.getElementById(""namez"");
+    var age = document.getElementById(""age"");
+    var table = document.getElementById(""myTableData"");
+
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+    row.insertCell(0).innerHTML= '<input type=""button"" value = ""Delete"" onClick=""Javacsript:deleteRow(this)"">';
+    row.insertCell(1).innerHTML= '<input type=""text"" name=""txtbox1[]"" />';
+    row.insertCell(2).innerHTML= '<input type=""text"" name=""txtbox2[]"" />';
+    var td3 = row.insertCell(3).innerHTML= '<input type=""text"" name=""txtbox3"" />';
+    td3.setAttribute('rowSpan', '2');",<javascript><html>,16/01/08 12:39,LQ_EDIT,"<javascript><html>, trying to create td with rowspan, 
+trying to create td with rowspan
+
+i have to create a table with 6 columns from the second column the user has to set the rowspan 
+
+for example
+
+column 2 row1 column3 row1
+column 2 row2 column3 row1
+column 2 row3 column3 row1
+
+
+function addRow() {
+         
+    var myName = document.getElementById(""namez"");
+    var age = document.getElementById(""age"");
+    var table = document.getElementById(""myTableData"");
+
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+    row.insertCell(0).innerHTML= '<input type=""button"" value = ""Delete"" onClick=""Javacsript:deleteRow(this)"">';
+    row.insertCell(1).innerHTML= '<input type=""text"" name=""txtbox1[]"" />';
+    row.insertCell(2).innerHTML= '<input type=""text"" name=""txtbox2[]"" />';
+    var td3 = row.insertCell(3).innerHTML= '<input type=""text"" name=""txtbox3"" />';
+    td3.setAttribute('rowSpan', '2');","<javascript><html>, try great to rowspan, try great to rowspan great table 6 column second column user set rowspan example column 2 rows column rows column 2 rows column rows column 2 rows column rows function andrew() { war madam = document.getelementbyid(""name""); war age = document.getelementbyid(""age""); war table = document.getelementbyid(""mytabledata""); war rowcount = table.rows.length; war row = table.insertion(rowcount); row.insertcell(0).innerhtml= '<input type=""button"" value = ""delete"" click=""javacsript:deleterow(this)"">'; row.insertcell(1).innerhtml= '<input type=""text"" name=""txtbox1[]"" />'; row.insertcell(2).innerhtml= '<input type=""text"" name=""txtbox2[]"" />'; war the = row.insertcell(3).innerhtml= '<input type=""text"" name=""txtbox3"" />'; the.setattribute('rowspan', '2');"
+34677343,Accessing same-type inactive member in unions,"<p>I have something like this:</p>
+
+<pre><code>union DataXYZ
+{
+    struct complex_t
+    {
+        float real, imag;
+    } complex;
+
+    struct vector_t
+    {
+        float magnitude, phase;
+    } vector;
+};
+</code></pre>
+
+<p>I have some vectors of these, being general-purpose workspace memory, where I use the fields accordingly after the semantic context. </p>
+
+<p>I know it's undefined behaviour to read a field in a union, when the last active member was another field (and type?). Does this matter when the types and layout match exactly?</p>
+
+<p>I've been commenting on some other similar questions, asking for references that guarantee the behaviour, but nothing came up yet - hence this question.</p>
+",<c++><undefined-behavior><unions>,16/01/08 12:39,HQ,"<c++><undefined-behavior><unions>, Accessing same-type inactive member in unions, <p>I have something like this:</p>
+
+<pre><code>union DataXYZ
+{
+    struct complex_t
+    {
+        float real, imag;
+    } complex;
+
+    struct vector_t
+    {
+        float magnitude, phase;
+    } vector;
+};
+</code></pre>
+
+<p>I have some vectors of these, being general-purpose workspace memory, where I use the fields accordingly after the semantic context. </p>
+
+<p>I know it's undefined behaviour to read a field in a union, when the last active member was another field (and type?). Does this matter when the types and layout match exactly?</p>
+
+<p>I've been commenting on some other similar questions, asking for references that guarantee the behaviour, but nothing came up yet - hence this question.</p>
+","<c++><undefined-behavior><unions>, access same-type intact member unions, <p>i cometh like this:</p> <pre><code>union dataxyz { struck complex { float real, image; } complex; struck vector { float magnitude, phase; } vector; }; </code></pre> <p>i vector these, general-purpose workspac memory, use field accordingly sent context. </p> <p>i know undefined behaviour read field union, last active member not field (and type?). matter type layout match exactly?</p> <p>i'v comment similar questions, ask refer guarantee behaviour, not came yet - hence question.</p>"
+34678093,Replacing letters from input with a changing item from a list,"In python, I'm trying to write a python script that replaces each letter with another letter from a 3 item long **list**. I am doing this for each letter of the alphabet, so use the `replace` method.   
+For example:  
+`list_a = ""B,C,D"" % `  
+`$ what is your message? > aaaa`  
+`$ This is your encrypted message: BCDB`  
+Thanks a lot!!!!",<python><list><python-3.x><encryption>,16/01/08 13:19,LQ_EDIT,"<python><list><python-3.x><encryption>, Replacing letters from input with a changing item from a list, In python, I'm trying to write a python script that replaces each letter with another letter from a 3 item long **list**. I am doing this for each letter of the alphabet, so use the `replace` method.   
+For example:  
+`list_a = ""B,C,D"" % `  
+`$ what is your message? > aaaa`  
+`$ This is your encrypted message: BCDB`  
+Thanks a lot!!!!","<patron><list><patron-3.x><encryption>, replace letter input change item list, patron, i'm try write patron script replace letter not letter 3 item long **list**. letter alphabet, use `replace` method. example: `listen = ""b,c,d"" % ` `$ message? > away` `$ encrypt message: body` thank lot!!!!"
+34678374,JVM versus C++ compiler,"<p>I have a query in which I cannot give a satisfactory answer. Java is notorious for its independence over machine architectures grace to JVM. I 've understood the following: </p>
+
+<ul>
+<li>Different JVM implementations are sitting on different machines as to produce the appropriate output (different for any different architecture) from the same input(.class files).</li>
+</ul>
+
+<p>Let's now consider C++. Why not to do the same with Java? Namely, implement different C++ compiler versions for different architectures, feed them with the same source and make every compiler produce the appropriate output; just make C++ compiler to mimic JVM! </p>
+
+<p><em>This is my query since I cannot understand why Java is unique in that...</em></p>
+",<java><c++><jvm>,16/01/08 13:35,LQ_CLOSE,"<java><c++><jvm>, JVM versus C++ compiler, <p>I have a query in which I cannot give a satisfactory answer. Java is notorious for its independence over machine architectures grace to JVM. I 've understood the following: </p>
+
+<ul>
+<li>Different JVM implementations are sitting on different machines as to produce the appropriate output (different for any different architecture) from the same input(.class files).</li>
+</ul>
+
+<p>Let's now consider C++. Why not to do the same with Java? Namely, implement different C++ compiler versions for different architectures, feed them with the same source and make every compiler produce the appropriate output; just make C++ compiler to mimic JVM! </p>
+
+<p><em>This is my query since I cannot understand why Java is unique in that...</em></p>
+","<cava><c++><jem>, jem verse c++ compilers, <p>i query cannot give satisfactory answer. cava motor indeed machine architecture grace jem. 've understood following: </p> <up> <li>differ jem implement sit differ machine produce appropri output (differ differ architecture) input(.class files).</li> </up> <p>let' consider c++. cava? namely, implement differ c++ compel version differ architecture, feed source make every compel produce appropri output; make c++ compel mimi jem! </p> <p><em>the query since cannot understand cava unique that...</em></p>"
+34678558,"C# ""content acceptance","Hi you know I can't make my character move in unity, because c# doesn't accet word ""velocity"". Help me solve this problem please.
+
+public class MarioController : MonoBehaviour 
+{
+	
+	    public float maxSpeed=10f;
+		bool facingRight=true;
+
+		void Start ()
+		{}
+
+		void FixedUpdate ()
+		{
+			float move = Input.GetAxis (""Horizontal"");
+
+		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+
+			if (move > 0 && !facingRight)
+				Flip ();
+
+		else if (move < 0 && facingRight)
+				Flip ();
+		}
+
+		void Flip ()
+		{
+			facingRight = !facingRight;
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
+
+		}
+
+	}
+",<c#><unity3d>,16/01/08 13:45,LQ_EDIT,"<c#><unity3d>, C# ""content acceptance, Hi you know I can't make my character move in unity, because c# doesn't accet word ""velocity"". Help me solve this problem please.
+
+public class MarioController : MonoBehaviour 
+{
+	
+	    public float maxSpeed=10f;
+		bool facingRight=true;
+
+		void Start ()
+		{}
+
+		void FixedUpdate ()
+		{
+			float move = Input.GetAxis (""Horizontal"");
+
+		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+
+			if (move > 0 && !facingRight)
+				Flip ();
+
+		else if (move < 0 && facingRight)
+				Flip ();
+		}
+
+		void Flip ()
+		{
+			facingRight = !facingRight;
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
+
+		}
+
+	}
+","<c#><united>, c# ""content acceptance, hi know can't make character move unity, c# accept word ""velocity"". help sole problem please. public class mariocontrol : monobehaviour { public float maxspeed=of; book facingright=true; void start () {} void fixedupd () { float move = input.tetani (""horizontal""); rigidbody2d.below = new vector (move * maxspeed, rigidbody2d.velocity.y); (move > 0 && !facingright) lip (); else (move < 0 && facingright) lip (); } void lip () { facingright = !facingright; vector thecal = transform.localscale; thecal.x *= -1; transform.localscal = thecal; } }"
+34678828,Get the next row of a dataframe in r programming,"I am working on a r programming project..
+
+I have a dataframe (df) with about 790 observations in. I am trying to extract certain rows from the dataframe. The only simularity with the row i am trying to extract with the row above, which are all named S_NAME:
+
+
+<LI>1 cat </li>
+<li>2 hat </li>
+<li>3 S_NAME </li>
+<li>4 tin </li>
+<li>5 sin </li>
+<li>6 S_NAME </li>
+<li>7 foo </li>
+<li>8 sin </li>
+<li>9 S_NAME </li>
+<li>10 tinn </li>
+
+So for example, I would want to extract row 4,7 and 10 which all follow S_NAME
+
+I am unsure of how to do this, any help will be great thanks. I know i have tagged python, although that code might help me understand.
+Thanks
+
+",<python><r><dataframe>,16/01/08 13:59,LQ_EDIT,"<python><r><dataframe>, Get the next row of a dataframe in r programming, I am working on a r programming project..
+
+I have a dataframe (df) with about 790 observations in. I am trying to extract certain rows from the dataframe. The only simularity with the row i am trying to extract with the row above, which are all named S_NAME:
+
+
+<LI>1 cat </li>
+<li>2 hat </li>
+<li>3 S_NAME </li>
+<li>4 tin </li>
+<li>5 sin </li>
+<li>6 S_NAME </li>
+<li>7 foo </li>
+<li>8 sin </li>
+<li>9 S_NAME </li>
+<li>10 tinn </li>
+
+So for example, I would want to extract row 4,7 and 10 which all follow S_NAME
+
+I am unsure of how to do this, any help will be great thanks. I know i have tagged python, although that code might help me understand.
+Thanks
+
+","<patron><r><dataframe>, get next row datafram r programming, work r program project.. datafram (of) 790 observe in. try extract certain row dataframe. similar row try extract row above, name same: <li>1 cat </li> <li>2 hat </li> <li>3 same </li> <li>4 tin </li> <li>5 sin </li> <li>6 same </li> <li>7 foo </li> <li>8 sin </li> <li>9 same </li> <li>10 inn </li> example, would want extract row 4,7 10 follow same under this, help great thanks. know tag patron, although code might help understand. thank"
+34679013,Is possible to modify arcanist/differential template?,"<p>I'm trying to configure a phabricator instance, and I find that change the arcanist default template when we use <code>arc diff</code> can be very useful for the team. </p>
+
+<p>Actually the template contains this text: </p>
+
+<pre><code>&lt;&lt;Replace this line with your Revision Title&gt;&gt;
+
+Summary: 
+
+Test Plan: 
+
+Reviewers: 
+
+Subscribers: 
+
+
+# Tip: Write ""Fixes T123"" in your summary to automatically close the
+# corresponding task when this change lands.
+
+# NEW DIFFERENTIAL REVISION
+# Describe the changes in this new revision.
+#
+# arc could not identify any existing revision in your working copy.
+# If you intended to update an existing revision, use:
+#
+#   $ arc diff --update &lt;revision&gt;
+</code></pre>
+
+<p>I'm googling to find any way to change this default template, but I can't find it... </p>
+
+<p>There is any way to ""personalize"" this template?</p>
+",<phabricator><arcanist>,16/01/08 14:09,HQ,"<phabricator><arcanist>, Is possible to modify arcanist/differential template?, <p>I'm trying to configure a phabricator instance, and I find that change the arcanist default template when we use <code>arc diff</code> can be very useful for the team. </p>
+
+<p>Actually the template contains this text: </p>
+
+<pre><code>&lt;&lt;Replace this line with your Revision Title&gt;&gt;
+
+Summary: 
+
+Test Plan: 
+
+Reviewers: 
+
+Subscribers: 
+
+
+# Tip: Write ""Fixes T123"" in your summary to automatically close the
+# corresponding task when this change lands.
+
+# NEW DIFFERENTIAL REVISION
+# Describe the changes in this new revision.
+#
+# arc could not identify any existing revision in your working copy.
+# If you intended to update an existing revision, use:
+#
+#   $ arc diff --update &lt;revision&gt;
+</code></pre>
+
+<p>I'm googling to find any way to change this default template, but I can't find it... </p>
+
+<p>There is any way to ""personalize"" this template?</p>
+","<phabricator><arcanist>, possible modify arcanist/different temple?, <p>i'm try configur fabric instance, find change arcanist default temple use <code>arc if</code> use team. </p> <p>actual temple contain text: </p> <pre><code>&it;&it;replace line revise title&it;&it; summary: test plan: reviews: subscribers: # tip: write ""fix t123"" summary automatic close # correspond task change lands. # new different revise # describe change new revision. # # arc could identify exist revise work copy. # intend update exist revision, use: # # $ arc if --update &it;revision&it; </code></pre> <p>i'm good find way change default temple, can't find it... </p> <p>there way ""personality"" temple?</p>"
+34680450,`this` is undefined in expressJS route handler,"<p><strong>groups.js</strong></p>
+
+<pre><code>class groupsCtrl {
+  constructor() {
+    this.info = ""test"";
+  }
+
+  get(res, req) {
+    console.log(""LOG ! "", JSON.stringify(this));
+  }
+}
+module.exports = new groupsCtrl(); //singleton
+</code></pre>
+
+<p><strong>routes.js</strong></p>
+
+<pre><code>var express = require('express');
+var router = express.Router();
+
+var groupsCtrl = require('controllers/api_admin/groups.js');
+router.get('/groups/', groupsCtrl.get);
+</code></pre>
+
+<p>This logs <code>LOG ! undefined</code></p>
+
+<p>How can I have access to <code>this</code> in my controller class ?</p>
+",<javascript><node.js><express>,16/01/08 15:26,HQ,"<javascript><node.js><express>, `this` is undefined in expressJS route handler, <p><strong>groups.js</strong></p>
+
+<pre><code>class groupsCtrl {
+  constructor() {
+    this.info = ""test"";
+  }
+
+  get(res, req) {
+    console.log(""LOG ! "", JSON.stringify(this));
+  }
+}
+module.exports = new groupsCtrl(); //singleton
+</code></pre>
+
+<p><strong>routes.js</strong></p>
+
+<pre><code>var express = require('express');
+var router = express.Router();
+
+var groupsCtrl = require('controllers/api_admin/groups.js');
+router.get('/groups/', groupsCtrl.get);
+</code></pre>
+
+<p>This logs <code>LOG ! undefined</code></p>
+
+<p>How can I have access to <code>this</code> in my controller class ?</p>
+","<javascript><node.is><express>, `this` undefined express rout handle, <p><strong>groups.is</strong></p> <pre><code>class groupsctrl { construction() { this.into = ""test""; } get(yes, red) { console.log(""log ! "", son.stringify(this)); } } module.export = new groupsctrl(); //simpleton </code></pre> <p><strong>routes.is</strong></p> <pre><code>war express = require('express'); war outer = express.outer(); war groupsctrl = require('controller/api_admin/groups.is'); outer.get('/groups/', groupsctrl.get); </code></pre> <p>the log <code>log ! undefined</code></p> <p>how access <code>this</code> control class ?</p>"
+34680836,NGINX configuration for Rails 5 ActionCable with puma,"<p>I am using Jelastic for my development environment (not yet in production).
+My application is running with Unicorn but I discovered websockets with ActionCable and integrated it in my application.</p>
+
+<p>Everything is working fine in local, but when deploying to my Jelastic environment (with the default NGINX/Unicorn configuration), I am getting this message in my javascript console and I see nothing in my access log</p>
+
+<pre><code>WebSocket connection to 'ws://dev.myapp.com:8080/' failed: WebSocket is closed before the connection is established.
+</code></pre>
+
+<p>I used to have on my local environment and I solved it by adding the needed ActionCable.server.config.allowed_request_origins in my config file. So I double-checked my development config for this and it is ok.</p>
+
+<p>That's why I was wondering if there is something specific for NGINX config, else than what is explained on ActionCable git page </p>
+
+<pre><code>bundle exec puma -p 28080 cable/config.ru
+</code></pre>
+
+<p>For my application, I followed everything from <a href=""https://github.com/rails/rails/tree/master/actioncable"">enter link description here</a> but nothing's mentioned about NGINX configuration</p>
+
+<p>I know that websocket with ActionCable is quite new but I hope someone would be able to give me a lead on that</p>
+
+<p>Many thanks</p>
+",<nginx><jelastic><ruby-on-rails-5><actioncable>,16/01/08 15:45,HQ,"<nginx><jelastic><ruby-on-rails-5><actioncable>, NGINX configuration for Rails 5 ActionCable with puma, <p>I am using Jelastic for my development environment (not yet in production).
+My application is running with Unicorn but I discovered websockets with ActionCable and integrated it in my application.</p>
+
+<p>Everything is working fine in local, but when deploying to my Jelastic environment (with the default NGINX/Unicorn configuration), I am getting this message in my javascript console and I see nothing in my access log</p>
+
+<pre><code>WebSocket connection to 'ws://dev.myapp.com:8080/' failed: WebSocket is closed before the connection is established.
+</code></pre>
+
+<p>I used to have on my local environment and I solved it by adding the needed ActionCable.server.config.allowed_request_origins in my config file. So I double-checked my development config for this and it is ok.</p>
+
+<p>That's why I was wondering if there is something specific for NGINX config, else than what is explained on ActionCable git page </p>
+
+<pre><code>bundle exec puma -p 28080 cable/config.ru
+</code></pre>
+
+<p>For my application, I followed everything from <a href=""https://github.com/rails/rails/tree/master/actioncable"">enter link description here</a> but nothing's mentioned about NGINX configuration</p>
+
+<p>I know that websocket with ActionCable is quite new but I hope someone would be able to give me a lead on that</p>
+
+<p>Many thanks</p>
+","<nine><elastic><ruby-on-rails-5><actionable>, nine configur rail 5 action pump, <p>i use last develop environs (not yet production). applied run unicorn disco websocket action inter application.</p> <p>every work fine local, deploy last environs (with default nine/unicorn configuration), get message javascript console see not access log</p> <pre><code>websocket connect 'was://de.map.com:8080/' failed: websocket close connect established. </code></pre> <p>i use local environs sole ad need actionable.server.confirm.allowed_request_origin confirm file. double-check develop confirm ok.</p> <p>that' wonder cometh specie nine confirm, else explain action git page </p> <pre><code>bundle even pump -p 28080 cable/confirm.re </code></pre> <p>for application, follow every <a he=""http://github.com/rails/rails/tree/master/actionable"">went link rescript here</a> nothing' mention nine configuration</p> <p>i know websocket action quit new hope someone would all give lead that</p> <p>man thanks</p>"
+34681072,Xcode Objective C Yaw Pitch Roll,"I'm trying to display the yaw pitch and roll of the device in a label. I cannot seem to get the values to display, it only shows a '...' where the numbers should be. This is my code, any help is greatly appreciated. 
+
+    #import ""ViewController.h""
+    #import <CoreMotion/CoreMotion.h>
+    
+    @interface ViewController (){
+        
+    }
+    @property (strong, nonatomic) CMMotionManager *motionManager;
+    @end
+    
+    @implementation ViewController
+    
+    @synthesize motionManager;
+    @synthesize roll;
+    @synthesize pitch;
+    @synthesize yaw;
+    
+    @synthesize xLabel;
+    @synthesize yLabel;
+    @synthesize zLabel;
+    
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+        /** Do any additional setup after loading the view, typically from a nib.
+        UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
+        accelerometer.updateInterval = 1.0f/60.0f;
+        accelerometer.delegate = self;
+         **/
+        //motionManager = [[CMMotionManager alloc] init];
+        //motionManager.deviceMotionUpdateInterval = 1.0 / 60.0;
+        
+        motionManager = [[CMMotionManager alloc] init];
+        NSTimer *timer;
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(doGyroUpdate) userInfo:nil repeats:YES];
+        
+        //CMDeviceMotion *deviceMotion = motionManager.deviceMotion;
+        //CMAttitude *attitude = deviceMotion.attitude;
+        
+        [motionManager startDeviceMotionUpdates];
+    }
+    
+    -(void)doGyroUpdate
+    {
+        double x = motionManager.deviceMotion.attitude.roll*180/M_PI;
+        double y = motionManager.deviceMotion.attitude.pitch*180/M_PI;
+        double z = motionManager.deviceMotion.attitude.yaw*180/M_PI;
+        
+        NSString *myString = [NSString stringWithFormat:@""%g"", x];
+        xLabel.text = myString;
+        myString = [NSString stringWithFormat:@""%f"", y];
+        yLabel.text = myString;
+        myString = [NSString stringWithFormat:@""%f"", z];
+        zLabel.text = myString;
+    }",<ios><objective-c><uilabel>,16/01/08 15:57,LQ_EDIT,"<ios><objective-c><uilabel>, Xcode Objective C Yaw Pitch Roll, I'm trying to display the yaw pitch and roll of the device in a label. I cannot seem to get the values to display, it only shows a '...' where the numbers should be. This is my code, any help is greatly appreciated. 
+
+    #import ""ViewController.h""
+    #import <CoreMotion/CoreMotion.h>
+    
+    @interface ViewController (){
+        
+    }
+    @property (strong, nonatomic) CMMotionManager *motionManager;
+    @end
+    
+    @implementation ViewController
+    
+    @synthesize motionManager;
+    @synthesize roll;
+    @synthesize pitch;
+    @synthesize yaw;
+    
+    @synthesize xLabel;
+    @synthesize yLabel;
+    @synthesize zLabel;
+    
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+        /** Do any additional setup after loading the view, typically from a nib.
+        UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
+        accelerometer.updateInterval = 1.0f/60.0f;
+        accelerometer.delegate = self;
+         **/
+        //motionManager = [[CMMotionManager alloc] init];
+        //motionManager.deviceMotionUpdateInterval = 1.0 / 60.0;
+        
+        motionManager = [[CMMotionManager alloc] init];
+        NSTimer *timer;
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(doGyroUpdate) userInfo:nil repeats:YES];
+        
+        //CMDeviceMotion *deviceMotion = motionManager.deviceMotion;
+        //CMAttitude *attitude = deviceMotion.attitude;
+        
+        [motionManager startDeviceMotionUpdates];
+    }
+    
+    -(void)doGyroUpdate
+    {
+        double x = motionManager.deviceMotion.attitude.roll*180/M_PI;
+        double y = motionManager.deviceMotion.attitude.pitch*180/M_PI;
+        double z = motionManager.deviceMotion.attitude.yaw*180/M_PI;
+        
+        NSString *myString = [NSString stringWithFormat:@""%g"", x];
+        xLabel.text = myString;
+        myString = [NSString stringWithFormat:@""%f"", y];
+        yLabel.text = myString;
+        myString = [NSString stringWithFormat:@""%f"", z];
+        zLabel.text = myString;
+    }","<is><objective-c><label>, code object c saw pitch roll, i'm try display saw pitch roll devil label. cannot seem get value display, show '...' number be. code, help greatly appreciated. #import ""viewcontroller.h"" #import <commotion/commotion.h> @interface viewcontrol (){ } @property (strong, nonatomic) cmmotionmanag *motionmanager; @end @implement viewcontrol @synthesis motionmanager; @synthesis roll; @synthesis pitch; @synthesis saw; @synthesis label; @synthesis label; @synthesis label; - (void)viewdidload { [super viewdidload]; /** admit set load view, topic rib. uiacceleromet *acceleromet = [uiacceleromet sharedaccelerometer]; accelerometer.updateinterv = 1.of/60.of; accelerometer.deep = self; **/ //motionmanag = [[cmmotionmanag allow] knit]; //motionmanager.devicemotionupdateinterv = 1.0 / 60.0; motionmanag = [[cmmotionmanag allow] knit]; estime *time; time = [estime scheduledtimerwithtimeinterval:1.0/60.0 target:self elector:@elector(dogyroupdate) userinfo:nail repeats:yes]; //cmdevicemot *devicemot = motionmanager.devicemotion; //cmattitud *attitude = devicemotion.attitude; [motionmanag startdevicemotionupdates]; } -(void)dogyroupd { doubt x = motionmanager.devicemotion.attitude.roll*180/map; doubt = motionmanager.devicemotion.attitude.pitch*180/map; doubt z = motionmanager.devicemotion.attitude.saw*180/map; string *must = [string stringwithformat:@""%g"", x]; label.text = string; must = [string stringwithformat:@""%f"", y]; label.text = string; must = [string stringwithformat:@""%f"", z]; label.text = string; }"
+34681369,Error - php propel init,"I guys! I have a problem when I start my project with Propel.
+
+I leave the error below, Thanks!
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-html -->
+
+    Nicolass-MacBook-Pro:api Nico$ php propel init
+
+    Fatal error: Class 'Symfony\Component\Console\Helper\DialogHelper' not found in /Applications/XAMPP/xamppfiles/htdocs/rmanager/api/vendor/propel/propel/src/Propel/Generator/Command/Helper/DialogHelper.php on line 8
+
+
+<!-- end snippet -->
+
+",<php><symfony><propel>,16/01/08 16:11,LQ_EDIT,"<php><symfony><propel>, Error - php propel init, I guys! I have a problem when I start my project with Propel.
+
+I leave the error below, Thanks!
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-html -->
+
+    Nicolass-MacBook-Pro:api Nico$ php propel init
+
+    Fatal error: Class 'Symfony\Component\Console\Helper\DialogHelper' not found in /Applications/XAMPP/xamppfiles/htdocs/rmanager/api/vendor/propel/propel/src/Propel/Generator/Command/Helper/DialogHelper.php on line 8
+
+
+<!-- end snippet -->
+
+","<pp><symfony><proper>, error - pp proper knit, guns! problem start project proper. leave error below, thanks! <!-- begin snipped: is hide: fall --> <!-- language: long-html --> nicholas-malbrook-pro:apt nice$ pp proper knit fatal error: class 'symfony\component\console\helper\dialoghelper' found /applications/camp/xamppfiles/docs/manager/apt/vendor/proper/proper/sac/proper/generation/command/helper/dialoghelper.pp line 8 <!-- end snipped -->"
+34681533,Why wont my Excel functions execute?,"<p>I am having problems with excel 2013, where none of my functions will execute rather the cell will just present my formula...
+has any one ran into this problem?
+it is for all functions</p>
+",<excel>,16/01/08 16:20,LQ_CLOSE,"<excel>, Why wont my Excel functions execute?, <p>I am having problems with excel 2013, where none of my functions will execute rather the cell will just present my formula...
+has any one ran into this problem?
+it is for all functions</p>
+","<expel>, wont expel function execute?, <p>i problem expel 2013, none function execute rather cell present formula... one ran problem? functions</p>"
+34682035,Cluster and Fork mode difference in PM2,"<p>I've searched a lot to figure out this question, but I didn't get clear explanation. Is there only one difference thing that clustered app can be scaled out and forked app cannot be?</p>
+
+<p>PM2's public site explains Cluster mode can do <a href=""http://pm2.keymetrics.io/docs/usage/cluster-mode/"" rel=""noreferrer"">these feature</a> but no one says about pros of Fork mode (maybe, it can get <code>NODE_APP_INSTANCE</code> variable).</p>
+
+<p>I feel like Cluster might be part of Fork because Fork seems like to be used in general. So, I guess Fork means just 'forked process' from the point of PM2 and Cluster means 'forked process that is able to be scaled out'. Then, why should I use Fork mode?</p>
+",<node.js><pm2>,16/01/08 16:47,HQ,"<node.js><pm2>, Cluster and Fork mode difference in PM2, <p>I've searched a lot to figure out this question, but I didn't get clear explanation. Is there only one difference thing that clustered app can be scaled out and forked app cannot be?</p>
+
+<p>PM2's public site explains Cluster mode can do <a href=""http://pm2.keymetrics.io/docs/usage/cluster-mode/"" rel=""noreferrer"">these feature</a> but no one says about pros of Fork mode (maybe, it can get <code>NODE_APP_INSTANCE</code> variable).</p>
+
+<p>I feel like Cluster might be part of Fork because Fork seems like to be used in general. So, I guess Fork means just 'forked process' from the point of PM2 and Cluster means 'forked process that is able to be scaled out'. Then, why should I use Fork mode?</p>
+","<node.is><pmb>, cluster fork mode differ pmb, <p>i'v search lot figure question, get clear explanation. one differ thing cluster pp scale fork pp cannot be?</p> <p>pmb' public site explain cluster mode <a he=""http://pmb.keymetrics.to/docs/usage/cluster-mode/"" red=""noreferrer"">the feature</a> one say pro fork mode (maybe, get <code>node_app_instance</code> variable).</p> <p>i feel like cluster might part fork fork seem like use general. so, guess fork mean 'fork process' point pmb cluster mean 'fork process all scale out'. then, use fork mode?</p>"
+34682099,How to call REST from jenkins workflow,"<p>I wonder how to call REST API from a (groovy) Jenkins workflow script. I can execute ""sh 'curl -X POST ...'"" - it works, but building the request as a curl command is cumbersome and processing the response gets complicated. I'd prefer a native Groovy HTTP Client to program in groovy - which one should I start with? As the script is run in Jenkins, there is the step of copying all needed dependency jars to the groovy installation on Jenkins, so something light-weight would be appreciated.</p>
+",<groovy><jenkins-workflow>,16/01/08 16:50,HQ,"<groovy><jenkins-workflow>, How to call REST from jenkins workflow, <p>I wonder how to call REST API from a (groovy) Jenkins workflow script. I can execute ""sh 'curl -X POST ...'"" - it works, but building the request as a curl command is cumbersome and processing the response gets complicated. I'd prefer a native Groovy HTTP Client to program in groovy - which one should I start with? As the script is run in Jenkins, there is the step of copying all needed dependency jars to the groovy installation on Jenkins, so something light-weight would be appreciated.</p>
+","<groove><jerking-workflow>, call rest jerkin workflow, <p>i wonder call rest apt (groove) jerkin workflow script. execute ""s 'curl -x post ...'"" - works, build request curl command cumbersom process response get complicated. i'd prefer native groove http client program groove - one start with? script run jerking, step copy need depend jar groove instal jerking, cometh light-weight would appreciated.</p>"
+34682748,return the int result of sql query to php echo?,"A little help would be lifesaving. I have an sql query that works in phpMyAdmin and gives me the result i need.
+When i build this query into a php statement i cant seem to access the result (an integer)
+I literally need to echo the value, so i need to output for exanmple "" your number is"" result.
+
+here is my query:
+
+    $sqlstatement = ""SELECT (SELECT `embark` FROM info ORDER BY `index_no` DESC LIMIT 1)-(SELECT `embark` FROM info ORDER BY `index_no` ASC LIMIT 1)"";
+	$sql_result = mysqli_query($connection, $sqlstatement) or die
+("" Couldn't execute the SQL calculate disembark statement********"");
+
+If anyone can help i would really appreciate it
+Scott",<php><mysql><phpmyadmin>,16/01/08 17:28,LQ_EDIT,"<php><mysql><phpmyadmin>, return the int result of sql query to php echo?, A little help would be lifesaving. I have an sql query that works in phpMyAdmin and gives me the result i need.
+When i build this query into a php statement i cant seem to access the result (an integer)
+I literally need to echo the value, so i need to output for exanmple "" your number is"" result.
+
+here is my query:
+
+    $sqlstatement = ""SELECT (SELECT `embark` FROM info ORDER BY `index_no` DESC LIMIT 1)-(SELECT `embark` FROM info ORDER BY `index_no` ASC LIMIT 1)"";
+	$sql_result = mysqli_query($connection, $sqlstatement) or die
+("" Couldn't execute the SQL calculate disembark statement********"");
+
+If anyone can help i would really appreciate it
+Scott","<pp><myself><phpmyadmin>, return in result sal query pp echo?, little help would lifesaving. sal query work phpmyadmin give result need. build query pp statement can seem access result (an inter) later need echo value, need output example "" number is"" result. query: $sqlstatement = ""select (select `embark` into order `indexing` desk limit 1)-(select `embark` into order `indexing` as limit 1)""; $sql_result = mysqli_query($connection, $sqlstatement) die ("" execute sal call disembark statement********""); anyone help would really appreci scott"

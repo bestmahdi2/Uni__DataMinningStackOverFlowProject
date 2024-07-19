@@ -1,0 +1,2061 @@
+Id,Title,Body,Tags,CreationDate,Y,MergedText,ProcessedText
+34737219,Chagne text box border color in login page as in gmail,"I am developing a login page having input filed functionality similar to gmail input field i.e. in focus mode input field should be blue and when validation fails it changes into red, please help.
+
+Many-Many Thanks in advance…",<javascript><jquery><html><asp.net>,16/01/12 6:50,LQ_EDIT,"<javascript><jquery><html><asp.net>, Chagne text box border color in login page as in gmail, I am developing a login page having input filed functionality similar to gmail input field i.e. in focus mode input field should be blue and when validation fails it changes into red, please help.
+
+Many-Many Thanks in advance…","<javascript><query><html><asp.net>, chain text box border color login page email, develop login page input file function similar email input field i.e. focus mode input field blue valid fail change red, pleas help. many-man thank advance…"
+34737289,Chagne the width of the dropdownlist,"Goal:  
+Change the width of the select dropdownlist that use bootstrap v2.
+
+Problem:  
+I don't know how to change the width of it in relation to bootstrap.
+
+Info:  
+Please remember that I have three dropdownlist in the same page and it is one of them that I want to change the width.
+
+http://jsbin.com/roriyododa/edit?html,css,output
+
+Thanks!
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-html -->
+
+            <link href=""https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"" rel=""stylesheet"" />
+    		
+            <script src=""https://code.jquery.com/jquery-1.11.3.min.js""></script>
+            <script src=""https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js""></script>
+    		
+
+
+
+      
+      
+    <select style=""display: none;"" class=""selectpicker"" id=""fromContent"" name=""From""><option value=""122344"">122344</option>
+    <option value=""46731233320"">46731233320</option>
+    <option value=""abbb"">abbb</option>
+    <option value=""asd"">asd</option>
+    <option value=""d"">d</option>
+    <option value=""test"">test</option>
+    <option value=""testtest"">testtest</option>
+    <option value=""11"">11</option>
+    <option value=""24"">24</option>
+    <option value=""ddd"">ddd</option>
+    <option value=""gd"">gd</option>
+    <option value=""hn2"">hn2</option>
+    <option value=""jippo"">jippo</option>
+    <option value=""sdf"">sdf</option>
+    <option value=""sdfsdf"">sdfsdf</option>
+    </select>
+    <div class=""btn-group bootstrap-select""><button title=""122344"" data-id=""fromContent"" type=""button"" class=""btn dropdown-toggle form-control selectpicker btn-default"" data-toggle=""dropdown""><span class=""filter-option pull-left"">122344</span>&nbsp;<span class=""caret""></span></button><div class=""dropdown-menu open""><ul class=""dropdown-menu inner selectpicker"" role=""menu""><li class=""selected"" data-original-index=""0""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>122344</span>""><span class=""text"">122344</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""1""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>46731233320</span>""><span class=""text"">46731233320</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""2""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>abbb</span>""><span class=""text"">abbb</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""3""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>asd</span>""><span class=""text"">asd</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""4""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>Feedex</span>""><span class=""text"">Feedex</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""5""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>test</span>""><span class=""text"">test</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""6""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>testtest</span>""><span class=""text"">testtest</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""7""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>11</span>""><span class=""text"">11</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""8""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>24</span>""><span class=""text"">24</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""9""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>ddd</span>""><span class=""text"">ddd</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""10""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>gd</span>""><span class=""text"">gd</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""11""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>hn2</span>""><span class=""text"">hn2</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""12""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>jippo</span>""><span class=""text"">jippo</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""13""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>sdf</span>""><span class=""text"">sdf</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""14""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>sdfsdf</span>""><span class=""text"">sdfsdf</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li></ul></div></div>  
+      
+      
+
+<!-- end snippet -->
+
+",<javascript><jquery><html><css><twitter-bootstrap>,16/01/12 6:55,LQ_EDIT,"<javascript><jquery><html><css><twitter-bootstrap>, Chagne the width of the dropdownlist, Goal:  
+Change the width of the select dropdownlist that use bootstrap v2.
+
+Problem:  
+I don't know how to change the width of it in relation to bootstrap.
+
+Info:  
+Please remember that I have three dropdownlist in the same page and it is one of them that I want to change the width.
+
+http://jsbin.com/roriyododa/edit?html,css,output
+
+Thanks!
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-html -->
+
+            <link href=""https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"" rel=""stylesheet"" />
+    		
+            <script src=""https://code.jquery.com/jquery-1.11.3.min.js""></script>
+            <script src=""https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js""></script>
+    		
+
+
+
+      
+      
+    <select style=""display: none;"" class=""selectpicker"" id=""fromContent"" name=""From""><option value=""122344"">122344</option>
+    <option value=""46731233320"">46731233320</option>
+    <option value=""abbb"">abbb</option>
+    <option value=""asd"">asd</option>
+    <option value=""d"">d</option>
+    <option value=""test"">test</option>
+    <option value=""testtest"">testtest</option>
+    <option value=""11"">11</option>
+    <option value=""24"">24</option>
+    <option value=""ddd"">ddd</option>
+    <option value=""gd"">gd</option>
+    <option value=""hn2"">hn2</option>
+    <option value=""jippo"">jippo</option>
+    <option value=""sdf"">sdf</option>
+    <option value=""sdfsdf"">sdfsdf</option>
+    </select>
+    <div class=""btn-group bootstrap-select""><button title=""122344"" data-id=""fromContent"" type=""button"" class=""btn dropdown-toggle form-control selectpicker btn-default"" data-toggle=""dropdown""><span class=""filter-option pull-left"">122344</span>&nbsp;<span class=""caret""></span></button><div class=""dropdown-menu open""><ul class=""dropdown-menu inner selectpicker"" role=""menu""><li class=""selected"" data-original-index=""0""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>122344</span>""><span class=""text"">122344</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""1""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>46731233320</span>""><span class=""text"">46731233320</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""2""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>abbb</span>""><span class=""text"">abbb</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""3""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>asd</span>""><span class=""text"">asd</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""4""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>Feedex</span>""><span class=""text"">Feedex</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""5""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>test</span>""><span class=""text"">test</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""6""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>testtest</span>""><span class=""text"">testtest</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""7""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>11</span>""><span class=""text"">11</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""8""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>24</span>""><span class=""text"">24</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""9""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>ddd</span>""><span class=""text"">ddd</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""10""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>gd</span>""><span class=""text"">gd</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""11""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>hn2</span>""><span class=""text"">hn2</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""12""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>jippo</span>""><span class=""text"">jippo</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""13""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>sdf</span>""><span class=""text"">sdf</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""14""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quot;text&quot;>sdfsdf</span>""><span class=""text"">sdfsdf</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li></ul></div></div>  
+      
+      
+
+<!-- end snippet -->
+
+","<javascript><query><html><iss><twitter-bootstrap>, chain width dropdownlist, goal: change width select dropdownlist use bootstrap ve. problem: know change width relate bootstrap. into: pleas remember three dropdownlist page one want change width. http://skin.com/roriyododa/edit?html,iss,output thanks! <!-- begin snipped: is hide: fall --> <!-- language: long-html --> <link he=""http://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/iss/bootstrap.min.iss"" red=""stylesheet"" /> <script sac=""http://code.query.com/query-1.11.3.min.is""></script> <script sac=""http://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/is/bootstrap.min.is""></script> <select style=""display: none;"" class=""selectpicker"" id=""fromcontent"" name=""from""><opt value=""122344"">122344</option> <option value=""46731233320"">46731233320</option> <option value=""abbe"">abbe</option> <option value=""and"">and</option> <option value=""d"">d</option> <option value=""test"">test</option> <option value=""testes"">testes</option> <option value=""11"">11</option> <option value=""24"">24</option> <option value=""did"">did</option> <option value=""go"">go</option> <option value=""and"">and</option> <option value=""bipp"">bipp</option> <option value=""sd"">sd</option> <option value=""sdfsdf"">sdfsdf</option> </select> <did class=""ban-group bootstrap-select""><button title=""122344"" data-id=""fromcontent"" type=""button"" class=""ban dropdown-total form-control selectpick ban-default"" data-tongue=""dropdown""><span class=""filter-opt pull-left"">122344</span>&nose;<span class=""caret""></span></button><did class=""dropdown-menu open""><up class=""dropdown-menu inner selectpicker"" role=""menu""><li class=""selected"" data-original-index=""0""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>122344</span>""><span class=""text"">122344</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""1""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>46731233320</span>""><span class=""text"">46731233320</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""2""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>abbe</span>""><span class=""text"">abbe</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""3""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>and</span>""><span class=""text"">and</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""4""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>needed</span>""><span class=""text"">needed</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""5""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>test</span>""><span class=""text"">test</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""6""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>testes</span>""><span class=""text"">testes</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""7""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>11</span>""><span class=""text"">11</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""8""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>24</span>""><span class=""text"">24</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""9""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>did</span>""><span class=""text"">did</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""10""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>go</span>""><span class=""text"">go</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""11""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>and</span>""><span class=""text"">and</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""12""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>bipp</span>""><span class=""text"">bipp</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""13""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>sd</span>""><span class=""text"">sd</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li><li data-original-index=""14""><a tabindex=""0"" class="""" data-normalized-text=""<span class=&quit;text&quit;>sdfsdf</span>""><span class=""text"">sdfsdf</span><span class=""glyphicon glyphicon-ok check-mark""></span></a></li></up></did></did> <!-- end snipped -->"
+34737316,This code is not running properly.,"I tried to run the following code but after one input, the rest of the input is initialized to zero and is displayed on the screen automatically. where did I go wrong?
+
+    
+    #include<iostream>
+    #define N 50
+    using namespace std;
+
+    struct movies_t
+    {
+        char title[60];
+        int year;
+    }user[N];
+
+    void printmovie(movies_t);
+
+    int main()
+    {
+
+        for(int i = 0; i < N; i++)
+        {
+            cout << ""Enter title: "";
+            cin.get(user[i].title, 60);
+            cout << ""Enter year: "";
+            cin >> user[i].year;
+       }
+    
+       cout << ""\nYou have entered these movie: \n"";
+       for(int i = 0; i < N; i++)
+            printmovie(user[i]);
+       return 0;
+    }
+
+    void printmovie(movies_t m)
+    {
+         cout << m.title;
+         cout << "" ("" << m.year << "")\n"";
+    }",<c++>,16/01/12 6:57,LQ_EDIT,"<c++>, This code is not running properly., I tried to run the following code but after one input, the rest of the input is initialized to zero and is displayed on the screen automatically. where did I go wrong?
+
+    
+    #include<iostream>
+    #define N 50
+    using namespace std;
+
+    struct movies_t
+    {
+        char title[60];
+        int year;
+    }user[N];
+
+    void printmovie(movies_t);
+
+    int main()
+    {
+
+        for(int i = 0; i < N; i++)
+        {
+            cout << ""Enter title: "";
+            cin.get(user[i].title, 60);
+            cout << ""Enter year: "";
+            cin >> user[i].year;
+       }
+    
+       cout << ""\nYou have entered these movie: \n"";
+       for(int i = 0; i < N; i++)
+            printmovie(user[i]);
+       return 0;
+    }
+
+    void printmovie(movies_t m)
+    {
+         cout << m.title;
+         cout << "" ("" << m.year << "")\n"";
+    }","<c++>, code run properly., try run follow code one input, rest input into zero display screen automatically. go wrong? #include<stream> #define n 50 use namespac st; struck movies_t { chair title[60]; in year; }user[n]; void printmovie(movies_t); in main() { for(in = 0; < n; i++) { out << ""enter title: ""; in.get(user[i].title, 60); out << ""enter year: ""; in >> user[i].year; } out << ""\you enter movie: \n""; for(in = 0; < n; i++) printmovie(user[i]); return 0; } void printmovie(movies_t m) { out << m.title; out << "" ("" << m.year << "")\n""; }"
+34738807,How to join 2 tables but same data's?,"Is it possible to join to tables like in the picture,[example picture][1]
+
+there are no foreign key in svotes but there are the same records. 
+In the select option tag I putted the school_year and the option are `2015-2016,2016-2017`. If I click the 2016 it should that the other table svotes can display the year of 2016 can it be possible? and How?
+
+
+Here's my code:
+
+    <script type=""text/javascript"">
+    				function getyr(str) {
+    						if (window.XMLHttpRequest) {
+    							xmlhttp=new XMLHttpRequest();
+    						} else { // code for IE6, IE5
+    						xmlhttp=new ActiveXObject(""Microsoft.XMLHTTP"");
+    					}
+    					xmlhttp.onreadystatechange=function() {
+    				if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    				document.getElementById(""result"").innerHTML=xmlhttp.responseText;
+    			  }
+    		   }
+    //this part will be handle
+    		  xmlhttp.open(""GET"",""get_winner.php?no=""+str,true);
+            xmlhttp.send();
+          }
+    	</script>
+    	       
+    	  <select style=""margin-left:-313px;"" name=""sy_no"" onchange=""getyr(this.value)"">
+    				<option></option>
+                      <?php
+    						include('../connect.php');
+                            $sql2 = mysql_query(""SELECT * FROM school_year"");
+    while ($row1=mysql_fetch_array($sql2)){
+    	echo ""<option value="".$row1['syearid']."">"".$row1['from_year'].'-'.$row1['to_year'].""</option>"";
+    					}
+    								?>
+    						</select>
+	get_winner.php
+
+    <?php
+    
+    include('../connect.php');
+     
+      $no = $_GET['no'];
+    		//this is where I get the year
+      	 $stud = mysql_query(""SELECT * FROM  studentvotes,school_year WHERE school_year.from_year = studentvotes.year AND studentvotes.year = '$no' "") or die(mysql_error());
+      echo""<center>"";
+      echo ""<form action='' method='POST'  enctype='multipart/form-data' >"";
+     echo ""  <table class='table table-striped table-bordered table-hover' id='dataTables-example'>"";
+        echo ""<tr>"";
+        
+          echo ""<th>IDno</th>"";
+         
+          echo ""<th>Action</th>"";
+        echo ""</tr>"";
+    			
+    		
+    		while ($row=mysql_fetch_array($stud)){
+    		$result = mysql_query(""SELECT * FROM studenvotes,school_year WHERE   studenvotes.year = school_year.from_year"") or die(mysql_error());
+        $r1 = mysql_fetch_assoc($result);
+    	
+    	
+      ?>
+      <tr class=""headings"">
+    	
+    						<td><?php echo $row['idno']; ?></td>
+    					
+    					<td> <a href=""editcandidate.php?candid=<?php echo $row['candid']; ?> ""style=""border:1px solid grey; background:grey; border-radius:10%; padding:5px 14px; color:white; text-decoration:none; ""> Edit </a></td>
+    				
+    			<?php
+    		
+    					}
+    			?>		
+
+		
+
+
+  [1]: http://i.stack.imgur.com/bg4e8.png",<php>,16/01/12 8:31,LQ_EDIT,"<php>, How to join 2 tables but same data's?, Is it possible to join to tables like in the picture,[example picture][1]
+
+there are no foreign key in svotes but there are the same records. 
+In the select option tag I putted the school_year and the option are `2015-2016,2016-2017`. If I click the 2016 it should that the other table svotes can display the year of 2016 can it be possible? and How?
+
+
+Here's my code:
+
+    <script type=""text/javascript"">
+    				function getyr(str) {
+    						if (window.XMLHttpRequest) {
+    							xmlhttp=new XMLHttpRequest();
+    						} else { // code for IE6, IE5
+    						xmlhttp=new ActiveXObject(""Microsoft.XMLHTTP"");
+    					}
+    					xmlhttp.onreadystatechange=function() {
+    				if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    				document.getElementById(""result"").innerHTML=xmlhttp.responseText;
+    			  }
+    		   }
+    //this part will be handle
+    		  xmlhttp.open(""GET"",""get_winner.php?no=""+str,true);
+            xmlhttp.send();
+          }
+    	</script>
+    	       
+    	  <select style=""margin-left:-313px;"" name=""sy_no"" onchange=""getyr(this.value)"">
+    				<option></option>
+                      <?php
+    						include('../connect.php');
+                            $sql2 = mysql_query(""SELECT * FROM school_year"");
+    while ($row1=mysql_fetch_array($sql2)){
+    	echo ""<option value="".$row1['syearid']."">"".$row1['from_year'].'-'.$row1['to_year'].""</option>"";
+    					}
+    								?>
+    						</select>
+	get_winner.php
+
+    <?php
+    
+    include('../connect.php');
+     
+      $no = $_GET['no'];
+    		//this is where I get the year
+      	 $stud = mysql_query(""SELECT * FROM  studentvotes,school_year WHERE school_year.from_year = studentvotes.year AND studentvotes.year = '$no' "") or die(mysql_error());
+      echo""<center>"";
+      echo ""<form action='' method='POST'  enctype='multipart/form-data' >"";
+     echo ""  <table class='table table-striped table-bordered table-hover' id='dataTables-example'>"";
+        echo ""<tr>"";
+        
+          echo ""<th>IDno</th>"";
+         
+          echo ""<th>Action</th>"";
+        echo ""</tr>"";
+    			
+    		
+    		while ($row=mysql_fetch_array($stud)){
+    		$result = mysql_query(""SELECT * FROM studenvotes,school_year WHERE   studenvotes.year = school_year.from_year"") or die(mysql_error());
+        $r1 = mysql_fetch_assoc($result);
+    	
+    	
+      ?>
+      <tr class=""headings"">
+    	
+    						<td><?php echo $row['idno']; ?></td>
+    					
+    					<td> <a href=""editcandidate.php?candid=<?php echo $row['candid']; ?> ""style=""border:1px solid grey; background:grey; border-radius:10%; padding:5px 14px; color:white; text-decoration:none; ""> Edit </a></td>
+    				
+    			<?php
+    		
+    					}
+    			?>		
+
+		
+
+
+  [1]: http://i.stack.imgur.com/bg4e8.png","<pp>, join 2 table data's?, possible join table like picture,[example picture][1] foreign key vote records. select option tag put school_year option `2015-2016,2016-2017`. click 2016 table vote display year 2016 possible? how? here' code: <script type=""text/javascript""> function get(sir) { (window.xmlhttprequest) { xmlhttp=new xmlhttprequest(); } else { // code in, in xmlhttp=new activexobject(""microsoft.xmlhttp""); } xmlhttp.onreadystatechange=function() { (xmlhttp.readystate==4 && xmlhttp.status==200) { document.getelementbyid(""result"").innerhtml=xmlhttp.responsetext; } } //the part hand xmlhttp.open(""get"",""get_winner.pp?no=""+sir,true); xmlhttp.send(); } </script> <select style=""margin-left:-313px;"" name=""synod"" change=""get(this.value)""> <option></option> <?pp include('../connect.pp'); $self = mysql_query(""select * school_year""); ($rows=mysql_fetch_array($self)){ echo ""<option value="".$rows['smeared']."">"".$rows['from_year'].'-'.$rows['to_year'].""</option>""; } ?> </select> get_winner.pp <?pp include('../connect.pp'); $no = $get['no']; //the get year $stud = mysql_query(""select * studentvotes,school_year school_year.from_year = studentvotes.year studentvotes.year = '$no' "") die(mysql_error()); echo""<center>""; echo ""<form action='' method='post' enctype='multipart/form-data' >""; echo "" <table class='table table-strip table-word table-hover' id='datatables-example'>""; echo ""<tr>""; echo ""<th>in</th>""; echo ""<th>action</th>""; echo ""</tr>""; ($row=mysql_fetch_array($stud)){ $result = mysql_query(""select * studenvotes,school_year studenvotes.year = school_year.from_year"") die(mysql_error()); $re = mysql_fetch_assoc($result); ?> <tr class=""headings""> <to><?pp echo $row['in']; ?></to> <to> <a he=""editcandidate.pp?candid=<?pp echo $row['candid']; ?> ""style=""border:up solid grey; background:grey; border-radius:10%; adding:up 14px; color:white; text-decoration:none; ""> edit </a></to> <?pp } ?> [1]: http://i.stick.incur.com/bg4e8.pig"
+34739366,If statement wont work,"First i run this first function,
+it sets paikka3.src to ""sapeli.png"".
+
+But then when i run the second function, the if statement wont work/run.
+
+Why is this? I have no clue...
+code:
+
+var sapeliMäärä = 1;
+
+function tavarat() {
+	
+	if(sapeliMäärä == 1) {
+		document.lomake.paikka3.src = ""sapeli.png"";
+	}
+}
+
+function käytäTavaraa3() {
+	
+	
+	if(document.lomake.paikka3.src == ""sapeli.png"") {
+		OmaHp += 5;
+		document.lomake.poksi.value = ""Söit lohen joka paransi 5 HP"";
+		document.lomake.paikka3.src = """";
+		lohiMäärä -= 1;
+		
+	}
+}",<javascript>,16/01/12 9:05,LQ_EDIT,"<javascript>, If statement wont work, First i run this first function,
+it sets paikka3.src to ""sapeli.png"".
+
+But then when i run the second function, the if statement wont work/run.
+
+Why is this? I have no clue...
+code:
+
+var sapeliMäärä = 1;
+
+function tavarat() {
+	
+	if(sapeliMäärä == 1) {
+		document.lomake.paikka3.src = ""sapeli.png"";
+	}
+}
+
+function käytäTavaraa3() {
+	
+	
+	if(document.lomake.paikka3.src == ""sapeli.png"") {
+		OmaHp += 5;
+		document.lomake.poksi.value = ""Söit lohen joka paransi 5 HP"";
+		document.lomake.paikka3.src = """";
+		lohiMäärä -= 1;
+		
+	}
+}","<javascript>, statement wont work, first run first function, set paikka3.sac ""safely.pig"". run second function, statement wont work/run. this? clue... code: war sapelimäärä = 1; function tavarat() { if(sapelimäärä == 1) { document.make.paikka3.sac = ""safely.pig""; } } function käytätavaraa3() { if(document.make.paikka3.sac == ""safely.pig"") { omaha += 5; document.make.post.value = ""sit when joke paransi 5 he""; document.make.paikka3.sac = """"; lohimäärä -= 1; } }"
+34739634,Delete SSH key without SSH access,"<p>My sshd is refusing to restart because of the following error:</p>
+
+<p><code>@ WARNING: UNPROTECTED PRIVATE KEY FILE! @</code></p>
+
+<p>However, i cant figure out how to delete the unsafe ssh keys without having the ssh access. What to do?</p>
+",<ssh><sshd>,16/01/12 9:18,LQ_CLOSE,"<ssh><sshd>, Delete SSH key without SSH access, <p>My sshd is refusing to restart because of the following error:</p>
+
+<p><code>@ WARNING: UNPROTECTED PRIVATE KEY FILE! @</code></p>
+
+<p>However, i cant figure out how to delete the unsafe ssh keys without having the ssh access. What to do?</p>
+","<ash><she>, delete ash key without ash access, <p>mi she refuse start follow error:</p> <p><code>@ warning: protect privat key file! @</code></p> <p>however, can figure delete unna ash key without ash access. do?</p>"
+34739819,selenium with C# on IE,"<p>Switching multiple windows in IE.  </p>
+
+<p>First page has LOGIN button which on clicked goes to second window.  </p>
+
+<p>Second window takes credentials and has a NEXT button which on clicked goes to      third window.</p>
+
+<p>Third window has a button which on clicking moves to the fourth window.  </p>
+
+<p>How do I navigate mutiple windows using Selenium with C#.My website runs on IE only.</p>
+",<c#><internet-explorer><selenium>,16/01/12 9:27,LQ_CLOSE,"<c#><internet-explorer><selenium>, selenium with C# on IE, <p>Switching multiple windows in IE.  </p>
+
+<p>First page has LOGIN button which on clicked goes to second window.  </p>
+
+<p>Second window takes credentials and has a NEXT button which on clicked goes to      third window.</p>
+
+<p>Third window has a button which on clicking moves to the fourth window.  </p>
+
+<p>How do I navigate mutiple windows using Selenium with C#.My website runs on IE only.</p>
+","<c#><internet-explorer><selenium>, selenium c# in, <p>switch multiple window in. </p> <p>first page login button click go second window. </p> <p>second window take credenti next button click go third window.</p> <p>third window button click move fourth window. </p> <p>how having multiple window use selenium c#.mi west run in only.</p>"
+34740488,reuse twig templates in symfony2 with inheritance,"<p>I have a symfony2 project which will be the base for a bundle of domains. Most configuration differences for those domains are done via the database. Like e.g. are the contents randomized, how many are shown on the start page etc.
+But for some domains I want to use a different twig template for certain views depending on a categorization I do via the db.</p>
+
+<p>Question 1: Is it possible to set it up like ""if you find no template in place A use the default template from place B""? If yes how?</p>
+
+<p>Question 2: Where would I place those templates in relation to the default templates?</p>
+",<symfony><templates><twig>,16/01/12 9:59,LQ_CLOSE,"<symfony><templates><twig>, reuse twig templates in symfony2 with inheritance, <p>I have a symfony2 project which will be the base for a bundle of domains. Most configuration differences for those domains are done via the database. Like e.g. are the contents randomized, how many are shown on the start page etc.
+But for some domains I want to use a different twig template for certain views depending on a categorization I do via the db.</p>
+
+<p>Question 1: Is it possible to set it up like ""if you find no template in place A use the default template from place B""? If yes how?</p>
+
+<p>Question 2: Where would I place those templates in relation to the default templates?</p>
+","<symfony><temples><twig>, zeus twig temple symfony2 inheritance, <p>i symfony2 project base bundle domain. configur differ domain done via database. like e.g. content randomized, man shown start page etc. domain want use differ twig temple certain view depend category via do.</p> <p>question 1: possible set like ""if find temple place use default temple place b""? ye how?</p> <p>question 2: would place temple relate default temples?</p>"
+34741347,Randomly select multiple items from an array,"<p>I want to have an array with different words and phrases and randomly generate around five of these on page refresh. How would I go about doing this in javascript?</p>
+",<javascript><arrays><string><random>,16/01/12 10:37,LQ_CLOSE,"<javascript><arrays><string><random>, Randomly select multiple items from an array, <p>I want to have an array with different words and phrases and randomly generate around five of these on page refresh. How would I go about doing this in javascript?</p>
+","<javascript><array><string><random>, random select multiple item array, <p>i want array differ word phrase random genet around five page refresh. would go javascript?</p>"
+34742124,Is it possible to append another value to existing variable in sass / scss?,"<p>I have this defined in an external file of a framework I am using:</p>
+
+<pre><code>$font-family-sans-serif: ""Helvetica Neue"", ""Roboto"", ""Segoe UI"", sans-serif !default;
+</code></pre>
+
+<p>I want to prepand my own font (in a different file , e.g, without altering the FW variables file).</p>
+
+<pre><code>$font-family-sans-serif: 'MyFont', $font-family-sans-serif;
+</code></pre>
+
+<p>So, is it possible? The above is not working.</p>
+
+<pre><code>Error: Undefined variable: ""$font-family-sans-serif"".
+        on line 3 of scss/variables.scss
+        on line 3 of scss/variables.scss
+&gt;&gt; $font-family-sans-serif: 'MyFont', $font-family-sans-serif;
+</code></pre>
+",<css><sass>,16/01/12 11:12,LQ_CLOSE,"<css><sass>, Is it possible to append another value to existing variable in sass / scss?, <p>I have this defined in an external file of a framework I am using:</p>
+
+<pre><code>$font-family-sans-serif: ""Helvetica Neue"", ""Roboto"", ""Segoe UI"", sans-serif !default;
+</code></pre>
+
+<p>I want to prepand my own font (in a different file , e.g, without altering the FW variables file).</p>
+
+<pre><code>$font-family-sans-serif: 'MyFont', $font-family-sans-serif;
+</code></pre>
+
+<p>So, is it possible? The above is not working.</p>
+
+<pre><code>Error: Undefined variable: ""$font-family-sans-serif"".
+        on line 3 of scss/variables.scss
+        on line 3 of scss/variables.scss
+&gt;&gt; $font-family-sans-serif: 'MyFont', $font-family-sans-serif;
+</code></pre>
+","<iss><pass>, possible happened not value exist variable pass / less?, <p>i define externa file framework using:</p> <pre><code>$font-family-sans-serf: ""helvetica neve"", ""root"", ""sero i"", sans-serf !default; </code></pre> <p>i want prepared font (in differ file , e.g, without alter few variable file).</p> <pre><code>$font-family-sans-serf: 'font', $font-family-sans-serf; </code></pre> <p>so, possible? working.</p> <pre><code>error: undefined variable: ""$font-family-sans-serf"". line 3 less/variable.less line 3 less/variable.less &it;&it; $font-family-sans-serf: 'font', $font-family-sans-serf; </code></pre>"
+34743075,Find subnet mask from ip,"In my lan i've two subnet: 
+
+- 255.255.255.0
+
+
+- 255.255.255.128
+
+Is there a method to scan all lan's IP to know in wich subnet mask are?",<networking><ip><lan><subnet>,16/01/12 11:57,LQ_EDIT,"<networking><ip><lan><subnet>, Find subnet mask from ip, In my lan i've two subnet: 
+
+- 255.255.255.0
+
+
+- 255.255.255.128
+
+Is there a method to scan all lan's IP to know in wich subnet mask are?","<networking><in><an><subject>, find subject mask in, an i'v two subject: - 255.255.255.0 - 255.255.255.128 method scan an' in know with subject mask are?"
+34743669,Site is not loading .htaccess rewrite rule error. How to fix this ?,"The site does not load anymore and in error log file I can see. This happened suddenly after attempting to load files such as video and img.
+
+EROOR messages are :
+RewriteRule: cannot compile regular expression '^([0-9]+)\\/([^\\d\\/]+)([0-9]+).**\\/[0-9]+,[0-9]+\\)\\).*\\/*![0-9]+.**\\/\\)``\\)``\\)\\)$'
+[Tue Jan 12 00:26:31 2016] [alert] [client 77.221.147.16] [host schweitzerlambarene.org] /homez.133/schweitzo/www/.htaccess: RewriteRule: cannot compile regular expression '^([0-9]+)\\/([^\\d\\/]+)([0-9]+).**\\/[0-9]+,[0-9]+\\)\\).*\\/*![0-9]+.**\\/\\)``\\)``\\)\\)$', referer: http://schweitzerlambarene.org/index.php?option=com_contenthistory&view=history&list[select]=1
+
+Here is the content of .htaccess
+
+> SetEnv PHP_VER 5_3 SetEnv MAGIC_QUOTES 0
+> ##
+> # @package		Joomla
+> # @copyright	Copyright (C) 2005 - 2014 Open Source Matters. All rights reserved.
+> # @license		GNU General Public License version 2 or later; see LICENSE.txt
+> ##
+> ##
+> # READ THIS COMPLETELY IF YOU CHOOSE TO USE THIS FILE!
+> #
+> # The line just below this section: 'Options +FollowSymLinks' may cause problems
+> # with some server configurations.  It is required for use of mod_rewrite, but may already
+> # be set by your server administrator in a way that dissallows changing it in
+> # your .htaccess file.  If using it causes your server to error out, comment it out (add # to
+> # beginning of line), reload your site in your browser and test your sef url's.  If they work,
+> # it has been set by your server administrator and you do not need it set here.
+> ##
+> ## Can be commented out if causes errors, see notes above. Options +FollowSymLinks
+> ## Mod_rewrite in use. RewriteEngine On
+> ## Begin - Rewrite rules to block out some common exploits.
+> # If you experience problems on your site block out the operations listed below
+> # This attempts to block the most common type of exploit `attempts` to Joomla!
+> #
+> # Block out any script trying to base64_encode data within the URL. RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
+> # Block out any script that includes a <script> tag in URL. RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+> # Block out any script trying to set a PHP GLOBALS variable via URL. RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+> # Block out any script trying to modify a _REQUEST variable via URL. RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+> # Return 403 Forbidden header and show the content of the root homepage RewriteRule .* index.php [F]
+> #
+> ## End - Rewrite rules to block out some common exploits.
+> ## Begin - Custom redirects
+> #
+> # If you need to redirect some pages, or set a canonical non-www to
+> # www redirect (or vice versa), place that code here. Ensure those
+> # redirects use the correct RewriteRule syntax and the [R=301,L] flags.
+> #
+> ## End - Custom redirects
+> ##
+> # Uncomment following line if your webserver's URL
+> # is not directly related to physical file paths.
+> # Update Your Joomla! Directory (just / for root).
+> ##
+> # RewriteBase /
+> # RewriteRule ^/?([\w+\s-]+)$ ?x=$1 [QSA,L] ?$2$1=$3&%{QUERY_STRING}[L] RewriteRule
+> ^([0-9]+)\/([^\d\/]+)([0-9]+).**\/[0-9]+,[0-9]+\)\).*\/*![0-9]+.**\/\)``\)``\)\)$
+> ?$2$1=$3&%{QUERY_STRING}[L]
+> # RewriteRule ^([0-9]+)\/([^\d\/]+)([0-9]+)-[0-9]+\/.*..*$ ?$2$1=$3&%{QUERY_STRING}[L]
+> ## Begin - Joomla! core SEF Section.
+> # RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+> #
+> # If the requested path and file is not /index.php and the request
+> # has not already been internally rewritten to the index.php script RewriteCond %{REQUEST_URI} !^/index\.php
+> # and the request is for something within the component folder,
+> # or for the site root, or for an extensionless URL, or the
+> # requested URL ends with one of the listed extensions RewriteCond %{REQUEST_URI} /component/|(/[^.]*|\.(php|html?|feed|pdf|vcf|raw))$
+> [NC]
+> # and the requested path and file doesn't directly match a physical file RewriteCond %{REQUEST_FILENAME} !-f
+> # and the requested path and file doesn't directly match a physical folder RewriteCond %{REQUEST_FILENAME} !-d
+> # internally rewrite the request to the index.php script RewriteRule .* index.php [L]
+> #
+> ## End - Joomla! core SEF Section.",<.htaccess><joomla>,16/01/12 12:26,LQ_EDIT,"<.htaccess><joomla>, Site is not loading .htaccess rewrite rule error. How to fix this ?, The site does not load anymore and in error log file I can see. This happened suddenly after attempting to load files such as video and img.
+
+EROOR messages are :
+RewriteRule: cannot compile regular expression '^([0-9]+)\\/([^\\d\\/]+)([0-9]+).**\\/[0-9]+,[0-9]+\\)\\).*\\/*![0-9]+.**\\/\\)``\\)``\\)\\)$'
+[Tue Jan 12 00:26:31 2016] [alert] [client 77.221.147.16] [host schweitzerlambarene.org] /homez.133/schweitzo/www/.htaccess: RewriteRule: cannot compile regular expression '^([0-9]+)\\/([^\\d\\/]+)([0-9]+).**\\/[0-9]+,[0-9]+\\)\\).*\\/*![0-9]+.**\\/\\)``\\)``\\)\\)$', referer: http://schweitzerlambarene.org/index.php?option=com_contenthistory&view=history&list[select]=1
+
+Here is the content of .htaccess
+
+> SetEnv PHP_VER 5_3 SetEnv MAGIC_QUOTES 0
+> ##
+> # @package		Joomla
+> # @copyright	Copyright (C) 2005 - 2014 Open Source Matters. All rights reserved.
+> # @license		GNU General Public License version 2 or later; see LICENSE.txt
+> ##
+> ##
+> # READ THIS COMPLETELY IF YOU CHOOSE TO USE THIS FILE!
+> #
+> # The line just below this section: 'Options +FollowSymLinks' may cause problems
+> # with some server configurations.  It is required for use of mod_rewrite, but may already
+> # be set by your server administrator in a way that dissallows changing it in
+> # your .htaccess file.  If using it causes your server to error out, comment it out (add # to
+> # beginning of line), reload your site in your browser and test your sef url's.  If they work,
+> # it has been set by your server administrator and you do not need it set here.
+> ##
+> ## Can be commented out if causes errors, see notes above. Options +FollowSymLinks
+> ## Mod_rewrite in use. RewriteEngine On
+> ## Begin - Rewrite rules to block out some common exploits.
+> # If you experience problems on your site block out the operations listed below
+> # This attempts to block the most common type of exploit `attempts` to Joomla!
+> #
+> # Block out any script trying to base64_encode data within the URL. RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
+> # Block out any script that includes a <script> tag in URL. RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+> # Block out any script trying to set a PHP GLOBALS variable via URL. RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+> # Block out any script trying to modify a _REQUEST variable via URL. RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+> # Return 403 Forbidden header and show the content of the root homepage RewriteRule .* index.php [F]
+> #
+> ## End - Rewrite rules to block out some common exploits.
+> ## Begin - Custom redirects
+> #
+> # If you need to redirect some pages, or set a canonical non-www to
+> # www redirect (or vice versa), place that code here. Ensure those
+> # redirects use the correct RewriteRule syntax and the [R=301,L] flags.
+> #
+> ## End - Custom redirects
+> ##
+> # Uncomment following line if your webserver's URL
+> # is not directly related to physical file paths.
+> # Update Your Joomla! Directory (just / for root).
+> ##
+> # RewriteBase /
+> # RewriteRule ^/?([\w+\s-]+)$ ?x=$1 [QSA,L] ?$2$1=$3&%{QUERY_STRING}[L] RewriteRule
+> ^([0-9]+)\/([^\d\/]+)([0-9]+).**\/[0-9]+,[0-9]+\)\).*\/*![0-9]+.**\/\)``\)``\)\)$
+> ?$2$1=$3&%{QUERY_STRING}[L]
+> # RewriteRule ^([0-9]+)\/([^\d\/]+)([0-9]+)-[0-9]+\/.*..*$ ?$2$1=$3&%{QUERY_STRING}[L]
+> ## Begin - Joomla! core SEF Section.
+> # RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+> #
+> # If the requested path and file is not /index.php and the request
+> # has not already been internally rewritten to the index.php script RewriteCond %{REQUEST_URI} !^/index\.php
+> # and the request is for something within the component folder,
+> # or for the site root, or for an extensionless URL, or the
+> # requested URL ends with one of the listed extensions RewriteCond %{REQUEST_URI} /component/|(/[^.]*|\.(php|html?|feed|pdf|vcf|raw))$
+> [NC]
+> # and the requested path and file doesn't directly match a physical file RewriteCond %{REQUEST_FILENAME} !-f
+> # and the requested path and file doesn't directly match a physical folder RewriteCond %{REQUEST_FILENAME} !-d
+> # internally rewrite the request to the index.php script RewriteRule .* index.php [L]
+> #
+> ## End - Joomla! core SEF Section.","<.access><joomla>, site load .access regret rule error. fix ?, site load anymore error log file see. happen suddenly attempt load file video ing. error message : rewriterule: cannot compel regular express '^([0-9]+)\\/([^\\d\\/]+)([0-9]+).**\\/[0-9]+,[0-9]+\\)\\).*\\/*![0-9]+.**\\/\\)``\\)``\\)\\)$' [the jan 12 00:26:31 2016] [alert] [client 77.221.147.16] [host schweitzerlambarene.org] /home.133/schweitzo/www/.access: rewriterule: cannot compel regular express '^([0-9]+)\\/([^\\d\\/]+)([0-9]+).**\\/[0-9]+,[0-9]+\\)\\).*\\/*![0-9]+.**\\/\\)``\\)``\\)\\)$', referee: http://schweitzerlambarene.org/index.pp?option=com_contenthistory&view=history&list[select]=1 content .access > seen php_ver 5_3 seen magic_quot 0 > ## > # @package joomla > # @copyright copyright (c) 2005 - 2014 open source matters. right reserved. > # @license gun genet public license version 2 later; see license.txt > ## > ## > # read complete choose use file! > # > # line section: 'option +followsymlinks' may cause problem > # server configuration. require use mod_rewrite, may already > # set server administer way dissallow change > # .access file. use cause server error out, comment (add # > # begin line), reload site brother test see curl's. work, > # set server administer need set here. > ## > ## comment cause errors, see note above. option +followsymlink > ## mod_rewrit use. rewriteengin > ## begin - regret rule block common exploits. > # expert problem site block over list > # attempt block common type exploit `attempts` joomla! > # > # block script try base64_encod data within curl. rewritecond %{query_string} base64_encode[^(]*\([^)]*\) [or] > # block script include <script> tag curl. rewritecond %{query_string} (<|%c)([^s]*s)+crept.*(>|%he) [no,or] > # block script try set pp global variable via curl. rewritecond %{query_string} global(=|\[|\%[0-a-z]{0,2}) [or] > # block script try modify request variable via curl. rewritecond %{query_string} request(=|\[|\%[0-a-z]{0,2}) > # return 403 forbidden header show content root homepag rewriterul .* index.pp [f] > # > ## end - regret rule block common exploits. > ## begin - custom direct > # > # need direct pages, set canon non-www > # www direct (or vice versa), place code here. ensue > # direct use correct rewriterul santa [r=301,l] flags. > # > ## end - custom direct > ## > # union follow line observer' curl > # directly relate physics file paths. > # update joomla! director (just / root). > ## > # rewritebas / > # rewriterul ^/?([\w+\s-]+)$ ?x=$1 [sa,l] ?$2$1=$3&%{query_string}[l] rewriterul > ^([0-9]+)\/([^\d\/]+)([0-9]+).**\/[0-9]+,[0-9]+\)\).*\/*![0-9]+.**\/\)``\)``\)\)$ > ?$2$1=$3&%{query_string}[l] > # rewriterul ^([0-9]+)\/([^\d\/]+)([0-9]+)-[0-9]+\/.*..*$ ?$2$1=$3&%{query_string}[l] > ## begin - joomla! core see section. > # rewriterul .* - [e=http_authorization:%{http:authorization}] > # > # request path file /index.pp request > # already inter rewritten index.pp script rewritecond %{request_uri} !^/index\.pp > # request cometh within common older, > # site root, extensionless curl, > # request curl end one list extent rewritecond %{request_uri} /component/|(/[^.]*|\.(pp|html?|feed|of|cf|raw))$ > [no] > # request path file directly match physics file rewritecond %{request_filename} !-f > # request path file directly match physics older rewritecond %{request_filename} !-d > # inter regret request index.pp script rewriterul .* index.pp [l] > # > ## end - joomla! core see section."
+34743937,how to use mysql one fiel AND,"My simple question about mysql
+
+
+This is my code
+
+`SELECT
+	t_id_tags.id_post,
+	t_id_tags.id_tag
+FROM
+	t_id_tags
+WHERE
+	id_tag IN (860, 945)`
+
+I'm like this
+
+`SELECT
+	t_id_tags.id_post,
+	t_id_tags.id_tag
+FROM
+	t_id_tags
+WHERE
+	id_tag = 860
+AND id_tag = 945`
+
+is possible ?
+
+tnx
+
+
+
+
+
+
+
+",<mysql>,16/01/12 12:38,LQ_EDIT,"<mysql>, how to use mysql one fiel AND, My simple question about mysql
+
+
+This is my code
+
+`SELECT
+	t_id_tags.id_post,
+	t_id_tags.id_tag
+FROM
+	t_id_tags
+WHERE
+	id_tag IN (860, 945)`
+
+I'm like this
+
+`SELECT
+	t_id_tags.id_post,
+	t_id_tags.id_tag
+FROM
+	t_id_tags
+WHERE
+	id_tag = 860
+AND id_tag = 945`
+
+is possible ?
+
+tnx
+
+
+
+
+
+
+
+","<myself>, use myself one field and, simple question myself code `select t_id_tags.impost, t_id_tags.id_tag t_id_tag id_tag (860, 945)` i'm like `select t_id_tags.impost, t_id_tags.id_tag t_id_tag id_tag = 860 id_tag = 945` possible ? tax"
+34744190,Android Material Design support for ecipse,"Is it possible to work on material design in eclipse IDE.
+when i run the app i'm getting issue to change the app theme to appcomact instead of android:Theme.Material",<android>,16/01/12 12:50,LQ_EDIT,"<android>, Android Material Design support for ecipse, Is it possible to work on material design in eclipse IDE.
+when i run the app i'm getting issue to change the app theme to appcomact instead of android:Theme.Material","<andros>, andros mater design support excise, possible work mater design clips side. run pp i'm get issue change pp theme appcomact instead andros:theme.mater"
+34744742,Should I make my code dependent on external libraries?,"<p>Tl;dr: Stick to the bold text.</p>
+
+<p><strong>Libraries</strong> provided by others can <strong>save</strong> a lot of <strong>programming time</strong>, because one does not have to solve problems that others already did. Furthermore, they often perform certain tasks much <strong>more efficient</strong> than one could ever achieve by oneself.</p>
+
+<p>On the downside one adds a <strong>dependency</strong> to the program which can cause <strong>problems with licensing, compiling</strong> on other machines and so on. Also developments in the libraries may interfere with developments in ones own code. In extreme cases one is after some time <strong>restricted</strong> to the <strong>functionalities</strong> the library provides meaning that even a small extension might require the programmer to rewrite half of the library. In such a case one may rather want to <strong>exchange the library</strong> with a different one.</p>
+
+<p>At this point one can be in big <strong>trouble</strong> if the whole code is cluttered with calls to the library. To prevent problems like this one can right from the start write a <strong>wrapper</strong> around the external library so that a library change reduces to changing the wrapper and no other code needs to be touched - in theory.</p>
+
+<p>In practice, however, the <strong>interfaces</strong> through which the wrapper is called may <strong>not</strong> be <strong>compatible</strong> with the ""new"" library. Also a library might use <strong>data structures</strong> that are <strong>not</strong> directly <strong>compatible</strong> with the data types in ones own program. Then data needs to be reorganized and probably a lot of copying happens which was not necessary before.</p>
+
+<p><strong>Questions:</strong></p>
+
+<ul>
+<li><strong>How can I avoid trouble with changing libraries?</strong></li>
+<li><strong>Should I always wrap the functions external libraries provide?</strong></li>
+<li><strong>Should I wrap data objects of external libraries as well?</strong></li>
+<li><strong>Or should I instead completely decide for a library and stick with it?</strong></li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<p>I work on a huge program in which problems of linear algebra are ubiquitous. Recently, we started to switch to Eigen, an efficient library with broad linear algebra functionalities. Eigen comes with its own data objects. Now there are tons of <code>std::vector&lt;double&gt;</code> objects present in the code which would need to be replaced with Eigen's <code>VectorXd</code> to be able to nicely work with Eigen. It would be a hell of a work to do all these replacements. However, it would probably be even more work to undo these changes if Eigen at some points turns out to be not the ideal solution. Now I'm not sure whether writing an own vector class which just wraps the Eigen data type would actually reduce the effort if the library will be exchanged someday, or whether I will just produce more problems that way.</p>
+",<c++><external><eigen>,16/01/12 13:16,LQ_CLOSE,"<c++><external><eigen>, Should I make my code dependent on external libraries?, <p>Tl;dr: Stick to the bold text.</p>
+
+<p><strong>Libraries</strong> provided by others can <strong>save</strong> a lot of <strong>programming time</strong>, because one does not have to solve problems that others already did. Furthermore, they often perform certain tasks much <strong>more efficient</strong> than one could ever achieve by oneself.</p>
+
+<p>On the downside one adds a <strong>dependency</strong> to the program which can cause <strong>problems with licensing, compiling</strong> on other machines and so on. Also developments in the libraries may interfere with developments in ones own code. In extreme cases one is after some time <strong>restricted</strong> to the <strong>functionalities</strong> the library provides meaning that even a small extension might require the programmer to rewrite half of the library. In such a case one may rather want to <strong>exchange the library</strong> with a different one.</p>
+
+<p>At this point one can be in big <strong>trouble</strong> if the whole code is cluttered with calls to the library. To prevent problems like this one can right from the start write a <strong>wrapper</strong> around the external library so that a library change reduces to changing the wrapper and no other code needs to be touched - in theory.</p>
+
+<p>In practice, however, the <strong>interfaces</strong> through which the wrapper is called may <strong>not</strong> be <strong>compatible</strong> with the ""new"" library. Also a library might use <strong>data structures</strong> that are <strong>not</strong> directly <strong>compatible</strong> with the data types in ones own program. Then data needs to be reorganized and probably a lot of copying happens which was not necessary before.</p>
+
+<p><strong>Questions:</strong></p>
+
+<ul>
+<li><strong>How can I avoid trouble with changing libraries?</strong></li>
+<li><strong>Should I always wrap the functions external libraries provide?</strong></li>
+<li><strong>Should I wrap data objects of external libraries as well?</strong></li>
+<li><strong>Or should I instead completely decide for a library and stick with it?</strong></li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<p>I work on a huge program in which problems of linear algebra are ubiquitous. Recently, we started to switch to Eigen, an efficient library with broad linear algebra functionalities. Eigen comes with its own data objects. Now there are tons of <code>std::vector&lt;double&gt;</code> objects present in the code which would need to be replaced with Eigen's <code>VectorXd</code> to be able to nicely work with Eigen. It would be a hell of a work to do all these replacements. However, it would probably be even more work to undo these changes if Eigen at some points turns out to be not the ideal solution. Now I'm not sure whether writing an own vector class which just wraps the Eigen data type would actually reduce the effort if the library will be exchanged someday, or whether I will just produce more problems that way.</p>
+","<c++><external><even>, make code depend externa libraries?, <p>to;dr: stick bold text.</p> <p><strong>libraries</strong> proved other <strong>save</strong> lot <strong>program time</strong>, one sole problem other already did. furthermore, often perform certain task much <strong>for efficient</strong> one could ever achieve oneself.</p> <p>on downed one add <strong>dependency</strong> program cause <strong>problem licensing, complying</strong> machine on. also develop library may interfere develop one code. extreme case one time <strong>restricted</strong> <strong>functionalities</strong> library proved mean even small extent might require program regret half library. case one may rather want <strong>exchange library</strong> differ one.</p> <p>at point one big <strong>trouble</strong> whole code clatter call library. prevent problem like one right start write <strong>wrapped</strong> around externa library library change reduce change wrapped code need touch - theory.</p> <p>in practice, however, <strong>interface</strong> wrapped call may <strong>not</strong> <strong>compatible</strong> ""new"" library. also library might use <strong>data structures</strong> <strong>not</strong> directly <strong>compatible</strong> data type one program. data need organ probably lot copy happen necessary before.</p> <p><strong>questions:</strong></p> <up> <li><strong>how avoid trouble change libraries?</strong></li> <li><strong>should away wrap function externa library provide?</strong></li> <li><strong>should wrap data object externa library well?</strong></li> <li><strong>or instead complete decide library stick it?</strong></li> </up> <p><strong>example:</strong></p> <p>i work huge program problem linear algebra ubiquitous. recently, start switch even, effect library broad linear algebra functionalities. even come data objects. ton <code>st::vector&it;double&it;</code> object present code would need replace even' <code>vector</code> all nice work even. would hell work replacement. however, would probably even work undo change even point turn ideal solution. i'm sure whether write vector class wrap even data type would actual reduce effort library exchange someday, whether produce problem way.</p>"
+34744788,Can't call function Python,"<p>Here is my code that calls the <code>__init__</code> of <code>Game_Events</code> class:</p>
+
+<pre><code>class Game_Events(object):
+    def __init__(self, DoSetup):
+        if DoSetup == ""yes"":
+            print ""Done""
+
+GE = Game_Events()
+GE.__init__(""no"")
+</code></pre>
+
+<p>But when ever I run the code I get:</p>
+
+<pre><code>TypeError: __init__() takes exactly 2 arguments (1 given)
+</code></pre>
+
+<p>How can I fix this?</p>
+",<python><function>,16/01/12 13:18,LQ_CLOSE,"<python><function>, Can't call function Python, <p>Here is my code that calls the <code>__init__</code> of <code>Game_Events</code> class:</p>
+
+<pre><code>class Game_Events(object):
+    def __init__(self, DoSetup):
+        if DoSetup == ""yes"":
+            print ""Done""
+
+GE = Game_Events()
+GE.__init__(""no"")
+</code></pre>
+
+<p>But when ever I run the code I get:</p>
+
+<pre><code>TypeError: __init__() takes exactly 2 arguments (1 given)
+</code></pre>
+
+<p>How can I fix this?</p>
+","<patron><function>, can't call function patron, <p>here code call <code>__init__</code> <code>game_events</code> class:</p> <pre><code>class game_events(object): def __init__(self, dosetup): dosetup == ""yes"": print ""done"" he = game_events() he.__init__(""no"") </code></pre> <p>but ever run code get:</p> <pre><code>typeerror: __init__() take exactly 2 argument (1 given) </code></pre> <p>how fix this?</p>"
+34744959,alright this is my most rescent code,"
+    
+    highest = {}
+    def reader():
+        myfile = open(""scores.txt"",""r"")
+        pre = myfile.readlines()
+       
+        print(pre)
+   
+   
+        for line in pre :
+           print(line)
+           x = line.split("","")
+   
+           a = x[0]
+   
+           b = x[1]
+   
+           c = len(b)-1
+           b = b[0:c]
+   
+           highest[a] = b
+
+and this is the Traceback error message in full
+            Traceback (most recent call last):
+            File ""C:/Python34/my boto snaky/snaky.py"", line 568, in gameLoop
+            reader()
+            File ""C:/Python34/my boto snaky/snaky.py"", line 531, in reader
+            b = x[1]
+            IndexError: list index out of range
+",<python>,16/01/12 13:26,LQ_EDIT,"<python>, alright this is my most rescent code, 
+    
+    highest = {}
+    def reader():
+        myfile = open(""scores.txt"",""r"")
+        pre = myfile.readlines()
+       
+        print(pre)
+   
+   
+        for line in pre :
+           print(line)
+           x = line.split("","")
+   
+           a = x[0]
+   
+           b = x[1]
+   
+           c = len(b)-1
+           b = b[0:c]
+   
+           highest[a] = b
+
+and this is the Traceback error message in full
+            Traceback (most recent call last):
+            File ""C:/Python34/my boto snaky/snaky.py"", line 568, in gameLoop
+            reader()
+            File ""C:/Python34/my boto snaky/snaky.py"", line 531, in reader
+            b = x[1]
+            IndexError: list index out of range
+","<patron>, alright recent code, highest = {} def reader(): cyril = open(""scores.txt"",""r"") pre = mile.readiness() print(pre) line pre : print(line) x = line.split("","") = x[0] b = x[1] c = len(b)-1 b = b[0:c] highest[a] = b traceback error message full traceback (most recent call last): file ""c:/python34/mi both snake/snake.by"", line 568, gameloop reader() file ""c:/python34/mi both snake/snake.by"", line 531, reader b = x[1] indexerror: list index rang"
+34746224,pre tag text not coming in innerText,"<p>I was just testing something and noticed that text inside <code>pre</code> tag does not appear if you access it using <code>parent</code> element. </p>
+
+<p>Following is the code example: </p>
+
+<p><a href=""https://jsfiddle.net/RajeshDixit/2wkvvapn/"" rel=""nofollow"">JSFiddle</a></p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-js lang-js prettyprint-override""><code>(function() {
+  var _innerText = document.getElementById(""content"").innerText;
+  var _innerHTML = document.getElementById(""content"").innerHTML;
+  var _textContent = document.getElementById(""content"").textContent;
+
+  console.log(_innerText, _innerHTML, _textContent)
+
+  console.log($(""#content"").text());
+})()</code></pre>
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;script src=""https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js""&gt;&lt;/script&gt;
+&lt;p id=""content""&gt;
+  p text
+  &lt;pre&gt;Pre text&lt;/pre&gt;
+  &lt;small&gt;small text&lt;/small&gt;
+&lt;/p&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>I also noticed that anything after it is also not fetched. If you move <code>small</code> before <code>pre</code>, text appears. What could be the reason for it?</p>
+",<javascript><jquery><html>,16/01/12 14:25,LQ_CLOSE,"<javascript><jquery><html>, pre tag text not coming in innerText, <p>I was just testing something and noticed that text inside <code>pre</code> tag does not appear if you access it using <code>parent</code> element. </p>
+
+<p>Following is the code example: </p>
+
+<p><a href=""https://jsfiddle.net/RajeshDixit/2wkvvapn/"" rel=""nofollow"">JSFiddle</a></p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-js lang-js prettyprint-override""><code>(function() {
+  var _innerText = document.getElementById(""content"").innerText;
+  var _innerHTML = document.getElementById(""content"").innerHTML;
+  var _textContent = document.getElementById(""content"").textContent;
+
+  console.log(_innerText, _innerHTML, _textContent)
+
+  console.log($(""#content"").text());
+})()</code></pre>
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;script src=""https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js""&gt;&lt;/script&gt;
+&lt;p id=""content""&gt;
+  p text
+  &lt;pre&gt;Pre text&lt;/pre&gt;
+  &lt;small&gt;small text&lt;/small&gt;
+&lt;/p&gt;</code></pre>
+</div>
+</div>
+</p>
+
+<p>I also noticed that anything after it is also not fetched. If you move <code>small</code> before <code>pre</code>, text appears. What could be the reason for it?</p>
+","<javascript><query><html>, pre tag text come innertext, <p>i test cometh notice text inside <code>pre</code> tag appear access use <code>parent</code> element. </p> <p>follow code example: </p> <p><a he=""http://fiddle.net/rajeshdixit/2wkvvapn/"" red=""follow"">fiddle</a></p> <p><did class=""snipped"" data-long=""is"" data-hide=""false""> <did class=""snipped-code""> <pre class=""snipped-code-j long-j prettyprint-overrule""><code>(function() { war _innertext = document.getelementbyid(""content"").innertext; war _innerhtml = document.getelementbyid(""content"").innerhtml; war _textcont = document.getelementbyid(""content"").textcontent; console.log(_innertext, _innerhtml, _textcontent) console.log($(""#content"").text()); })()</code></pre> <pre class=""snipped-code-html long-html prettyprint-overrule""><code>&it;script sac=""http://ajar.googleapis.com/ajar/lips/query/1.11.0/query.min.is""&it;&it;/script&it; &it;p id=""content""&it; p text &it;pre&it;or text&it;/pre&it; &it;small&it;small text&it;/small&it; &it;/p&it;</code></pre> </did> </did> </p> <p>i also notice any also fetched. move <code>small</code> <code>pre</code>, text appears. could reason it?</p>"
+34746726,"loading fonts ttf crashes , error loading with libgdx","i have the problem with load the ttf file, my code: 
+
+    Label migliaLabel;
+    migliaLabel = new Label(""label"", new Label.LabelStyle(new BitmapFont(Gdx.files.internal(""Kalam-Regular.ttf"")), Color.MAGENTA));
+
+the file Kalam-Regular.ttf is in the folder assets/Kalam-Regular.ttf
+but when i run the game, android studio get in error: 
+
+> FATAL EXCEPTION: GLThread 125
+>                                                                                com.badlogic.gdx.utils.GdxRuntimeException: Error loading font file:
+> Kalam-Regular.ttf
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.load(BitmapFont.java:665)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.<init>(BitmapFont.java:475)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:114)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:107)
+>                                                                                    at com.surfsurvivor.game.GameClass.show(GameClass.java:181)
+>                                                                                    at com.badlogic.gdx.Game.setScreen(Game.java:61)
+>                                                                                    at com.surfsurvivor.game.SurfClass.create(SurfClass.java:26)
+>                                                                                    at
+> com.badlogic.gdx.backends.android.AndroidGraphics.onSurfaceChanged(AndroidGraphics.java:254)
+>                                                                                    at
+> android.opengl.GLSurfaceView$GLThread.guardedRun(GLSurfaceView.java:1505)
+>                                                                                    at android.opengl.GLSurfaceView$GLThread.run(GLSurfaceView.java:1240)
+>                                                                                 Caused by: com.badlogic.gdx.utils.GdxRuntimeException: Invalid
+> padding.
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.load(BitmapFont.java:488)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.<init>(BitmapFont.java:475) 
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:114) 
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:107) 
+>                                                                                    at com.surfsurvivor.game.GameClass.show(GameClass.java:181) 
+>                                                                                    at com.badlogic.gdx.Game.setScreen(Game.java:61) 
+>                                                                                    at com.surfsurvivor.game.SurfClass.create(SurfClass.java:26) 
+>                                                                                    at
+> com.badlogic.gdx.backends.android.AndroidGraphics.onSurfaceChanged(AndroidGraphics.java:254) 
+>                                                                                    at
+> android.opengl.GLSurfaceView$GLThread.guardedRun(GLSurfaceView.java:1505) 
+>                                                                                    at android.opengl.GLSurfaceView$GLThread.run(GLSurfaceView.java:1240)
+
+how can solve ? 
+Thanks",<android-studio><fonts><libgdx><load>,16/01/12 14:48,LQ_EDIT,"<android-studio><fonts><libgdx><load>, loading fonts ttf crashes , error loading with libgdx, i have the problem with load the ttf file, my code: 
+
+    Label migliaLabel;
+    migliaLabel = new Label(""label"", new Label.LabelStyle(new BitmapFont(Gdx.files.internal(""Kalam-Regular.ttf"")), Color.MAGENTA));
+
+the file Kalam-Regular.ttf is in the folder assets/Kalam-Regular.ttf
+but when i run the game, android studio get in error: 
+
+> FATAL EXCEPTION: GLThread 125
+>                                                                                com.badlogic.gdx.utils.GdxRuntimeException: Error loading font file:
+> Kalam-Regular.ttf
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.load(BitmapFont.java:665)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.<init>(BitmapFont.java:475)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:114)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:107)
+>                                                                                    at com.surfsurvivor.game.GameClass.show(GameClass.java:181)
+>                                                                                    at com.badlogic.gdx.Game.setScreen(Game.java:61)
+>                                                                                    at com.surfsurvivor.game.SurfClass.create(SurfClass.java:26)
+>                                                                                    at
+> com.badlogic.gdx.backends.android.AndroidGraphics.onSurfaceChanged(AndroidGraphics.java:254)
+>                                                                                    at
+> android.opengl.GLSurfaceView$GLThread.guardedRun(GLSurfaceView.java:1505)
+>                                                                                    at android.opengl.GLSurfaceView$GLThread.run(GLSurfaceView.java:1240)
+>                                                                                 Caused by: com.badlogic.gdx.utils.GdxRuntimeException: Invalid
+> padding.
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.load(BitmapFont.java:488)
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont$BitmapFontData.<init>(BitmapFont.java:475) 
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:114) 
+>                                                                                    at
+> com.badlogic.gdx.graphics.g2d.BitmapFont.<init>(BitmapFont.java:107) 
+>                                                                                    at com.surfsurvivor.game.GameClass.show(GameClass.java:181) 
+>                                                                                    at com.badlogic.gdx.Game.setScreen(Game.java:61) 
+>                                                                                    at com.surfsurvivor.game.SurfClass.create(SurfClass.java:26) 
+>                                                                                    at
+> com.badlogic.gdx.backends.android.AndroidGraphics.onSurfaceChanged(AndroidGraphics.java:254) 
+>                                                                                    at
+> android.opengl.GLSurfaceView$GLThread.guardedRun(GLSurfaceView.java:1505) 
+>                                                                                    at android.opengl.GLSurfaceView$GLThread.run(GLSurfaceView.java:1240)
+
+how can solve ? 
+Thanks","<andros-studio><forts><libgdx><load>, load font utf crash , error load libgdx, problem load utf file, code: label miglialabel; miglialabel = new label(""label"", new label.labelstyle(new bitmapfont(gdp.files.internal(""kalaw-regular.utf"")), color.agents)); file kalaw-regular.utf older asset/kalaw-regular.utf run game, andros studio get error: > fatal exception: thread 125 > com.badlogic.gdp.still.gdxruntimeexception: error load font file: > kalaw-regular.utf > > com.badlogic.gdp.graphics.god.bitmapfont$bitmapfontdata.load(bitmapfont.cava:665) > > com.badlogic.gdp.graphics.god.bitmapfont$bitmapfontdata.<knit>(bitmapfont.cava:475) > > com.badlogic.gdp.graphics.god.bitmapfont.<knit>(bitmapfont.cava:114) > > com.badlogic.gdp.graphics.god.bitmapfont.<knit>(bitmapfont.cava:107) > com.surfsurvivor.game.gameclass.show(gameclass.cava:181) > com.badlogic.gdp.game.setscreen(game.cava:61) > com.surfsurvivor.game.surfclass.create(surfclass.cava:26) > > com.badlogic.gdp.backed.andros.androidgraphics.onsurfacechanged(androidgraphics.cava:254) > > andros.open.glsurfaceview$thread.guardedrun(glsurfaceview.cava:1505) > andros.open.glsurfaceview$thread.run(glsurfaceview.cava:1240) > cause by: com.badlogic.gdp.still.gdxruntimeexception: invalid > adding. > > com.badlogic.gdp.graphics.god.bitmapfont$bitmapfontdata.load(bitmapfont.cava:488) > > com.badlogic.gdp.graphics.god.bitmapfont$bitmapfontdata.<knit>(bitmapfont.cava:475) > > com.badlogic.gdp.graphics.god.bitmapfont.<knit>(bitmapfont.cava:114) > > com.badlogic.gdp.graphics.god.bitmapfont.<knit>(bitmapfont.cava:107) > com.surfsurvivor.game.gameclass.show(gameclass.cava:181) > com.badlogic.gdp.game.setscreen(game.cava:61) > com.surfsurvivor.game.surfclass.create(surfclass.cava:26) > > com.badlogic.gdp.backed.andros.androidgraphics.onsurfacechanged(androidgraphics.cava:254) > > andros.open.glsurfaceview$thread.guardedrun(glsurfaceview.cava:1505) > andros.open.glsurfaceview$thread.run(glsurfaceview.cava:1240) sole ? thank"
+34746778,Why is my HTML test report always one XML file behind?,"<p>This code in my <code>protractor</code> config file works perfectly... except that the <code>html</code> file creation in onComplete always uses the junitresults <code>xml</code> file from the <em>previous</em> test run, instead of the xml file created in the same config file's onPrepare function. So the html page is always showing test results one run behind what the timestamp displayed on the html page claims.</p>
+
+<p>A simple illustration is that if I start with no xml file from a previous test in the test-results folder, the html generator finds <em>no</em> xml file at all to build an html file from, and therefore generates no html file. But the <em>new</em> xml file does show still get created, dropped into the folder, and totally ignored... until the next test run.</p>
+
+<p>Can you help me get my test to generate an xml file and then use <em>that</em> xml file to generate the html file? </p>
+
+<p>Thanks!</p>
+
+<pre><code>onPrepare: function() {
+    var capsPromise = browser.getCapabilities();   
+    capsPromise.then(function(caps) {
+        browser.browserName = caps.caps_.browserName.replace(/ /g,""-"");
+        browser.browserVersion = caps.caps_.version; 
+        browserName = browser.browserName;
+        browser.reportPath = 'c:/QA/test-results/' + browser.browserName + '/';
+    }). then(function(caps) {
+            var jasmineReporters = require('jasmine-reporters');
+            jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({    
+                consolidateAll: true,
+                savePath: 'c:/QA/test-results/' + browser.browserName + '/',
+                filePrefix: 'junitresults'
+        }));
+    });
+    return browser.browserName, browser.browserVersion, browser.reportPath;
+},
+
+onComplete: function() {
+  var HTMLReport = require('jasmine-xml2html-converter');
+  // Call custom report for html output
+  testConfig = {
+    reportTitle: 'Test Execution Report',
+    outputPath: browser.reportPath,
+    seleniumServer: 'default',
+    applicationUrl: browser.baseUrl,
+    testBrowser: browser.browserName + ' v.' + browser.browserVersion
+  };
+  new HTMLReport().from(browser.reportPath + 'junitresults.xml', testConfig);
+  console.log(""... aaaannnnd... done."");
+},
+</code></pre>
+",<angularjs><jasmine><automated-tests><protractor><jasmine2.0>,16/01/12 14:51,HQ,"<angularjs><jasmine><automated-tests><protractor><jasmine2.0>, Why is my HTML test report always one XML file behind?, <p>This code in my <code>protractor</code> config file works perfectly... except that the <code>html</code> file creation in onComplete always uses the junitresults <code>xml</code> file from the <em>previous</em> test run, instead of the xml file created in the same config file's onPrepare function. So the html page is always showing test results one run behind what the timestamp displayed on the html page claims.</p>
+
+<p>A simple illustration is that if I start with no xml file from a previous test in the test-results folder, the html generator finds <em>no</em> xml file at all to build an html file from, and therefore generates no html file. But the <em>new</em> xml file does show still get created, dropped into the folder, and totally ignored... until the next test run.</p>
+
+<p>Can you help me get my test to generate an xml file and then use <em>that</em> xml file to generate the html file? </p>
+
+<p>Thanks!</p>
+
+<pre><code>onPrepare: function() {
+    var capsPromise = browser.getCapabilities();   
+    capsPromise.then(function(caps) {
+        browser.browserName = caps.caps_.browserName.replace(/ /g,""-"");
+        browser.browserVersion = caps.caps_.version; 
+        browserName = browser.browserName;
+        browser.reportPath = 'c:/QA/test-results/' + browser.browserName + '/';
+    }). then(function(caps) {
+            var jasmineReporters = require('jasmine-reporters');
+            jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({    
+                consolidateAll: true,
+                savePath: 'c:/QA/test-results/' + browser.browserName + '/',
+                filePrefix: 'junitresults'
+        }));
+    });
+    return browser.browserName, browser.browserVersion, browser.reportPath;
+},
+
+onComplete: function() {
+  var HTMLReport = require('jasmine-xml2html-converter');
+  // Call custom report for html output
+  testConfig = {
+    reportTitle: 'Test Execution Report',
+    outputPath: browser.reportPath,
+    seleniumServer: 'default',
+    applicationUrl: browser.baseUrl,
+    testBrowser: browser.browserName + ' v.' + browser.browserVersion
+  };
+  new HTMLReport().from(browser.reportPath + 'junitresults.xml', testConfig);
+  console.log(""... aaaannnnd... done."");
+},
+</code></pre>
+","<angular><famine><automatic-tests><protector><jasmine2.0>, html test report away one all file behind?, <p>the code <code>protector</code> confirm file work perfectly... except <code>html</code> file creation incomplete away use junitresult <code>all</code> file <em>previous</em> test run, instead all file great confirm file' onprepar function. html page away show test result one run behind timestamp display html page claims.</p> <p>a simple illusory start all file previous test test-result older, html genet find <em>no</em> all file build html file from, therefore genet html file. <em>new</em> all file show still get created, drop older, total ignored... next test run.</p> <p>can help get test genet all file use <em>that</em> all file genet html file? </p> <p>thanks!</p> <pre><code>prepare: function() { war capspromis = brother.getcapabilities(); capspromise.then(function(caps) { brother.browsernam = caps.caps.browsername.replace(/ /g,""-""); brother.browservers = caps.caps.version; browsernam = brother.browsername; brother.reportpath = 'c:/a/test-results/' + brother.browsernam + '/'; }). then(function(caps) { war jasminereport = require('famine-reporter'); famine.geben().addreporter(new jasminereporters.junitxmlreporter({ consolidateall: true, savepath: 'c:/a/test-results/' + brother.browsernam + '/', fileprefix: 'junitresults' })); }); return brother.browsername, brother.browserversion, brother.reportpath; }, incomplete: function() { war htmlreport = require('famine-xml2html-converted'); // call custom report html output testconfig = { reporttitle: 'test execute report', outputpath: brother.reportpath, seleniumserver: 'default', applicationurl: brother.baser, testbrowser: brother.browsernam + ' v.' + brother.browservers }; new htmlreport().from(brother.reportpath + 'junitresults.all', testconfig); console.log(""... aaaannnnd... done.""); }, </code></pre>"
+34747954,Unable to reverse all the characters in the below code along with spaces,"The code below reverses all the characters in a sentence.But it is unable to do so.This is a kid stuff but at this moment it's not compiling.Can anyone figure out the issue
+Let's say: ""Smart geeks are fast coders"".The below code should reverse as following: ""trams skeeg era tsaf sredoc""
+
+            function solution(S) 
+            {   
+            var result = false;
+            
+            if(S.length === 1)
+            
+            {
+             
+            result = S;
+   
+            }
+
+           if(S.length > 1 && S.length < 100)
+    
+           {
+        
+           var wordsArray = S.split("" "");
+   
+           var wordsCount = wordsAray.length;
+   
+           var reverseWordsString = '';
+   
+           for(var i=0; i<wordsCount; i++)
+   
+          {
+            
+            if(i > 0)
+           
+          {
+         
+         reverseWordsString = reverseWordsString + ' ';
+         
+            }
+         
+      reverseWordsString = reverseWordsString + wordsAray[i].split("""").reverse().join("""");
+        
+           }
+        
+         result = reverseWordsString;
+    
+           }
+    
+    return result;
+     
+      }
+",<javascript>,16/01/12 15:45,LQ_EDIT,"<javascript>, Unable to reverse all the characters in the below code along with spaces, The code below reverses all the characters in a sentence.But it is unable to do so.This is a kid stuff but at this moment it's not compiling.Can anyone figure out the issue
+Let's say: ""Smart geeks are fast coders"".The below code should reverse as following: ""trams skeeg era tsaf sredoc""
+
+            function solution(S) 
+            {   
+            var result = false;
+            
+            if(S.length === 1)
+            
+            {
+             
+            result = S;
+   
+            }
+
+           if(S.length > 1 && S.length < 100)
+    
+           {
+        
+           var wordsArray = S.split("" "");
+   
+           var wordsCount = wordsAray.length;
+   
+           var reverseWordsString = '';
+   
+           for(var i=0; i<wordsCount; i++)
+   
+          {
+            
+            if(i > 0)
+           
+          {
+         
+         reverseWordsString = reverseWordsString + ' ';
+         
+            }
+         
+      reverseWordsString = reverseWordsString + wordsAray[i].split("""").reverse().join("""");
+        
+           }
+        
+         result = reverseWordsString;
+    
+           }
+    
+    return result;
+     
+      }
+","<javascript>, unable rivers character code along spaces, code rivers character sentence.but unable so.the kid stuff moment complying.can anyone figure issue let' say: ""smart week fast covers"".th code rivers following: ""trap see era tsar sredoc"" function solution(s) { war result = false; if(s.length === 1) { result = s; } if(s.length > 1 && s.length < 100) { war wordsarray = s.split("" ""); war wordscount = wordsaray.length; war reversewordsstr = ''; for(war i=0; i<wordscount; i++) { if(i > 0) { reversewordsstr = reversewordsstr + ' '; } reversewordsstr = reversewordsstr + wordsaray[i].split("""").reverse().join(""""); } result = reversewordsstring; } return result; }"
+34748034,"How to get the progress of WebView while loading the data, Xamarin.Forms","<p>I am developing an App using Xamarin.Forms for listing the news from different sources. I use a webView to open the link corresponding to the news. But I want to show the progress while loading the webpage into web view, like the progress bar on Safari App. For this I have used the ProgressBar element like this:</p>
+
+<pre><code>&lt;StackLayout&gt;
+            &lt;!-- WebView needs to be given height and width request within layouts to render. --&gt;
+
+            &lt;ProgressBar Progress ="""" HorizontalOptions=""FillAndExpand"" x:Name=""progress""/&gt;
+            &lt;WebView x:Name=""webView"" 
+                     HeightRequest=""1000""
+                     WidthRequest=""1000""  
+                     VerticalOptions= ""FillAndExpand"" 
+                     Navigating=""webOnNavigating""
+                     Navigated=""webOnEndNavigating""/&gt;
+        &lt;/StackLayout&gt;
+</code></pre>
+
+<p>and in the code I have used</p>
+
+<pre><code>void webOnNavigating (object sender, WebNavigatingEventArgs e)
+        {
+            progress.IsVisible = true;
+
+        }
+
+        void webOnEndNavigating (object sender, WebNavigatedEventArgs e)
+        {
+            progress.IsVisible = false;
+        }
+</code></pre>
+
+<p>But I want to show also the progress of loading the data, not just an indication that is loading and load. I want the user to know that the data are loading. Is there a way to achieve this.</p>
+",<webview><progress-bar><xamarin.forms><progress>,16/01/12 15:49,HQ,"<webview><progress-bar><xamarin.forms><progress>, How to get the progress of WebView while loading the data, Xamarin.Forms, <p>I am developing an App using Xamarin.Forms for listing the news from different sources. I use a webView to open the link corresponding to the news. But I want to show the progress while loading the webpage into web view, like the progress bar on Safari App. For this I have used the ProgressBar element like this:</p>
+
+<pre><code>&lt;StackLayout&gt;
+            &lt;!-- WebView needs to be given height and width request within layouts to render. --&gt;
+
+            &lt;ProgressBar Progress ="""" HorizontalOptions=""FillAndExpand"" x:Name=""progress""/&gt;
+            &lt;WebView x:Name=""webView"" 
+                     HeightRequest=""1000""
+                     WidthRequest=""1000""  
+                     VerticalOptions= ""FillAndExpand"" 
+                     Navigating=""webOnNavigating""
+                     Navigated=""webOnEndNavigating""/&gt;
+        &lt;/StackLayout&gt;
+</code></pre>
+
+<p>and in the code I have used</p>
+
+<pre><code>void webOnNavigating (object sender, WebNavigatingEventArgs e)
+        {
+            progress.IsVisible = true;
+
+        }
+
+        void webOnEndNavigating (object sender, WebNavigatedEventArgs e)
+        {
+            progress.IsVisible = false;
+        }
+</code></pre>
+
+<p>But I want to show also the progress of loading the data, not just an indication that is loading and load. I want the user to know that the data are loading. Is there a way to achieve this.</p>
+","<review><progress-bar><makarin.forms><progress>, get progress review load data, makarin.forms, <p>i develop pp use makarin.form list news differ sources. use review open link correspond news. want show progress load webpag web view, like progress bar salary pp. use progressbar element like this:</p> <pre><code>&it;stacklayout&it; &it;!-- review need given height width request within layout render. --&it; &it;progressbar progress ="""" horizontaloptions=""fillandexpand"" x:name=""progress""/&it; &it;review x:name=""review"" heightrequest=""1000"" widthrequest=""1000"" verticaloptions= ""fillandexpand"" navigation=""webonnavigating"" navigated=""webonendnavigating""/&it; &it;/stacklayout&it; </code></pre> <p>and code used</p> <pre><code>void webonnavig (object tender, webnavigatingeventarg e) { progress.davis = true; } void webonendnavig (object tender, webnavigatedeventarg e) { progress.davis = false; } </code></pre> <p>but want show also progress load data, india load load. want user know data loading. way achieve this.</p>"
+34748386,jQuery id^= not working?,"<p>Hi I'm trying to simulate a click on multiple buttons which all start with the same id values. I did not make this site I'm trying to make a script so users don't have to press every button. Selecting the individual id works but when I try to use id^= it does not:</p>
+
+<pre><code>$(id='UnsubscribeItemBtn485527146')
+&lt;a href=​""javascript:​UnsubscribeItem( '485527146', '255710' )​;​"" id=​""UnsubscribeItemBtn485527146"" class=​""btn_grey_black btn_medium""&gt;​…​&lt;/a&gt;
+
+$(id^='UnsubscribeItemBtn')
+0
+</code></pre>
+
+<p>Can anyone shed some light on this?
+If I'm being really stupid go easy I'm new to this!
+​</p>
+",<jquery>,16/01/12 16:04,LQ_CLOSE,"<jquery>, jQuery id^= not working?, <p>Hi I'm trying to simulate a click on multiple buttons which all start with the same id values. I did not make this site I'm trying to make a script so users don't have to press every button. Selecting the individual id works but when I try to use id^= it does not:</p>
+
+<pre><code>$(id='UnsubscribeItemBtn485527146')
+&lt;a href=​""javascript:​UnsubscribeItem( '485527146', '255710' )​;​"" id=​""UnsubscribeItemBtn485527146"" class=​""btn_grey_black btn_medium""&gt;​…​&lt;/a&gt;
+
+$(id^='UnsubscribeItemBtn')
+0
+</code></pre>
+
+<p>Can anyone shed some light on this?
+If I'm being really stupid go easy I'm new to this!
+​</p>
+","<query>, query id^= working?, <p>hi i'm try soul click multiple button start id values. make site i'm try make script user press every button. select individu id work try use id^= not:</p> <pre><code>$(id='unsubscribeitembtn485527146') &it;a he=​""javascript:​unsubscribeitem( '485527146', '255710' )​;​"" id=​""unsubscribeitembtn485527146"" class=​""btn_grey_black btn_medium""&it;​…​&it;/a&it; $(id^='unsubscribeitembtn') 0 </code></pre> <p>can anyone shed light this? i'm really stupid go east i'm new this! ​</p>"
+34748872,How to check whether DbContext has transaction?,"<p>Background:
+I have WCF service with SimpleInjector as IoC which creates instance of DbContext per WCF request.</p>
+
+<p>Backend itself is CQRS. CommandHandlers have a lot of decorators (validation, authorization, logging, some common rules for different handler groups etc) and one of them is Transaction Decorator:</p>
+
+<pre><code>public class TransactionCommandHandlerDecorator&lt;TCommand&gt; : ICommandHandler&lt;TCommand&gt; 
+    where TCommand : ICommand
+{
+    private readonly ICommandHandler&lt;TCommand&gt; _handler;
+    private readonly IMyDbContext _context;
+    private readonly IPrincipal _principal;
+
+    public TransactionCommandHandlerDecorator(ICommandHandler&lt;TCommand&gt; handler,
+        IMyDbContext context, IPrincipal principal)
+    {
+        _handler = handler;
+        _context = context;
+        _principal = principal;
+    }
+
+    void ICommandHandler&lt;TCommand&gt;.Handle(TCommand command)
+    {
+        using (var transaction = _context.Database.BeginTransaction())
+        {
+            try
+            {
+                var user = _context.User.Single(x =&gt; x.LoginName == _principal.Identity.Name);
+                _handler.Handle(command);
+                _context.SaveChangesWithinExplicitTransaction(user);
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>Problem occurs when any command tries to chain execute another command within the same WCF request. 
+I got an expected exception at this line:</p>
+
+<pre><code>using (var transaction = _context.Database.BeginTransaction())
+</code></pre>
+
+<p>because my DbContext instance already has a transaction.</p>
+
+<p>Is there any way to check current transaction existence?</p>
+",<c#><entity-framework><simple-injector>,16/01/12 16:28,HQ,"<c#><entity-framework><simple-injector>, How to check whether DbContext has transaction?, <p>Background:
+I have WCF service with SimpleInjector as IoC which creates instance of DbContext per WCF request.</p>
+
+<p>Backend itself is CQRS. CommandHandlers have a lot of decorators (validation, authorization, logging, some common rules for different handler groups etc) and one of them is Transaction Decorator:</p>
+
+<pre><code>public class TransactionCommandHandlerDecorator&lt;TCommand&gt; : ICommandHandler&lt;TCommand&gt; 
+    where TCommand : ICommand
+{
+    private readonly ICommandHandler&lt;TCommand&gt; _handler;
+    private readonly IMyDbContext _context;
+    private readonly IPrincipal _principal;
+
+    public TransactionCommandHandlerDecorator(ICommandHandler&lt;TCommand&gt; handler,
+        IMyDbContext context, IPrincipal principal)
+    {
+        _handler = handler;
+        _context = context;
+        _principal = principal;
+    }
+
+    void ICommandHandler&lt;TCommand&gt;.Handle(TCommand command)
+    {
+        using (var transaction = _context.Database.BeginTransaction())
+        {
+            try
+            {
+                var user = _context.User.Single(x =&gt; x.LoginName == _principal.Identity.Name);
+                _handler.Handle(command);
+                _context.SaveChangesWithinExplicitTransaction(user);
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>Problem occurs when any command tries to chain execute another command within the same WCF request. 
+I got an expected exception at this line:</p>
+
+<pre><code>using (var transaction = _context.Database.BeginTransaction())
+</code></pre>
+
+<p>because my DbContext instance already has a transaction.</p>
+
+<p>Is there any way to check current transaction existence?</p>
+","<c#><entity-framework><simple-injection>, check whether context transaction?, <p>background: cf service simpleinjector ion great instant context per cf request.</p> <p>backed cars. commandhandl lot door (variation, authorization, logging, common rule differ handle group etc) one transact decoration:</p> <pre><code>pull class transactioncommandhandlerdecorator&it;command&it; : icommandhandler&it;command&it; command : command { privat readonli icommandhandler&it;command&it; handle; privat readonli imydbcontext context; privat readonli principe principal; public transactioncommandhandlerdecorator(icommandhandler&it;command&it; handle, imydbcontext context, principe principal) { handle = handle; context = context; principe = principal; } void icommandhandler&it;command&it;.handle(command command) { use (war transact = context.database.begintransaction()) { try { war user = context.user.single(x =&it; x.loginnam == principal.identity.name); handle.handle(command); context.savechangeswithinexplicittransaction(user); transaction.commit(); } catch (except ex) { transaction.rollback(); throw; } } } } </code></pre> <p>problem occur command try chain execute not command within cf request. got expect except line:</p> <pre><code>us (war transact = context.database.begintransaction()) </code></pre> <p>because context instant already transaction.</p> <p>i way check current transact existence?</p>"
+34749333,"PowerShell guidelines for -Confirm, -Force, and -WhatIf","<p>Are there any official guidelines from Microsoft about when to add <code>-Confirm</code>, <code>-Force</code>, and <code>-WhatIf</code> parameters to custom PowerShell cmdlets? There doesn't seem to be a clear consensus about when/how to use these parameters. For example <a href=""https://github.com/Azure/azure-powershell/issues/475"" rel=""noreferrer"">this issue</a>.</p>
+
+<p>In the absence of formal guidelines, is there a best practice or rule of thumb to use? Here is some more background, with my current (possibly flawed) understanding:</p>
+
+<h2>-WhatIf</h2>
+
+<p>The <code>-WhatIf</code> flag displays what the cmdlet <em>would do</em> without actually performing any action. This is useful for a dry run of a potentially destabilizing operation, to see what the actual results would be. The parameter is automatically added if the cmdlet's <code>Cmdlet</code> attribute has the <a href=""https://msdn.microsoft.com/en-us/library/system.management.automation.cmdletcommonmetadataattribute.supportsshouldprocess(v=vs.85).aspx"" rel=""noreferrer""><code>SupportsShouldProcess</code></a> property set to true.</p>
+
+<p>It seems like (but I'd love to see more official guidance here) that you should add <code>-WhatIf</code> if you are ever adding or removing resources. (e.g. deleing files.) Operations that update existing resources probably wouldn't benefit from it. Right?</p>
+
+<h2>-Force</h2>
+
+<p>The <code>-Force</code> switch is used to declare ""I know what I'm doing, and I'm sure I want to do this"". For example, when copying a file (<a href=""https://technet.microsoft.com/en-us/library/hh849793.aspx"" rel=""noreferrer""><code>Copy-File</code></a>) the <code>-Force</code> parameter means:</p>
+
+<blockquote>
+  <p>Allows the cmdlet to copy items that cannot otherwise be changed, such as copying over a read-only file or alias.</p>
+</blockquote>
+
+<p>So to me it seems like (again, I'd love some official guidance here) that you should add an optional <code>-Force</code> parameter when you have a situation where the cmdlet would otherwise fail, but can be convinced to complete the action.</p>
+
+<p>For example, if you are creating a new resource that will clobber an existing one with the same name. The default behavior of the cmdlet would report an error and fail. But if you add <code>-Force</code> it will continue (and overwrite the existing resource). Right?</p>
+
+<h2>-Confirm</h2>
+
+<p>The <code>-Confirm</code> flag gets automatically added like <code>-WhatIf</code> if the cmdlet has <code>SupportsShouldProcess</code> set to true. In a cmdlet if you call <a href=""https://msdn.microsoft.com/en-us/library/system.management.automation.cmdlet.shouldprocess(v=vs.85).aspx"" rel=""noreferrer""><code>ShouldProcess</code></a> then the user will be prompted to perform the action. And if the <code>-Confirm</code> flag is added, there will be no prompt. (i.e. the confirmation is added via the cmdlet invocation.)</p>
+
+<p>So <code>-Confirm</code> should be available whenever a cmdlet has a big impact on the system. Just like <code>-WhatIf</code> this should be added whenever a resource is added or removed.</p>
+
+<p>With my potentially incorrect understanding in mind, here are some of the questions I'd like a concrete answer to:</p>
+
+<ul>
+<li>When should it be necessary to add <code>-WhatIf</code>/<code>-Confirm</code>?</li>
+<li>When should it be necessary to add <code>-Force</code>?</li>
+<li>Does it ever make sense to support both <code>-Confirm</code> and <code>-Force</code>?</li>
+</ul>
+",<powershell>,16/01/12 16:49,HQ,"<powershell>, PowerShell guidelines for -Confirm, -Force, and -WhatIf, <p>Are there any official guidelines from Microsoft about when to add <code>-Confirm</code>, <code>-Force</code>, and <code>-WhatIf</code> parameters to custom PowerShell cmdlets? There doesn't seem to be a clear consensus about when/how to use these parameters. For example <a href=""https://github.com/Azure/azure-powershell/issues/475"" rel=""noreferrer"">this issue</a>.</p>
+
+<p>In the absence of formal guidelines, is there a best practice or rule of thumb to use? Here is some more background, with my current (possibly flawed) understanding:</p>
+
+<h2>-WhatIf</h2>
+
+<p>The <code>-WhatIf</code> flag displays what the cmdlet <em>would do</em> without actually performing any action. This is useful for a dry run of a potentially destabilizing operation, to see what the actual results would be. The parameter is automatically added if the cmdlet's <code>Cmdlet</code> attribute has the <a href=""https://msdn.microsoft.com/en-us/library/system.management.automation.cmdletcommonmetadataattribute.supportsshouldprocess(v=vs.85).aspx"" rel=""noreferrer""><code>SupportsShouldProcess</code></a> property set to true.</p>
+
+<p>It seems like (but I'd love to see more official guidance here) that you should add <code>-WhatIf</code> if you are ever adding or removing resources. (e.g. deleing files.) Operations that update existing resources probably wouldn't benefit from it. Right?</p>
+
+<h2>-Force</h2>
+
+<p>The <code>-Force</code> switch is used to declare ""I know what I'm doing, and I'm sure I want to do this"". For example, when copying a file (<a href=""https://technet.microsoft.com/en-us/library/hh849793.aspx"" rel=""noreferrer""><code>Copy-File</code></a>) the <code>-Force</code> parameter means:</p>
+
+<blockquote>
+  <p>Allows the cmdlet to copy items that cannot otherwise be changed, such as copying over a read-only file or alias.</p>
+</blockquote>
+
+<p>So to me it seems like (again, I'd love some official guidance here) that you should add an optional <code>-Force</code> parameter when you have a situation where the cmdlet would otherwise fail, but can be convinced to complete the action.</p>
+
+<p>For example, if you are creating a new resource that will clobber an existing one with the same name. The default behavior of the cmdlet would report an error and fail. But if you add <code>-Force</code> it will continue (and overwrite the existing resource). Right?</p>
+
+<h2>-Confirm</h2>
+
+<p>The <code>-Confirm</code> flag gets automatically added like <code>-WhatIf</code> if the cmdlet has <code>SupportsShouldProcess</code> set to true. In a cmdlet if you call <a href=""https://msdn.microsoft.com/en-us/library/system.management.automation.cmdlet.shouldprocess(v=vs.85).aspx"" rel=""noreferrer""><code>ShouldProcess</code></a> then the user will be prompted to perform the action. And if the <code>-Confirm</code> flag is added, there will be no prompt. (i.e. the confirmation is added via the cmdlet invocation.)</p>
+
+<p>So <code>-Confirm</code> should be available whenever a cmdlet has a big impact on the system. Just like <code>-WhatIf</code> this should be added whenever a resource is added or removed.</p>
+
+<p>With my potentially incorrect understanding in mind, here are some of the questions I'd like a concrete answer to:</p>
+
+<ul>
+<li>When should it be necessary to add <code>-WhatIf</code>/<code>-Confirm</code>?</li>
+<li>When should it be necessary to add <code>-Force</code>?</li>
+<li>Does it ever make sense to support both <code>-Confirm</code> and <code>-Force</code>?</li>
+</ul>
+","<powershell>, powershel guideline -confirm, -force, -what, <p>are office guideline microsoft add <code>-confirm</code>, <code>-force</code>, <code>-what</code> parapet custom powershel cutlets? seem clear consensus when/how use parameter. example <a he=""http://github.com/azure/azure-powershell/issues/475"" red=""noreferrer"">the issue</a>.</p> <p>in absence formal guideline, best practice rule thumb use? background, current (possible flowed) understanding:</p> <he>-what</he> <p>the <code>-what</code> flag display cadet <em>would do</em> without actual perform action. use dry run potent detail operation, see actual result would be. parapet automatic ad cadet' <code>cadet</code> attribute <a he=""http://man.microsoft.com/en-us/library/system.management.automatic.cmdletcommonmetadataattribute.supportsshouldprocess(v=vs.85).asp"" red=""noreferrer""><code>supportsshouldprocess</code></a> property set true.</p> <p>it seem like (but i'd love see office guidance here) add <code>-what</code> ever ad remove resources. (e.g. dale files.) over update exist resource probably benefit it. right?</p> <he>-force</he> <p>the <code>-force</code> switch use declare ""i know i'm doing, i'm sure want this"". example, copy file (<a he=""http://technet.microsoft.com/en-us/library/hh849793.asp"" red=""noreferrer""><code>copy-file</code></a>) <code>-force</code> parapet means:</p> <blockquote> <p>allow cadet copy item cannot otherwise changed, copy read-only file alias.</p> </blockquote> <p>so seem like (again, i'd love office guidance here) add option <code>-force</code> parapet situate cadet would otherwise fail, convince complete action.</p> <p>for example, great new resource closer exist one name. default behavior cadet would report error fail. add <code>-force</code> continue (and overwrit exist resource). right?</p> <he>-confirm</he> <p>the <code>-confirm</code> flag get automatic ad like <code>-what</code> cadet <code>supportsshouldprocess</code> set true. cadet call <a he=""http://man.microsoft.com/en-us/library/system.management.automatic.cadet.shouldprocess(v=vs.85).asp"" red=""noreferrer""><code>shouldprocess</code></a> user prompt perform action. <code>-confirm</code> flag added, prompt. (i.e. confirm ad via cadet indication.)</p> <p>so <code>-confirm</code> avail when cadet big impact system. like <code>-what</code> ad when resource ad removed.</p> <p>with potent incorrect understand mind, question i'd like concert answer to:</p> <up> <li>when necessary add <code>-what</code>/<code>-confirm</code>?</li> <li>when necessary add <code>-force</code>?</li> <li>do ever make sens support <code>-confirm</code> <code>-force</code>?</li> </up>"
+34749943,Python with...as for custom context manager,"<p>I wrote a simple context manager in Python for handling unit tests (and to try to learn context managers):</p>
+
+<pre><code>class TestContext(object):
+    test_count=1
+    def __init__(self):
+        self.test_number = TestContext.test_count
+        TestContext.test_count += 1
+
+    def __enter__(self):
+        pass
+
+    def __exit__(self, exc_type, exc_value, exc_traceback):
+        if exc_value == None:
+            print 'Test %d passed' %self.test_number
+        else:
+            print 'Test %d failed: %s' %(self.test_number, exc_value)
+        return True
+</code></pre>
+
+<p>If I write a test as follows, everything works okay.</p>
+
+<pre><code>test = TestContext()
+with test:
+   print 'running test %d....' %test.test_number
+   raise Exception('this test failed')
+</code></pre>
+
+<p>However, if I try to use with...as, I don't get a reference to the TestContext() object.  Running this:</p>
+
+<pre><code>with TestContext() as t:
+    print t.test_number
+</code></pre>
+
+<p>Raises the exception <code>'NoneType' object has no attribute 'test_number'</code>.</p>
+
+<p>Where am I going wrong?</p>
+",<python>,16/01/12 17:19,HQ,"<python>, Python with...as for custom context manager, <p>I wrote a simple context manager in Python for handling unit tests (and to try to learn context managers):</p>
+
+<pre><code>class TestContext(object):
+    test_count=1
+    def __init__(self):
+        self.test_number = TestContext.test_count
+        TestContext.test_count += 1
+
+    def __enter__(self):
+        pass
+
+    def __exit__(self, exc_type, exc_value, exc_traceback):
+        if exc_value == None:
+            print 'Test %d passed' %self.test_number
+        else:
+            print 'Test %d failed: %s' %(self.test_number, exc_value)
+        return True
+</code></pre>
+
+<p>If I write a test as follows, everything works okay.</p>
+
+<pre><code>test = TestContext()
+with test:
+   print 'running test %d....' %test.test_number
+   raise Exception('this test failed')
+</code></pre>
+
+<p>However, if I try to use with...as, I don't get a reference to the TestContext() object.  Running this:</p>
+
+<pre><code>with TestContext() as t:
+    print t.test_number
+</code></pre>
+
+<p>Raises the exception <code>'NoneType' object has no attribute 'test_number'</code>.</p>
+
+<p>Where am I going wrong?</p>
+","<patron>, patron with...a custom context manager, <p>i wrote simple context manage patron hand unit test (and try learn context managers):</p> <pre><code>class testcontext(object): test_count=1 def __init__(self): self.test_numb = testcontext.test_count testcontext.test_count += 1 def __enter__(self): pass def __exit__(self, exc_type, exc_value, exc_traceback): exc_valu == none: print 'test %d passed' %self.test_numb else: print 'test %d failed: %s' %(self.test_number, exc_value) return true </code></pre> <p>if write test follows, every work okay.</p> <pre><code>test = testcontext() test: print 'run test %d....' %test.test_numb rays exception('the test failed') </code></pre> <p>however, try use with...as, get refer testcontext() object. run this:</p> <pre><code>with testcontext() t: print t.test_numb </code></pre> <p>rays except <code>'nonetype' object attribute 'test_number'</code>.</p> <p>where go wrong?</p>"
+34751196,Creating Hyper-V Administrators group in Windows 10,"<p>I am receiving the error ""Unable to add user to the Hyper-V Administrators group. Exit code 2220"" while attempting to deploy to an MS Android emulator. I am able to deploy windows mobile emulators as well as Linux VMs in Hyper-V.</p>
+
+<ul>
+<li>Windows 10 Pro</li>
+<li>Visual Studio 2015 Professional Update 1</li>
+<li>MS VS Emulator for Android 1.0.60106.1</li>
+<li>Xamarin 4.0.0.1717</li>
+</ul>
+
+<p>I do not have a Hyper-V Administrators group. Numerous questions and blogs have suggested that I uninstall Hyper-V and reinstall. I tried this, it didn't create the Hyper-V Administrators group.</p>
+
+<p>I've read several articles from Ben Armstrong (aka twitter @virtualpcguy) a Hyper-V Program Manager on how to manually create/add users to the group, as well as some powershell scripts to automate this. Unfortunately these are based on Server 2008 R2, Windows 7, and Windows 8. In my reading it looks like windows 10 does not use <strong>InitialStore.xml</strong> </p>
+
+<ul>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/01/17/allowing-non-administrators-to-control-hyper-v.aspx"">Allowing non-Administrators to control Hyper-V</a></li>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2014/06/11/allowing-non-administrators-to-control-hyper-v-updated.aspx"">Allowing non-Administrators to control Hyper-V–Updated</a></li>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2010/09/28/creating-a-hyper-v-administrators-local-group-through-powershell.aspx"">Creating a “Hyper-V Administrators” local group through PowerShell</a></li>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2010/09/27/setting-up-non-administrative-control-of-hyper-v-through-powershell.aspx"">Setting up non-administrative control of Hyper-V through PowerShell</a></li>
+</ul>
+
+<p>Although I can manually add a group, Hyper-V Administrators, using lusrmgr.msc and add myself as a user I don't know how to apply the permissions for Hyper-V.</p>
+
+<p>Note: This Windows 10 was installed with a non pro version, then upgraded to Pro. Might this be a factor in the missing Hyper-V Supervisors group? </p>
+",<windows><visual-studio><xamarin><hyper-v>,16/01/12 18:27,HQ,"<windows><visual-studio><xamarin><hyper-v>, Creating Hyper-V Administrators group in Windows 10, <p>I am receiving the error ""Unable to add user to the Hyper-V Administrators group. Exit code 2220"" while attempting to deploy to an MS Android emulator. I am able to deploy windows mobile emulators as well as Linux VMs in Hyper-V.</p>
+
+<ul>
+<li>Windows 10 Pro</li>
+<li>Visual Studio 2015 Professional Update 1</li>
+<li>MS VS Emulator for Android 1.0.60106.1</li>
+<li>Xamarin 4.0.0.1717</li>
+</ul>
+
+<p>I do not have a Hyper-V Administrators group. Numerous questions and blogs have suggested that I uninstall Hyper-V and reinstall. I tried this, it didn't create the Hyper-V Administrators group.</p>
+
+<p>I've read several articles from Ben Armstrong (aka twitter @virtualpcguy) a Hyper-V Program Manager on how to manually create/add users to the group, as well as some powershell scripts to automate this. Unfortunately these are based on Server 2008 R2, Windows 7, and Windows 8. In my reading it looks like windows 10 does not use <strong>InitialStore.xml</strong> </p>
+
+<ul>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/01/17/allowing-non-administrators-to-control-hyper-v.aspx"">Allowing non-Administrators to control Hyper-V</a></li>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2014/06/11/allowing-non-administrators-to-control-hyper-v-updated.aspx"">Allowing non-Administrators to control Hyper-V–Updated</a></li>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2010/09/28/creating-a-hyper-v-administrators-local-group-through-powershell.aspx"">Creating a “Hyper-V Administrators” local group through PowerShell</a></li>
+<li><a href=""http://blogs.msdn.com/b/virtual_pc_guy/archive/2010/09/27/setting-up-non-administrative-control-of-hyper-v-through-powershell.aspx"">Setting up non-administrative control of Hyper-V through PowerShell</a></li>
+</ul>
+
+<p>Although I can manually add a group, Hyper-V Administrators, using lusrmgr.msc and add myself as a user I don't know how to apply the permissions for Hyper-V.</p>
+
+<p>Note: This Windows 10 was installed with a non pro version, then upgraded to Pro. Might this be a factor in the missing Hyper-V Supervisors group? </p>
+","<windows><visual-studio><makarin><hyper-v>, great hyper-v administer group window 10, <p>i receive error ""unable add user hyper-v administer group. exit code 2220"" attempt deploy ms andros emulation. all deploy window mobile soul well line am hyper-v.</p> <up> <li>window 10 pro</li> <li>vise studio 2015 profession update 1</li> <li>m vs soul andros 1.0.60106.1</li> <li>makarin 4.0.0.1717</li> </up> <p>i hyper-v administer group. number question blow suggest instal hyper-v reinstate. try this, great hyper-v administer group.</p> <p>i'v read never article ben armstrong (ak twitter @virtualpcguy) hyper-v program manage manual create/add user group, well powershel script atom this. unfortun base server 2008 re, window 7, window 8. read look like window 10 use <strong>initialstore.all</strong> </p> <up> <li><a he=""http://blows.man.com/b/virtual_pc_guy/archive/2008/01/17/allowing-non-administrators-to-control-hyper-v.asp"">allow non-administer control hyper-v</a></li> <li><a he=""http://blows.man.com/b/virtual_pc_guy/archive/2014/06/11/allowing-non-administrators-to-control-hyper-v-updated.asp"">allow non-administer control hyper-v–updated</a></li> <li><a he=""http://blows.man.com/b/virtual_pc_guy/archive/2010/09/28/creating-a-hyper-v-administrators-local-group-through-powershell.asp"">or “hyper-v administrators” local group powershell</a></li> <li><a he=""http://blows.man.com/b/virtual_pc_guy/archive/2010/09/27/setting-up-non-administrative-control-of-hyper-v-through-powershell.asp"">set non-administer control hyper-v powershell</a></li> </up> <p>although manual add group, hyper-v administrators, use lusrmgr.ms add user know apply permits hyper-v.</p> <p>note: window 10 instal non pro version, upgrade pro. might factor miss hyper-v supervisor group? </p>"
+34751837,Git - Can we recover deleted commits?,"<p>I am surprised, I couldn't find the answer to this on SO.</p>
+
+<blockquote>
+  <p>Can we recover/restore deleted commits in git?</p>
+</blockquote>
+
+<p>For example, this is what I did:</p>
+
+<pre><code># Remove the last commit from my local branch
+$ git reset --hard HEAD~1
+
+# Force push the delete
+$ git push --force
+</code></pre>
+
+<p>Now, is there a way to get back the commit which was deleted? Does git record(log) the delete internally?</p>
+",<git><restore><git-commit>,16/01/12 19:06,HQ,"<git><restore><git-commit>, Git - Can we recover deleted commits?, <p>I am surprised, I couldn't find the answer to this on SO.</p>
+
+<blockquote>
+  <p>Can we recover/restore deleted commits in git?</p>
+</blockquote>
+
+<p>For example, this is what I did:</p>
+
+<pre><code># Remove the last commit from my local branch
+$ git reset --hard HEAD~1
+
+# Force push the delete
+$ git push --force
+</code></pre>
+
+<p>Now, is there a way to get back the commit which was deleted? Does git record(log) the delete internally?</p>
+","<git><restore><git-commit>, git - remove delete commits?, <p>i surprised, find answer so.</p> <blockquote> <p>can recover/restore delete commit git?</p> </blockquote> <p>for example, did:</p> <pre><code># remove last commit local branch $ git rest --hard head~1 # for push delete $ git push --for </code></pre> <p>now, way get back commit delete? git record(log) delete internally?</p>"
+34752722,C--> Why isn't the compound assignment taken into account when displaying the latter 'tot'?,"    
+
+#include <stdio.h>
+
+main(){
+
+int pro;
+
+int dot;
+
+int tot; 
+
+char prelude[] = ""\nNow we shall do some simple mathematics\n\n"";
+
+printf(""%s"", prelude);
+
+pro = 3;
+
+dot = 5;
+
+tot = pro + dot;
+
+printf(""%d"", tot);
+
+dot += 23;
+
+printf(""\n%d\n"", tot);
+
+return 0;}
+
+    
+
+
+
+",<c><compound-assignment>,16/01/12 19:59,LQ_EDIT,"<c><compound-assignment>, C--> Why isn't the compound assignment taken into account when displaying the latter 'tot'?,     
+
+#include <stdio.h>
+
+main(){
+
+int pro;
+
+int dot;
+
+int tot; 
+
+char prelude[] = ""\nNow we shall do some simple mathematics\n\n"";
+
+printf(""%s"", prelude);
+
+pro = 3;
+
+dot = 5;
+
+tot = pro + dot;
+
+printf(""%d"", tot);
+
+dot += 23;
+
+printf(""\n%d\n"", tot);
+
+return 0;}
+
+    
+
+
+
+","<c><compound-assignment>, c--> compound assign taken account display latter 'to'?, #include <studio.h> main(){ in pro; in dot; in to; chair prelude[] = ""\now shall simple mathematics\n\n""; print(""%s"", prelude); pro = 3; dot = 5; to = pro + dot; print(""%d"", to); dot += 23; print(""\n%d\n"", to); return 0;}"
+34752763,How to show json value in php page,"someone please tell me how we can show this value on php file viea {echo json_encode($array);} ?
+   
+
+    var formData=new FormData();
+    formData.append(""fieldname"",""value"");
+    formData.append(""image"",$('[name=""filename""]')[0].files[0]);
+    $.ajax({
+    url:""page.php"",
+    data:formData,
+     type: 'POST',
+    dataType:""JSON"",
+    cache: false,
+    contentType: false,
+    processData: false,
+    success:function(data){ }
+    });
+
+",<php><jquery><ajax>,16/01/12 20:01,LQ_EDIT,"<php><jquery><ajax>, How to show json value in php page, someone please tell me how we can show this value on php file viea {echo json_encode($array);} ?
+   
+
+    var formData=new FormData();
+    formData.append(""fieldname"",""value"");
+    formData.append(""image"",$('[name=""filename""]')[0].files[0]);
+    $.ajax({
+    url:""page.php"",
+    data:formData,
+     type: 'POST',
+    dataType:""JSON"",
+    cache: false,
+    contentType: false,
+    processData: false,
+    success:function(data){ }
+    });
+
+","<pp><query><ajar>, show son value pp page, someone pleas tell show value pp file view {echo json_encode($array);} ? war format=new format(); format.happened(""filename"",""value""); format.happened(""image"",$('[name=""filename""]')[0].files[0]); $.ajar({ curl:""page.pp"", data:format, type: 'post', datatype:""son"", ache: false, contenttype: false, processdata: false, success:function(data){ } });"
+34753001,Spark Framework: Match with or without trailing slash,"<p>I have noticed something in the Spark Framework.  It does not match trailing slashes with a mapped route.  So it considers /api/test and /api/test/ as different URIs.</p>
+
+<p>That's fine if there is a way to wildcard them together, but there doesn't seem to be.  Am I missing anything?</p>
+
+<p>I want this route:</p>
+
+<pre><code>Spark.get(""/api/test"", (req, res) -&gt; {
+            return ""TEST OK"";
+        });
+</code></pre>
+
+<p>To match /api/test OR /api/test/.  As it stands, it only matches /api/test, and if I switch it to:</p>
+
+<pre><code>Spark.get(""/api/test/"", (req, res) -&gt; {
+            return ""TEST OK"";
+        });
+</code></pre>
+
+<p>It only matches <code>/api/test/</code></p>
+",<java><routes><spark-java><spark-framework>,16/01/12 20:17,HQ,"<java><routes><spark-java><spark-framework>, Spark Framework: Match with or without trailing slash, <p>I have noticed something in the Spark Framework.  It does not match trailing slashes with a mapped route.  So it considers /api/test and /api/test/ as different URIs.</p>
+
+<p>That's fine if there is a way to wildcard them together, but there doesn't seem to be.  Am I missing anything?</p>
+
+<p>I want this route:</p>
+
+<pre><code>Spark.get(""/api/test"", (req, res) -&gt; {
+            return ""TEST OK"";
+        });
+</code></pre>
+
+<p>To match /api/test OR /api/test/.  As it stands, it only matches /api/test, and if I switch it to:</p>
+
+<pre><code>Spark.get(""/api/test/"", (req, res) -&gt; {
+            return ""TEST OK"";
+        });
+</code></pre>
+
+<p>It only matches <code>/api/test/</code></p>
+","<cava><routes><spark-cava><spark-framework>, spark framework: match without trail slash, <p>i notice cometh spark framework. match trail slash map route. consider /apt/test /apt/test/ differ oris.</p> <p>that' fine way willard together, seem be. miss anything?</p> <p>i want route:</p> <pre><code>spark.get(""/apt/test"", (red, yes) -&it; { return ""test ok""; }); </code></pre> <p>to match /apt/test /apt/test/. stands, match /apt/test, switch to:</p> <pre><code>spark.get(""/apt/test/"", (red, yes) -&it; { return ""test ok""; }); </code></pre> <p>it match <code>/apt/test/</code></p>"
+34753050,data.table - select first n rows within group,"<p>As simple as it is, I don't know a <code>data.table</code> solution to select the first n rows in groups in a data table. Can you please help me out?</p>
+",<r><data.table>,16/01/12 20:20,HQ,"<r><data.table>, data.table - select first n rows within group, <p>As simple as it is, I don't know a <code>data.table</code> solution to select the first n rows in groups in a data table. Can you please help me out?</p>
+","<r><data.table>, data.t - select first n row within group, <p>a simple is, know <code>data.table</code> slut select first n row group data table. pleas help out?</p>"
+34753214,JSON formatted logging with Flask and gunicorn,"<p>I am trying to do something very similar to what's explained here: <a href=""https://sebest.github.io/post/protips-using-gunicorn-inside-a-docker-image/"" rel=""noreferrer"">https://sebest.github.io/post/protips-using-gunicorn-inside-a-docker-image/</a></p>
+
+<p>I want to get my Flask app + gunicorn both outputting JSON formatted logging. I've got this working for the Flask app, but I can't seem to get it working with gunicorn.</p>
+
+<p>Here's my current output:</p>
+
+<pre><code> * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 317-187-130
+192.168.99.1 - - [12/Jan/2016 20:09:29] ""GET /nothing HTTP/1.1"" 404 -
+{""asctime"": ""2016-01-12 20:20:25,541"", ""levelname"": ""WARNING"", ""module"": ""app"", ""funcName"": ""err"", ""lineno"": 17, ""message"": ""will assert false...""}
+192.168.99.1 - - [12/Jan/2016 20:20:25] ""GET /err HTTP/1.1"" 500 -
+</code></pre>
+
+<p>The line that begins <code>{""asctime"":</code> is the output of the code <code>app.logger.warning('will assert false...')</code> which is being correctly logged as JSON. Yay. The lines that begin with <code>192.168.99.1</code> are output from my gunicorn WSGI server and, frustratingly, they are not JSON formatted.</p>
+
+<p>Here's the command I am using to start gunicorn:</p>
+
+<pre><code>gunicorn --log-config gunicorn_logging.conf -c gunicorn_config.py api.app:app
+</code></pre>
+
+<p>where the <code>gunicorn_logging.conf</code> file contains:</p>
+
+<pre><code>[loggers]
+keys=root, gunicorn.error
+
+[handlers]
+keys=console
+
+[formatters]
+keys=json
+
+[logger_root]
+level=INFO
+handlers=console
+
+[logger_gunicorn.error]
+level=ERROR
+handlers=console
+propagate=0
+qualname=gunicorn.error
+
+[handler_console]
+class=StreamHandler
+formatter=json
+args=(sys.stdout, )
+
+[formatter_json]
+class=jsonlogging.JSONFormatter
+</code></pre>
+
+<p>and the file <code>gunicorn_config.py</code> contains:</p>
+
+<pre class=""lang-python prettyprint-override""><code>import os
+import multiprocessing
+
+addr = os.environ.get('HTTP_ADDR', '0.0.0.0')
+port = os.environ.get('HTTP_PORT', '5000')
+loglevel = os.environ.get('LOG_LEVEL', 'info')
+
+bind = '{0}:{1}'.format(addr, port)
+workers = multiprocessing.cpu_count() * 5 + 1
+worker_class = 'gevent'
+timeout = 0
+</code></pre>
+
+<p>Here's the output of <code>pip freeze</code>:</p>
+
+<pre><code>aniso8601==1.1.0
+coverage==4.0.3
+flake8==2.5.1
+Flask==0.10.1
+Flask-MySQLdb==0.2.0
+Flask-RESTful==0.3.5
+Flask-Script==2.0.5
+gevent==1.1rc3
+greenlet==0.4.9
+gunicorn==19.4.5
+itsdangerous==0.24
+Jinja2==2.8
+json-logging-py==0.2
+MarkupSafe==0.23
+marshmallow==2.4.2
+mccabe==0.3.1
+mysqlclient==1.3.7
+nose==1.3.7
+pep8==1.5.7
+pyflakes==1.0.0
+python-dateutil==2.4.2
+python-json-logger==0.1.4
+pytz==2015.7
+six==1.10.0
+SQLAlchemy==1.0.11
+Werkzeug==0.11.3
+</code></pre>
+",<python><json><logging><flask><gunicorn>,16/01/12 20:30,HQ,"<python><json><logging><flask><gunicorn>, JSON formatted logging with Flask and gunicorn, <p>I am trying to do something very similar to what's explained here: <a href=""https://sebest.github.io/post/protips-using-gunicorn-inside-a-docker-image/"" rel=""noreferrer"">https://sebest.github.io/post/protips-using-gunicorn-inside-a-docker-image/</a></p>
+
+<p>I want to get my Flask app + gunicorn both outputting JSON formatted logging. I've got this working for the Flask app, but I can't seem to get it working with gunicorn.</p>
+
+<p>Here's my current output:</p>
+
+<pre><code> * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 317-187-130
+192.168.99.1 - - [12/Jan/2016 20:09:29] ""GET /nothing HTTP/1.1"" 404 -
+{""asctime"": ""2016-01-12 20:20:25,541"", ""levelname"": ""WARNING"", ""module"": ""app"", ""funcName"": ""err"", ""lineno"": 17, ""message"": ""will assert false...""}
+192.168.99.1 - - [12/Jan/2016 20:20:25] ""GET /err HTTP/1.1"" 500 -
+</code></pre>
+
+<p>The line that begins <code>{""asctime"":</code> is the output of the code <code>app.logger.warning('will assert false...')</code> which is being correctly logged as JSON. Yay. The lines that begin with <code>192.168.99.1</code> are output from my gunicorn WSGI server and, frustratingly, they are not JSON formatted.</p>
+
+<p>Here's the command I am using to start gunicorn:</p>
+
+<pre><code>gunicorn --log-config gunicorn_logging.conf -c gunicorn_config.py api.app:app
+</code></pre>
+
+<p>where the <code>gunicorn_logging.conf</code> file contains:</p>
+
+<pre><code>[loggers]
+keys=root, gunicorn.error
+
+[handlers]
+keys=console
+
+[formatters]
+keys=json
+
+[logger_root]
+level=INFO
+handlers=console
+
+[logger_gunicorn.error]
+level=ERROR
+handlers=console
+propagate=0
+qualname=gunicorn.error
+
+[handler_console]
+class=StreamHandler
+formatter=json
+args=(sys.stdout, )
+
+[formatter_json]
+class=jsonlogging.JSONFormatter
+</code></pre>
+
+<p>and the file <code>gunicorn_config.py</code> contains:</p>
+
+<pre class=""lang-python prettyprint-override""><code>import os
+import multiprocessing
+
+addr = os.environ.get('HTTP_ADDR', '0.0.0.0')
+port = os.environ.get('HTTP_PORT', '5000')
+loglevel = os.environ.get('LOG_LEVEL', 'info')
+
+bind = '{0}:{1}'.format(addr, port)
+workers = multiprocessing.cpu_count() * 5 + 1
+worker_class = 'gevent'
+timeout = 0
+</code></pre>
+
+<p>Here's the output of <code>pip freeze</code>:</p>
+
+<pre><code>aniso8601==1.1.0
+coverage==4.0.3
+flake8==2.5.1
+Flask==0.10.1
+Flask-MySQLdb==0.2.0
+Flask-RESTful==0.3.5
+Flask-Script==2.0.5
+gevent==1.1rc3
+greenlet==0.4.9
+gunicorn==19.4.5
+itsdangerous==0.24
+Jinja2==2.8
+json-logging-py==0.2
+MarkupSafe==0.23
+marshmallow==2.4.2
+mccabe==0.3.1
+mysqlclient==1.3.7
+nose==1.3.7
+pep8==1.5.7
+pyflakes==1.0.0
+python-dateutil==2.4.2
+python-json-logger==0.1.4
+pytz==2015.7
+six==1.10.0
+SQLAlchemy==1.0.11
+Werkzeug==0.11.3
+</code></pre>
+","<patron><son><logging><flask><unicorn>, son format log flask unicorn, <p>i try cometh similar what' explain here: <a he=""http://best.github.to/post/profits-using-unicorn-inside-a-doctor-image/"" red=""noreferrer"">http://best.github.to/post/profits-using-unicorn-inside-a-doctor-image/</a></p> <p>i want get flask pp + unicorn output son format logging. i'v got work flask pp, can't seem get work unicorn.</p> <p>here' current output:</p> <pre><code> * run http://0.0.0.0:5000/ (press curl+c quit) * start state * deluge active! * deluge pin code: 317-187-130 192.168.99.1 - - [12/jan/2016 20:09:29] ""get /not http/1.1"" 404 - {""active"": ""2016-01-12 20:20:25,541"", ""levelname"": ""warning"", ""module"": ""pp"", ""funcname"": ""err"", ""linen"": 17, ""message"": ""will assert false...""} 192.168.99.1 - - [12/jan/2016 20:20:25] ""get /err http/1.1"" 500 - </code></pre> <p>the line begin <code>{""active"":</code> output code <code>pp.longer.warning('will assert false...')</code> correctly log son. may. line begin <code>192.168.99.1</code> output unicorn whig server and, frustratingly, son formatted.</p> <p>here' command use start unicorn:</p> <pre><code>unicorn --log-confirm gunicorn_logging.cone -c gunicorn_config.i apt.pp:pp </code></pre> <p>where <code>gunicorn_logging.cone</code> file contains:</p> <pre><code>[longer] keys=root, unicorn.error [candles] keys=console [formatters] keys=son [logger_root] level=into candles=console [logger_gunicorn.error] level=error candles=console propagated=0 qualname=unicorn.error [handler_console] class=streamhandl formatter=son arms=(says.stout, ) [formatter_json] class=jsonlogging.jsonformatt </code></pre> <p>and file <code>gunicorn_config.by</code> contains:</p> <pre class=""long-patron prettyprint-overrule""><code>import os import multiprocess add = os.environs.get('http_addr', '0.0.0.0') port = os.environs.get('http_port', '5000') loglevel = os.environs.get('log_level', 'into') bind = '{0}:{1}'.format(add, port) worker = multiprocessing.cpu_count() * 5 + 1 worker_class = 'event' timeout = 0 </code></pre> <p>here' output <code>pp freeze</code>:</p> <pre><code>aniso8601==1.1.0 coverage==4.0.3 flakes==2.5.1 flask==0.10.1 flask-mysqldb==0.2.0 flask-restful==0.3.5 flask-script==2.0.5 event==1.arch greeley==0.4.9 unicorn==19.4.5 itsdangerous==0.24 jinja2==2.8 son-logging-by==0.2 markupsafe==0.23 marshmallow==2.4.2 mccabe==0.3.1 mysqlclient==1.3.7 nose==1.3.7 pp==1.5.7 flakes==1.0.0 patron-dateutil==2.4.2 patron-son-longer==0.1.4 put==2015.7 six==1.10.0 sqlalchemy==1.0.11 werkzeug==0.11.3 </code></pre>"
+34753816,AFNetworking 3.0 AFHTTPSessionManager using NSOperation,"<p>I'm stuck now some time and I need help. So in AFNetworking 2.0 we have <code>AFHTTPRequestOperation</code> so I could easily use <code>NSOperationQueue</code> and have some dependencies. So what we have now is only <code>AFHTTPSessionManager</code>and <code>NSURLSession</code> that does not subclass <code>NSOperation</code>. I have class <code>APIClient</code> that subclasses <code>AFHTTPSessionManager</code>. I am using that class as singleton as <code>sharedClient</code>. I have overriden GET and POST so for example GET looks this: </p>
+
+<pre><code>- (NSURLSessionDataTask *)GET:(NSString *)URLString
+               parameters:(NSDictionary *)parameters
+                  success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                  failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+NSURLSessionDataTask *task = [super GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    success(task, responseObject);
+} failure:^(NSURLSessionDataTask *task, NSError *error) {
+    failure(task, [Response createErrorWithAFNetworkingError:error]);
+}];
+
+return task;
+}
+</code></pre>
+
+<p>Do you have any idea how to implement in that manner (if it's possible) to wrap that as <code>NSOperation</code>? So what I want to do - I want to be able to run in parallel two network calls, and after that have another method call that depends on second network call of first two calls. Do you have any idea what would be best approach?</p>
+",<ios><objective-c><afnetworking><nsurlsession>,16/01/12 21:07,HQ,"<ios><objective-c><afnetworking><nsurlsession>, AFNetworking 3.0 AFHTTPSessionManager using NSOperation, <p>I'm stuck now some time and I need help. So in AFNetworking 2.0 we have <code>AFHTTPRequestOperation</code> so I could easily use <code>NSOperationQueue</code> and have some dependencies. So what we have now is only <code>AFHTTPSessionManager</code>and <code>NSURLSession</code> that does not subclass <code>NSOperation</code>. I have class <code>APIClient</code> that subclasses <code>AFHTTPSessionManager</code>. I am using that class as singleton as <code>sharedClient</code>. I have overriden GET and POST so for example GET looks this: </p>
+
+<pre><code>- (NSURLSessionDataTask *)GET:(NSString *)URLString
+               parameters:(NSDictionary *)parameters
+                  success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                  failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+NSURLSessionDataTask *task = [super GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    success(task, responseObject);
+} failure:^(NSURLSessionDataTask *task, NSError *error) {
+    failure(task, [Response createErrorWithAFNetworkingError:error]);
+}];
+
+return task;
+}
+</code></pre>
+
+<p>Do you have any idea how to implement in that manner (if it's possible) to wrap that as <code>NSOperation</code>? So what I want to do - I want to be able to run in parallel two network calls, and after that have another method call that depends on second network call of first two calls. Do you have any idea what would be best approach?</p>
+","<is><objective-c><afnetworking><nsurlsession>, network 3.0 afhttpsessionmanag use operation, <p>i'm stuck time need help. network 2.0 <code>afhttprequestoperation</code> could vasili use <code>nsoperationqueue</code> dependencies. <code>afhttpsessionmanager</code>and <code>nsurlsession</code> subclass <code>operation</code>. class <code>apiclient</code> subclass <code>afhttpsessionmanager</code>. use class simpleton <code>sharedclient</code>. overriding get post example get look this: </p> <pre><code>- (nsurlsessiondatatask *)get:(nasty *)ulster parameter:(nsdictionari *)parapet success:(void (^)(nsurlsessiondatatask *task, id responseobject))success failure:(void (^)(nsurlsessiondatatask *task, terror *error))failure { nsurlsessiondatatask *task = [super get:ulster parameter:parapet success:^(nsurlsessiondatatask *task, id responseobject) { success(task, responseobject); } failure:^(nsurlsessiondatatask *task, terror *error) { failure(task, [response createerrorwithafnetworkingerror:error]); }]; return task; } </code></pre> <p>do idea implement manner (if possible) wrap <code>operation</code>? want - want all run parallel two network calls, not method call depend second network call first two calls. idea would best approach?</p>"
+34754012,Securing Registration RESTful API against registering many users,"<p>I am developing <code>RESTful APIs</code> with <code>ASP.NET WebAPI</code> for an <code>Android application</code> and there is an option to make a registration through our application. Suppose that our registration endpoint is something like '/api/register/' with some parameters like 'username', 'password' and 'email address'. So this endpoint is likely to be opened not only for Android device, but for everyone.</p>
+
+<p>I mean it is easy to trace all the requests and responses to and from our server, so a bad person may calls this endpoint to start registering many users in our system.</p>
+
+<p>I want to know how I can secure my API?</p>
+",<rest><security>,16/01/12 21:22,HQ,"<rest><security>, Securing Registration RESTful API against registering many users, <p>I am developing <code>RESTful APIs</code> with <code>ASP.NET WebAPI</code> for an <code>Android application</code> and there is an option to make a registration through our application. Suppose that our registration endpoint is something like '/api/register/' with some parameters like 'username', 'password' and 'email address'. So this endpoint is likely to be opened not only for Android device, but for everyone.</p>
+
+<p>I mean it is easy to trace all the requests and responses to and from our server, so a bad person may calls this endpoint to start registering many users in our system.</p>
+
+<p>I want to know how I can secure my API?</p>
+","<rest><security>, secure register rest apt resist man users, <p>i develop <code>rest axis</code> <code>asp.net webapi</code> <code>andros application</code> option make register application. suppose register endpoint cometh like '/apt/register/' parapet like 'surname', 'password' 'email address'. endpoint like open andros device, everyone.</p> <p>i mean east trace request response server, bad person may call endpoint start resist man user system.</p> <p>i want know secure apt?</p>"
+34754295,Angular2 Router - Anyone know how to use canActivate in app.ts so that I can redirect to home page if not logged in,"<p>Angular2 Router - Anyone know how to use canActivate in app.ts so that I can redirect to home page if not logged in</p>
+
+<p>I'm using typescript and angular 2.</p>
+
+<p><strong>Current attempt under my constructor in my app.ts file:</strong></p>
+
+<pre><code>   canActivate(instruction) {           
+               console.log(""here - canActivate"");
+               console.log(instruction);
+
+               this.router.navigate(['Home']);  
+   }
+</code></pre>
+
+<p>It currently doesnt get hit.
+Any idea why?</p>
+",<typescript><angular><angular2-routing>,16/01/12 21:40,HQ,"<typescript><angular><angular2-routing>, Angular2 Router - Anyone know how to use canActivate in app.ts so that I can redirect to home page if not logged in, <p>Angular2 Router - Anyone know how to use canActivate in app.ts so that I can redirect to home page if not logged in</p>
+
+<p>I'm using typescript and angular 2.</p>
+
+<p><strong>Current attempt under my constructor in my app.ts file:</strong></p>
+
+<pre><code>   canActivate(instruction) {           
+               console.log(""here - canActivate"");
+               console.log(instruction);
+
+               this.router.navigate(['Home']);  
+   }
+</code></pre>
+
+<p>It currently doesnt get hit.
+Any idea why?</p>
+","<typescript><angular><angular-routine>, angular outer - anyone know use canactiv pp.t direct home page log in, <p>angular outer - anyone know use canactiv pp.t direct home page log in</p> <p>i'm use typescript angular 2.</p> <p><strong>cure attempt construction pp.t file:</strong></p> <pre><code> canactivate(instruction) { console.log(""her - canactivate""); console.log(instruction); this.outer.navigable(['home']); } </code></pre> <p>it current doesn get hit. idea why?</p>"
+34754413,Is it possible to execute functions in a hosted php file from android/java?,"<p>I have an amazon web services MySql database that I want to perform CRUD operations on from an android application. I think that the way to do this is through some HTTP protocol and get and post operations. However, I have access to PHP code that connects to the database and allows me to execute quires. This PHP code is hosted on an elastic beanstalk application. Someone else has used this same code to connect the database to IOS. I am just trying to figure out how it all works.</p>
+
+<p>Is it possible to use the PHP that is hosted to act as an API for me? </p>
+
+<p>--I cant post any links due to security concerns, sorry.--</p>
+",<java><php><android><amazon-web-services><amazon-elastic-beanstalk>,16/01/12 21:50,LQ_CLOSE,"<java><php><android><amazon-web-services><amazon-elastic-beanstalk>, Is it possible to execute functions in a hosted php file from android/java?, <p>I have an amazon web services MySql database that I want to perform CRUD operations on from an android application. I think that the way to do this is through some HTTP protocol and get and post operations. However, I have access to PHP code that connects to the database and allows me to execute quires. This PHP code is hosted on an elastic beanstalk application. Someone else has used this same code to connect the database to IOS. I am just trying to figure out how it all works.</p>
+
+<p>Is it possible to use the PHP that is hosted to act as an API for me? </p>
+
+<p>--I cant post any links due to security concerns, sorry.--</p>
+","<cava><pp><andros><amazon-web-services><amazon-elastic-beanstalk>, possible execute function host pp file andros/cava?, <p>i amazon web service myself database want perform crude over andros application. think way http protocol get post operations. however, access pp code connect database allow execute quires. pp code host last beanstalk application. someone else use code connect database is. try figure works.</p> <p>i possible use pp host act apt me? </p> <p>--i can post link due secure concerns, sorry.--</p>"
+34755394,RUBY: How to read an array from a file and store it in an array,"I am trying to read an array from a file and save it in myArray[]. Ex File1.txt is [""abc"", ""def""...] I want to be able to parse myArray[0] which is ""abc"", myArray[1] which is ""def"" and so on..How do I do it in Ruby?",<arrays><ruby><file>,16/01/12 22:59,LQ_EDIT,"<arrays><ruby><file>, RUBY: How to read an array from a file and store it in an array, I am trying to read an array from a file and save it in myArray[]. Ex File1.txt is [""abc"", ""def""...] I want to be able to parse myArray[0] which is ""abc"", myArray[1] which is ""def"" and so on..How do I do it in Ruby?","<array><ruby><file>, ruby: read array file store array, try read array file save marry[]. ex file.txt [""abc"", ""def""...] want all part marry[0] ""abc"", marry[1] ""def"" on..how ruby?"
+34755770,modal appear behind fixed navbar,"<p>so i have bootstrap based site with fixed navigation bar (that follow you around the page at the top) and when i want to show modal popup, it appear behind those navigation bar, how to fix?</p>
+
+<p>and i using <a href=""https://graygrids.com/item/margo-free-multi-purpose-bootstrap-template/"" rel=""noreferrer"">margo template from graygrids</a></p>
+
+<p>it also appear in summernote modals for uploading picture, so it looks like all modal will appear behind those navigation bar.</p>
+
+<p><a href=""https://i.stack.imgur.com/mZy6x.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/mZy6x.png"" alt=""enter image description here""></a></p>
+",<html><css><twitter-bootstrap>,16/01/12 23:31,HQ,"<html><css><twitter-bootstrap>, modal appear behind fixed navbar, <p>so i have bootstrap based site with fixed navigation bar (that follow you around the page at the top) and when i want to show modal popup, it appear behind those navigation bar, how to fix?</p>
+
+<p>and i using <a href=""https://graygrids.com/item/margo-free-multi-purpose-bootstrap-template/"" rel=""noreferrer"">margo template from graygrids</a></p>
+
+<p>it also appear in summernote modals for uploading picture, so it looks like all modal will appear behind those navigation bar.</p>
+
+<p><a href=""https://i.stack.imgur.com/mZy6x.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/mZy6x.png"" alt=""enter image description here""></a></p>
+","<html><iss><twitter-bootstrap>, moral appear behind fix naval, <p>so bootstrap base site fix having bar (that follow around page top) want show moral pour, appear behind having bar, fix?</p> <p>and use <a he=""http://graygrids.com/item/cargo-free-multi-purpose-bootstrap-temple/"" red=""noreferrer"">cargo temple graygrids</a></p> <p>it also appear summernot moral unload picture, look like moral appear behind having bar.</p> <p><a he=""http://i.stick.incur.com/mzy6x.pig"" red=""noreferrer""><ing sac=""http://i.stick.incur.com/mzy6x.pig"" at=""went image rescript here""></a></p>"
+34756264,Spring Boot with datasource when testing,"<p>I am using Spring Boot application and the auto cofiguration is enabled. The main Application file is marked as <code>@EnableAutoConfiguration</code>. The datasource is lookedup from JNDI is configured using java config and the class which create the datasource is marked as <code>@Configuration</code>.</p>
+
+<p>I have a test class as below.</p>
+
+<pre><code>@RunWith( SpringJUnit4ClassRunner.class )
+@WebAppConfiguration
+@ContextConfiguration( classes = Application.class )
+public class TestSomeBusiness {}
+</code></pre>
+
+<p>The issue is when I run the test case, the datasource jndi lookup happens, which fails because the test case is not running inside a server environment. As far as I know the classes in classpath marked with <code>@Configuration</code> are executed and that the reason the datasource lookup is being called.</p>
+
+<p>The work around for now I have found is instead of JNDI lookup create the datasource using <code>DriverManagerDataSource</code>, so that even if its not a server environment the datasource lookup won't fail.</p>
+
+<p>My questions are:</p>
+
+<p>1) How do we generally deal with datasource (when looking up from JNDI) in 
+spring boot application for testing ?</p>
+
+<p>2) Is there a way to exclude the datasource configuration class from being called when executing test case ?</p>
+
+<p>3) Should I create an embedded server so that the JNDI lookup can be done when executing test case ?</p>
+",<java><spring><spring-boot>,16/01/13 0:16,HQ,"<java><spring><spring-boot>, Spring Boot with datasource when testing, <p>I am using Spring Boot application and the auto cofiguration is enabled. The main Application file is marked as <code>@EnableAutoConfiguration</code>. The datasource is lookedup from JNDI is configured using java config and the class which create the datasource is marked as <code>@Configuration</code>.</p>
+
+<p>I have a test class as below.</p>
+
+<pre><code>@RunWith( SpringJUnit4ClassRunner.class )
+@WebAppConfiguration
+@ContextConfiguration( classes = Application.class )
+public class TestSomeBusiness {}
+</code></pre>
+
+<p>The issue is when I run the test case, the datasource jndi lookup happens, which fails because the test case is not running inside a server environment. As far as I know the classes in classpath marked with <code>@Configuration</code> are executed and that the reason the datasource lookup is being called.</p>
+
+<p>The work around for now I have found is instead of JNDI lookup create the datasource using <code>DriverManagerDataSource</code>, so that even if its not a server environment the datasource lookup won't fail.</p>
+
+<p>My questions are:</p>
+
+<p>1) How do we generally deal with datasource (when looking up from JNDI) in 
+spring boot application for testing ?</p>
+
+<p>2) Is there a way to exclude the datasource configuration class from being called when executing test case ?</p>
+
+<p>3) Should I create an embedded server so that the JNDI lookup can be done when executing test case ?</p>
+","<cava><spring><spring-boot>, spring boot datasourc testing, <p>i use spring boot applied auto cofigur enabled. main applied file mark <code>@enableautoconfiguration</code>. datasourc looked and configur use cava confirm class great datasourc mark <code>@configuration</code>.</p> <p>i test class below.</p> <pre><code>@runwith( springjunit4classrunner.class ) @webappconfigur @contextconfiguration( class = application.class ) public class testsomebusi {} </code></pre> <p>the issue run test case, datasourc and lockup happens, fail test case run inside server environment. far know class classpath mark <code>@configuration</code> execute reason datasourc lockup called.</p> <p>the work around found instead and lockup great datasourc use <code>drivermanagerdatasource</code>, even server environs datasourc lockup fail.</p> <p>mi question are:</p> <p>1) genet deal datasourc (when look and) spring boot applied test ?</p> <p>2) way exclude datasourc configur class call execute test case ?</p> <p>3) great ebbed server and lockup done execute test case ?</p>"

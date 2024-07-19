@@ -1,0 +1,881 @@
+Id,Title,Body,Tags,CreationDate,Y
+34683653,google maps your timeline api,"<p>google maps' new feature your timeline <a href=""https://www.google.com/maps/timeline"">https://www.google.com/maps/timeline</a> seems to be useful to retrieve location history for a given user, my question is
+how to use google maps to retrieve this timeline ?
+it is possible ?
+sorry am new to google world and i have looked for this information on their site but no news.</p>
+
+<p>Thanks !</p>
+",<javascript><google-maps>,16/01/08 18:25,HQ
+34683793,How to generate random number that must contains predefined characters?,"<p>In my application i need to generate random numbers that should contain certain character like capital letter, a number and of certain length.
+It will be an honor if you guys help me out.</p>
+",<php>,16/01/08 18:34,LQ_CLOSE
+34684376,Psycopg2 Python SSL Support is not compiled in,"<p>I am trying to connect to my postgres database using psycopg2 with sslmode='required' param; however, I get the following error</p>
+
+<pre><code>psycopg2.OperationalError: sslmode value ""require"" invalid when SSL support is not compiled in
+</code></pre>
+
+<p>Heres a couple details about my system</p>
+
+<ul>
+<li>Mac OS X El Capitan</li>
+<li>Python 2.7</li>
+<li>Installed psycopg2 via pip</li>
+<li>Installed python via homebrew</li>
+</ul>
+
+<p>Here is what I tried to do to fix the problem</p>
+
+<ul>
+<li><code>brew uninstall python</code></li>
+<li><code>which python</code> still shows python living in <code>/usr/local/bin/python</code>, tried to uninstall this but couldnt. And heard that this is the python that the OS uses and should not be uninstalled anyways</li>
+<li><code>brew install python --with-brewed-openssl --build-from-source</code></li>
+<li><code>pip uninstall psycopg2</code></li>
+<li><code>pip install psycopg2</code></li>
+</ul>
+
+<p>After doing all of this, the exception still happens. I am running this python script via <code>#!/usr/bin/env python</code> Not sure if it matters, but that is a different directory than the one that <code>which python</code> shows</p>
+",<python><postgresql><python-2.7><ssl><psycopg2>,16/01/08 19:13,HQ
+34684796,Understanding Arraylist is not Thread safe through a java example,"I am trying to understand how Arraylist is not thread safe through a java program.Attached is my program.
+
+
+    import java.util.ArrayList;
+    import java.util.List;
+    public  class class1 
+     {
+	  static List ar=new ArrayList(1);
+	  public static void main(String[] args) throws InstantiationException,   
+      IllegalAccessException, ClassNotFoundException, InterruptedException 
+	   {
+          Thread t1= new Thread()
+          {
+        	  public void run()        	  {
+        		  while(true)
+        		  {
+        			
+        			  ar.add(new Object());
+        		  }
+        	  }
+          };
+
+          Thread t2=new Thread()
+          {
+              	  public void run()
+        	  {
+        		  while(true)
+        		  {
+        			  ar=new ArrayList(1);
+        			  ar.add(new Object());
+        			  ar.add(new Object());
+
+        		  }
+        	  }
+          };
+          
+          t1.start();
+          Thread.sleep(100);
+          t2.start();
+          }
+	    }
+
+The error i got is:
+
+      Exception in thread ""Thread-0"" java.lang.ArrayIndexOutOfBoundsException: 2
+	  at java.util.ArrayList.add(Unknown Source)
+	  at class1$1.run(class1.java:22)
+
+
+I understand that the exception is caused by a thread.However,I am not getting a broader picture on how it is actually functioning.Any help would be highly appreciated.
+",<java><multithreading><arraylist><collections>,16/01/08 19:39,LQ_EDIT
+34684846,how to Detect if Keyboard is shown in Xcode UI test,"<p>I am writing a UI text in swift under the new Xcode 7 UI test framework.
+the requirement is to test whether the system keyboard is shown in an app.
+can someone give me a clue on how to do that? thanks</p>
+",<ios><iphone><xcode><swift><uitest>,16/01/08 19:43,HQ
+34685072,react / redux-form: how to return promise from onSubmit?,"<p>I'm trying to wrap my head around <a href=""http://rackt.org/redux/"" rel=""noreferrer"">redux</a>, <a href=""http://rackt.org/redux/docs/basics/UsageWithReact.html"" rel=""noreferrer"">react-redux</a> and <a href=""http://erikras.github.io/redux-form/"" rel=""noreferrer"">redux-form</a>.</p>
+
+<p>I have setup a store and added the reducer from redux-form. My form component looks like this:</p>
+
+<p><strong>LoginForm</strong></p>
+
+<pre><code>import React, {Component, PropTypes} from 'react'
+import { reduxForm } from 'redux-form'
+import { login } from '../../actions/authActions'
+
+const fields = ['username', 'password'];
+
+class LoginForm extends Component {
+    onSubmit (formData, dispatch) {
+        dispatch(login(formData))
+    }
+
+    render() {
+        const {
+            fields: { username, password },
+            handleSubmit,
+            submitting
+            } = this.props;
+
+        return (
+            &lt;form onSubmit={handleSubmit(this.onSubmit)}&gt;
+                &lt;input type=""username"" placeholder=""Username / Email address"" {...username} /&gt;
+                &lt;input type=""password"" placeholder=""Password"" {...password} /&gt;
+                &lt;input type=""submit"" disabled={submitting} value=""Login"" /&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+LoginForm.propTypes = {
+    fields: PropTypes.object.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    submitting: PropTypes.bool.isRequired
+}
+
+export default reduxForm({
+    form: 'login',
+    fields
+})(LoginForm)
+</code></pre>
+
+<p>This works as expected, in <a href=""https://github.com/gaearon/redux-devtools"" rel=""noreferrer"">redux DevTools</a> I can see how the store is updated on form input and on submitting the form the <code>login</code> action creator dispatches the login actions.</p>
+
+<p>I added the <a href=""https://github.com/gaearon/redux-thunk"" rel=""noreferrer"">redux-thunk</a> middleware to the store and setup the action creator(s) for logging in as described in the <a href=""http://rackt.org/redux/docs/advanced/AsyncActions.html"" rel=""noreferrer"">redux docs for Async Actions</a>:</p>
+
+<p><strong>authActions.js</strong></p>
+
+<pre><code>import ApiClient from '../apiClient'
+
+const apiClient = new ApiClient()
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+function requestLogin(credentials) {
+    return {
+        type: LOGIN_REQUEST,
+        credentials
+    }
+}
+
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+function loginSuccess(authToken) {
+    return {
+        type: LOGIN_SUCCESS,
+        authToken
+    }
+}
+
+export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+function loginFailure(error) {
+    return {
+        type: LOGIN_FAILURE,
+        error
+    }
+}
+
+// thunk action creator returns a function
+export function login(credentials) {
+    return dispatch =&gt; {
+        // update app state: requesting login
+        dispatch(requestLogin(credentials))
+
+        // try to log in
+        apiClient.login(credentials)
+            .then(authToken =&gt; dispatch(loginSuccess(authToken)))
+            .catch(error =&gt; dispatch(loginFailure(error)))
+    }
+}
+</code></pre>
+
+<p>Again, in redux DevTools I can see that this works as expected. When <code>dispatch(login(formData))</code> is called in <code>onSubmit</code> in the LoginForm, first the <code>LOGIN_REQUEST</code> action is dispatched, followed by <code>LOGIN_SUCCESS</code> or <code>LOGIN_FAILURE</code>. <code>LOGIN_REQUEST</code> will add a property <code>state.auth.pending = true</code> to the store, <code>LOGIN_SUCCESS</code> and <code>LOGIN_FAILURE</code> will remove this property. (I know this might me something to use <a href=""https://github.com/rackt/reselect"" rel=""noreferrer"">reselect</a> for, but for now I want to keep it simple.</p>
+
+<p>Now, in the redux-form docs I read that I can return a promise from <code>onSubmit</code> to update the form state (<code>submitting</code>, <code>error</code>). But I'm not sure what's the correct way to do this. <code>dispatch(login(formData))</code> returns <code>undefined</code>.</p>
+
+<p>I could exchange the <code>state.auth.pending</code> flag in the store with a variable like <code>state.auth.status</code> with the values <em>requested</em>, <em>success</em> and <em>failure</em> (and again, I could probably use reselect or something alike for this).</p>
+
+<p>I could then subscribe to the store in <code>onSubmit</code> and handle changes to <code>state.auth.status</code> like this:</p>
+
+<pre><code>// ...
+
+class LoginForm extends Component {
+    constructor (props) {
+        super(props)
+        this.onSubmit = this.onSubmit.bind(this)
+    }
+    onSubmit (formData, dispatch) {
+        const { store } = this.context
+        return new Promise((resolve, reject) =&gt; {
+            const unsubscribe = store.subscribe(() =&gt; {
+                const state = store.getState()
+                const status = state.auth.status
+
+                if (status === 'success' || status === 'failure') {
+                    unsubscribe()
+                    status === 'success' ? resolve() : reject(state.auth.error)
+                }
+            })
+            dispatch(login(formData))
+        }).bind(this)
+    }
+
+    // ...
+}
+// ...
+LoginForm.contextTypes = {
+    store: PropTypes.object.isRequired
+}
+
+// ...
+</code></pre>
+
+<p>However, this solution doesn't feel good and I'm not sure if it will always work as expected when the app grows and more actions might be dispatched from other sources.</p>
+
+<p>Another solution I have seen is moving the api call (which returns a promise) to <code>onSubmit</code>, but I would like to keep it seperated from the React component.</p>
+
+<p>Any advice on this?</p>
+",<javascript><forms><reactjs><redux><redux-form>,16/01/08 19:56,HQ
+34685099,Python A part of code is not being exicuted,"Hi I have this class which gives me output of ""I am in level 1"" but doesn't out ""i am in level 2"" so i assume get_full_name(self) part isn't being executed any help ?
+
+    class UserTest(TestCase):
+    
+    user = UserFactory()
+
+    def test_user_login_client(self):
+        self.client.login(username=self.user.email, password=self.user.password)
+    print ""i am in level 1""
+
+    def get_full_name(self):
+        print ""i am in level 2""
+        full_name = user.full_name()
+
+        return full_name
+
+ ",<python><testcase>,16/01/08 19:58,LQ_EDIT
+34685210,Can I delete an item using DynamoDB Mapper without loading it first?,"<p>I am using DynamoDB mapper for deleting an item but have to make sure it exists before deleting it?</p>
+
+<p>So I'm currently doing</p>
+
+<pre><code>public void delete(final String hashKey, final Long rangeKey) {
+    final Object obj = mapper.load(Object.class, hashKey, rangeKey);
+    if (obj != null) {
+        mapper.delete(obj);
+    } 
+} 
+</code></pre>
+
+<p>If there a way to delete an item without loading it first? I want it to silently return if the item was not found</p>
+",<amazon-dynamodb>,16/01/08 20:06,HQ
+34685928,Token null Sign-in Google Account,"<p>I am following the example of google to get the token but without success.
+Always fails to acquire the token.
+This is latest way Google displays on your page developers
+I believe the error is not in my code</p>
+
+<pre><code>  private String CLIENTE_ID = ""...apps.googleusercontent.com"";
+
+
+
+GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(CLIENTE_ID)
+            .requestEmail()
+            .build();
+
+// Build GoogleAPIClient with the Google Sign-In API and the above options.
+mGoogleApiClient = new GoogleApiClient.Builder(this)
+            .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+            .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+            .build();
+
+imgBGoogle.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+
+            Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+            startActivityForResult(signInIntent, 9002);
+        }
+});
+
+
+
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == 9002) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+
+            handleSignInResult(result, data);
+
+        }
+
+if (requestCode == 9002) {
+            // [START get_id_token]
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            Log.d(TAG, ""onActivityResult:GET_TOKEN:success:"" + result.getStatus().isSuccess());
+
+            if (result.isSuccess()) {
+                GoogleSignInAccount acct = result.getSignInAccount();
+                String idToken = acct.getIdToken();
+
+                // Show signed-in UI.
+                Log.d(TAG, ""idToken:"" + idToken);
+                Log.d(TAG, ""\n "");
+
+                // TODO(user): send token to server and validate server-side
+            } else {
+                // Show signed-out UI.
+                Log.d(TAG, ""idToken: fail"");
+
+            }
+            // [END get_id_token]
+        }
+
+
+
+}
+
+private void handleSignInResult(GoogleSignInResult result, Intent data) {
+
+        getToken1(data);
+        getToken2(result);
+
+        String BOOKS_API_SCOPE = ""https://www.googleapis.com/auth/books"";
+        String GPLUS_SCOPE = ""https://www.googleapis.com/auth/plus.login"";
+        String mScopes = ""oauth2:"" + BOOKS_API_SCOPE + "" "" + GPLUS_SCOPE;
+
+}
+
+
+void getToken1(Intent data){
+
+    GoogleSignInResult a = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+
+    if (a.isSuccess()) {
+
+        Log.d(TAG, ""TOKEN 1: "" + a.getSignInAccount().getIdToken());
+        Log.d(TAG, ""DISPLAY NAME 1: "" +a.getSignInAccount().getDisplayName());
+        Log.d(TAG, ""ID 1: "" + a.getSignInAccount().getId()+""\n "");
+
+    }else{
+        Log.d(TAG, ""ID 1: falhou""+""\n "");
+    }
+
+}
+
+void getToken2(GoogleSignInResult result){
+
+        if (result.isSuccess()) {
+
+            GoogleSignInAccount acct = result.getSignInAccount();
+
+            Log.d(TAG, ""TOKEN 2: "" + acct.getIdToken());
+            Log.d(TAG, ""DISPLAY NAME 2: "" + acct.getDisplayName());
+            Log.d(TAG, ""ID 2: "" + acct.getId()+""\n "");
+
+        }else{
+            Log.d(TAG, ""ID 2: falhou""+""\n "");
+        }
+
+}
+</code></pre>
+
+<p><strong>how can I get the token?
+can anyone help me?</strong></p>
+
+<p><a href=""https://i.stack.imgur.com/Uj0LO.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/Uj0LO.png"" alt=""enter image description here""></a></p>
+
+<p><a href=""https://i.stack.imgur.com/6keg0.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/6keg0.png"" alt=""enter image description here""></a></p>
+
+<p><a href=""https://i.stack.imgur.com/csq4D.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/csq4D.png"" alt=""enter image description here""></a></p>
+
+<p><a href=""https://i.stack.imgur.com/p2zSX.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/p2zSX.png"" alt=""enter image description here""></a></p>
+",<android><google-signin><googlesigninaccount>,16/01/08 20:57,HQ
+34685947,Adjust Single Value within Tensor -- TensorFlow,"<p>I feel embarrassed asking this, but how do you adjust a single value within a tensor? Suppose you want to add '1' to only one value within your tensor?</p>
+
+<p>Doing it by indexing doesn't work:</p>
+
+<pre><code>TypeError: 'Tensor' object does not support item assignment
+</code></pre>
+
+<p>One approach would be to build an identically shaped tensor of 0's. And then adjusting a 1 at the position you want. Then you would add the two tensors together. Again this runs into the same problem as before.</p>
+
+<p>I've read through the API docs several times and can't seem to figure out how to do this. Thanks in advance! </p>
+",<indexing><addition><tensorflow>,16/01/08 20:58,HQ
+34686287,Automating CSV file merging and cleaning preferably by using Batch or Powershell,"I'm not a code guy and have spent whole day trying to get this done without success, hoping I can get some help from the experts. 
+
+I have a folder called Vehicles, within which are two sub-folders - Automobiles and Trucks. Each of sub-folders contain two CSV files which have identical (to that sub-folder) headers/structure.
+What I'm trying to accomplish:
+
+1. Take the two CSV files in Automobiles folder merge them without duplicating headers and name the merged file as Automobiles.csv
+2. Delete all rows in Automobiles.csv where 6th column (header is Fuel_Type) is ""Diesel"" (without the quotes) then move the file from sub-folder to main Vehicles folder.
+3. Take the two CSV files in Trucks folder merge them without duplicating headers and name merge file as Trucks.csv
+3. For merged file in trucks folder remove all rows where 6th column (header is ""Fuel_Type"") is ""Diesel"" (without the quotes) then move the file from sub-folder to main Vehicles folder.
+Obviously if someone can help with 1 and 2 I can manipulate it for 3 and 4.
+5. BONUS POINTS :) take the Automobiles.csv and Trucks.csv files and create Vehicles.xls file with Automobiles and Trucks tabs.
+
+Few details - files are pretty large, each CSV can up to 350 thousand rows x 150 columns and be 200 MB in size each. All the Batch scripts that I tried to put together removing headers seemed to freeze with larger files.
+
+Due to user permissions  on work computers would strongly prefer to use something that is native to Windows7/8 and doesn't require additional software, but would consider other options if nothing native is available.
+
+Thanks in advance!
+
+",<csv><powershell><batch-file><merge>,16/01/08 21:22,LQ_EDIT
+34686411,"C language, How can I Convert Number to String?","<p>if I've a large number stored in 10 bytes of memory, how can I convert this number to string? like How do C %d converts number to string?</p>
+
+<p>I'm not looking for some library or function, I wan't to know how to convert large byte numbers to string, that is what i need to know.</p>
+",<c><string><numbers>,16/01/08 21:30,LQ_CLOSE
+34687645,can you assign initial value to global static variable in C?,"<p>I have a global variable ""count"". All I want to do is increment it each time the loop runs. Is there a potential problem with initializing static count as 0? How is this works in C?</p>
+
+<pre><code>static unsigned short count = 0;
+while(1)
+{
+    count++;
+    // do something
+}
+</code></pre>
+",<c>,16/01/08 23:14,LQ_CLOSE
+34687762,Why does my Android string display in all caps in my app?,"<p>I want to display Vo for initial velocity, and it displays fine in MOST places, but on all of my circle buttons, it displays in all caps, so it looks like ""VO"" instead of ""Vo"".  </p>
+
+<p>Is there a way to fix this?  Is it a weird button interaction?</p>
+
+<p>Thanks!</p>
+",<java><android><xml><android-layout>,16/01/08 23:24,LQ_CLOSE
+34688239,C# - How to shorten a string,"<p>I have a piece of code and I need to shorten a string that I have in a variable. I was wondering how could I do this. My code is below.</p>
+
+<pre><code>string test = Console.ReadLine();
+if(string.Length &gt; 5)
+{
+    //shorten string
+}
+Console.WriteLine(test);
+Console.ReadLine();
+</code></pre>
+",<c#><string>,16/01/09 0:17,LQ_CLOSE
+34688399,"Can someone provide an example for this statement in java ""a collection is eagerly constructed ""?","<p>Collection is constructed when we add elements to it. Isn't it ?</p>
+",<java><java-8>,16/01/09 0:37,LQ_CLOSE
+34689254,what's the difference between factory and service?,"<p>I am trying play with Angular factory and service. Anyone could tell me the difference between those two?</p>
+
+<p>Does factory always returns a singleton, but service an instance?</p>
+",<angularjs>,16/01/09 2:59,LQ_CLOSE
+34689559,Perl: select elements of array using array of integers,"Is it possible to select specifics elements of an array using an array of integers(indexes). I know that this can be done easily with a loop but was hoping for a one line solution.  
+
+Example/attempts  
+
+@arr = qw(a b c d e f);  
+@arr2 = qw( 0 2 4);  
+
+Rather than  
+@arr3 = @arr[0,2,4];  
+
+use @arr2 as set of integers that you wan't selected  
+@arr3 = @arr[@arr2]; #won't work as ""@arr2"" returns number of elements  
+@arr3 = @arr[join(','@arr2)] #won't work as join returns a string  
+
+",<arrays><perl><subset>,16/01/09 4:08,LQ_EDIT
+34691353,why text file created is blank?,"My code is
+
+    #include<iostream.h>
+    #include<conio.h>
+    #include<fstream.h>
+    #include<stdio.h>
+    struct info
+    {
+    char product_name[100], Seller_Name[100], DOP[30];
+    int  price;
+    }data;
+
+    void main()
+    {
+    ofstream fout(""code.txt"",ios::out);
+    fout<< ""ofstream fout(\""data.dat\"",ios::binary|ios::out);\n""  ;
+    while(1){
+    cout <<  ""Enter Product Name: "";
+    gets(data.product_name);
+	cout<<""Enter Seller Name: "";
+  	gets(data.Seller_Name);
+   	cout<<""Enter Date of Purchase: "" ;
+	gets(data.DOP);
+    cout<<""Enter Price:"" ;
+	cin>>data.price;
+    fout<<""strcpy(data.product_name,""<<data.product_name<<"");"";
+    fout<<""\nstrcpy(data.Seller_Name,""<<data.Seller_Name<<"");"";
+    fout<<""\nstrcpy(data.DOP,""<<data.DOP<<"");"";
+    fout<<""\nstrcpy(data.price,""<<data.price<<"");"";
+	fout<<""fout.write((char*)&data,sizeof(info));\n"";
+    }}
+
+I am developing a software and am making sample data for it. So I made this application so I just have to copy statements and need not have to write it again. It worked the first time but now it is not working... Thankyou...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+",<c++><file-handling>,16/01/09 8:28,LQ_EDIT
+34692506,Dispalying ads on browsers protected by Adblock,"<p>I understand that people don't want to see ads but as a developer I would like to make money from ads on my site.
+How to add an ads to my site so Adblock will not block my content ?</p>
+",<javascript><html><browser><adblock>,16/01/09 10:47,LQ_CLOSE
+34692843,"difference between ""->"" and ""."" operator in C language (struct)","<p>I' just got started in learning struct in c language.
+i Thought ""->"" and ""."" were equivalent but i get the following error when using ""->"" instead of ""."":
+<em>invalid type argument of '->' (have 'struct item')</em></p>
+",<c><struct>,16/01/09 11:23,LQ_CLOSE
+34693023,Binary file output for fixed fixed length string vb.net,"I am trying to write a binary file which also has a string which i want to have as fixed length in vb.net. I tried lset, padleft in debug, the value returned is correct but in the output file, the first character before the string is the fixed length i specified. why does the binary writer write the additional char ?",<vb.net><binaryfiles>,16/01/09 11:43,LQ_EDIT
+34695130,"<input type=""date"" name=""purchasedDate"" id=""purchasedDate""> not working in Internet Explorer","<p>I am getting issue with the input tag. It works fine in all major browsers except Internet Explorer.</p>
+
+<p>My version of IE is 8.</p>
+
+<pre><code>&lt;input type=""date"" name=""purchasedDate"" id=""purchasedDate""&gt;
+</code></pre>
+
+<p>I have tried some scripts too like polyfills but still the issue is not solved.</p>
+",<javascript><jquery><html><cross-browser>,16/01/09 15:10,LQ_CLOSE
+34695134,js pass object to callback function,"<p>I would like to reference the item object in the geocoder callback function.
+Item always refers to the state of the last $each iteration, if I use the code below. I assume this is because the callback is run after the $each loop finishes. I would therefore need to pass the item object to the geocoder. How can I do that?</p>
+
+<pre><code> $.each(results.data, function(index) {
+        var item = results.data[index];
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            item.lat = results[0].geometry.location.lat();
+            item.lng = results[0].geometry.location.lng();
+        });
+    });
+</code></pre>
+",<javascript><callback>,16/01/09 15:10,LQ_CLOSE
+34695303,Free() bifore return 0;,"What happen if I end the execution by passing return 0; after using a malloc and without freeing the part of memory allocated? 
+
+    int * var;
+    var = (int *)malloc(sizeof(int)) ;
+    free(var) ;
+    return 0;",<c>,16/01/09 15:24,LQ_EDIT
+34695544,is there a way to make a custom window? not box like but custom shape [python],"<p><a href=""http://i.stack.imgur.com/HrfwH.jpg"" rel=""nofollow"">like this</a></p>
+
+<p>the green lady on the screen. that's how i want to make my program look like. how do i make that happen in python? just so you know i am new to python and i know only the basics of it.and i would love an explaining of how i make text appear next to her and stuff like that. would appreciate step by step + explaining.i have looked a bit on the internet but i couldn't find nothing like this question before. thanks</p>
+",<python><graphics>,16/01/09 15:49,LQ_CLOSE
+34695999,why <li> is kept open without a </li> html nested lists,"<p>I posted a question and everyone said things that i was not really asking 
+I will try to be more clear next time.</p>
+
+<p>I was told that when nesting lists you must leave a <code>&lt;li&gt;</code> without a <code>&lt;/li&gt;</code></p>
+
+<p>The &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; point to the tags.</p>
+
+<p>That is what i need someone to explain... I was told this is necessary and i can't find a resource that tells me why.</p>
+
+<pre><code>&lt;ul&gt;
+&lt;li&gt; Louis &lt;/li&gt;
+&lt;li&gt; Louis &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+&lt;ol&gt;
+&lt;li&gt; Louis &lt;/li&gt;
+&lt;li&gt; Louis &lt;/li&gt;
+&lt;ul&gt; 
+&lt;li&gt; Louis &lt;/li&gt;
+&lt;li&gt; Louis &lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt; Louis &lt;/li&gt;
+ &lt;li&gt; Louis &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/ul&gt;
+&lt;/ol&gt;
+&lt;/li&gt; &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+&lt;/ul&gt;
+</code></pre>
+",<html>,16/01/09 16:33,LQ_CLOSE
+34696301,How did a vector became a matrix?,"So i found this code on the internet but as i'm not that familiar with C++ i found difficult to understand this: how does a vector suddenly becomes a matrix?
+thanks! :)
+
+    int main(){
+ 
+    int n;
+    string v[MAX];
+     
+    cin >> n; 
+ 
+    for(int i=0;i<n;i++) 
+     cin >> v[i];
+  
+    for(int i=0;i<n-1;i++){
+        int y1,y2;
+        y1=v[i].size();
+        y2=v[i+1].size();
+        for(int j=0; j<y1 && j<y2 ;j++)
+            if(v[i][j]!=v[i+1][j]){  // here <-
+                int x1,x2;
+                x1=(int) v[i][j]-'A';
+                x2=(int) v[i+1][j] - 'A';
+                m[x1][0]=true; 
+                m[x2][0]=true;
+                m[x1][x2+1]=true; 
+                break;
+            }
+     }",<c++>,16/01/09 16:59,LQ_EDIT
+34698074,Securing a PHP Server from a Hijacker,"<p><strong>BACKGROUND:</strong> I'm implementing a PHP Server without HTTPS/SSL.  On it, I want to authenticate that the user making calls to server is valid assuming that the communication between the app and the server is being watched by a hijacker (hacker with a network sniffer).  I further assume that the hijacker is an app owner trying to figure out how the app communicates with the server in order to hack my system.  I will have no control on who is an app owner.</p>
+
+<p>What I have implemented so far is that the app needs to start a session before they can any work against the server.  To do this the app first sends a request to the server with a randomly generated code, and an authorization number, and the server responds with a security token.  The authorization number is based on the code and some other secret information in the app.  On subsequent calls the app regenerates the code and uses the token plus other secret information recalculate an authorization number (it never retransmits the token to the server either).  This is how each call is validated.</p>
+
+<p>It's set up so that the calling parameters of one call cannot be reused the next time, so that if a hijacker can see the message used within a session, they cannot do anything with it.  Using them simply indicates that the call is ""not authorized"".  I'm 99% sure I've plugged all the related holes to the session communication, such that the hijacker cannot invade my environment.</p>
+
+<p><strong>PROBLEM:</strong> The hijacker will see the original session request, reuse those parameters to get a new session and use them to eventually figure out how the session calls the work.  </p>
+
+<p><strong>QUESTION:</strong> What strategy would you employ to validate that it is only my app talking to the server during the initial session request and not a hijacker impersonating my app in order to start a session?  </p>
+
+<p>Note: Saving the session start parameters is unrealistic.  One idea I have is to embed the ""GMT time + N seconds"" into the randomly generated code then test to see if the server's GMT &lt; app's GMT+N; this way the randomly generated code become invalid within N seconds.</p>
+",<php><security><session>,16/01/09 19:41,LQ_CLOSE
+34698755,How to write text file in a specific path in android device,"I am using visual studio to crate cordova mobile application (Cordova-plugin-file).
+How to write text file in a specific path in android device, 
+to be able get it from a fixed location.",<android><file><cordova><mobile>,16/01/09 20:48,LQ_EDIT
+34698767,"Why i cannot use background-image: url(""omg/1.jpg""); to using local images？","The code is like below. I have already put the image ""1.jpg"" into that file
+
+name ""img"". But in my website, this image doesn't show up. However, i found 
+
+that if i use the images from Internet, it will show up. Could someone 
+
+figure out the problem? Thanks.
+
+<!-- begin snippet: js hide: false -->
+
+<!-- language: lang-css -->
+
+    #banner
+    {
+      background-image: url(""img/1.jpg"");
+    }
+
+<!-- end snippet -->
+",<css>,16/01/09 20:50,LQ_EDIT
+34698833,output of the functions based on nodes,"im new at coding cpp and i dont undertstand how we can get the following outputs about the nodes subject? can anyone help thanks in advance :)
+
+the output of the following program is
+
+  10 3 22 33
+
+  5 7 6
+
+  3 22 33
+
+  2 4 6 
+
+here is the code:
+
+    void display(Node *head){
+
+      if(head == NULL)
+         cout<<""head is NULL""<<endl;
+   
+      for(Node *tmp=head; tmp!=NULL; tmp = tmp->next )
+         cout<<"" ""<<tmp->data;
+         cout<<endl;
+    }
+
+    Node *func1(int value1, int value2, int value3){
+      Node *head = new Node;
+      head->next = new Node;
+      head->next->next = new Node;
+      head->next->next->next = NULL;
+      head->data = value1;
+      head->next->data = value2;
+      head->next->next->data = value3;
+      return head;  
+    }
+
+    void func2(Node *head1, Node *head2, Node *head3){
+      head1->next = head3;
+      head1->next->data =3;
+      head1= head2;
+      head1->data = 5;
+      head1->next->data = 7;
+      head2 = head1;
+      head3 = head1;
+    }
+
+     void func3(Node *head){
+        for(; head!= NULL; head = head->next)
+            head->data *=2;
+    }
+
+     int main(){
+
+     Node *head1 = func1(10,20,30);
+     Node *head2 = func1(2,4,6);
+     Node *head3 = func1(11,22,33);
+     
+     func2(head1, head2, head3);
+     display(head1);
+     display(head2);
+     display(head3);
+    
+     head1 = func1(1,2,3);
+     func3(head1);
+     display(head1);
+     return 0;
+     }
+    ",<c++><output><nodes>,16/01/09 20:56,LQ_EDIT
+34699186,uniq -u -i -d command implement in linux,"I tried something but Resus mainly not know how to read the file line by line to compare lines between them, I get the error segmentation fault ( core dumped ).
+This is my function for uniq -u command
+    
+    void uniq_u()
+    {
+    //  strcpy(file_name1,params[2]);
+    FILE *file = fopen ( file_name1, ""r"" );
+    if ( file != NULL )
+    {
+      
+      fgets(prev, sizeof prev,file);
+      while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
+      {
+	 if(!strcmp(line, prev))
+		
+         	printf(""%s"", prev);
+	 else 
+		    strcpy(prev,line);
+      }
+      fclose ( file );
+    }
+    }
+Thanks!",<c><linux><uniq>,16/01/09 21:33,LQ_EDIT
+34699953,I need help programming a Fahrenheit to Celsius Converter,"I don't know what I'm doing wrong. ive looked but I cant find the answer. im trying to have a text box, and a button next to it. When you click the button, I want it to convert it to fahrenheit or celsius and display it in another text box. I only have the fahrenheit to celsius done and I can just copy the code over when Im done
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center>
+    <h1> Fahrenheit to Celsius Converter</h1> 
+    <font size=""+1"" > 
+    <p> Fahrenheit to Celsius</p>
+    <input type=""text"" name=""ftc"" id=""ftc""/> <button type=""button"" onclick=""fahrenheitCelsius()"" /> Click to Convert </button>
+    <p>Celsius to Fahrenheit </p>
+    <input type=""text"" name=""ctf"" id=""ctf"" /> <button type=""button"" onclick=""celsiusFahrenheit()"" /> Click to Convert </button>
+    <p> Answer </p>
+    <input type=""text"" name=""answer box"" id=""answer/> 
+    <script>
+    
+     function fahrenheitCelsius() {  
+        var fsc = parseFloat(document.getElementById('ftc').value);
+        var cfc = (fsc-32) * (5/9);
+        document.getElementById('answer box').value = cfc;
+        return false; 
+        document.writeIn(<input type=""text"" name=""answer box"" id=""answer""/>)
+        }
+     
+    </script>
+    </font>
+    </head>
+    </html>",<javascript>,16/01/09 23:02,LQ_EDIT
+34700150,"Stadard ""veiw contact"" icon",I'm developing a texting app and would like to create a view contact button. Anyone know what the standard menu icon for such an action is?,<android><icons><contacts>,16/01/09 23:25,LQ_EDIT
+34700207,Adding variables to dictionary,"<p>I have a empty dictionary</p>
+
+<pre><code>d = {}
+</code></pre>
+
+<p>I have these variables:</p>
+
+<pre><code>key = ""foo""
+value = 1
+</code></pre>
+
+<p>I want to add them to dictionary as <code>key</code> and <code>value</code> variables because they can be change in a for loop. What should be the proper syntax?</p>
+",<python>,16/01/09 23:32,LQ_CLOSE
+34701564,Input string was not in a correct format when converting value from database into integer C#,"I have a problem in converting string from database to integer. When I look at Locals, that variable show the value but notification still says that there is something wrong. Anyone can help me, please ?
+
+   
+
+    OleDbConnection kon = new OleDbConnection(koneksi);
+    OleDbCommand command1 = kon.CreateCommand();
+                
+    kon.Open();
+    string selectkoordgaris = ""select * from koordinatgaris where namakamera = '"" + PilihKameraComboBox.Text + ""'"";
+    command1.CommandText = selectkoordgaris;
+    OleDbDataReader bacakoordgaris = command1.ExecuteReader();   
+         
+    while (bacakoordgaris.Read())
+      {        
+        var templateGaris = Directory.GetFiles(@""D:\Dokumen\Alfon\TA Alfon\CobaFitur\Template\Garis\"" + bacakoord[""namakamera""].ToString());
+                
+    foreach (var fileGaris in templateGaris)
+     {
+        counterbanyakgaris++;
+        Image<Bgr, byte> garis = new Image<Bgr, byte>(fileGaris);
+                
+        for (cntgaris = 0; cntgaris < banyakgaris; cntgaris++)
+         {
+          int x1garis = int.Parse(bacakoordgaris[""x"" + ((cntgaris * 4) + 1) + ""garis""].ToString()); //here the error. It says Input string was not in a correct format
+          int x2garis = int.Parse(bacakoordgaris[""x"" + ((cntgaris * 4) + 2) + ""garis""].ToString());
+          int y1garis = int.Parse(bacakoordgaris[""y"" + ((cntgaris * 4) + 1) + ""garis""].ToString());
+          int y2garis = int.Parse(bacakoordgaris[""y"" + ((cntgaris * 4) + 2) + ""garis""].ToString());
+          int y3garis = int.Parse(bacakoordgaris[""y"" + ((cntgaris * 4) + 3) + ""garis""].ToString());
+                
+          int gariswidth = x2garis - x1garis;
+          int garisheight = y3garis - y2garis;
+                }
+            }
+        }",<c#><.net>,16/01/10 2:59,LQ_EDIT
+34701855,"ArrayList project at college, some questions","So hey guys I have some things to ask,
+
+I have to program my first, call it project, in my first semester. It's about programming an appointment calendar (don't really know how it's called in english, like a scheduleish thing :P). Until now we've learned the major stuff (for, if, etc.), how to connect classes, create a constructor and about objects. So we have to program this schedule pretty easily with ArrayList and it should delete, edit, create, list the entries. You have to just type in a date and an entry,
+f. e.: 10.01.16   ""example"".
+
+It doesn't even have to sort it after the date, but I'm really struggling at some points. 
+
+ 1. I listened to some dudes in my class and one said, he would have
+    wrote 9 classes. I couldn't even think of that, why so many?
+ 2. Also how do I save the entries? Just with examplelist.add and it
+    just saves like that?
+ 3. Why do I need a getter and setter, if I could just wrote that stuff
+    in my constructor?
+ 4. How do I make it look nice, just a println/printf(""\n"") in a loop
+    after each entry?
+
+First of all, thanks for reading this and spending time for helping a lowbie, I appreciate everything you have to offer. I will go to bed now, spending my whole day tomorrow to write that. Most likely I will have some more questions.
+
+",<java><oop><arraylist>,16/01/10 3:48,LQ_EDIT
+34701944,triangle.java Uses or overrides a deprecated API,"Finding area and perimeter of triangle of a triangle using stream in java:
+On Compiling the below program shows 
+Note: triangle.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Please find what error in this program!
+
+    import java.io.*;
+    class triangle
+    {
+    double s,h,area,perimeter;
+    void get()throws IOException
+    {
+    System.out.println(""Enter value of side of an equilateral triangle"");
+    DataInputStream dis=new DataInputStream(System.in);
+    s=Double.parseDouble(dis.readLine());
+    System.out.println(""Enter height"");
+    h=Double.parseDouble(dis.readLine());
+    }
+    void area()
+    {
+    area=0.5*s*h;
+    }
+    void perimeter()
+    {
+    perimeter=3*s;
+    }
+    void display()
+    {
+    System.out.println(""Area=""+area);
+    System.out.println(""Perimeter=""+perimeter);
+    }
+    public static void main(String args[])throws IOException
+    {
+    triangle t=new triangle();
+    t.get();
+    t.area();
+    t.perimeter();
+    t.display();
+    }
+    }",<java>,16/01/10 4:05,LQ_EDIT
+34702092,Simple algorithms that can be implemented on a FPGA,"<p>I am new to FPGA programming and was planning on implementing several algorithms that may become useful in future to me when I am doing my projects. So, I wanted to ask for suggestions on things I could implement on FPGA (specially some interesting algorithms) ordered in difficulty level. Thank you!</p>
+",<algorithm><fpga>,16/01/10 4:34,LQ_CLOSE

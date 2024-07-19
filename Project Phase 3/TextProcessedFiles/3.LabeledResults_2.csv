@@ -1,0 +1,1680 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+48962106,add unique constraint in room database to multiple column,"I have one entity in room
+@Entity(foreignKeys ={
+        @ForeignKey(entity = Label.class, parentColumns = ""_id"", childColumns = ""labelId"", onDelete = CASCADE),
+        @ForeignKey(entity = Task.class, parentColumns = ""_id"", childColumns = ""taskId"", onDelete = CASCADE)
+})
+public class LabelOfTask extends Data{
+    @ColumnInfo(name = ""labelId"")
+    private Integer labelId;
+    @ColumnInfo(name = ""taskId"")
+    private Integer taskId;
+}
+sql syntax of this entity is as below
+CREATE TABLE `LabelOfTask` (
+    `_id` INTEGER PRIMARY KEY AUTOINCREMENT,
+     `labelId` INTEGER,
+     `taskId` INTEGER,
+     FOREIGN KEY(`labelId`) REFERENCES `Label`(`_id`) ON UPDATE NO ACTION ON DELETE CASCADE ,
+     FOREIGN KEY(`taskId`) REFERENCES `Task`(`_id`) ON UPDATE NO ACTION ON DELETE CASCADE
+ );
+but what change or annotation I need to add in entity class if I want to append below constraint to the auto generated sql schema of the table
+unique (labelId, taskId)
+Ultimately I want to make combination of labelId and taskId unique in a table(or entity of room) using room library.
+",<android><sqlite><database-design><android-room><android-architecture-components>,1070,0,18,1085,1,9,15,79,50747,0.0,26,5,65,2018-02-24 11:03,2018-02-24 12:16,2018-02-24 12:16,0.0,0.0,Basic,9
+60420940,"How to fix error ""Error: Database is uninitialized and superuser password is not specified.""","Hello i get this error after i run docker-compose build up
+But i get this error
+postgres_1 | Error: Database is uninitialized and superuser password is not specified.
+Here is a snap shot of the error!
+And down below is my docker-compose.yml file
+version: '3.6'
+Server.js file
+services: 
+  smart-brain-api:
+    container_name: backend
+    build: ./
+    command: npm start
+    working_dir: /usr/src/smart-brain-api
+    ports:
+      - &quot;3000:3000&quot;
+    volumes:
+      - ./:/usr/src/smart-brain-api
+  #PostGres Database
+  postgres:
+    image: postgres
+    ports:
+      - &quot;5432:5432&quot;
+",<postgresql><docker><docker-compose>,597,1,17,1299,1,12,22,41,74498,0.0,13,7,64,2020-02-26 19:12,2020-02-26 23:54,2020-02-26 23:54,0.0,0.0,Basic,14
+51294268,"pip install mysqlclient returns ""fatal error C1083: Cannot open file: 'mysql.h': No such file or directory","Here is this issue:
+I attempt to install mysqlclient like so
+C:\Users\amccommon349&gt;pip install mysqlclient
+Collecting mysqlclient
+  Using cached https://files.pythonhosted.org/packages/ec/fd/83329b9d3e14f7344d1
+cb31f128e6dbba70c5975c9e57896815dbb1988ad/mysqlclient-1.3.13.tar.gz
+Installing collected packages: mysqlclient
+  Running setup.py install for mysqlclient ... error
+    Complete output from command c:\users\amccommon349\appdata\local\programs\python\python36\python.exe -u -c ""import setuptools, tokenize;__file__='C:\\Users\\AMCCOM~1\\AppData\\Local\\Temp\\pip-install-qcgo48hf\\mysqlclient\\setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))"" install --record C:\Users\AMCCOM~1\AppData\Local\Temp\pip-record-q4yoftj8\install-record.txt --single-version-externally-managed --compile:
+c:\users\amccommon349\appdata\local\programs\python\python36\lib\distutils\dist.py:261: UserWarning: Unknown distribution option: 'long_description_content_type'
+warnings.warn(msg)
+running install
+running build
+running build_py
+creating build
+creating build\lib.win-amd64-3.6
+copying _mysql_exceptions.py -&gt; build\lib.win-amd64-3.6
+creating build\lib.win-amd64-3.6\MySQLdb
+copying MySQLdb\__init__.py -&gt; build\lib.win-amd64-3.6\MySQLdb
+copying MySQLdb\compat.py -&gt; build\lib.win-amd64-3.6\MySQLdb
+copying MySQLdb\connections.py -&gt; build\lib.win-amd64-3.6\MySQLdb
+copying MySQLdb\converters.py -&gt; build\lib.win-amd64-3.6\MySQLdb
+copying MySQLdb\cursors.py -&gt; build\lib.win-amd64-3.6\MySQLdb
+copying MySQLdb\release.py -&gt; build\lib.win-amd64-3.6\MySQLdb
+copying MySQLdb\times.py -&gt; build\lib.win-amd64-3.6\MySQLdb
+creating build\lib.win-amd64-3.6\MySQLdb\constants
+copying MySQLdb\constants\__init__.py -&gt; build\lib.win-amd64-3.6\MySQLdb\constants
+copying MySQLdb\constants\CLIENT.py -&gt; build\lib.win-amd64-3.6\MySQLdb\constants
+copying MySQLdb\constants\CR.py -&gt; build\lib.win-amd64-3.6\MySQLdb\constants
+copying MySQLdb\constants\ER.py -&gt; build\lib.win-amd64-3.6\MySQLdb\constants
+copying MySQLdb\constants\FIELD_TYPE.py -&gt; build\lib.win-amd64-3.6\MySQLdb\constants
+copying MySQLdb\constants\FLAG.py -&gt; build\lib.win-amd64-3.6\MySQLdb\constants
+copying MySQLdb\constants\REFRESH.py -&gt; build\lib.win-amd64-3.6\MySQLdb\constants
+running build_ext
+building '_mysql' extension
+creating build\temp.win-amd64-3.6
+creating build\temp.win-amd64-3.6\Release
+C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\cl.exe /c/nologo/Ox /W3 /GL /DNDEBUG /MD -Dversion_info=(1,3,13,'final',0) -D__version__=1.3.13 ""-IC:\Program Files (x86)\MySQL\MySQL Connector C 6.1\include"" -Ic:\users\amccommon349\appdata\local\programs\python\python36\include -Ic:\users\amccommon349\appdata\local\programs\python\python36\include ""-IC:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.14.26428\include"" ""-IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um"" ""-IC:\ProgramFiles (x86)\Windows Kits\10\include\10.0.17134.0\winrt"" ""-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt"" /Tc_mysql.c /Fobuild\temp.win-amd64-3.6\Release\_mysql.obj /Zl _mysql.c
+_mysql.c(29): fatal error C1083: Cannot open include file: 'mysql.h': No such file or directory
+  error: command 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\VC\\Tools\\MSVC\\14.14.26428\\bin\\HostX86\\x64\\cl.exe' failed with exit status 2
+I made sure I had all of the files needed from visual studios build tools, I downloaded the mysql-python connector, and updated my pip and setup tools. I am a complete beginner to this and would appreciate any input as to how to go about fixing this error.
+",<python><mysql><sql><pip>,3995,1,39,645,1,5,8,81,81264,0.0,1,25,63,2018-07-11 21:16,2018-07-11 22:10,2018-07-11 22:10,0.0,0.0,Basic,14
+51716530,AWS Aurora MySQL serverless: how to connect from MySQL Workbench,"I was trying to use AWS Aurora Serverless for MySQL in my project, but I am impossible to connect to it, though I have the endpoint, username, password.
+What I have done:
+From AWS console managment, I select RDS > Instances > Aurora > Serverless 
+Leave the default settings
+Create database
+AWS will only create an AWS Cluster
+I open MySQL Workbench, and use endpoint, username, password to connect the database
+Ressult: 
+  Your connection attempt failed for user 'admin' from your host to
+  server at xxxxx.cluster-abcdefg1234.eu-west-1.rds.amazonaws.com:3306: 
+  Can't connect to MySQL server on
+  'xxxxx.cluster-abcdefg1234.eu-west-1.rds.amazonaws.com' (60)
+Did I make any wrong steps ? Please advice me.
+****EDIT****
+I tried to create another Aurora database with capacity type: Provisioned. I can connect to the endpoint seamlessly with username and password by MySql workbench. It means that the port 3306 is opened for workbench. 
+About the security group: 
+",<mysql><amazon-web-services><serverless><amazon-aurora>,964,2,0,2766,6,26,52,70,44243,0.0,17,13,63,2018-08-06 22:37,2018-08-06 22:58,,0.0,,Basic,14
+57975093,Create a Superuser in postgres,"I'm looking for setup a Rails Environment with Vagrant, for that purpose the box it's been provisioned through bash shell method and includes among others this line:
+sudo -u postgres createuser &lt;superuserusername&gt; -s with password '&lt;superuserpassword&gt;'
+But I'm getting a configuration error:
+createuser: too many command-line arguments (first is &quot;with&quot;)
+Can you help me with the correct syntax for create a Superuser with a password. Thanks.
+",<sql><database><postgresql><ubuntu><superuser>,464,0,1,1345,2,11,16,35,170650,0.0,1,5,62,2019-09-17 13:16,2019-09-17 13:43,2019-09-18 16:47,0.0,1.0,Basic,9
+58740043,How do I catch a psycopg2.errors.UniqueViolation error in a Python (Flask) app?,"I have a small Python web app (written in Flask) that uses sqlalchemy to persist data to the database.  When I try to insert a duplicate row, an exception is raised, something like this:
+(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint ""uix_my_column""
+I would like to wrap the exception and re-raise my own so I can add my own logging and messaging that is specific to that particular error.  This is what I tried (simplified):
+from db import DbApi
+from my_exceptions import BadRequest
+from psycopg2.errors import UniqueViolation # &lt;-- this does not exist!
+class MyClass:
+    def __init__(self):
+        self.db = DbApi() 
+    def create(self, data: dict) -&gt; MyRecord:
+        try:
+            with self.db.session_local(expire_on_commit=False) as session:
+                my_rec = MyRecord(**data)
+                session.add(my_rec)
+                session.commit()
+                session.refresh(my_rec)
+                return my_rec
+        except UniqueViolation as e:
+            raise BadRequest('A duplicate record already exists')
+But this fails to trap the error because psycopg2.errors.UniqueViolation isn't actually a class name (!).
+In PHP, this would be as easy as catching copy/pasting the classname of the exception, but in Python, this is much more obfuscated.
+There was a similar question here, but it didn't deal with this specific use-case and (importantly), it did not clarify how one can identify the root exception class name. 
+How does one find out what exception is actually being raised? Why does Python hide this?
+",<python><sqlalchemy>,1580,1,20,8967,5,36,51,37,49377,0.0,109,7,61,2019-11-06 23:49,2019-11-07 0:02,,1.0,,Basic,13
+58961043,How to install libpq-fe.h?,"I cannot figure this out for the life of me.
+When I pip install django-tenant-schemas it tries to install the dependency psycopg2 which requires the Python headers and gcc. I have all this installed and still keep getting this error!
+./psycopg/psycopg.h:35:10: fatal error: libpq-fe.h: No such file or directory
+So to install libpq-fe-h I need to sudo apt-get install libpq-dev..
+..which returns..
+libpq-dev is already the newest version (10.10-0ubuntu0.18.04.1).
+Then when I sudo find / libpq-fe.h it doesn't seem to be in my OS.
+I am lost at this point. If anyone can help I would highly appreciate it.
+",<django><python-3.x><postgresql><pip>,605,0,7,2134,3,13,38,68,36211,0.0,319,4,60,2019-11-20 18:24,2019-11-20 18:46,2019-11-20 18:46,0.0,0.0,Basic,13
+51004516,.NET Core 2.1 Identity get all users with their associated roles,"I'm trying to pull out all my Identity users and their associated roles for a user management admin page. I thought this would be reasonably easy but apparently not. I've tried following the following solution: https://stackoverflow.com/a/43562544/5392786 but it hasn't worked out so far.
+Here is what I have so far:
+ApplicationUser:
+public class ApplicationUser : IdentityUser
+{
+    public List&lt;IdentityUserRole&lt;string&gt;&gt; Roles { get; set; }
+}
+DBContext
+public class ApplicationDbContext : IdentityDbContext&lt;ApplicationUser&gt;
+{
+    public ApplicationDbContext(DbContextOptions&lt;ApplicationDbContext&gt; options)
+        : base(options)
+    {
+    }
+}
+Startup Identity code
+services.AddIdentity&lt;ApplicationUser, IdentityRole&gt;(options =&gt; options.Stores.MaxLengthForKeys = 128)
+            .AddEntityFrameworkStores&lt;ApplicationDbContext&gt;()
+            .AddDefaultTokenProviders();
+Razor Page where I want to display the list:
+public class IndexModel : PageModel
+{
+    private readonly UserManager&lt;ApplicationUser&gt; userManager;
+    public IndexModel(UserManager&lt;ApplicationUser&gt; userManager)
+    {
+        this.userManager = userManager;
+    }
+    public IEnumerable&lt;ApplicationUser&gt; Users { get; set; }
+    public void OnGetAsync()
+    {
+        this.Users = userManager.Users.Include(u =&gt; u.Roles).ToList();
+    }
+}
+I get the following error when calling userManager.Users.Include(u =&gt; u.Roles).ToList();:
+  MySql.Data.MySqlClient.MySqlException: 'Unknown column 'u.Roles.ApplicationUserId' in 'field list''
+",<c#><mysql><asp.net-core><entity-framework-core><asp.net-core-identity>,1563,1,31,3834,7,32,56,74,83751,0.0,100,14,59,2018-06-23 19:44,2018-06-23 22:08,2018-06-23 22:08,0.0,0.0,Basic,9
+50646216,Sequelize Where if not null,"Lets say I want to do a select command with
+WHERE ID=2134
+But if the user does not provide the id then it should just not bother with the WHERE ID (since it is null)
+How can I handle this with Sequelize? 
+",<javascript><sql><node.js><express>,205,0,1,617,1,5,3,37,116192,0.0,0,5,59,2018-06-01 14:58,2018-06-01 15:20,,0.0,,Basic,10
+51784903,cross-database references are not implemented:,"I am trying to convert SQL inner join query into PostgreSQL inner join query. In this inner join query which tables are using that all tables are not present in one database. we separated tables into two databases i.e. application db and security db 
+users and permission table are present in security db 
+userrolemapping and department are present in application db
+I tried like below but I am getting following error
+Error
+ERROR:  cross-database references are not implemented: ""Rockefeller_ApplicationDb.public.userrolemapping""
+LINE 4:         INNER JOIN ""Rockefeller_ApplicationDb"".public.userro..
+SQL Stored Function
+SELECT   Department.nDeptID 
+    FROM Users INNER JOIN Permission 
+         ON Users.nUserID = Permission.nUserID INNER JOIN UserRoleMapping
+         ON Users.nUserID = UserRoleMapping.nUserID INNER JOIN Department
+         ON Permission.nDeptInst = Department.nInstID
+         AND  Department.nInstID = 60
+    WHERE     
+         Users.nUserID = 3;
+PostgreSQL Stored Function
+SELECT dep.ndept_id 
+        FROM ""Rockefeller_SecurityDb"".public.users as  u 
+        INNER JOIN  ""Rockefeller_SecurityDb"".public.permissions p ON u.nuser_id = p.nuser_id
+        INNER JOIN ""Rockefeller_ApplicationDb"".public.userrolemapping as urm ON u.nuser_id = urm.nuser_id
+        INNER JOIN ""Rockefeller_ApplicationDb"".public.department dep ON p.ndept_inst = dep.ninst_id
+           AND  dep.ninst_id = 60
+                        WHERE     
+                            u.nuser_id = 3;
+",<postgresql>,1490,0,18,1379,4,29,60,57,147816,0.0,68,5,58,2018-08-10 10:52,2018-08-10 12:43,,0.0,,Basic,10
+62987154,MySQL won't start - error: su: warning: cannot change directory to /nonexistent: No such file or directory,"New to development &amp; self-teaching (thanks Covid) so this could be sloppy :( sorry...
+let me start off by saying I don't care about the data in the database - if it is easier to wipe it and start fresh, I'm good with that (don't know how to do that but I'm ok with  it)
+Not sure what caused the issue but one day MySQL wouldn't start. Using service MySQL Restart fixed it... two days later it happened again with this error
+sarcasticsnark@LB-HP-LT:~/Projects/FMS$ sudo service mysql start
+ * Starting MySQL database server mysqld
+su: warning: cannot change directory to /nonexistent: No such file or directory
+I've tried a bit of &quot;solutions&quot;
+I've tried restarting MySQL
+I gave myself file permissions to the mysql files (then attempted to reverse that)
+I've moved the MySQL directory (then reversed it - hence the copy of the folder &quot;mysql&quot; named &quot;mysql2&quot; below)
+My files now look like this and I'm not sure I got the permissions quite right.
+sarcasticsnark@LB-HP-LT:/var/lib$ ls
+AccountsService  command-not-found  fwupd            logrotate  mysql          mysql2,   private  systemd                  ucf                  usbutils
+PackageKit       dbus               git              man-db     mysql-files    pam       python   tpm                      unattended-upgrades  vim
+apt              dhcp               initramfs-tools  mecab      mysql-keyring  plymouth  snapd    ubuntu-advantage         update-manager
+boltd            dpkg               landscape        misc       mysql-upgrade  polkit-1  sudo     ubuntu-release-upgrader  update-notifier
+sarcasticsnark@LB-HP-LT:/var/lib$ cd mysql
+sarcasticsnark@LB-HP-LT:/var/lib/mysql$ ls
+'#ib_16384_0.dblwr'   TestingGround_development   binlog.000009   binlog.000013   binlog.000017   client-cert.pem   mysql.ibd            server-cert.pem   undo_002
+'#ib_16384_1.dblwr'   TestingGround_test          binlog.000010   binlog.000014   binlog.index    client-key.pem    performance_schema   server-key.pem
+'#innodb_temp'        auto.cnf                    binlog.000011   binlog.000015   ca-key.pem      debian-5.7.flag   private_key.pem      sys
+ FMS_development      binlog.000008               binlog.000012   binlog.000016   ca.pem          mysql             public_key.pem       undo_001
+I've re-initialized MySQL (when not running sudoku it errors the below)
+2020-07-20T02:29:41.520132Z 0 [Warning] [MY-010139] [Server] Changed limits: max_open_files: 4096 (requested 8161)
+2020-07-20T02:29:41.520141Z 0 [Warning] [MY-010142] [Server] Changed limits: table_open_cache: 1967 (requested 4000)
+2020-07-20T02:29:41.520561Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.20-0ubuntu0.20.04.1) initializing of server in progress as process 2570
+2020-07-20T02:29:41.522888Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
+2020-07-20T02:29:41.522921Z 0 [ERROR] [MY-010187] [Server] Could not open file '/var/log/mysql/error.log' for error logging: Permission denied
+2020-07-20T02:29:41.523139Z 0 [ERROR] [MY-013236] [Server] The designated data directory /var/lib/mysql/ is unusable. You can remove all files that the server added to it.
+2020-07-20T02:29:41.523187Z 0 [ERROR] [MY-010119] [Server] Aborting
+2020-07-20T02:29:41.523313Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.20-0ubuntu0.20.04.1)  (Ubuntu).
+/var/log/mysql - does exist and the permissions for it are:
+-rw-r----- 1 mysql adm 62273 Jul 19 19:36 error.log
+Here is mysql/error.log
+2020-07-20T01:50:07.952988Z mysqld_safe Logging to '/var/log/mysql/error.log'.
+2020-07-20T01:50:07.986416Z mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+2020-07-20T01:50:08.000603Z 0 [Warning] [MY-010139] [Server] Changed limits: max_open_files: 1024 (requested 8161)
+2020-07-20T01:50:08.000610Z 0 [Warning] [MY-010142] [Server] Changed limits: table_open_cache: 431 (requested 4000)
+2020-07-20T01:50:08.262922Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.20-0ubuntu0.20.04.1) starting as process 1608
+2020-07-20T01:50:08.281623Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2020-07-20T01:50:08.322464Z 1 [ERROR] [MY-012592] [InnoDB] Operating system error number 2 in a file operation.
+2020-07-20T01:50:08.322818Z 1 [ERROR] [MY-012593] [InnoDB] The error means the system cannot find the path specified.
+2020-07-20T01:50:08.322947Z 1 [ERROR] [MY-012594] [InnoDB] If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2020-07-20T01:50:08.323017Z 1 [ERROR] [MY-012646] [InnoDB] File ./ibdata1: 'open' returned OS error 71. Cannot continue operation
+2020-07-20T01:50:08.323105Z 1 [ERROR] [MY-012981] [InnoDB] Cannot continue operation.
+2020-07-20T01:50:08.972320Z mysqld_safe mysqld from pid file /var/lib/mysql/LB-HP-LT.pid ended
+And the permissions for /var/lib/mysql
+sarcasticsnark@LB-HP-LT:/var/lib/mysql$ cd /var/lib
+sarcasticsnark@LB-HP-LT:/var/lib$ sudo ls -l mysql
+[sudo] password for sarcasticsnark: 
+total 58048
+-rw-r----- 1 mysql mysql   196608 Jul 19 16:34 '#ib_16384_0.dblwr'
+-rw-r----- 1 mysql mysql  8585216 Jul 11 22:54 '#ib_16384_1.dblwr'
+drwxr-x--- 2 mysql mysql     4096 Jul 19 16:35 '#innodb_temp'
+drwxr-x--- 2 mysql mysql     4096 Jul 15 18:06  FMS_development
+drwxr-x--- 2 mysql mysql     4096 Jun 20 09:04  TestingGround_development
+drwxr-x--- 2 mysql mysql     4096 Jun 22 20:07  TestingGround_test
+-rw-r----- 1 mysql mysql       56 Jun 10 17:43  auto.cnf
+-rw-r----- 1 mysql mysql   210461 Jul 15 17:01  binlog.000008
+-rw-r----- 1 mysql mysql      179 Jul 15 17:30  binlog.000009
+-rw-r----- 1 mysql mysql      156 Jul 15 17:43  binlog.000010
+-rw-r----- 1 mysql mysql     2798 Jul 19 15:55  binlog.000011
+-rw-r----- 1 mysql mysql      179 Jul 19 15:56  binlog.000012
+-rw-r----- 1 mysql mysql      179 Jul 19 16:11  binlog.000013
+-rw-r----- 1 mysql mysql      179 Jul 19 16:25  binlog.000014
+-rw-r----- 1 mysql mysql      179 Jul 19 16:27  binlog.000015
+-rw-r----- 1 mysql mysql      179 Jul 19 16:27  binlog.000016
+-rw-r----- 1 mysql mysql      179 Jul 19 16:34  binlog.000017
+-rw-r----- 1 mysql mysql      160 Jul 19 16:27  binlog.index
+-rw------- 1 mysql mysql     1680 Jun 10 17:43  ca-key.pem
+-rw-r--r-- 1 mysql mysql     1112 Jun 10 17:43  ca.pem
+-rw-r--r-- 1 mysql mysql     1112 Jun 10 17:43  client-cert.pem
+-rw------- 1 mysql mysql     1680 Jun 10 17:43  client-key.pem
+-rw-r--r-- 1 mysql mysql        0 Jun 12 15:54  debian-5.7.flag
+drwxr-xr-x 2 mysql mysql     4096 Jun 10 17:43  mysql
+-rw-r----- 1 mysql mysql 25165824 Jul 19 16:28  mysql.ibd
+drwxr-x--- 2 mysql mysql     4096 Jun 10 17:43  performance_schema
+-rw------- 1 mysql mysql     1680 Jun 10 17:43  private_key.pem
+-rw-r--r-- 1 mysql mysql      452 Jun 10 17:43  public_key.pem
+-rw-r--r-- 1 mysql mysql     1112 Jun 10 17:43  server-cert.pem
+-rw------- 1 mysql mysql     1676 Jun 10 17:43  server-key.pem
+drwxr-x--- 2 mysql mysql     4096 Jun 10 17:43  sys
+-rw-r----- 1 mysql mysql 12582912 Jul 19 16:34  undo_001
+-rw-r----- 1 mysql mysql 12582912 Jul 19 16:34  undo_002
+",<mysql><linux>,7120,0,72,593,1,4,5,49,61256,0.0,0,1,58,2020-07-20 0:37,2020-07-22 18:12,2020-07-22 18:12,2.0,2.0,Basic,14
+59432964,Relational Data Model for Double-Entry Accounting,"Assume there is a bank, a large shop, etc, that wants the accounting to be done correctly, for both internal accounts, and keeping track of customer accounts.  Rather than implementing that which satisfies the current simple and narrow requirement, which would a 'home brew': those turn out to be a temporary crutch for the current simple requirement, and difficult or impossible to extend when new requirements come it.
+As I understand it, Double-Entry Accounting is a method that is well-established, and serves all Accounting and Audit requirements, including those that are not contemplated at the current moment.  If that is implemented, it would:
+eliminate the incremental enhancements that would occur over time, and the expense,
+there will not be a need for future enhancement.
+I have studied this Answer to another question: Derived account balance vs stored account balance for a simple bank account?, it provides good information, for internal Accounts.  A data model is required, so that one can understand the entities; their interaction; their relations, and @PerformanceDBA has given that.  This model is taken from that Answer:
+Whereas that is satisfactory for simple internal accounts, I need to see a data model that provides the full Double-Entry Accounting method. 
+The articles are need to be added are Journal; internal vs external Transactions; etc..
+Ideally I would like to see what those double entry rows look like in database terms, what the whole process will look like in SQL, which entities are affected in each case, etc.  Cases like:
+A Client deposits cash to his account
+The Bank charges fees once a month to all Clients accounts (sample batch job),
+A Client does some operation over the counter, and the Bank charges a fee (cash withdrawal + withdrawal fee),
+Mary sends some money from her account, to John's account, which is in the same bank
+Let's just call it System instead of Bank, Bank may be  too complex to model, and let the question be about imaginary system which operates with accounts and assets. Customers perform a set of operations with system (deposits, withdrawals, fee for latter, batch fees), and with each other (transfer).
+",<sql><database><database-design><relational-database><accounting>,2179,3,5,982,1,10,16,58,40397,0.0,11,2,57,2019-12-21 1:54,2019-12-24 7:11,2019-12-24 7:11,3.0,3.0,Basic,4
+48225233,"Gem::LoadError: can't activate pg (~> 0.18), already activated pg-1.0.0","I've been doing the Rails tutorial found here and have been successful up to the point of having to migrate the Comments migration using $ rails db:migrate. Prior to this point, I've been able to generate the Article model and migrate the Articles create migration with no issues. In between these two migrations, nothing has changed in my Gemfile, so I'm not sure what it is Bundler is having an issue with. 
+Here are the errors, followed by the full command-line output, along with my Gemfile and schema.rb:
+Gem::LoadError: can't activate pg (~&gt; 0.18), already activated pg-1.0.0.
+Gem::LoadError: Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).
+Full command-line output
+xxx:gangelo: ~/dev/rails/test/blog (master*) ☠  rbenv exec rails db:migrate
+rails aborted!
+Gem::LoadError: Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:188:in `rescue in spec'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:185:in `spec'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:880:in `establish_connection'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:58:in `establish_connection'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/railtie.rb:124:in `block (2 levels) in &lt;class:Railtie&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `instance_eval'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:60:in `with_execution_control'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:65:in `execute_hook'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:50:in `block in run_load_hooks'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `each'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `run_load_hooks'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/base.rb:326:in `&lt;module:ActiveRecord&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/base.rb:25:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:6:in `&lt;class:MySQLDatabaseTasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:3:in `&lt;module:Tasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:2:in `&lt;module:ActiveRecord&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:1:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:74:in `&lt;module:DatabaseTasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:35:in `&lt;module:Tasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:2:in `&lt;module:ActiveRecord&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:1:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/railtie.rb:34:in `block (3 levels) in &lt;class:Railtie&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/commands/rake/rake_command.rb:21:in `block in perform'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/commands/rake/rake_command.rb:18:in `perform'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/command.rb:46:in `invoke'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/commands.rb:16:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/bin/rails:9:in `require'
+/Users/gangelo/dev/rails/test/blog/bin/rails:9:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client/rails.rb:28:in `load'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client/rails.rb:28:in `call'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client/command.rb:7:in `call'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client.rb:30:in `run'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/bin/spring:49:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/binstub.rb:31:in `load'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/binstub.rb:31:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/bin/spring:15:in `&lt;top (required)&gt;'
+bin/rails:3:in `load'
+bin/rails:3:in `&lt;main&gt;'
+Caused by:
+Gem::LoadError: can't activate pg (~&gt; 0.18), already activated pg-1.0.0. Make sure all dependencies are added to Gemfile.
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_adapters/postgresql_adapter.rb:2:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:186:in `spec'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:880:in `establish_connection'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:58:in `establish_connection'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/railtie.rb:124:in `block (2 levels) in &lt;class:Railtie&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `instance_eval'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:60:in `with_execution_control'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:65:in `execute_hook'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:50:in `block in run_load_hooks'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `each'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `run_load_hooks'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/base.rb:326:in `&lt;module:ActiveRecord&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/base.rb:25:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:6:in `&lt;class:MySQLDatabaseTasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:3:in `&lt;module:Tasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:2:in `&lt;module:ActiveRecord&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/mysql_database_tasks.rb:1:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:74:in `&lt;module:DatabaseTasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:35:in `&lt;module:Tasks&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:2:in `&lt;module:ActiveRecord&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:1:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/activerecord-5.1.4/lib/active_record/railtie.rb:34:in `block (3 levels) in &lt;class:Railtie&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/commands/rake/rake_command.rb:21:in `block in perform'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/commands/rake/rake_command.rb:18:in `perform'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/command.rb:46:in `invoke'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/railties-5.1.4/lib/rails/commands.rb:16:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/bin/rails:9:in `require'
+/Users/gangelo/dev/rails/test/blog/bin/rails:9:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client/rails.rb:28:in `load'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client/rails.rb:28:in `call'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client/command.rb:7:in `call'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/client.rb:30:in `run'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/bin/spring:49:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/binstub.rb:31:in `load'
+/Users/gangelo/dev/rails/test/blog/vendor/bundle/gems/spring-2.0.2/lib/spring/binstub.rb:31:in `&lt;top (required)&gt;'
+/Users/gangelo/dev/rails/test/blog/bin/spring:15:in `&lt;top (required)&gt;'
+bin/rails:3:in `load'
+bin/rails:3:in `&lt;main&gt;'
+Tasks: TOP =&gt; db:migrate =&gt; db:load_config
+(See full trace by running task with --trace)
+Gemfile
+source 'https://rubygems.org'
+ruby '2.3.1'
+git_source(:github) do |repo_name|
+  repo_name = ""#{repo_name}/#{repo_name}"" unless repo_name.include?(""/"")
+  ""https://github.com/#{repo_name}.git""
+end
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~&gt; 5.1.4'
+# Use sqlite3 as the database for Active Record
+# gem 'sqlite3'
+# Use postgres as the database for Active Record
+gem 'pg'
+# Use Puma as the app server
+gem 'puma', '~&gt; 3.7'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~&gt; 5.0'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '&gt;= 1.3.0'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~&gt; 4.2'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~&gt; 5'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~&gt; 2.5'
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~&gt; 3.0'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~&gt; 3.1.7'
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '~&gt; 2.13'
+  gem 'selenium-webdriver'
+end
+# gma - start
+group :development, :test do
+  gem 'rspec-rails', '~&gt; 3.5', '&gt;= 3.5.2'
+  gem 'rspec-activemodel-mocks', '~&gt; 1.0', '&gt;= 1.0.3'
+  gem 'shoulda-matchers', '~&gt; 3.1', '&gt;= 3.1.1'
+  gem 'factory_bot_rails', '~&gt; 4.8', '&gt;= 4.8.2'
+  gem 'ffaker', '~&gt; 2.2'
+  # gem 'timecop', '~&gt; 0.8.1'
+end
+# gma - end
+group :development do
+  # Access an IRB console on exception pages or by using &lt;%= console %&gt; anywhere in the code.
+  gem 'web-console', '&gt;= 3.3.0'
+  gem 'listen', '&gt;= 3.0.5', '&lt; 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~&gt; 2.0.0'
+end
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+Schema.rb
+ActiveRecord::Schema.define(version: 20180110153949) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension ""plpgsql""
+  create_table ""articles"", force: :cascade do |t|
+    t.string ""title""
+    t.text ""text""
+    t.datetime ""created_at"", null: false
+    t.datetime ""updated_at"", null: false
+  end
+end
+Migration file
+class CreateComments &lt; ActiveRecord::Migration[5.1]
+  def change
+    create_table :comments do |t|
+      t.string :commenter
+      t.text :body
+      t.references :article, foreign_key: true
+      t.timestamps
+    end
+  end
+end
+",<ruby-on-rails><ruby><postgresql><bundler><rails-migrations>,17720,7,211,3044,4,29,44,35,16680,0.0,87,2,57,2018-01-12 11:20,2018-01-14 21:25,2018-01-18 1:54,2.0,6.0,Basic,4
+53293349,Azure data studio schema diagram?,"I just recently downloaded Azure Data Studio with SQL Server Express since I'm using Linux .  Is there an entity-relationship diagramming feature, kind of how SQL Server Management Studio has a database diagram feature?  I want to visually see the relationships with tables in a database if possible.
+",<sql><database><entity-relationship><diagram><azure-data-studio>,301,0,0,581,1,4,5,68,52584,0.0,1,7,57,2018-11-14 4:48,2019-04-02 8:32,,139.0,,Basic,7
+50589064,Get unique values using STRING_AGG in SQL Server,"The following query returns the results shown below:
+SELECT 
+    ProjectID, newID.value
+FROM 
+    [dbo].[Data] WITH(NOLOCK)  
+CROSS APPLY 
+    STRING_SPLIT([bID],';') AS newID  
+WHERE 
+    newID.value IN ('O95833', 'Q96NY7-2') 
+Results:
+ProjectID   value
+---------------------
+2           Q96NY7-2
+2           O95833
+2           O95833
+2           Q96NY7-2
+2           O95833
+2           Q96NY7-2
+4           Q96NY7-2
+4           Q96NY7-2
+Using the newly added STRING_AGG function (in SQL Server 2017) as it is shown in the following query I am able to get the result-set below.
+SELECT 
+    ProjectID,
+    STRING_AGG( newID.value, ',') WITHIN GROUP (ORDER BY newID.value) AS 
+NewField
+FROM
+    [dbo].[Data] WITH(NOLOCK)  
+CROSS APPLY 
+    STRING_SPLIT([bID],';') AS newID  
+WHERE 
+    newID.value IN ('O95833', 'Q96NY7-2')  
+GROUP BY 
+    ProjectID
+ORDER BY 
+    ProjectID
+Results:
+ProjectID   NewField
+-------------------------------------------------------------
+2           O95833,O95833,O95833,Q96NY7-2,Q96NY7-2,Q96NY7-2
+4           Q96NY7-2,Q96NY7-2
+I would like my final output to have only unique elements as below:
+ProjectID   NewField
+-------------------------------
+2           O95833, Q96NY7-2
+4           Q96NY7-2
+Any suggestions about how to get this result? Please feel free to refine/redesign from scratch my query if needed.
+",<sql><sql-server><sql-server-2017><string-aggregation>,1341,0,41,1107,1,10,19,63,130478,0.0,57,8,57,2018-05-29 16:33,2018-05-29 16:43,2018-05-29 16:43,0.0,0.0,Basic,10
+48466959,Query for list of attribute instead of tuples in SQLAlchemy,"I'm querying for the ids of a model, and get a list of (int,) tuples back instead of a list of ids. Is there a way to query for the attribute directly?
+result = session.query(MyModel.id).all()
+I realize it's possible to do 
+results = [r for (r,) in results]
+Is it possible for the query to return that form directly, instead of having to process it myself?
+",<python><sqlalchemy>,357,0,3,1018,1,11,26,68,38691,0.0,196,4,54,2018-01-26 17:57,2018-01-26 18:06,2018-01-26 18:06,0.0,0.0,Basic,10
+53131321,Spring Boot: Jdbc javax.net.ssl.SSLException: closing inbound before receiving peer's close_notify,"I am currently learning more about implementing JDBC and using databases in a Spring Boot webapp, and I encountered the following Stack Trace written in the bottom of the post.
+I have created a simple Employee model, and I am trying to execute some database code on the same class which my main() lies in. The model and the main class are the only two java files existing in this whole project. I am trying to implement the following run() code that overrides the one from the interface, CommandLineRunner, but I do not get the logs that should come after log.info(""Part A:""):
+log.info(""Part A:"")
+employees.forEach(employee -&gt; {log.info(employee.toString());
+        log.info(""part a"");});
+--Things I noticed:
+I noticed that the last line of the log before the stack trace starts comes from: ""Thread-1"" instead of ""main"". I think that means that a thread from somewhere other than the main encountered an error and closed connection before when it should close normally.
+Also, I think that because HikariPool closed before ""peer's close_notify"", which I presume that it refers to the normal closure of HikariPool, I am not able to see the final bit of logging that I have kept trying to procure. The final bit of logging that I want to see is the logging of the employee that has become inserted into my database.
+The final bit of logging that I want to see should be procured from this line of code:
+employees.forEach(employee -&gt; {log.info(employee.toString());
+        log.info(""part a"");});
+--Things to note:
+Because of this line in the log, I thought I would see the employee inserted into my database, but when I queried directly on MySQL Command Line Client, it returned an empty set:
+2018-11-03 21:08:35.362  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : rows affected: 1
+I don't understand why a row has been affected when nothing has been inserted into the database.
+The stacktrace and logs: (The stacktrace pasted below actually repeats itself several more times but I cut it off for brevity.)
+2018-11-03 21:08:32.997  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : Starting JdbcTest1Application on KitKat with PID 2408 (C:\Users\Nano\Downloads\jdbc-test1\jdbc-test1\target\classes started by Nano in C:\Users\Nano\Downloads\jdbc-test1\jdbc-test1)
+2018-11-03 21:08:33.003  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : No active profile set, falling back to default profiles: default
+2018-11-03 21:08:33.770  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : Started JdbcTest1Application in 1.024 seconds (JVM running for 1.778)
+2018-11-03 21:08:33.770  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : Creating tables
+2018-11-03 21:08:33.770  INFO 2408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-03 21:08:34.082  INFO 2408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-03 21:08:35.135  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : Inserting Baggins Hopkins
+2018-11-03 21:08:35.362  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : rows affected: 1
+2018-11-03 21:08:35.362  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : Querying for employee
+2018-11-03 21:08:36.065  INFO 2408 --- [           main] c.j.jdbctest1.JdbcTest1Application       : Part A:
+2018-11-03 21:08:36.065  INFO 2408 --- [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+Sat Nov 03 21:08:36 KST 2018 WARN: Caught while disconnecting...
+EXCEPTION STACK TRACE:
+** BEGIN NESTED EXCEPTION ** 
+javax.net.ssl.SSLException
+MESSAGE: closing inbound before receiving peer's close_notify
+STACKTRACE:
+javax.net.ssl.SSLException: closing inbound before receiving peer's close_notify
+    at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:129)
+    at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:117)
+    at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:308)
+    at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:264)
+    at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:255)
+    at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:645)
+    at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:624)
+    at com.mysql.cj.protocol.a.NativeProtocol.quit(NativeProtocol.java:1312)
+    at com.mysql.cj.NativeSession.quit(NativeSession.java:182)
+    at com.mysql.cj.jdbc.ConnectionImpl.realClose(ConnectionImpl.java:1750)
+    at com.mysql.cj.jdbc.ConnectionImpl.close(ConnectionImpl.java:720)
+    at com.zaxxer.hikari.pool.PoolBase.quietlyCloseConnection(PoolBase.java:135)
+    at com.zaxxer.hikari.pool.HikariPool.lambda$closeConnection$1(HikariPool.java:441)
+    at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+    at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+    at java.base/java.lang.Thread.run(Thread.java:834)
+** END NESTED EXCEPTION **
+The Java Code:
+@SpringBootApplication
+public class JdbcTest1Application implements CommandLineRunner {
+    private static final Logger log = LoggerFactory.getLogger(JdbcTest1Application.class);
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+    public static void main(String[] args) {
+        SpringApplication.run(JdbcTest1Application.class, args);
+    }
+    @Override
+    public void run(String... args) throws Exception {
+        log.info(""Creating tables"");
+        jdbcTemplate.execute(""DROP TABLE IF EXISTS employees"");
+        jdbcTemplate.execute(""CREATE TABLE employees (emp_id int, name varchar(100), role varchar(100), status varchar(100))"");
+        log.info(""Inserting Baggins Hopkins"");
+        int rowsAffected = jdbcTemplate.update(""INSERT INTO EMPLOYEE(EMP_ID, NAME, ROLE, STATUS)""
+                + "" VALUES(1,'Baggins Hopkins','thief','WORKING')"");
+        log.info(""rows affected: ""+ Integer.toString(rowsAffected));
+        log.info(""Querying for employee"");
+        String sql = ""SELECT emp_id,name,role,status FROM employees"";
+        List&lt;Employee&gt; employees = jdbcTemplate.query(sql,(rs, rowNum)-&gt; 
+        new Employee(rs.getInt(""emp_id""), rs.getString(""name""),
+                rs.getString(""role""),Status.valueOf(rs.getString(""status""))));
+        log.info(""Part A:"");
+        employees.forEach(employee -&gt; {log.info(employee.toString());
+            log.info(""part a"");});
+    }
+}
+Also just in case this matters, I pasted this code from application.properties:
+spring.datasource.url=jdbc:mysql://localhost:3306/employee_database
+spring.datasource.username=employee
+spring.datasource.password=employee
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+",<mysql><spring-boot><spring-jdbc><jdbctemplate><sslexception>,6948,0,87,815,1,9,19,74,120140,0.0,188,14,54,2018-11-03 12:29,2018-11-04 1:13,2018-11-07 12:55,1.0,4.0,Advanced,32
+49023821,Nested Join vs Merge Join vs Hash Join in PostgreSQL,"I know how the 
+Nested Join
+Merge Join
+Hash Join  
+works and its functionality. 
+I wanted to know in which situation these joins are used in Postgres 
+",<postgresql><sql-execution-plan>,151,0,0,1224,3,16,34,72,28550,0.0,115,1,54,2018-02-28 7:09,2018-02-28 7:56,,0.0,,Advanced,35
+54540928,Why is query with phone = N'1234' slower than phone = '1234'?,"I have a field which is a varchar(20)
+When this query is executed, it is fast (Uses index seek):
+SELECT * FROM [dbo].[phone] WHERE phone = '5554474477'
+But this one is slow (uses index scan).
+SELECT * FROM [dbo].[phone] WHERE phone = N'5554474477'
+I am guessing that if I change the field to an nvarchar, then it would use the Index Seek.
+",<sql><sql-server><query-performance>,339,0,2,34370,40,167,239,73,5925,0.0,838,3,53,2019-02-05 18:35,2019-02-05 18:38,2019-02-05 18:38,0.0,0.0,Intermediate,23
+50476782,Android P - 'SQLite: No Such Table Error' after copying database from assets,"I have a database saved in my apps assets folder and I copy the database using the below code when the app first opens.
+inputStream = mContext.getAssets().open(Utils.getDatabaseName());
+        if(inputStream != null) {
+            int mFileLength = inputStream.available();
+            String filePath = mContext.getDatabasePath(Utils.getDatabaseName()).getAbsolutePath();
+            // Save the downloaded file
+            output = new FileOutputStream(filePath);
+            byte data[] = new byte[1024];
+            long total = 0;
+            int count;
+            while ((count = inputStream.read(data)) != -1) {
+                total += count;
+                if(mFileLength != -1) {
+                    // Publish the progress
+                    publishProgress((int) (total * 100 / mFileLength));
+                }
+                output.write(data, 0, count);
+            }
+            return true;
+        }
+The above code runs without problem but when you try to query the database you get an SQLite: No such table exception.
+This issue only occurs in Android P, all earlier versions of Android work correctly.
+Is this a known issue with Android P or has something changed?
+",<android><sqlite><android-9.0-pie>,1189,0,24,825,1,9,18,66,21878,0.0,2,14,53,2018-05-22 21:34,2018-05-28 12:25,2018-05-31 18:35,6.0,9.0,Basic,11
+57262748,SQL Server Invalid version: 15 (Microsoft.SqlServer.Smo),"Context: I'm having difficulty modifying a stored procedure in SQL Server 2016. The stored procedure performs parsing of json data within a file. For some reason I'm able to execute the stored procedure and it executes successfully but when I try to modify the stored procedure I get the following message:
+Question: Does anyone have any troubleshooting tips? Below is the content of the stored procedure. SQL Server 2016 supports the various functions used including the OPENJSON function.  
+USE mattermark_sandbox
+GO
+CREATE PROCEDURE get_company_data 
+AS
+IF OBJECT_ID('tempdb..##jsondump') IS NOT NULL DROP TABLE ##jsondump
+IF OBJECT_ID('tempdb..##jsonparsed') IS NOT NULL DROP TABLE ##jsonparsed
+IF OBJECT_ID('tempdb..##json_loop') IS NOT NULL DROP TABLE ##json_loop
+CREATE TABLE ##jsondump (
+    [my_json] [nvarchar](max) NULL
+) 
+-- Create a table to house the parsed content
+CREATE TABLE ##jsonparsed (
+    [id] [int] NULL,
+    [url] [varchar](255) NULL,
+    [company_name] [varchar](255) NULL,
+    [domain] [varchar](255) NULL
+)
+-- Clear ##jsondump
+TRUNCATE TABLE ##jsondump;
+-- Clear ##jsonparsed ( only if you don't want to keep what's already there )
+TRUNCATE TABLE ##jsonparsed;
+-- Import ( single column ) JSON
+--IMPORTANT: Need to be sure the company_data.json file actually exists on the remote server in that directory 
+BULK INSERT ##jsondump
+FROM 'C:\mattermark_etl_project\company_data.json' -- ( &lt;-- my file, point to your own )
+WITH (
+    ROWTERMINATOR = '\n'
+);
+-- Select JSON into ##jsonparsed
+SELECT my_json 
+INTO ##json_loop
+FROM ##jsondump;
+--SELECT * FROM ##jsondump;
+INSERT INTO ##jsonparsed (
+    id, [url], company_name, domain
+)
+SELECT DISTINCT
+    jsn.id, jsn.[url], jsn.company_name, jsn.domain
+FROM ##json_loop
+OUTER APPLY (
+    SELECT * FROM OPENJSON(##json_loop.my_json, '$.companies' )
+    WITH (
+        id INT '$.id',
+        [url] VARCHAR(255) '$.url',
+        company_name VARCHAR(255) '$.company_name',
+        domain VARCHAR(255) '$.domain'
+    )
+) AS jsn
+DECLARE @bcp_cmd4 VARCHAR(1000);
+DECLARE @exe_path4 VARCHAR(200) = 
+    ' cd C:\Program Files\Microsoft SQL Server\100\Tools\Binn\ &amp; ';
+SET @bcp_cmd4 =  @exe_path4 + 
+    ' BCP.EXE ""SELECT ''Company_ID'', ''MatterMark_URL'', ''Company_Name'', ''Domain'' UNION ALL SELECT DISTINCT cast(id as varchar( 12 )) as id, url, company_name, domain FROM ##jsonparsed"" queryout ' +
+    ' ""C:\mattermark_etl_project\company_data.txt"" -T -c -q -t0x7c -r\n';
+PRINT @bcp_cmd4;
+EXEC master..xp_cmdshell @bcp_cmd4,no_output;
+SELECT DISTINCT * FROM ##jsonparsed
+ORDER BY id ASC;
+DROP TABLE ##jsondump 
+DROP TABLE ##jsonparsed 
+DROP TABLE ##json_loop 
+/*
+-- To allow advanced options to be changed.  
+EXEC sp_configure 'show advanced options', 1;  
+GO  
+-- To update the currently configured value for advanced options.  
+RECONFIGURE;  
+GO  
+-- To enable the feature.  
+EXEC sp_configure 'xp_cmdshell', 1;  
+GO  
+-- To update the currently configured value for this feature.  
+RECONFIGURE;  
+GO  
+*/
+exec xp_cmdshell 'C:\mattermark_etl_project\powershell ""C:\mattermark_etl_project\open_file.ps1""',no_output
+",<sql-server><t-sql><open-json>,3092,1,97,1623,4,20,44,57,101322,0.0,292,4,53,2019-07-30 0:16,2019-08-01 0:10,2019-08-01 0:10,2.0,2.0,Basic,11
+58866560,flask_sqlalchemy `pool_pre_ping` only working sometimes,"For testing, I amend the MYSQL (RDS) parameters as follows;
+wait_timeout = 40 (default was 28800)
+max_allowed_packet = 1GB (max - just to be sure issue not caused by small packets)
+net_read_timeout = 10
+interactive_timeout unchanged
+Then tested my app without pool_pre_ping options set (defaults to False), kept the app inactive for 40 seconds, tried to login, and i get
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]: Traceback (most recent call last):
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:   File &quot;/var/www/api_server/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py&quot;, line 1193, in _execute_context
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:     context)
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:   File &quot;/var/www/api_server/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py&quot;, line 507, in do_execute
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:     cursor.execute(statement, parameters)
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:   File &quot;/var/www/api_server/venv/lib/python3.6/site-packages/MySQLdb/cursors.py&quot;, line 206, in execute
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:     res = self._query(query)
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:   File &quot;/var/www/api_server/venv/lib/python3.6/site-packages/MySQLdb/cursors.py&quot;, line 312, in _query
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:     db.query(q)
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:   File &quot;/var/www/api_server/venv/lib/python3.6/site-packages/MySQLdb/connections.py&quot;, line 224, in query
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]:     _mysql.connection.query(self, query)
+Nov 14 20:05:20 ip-172-31-33-52 gunicorn[16962]: MySQLdb._exceptions.OperationalError: (2013, 'Lost connection to MySQL server during query')
+Added the pool_pre_ping like this (Using flask_sqlalchamy version 2.4.1);
+import os
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy as _BaseSQLAlchemy
+class SQLAlchemy(_BaseSQLAlchemy):
+    def apply_pool_defaults(self, app, options):
+        super(SQLAlchemy, self).apply_pool_defaults(app, options)
+        options[&quot;pool_pre_ping&quot;] = True
+#        options[&quot;pool_recycle&quot;] = 30
+#        options[&quot;pool_timeout&quot;] = 35
+db = SQLAlchemy()
+class DevConfig():
+    SQLALCHEMY_ENGINE_OPTIONS = {'pool_recycle': 280, 'pool_timeout': 100, 'pool_pre_ping': True} # These configs doesn't get applied in engine configs :/
+    DEBUG = True
+    # SERVER_NAME = '127.0.0.1:5000'
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI_DEV')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+config = dict(
+    dev=DevConfig,
+)
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_object(config['dev'])
+# INIT DATABASE
+db.init_app(app)
+with app.app_context():
+    db.create_all()
+-----------run.py
+app.run(host='127.0.0.1', port=5000)
+With this, now the webapp manages to get new connection even after MySQL server has closed the previous connection. It always works fine when I access the database right after its closed by server (tried max 50 seconds after)... but when I keep connection inactive for long time (haven't noted, but ~ &gt;10-15 min), again I see same error.
+According to the docs, (especially the section Dealing with disconnects), the pool_pre_ping option should handle this kind of scenario at background rite? Or is there any other timeout variable that I need to change in MySQL server?
+",<python><mysql><flask><flask-sqlalchemy><connection-pooling>,3480,1,51,2461,1,30,55,62,8866,0.0,962,2,53,2019-11-14 21:10,2021-07-28 22:32,,622.0,,Basic,9
+55674176,django can't find new sqlite version? (SQLite 3.8.3 or later is required (found 3.7.17)),"I've cloned a django project to a Centos 7 vps and I'm trying to run it now, but I get this error when trying to migrate:
+$ python manage.py migrate
+django.core.exceptions.ImproperlyConfigured: SQLite 3.8.3 or later is required (found 3.7.17).
+When I checked the version for sqlite, it was 3.7.17, so I downloaded the newest version from sqlite website and replaced it with the old one, and now when I version it, it gives:
+$ sqlite3 --version
+3.27.2 2019-02-25 16:06:06 bd49a8271d650fa89e446b42e513b595a717b9212c91dd384aab871fc1d0f6d7
+Still when I try to migrate the project, I get the exact same message as before which means the newer version is not found. I'm new to linux and would appreciate any help.
+",<python><django><sqlite><centos7>,708,0,5,1472,1,18,34,54,109296,0.0,516,14,52,2019-04-14 10:20,2019-04-20 16:08,2019-04-20 16:08,6.0,6.0,Basic,9
+56824788,How to connect to windows postgres Database from WSL,"I'm running Postgres 11 service on my Windows computer.
+How can I connect to this database from WSL?
+When I try su - postgres:
+postgres@LAPTOP-NQ52TKOG:~$ psql 
+psql: could not connect to server: No such file or directory 
+        Is the server running locally and accepting
+        connections on Unix domain socket &quot;/var/run/postgresql/.s.PGSQL.5432&quot;
+It's trying to connect to a Postgres in WSL. I don't want to run Ubuntu Postgres using:
+sudo /etc/init.d/postgresql start
+",<postgresql><windows-subsystem-for-linux>,485,0,6,777,2,8,18,46,43606,0.0,12,6,52,2019-06-30 12:19,2019-11-25 3:44,2019-11-25 3:44,148.0,148.0,Basic,9
+49389535,Problems with flask and bad request,"I was programming myself a pretty nice api to get some json data from my gameserver to my webspace using json,
+but everytime i am sending a request using angular i am getting this:
+127.0.0.1 - - [20/Mar/2018 17:07:33] code 400, message Bad request version
+(&quot;▒\x9c▒▒{▒'\x12\x99▒▒▒\xadH\x00\x00\x14▒+▒/▒,▒0▒\x13▒\x14\x00/\x005\x00&quot;)
+127.0.0.1 - - [20/Mar/2018 17:07:33] &quot;▒\x9dtTc▒\x93▒4▒M▒▒▒▒▒\x9c▒▒{▒'\x99▒▒▒▒H▒+▒/▒,▒0▒▒/5&quot;
+HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [20/Mar/2018 17:07:33] code 400, message Bad request syntax
+('\x16\x03\x01\x00▒\x01\x00\x00\x9d\x03\x03▒k,&amp;▒▒ua\x8c\x82\x17\x05▒QwQ$▒0▒▒\x9f▒B1\x98\x19W▒▒▒▒\x00\x00\x14▒+▒/▒,▒0▒\x13▒\x14\x00/\x005\x00')
+127.0.0.1 - - [20/Mar/2018 17:07:33] &quot;▒\x9d▒k,&amp;▒▒ua\x8c\x82▒QwQ$▒0▒▒\x9f▒B1\x98W▒▒▒▒▒+▒/▒,▒0▒▒/5&quot;
+HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [20/Mar/2018 17:07:33] code 400, message Bad request syntax
+('\x16\x03\x01\x00▒\x01\x00\x00▒\x03\x03)▒▒\x1e\xa0▒\t\r\x14g%▒▒\x17▒▒\x80\x8d}▒F▒▒\x08U▒ġ▒▒\x06▒\x00\x00\x1c▒+▒/▒,▒0▒')
+g%▒▒▒▒\x80\x8d}▒F▒U▒ġ▒▒▒▒+▒/▒,▒0▒&quot; HTTPStatus.BAD_REQUEST -
+My api
+from flask import Flask, jsonify
+from flaskext.mysql import MySQL
+from flask_cors import CORS, cross_origin
+app = Flask(__name__)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r""/punishments"": {""origins"": ""http://localhost:5000"" ""*""}})
+mysql = MySQL()
+# MySQL configurations
+app.config['MYSQL_DATABASE_USER'] = 'test'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Biologie1'
+app.config['MYSQL_DATABASE_DB'] = 'test'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
+@app.route('/punishments', methods=['GET'])
+@cross_origin(origin='localhost:5000',headers=['Content- Type','Authorization'])
+def get():
+    cur = mysql.connect().cursor()
+    cur.execute('''select * from test.punishments''')
+    r = [dict((cur.description[i][0], value)
+              for i, value in enumerate(row)) for row in cur.fetchall()]
+    return jsonify({'punishments' : r})
+if __name__ == '__main__':
+    app.run()
+My client function
+export class ApiUserService {
+  private _postsURL = ""https://localhost:5000/punishments"";
+  constructor(private http: HttpClient) {
+  }
+  getPosts(): Observable&lt;Punishments[]&gt; {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http
+      .get(this._postsURL,{
+        headers: {'Content-Type':'application/json; charset=utf-8'}
+      })
+      .map((response: Response) =&gt; {
+        return &lt;Punishments[]&gt;response.json();
+      })
+      .catch(this.handleError);
+  }
+  private handleError(error: Response) {
+    return Observable.throw(error.statusText);
+  }
+}
+",<flask><angular5><flask-mysql>,2710,2,55,549,1,5,8,76,61697,0.0,0,6,52,2018-03-20 16:29,2018-08-04 16:02,,137.0,,Basic,9
+61649764,MySQL ERROR 2026 - SSL connection error - Ubuntu 20.04,"I've recently upgraded my local machine OS from Ubuntu 18.04 to 20.04, I'm running my MySQL-server on CentOS (AWS). Post upgrade whenever I'm trying to connect to MySQL server it is throwing SSL connection error. 
+$ mysql -u yamcha -h database.yourproject.com -p --port 3309
+ERROR 2026 (HY000): SSL connection error: error:1425F102:SSL routines:ssl_choose_client_version:unsupported protocol
+But if I pass --ssl-mode=disabled option along with it, I'm able to connect remotely.
+$ mysql -u yamcha -h database.yourproject.com -p --port 3309 --ssl-mode=disabled
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 22158946
+Server version: 5.7.26 MySQL Community Server (GPL)
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql&gt; 
+Queries:  
+  How to connect without passing --ssl-mode=disabled  
+  How to pass this --ssl-mode=disabled option in my Django application, currently I've defined it as shown below, but I'm still getting the same error.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'yamcha',
+        'USER': 'yamcha',
+        'PASSWORD': 'xxxxxxxxxxxxxxx',
+        'HOST': 'database.yourproject.com',
+        'PORT': '3309',
+        'OPTIONS': {'ssl': False},
+    }
+",<mysql><django><ssl><centos><ubuntu-20.04>,1504,0,31,621,1,5,5,66,83107,0.0,1,7,52,2020-05-07 4:11,2020-05-21 12:07,,14.0,,Basic,9
+49963923,How do I update MySQL 5.7 to the new MySQL 8.0?,"How do I update to MySQL 8.0 from the default version (5.7)? 
+It's important for me for it to make an update and not re-install MySQL so all my data won't be corrupt. 
+There is not a lot of info regarding this issue since it was only released not long ago with tons of awesome new features!
+This is what I have found that seems like it will only update and not destroy my data. I'm not going to proceed until I'm sure. 
+",<mysql><ubuntu><ubuntu-server><mysqlupgrade>,420,2,0,5458,14,80,148,67,92302,0.0,1300,3,52,2018-04-22 8:20,2018-11-12 11:39,2018-11-12 11:39,204.0,204.0,Basic,2
+60716482,error: Skipping analyzing 'flask_mysqldb': found module but no type hints or library stubs,"I am using Python 3.6 and flask. I used flask-mysqldb to connect to MySQL, but whenever I try to run mypy on my program I get this error:
+Skipping analyzing 'flask_mysqldb': found module but no type hints or
+library stubs.
+I tried running mypy with the flags ignore-missing-imports or follow-imports=skip. Then I was not getting the error. Why do I get this error?
+How can I fix this without adding any additional flags?
+",<python><mypy><flask-mysql>,421,0,7,619,1,5,8,53,39785,0.0,10,2,52,2020-03-17 5:00,2020-03-18 1:26,2020-03-18 1:26,1.0,1.0,Basic,3
+49794140,"Connection ""default"" was not found with TypeORM","I use TypeORM with NestJS and I am not able to save properly an entity. 
+The connection creation works, postgres is running on 5432 port. Credentials are OK too. 
+However when I need to save a resource with entity.save() I got :
+Connection ""default"" was not found.
+Error
+    at new ConnectionNotFoundError (/.../ConnectionNotFoundError.ts:11:22)
+I checked the source file of TypeORM ConnectionManager (https://github.com/typeorm/typeorm/blob/master/src/connection/ConnectionManager.ts) but it seems that the first time TypeORM creates connection it attributes ""default"" name if we don't provide one, which is the case for me.
+I setup TypeORM with TypeOrmModule as 
+TypeOrmModule.forRoot({
+      type: config.db.type,
+      host: config.db.host,
+      port: config.db.port,
+      username: config.db.user,
+      password: config.db.password,
+      database: config.db.database,
+      entities: [
+        __dirname + '/../../dtos/entities/*.entity.js',
+      ]
+    })
+Of course my constants are correct. Any ideas ?
+",<node.js><postgresql><typeorm><nestjs>,1014,2,16,764,1,8,17,64,96987,0.0,86,16,52,2018-04-12 10:25,2018-05-26 12:36,2018-05-26 12:36,44.0,44.0,Basic,9
+52610485,How to restart PostgreSQL in Ubuntu 18.04,"How to restart PostgreSQL via ssh console?
+When i search this thing on SO I only find: postgres, ubuntu how to restart service on startup? get stuck on clustering after instance reboot
+",<postgresql>,185,1,0,6847,6,29,50,74,114513,0.0,1114,4,52,2018-10-02 14:27,2018-10-02 14:27,2018-10-02 14:27,0.0,0.0,Basic,10
+50497583,when to disconnect and when to end a pg client or pool,"My stack is node, express and the pg module. I really try to understand by the documentation and some outdated tutorials. I dont know when and how to disconnect and to end a client.
+For some routes I decided to use a pool. This is my code
+const pool = new pg.Pool({
+  user: 'pooluser',host: 'localhost',database: 'mydb',password: 'pooluser',port: 5432});
+pool.on('error', (err, client) =&gt; {
+  console.log('error ', err);  process.exit(-1);
+});
+app.get('/', (req, res)=&gt;{
+  pool.connect()
+    .then(client =&gt; {
+      return client.query('select ....')
+            .then(resolved =&gt; {
+              client.release();
+              console.log(resolved.rows);
+            })
+            .catch(e =&gt; { 
+              client.release();
+              console.log('error', e);
+            })
+      pool.end();
+    })
+});
+In the routes of the CMS, I use client instead of pool that has different db privileges than the pool.
+const client = new pg.Client({
+  user: 'clientuser',host: 'localhost',database: 'mydb',password: 'clientuser',port: 5432});    
+client.connect();
+const signup = (user) =&gt; {
+  return new Promise((resolved, rejeted)=&gt;{
+    getUser(user.email)
+    .then(getUserRes =&gt; {
+      if (!getUserRes) {
+        return resolved(false);
+      }            
+            client.query('insert into user(username, password) values ($1,$2)',[user.username,user.password])
+              .then(queryRes =&gt; {
+                client.end();
+                resolved(true);
+              })
+              .catch(queryError =&gt; {
+                client.end();
+                rejeted('username already used');
+              });
+    })
+    .catch(getUserError =&gt; {
+      return rejeted('error');
+    });
+  }) 
+};
+const getUser = (username) =&gt; {
+  return new Promise((resolved, rejeted)=&gt;{
+    client.query('select username from user WHERE username= $1',[username])
+      .then(res =&gt; {
+        client.end();
+        if (res.rows.length == 0) {
+          return resolved(true);
+        }
+        resolved(false);
+      })
+      .catch(e =&gt; {
+        client.end();
+        console.error('error ', e);
+      });
+  })
+}
+In this case if I get a username already used and try to re-post with another username, the query of the getUser never starts and the page hangs. If I remove the client.end(); from both functions, it will work. 
+I am confused, so please advice on how and when to disconnect and to completely end a pool or a client. Any hint or explanation or tutorial will be appreciated. 
+Thank you
+",<node.js><postgresql><node-postgres>,2535,0,68,4312,20,69,130,55,56111,0.0,468,4,51,2018-05-23 21:15,2018-05-27 14:26,2018-05-31 18:40,4.0,8.0,Intermediate,31
+50336378,Variable 'sql_mode' can't be set to the value of 'NO_AUTO_CREATE_USER',"I am using MySQL Workbench 8.0. I am trying to dump test data to DB including all the tables, stored procedures and views with data.
+When I try to import it's says import finished with one error and the error is 
+  Variable 'sql_mode' can't be set to the value of 'NO_AUTO_CREATE_USER'
+  Operation failed with exitcode 1
+Also after importing if I check the database, only tables have come but there are no stored procedures at all. 
+How would one fix this? 
+",<mysql><mysql-workbench><data-import>,458,0,0,549,1,5,12,63,100869,0.0,0,9,51,2018-05-14 17:58,2018-06-06 13:31,,23.0,,Basic,14
+57316744,Docker SQL bind: An attempt was made to access a socket in a way forbidden by its access permissions,"Error-message when creating container in Docker for SQL-server (with Admin-rights):
+  ""… Error response from daemon: driver failed programming external
+  connectivity on endpoint SQL19b
+  (cc372bb961fb8178c2461d26bf16c4232a62e01c5f48b8fcec273370506cc095):
+  Error starting userland proxy: listen tcp 0.0.0.0:1433: bind: An
+  attempt was made to access a socket in a way forbidden by its access
+  permissions.""
+excerpts from Log-file:
+    [21:39:17.692][ApiProxy          ][Info   ] time=""2019-08-01T21:39:17+02:00"" msg=""proxy &gt;&gt; HEAD /_ping\n""
+[21:39:17.696][ApiProxy          ][Info   ] time=""2019-08-01T21:39:17+02:00"" msg=""proxy &lt;&lt; HEAD /_ping (3.9929ms)\n""
+[21:39:17.699][GoBackendProcess  ][Info   ] error CloseWrite to: The pipe is being closed.
+[21:39:17.742][ApiProxy          ][Info   ] time=""2019-08-01T21:39:17+02:00"" msg=""proxy &gt;&gt; DELETE /v1.40/containers/22810276e261\n""
+[21:39:17.758][ApiProxy          ][Info   ] time=""2019-08-01T21:39:17+02:00"" msg=""proxy &lt;&lt; DELETE /v1.40/containers/22810276e261 (16.129ms)\n""
+[21:39:17.759][GoBackendProcess  ][Info   ] error CloseWrite to: The pipe is being closed.
+[21:39:27.866][ApiProxy          ][Info   ] time=""2019-08-01T21:39:27+02:00"" msg=""proxy &gt;&gt; HEAD /_ping\n""
+[21:39:27.869][ApiProxy          ][Info   ] time=""2019-08-01T21:39:27+02:00"" msg=""proxy &lt;&lt; HEAD /_ping (1.6595ms)\n""
+[21:39:27.870][GoBackendProcess  ][Info   ] error CloseWrite to: The pipe is being closed.
+[21:39:27.894][ApiProxy          ][Info   ] time=""2019-08-01T21:39:27+02:00"" msg=""proxy &gt;&gt; POST /v1.40/containers/create?name=SQLLinuxLocalPersist\n""
+[21:39:27.908][APIRequestLogger  ][Info   ] [db460e2b-7d77-4756-be19-665715a9a182] POST http://unix/usage
+[21:39:27.909][APIRequestLogger  ][Info   ] [db460e2b-7d77-4756-be19-665715a9a182] POST http://unix/usage -&gt; 200 OK took 0ms
+[21:39:27.909][ApiProxy          ][Info   ] time=""2019-08-01T21:39:27+02:00"" msg=""Rewrote mount C:\\Docker\\SQL:/sql (volumeDriver=) to /host_mnt/c/Docker/SQL:/sql""
+[21:39:28.049][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""proxy &lt;&lt; POST /v1.40/containers/create?name=SQLLinuxLocalPersist (154.5485ms)\n""
+[21:39:28.050][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""proxy &gt;&gt; POST /v1.40/containers/89d13c9d2d2bae095cf66e94b5bb60907a50cb199eb2bdcef9845d493435be07/wait?condition=next-exit\n""
+[21:39:28.052][GoBackendProcess  ][Info   ] error CloseWrite to: The pipe is being closed.
+[21:39:28.080][APIRequestLogger  ][Info   ] [a9a496c9-767a-4bd2-917c-f3f1391609dc] POST http://unix/usage
+[21:39:28.082][APIRequestLogger  ][Info   ] [a9a496c9-767a-4bd2-917c-f3f1391609dc] POST http://unix/usage -&gt; 200 OK took 0ms
+[21:39:28.060][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""proxy &gt;&gt; POST /v1.40/containers/89d13c9d2d2bae095cf66e94b5bb60907a50cb199eb2bdcef9845d493435be07/start\n""
+[21:39:28.088][APIRequestLogger  ][Info   ] [89bf69bf-5084-4d4b-a887-c7acb99bf131] POST http://unix/usage
+[21:39:28.088][APIRequestLogger  ][Info   ] [6ca0e28f-bba3-4f66-afc5-43f6d486c8a2] POST http://unix/usage
+[21:39:28.089][APIRequestLogger  ][Info   ] [89bf69bf-5084-4d4b-a887-c7acb99bf131] POST http://unix/usage -&gt; 200 OK took 0ms
+[21:39:28.089][APIRequestLogger  ][Info   ] [6ca0e28f-bba3-4f66-afc5-43f6d486c8a2] POST http://unix/usage -&gt; 200 OK took 0ms
+[21:39:28.067][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""mount point type:bind""
+[21:39:28.068][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""mount point:/host_mnt/c/Docker/SQL""
+[21:39:28.205][Moby              ][Info   ] [ 2254.975742] docker0: port 1(veth69918f7) entered blocking state
+[21:39:28.250][Moby              ][Info   ] [ 2255.087127] docker0: port 1(veth69918f7) entered disabled state
+[21:39:28.295][Moby              ][Info   ] [ 2255.132041] device veth69918f7 entered promiscuous mode
+[21:39:28.354][Moby              ][Info   ] [ 2255.176944] IPv6: ADDRCONF(NETDEV_UP): veth69918f7: link is not ready
+[21:39:28.439][GoBackendProcess  ][Info   ] Adding tcp forward from 0.0.0.0:1433 to 172.17.0.2:1433
+[21:39:28.560][Moby              ][Info   ] [ 2255.385920] docker0: port 1(veth69918f7) entered disabled state
+[21:39:28.616][Moby              ][Info   ] [ 2255.442735] device veth69918f7 left promiscuous mode
+[21:39:28.667][Moby              ][Info   ] [ 2255.497549] docker0: port 1(veth69918f7) entered disabled state
+[21:39:28.826][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""proxy &lt;&lt; POST /v1.40/containers/89d13c9d2d2bae095cf66e94b5bb60907a50cb199eb2bdcef9845d493435be07/start (767.0192ms)\n""
+[21:39:28.829][GoBackendProcess  ][Info   ] error CloseWrite to: The pipe is being closed.
+[21:39:28.834][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""Cancel connection...""
+[21:39:28.836][ApiProxy          ][Info   ] time=""2019-08-01T21:39:28+02:00"" msg=""proxy &lt;&lt; POST /v1.40/containers/89d13c9d2d2bae095cf66e94b5bb60907a50cb199eb2bdcef9845d493435be07/wait?condition=next-exit (786.0411ms)\n""
+This leads to a container created, but without the port allocated. Therefore cannot start the SQL server.
+Edit1: The port 1433 doesn't seem to be used (at least it is not listed under ""netstat -abn"" )
+",<sql-server><docker>,5308,1,37,1388,3,12,11,77,40448,0.0,7,6,51,2019-08-01 20:45,2019-08-10 4:07,,9.0,,Advanced,38
+64677836,SQLSTATE[HY000]: General error: 1835 Malformed communication packet on LARAVEL,"Suddenly got
+SQLSTATE[HY000]: General error: 1835 Malformed communication packet (SQL: select * from tb_users where (username = 121211) limit 1)
+on Laravel.
+I already checked this: MySQL: ERROR 2027 (HY000): Malformed packet, but it seems a different case.
+I've successfully logged in to MySQL after previously login using SSH (using: mysql -u -p).
+I've successfully logged in to MySQL directly from a remote PC (using: mysql -h [IP] -u -p).
+But my Laravel got the error I mentioned before. Any experience in this?
+",<mysql><laravel><mariadb><mariadb-10.3>,515,1,2,845,1,7,8,79,20380,0.0,0,16,50,2020-11-04 9:59,2020-11-04 10:28,,0.0,,Basic,10
+48448473,Pyspark convert a standard list to data frame,"The case is really simple, I need to convert a python list into data frame with following code
+from pyspark.sql.types import StructType
+from pyspark.sql.types import StructField
+from pyspark.sql.types import StringType, IntegerType
+schema = StructType([StructField(""value"", IntegerType(), True)])
+my_list = [1, 2, 3, 4]
+rdd = sc.parallelize(my_list)
+df = sqlContext.createDataFrame(rdd, schema)
+df.show()
+it failed with following error:
+    raise TypeError(""StructType can not accept object %r in type %s"" % (obj, type(obj)))
+TypeError: StructType can not accept object 1 in type &lt;class 'int'&gt;
+",<python><apache-spark><pyspark><apache-spark-sql>,600,0,12,1497,3,17,26,78,146152,0.0,39,2,50,2018-01-25 17:13,2018-01-25 17:25,2018-01-25 21:21,0.0,0.0,Basic,10
+57128891,How repair corrupt xampp 'mysql.user' table?,"I used Xampp yesterday to create some simple Web-based utility tool.
+Today I wanted to continue working on it but xampp control panel gave me some weir errors.
+This is the MySQL Error Log:
+2019-07-20 23:47:13 0 [Note] InnoDB: Uses event mutexes
+2019-07-20 23:47:13 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-07-20 23:47:13 0 [Note] InnoDB: Number of pools: 1
+2019-07-20 23:47:13 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-07-20 23:47:13 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-07-20 23:47:13 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-07-20 23:47:13 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1819402
+2019-07-20 23:47:14 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-07-20 23:47:14 0 [Note] InnoDB: Removed temporary tablespace data file: ""ibtmp1""
+2019-07-20 23:47:14 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-07-20 23:47:14 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-07-20 23:47:14 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-07-20 23:47:14 0 [Note] InnoDB: Waiting for purge to start
+2019-07-20 23:47:14 0 [Note] InnoDB: 10.3.16 started; log sequence number 1819411; transaction id 257
+2019-07-20 23:47:14 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-07-20 23:47:14 0 [Note] InnoDB: Buffer pool(s) load completed at 190720 23:47:14
+2019-07-20 23:47:14 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-07-20 23:47:14 0 [Note] Server socket created on IP: '127.0.0.1'.
+2019-07-20 23:47:14 0 [ERROR] mysqld.exe: Table '.\mysql\user' is marked as crashed and should be repaired
+2019-07-20 23:47:14 0 [ERROR] mysqld.exe: Index for table '.\mysql\user' is corrupt; try to repair it
+2019-07-20 23:47:14 0 [ERROR] Couldn't repair table: mysql.user
+2019-07-20 23:47:14 0 [ERROR] Fatal error: Can't open and lock privilege tables: Index for table 'user' is corrupt; try to repair it
+Tried already to repair, but the mySQL Service won't even start, so I'm kinda helpless...
+",<mysql><xampp>,2184,0,26,601,1,5,4,69,178564,0.0,0,25,50,2019-07-20 21:58,2019-07-26 2:05,,6.0,,Basic,10
+54187241,EF Core Connection to Azure SQL with Managed Identity,"I am using EF Core to connect to a Azure SQL Database deployed to Azure App Services. I am using an access token (obtained via the Managed Identities) to connect to Azure SQL database.
+Here is how I am doing that:
+Startup.cs:
+public void ConfigureServices(IServiceCollection services)
+{
+    //code ignored for simplicity
+    services.AddDbContext&lt;MyCustomDBContext&gt;();
+    services.AddTransient&lt;IDBAuthTokenService, AzureSqlAuthTokenService&gt;();
+}
+MyCustomDBContext.cs
+public partial class MyCustomDBContext : DbContext
+{
+    public IConfiguration Configuration { get; }
+    public IDBAuthTokenService authTokenService { get; set; }
+    public CortexContext(IConfiguration configuration, IDBAuthTokenService tokenService, DbContextOptions&lt;MyCustomDBContext&gt; options)
+        : base(options)
+    {
+        Configuration = configuration;
+        authTokenService = tokenService;
+    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        SqlConnection connection = new SqlConnection();
+        connection.ConnectionString = Configuration.GetConnectionString(""defaultConnection"");
+        connection.AccessToken = authTokenService.GetToken().Result;
+        optionsBuilder.UseSqlServer(connection);
+    }
+}
+AzureSqlAuthTokenService.cs
+public class AzureSqlAuthTokenService : IDBAuthTokenService
+{
+    public async Task&lt;string&gt; GetToken()
+    {
+        AzureServiceTokenProvider provider = new AzureServiceTokenProvider();
+        var token = await provider.GetAccessTokenAsync(""https://database.windows.net/"");
+        return token;
+    }
+}
+This works fine and I can get data from the database. But I am not sure if this is the right way to do it.
+My questions:
+Is this a right way to do it or will it have issues with performance?
+Do I need to worry about token expiration? I am not caching the token as of now.
+Does EF Core has any better way to handle this?
+",<c#><entity-framework-core><azure-active-directory><azure-sql-database><ef-core-2.2>,1924,1,38,973,1,13,28,56,18126,0.0,11,6,49,2019-01-14 18:32,2019-01-15 2:54,2019-01-15 2:54,1.0,1.0,Intermediate,18
+54504230,"How to fix ""Error executing DDL ""alter table events drop foreign key FKg0mkvgsqn8584qoql6a2rxheq"" via JDBC Statement""","I'm trying to start a Spring Boot project with a MySQL database, but I have some problem with the database. I try to start my application that, and server is running, but Hibernate doesn’t create Tables, etc.
+This is my code:
+User Entity
+ @Entity
+   public class User {
+      @Id
+      @GeneratedValue(strategy = IDENTITY)
+      private Long id;
+      private String firstName;
+      private String lastName;
+      private String email;
+      private String password;
+      private String description;
+      private String profile_photo;
+      private LocalDate create;
+      private LocalDate update;
+      @OneToMany(mappedBy = &quot;eventOwner&quot;)
+      private List&lt;Event&gt; ownedEvents;
+           public Long getId() {
+    return id;
+}
+public void setId(Long id) {
+    this.id = id;
+}
+public String getFirstName() {
+    return firstName;
+}
+public void setFirstName(String firstName) {
+    this.firstName = firstName;
+}
+public String getLastName() {
+    return lastName;
+}
+public void setLastName(String lastName) {
+    this.lastName = lastName;
+}
+public String getEmail() {
+    return email;
+}
+public void setEmail(String email) {
+    this.email = email;
+}
+public String getPassword() {
+    return password;
+}
+public void setPassword(String password) {
+    this.password = password;
+}
+public String getDescription() {
+    return description;
+}
+public void setDescription(String description) {
+    this.description = description;
+}
+public String getProfile_photo() {
+    return profile_photo;
+}
+public void setProfile_photo(String profile_photo) {
+    this.profile_photo = profile_photo;
+}
+public LocalDate getCreate() {
+    return create;
+}
+public void setCreate(LocalDate create) {
+    this.create = create;
+}
+public LocalDate getUpdate() {
+    return update;
+}
+public void setUpdate(LocalDate update) {
+    this.update = update;
+}
+public List&lt;Event&gt; getOwnedEvents() {
+    return ownedEvents;
+}
+public void setOwnedEvents(List&lt;Event&gt; ownedEvents) {
+    this.ownedEvents = ownedEvents;
+}}
+Event Entity
+   @Entity
+   @Table(name = &quot;events&quot;)
+   public class Event {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+private Double longitude;
+private Double latitude;
+private String description;
+private String header;
+private LocalDate startData;
+private LocalDate endData;
+private LocalDate creat;
+private LocalDate update;
+private Filters filters;
+@ManyToOne
+@JoinColumn(name = &quot;owner_id&quot;)
+private User eventOwner;
+public Long getId() {
+    return id;
+}
+public void setId(Long id) {
+    this.id = id;
+}
+public Double getLongitude() {
+    return longitude;
+}
+public void setLongitude(Double longitude) {
+    this.longitude = longitude;
+}
+public Double getLatitude() {
+    return latitude;
+}
+public void setLatitude(Double latitude) {
+    this.latitude = latitude;
+}
+public String getDescription() {
+    return description;
+}
+public void setDescription(String description) {
+    this.description = description;
+}
+public String getHeader() {
+    return header;
+}
+public void setHeader(String header) {
+    this.header = header;
+}
+public LocalDate getStartData() {
+    return startData;
+}
+public void setStartData(LocalDate startData) {
+    this.startData = startData;
+}
+public LocalDate getEndData() {
+    return endData;
+}
+public void setEndData(LocalDate endData) {
+    this.endData = endData;
+}
+public LocalDate getCreat() {
+    return creat;
+}
+public void setCreat(LocalDate creat) {
+    this.creat = creat;
+}
+public LocalDate getUpdate() {
+    return update;
+}
+public void setUpdate(LocalDate update) {
+    this.update = update;
+}
+public Filters getFilters() {
+    return filters;
+}
+public void setFilters(Filters filters) {
+    this.filters = filters;
+}
+public User getEventOwner() {
+    return eventOwner;
+}
+public void setEventOwner(User eventOwner) {
+    this.eventOwner = eventOwner;
+}
+}
+And these are my properties:
+spring.datasource.url= jdbc:mysql://localhost:3306/some_database?
+requireSSL=false&amp;useSSL=false
+spring.datasource.username= user
+spring.datasource.password= passw
+logging.level.org.hibernate.SQL= DEBUG
+spring.jpa.hibernate.ddl-auto = create-drop
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL55Dialect
+This is the error I get:
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing
+DDL &quot;alter table events drop foreign key FKg0mkvgsqn8584qoql6a2rxheq&quot; via
+JDBC Statement
+and
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing
+DDL &quot;create table events (id bigint not null auto_increment, creat date,
+description varchar(255), end_data date, event_type integer, max_age
+integer not null, min_age integer not null, open_to_changes bit not null,
+pets_allowed bit not null, price_range integer, smoking_allowed bit not
+null, header varchar(255), latitude double precision, longitude double
+precision, start_data date, update date, owner_id bigint, primary key (id))
+engine=InnoDB&quot; via JDBC Statement
+at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:315) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:166) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.internal.SessionFactoryImpl.&lt;init&gt;(SessionFactoryImpl.java:310) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:939) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) [spring-orm-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) [spring-orm-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) [spring-orm-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1804) [spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1741) [spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) [spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) [spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1083) ~[spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:853) ~[spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) ~[spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+How can I fix that?
+",<java><mysql><hibernate><spring-boot>,10315,0,262,654,1,6,10,50,132840,0.0,25,22,48,2019-02-03 15:09,2019-02-04 10:16,2019-05-19 10:16,1.0,105.0,Basic,13
+63361962,ERROR 2068 (HY000): LOAD DATA LOCAL INFILE file request rejected due to restrictions on access,"I'm trying:
+mysql&gt; 
+LOAD DATA LOCAL INFILE '/var/tmp/countries.csv' 
+INTO TABLE countries 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '&quot;' LINES 
+TERMINATED BY '\n' 
+IGNORE 1 LINES 
+(CountryId,CountryCode,CountryDescription,CountryRegion,LastUpdatedDate,created_by,created_on)
+SET created_by = 'DH_INITIAL_LOAD', created_on = current_timestamp();
+ERROR 2068 (HY000): LOAD DATA LOCAL INFILE file request rejected due to restrictions on access.`
+It was working fine, I downloaded pymysql and mysql connector for the python script. I uninstalled and checked still it is not working.
+The verion and infile is ON,
+ select version() -| 8.0.17
+mysql&gt; SHOW GLOBAL VARIABLES LIKE 'local_infile';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| local_infile  | ON    |
++---------------+-------+
+1 row in set (0.00 sec)
+",<mysql><load>,846,0,21,1123,1,6,11,37,130807,0.0,4,10,48,2020-08-11 15:58,2020-08-13 5:40,2020-08-13 5:40,2.0,2.0,Basic,14
+50846722,What is the difference between Postgres DISTINCT vs DISTINCT ON?,"I have a Postgres table created with the following statement. This table is filled by as dump of data from another service.
+CREATE TABLE data_table (
+    date date DEFAULT NULL,
+    dimension1 varchar(64) DEFAULT NULL,
+    dimension2 varchar(128) DEFAULT NULL
+) TABLESPACE pg_default;
+One of the steps in a ETL I'm building is extracting the unique values of dimension1 and inserting them in another intermediary table.
+However, during some tests I found out that the 2 commands below do not return the same results. I would expect for both to return the same sum.
+The first command returns more results compared with the second (1466 rows vs. 1504.
+-- command 1
+SELECT DISTINCT count(dimension1)
+FROM data_table;
+-- command 2    
+SELECT count(*)
+FROM (SELECT DISTINCT ON (dimension1) dimension1
+FROM data_table
+GROUP BY dimension1) AS tmp_table;
+Any obvious explanations for this? Alternatively to an explanation, is there any suggestion of any check on the data I should do?
+EDIT: The following queries both return 1504 (same as the ""simple"" DISTINCT)
+SELECT count(*)
+FROM data_table WHERE dimension1 IS NOT NULL;
+SELECT count(dimension1)
+FROM data_table;
+Thank you!
+",<sql><postgresql>,1169,0,21,611,1,6,12,64,32580,0.0,40,5,47,2018-06-13 21:43,2018-06-13 22:11,2018-06-13 22:19,0.0,0.0,Basic,8
+48793257,Laravel: Check with Observer if Column was Changed on Update,"I am using an Observer to watch if a user was updated.
+Whenever a user is updated I would like to check if his email has been changed. 
+Is something like this possible?
+class UserObserver
+{
+    /**
+     * Listen to the User created event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function updating(User $user)
+    {
+      // if($user-&gt;hasChangedEmailInThisUpdate()) ?
+    }
+}
+",<php><mysql><laravel-5>,416,1,18,26612,24,163,253,67,55203,0.0,2276,4,45,2018-02-14 17:43,2018-02-14 18:19,2018-02-14 18:19,0.0,0.0,Basic,9
+55863560,"Method ""join"" and class ""DeepCollectionEquality"" aren't defined","Android Studio is giving me 2 errors using sqflite 2.2.0+3:
+The method join isn't defined for the class uploadIntoDb.
+Undefined class DeepCollectionEquality.
+My code :
+import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:sqflite/sqflite.dart';
+class UploadPage extends StatefulWidget {
+  @override
+  State&lt;StatefulWidget&gt; createState(){
+    return new UploadPageState();
+  }
+}
+class UploadPageState extends State&lt;UploadPage&gt;
+    with SingleTickerProviderStateMixin {
+  @override
+  void initState(){
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return null;
+  }
+  Future&lt;void&gt; uploadIntoDb(String valueToUpload) async{
+    // Get a location using getDatabasesPath
+    var databasesPath = await getDatabasesPath();
+    String path = join(databasesPath, 'poa.db');//FIRST PROBLEM
+// open the database
+    Database database = await openDatabase(path, version: 1,
+        onCreate: (Database db, int version) async {
+          // When creating the db, create the table
+          await db.execute(
+              'CREATE TABLE Test (id INTEGER PRIMARY KEY, name TEXT, value INTEGER, num REAL)');
+        });
+// Insert some records in a transaction
+    await database.transaction((txn) async {
+      int id1 = await txn.rawInsert(
+          'INSERT INTO Test(name, value, num) VALUES(&quot;some name&quot;, 1234, 456.789)');
+      print('inserted1: $id1');
+      int id2 = await txn.rawInsert(
+          'INSERT INTO Test(name, value, num) VALUES(?, ?, ?)',
+          ['another name', 12345678, 3.1416]);
+      print('inserted2: $id2');
+    });
+// Update some record
+    int count = await database.rawUpdate(
+        'UPDATE Test SET name = ?, VALUE = ? WHERE name = ?',
+        ['updated name', '9876', 'some name']);
+    print('updated: $count');
+// Get the records
+    List&lt;Map&gt; list = await database.rawQuery('SELECT * FROM Test');
+    List&lt;Map&gt; expectedList = [
+      {'name': 'updated name', 'id': 1, 'value': 9876, 'num': 456.789},
+      {'name': 'another name', 'id': 2, 'value': 12345678, 'num': 3.1416}
+    ];
+    print(list);
+    print(expectedList);
+    assert(const DeepCollectionEquality().equals(list, expectedList));//SECOND PROBLEM
+// Count the records
+    count = Sqflite
+        .firstIntValue(await database.rawQuery('SELECT COUNT(*) FROM Test'));
+    assert(count == 2);
+// Delete a record
+    count = await database
+        .rawDelete('DELETE FROM Test WHERE name = ?', ['another name']);
+    assert(count == 1);
+// Close the database
+    await database.close();
+  }
+}
+Yes I included dependency sqflite: ^1.1.0.
+",<android><sqlite><join><flutter><sqflite>,2617,1,83,3873,5,27,47,69,19933,0.0,443,1,45,2019-04-26 8:20,2019-04-26 10:30,2019-04-26 10:30,0.0,0.0,Basic,9
+49811955,Unable to install psycopg2 (pip install psycopg2),"I'm using MAC and python version 2.7.14
+Collecting psycopg2
+  Could not fetch URL https://pypi.python.org/simple/psycopg2/: There was a problem confirming the ssl certificate: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:661) - skipping
+  Could not find a version that satisfies the requirement psycopg2 (from versions: )
+No matching distribution found for psycopg2
+",<python><postgresql><pip><psycopg2>,394,1,4,567,1,4,6,72,118872,0.0,1,9,45,2018-04-13 7:54,2018-04-13 8:10,,0.0,,Basic,14
+59985030,Syntax error at: OPTIMIZE_FOR_SEQUENTIAL_KEY,"I created a table in Microsoft SQL Server Management Studio and the table worked fine, no errors while building.
+Then i was copying the script to my project in visual studio when the following message showed:
+  SQL80001: Incorrect syntax ner 'OPTIMIZE_FOR_SEQUENTIAL_KEY'
+I don't know why it happened, but this error was showing on this line of the code:
+(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF  )
+Do you guys know why the visual studio is showing that error message? How can I fix it?
+",<sql-server><visual-studio>,595,0,1,602,1,5,13,65,92805,0.0,89,3,45,2020-01-30 11:29,2020-01-30 11:48,2020-01-30 11:48,0.0,0.0,Basic,14
+48190016,SQL correct way of joining if the other parameter is null,"I have this code and its temporary tables so you can run it.
+create table #student
+(
+    id int identity(1,1),
+    firstname varchar(50),
+    lastname varchar(50)
+)
+create table #quiz
+(
+    id int identity(1,1),
+    quiz_name varchar(50)
+)
+create table #quiz_details
+(
+    id int identity(1,1),
+    quiz_id int,
+    student_id int
+)
+insert into #student(firstname, lastname)
+values ('LeBron', 'James'), ('Stephen', 'Curry')
+insert into #quiz(quiz_name)
+values('NBA 50 Greatest Player Quiz'), ('NBA Top 10 3 point shooters')
+insert into #quiz_details(quiz_id, student_id)
+values (1, 2), (2, 1)
+drop table #student
+drop table #quiz
+drop table #quiz_details
+So as you can see lebron james takes the quiz nba top 10 3 point shooters quiz and stephen curry takes the nba 50 greatest player quiz.
+All I want is to get the thing that they didn't take yet for example LeBron hasn't taken the 50 greatest player quiz so what I want is like this.
+id   quiz_name                    firstname  lastname
+----------------------------------------------------
+1    NBA 50 Greatest Player Quiz  NULL       NULL 
+I want 2 parameters, the id of lebron and the id of the quiz so that I will know that lebron or stephen hasn't taken it yet, but how would I do that if the value of the student_id is still null?
+My attempt:
+select
+    QD.id,
+    Q.quiz_name,
+    S.firstname,
+    S.lastname
+from 
+    #quiz_details QD
+inner join 
+    #quiz Q on Q.id = QD.quiz_id
+inner join 
+    #student S on S.id = QD.student_id
+",<sql><sql-server>,1492,0,48,515,0,3,10,81,1916,0.0,8,5,45,2018-01-10 14:50,2018-01-10 14:56,2018-01-10 14:56,0.0,0.0,Basic,10
+48279481,Multiple tables with same type of objects in Room database,"I'm using Room as the database for the app. I have a scenario where an Object of a certain type needs to be stored in separate tables. As an example, lets take the Object called Book.java 
+Now, I want to have two SQL tables:
+Books_Read
+Books_To_Read 
+ignore any naming conventions for SQL DB please - this is just an example
+Problem 
+Normally, one would just use @Entity(tableName = ""Books_Read"") in the Book.java class and have a DAO class that will use that table name. 
+The thing is; how would I then be able to use the same Book.java class to store in the Books_To_Read table? Since I already defined @Entity(tableName = ""Books_Read"") as part of the Book.java class and I see no where to define the Books_To_Read table for the Book.java class 
+The only solution I was able to come up with, which seems a little hackery and unnessasery, was to create a new class - let's call it BookToRead.java  that extends Book.java and define @Entity(tableName = ""Books_To_Read"") in the class. 
+Question
+Is there a better way to do this or is this the expected way to handle it? 
+",<android><sql><database><database-design><android-room>,1070,0,15,7241,9,47,99,45,24992,0.0,1779,3,45,2018-01-16 10:50,2018-02-19 10:44,,34.0,,Basic,10
+59156537,Unable to load System.Threading.Tasks.Extensions,"I have a web project build on .net framework 4.5.1. We are trying to added PostgreSQL support for the project. Using Nuget, I have installed 4.0.4 npgsql to the project. Under references, I see the following being added to the project.
+Npgsql - 4.0.4.0 - Runtime version v4.0.30319
+System.Threading.Tasks.Extensions - 4.2.0.0 - Runtime version v4.0.30319
+When I tried run the project and connect and get the data from the database, I am getting the following error saying FileNotFoundException:
+    System.TypeInitializationException
+      HResult=0x80131534
+      Message=The type initializer for 'com.rsol.RConfig' threw an exception.
+      Source=RConfig
+      StackTrace:
+       at com.rsol.RConfig.getInstance() in C:\Workspaces\PS\RConfig\RConfig.cs:line 1113
+       at RAdmin.Global.Application_Start(Object sender, EventArgs e) in C:\Workspaces\PS\RAdmin\Global.asax.cs:line 528
+    Inner Exception 1:
+    TypeInitializationException: The type initializer for 'com.rsol.Db.DbMgr' threw an exception.
+    Inner Exception 2:
+    FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+    Inner Exception 3:
+    FileNotFoundException: Could not load file or assembly 'System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.
+System.Threading.Tasks.Extensions which is installed using Nuget is not getting loaded to the project. When I checked the properties of System.Threading.Tasks.Extensions reference, the dll file exists in the location. I have also tried installing System.Threading.Tasks.Extensions.dll file to assembly using gacutil. I am still getting the same error.
+Please let me know if you need any additional information.
+Any help is really appreciated.
+",<c#><nuget><npgsql>,1963,0,16,1189,2,19,41,72,69195,0.0,28,10,44,2019-12-03 11:54,2019-12-03 12:12,2019-12-03 12:12,0.0,0.0,Basic,14
+55457069,"how to fix ""OperationalError: (psycopg2.OperationalError) server closed the connection unexpectedly""","Services
+My service based on flask + postgresql + gunicorn + supervisor + nginx
+When deploying by docker, after running the service, then accessing the api, sometimes it told the error message, and sometimes it workes well.
+And the sqlachemy connect database add the parameters 'sslmode:disable'.
+File ""/usr/local/lib/python2.7/site-packages/sqlalchemy/sql/elements.py"", line 287, in _execute_on_connection
+    Return connection._execute_clauseelement(self, multiparams, params)
+  File ""/usr/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py"", line 1107, in _execute_clauseelement
+    Distilled_params,
+  File ""/usr/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py"", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File ""/usr/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py"", line 1466, in _handle_dbapi_exception
+    Util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File ""/usr/local/lib/python2.7/site-packages/sqlalchemy/util/compat.py"", line 383, in raise_from_cause
+    Reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File ""/usr/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py"", line 1244, in _execute_context
+    Cursor, statement, parameters, context
+  File ""/usr/local/lib/python2.7/site-packages/sqlalchemy/engine/default.py"", line 552, in do_execute
+    Cursor.execute(statement, parameters)
+OperationalError: (psycopg2.OperationalError) server closed the connection unexpectedly
+    This probably means the server terminated abnormally
+    before or while processing the request.
+Information
+Docker for Mac: version: 2.0.0.3 (31259)
+macOS: version 10.14.2
+Python: version 2.7.15
+Recurrence method
+When view port information by command
+lsof -i:5432
+the port 5432 is postgresql database default port，if the outputconsole was
+COMMAND    PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+postgres 86469 user    4u  IPv6 0xxddd      0t0  TCP *:postgresql (LISTEN)
+postgres 86469 user    5u  IPv4 0xxddr      0t0  TCP *:postgresql (LISTEN)
+it would display the error message:
+OperationalError: (psycopg2.OperationalError) server closed the connection unexpectedly
+but if the outputconsolelog show this:
+COMMAND     PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+com.docke 62421 user   26u  IPv4 0xe93      0t0  TCP 192.168.2.7:6435-&gt;192.168.2.7:postgresql (ESTABLISHED)
+postgres  86460 user    4u  IPv6 0xed3      0t0  TCP *:postgresql (LISTEN)
+postgres  86460 user    5u  IPv4 0xe513      0t0  TCP *:postgresql (LISTEN)
+postgres  86856 user   11u  IPv4 0xfe93      0t0  TCP 192.168.2.7:postgresql-&gt;192.168.2.7:6435 (ESTABLISHED)
+the situation, the api would work well.
+Becauce of Docker for mac?
+Refer link https://github.com/docker/for-mac/issues/2442 , the issue can not solve my problem.
+Notice a similar problem?
+Refer link Python &amp; Sqlalchemy - Connection pattern -&gt; Disconnected from the remote server randomly
+also this issue can not solve my problem.
+Solution
+flask_sqlachemy need the parameter pool_pre_ping
+from flask_sqlalchemy import SQLAlchemy as _BaseSQLAlchemy
+class SQLAlchemy(_BaseSQLAlchemy):
+    def apply_pool_defaults(self, app, options):
+        super(SQLAlchemy, self).apply_pool_defaults(self, app, options)
+        options[""pool_pre_ping""] = True
+db = SQLAlchemy()
+",<postgresql><macos><docker><flask>,3340,4,36,613,1,7,15,38,69282,0.0,3,4,44,2019-04-01 14:04,2020-03-10 9:39,,344.0,,Basic,14
+59720605,Explain vs explain analyze in PostgreSQL,"I understand that explain in postgresql just estimates the cost of a query and explain analyze does the same and also executes a query and gives the actual results.
+But I can't figure out in which cases I should use explain and explain analyze.
+",<postgresql>,245,0,0,543,1,4,4,59,12591,0.0,0,1,44,2020-01-13 16:36,2020-01-13 16:49,2020-01-13 16:49,0.0,0.0,Intermediate,23

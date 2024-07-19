@@ -1,0 +1,1173 @@
+Id,Title,Body,Tags,CreationDate,Y
+34703349,merge sort infinite recursion,"I'm learning Ruby and algorithms at the current moment an would like some guidance in solving this issue that has arise. I haven't started the merge process yet. So far I've only focused on dividing the array over and over again until only 1 number is left in the array. Below is my code showing how I implemented this so far. My problem is the loop will not break and I'm unsure why. I'm hoping someone can point me in the right direction as to what I'm missing. I'm also open to resources to help me solve this problem better.
+
+    def mergesort(list)
+	mid = list.length / 2
+	left = list[0, mid]
+	right = list[mid, list.size]
+
+	until left.size <= 1 || right.size <= 1 do
+		test(mergesort(left), mergesort(right))
+	end
+
+	print left
+	print right
+
+	def test(left, right)
+		sorted = []
+
+		left.length / 2
+		right.length / 2
+
+		# print sorted
+	end
+end",<ruby><algorithm><mergesort>,16/01/10 8:02,LQ_EDIT
+34703609,How to find difference in hours between dates in R,"<p>I have the following dataframe (DF1):</p>
+
+<pre><code>Date             Value   
+29/12/2014 8:00  24.940   
+29/12/2014 9:00  24.960   
+29/12/2014 11:00 25.020 
+</code></pre>
+
+<p>I would like to add a new column for DF1$DIFF, where it contains the difference in values between each line's Date (including hours) to its above Date. So that the required results will be:</p>
+
+<pre><code>Date             Value   Diff
+29/12/2014 8:00  24.940   
+29/12/2014 9:00  24.960    1
+29/12/2014 11:00 25.020    2
+</code></pre>
+
+<p>I tried to use the as.date function, however, I get the difference in dates only: </p>
+
+<pre><code>&gt; as.Date(""2009-10-01 10:00"")- as.Date(""2009-10-01 9:00"")
+Time difference of 0 days
+</code></pre>
+",<r><as.date>,16/01/10 8:42,LQ_CLOSE
+34704739,I need help in understanding the following kernel module written in C,"<p>As an assignment I need to complete the following C code in order to produce a kernel module able to act as a memory, but from how it's written I can't understand how it works and why many variables are not used but just declared. I have already tried looking on the teaching material they gave me, and it's even more confusing, plus I can't find on the web a good site where to find documentation about these functions. </p>
+
+<p>The code is the following:</p>
+
+<pre><code>#include &lt;linux/kernel.h&gt;
+#include &lt;linux/module.h&gt;
+#include &lt;linux/init.h&gt;
+#include &lt;linux/fs.h&gt;
+#include &lt;asm/uaccess.h&gt;
+
+#define DEVICE_NAME             ""my_device""
+#define MAJOR_DEVICE_NUMBER     60
+#define MINOR_DEVICE_NUMBER     0
+#define BUF_LEN                 1024
+
+static char msg[BUF_LEN];
+static char *msg_ptr; // I'm pretty sure this should become msg_reading_offset
+static int major;
+
+MODULE_AUTHOR(""&lt;YOUR NAME&gt;"");
+MODULE_LICENSE(""GPL"");
+
+static ssize_t my_read (
+    struct file *filp, char __user *buf,
+    size_t length, loff_t *offset);
+static ssize_t my_write (
+    struct file *filp, const char __user *buf,
+    size_t length, loff_t *offset);
+static int my_open (struct inode *inode,
+    struct file *filp);
+static int my_close (struct inode *inode,
+    struct file *filp);
+static int __init my_init (void);
+static void __exit my_cleanup (void);
+static struct file_operations fops = {
+    .read = my_read,
+    .write = my_write,
+    .open = my_open,
+    .release = my_close,
+};
+
+// I need to implement this function
+static int my_open (struct inode *inode,
+   struct file *filp)
+{
+    return 0;
+}
+// and this function
+static int my_close (struct inode *inode,
+    struct file *filp)
+{
+    return 0;
+}
+
+static ssize_t my_read (
+    struct file *filp, char __user *buf,
+    size_t length, loff_t *offset)
+{
+   int nc = 0;
+   // if no more ""valid"" bytes can be read, stop
+   if (*msg_reading_offset == 0) return 0;
+   // no-negative values allowed
+   if (length &lt; 0)
+      return -EINVAL;
+   // read the whole msg, nothing more
+   if (length &gt; strlen(msg)) {
+       length = strlen(msg);
+   }
+   nc = copy_to_user(buf, msg_reading_offset, length);
+   /*
+   updates the current reading offset pointer so that a
+   recursive call due to not original
+   full length will get a 0 (nothing to read)
+   */
+   msg_reading_offset += sizeof(char) * (length-nc);
+   // returns the number of REAL bytes read.
+   return length - nc;
+}
+
+static ssize_t my_write (
+    struct file *filp, const char __user *buf,
+    size_t length, loff_t *offset)
+{
+   int nc = 0;
+   if (length &gt; BUF_LEN)
+      return BUF_LEN-length;
+   nc = copy_from_user(msg,buf,length);
+   msg_ptr = msg;
+   return length - nc;
+}
+
+static int __init my_init (void)
+{
+   register_chrdev (MAJOR_DEVICE_NUMBER,
+      DEVICE_NAME,
+      &amp;fops);
+
+}
+module_init(my_init);
+static void __exit my_cleanup (void)
+{
+   unregister_chrdev (major, DEVICE_NAME);
+}
+module_exit(my_cleanup);
+</code></pre>
+
+<p>At the moment these are my biggest problems:</p>
+
+<ul>
+<li>Where are all the *inode, *filp variables going? Am I supposed to use them?</li>
+<li>How is this program even working? I know I need to compile it with a makefile I've been give, but then how am I supposed to access these functions? </li>
+<li>Is this supposed to be a real program executed by the kernel or is it just a collections of functions I should use in another C program?</li>
+</ul>
+
+<p>I'm sorry if the questions may seem stupid, but I am at a loss to know how the hell I'm supposed to approach this.</p>
+",<c><linux><kernel>,16/01/10 11:16,LQ_CLOSE
+34704869,How can I make user not allow to resize textarea?,"<p>I have textarea in my website and i want to make user not allow to resize this textarea.
+But I use this languages only :
+php - html - jquery - javascript</p>
+",<javascript><php><jquery><html>,16/01/10 11:31,LQ_CLOSE
+34705397,bson 4.0.0 gem error,"<p>I got this error while installing bson gem: (ruby 2.2.2, ubuntu 14.04 clean)</p>
+
+<pre><code>ubuntu:/var/apps/real-fetcher$ gem install bson -v '4.0.0'
+Building native extensions.  This could take a while...
+ERROR:  Error installing bson:
+    ERROR: Failed to build gem native extension.
+
+    /home/ubuntu/.rvm/rubies/ruby-2.2.2/bin/ruby -r ./siteconf20160110-7126-18thkio.rb extconf.rb
+creating Makefile
+
+make ""DESTDIR="" clean
+
+make ""DESTDIR=""
+compiling native.c
+In file included from native.c:21:0:
+native-endian.h:113:17: warning: '__bson_uint32_swap_slow' defined but not used [-Wunused-function]
+ static uint32_t __bson_uint32_swap_slow(uint32_t v)
+             ^
+native-endian.h:137:17: warning: '__bson_uint64_swap_slow' defined but not used [-Wunused-function]
+ static uint64_t __bson_uint64_swap_slow(uint64_t v)
+             ^
+native-endian.h:164:15: warning: '__bson_double_swap_slow' defined but not used [-Wunused-function]
+ static double __bson_double_swap_slow(double v)
+           ^
+linking shared-object native.so
+/usr/bin/ld: cannot find -lgmp
+collect2: error: ld returned 1 exit status
+make: *** [native.so] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /home/ubuntu/.rvm/gems/ruby-2.2.2/gems/bson-4.0.0 for inspection.
+Results logged to /home/ubuntu/.rvm/gems/ruby-2.2.2/extensions/x86_64-linux/2.2.0/bson-4.0.0/gem_make.out
+</code></pre>
+
+<p>Can't find anything related on my searches.</p>
+
+<p>I haven't tried anything yet and I'm not sure what to try.</p>
+",<ruby><ubuntu><rubygems><bson>,16/01/10 12:33,LQ_CLOSE
+34705405,C: Functions with custom type in header,"I've written a program that uses three functions to which I pass a custom type defined as:
+
+        typedef struct w 
+        {
+            char *wd;
+            long position;
+            struct w *next;
+        }W;
+        typedef W *word;
+
+When I try to put the functions in a header file like this:
+
+ 
+
+        void find(char *s,word *T);
+        void seek(char *s,word p);
+        void look(word p);
+
+and try to compile di file I get
+
+> error: unknown type name ‘word’
+
+ How do I fix it?",<c><function><types>,16/01/10 12:34,LQ_EDIT
+34705585,"Regex No Work , Regex between 2 String","please help me : I have a strange error with Regex:
+Remove the dot's on span :)
+
+Const AG = ""<.span>$(.*)<./span>""
+
+Dim x As String = ""<.span>$1</span.>""
+
+Dim lel As Regex = New Regex(AG)
+
+Dim lol As Match = lel.Match(x)
+
+The following code no work , i don't know why please help me :/",<regex><vb.net>,16/01/10 12:53,LQ_EDIT
+34705628,Undefined variable,"<p>I still get this error for some I guess stupid reason. I was following Laracast fundamentals tutorials then I decided to create my own app and it's the same. Probably I've messed something up and can't see it.</p>
+
+<p>Here's the error:</p>
+
+<blockquote>
+  <p>Undefined variable: movies (View: C:\Users\username\PhpstormProjects\movie_app\resources\views\movies\show.blade.php)</p>
+</blockquote>
+
+<p>This is my controller:</p>
+
+<pre><code>public function show($id)
+{
+    $movie = Movie::findOrFail($id);
+    return view('movies.show', compact('movie'));
+}
+</code></pre>
+
+<p>View:</p>
+
+<pre><code>@extends('layouts.app')
+@section('content')
+    @foreach($movies as $movie)
+        &lt;h4&gt;{{$movie-&gt;name}}&lt;/h4&gt;
+    @endforeach
+@endsection
+</code></pre>
+",<php><laravel><laravel-5>,16/01/10 12:58,LQ_CLOSE
+34706960,1.#QNAN000000000000 interrupts the loop,"This is my problem: I am simulating a particle random walking ((my full codes are long)) in a spherical region (of radius 0.5, with a reflective boundary outside) with absorbing boundary at radius r = 0.05. It starts at r = 0.25 and the loop will stop when it hits the absorbing boundary. However, the loops are always interrupted by value 1.#QNAN000000000000. For example, I am writting the distance to the origin in a file:
+
+
+... ... (a lot of numbers omitted)
+
+0.20613005432153597
+
+0.20623630547871444
+
+0.20638287597603161
+
+0.20639479244526721
+
+0.20632936118972162
+
+0.20624097359751253
+
+0.20634346836172857
+
+0.20662686334789271
+
+0.20662651327072232
+
+0.20661986008216310
+
+0.20662358691463298
+
+0.20661462509258177
+
+0.20649145569824909
+
+0.20651885241720047
+
+0.20652145059961324
+
+0.20651490447436160
+
+0.20646925001041655
+
+0.20645889385120675
+
+0.20629285654651422
+
+0.20633769635178317
+
+0.20635757642249095
+
+0.20645451482187596
+
+0.20654217470043859
+
+1.#QNAN000000000000
+
+Here the problem arises, the particle is not yet absorbed, but 1.#QNAN000000000000 interrupts the loop. I vaguely know that this might be due to issues in arithmetric operations of floats, but I am paying considerable attention to this. Therefore, I am wondering what I should probably do to avoid these kind of things? Thanks a lot! ",<c>,16/01/10 15:08,LQ_EDIT
+34707071,List append comes out wrong,"<p>I have the following piece of code as a problem.</p>
+
+<pre><code>list = [ [ ] ] * 5
+print list
+list[0].append(1)
+print list
+</code></pre>
+
+<p>The first line prints <code>[[][][][][]]</code> which is what it should print 
+but the second print gives</p>
+
+<p><code>[[1][1][1][1][1]]</code></p>
+
+<p>why does this happen? it is supposed to append only to the first list. </p>
+",<python>,16/01/10 15:19,LQ_CLOSE
+34707859,[Beginner]Inserting a function into main part - c++,"I'm a beginner and I have a little problem about calling a function into the main part of the program.
+
+    #include <iostream>
+
+    #include<cmath>
+    int getAbsProd(int a, int b)
+    {
+    cout<<""Insert integer: ""<<endl;
+    cin>>a;
+    cout<<""Insert another integer: ""<<endl;
+    cin>>b;
+    cout<<""The absolute value of the multiplication is: ""<<abs(a*b)<<endl;
+    return abs(a*b);
+
+    }
+
+
+    int main()
+    {
+
+    cout<<getAbsProd();
+    return 0;
+    }
+
+I'm using codeblocks, couldn't call <math.h>, somewhere it was suggested to call <cmath>, I'm just beginning to code, so go easy :)
+
+",<c++><function>,16/01/10 16:27,LQ_EDIT
+34708181,My script is not functioning like it had before. why?,"My code was working fine until today(what it does now is nothing) and I didn't edit it at all today any idea what might have happened?
+
+my code is this:
+
+    loop
+    {
+    Send {1}
+    Send {2}
+    
+    Numpad0::
+    ExitApp
+    Return
+    }",<autohotkey>,16/01/10 16:55,LQ_EDIT
+34708381,Combining one webpage section into other webpage,"<p>I have downloaded a several nulled website templates for testing purposes.
+I was wondering if I could combine them into one webpage?</p>
+
+<p>For example, take category page layout from one webpage and implement it to other webpage. Is it possible to create webpage using php and html files combined, lets say index.html and contact.php?</p>
+
+<p>Thank You in advance.</p>
+",<php><html><css>,16/01/10 17:14,LQ_CLOSE
+34710117,SQL Server: Displaying result in Java Textfield,"<p>I use MS SQL Server and Java with JDBC to connect.
+I don't know how to display the result of my simple SQL queries in a Java Texfield. Displaying my data in a JTable is no problem with the external JAR <strong>rs2xml</strong>.</p>
+
+<p>That works and prints my table in the panel.</p>
+
+<pre><code>String MaxQuery = ""SELECT * FROM Employees"";
+PreparedStatement pst=con.prepareStatement(MaxQuery);
+ResultSet rs=pst.executeQuery();
+table.setModel(DbUtils.resultSetToTableModel(rs));
+</code></pre>
+
+<p><strong>But</strong> when i want to display a simple query like ""<em>SELECT AVG(budget) FROM Employees</em>"" with 1 result, i want to print this <strong>in a textfield</strong>. </p>
+
+<p>The method setModel doesn't work with Textfields. So i have tried something like that:</p>
+
+<pre><code>String AVGQuery = ""SELECT AVG(budget) FROM Employees"";
+PreparedStatement pst=con.prepareStatement(AVGQuery);
+ResultSet rs=pst.executeQuery();
+textFieldAns.setText(rs.toString());
+</code></pre>
+
+<p>But that prints me ""SQLServerResultSet:1"". I want the result, and not the number of results. Hope u can help me by my little problem :). </p>
+",<java><sql><sql-server><database><swing>,16/01/10 19:55,LQ_CLOSE
+34712056,How to find percentage value from a table column,"<p>I am trying to find the a percentage value of every numeric value with the same id in my table. For example, if my table consists of this:</p>
+
+<pre><code>id  answer          points
+1   answer 1        3
+1   answer 2        1
+1   answer 3        10
+1   answer 4        5
+1   answer 5        6
+1   answer 6        10
+1   answer 7        10
+1   answer 8        2
+</code></pre>
+
+<p>If max points are 80, how can I display the current result (point) from database in percentage form?</p>
+",<php><mysql><percentage>,16/01/10 23:30,LQ_CLOSE
+34712224,How is CSS pixel movement same in every monitor resolution,"<p>Lets says I have the following CSS:</p>
+
+<pre><code>#div-1 {
+position:relative;
+top:20px;
+left:-40px;
+}
+</code></pre>
+
+<p>If load it on Monitor A and drag my browser to monitor B with a different resolution, HTML div will be at the same spot, although pixel numbers are different in monitors. How does that work?</p>
+",<html><css>,16/01/10 23:53,LQ_CLOSE
+34713799,Why does AngularJS show me that a scope variable is undefined in directive when it is clearly defined?,"I have an angularJS directive that I call like this:
+
+    <rpt-closing closing-begin-ts=""'None'"" closing-begin-ts=""'2014-11-25 23:59:59'""></rpt-closing>
+
+Here is what the directive code looks like:
+
+	  .directive('rptClosing',function(){
+	      return {
+	        restrict:'E',
+	        scope: {
+	          closingBeginTs: '=',
+	          closingEndTs: '='
+	        },
+	        link: function(scope, element, attrs) {
+	          console.log('*******************************************');
+	          console.log('scope = ', scope);
+	          console.log('scope.closingBeginTs = ', scope.closingBeginTs);
+	          console.log('scope.closingEndTs = ', scope.closingEndTs);
+	          console.log('*******************************************');
+	        },
+	        template: '<div>BLAH BLAH BLAH</div>'
+	      };
+	    }
+	  )
+
+This code works perfectly fine in [this jsFiddle][1]. I can see the values of `scope.closingBeginTs` and `scope.closingEndTs` in the console output. 
+
+However, when I run the same codebase on my machine, it doesn't work! I can see that those two values are properly attached to the `scope`. But when I try to log them to the console, it shows `undefined`. Why? You can see what I mean in the screenshot below. Very weird indeed.
+
+[![enter image description here][2]][2]
+
+
+  [1]: https://jsfiddle.net/xgxwqxun/
+  [2]: http://i.stack.imgur.com/aLkue.png",<javascript><angularjs><angularjs-directive><angularjs-scope>,16/01/11 3:31,LQ_EDIT
+34714833,ReferenceError: getElementsById is not defined why?,"<p>I am trying to set a variable. </p>
+
+<pre><code>var fname = getElementsById(fname);
+</code></pre>
+
+<p>A function will then reference this variable on body load</p>
+
+<p>But the console returns ReferenceError: getElementsById is not defined</p>
+
+<p>Why?</p>
+",<javascript><variables>,16/01/11 5:38,LQ_CLOSE
+34715320,Key keeps getting replaced in dictionary C++,"<p>I'm trying to create a dictionary type of class for fun in C++, similar to the one seen in Python where you can designate a key and a value (which may be of any type in this case, including custom classes).</p>
+
+<pre><code>for (unsigned int x = 0; x &lt; word.length(); x++) {
+    if (!map.has_key(word[x])) {
+        std::cout &lt;&lt; ""CREATING "" &lt;&lt; word[x] &lt;&lt; std::endl;
+        map[word[x]] = ics::ArraySet&lt;char&gt;();
+        map[word[x]].insert(word[x]);
+    }
+    for (int y = 0; y &lt; dist; y++) {
+        std::cout &lt;&lt; ""HELLO!"" &lt;&lt; std::endl;
+        if ((x + y) &lt; word.length())
+            std::cout &lt;&lt; ""ADDING "" &lt;&lt; word[x+y] &lt;&lt; std::endl;
+            map[word[x]].insert(word[(x + y)]);
+        if ((x - y) &gt;= 0)
+            map[word[x]].insert(word[(x - y)]);
+    }
+}
+</code></pre>
+
+<p>The issue that occurs is that my key keeps being replaced. I'm trying to find letters that are within ""x"" range of the current letter I'm on. I append these nearby keys into a set, which is the value of my dictionary in this scenario.</p>
+
+<p>For an example: <strong>nearby(racecar,2)</strong></p>
+
+<p>Should return a dictionary with values like this ...</p>
+
+<p>dictionary('r' -> {r,a,c}, 'a' -> {r,c,e}, ...)</p>
+
+<p>However, what happens is that the </p>
+
+<pre><code>if (!map.has_key(word[x]))
+</code></pre>
+
+<p>keeps failing and my keys keep being recreated each and every time along with the sets.</p>
+",<c++><dictionary>,16/01/11 6:22,LQ_CLOSE
+34715375,i set tabs but it dint navigate other tabs in angular,"this is my code
+
+<ul class=""nav nav-tabs"">
+
+    <li class=""active""><a data-toggle=""tab"" href=""#sectionA"">Section A</a></li>
+
+    <li><a data-toggle=""tab"" href=""#sectionB"">Section B</a></li>
+
+    <li class=""dropdown"">
+
+        <a data-toggle=""dropdown"" class=""dropdown-toggle"" href=""#"">Dropdown <b class=""caret""></b></a>
+
+        <ul class=""dropdown-menu"">
+
+            <li><a data-toggle=""tab"" href=""#dropdown1"">Dropdown 1</a></li>
+
+            <li><a data-toggle=""tab"" href=""#dropdown2"">Dropdown 2</a></li>
+
+        </ul>
+
+    </li>
+
+</ul>
+
+<div class=""tab-content"">
+
+    <div id=""sectionA"" class=""tab-pane fade in active"">
+
+        <p>Section A content…</p>
+
+    </div>
+
+    <div id=""sectionB"" class=""tab-pane fade"">
+
+        <p>Section B content…</p>
+
+    </div>
+
+    <div id=""dropdown1"" class=""tab-pane fade"">
+
+        <p>Dropdown 1 content…</p>
+
+    </div>
+
+    <div id=""dropdown2"" class=""tab-pane fade"">
+
+        <p>Dropdown 2 content…</p>
+
+    </div>
+
+</div>
+
+",<javascript><angularjs>,16/01/11 6:27,LQ_EDIT
+34718641,How to create asossiative array in wrapping class,"I have made a array associative like this , and i know how to take get value from a dict with index 10 
+
+    var dict = new Dictionary<int, Dictionary<string, int[]>>
+        {
+            {
+                10, new Dictionary<string, int[]>
+                {
+                    {""first"", new[] {57, 57, 5, 0}},
+                    {""second"", new[] {42, 58, 13, 8}}
+                }
+            },
+            {
+                40, new Dictionary<string, int[]>
+                {
+                    {""first"", new[] {4, 24, 5, 0}},
+                    {""second"", new[] {42, 58, 23, 8}}
+                }
+            }
+        };
+            foreach (var item in dict[10])
+            {
+                foreach (var test in item.Value)
+                {
+                    Console.WriteLine(test);   //This will show value with key 10                 
+                }
+            }`
+
+after that i want to change this code to make my code more elegant and maintainable by wrapping the dict in class 
+
+first class 
+
+    class DataContainer
+        {
+            
+            public DataContainer()
+            {
+                
+            }
+           
+          
+            public int index { get; set; }
+            public DataValue DataValue { get; set; }
+        }
+    
+    Second class
+        class DataValue
+        {
+            public DataValue()
+            {
+                
+                IntegerValues = new List<int>();
+            }
+            public string name { get; set; }
+            public List<int> IntegerValues { get; set; }
+        }
+
+after that i want to fill my data like i inserted in dict dictionary
+but i confuse how to make it 
+i have tried with this below code 
+
+    public List<DataContainer> harakatSininilMabsutoh = new List<DataContainer>(){
+                new DataContainer{index = 10 , DataValue = new List<DataValue>()
+                 {
+                     new DataValue{name = ""first"",IntegerValues = {9,55,18,11}},
+                     new DataValue{name = ""second""   ,IntegerValues = {5,54,18,11}},
+                    
+                 }
+                 }
+    }
+
+But i got the error error result 
+after that i want to try to show a integervalue which has index = 10
+But i got an error 
+",<c#>,16/01/11 10:01,LQ_EDIT
+34719253,C - Binary to Decimal segmentation error,"I am using a pointer in place of an array, I'm aware that a pointer needs to be freed unlike an array. Why is it that using a pointer in place of an array gives me a segmentation memory error.
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <math.h>
+
+    void bin(void){
+
+	char *input;
+	int choice;
+	int x = 0;
+
+	
+		printf(""Enter Decimal Code:\n"");
+		scanf(""%s"",&input);
+
+		int leng = strlen(input);
+
+
+
+		for(int i = 0; i <= leng ; ++i){
+
+			if(input[i] == '1'){
+				x += pow(2,i);
+				
+				
+			}
+			else if(input[i] == '0'){
+				input[i] = 0;
+				
+
+			}
+			free(input);
+
+		}
+			printf(""Binary-Dec: %d\n"",x);
+
+		
+	}
+	
+    int main()
+    {
+	bin();
+
+    }
+
+	
+",<c><pointers><scanf>,16/01/11 10:31,LQ_EDIT
+34720406,Symfony 2 : Best practice,"<p>I have two questions and I hope somebody can answer them clearly.</p>
+
+<p>Q1 : Is it recommended to use the same symfony envelop for different projects (each project would be a bundle). In any case, can you explain why it has to be done or not.</p>
+
+<p>Q2 : is it recommended (and possible) to move the vendor folder outside the project envelop to be used by different projects. So just one vendor for different projects.</p>
+
+<p>Thank you for answering those questions.</p>
+",<symfony>,16/01/11 11:29,LQ_CLOSE
+34720553,Only Enable the last Remove Element Button of a ListBox,"<p>In my ListBox.ItemTemplate i have a TextBlock and a Remove button, the button must be enabled only if it's the last element o the listbox.</p>
+",<c#><wpf><listbox>,16/01/11 11:36,LQ_CLOSE
+34721247,How to auto delete wordpress comments older then x days,"Everybody
+
+I have my site in WordPress and in my site i am using forum for user discussion by using WordPress default comment system. In my forum page users continuously post comments, now i want to automatically delete comments that are older then 15 days.
+is it possible to auto delete WordPress comments on any page after the interval of some days.
+can anybody help me in order to do my task.",<php><wordpress><comments>,16/01/11 12:09,LQ_EDIT
+34721852,"Getting Index -1 requested, with a size of 1 error while fetching data android","<p>I am using following code to get version of content </p>
+
+<pre><code>public String getNotificationVersion(String rootContentId) {
+    String strVersion = """";
+    try {
+        database.open();
+        Cursor cur = database.query(Database.DOWNLOAD_TABLE,
+                new String[] { Database.KEY_VERSION },
+                Database.KEY_ROOT_CONTENT_ID + "" = ?"",
+                new String[] { rootContentId }, null, null, null);
+        Log.v(""NOTIFICATION PRESENT IN DOWNLOAD GETTING DOWNLOAD"", ""TRUE"");
+        strVersion = cur.getString(0);
+        cur.close();
+        database.close();
+
+    } catch (Exception e) {
+        Log.v(""NOTIFICATION PRESENT IN DOWNLOAD GETTING DOWNLOAD"", e.getMessage());
+        // TODO: handle exception
+    }
+    return strVersion;
+}
+</code></pre>
+
+<p>and at ""strVersion = cur.getString(0);"" line I am getting Index -1 requested, with a size of 1 error.
+I have checked database and there is value for this column. Where I am doing wrong?</p>
+
+<p>Thanks in Advance</p>
+",<android><android-sqlite>,16/01/11 12:42,LQ_CLOSE
+34722257,Get selected form data using jQuery,"<p>I have a scenario where a page have multiple forms and I am trying to get the form data which is being submitted.</p>
+
+<p>HTML</p>
+
+<pre><code>&lt;form name=""form1""&gt;
+    &lt;input type=""text""&gt;
+    &lt;input type=""button"" value=""Submit""&gt;
+&lt;form&gt;
+&lt;form name=""form2""&gt;
+    &lt;input type=""text""&gt;
+    &lt;input type=""button"" value=""Submit""&gt;
+&lt;form&gt;
+</code></pre>
+
+<p>jQuery</p>
+
+<pre><code>$('[type=""button""]').click(function(e){
+    e.preventDefault();
+    console.log($(this).parent().attr('name'));
+});
+</code></pre>
+
+<p>I always get form1 in console. I also tried <code>jQuery('form')</code> in console and it is also returning only the first form. I don't know what I am doing wrong or it is browser feature.</p>
+",<jquery><html><forms>,16/01/11 13:03,LQ_CLOSE
+34723261,Which typeface in Intellij IDEA for MAC OS X,"I have Windows but I want this typeface.
+[PIC][1]
+
+
+  [1]: http://i.stack.imgur.com/FPEec.png",<macos><intellij-idea><fonts><typeface><jetbrains-ide>,16/01/11 13:55,LQ_EDIT
+34726096,How to get an array values in the dropdown in perl cgi html template,"Please  suggest how to get array values in the dropdown list using html template.
+
+    open (FL, ""<file.txt""); 
+    file.txt values are
+    count1
+    count2
+    count3
+    count4
+    count5
+
+    my @TOTAL = <FL>; 
+
+    foreach $count(@TOTAL)
+    {
+    $template->param( COUNT => [{name => $count}]); # here I am getting only one value (count1 only)
+    }
+
+    I am expecting the values like below , so the dropdown will list all the values. 
+    $template->param(COUNT => [{name => $count1}, {name => $count2}, {name => $count3}, {name => $count4}]);
+
+    print $template->output, ""\n"";",<perl>,16/01/11 16:09,LQ_EDIT
+34727085,I couldn't change color of diagonal line in 16*16 label matrix. What's my false in here?,"16*16 matrix is coming to my screen when i start the program. But when i click diagonal button, diagonal line  isn't red. that is not change.
+
+my codes :
+
+Public Class Form1
+    Dim etk As New Label 'i define the matrix as etk
+
+    Public Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        For i = 0 To 15
+            For j = 0 To 15
+                Dim etk As New Label
+                Me.Panel.Controls.Add(etk)
+                etk.Name = i
+                etk.Tag = j
+                etk.Size = New Size(26, 26)
+                etk.BackColor = Color.Black
+                etk.Location = New Point(30 * i + 10, 30 * j + 10)
+            Next
+        Next
+    End Sub
+
+    Private Sub diagonal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Timer1.Enabled = True
+        For i = 0 To 15
+            For j = 0 To 15
+                etk.Name = i
+                etk.Tag = j
+                If i = j Then
+                    etk.BackColor = Color.Red
+                End If
+            Next
+        Next
+    End Sub
+End Class
+
+
+thanks for your interests..",<vb.net><matrix>,16/01/11 17:01,LQ_EDIT
+34727183,"In Java, if one boolean true then all others become false","<p>I was wondering if it was possible in Java to have a series of booleans such as:</p>
+
+<pre><code>    boolean boo1, boo2, boo3, boo4, boo5;
+</code></pre>
+
+<p>I want to make it so that if one of these booleans become true than all others become false. I know this can be done with a series of long if statements but is there a simpler way to achieve this.</p>
+
+<p>Thanks!</p>
+",<java>,16/01/11 17:06,LQ_CLOSE
+34730270,redefinition of int main() c++,"<p>Compiler constantly give the error redefine of int main(). I don't know where is the problem. There is also problem with MAX_CHAR. It's writtend MAX_CHARS’ was not declared in this scope. Any suggeston, comment ?? </p>
+
+<pre><code>#include &lt;iostream&gt; // cin cout endl
+#include &lt;fstream&gt; // ifstream
+#include &lt;sstream&gt; // stringstream
+#include &lt;stdlib.h&gt; //exit
+#include ""insertionSort.h""
+#include &lt;vector&gt;
+#include &lt;climits&gt;
+
+using std::cerr;
+using std::cout;
+using std::endl;
+using std::ifstream;
+
+const int MAX_CHAR = 500; // max length of each line to read from the input file
+
+template&lt;class T&gt;
+void readSortOutput( char* typeName, vector&lt;T&gt; v, ifstream &amp;inStream );
+
+int main()
+{
+    cout &lt;&lt; ""Insertion sort algorithm driver program"" &lt;&lt; endl;
+
+    ifstream inStream(""/home/Downloads/input.txt"");
+    if( inStream.fail( ) )
+    {
+        cerr &lt;&lt; ""Input file opening failed.\n"";
+        exit(1);
+    }
+
+    vector&lt;int&gt; intVector;
+    readSortOutput( (char*)""int"", intVector, inStream );
+
+    vector&lt;double&gt; dblVector;
+    readSortOutput( (char*)""double"", dblVector, inStream );
+
+    inStream.close( );
+
+    return 0;
+}
+
+template&lt;class T&gt;
+void insertionSort(vector&lt;T&gt;&amp; data)
+{
+    for (size_t i = 0; i &lt; data.size( ); i++)
+        for (size_t j = i; j &lt; data.size( ); j++)
+            if (data[ j ] &lt; data[ i ])
+            { // swap values
+                T temp = data[ j ];
+                data[ j ] = data[ i ];
+                data[ i ] = temp;
+            }
+
+    return;
+}
+
+template&lt;class T&gt;
+void readSortOutput( char* typeName, vector&lt;T&gt; v, ifstream &amp;inStream )
+{
+
+    char fileLine[MAX_CHARS];
+    std::stringstream ss;
+    inStream.getline(fileLine, MAX_CHARS);
+    ss &lt;&lt; fileLine;
+    T elem;
+    while (ss &gt;&gt; elem) {
+        v.push_back( elem );
+    }
+
+    cout &lt;&lt; endl &lt;&lt; typeName &lt;&lt; "" vector before insertion sort: "" &lt;&lt; endl;
+    for (int i = 0; i &lt; v.size( ); i++)
+        cout &lt;&lt; v[i] &lt;&lt; "" "";
+    cout &lt;&lt; endl;
+
+    insertionSort( v ); // the sort itself
+
+    cout &lt;&lt; typeName &lt;&lt; "" vector after insertion sort: "" &lt;&lt; endl;
+    for (int i = 0; i &lt; v.size( ); i++)
+        cout &lt;&lt; v[i] &lt;&lt; "" "";
+    cout &lt;&lt; endl;
+
+    return;
+}
+</code></pre>
+
+<p>InsertionSort.h</p>
+
+<pre><code>#ifndef INSERTIONSORT_H
+#define INSERTIONSORT_H
+#include &lt;iostream&gt;
+
+#include &lt;iostream&gt; // cin cout endl
+#include &lt;fstream&gt; // ifstream
+#include &lt;sstream&gt; // stringstream
+#include &lt;stdlib.h&gt; //exit
+#include ""insertionSort.h""
+#include &lt;vector&gt;
+#include &lt;climits&gt;
+
+using namespace std;
+
+int main()
+{
+    int sizee=10;
+    int v[sizee];
+    for (int i=0;i&lt;sizee;i++){
+         cout&lt;&lt;""Sorting array:  "";
+        cin&gt;&gt;v[i];
+    }
+    int i,j,val;
+    for (i=1; i&lt;sizee; i++) {
+        val=v[i];
+        j = i-1;
+        while (j&gt;=0 &amp;&amp; v[j]&gt;val) {
+            v[j+1] = v[j];
+            j--;
+        }
+        v[j+1] = val;
+    }
+    for (int i=0;i&lt;sizee;i++){
+        cout&lt;&lt;""v[""&lt;&lt;i&lt;&lt;""]=""&lt;&lt;v[i]&lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+",<c++><redefinition>,16/01/11 20:15,LQ_CLOSE
+34730352,Routing between 2 LAN,"<p>I have Mikrotik router with Wifi connected to:</p>
+
+<ul>
+<li>WAN/internet on port ether1.</li>
+<li>Other ports are for LAN 10.0.1.*.</li>
+<li>Only port ether8 is connected to another simple POE switch. Four IP cameras with static IP are connected. This is LAN2 192.168.50.*. Port is not included in bridge or switch.</li>
+</ul>
+
+<p><strong>From main LAN I can access internet and other PC on same LAN, but can't access IP cameras on LAN2.</strong> </p>
+
+<p>So, what is wrong/missing in my Mikrotik configuration:</p>
+
+<pre><code>/ip address
+add address=10.0.1.1/24 comment=""default configuration"" interface=    ether2-master-local network=10.0.1.0
+add address=10.0.0.18/30 interface=ether1-gateway network=10.0.0.16
+add address=192.168.50.253/24 interface=ether8-master-local-SUBNET network=
+192.168.50.0
+
+/ip route
+add distance=2 gateway=10.0.0.17
+</code></pre>
+
+<p>No ping or trace route can reach LAN2 from main LAN.
+If I connect to POE switch with my laptop and configure static IP in range 192.168.50.* than I can access all cameras OK.</p>
+
+<p>If try ping IP camera directly from Mikrotik via ether8 than I get random mix of timeouts and success which is really strange.</p>
+
+<p>Any help is appreciated.</p>
+",<networking><routing><ip><mikrotik>,16/01/11 20:20,LQ_CLOSE
+34730910,How to make string accessible to all forms,"I have a form called ""AddFile"" and I have a textbox ""tbPassword"" and button ""btnOkay"" in it. What Im trying to do is (on  a click of a button) make the text of this textbox a string so i can use it across all Forms and add it in ListView, so it displays the text written in ""tbPassword"" in ListView.",<c#><string><listview><global>,16/01/11 20:56,LQ_EDIT
+34731625,PHP For Loop in code,"<p>I am having trouble getting my for loop to work in php. I am trying to make my code loop the time ten times with my css formating</p>
+
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=""UTF-8""&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;link rel=""stylesheet"" type=""text/css"" href=""clockloop.css""&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;div id=""bodycontainer""&gt;
+        &lt;h1&gt; Clock Loop &lt;/h1&gt;&lt;hr&gt;
+           &lt;?php for($i=0;$i&lt;=10;$i++){
+
+           &lt;div id=""border""&gt;
+                &lt;span id = ""font""&gt;
+                    &lt;?php
+                        echo date(""G:i:s"")
+                    ?&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+                &lt;h3&gt; Today is 
+                    &lt;?php 
+                        echo date(""F,j,Y"")
+                    ?&gt;
+                &lt;/h3&gt;    
+
+            } 
+            ?&gt;    
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+",<php>,16/01/11 21:39,LQ_CLOSE
+34732032,Stop IEnumerable from enumerating through all elements,"<p>How do I stop <code>IEnumberable</code> from enumerating through all the elements in the variable in question.
+I have a function which I pass an <code>IEnumerable</code> list to, and it will always have only two elements. I however, need the function to only run for the first element, no more, no less. How do I get it to only go through the first element?</p>
+
+<p>Note: Since there are only two elements, I've tried passing them in separately (e.g <code>double</code> <code>double</code>), but it still runs through both.</p>
+",<c#><ienumerable>,16/01/11 22:08,LQ_CLOSE
+34734108,Can you use http POST from a web page?,"I am trying to use Jira to REST API to submit issues.
+This answer gives a POST method to submit issues
+
+http://stackoverflow.com/questions/5884960/how-to-create-an-issue-in-jira-via-rest-api
+
+Is there a way to integrate POST with html so you could submit things from a webpage?
+
+As you can probably tell I know very little about POST so simple would be better :)
+
+Thank you!",<html><http><jira>,16/01/12 1:25,LQ_EDIT
+34734299,liste chainées C,"i dunno how to formulate a question when i dunno what's the problem at all, since i'm still new at the linked list stuff in C, anyhow this is my code
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    
+    typedef struct Element{
+    	int val;
+    	struct Element* suivant;
+    }Element;
+    
+    Element* initialiserListe(Element* L){
+    	L = NULL;
+    	return L;
+    }
+    
+    Element* nouveau;
+    Element* insererEnTete(Element* L){
+    	nouveau = (Element*)malloc(sizeof(Element));
+    	if(L == NULL) printf(""initialisation : "");
+    	printf(""donner une valeur : "");
+    	scanf(""%d"", &nouveau->val);
+    	nouveau->suivant = L;
+    	return nouveau;
+    }
+    
+    int listeVide(Element* L){
+    	return L == NULL;
+    }
+    
+    void affichageListe(Element* L){
+    	if(listeVide(L)) printf(""liste vide"");
+    	else{
+    		Element* temp = L;
+    		while(temp != NULL){
+    			printf(""%d"", temp->val);
+    			temp = temp->suivant;
+    		}
+    	}
+    }
+    
+    int main()
+    {
+        printf(""Hello world!\n"");
+        Element *L = NULL;
+        initialiserListe(L);
+        insererEnTete(L);
+        affichageListe(L);
+        return 0;
+    }
+
+
+all i wanna know is why does it print ""liste vide"" when it should print the vals from the list",<c><linked-list>,16/01/12 1:48,LQ_EDIT
+34736800,how to get output of count variable ?,"<?php
+$count=0;
+ 
+class My extends Thread
+{
+	 private $myid;
+	
+//	ini_set('max_execution_time', 0);
+	//echo date(""Y-m-d H:i:s"").""<br/>"";
+	
+	public function __construct($id)
+	{
+		$this->myid = $id;
+	}
+	
+	public function run()
+	{
+	
+	for($t=0;$j+$t<=100;$t+=10){ //future  buy
+		for($k=0;$j+$t+$k<=100;$k+=10){//future sell
+			for($l=1;$l<=14;$l++){ // strike
+				for($m=0;$j+$k+$m<=300;$m+=10){ //put buy
+					for($n=1;$n<=14;$n++){ // strike
+						for($o=0;$o<=300;$o+=10){ // call buy
+							for($p=1;$p<=14;$p++){ //strike
+								if($p==$l)
+									continue;								
+								for($q=0;$q<=300;$q+=10){ // put sell
+									for($r=1;$r<=14;$r++){ // strike
+										if($r==$n)
+											continue;
+										for($s=0;$s<=300;$s+=10){ // call buy
+											$count ++;
+										}
+									}
+								}
+							}
+						}					
+					}
+				}
+			}
+			}
+		}	
+ 	}
+	
+}
+echo date(""Y-m-d H:i:s"").""<br/>"";
+
+	$mycalls = [];
+	for($i=0;$i<=100;$i+=10)
+	{
+		$mycalls[$i]= new My($i);
+		$mycalls[$i]->start();
+		$mycalls[$i]->join();
+	}
+	
+	echo date(""Y-m-d H:i:s"").""<br/>"";
+	echo ""<br>"";
+	echo $count;
+
+
+?>",<php>,16/01/12 6:19,LQ_EDIT
+34737089,J query height and java script height gets 0 . Why?,"I have a visible div on screen but when i gets its height, it returns always 0. How it is possible? I have tried many j query and JavaScript methods to get hight but it returns 0. This is my div:
+
+    <div class=""option-content"">
+        <div class=""row"">
+            <div class=""col-sm-12"">
+                <div class=""dropDownStyling"" id=""filterDropdowns"">
+                </div>
+    
+            </div>
+        </div>
+    
+    //Other contents
+    </div>
+
+I have tried following methods to get height:
+
+    var $element = $(""#filterDropdowns"");
+    $element.css(""height"")
+    $element.height()
+    $element.innerHeight()
+    $element.outerHeight()
+
+    Also tried javascript:
+     document.getElementById('filterDropdowns').offsetHeight
+     document.getElementById('filterDropdowns').clientHeight
+
+But in all cases, it returns 0,While it returns the width value.Then why height value gets 0?",<javascript><jquery><html><css>,16/01/12 6:40,LQ_EDIT

@@ -1,0 +1,1471 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,QuestionBodyLength,URLImageCount,LOC,UserReputation,UserGoldBadges,UserSilverBadges,UserBronzeBadges,QuestionAcceptRate,QuestionViewCount,QuestionFavoriteCount,UserUpVoteCount,QuestionAnswersCount,QuestionScore,QuestionCreationDate,FirstAnswerCreationDate,AcceptedAnswerCreationDate,FirstAnswerIntervalDays,AcceptedAnswerIntervalDays,QuestionLabel,QuestionLabelDefinition
+48197134,How to pull specific version of Docker Postgres Image?,"I am new to docker area. I did docker pull postgres and docker pull postgres:9.5.4 , in both cases it pulling latest image as postgres 10.1 (see below). 
+PostgreSQL 10.1 on x86_64-pc-linux-gnu, compiled by gcc (Debian 6.3.0-18) 6.3.0 20170516, 64-bit 
+I would like to pull only 9.5.4 version of postgres image from dockers hub.
+",<postgresql><docker>,328,3,0,5071,8,37,58,51,23078,0.0,50,1,14,2018-01-10 22:27,2018-01-10 23:00,,0.0,,Basic,3
+48312246,How to Install MYSQL Preference Pane?,"Quick question.
+I have been trying to make MySQL work to no luck. When I downloaded MySQL from https://dev.mysql.com/downloads/mysql/ (the latest version for Mac, 5.7.21), I followed all the instructions. When I go to System Preferences and click on the MySQL icon, it tells me:
+Preferences Error: Could not load MySQL Preference Pane. Any solution to this? 
+Thanks in advance!
+",<mysql><macos>,378,2,0,151,1,1,3,43,25110,0.0,0,3,14,2018-01-18 0:48,2018-01-18 11:35,,0.0,,Basic,14
+57123453,How to use Diesel with SQLite connections and avoid `database is locked` type of errors,"In my Rust application I am using Diesel to interact with an SQLite database. I have multiple threads that may query at the same time the database, and I am using the crate r2d2 to create a pool of connections.
+The issue that I am seeing is that I am not able to concurrently query the database. If I try to do that, I always get the error database is locked, which is unrecoverable (any following request will fail from the same error even if only a single thread is querying).
+The following code reproduces the issue.
+# Cargo.toml
+[dependencies]
+crossbeam = { version = ""0.7.1"" }
+diesel = { version = ""1.4.2"", features = [""sqlite"", ""r2d2""] }
+-- The database table
+CREATE TABLE users (
+    name TEXT PRIMARY KEY NOT NULL
+);
+#[macro_use]
+extern crate diesel;
+mod schema;
+use crate::schema::*;
+use crossbeam;
+use diesel::r2d2::{ConnectionManager, Pool};
+use diesel::RunQueryDsl;
+use diesel::{ExpressionMethods, SqliteConnection};
+#[derive(Insertable, Queryable, Debug, Clone)]
+#[table_name = ""users""]
+struct User {
+    name: String,
+}
+fn main() {
+    let db_url = ""test.sqlite3"";
+    let pool = Pool::builder()
+        .build(ConnectionManager::&lt;SqliteConnection&gt;::new(db_url))
+        .unwrap();
+    crossbeam::scope(|scope| {
+        let pool2 = pool.clone();
+        scope.spawn(move |_| {
+            let conn = pool2.get().unwrap();
+            for i in 0..100 {
+                let name = format!(""John{}"", i);
+                diesel::delete(users::table)
+                    .filter(users::name.eq(&amp;name))
+                    .execute(&amp;conn)
+                    .unwrap();
+            }
+        });
+        let conn = pool.get().unwrap();
+        for i in 0..100 {
+            let name = format!(""John{}"", i);
+            diesel::insert_into(users::table)
+                .values(User { name })
+                .execute(&amp;conn)
+                .unwrap();
+        }
+    })
+    .unwrap();
+}
+This is the error as shown when the application panics:
+thread '&lt;unnamed&gt;' panicked at 'called `Result::unwrap()` on an `Err` value: DatabaseError(__Unknown, ""database is locked"")'
+AFAIK, I should be able to use the connection pool with multiple threads (that is, multiple connections for multiple threads), as shown in the r2d2_sqlite crate example.
+Moreover, the sqlite3 library I have installed in my system supports the Serialized threading model, which from here:
+  In serialized mode, SQLite can be safely used by multiple threads with
+  no restriction.
+How can I avoid the database is locked errors? Also, if these errors are not avoidable for any reason, how can I unlock the database?
+",<database><multithreading><sqlite><rust><rust-diesel>,2612,2,62,8838,6,45,80,50,6703,0.0,2767,2,14,2019-07-20 9:35,2019-08-29 20:44,2019-08-29 20:44,40.0,40.0,Advanced,32
+51575004,TimescaleDB: efficiently select last row,"I have a postgres database with the timescaledb extension.
+My primary index is a timestamp, and I would like to select the latest row.
+If I happen to know the latest row happened after a certain time, then I can use a query such as:
+query = 'select * from prices where time &gt; %(dt)s'
+Here I specify a datetime, and execute the query using psycopg2:
+# 2018-01-10 11:15:00
+dt = datetime.datetime(2018,1,10,11,15,0)
+with psycopg2.connect(**params) as conn:
+    cur = conn.cursor()
+    # start timing
+    beg = datetime.datetime.now()
+    # execute query
+    cur.execute(query, {'dt':dt})
+    rows = cur.fetchall()
+    # stop timing
+    end = datetime.datetime.now()
+print('took {} ms'.format((end-beg).total_seconds() * 1e3))
+The timing output:
+took 2.296 ms
+If, however, I don't know the time to input into the above query, I can use a query such as:
+query = 'select * from prices order by time desc limit 1'
+I execute the query in a similar fashion
+with psycopg2.connect(**params) as conn:
+    cur = conn.cursor()
+    # start timing
+    beg = datetime.datetime.now()
+    # execute query
+    cur.execute(query)
+    rows = cur.fetchall()
+    # stop timing
+    end = datetime.datetime.now()
+print('took {} ms'.format((end-beg).total_seconds() * 1e3))
+The timing output:
+took 19.173 ms
+So that's more than 8 times slower.
+I'm no expert in SQL, but I would have thought the query planner would figure out that ""limit 1"" and ""order by primary index"" equates to an O(1) operation.
+Question:
+Is there a more efficient way to select the last row in my table?
+In case it is useful, here is the description of my table:
+# \d+ prices
+                                           Table ""public.prices""
+ Column |            Type             | Collation | Nullable | Default | Storage | Stats target | Description 
+--------+-----------------------------+-----------+----------+---------+---------+--------------+-------------
+ time   | timestamp without time zone |           | not null |         | plain   |              | 
+ AAPL   | double precision            |           |          |         | plain   |              | 
+ GOOG   | double precision            |           |          |         | plain   |              | 
+ MSFT   | double precision            |           |          |         | plain   |              | 
+Indexes:
+    ""prices_time_idx"" btree (""time"" DESC)
+Child tables: _timescaledb_internal._hyper_12_100_chunk,
+              _timescaledb_internal._hyper_12_101_chunk,
+              _timescaledb_internal._hyper_12_102_chunk,
+              ...
+",<sql><postgresql><psycopg2><timescaledb>,2547,0,44,249,0,3,10,70,9788,0.0,7,4,14,2018-07-28 20:25,2018-07-30 5:20,,2.0,,Advanced,39
+59232753,How to change a table ID from serial to identity?,"I have the following table in Postgres 10.10:
+  Table ""public.client""
+       Column        |  Type   | Collation | Nullable |                 Default                  
+---------------------+---------+-----------+----------+------------------------------------------
+ clientid            | integer |           | not null | nextval('client_clientid_seq'::regclass)
+ account_name        | text    |           | not null | 
+ last_name           | text    |           |          | 
+ first_name          | text    |           |          | 
+ address             | text    |           | not null | 
+ suburbid            | integer |           |          | 
+ cityid              | integer |           |          | 
+ post_code           | integer |           | not null | 
+ business_phone      | text    |           |          | 
+ home_phone          | text    |           |          | 
+ mobile_phone        | text    |           |          | 
+ alternative_phone   | text    |           |          | 
+ email               | text    |           |          | 
+ quote_detailsid     | integer |           |          | 
+ invoice_typeid      | integer |           |          | 
+ payment_typeid      | integer |           |          | 
+ job_typeid          | integer |           |          | 
+ communicationid     | integer |           |          | 
+ accessid            | integer |           |          | 
+ difficulty_levelid  | integer |           |          | 
+ current_lawn_price  | numeric |           |          | 
+ square_meters       | numeric |           |          | 
+ note                | text    |           |          | 
+ client_statusid     | integer |           |          | 
+ reason_for_statusid | integer |           |          | 
+Indexes:
+    ""client_pkey"" PRIMARY KEY, btree (clientid)
+    ""account_name_check"" UNIQUE CONSTRAINT, btree (account_name)
+Foreign-key constraints:
+    ""client_accessid_fkey"" FOREIGN KEY (accessid) REFERENCES access(accessid)
+    ""client_cityid_fkey"" FOREIGN KEY (cityid) REFERENCES city(cityid)
+    ""client_client_statusid_fkey"" FOREIGN KEY (client_statusid) REFERENCES client_status(client_statusid)
+    ""client_communicationid_fkey"" FOREIGN KEY (communicationid) REFERENCES communication(communicationid)
+    ""client_difficulty_levelid_fkey"" FOREIGN KEY (difficulty_levelid) REFERENCES difficulty_level(difficulty_levelid)
+    ""client_invoice_typeid_fkey"" FOREIGN KEY (invoice_typeid) REFERENCES invoice_type(invoice_typeid)
+    ""client_job_typeid_fkey"" FOREIGN KEY (job_typeid) REFERENCES job_type(job_typeid)
+    ""client_payment_typeid_fkey"" FOREIGN KEY (payment_typeid) REFERENCES payment_type(payment_typeid)
+    ""client_quote_detailsid_fkey"" FOREIGN KEY (quote_detailsid) REFERENCES quote_details(quote_detailsid)
+    ""client_reason_for_statusid_fkey"" FOREIGN KEY (reason_for_statusid) REFERENCES reason_for_status(reason_for_statusid)
+    ""client_suburbid_fkey"" FOREIGN KEY (suburbid) REFERENCES suburb(suburbid)
+Referenced by:
+    TABLE ""work"" CONSTRAINT ""work_clientid_fkey"" FOREIGN KEY (clientid) REFERENCES client(clientid)
+I would like to change clientid from a serial id (nextval('client_clientid_seq'::regclass)) to not null generated always as identity primary key. 
+The table has 107 records which were manually entered including clientids.
+How could this be done without destroying existing data?
+",<sql><postgresql><auto-increment><ddl>,3346,0,48,401,0,3,10,65,6525,0.0,19,5,14,2019-12-08 5:38,2019-12-08 5:43,2019-12-08 7:01,0.0,0.0,Basic,10
+49644232,How to set timezone to UTC in Apache Spark?,"In Spark's WebUI (port 8080) and on the environment tab there is a setting of the below:
+user.timezone   Zulu
+Do you know how/where I can override this to UTC?
+Env details:
+Spark 2.1.1
+jre-1.8.0-openjdk.x86_64
+no jdk
+EC2 Amazon Linux
+",<java><apache-spark><pyspark><apache-spark-sql><jvm>,234,0,1,264,3,18,45,58,47760,0.0,89,5,14,2018-04-04 6:29,2018-04-04 7:36,2018-04-04 7:36,0.0,0.0,Intermediate,20
+51349719,MySQL Workbench Import NULL from CSV,"I can't for the life of me make MySQL Workbench import NULL for blank cells in a CSV. 
+I've tried: 
+blank
+NULL
+\N
+Each with and without """"
+How the does one signify a cell is 'null' inside a CSV file I want to import into MySQL via Workbench?
+",<mysql><mysql-workbench><workbench>,242,0,0,1286,2,21,48,61,9046,0.0,536,4,14,2018-07-15 15:20,2019-04-29 18:21,2019-04-29 18:21,288.0,288.0,Basic,9
+58475174,How do I query an array in TypeORM,"I want to create user permissions management. I use TypeORM with PostgreSQL. This is the column definition for the permissions within the user entity:
+@Column({
+  type: 'text',
+  array: true
+})
+permissions: UserPermission[] = [];
+This is the UserPermission enum:
+export enum UserPermission {
+  APP_USER = 'APP_USER',
+  USER_ADMIN = 'USER_ADMIN',
+  SUPERADMIN = 'SUPERADMIN'
+}
+I want to find one user who has the 'SUPERADMIN' permission but I cannot find the right spot in the documentation / github issues which explains how to do this. I already spent over an hour on this and I suppose this is a simple task.
+Is there something like &quot;Includes&quot; to check if the permissions array includes a specific element and/or includes multiple elements?
+const user = await this.userRepository.findOne({
+  where: {
+    permissions: Includes('SUPERADMIN')
+  }
+});
+I would be very thankful if someone could point me to the correct documentation page :)
+Edit:
+The following works for me but I think it is not optimal yet:
+@Column('simple-json')
+permissions: string[];
+let user = await this.userRepository.createQueryBuilder('user')
+  .where('user.permissions like :permissions', { permissions: `%&quot;${UserPermission.SUPERADMIN}&quot;%` })
+  .getOne();
+",<node.js><postgresql><typescript><typeorm>,1250,0,22,191,1,1,6,56,60641,0.0,7,5,14,2019-10-20 16:47,2020-04-16 20:31,,179.0,,Basic,3
+62632590,Command 01_migrate failed on Amazon Linux 2 AMI,"I have a Django project which is deployed to Elastic Beanstalk Amazon Linux 2 AMI. I installed PyMySQL for connecting to the db and i added these lines to settings.py such as below;
+import pymysql
+pymysql.version_info = (1, 4, 6, &quot;final&quot;, 0)
+pymysql.install_as_MySQLdb()
+And also i have a .config file for migrating the db;
+container_commands:
+  01_migrate:
+    command: &quot;django-admin.py migrate&quot;
+    leader_only: true
+option_settings:
+  aws:elasticbeanstalk:application:environment:
+    DJANGO_SETTINGS_MODULE: mysite.settings
+Normally, i was using mysqlclient on my Linux AMI with this .config file but it doesn't work on Linux 2 AMI so i installed the PyMySQL. Now, i'm trying to deploy the updated version of my project but i'm getting an error such as below;
+Traceback (most recent call last):
+  File &quot;/opt/aws/bin/cfn-init&quot;, line 171, in &lt;module&gt;
+    worklog.build(metadata, configSets)
+  File &quot;/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py&quot;, line 129, in build
+    Contractor(metadata).build(configSets, self)
+  File &quot;/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py&quot;, line 530, in build
+    self.run_config(config, worklog)
+  File &quot;/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py&quot;, line 542, in run_config
+    CloudFormationCarpenter(config, self._auth_config).build(worklog)
+  File &quot;/usr/lib/python2.7/site-packages/cfnbootstrap/construction.py&quot;, line 260, in build
+    changes['commands'] = CommandTool().apply(self._config.commands)
+  File &quot;/usr/lib/python2.7/site-packages/cfnbootstrap/command_tool.py&quot;, line 117, in apply
+    raise ToolError(u&quot;Command %s failed&quot; % name)
+ToolError: Command 01_migrate failed
+How can i fix this issue?
+",<django><amazon-elastic-beanstalk><pymysql><amazon-linux><amazon-linux-2>,1786,0,26,616,0,8,19,53,5968,0.0,35,4,14,2020-06-29 6:44,2020-07-24 13:45,2020-07-24 13:45,25.0,25.0,Advanced,40
+50503394,Cannot create commands from unopened database,"I've searched around quite a lot and I cannot find any answers to this.
+I am writing a Xamarin Forms Mobile application, it seems when I minimise the application and then reopen it or one of my activities get launched the following exception gets thrown:
+SQLiteConnection.CreateCommand (System.String cmdText, System.Object[] ps)
+SQLite.SQLiteException: Cannot create commands from unopened database
+SQLiteConnection.CreateCommand (System.String cmdText, System.Object[] ps)
+TableQuery`1[T].GenerateCommand (System.String selectionList)
+TableQuery`1[T].GetEnumerator ()
+System.Collections.Generic.List`1[T]..ctor (System.Collections.Generic.IEnumerable`1[T] collection) [0x00062] in :0
+Enumerable.ToList[TSource] (System.Collections.Generic.IEnumerable`1[T] source)
+AsyncTableQuery`1[T].&lt;ToListAsync&gt;b__9_0 ()
+Task`1[TResult].InnerInvoke ()
+Task.Execute ()
+Here is my code:
+Generic Repository (Where the Sqlite instance gets created)
+public class Repository&lt;T&gt; : IRepository&lt;T&gt; where T : Entity, new()
+{
+     private readonly SQLiteAsyncConnection _db;
+    public Repository(string dbPath)
+    {
+        _db = new SQLiteAsyncConnection(dbPath);
+        _db.CreateTableAsync&lt;T&gt;().Wait();
+    }
+}
+The IOC registration
+FreshIOC.Container.Register&lt;IRepository&lt;Settings&gt;&gt;(new Repository&lt;Settings&gt;(dbPath)); // FreshIOC is a wrapper around TinyIOC
+In my App.xaml.cs OnResume
+protected override void OnResume()
+{
+    SQLiteAsyncConnection.ResetPool();
+}
+The above with ResetPool I put that in to see if it would make a difference but it did not.
+URL Activity
+protected override void OnCreate(Bundle bundle)
+{
+    base.OnCreate(bundle);
+    var url = Intent.Data.ToString();
+    var split = url.Split(new[] { ""ombi://"", ""_"" }, StringSplitOptions.RemoveEmptyEntries);
+    if (split.Length &gt; 1)
+    {
+        var dbLocation = new FileHelper().GetLocalFilePath(""ombi.db3"");
+        var repo = new Repository&lt;OmbiMobile.Models.Entities.Settings&gt;(dbLocation);
+        var settings = repo.Get().Result;
+        foreach (var s in settings)
+        {
+            var i = repo.Delete(s).Result;
+        }
+        repo.Save(new Settings
+        {
+            AccessToken = split[1],
+            OmbiUrl = split[0]
+        });
+    }
+    Intent startup = new Intent(this, typeof(MainActivity));
+    StartActivity(startup);
+    Finish();
+}
+I am not sure what else to do or look for, I can't seem to find any information about this sort of error.
+Update:
+After more debugging it seems to only happen after the Url activity has finished.
+I have removed the DB code from the Activity and it still seems to happen. Once the Activity has launched the main App() then runs this code:
+var repo = FreshIOC.Container.Resolve&lt;IRepository&lt;Settings&gt;&gt;();
+try
+{
+    Task.Run(async () =&gt;
+    {
+        settings = (await repo.Get()).FirstOrDefault();
+    }).Wait();
+}
+catch (Exception e)
+{
+    Debug.WriteLine(e.Message);
+    throw;
+}
+This where the error is happening. It happens when the Get() is called which calls return _db.Table&lt;T&gt;().ToListAsync();
+I have tried making everything async (didn't help), making the repository, connection and where we do CreateTableAsync async and still no luck.
+",<c#><.net><sqlite><dependency-injection><xamarin.forms>,3234,0,69,8053,2,46,84,75,3628,0.0,448,3,14,2018-05-24 7:24,2018-05-30 3:56,2018-06-04 7:39,6.0,11.0,Advanced,32
+54272997,Access Docker postgres container from another container,"I am trying to make a portable solution to having my application container connect to a postgres container.  By 'portable' I mean that I can give the user two docker run commands, one for each container, and they will always work together.
+I have a postgres docker container running on my local PC, and I run it like this,
+docker run -p 5432:5432 -v $(pwd)/datadir:/var/lib/postgresql/data -e POSTGRES_PASSWORD=qwerty -d postgres:11
+and I am able to access it from a python flask app, using the address 127.0.0.1:5432.
+I put the python app in a docker container as well, and I am having trouble connecting to the postgres container.
+Address 127.0.0.1:5432 does not work.
+Address 172.17.0.2:5432 DOES work (172.17.0.2 is the address of the docker container running postgres).  However I consider this not portable because I can't guarantee what the postgres container IP will be.
+I am aware of the --add-host flag, but it is also asking for the host-ip, which I want to be the localhost (127.0.0.1).  Despite several hits on --add-host I wasn't able to get that to work so that the final docker run commands can be the same on any computer they are run on.
+I also tried this: docker container port accessed from another container
+My situation is that the postgres and myApp will be containers running on the same computer.  I would prefer a non-Docker compose solution.
+",<postgresql><docker>,1369,1,7,497,0,4,14,55,5683,0.0,13,1,14,2019-01-20 2:08,2019-01-20 4:46,2019-01-20 4:46,0.0,0.0,Intermediate,22
+48690890,How does columnar Databases do indexing?,"I understand that the columnar databases put column data together on the disk rather than rows. I also understand that in traditional row-wise RDBMS, leaf index node of B-Tree contains pointer to the actual row. 
+But since columnar doesn't store rows together, and they are particularly designed for columnar operations, how do they differ in the indexing techniques?
+Do they also use B-tress?
+How do they index inside whatever datastructure they use?
+Or there is no accepted format, every vendor have their own indexing scheme to cater their needs?
+I have been searching, but unable to find any text. Every text I found is for row-wise DBMS.
+",<mysql><database>,643,0,0,5451,8,46,75,43,4768,0.0,760,3,14,2018-02-08 16:59,2018-02-16 21:14,,8.0,,Intermediate,23
+48922384,How to implement created_at and updated_at column using Room Persistence ORM tools in android,"How can I implement created_at and updated_at columns using Room Persistence ORM tools in Android, that can update the timestamp automatically when creating or updating a row in a table?
+",<java><android><orm><android-room><sql-timestamp>,187,0,2,423,1,3,12,67,13721,0.0,16,2,14,2018-02-22 8:08,2018-05-02 19:37,,69.0,,Basic,9
+53755125,Insert the current date time using Laravel,"I want to store the current date time in MySQL using the following Laravel function. Actually, I stored a static date. Instead of this, how can I store the current date time in the created_at and updated_at fields in the database?
+function insert(Request $req)
+{
+    $name = $req-&gt;input('name');
+    $address = $req-&gt;input('address');
+    $data = array(&quot;name&quot; =&gt; $name, &quot;address&quot; =&gt; $address, &quot;created_at&quot; =&gt; '2017-04-27 10:29:59', &quot;updated_at&quot; =&gt; '2017-04-27 10:29:59');
+    DB::table('student')-&gt;insert($data);
+    echo &quot;Record inserted successfully.&lt;br/&gt;&quot;;
+    return redirect('/');
+}
+",<php><mysql><laravel><php-carbon>,665,0,11,344,1,3,11,65,65820,0.0,22,5,14,2018-12-13 4:43,2018-12-13 4:45,2018-12-13 4:45,0.0,0.0,Basic,9
+53910835,Using Async/Await with node-postgres,"I am using node-postgres to query my database and would like to know how to use async/await and handle errors correctly
+An example of my use is here with a very simple query
+const { Pool } = require('pg');
+let config;
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+  config = { connectionString: process.env.DATABASE_URL, ssl: true };
+} else {
+  config = {
+    host: 'localhost',
+    user: 'myuser',
+    database: 'mydatabase',
+  };
+}
+const pool = new Pool(config);
+async function getAllUsers() {
+  let response;
+  try {
+    response = await pool.query('select * FROM users');
+  } catch (error) {
+    throw error;
+  }
+  return response.rows;
+}
+Then in my routes.js I have
+app.get('/all_users', async (req, res) =&gt; {
+  const users = await queries.getAllUsers();
+  console.log(users); // returns all users fine
+});
+This is my understanding so far, but i don't think I am approaching this correctly as when it comes to errors my app will freeze and throw UnhandledPromiseRejectionWarning. So if I provide an incorrect table for example
+async function getAllUsers() {
+  let response;
+  try {
+    response = await pool.query('select * FROM notable');
+  } catch (error) {
+    throw error;
+  }
+  return response.rows;
+}
+UnhandledPromiseRejectionWarning: error: relation &quot;notable&quot; does not exist
+The app will crash after 30 seconds and I have not handled this error gracefully. What am I missing?
+",<node.js><postgresql><node-postgres>,1438,0,41,15150,37,125,289,40,22122,0.0,1415,1,14,2018-12-24 8:13,2018-12-24 8:19,2018-12-24 8:19,0.0,0.0,Basic,13
+53631015,Why SQL primary key index begin at 1 and not at 0?,"was wondering, why does the SQL primary key index begin at 1, and why not at 0 ? Is there a reason ? 
+I don't know if this is the good place to ask a question like this, but found no answer on the web.
+",<mysql><sql><database>,202,0,0,268,1,2,14,54,11796,0.0,23,3,14,2018-12-05 11:14,2018-12-05 11:16,2018-12-05 11:51,0.0,0.0,Basic,4
+51171289,Unable to acquire JDBC Connection on integration test when using Docker bridge network,"When I run maven test locally is passed. But got this error when I run it on CI server. 
+Error Message
+Could not open JPA EntityManager for transaction; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection
+Stacktrace
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: 
+Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+Caused by: java.net.UnknownHostException: mysql
+When running local test, they all passed, maven test default setting provided by IntelliJ IDEA is used.
+Since the error complains about database connection, so I checked by Jenkins Audit to Database Plugin. Connection Successful!
+The connection parameter in my application.properties also corresponds to this 
+spring.datasource.url=jdbc:mysql://mysql:3306/database?useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai
+spring.datasource.username=root
+spring.datasource.password=password
+spring.datasource.maxActive=5
+The MySQL in the URL is the MySQL docker container name. If change it with localhost or private IP in docker container inspect mysql the error message is the same, while the Stacktrace is a little different on last two lines.
+for localhost
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+for private IP
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server. 
+Caused by: java.net.SocketTimeoutException: connect timed out
+The different I think is the host in URL, localhost is used for the local test.
+While the Jenkins server used Docker bridge network.
+The container status is:  
+docker container ls
+CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS
+                                          NAMES
+51ea7c7864a4        mysql:5.7             ""docker-entrypoint.s…""   19 hours ago        Up 19 hours         0.0.0.0:3306-&gt;3306/tcp                             mysql
+de364f7b5eaf        maven:3-jdk-8         ""/usr/local/bin/mvn-…""   21 hours ago        Up 21 hours
+                                          optimistic_stallman
+a6545591e358        jenkinsci/blueocean   ""/sbin/tini -- /usr/…""   43 hours ago        Up 43 hours         0.0.0.0:50000-&gt;50000/tcp, 0.0.0.0:2048-&gt;8080/tcp   frosty_cray
+When I run the JUnit test in IntelliJ, it fails sometimes on the local environment. The error log is like:
+Caused by: org.h2.jdbc.JdbcSQLException: Schema ""DATABASE"" not found; SQL statement:
+TRUNCATE TABLE database.data_log 
+I have searched the issue, it's said h2 database use upper case by default.
+After run maven test, this issue will go if run JUnit test in IDE again. But this should be not related to the root cause.
+Search on the error message, find some similar question but with different nested exception:  
+  Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException  
+  SpingREST: Could not open JPA EntityManager for transaction; nested exception is org.hiberna   
+  Could not open JPA EntityManager for transaction; org.hibernate.exception.GenericJDBCException: Could not open connection  
+  Could not open JPA EntityManager for transaction in spring  
+All of them is about nested exception is javax.persistence.PersistenceException
+But nested exception is org.hibernate.exception.JDBCConnectionException: is my situation.
+Read Connect Java to a MySQL database
+however since that plugin connects OK, means the connection from Jenkins container to MySQL container is fine.
+Summarise:
+1. local test with maven passed
+2. Jenkins plugin connect to MySQL success
+3. Integration test fails when run from Jenkins
+4. local test environment is WIN10 64bit; Jenkins run in docker container on Ubuntu 16.04 64bit server, with MySQL 5.7 container connects to the same bridge network.
+",<java><mysql><spring><docker><jenkins>,4416,6,34,2671,5,37,57,62,9051,0.0,563,2,14,2018-07-04 10:17,2018-08-10 5:26,,37.0,,Advanced,32
+53607322,Laravel: SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client,"after installing a new laravel app 5.7 and trying to migrate I get this error:
+  Illuminate\Database\QueryException : SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client (SQL: select * from information_schema.tables where table_schema = xxx_db and table_name = migrations)
+  at
+  C:\xampp\htdocs\xxxxx\vendor\laravel\framework\src\Illuminate\Database\Connection.php:664
+  660| // If an exception occurs when attempting to run a query, we'll
+  format the error 661| // message to include the bindings with SQL,
+  which will make this exception a 662| // lot more helpful to the
+  developer instead of just the database's errors. 663| catch (Exception
+  $e) {
+  664| throw new QueryException( 665| $query,
+  $this->prepareBindings($bindings), $e 666| ); 667| } 668|
+  Exception trace:
+  1 PDOException::(""PDO::__construct(): The server requested
+  authentication method unknown to the client [caching_sha2_password]"")
+  C:\xampp\htdocs\xxxxx\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:70
+  2 PDO::__construct(""mysql:host=127.0.0.1;port=3306;dbname=xxx_db "",
+  ""root"", ""**********"", [])
+  C:\xampp\htdocs\xxxxx\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:70
+  Please use the argument -v to see more details.
+",<php><mysql><laravel><laravel-artisan><migrate>,1302,0,0,1860,7,34,57,49,43054,0.0,64,11,14,2018-12-04 6:59,2018-12-04 7:04,,0.0,,Intermediate,31
+58901356,Docker container can't connect to SQL Server on a remote server,"I have a container hosted ASP.NET Core application but it can't connect to SQL Server on a remote server.
+The error is:
+  A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.
+This is what I already checked:
+Try to disable firewall on host machine and DB server. : still get the error
+Edit connection string to use IP and port : still get the error
+Ping from application container to DB server: I can ping to DB server normally
+Connect to database server via SQL Server Management Studio: I can connect normally
+So I think that the container can see the DB server but can't connect. What's the other thing should I check?
+Thank you very much for your help.
+Update
+Dockerfile:
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 1433
+#our sql server was use this port for connect
+EXPOSE 64608
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
+WORKDIR /src
+COPY Web.API.sln ./
+COPY MyProject.Core/*.csproj ./MyProject.Core/
+COPY MyProject.API/*.csproj ./MyProject.API/
+RUN dotnet restore
+COPY . .
+WORKDIR /src/MyProject.API
+RUN dotnet build -c Release -o /app
+FROM build AS publish
+RUN dotnet publish -c Release -o /app
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT [""dotnet"", ""MyProject.API.dll""]
+Run Docker Command:
+docker build -t myproject-api:latest .
+docker run -d -p 7991:80 --name myproject-api myproject-api:latest
+Connection String:
+""data source=172.16.0.88\\SQL_DEV,64608; initial catalog=MyProject; persist security info=True; user id=myuser; password=mypassword;""
+",<sql-server><docker><asp.net-core>,1732,0,32,677,3,10,28,49,27215,,56,3,14,2019-11-17 14:17,2019-11-18 3:59,2019-11-18 3:59,1.0,1.0,Advanced,39
+59036323,Azure SQL stored procedure ridiculously slow called from C#,"Summary:
+We have two identical databases, one on a local server, one on Azure.
+We have a C# system that accesses these databases, calling stored procedures.
+The stored procedures are running very, very slowly when called from the C# system to the Azure database. They're running fine from C# to the local server, and from SSMS to both the Azure and the local databases.
+As an example, calling the stored procedure 'usp_DevelopmentSearch_Select'
+Local database, SSMS : 1 second
+Local database, C# : 1 second
+Azure database, SSMS : 1 second
+Azure database, C# : 17 minutes
+This is happening on multiple stored procedures, I'm just using usp_DevelopmentSearch_Select as an example, to test solutions and to trace the execution plan.
+I've ruled out ARITHABORT (the usual suspect), and it seems that running usp_DevelopmentSearch_Select in SSMS and from the C# system generate a functionally identical execution plan.
+Details:
+We write a very large C# system, which accesses SQL Server databases.
+Currently all our clients host their own databases locally on their own servers, however we are looking into the option of hosting the databases on Azure. So I set up some small Azure test databases, ironed out the kinks, and got an Azure-hosted system going.
+Then I copied one of our client's databases up, to compare performance hosted locally vs hosted on Azure.
+The actual client database is performing unusably badly on Azure!
+The first screen calls a stored procedure 'usp_DevelopmentSearch_Select'
+Connection to the database on their server:-
+In SSMS, calling the stored procedure (below) returns the values in about 1 second
+EXEC usp_DevelopmentSearch_Select @MaxRecord = 100, @SearchType = 'CUR'
+In our C# program, calling the stored procedure returns the values in about 1 second
+Connection to the database on Azure:-
+In SSMS, calling the stored procedure returns the values in about 1 second
+In our C# program, calling the stored procedure returns the values in about 17 minutes!
+Fast in SSMS and slow from C# usually means ARITHABORT, so I turned it on at the start of the stored procedure :
+SET ARITHABORT ON; 
+That didn't make any difference, so I updated it to convert the passed parameters to local variables.
+ALTER PROCEDURE [dbo].[usp_DevelopmentSearch_Select]
+     (@MAXRECORD INT,
+      @SEARCHTYPE VARCHAR(3))
+AS
+BEGIN
+    SET ARITHABORT ON; 
+    DECLARE @MAXRECORD_Var INT = @MAXRECORD
+    DECLARE @SEARCHTYPE_Var VARCHAR(3) = @SEARCHTYPE
+    ... (Updated all references to @MAXRECORD and @SEARCHTYPE to @MAXRECORD_Var and @SEARCHTYPE_Var)
+END
+Still no joy, so I got the Execution Plan details for both:-
+select o.object_id, s.plan_handle, h.query_plan 
+from sys.objects o 
+inner join sys.dm_exec_procedure_stats s on o.object_id = s.object_id
+cross apply sys.dm_exec_query_plan(s.plan_handle) h
+where o.object_id = object_id('usp_DevelopmentSearch_Select')
+And just to check, I reloaded the screen in the C# program, and checked the running query:-
+SELECT sqltext.TEXT,
+req.session_id,
+req.status,
+req.command,
+req.cpu_time,
+req.total_elapsed_time,
+req.plan_handle
+FROM sys.dm_exec_requests req
+CROSS APPLY sys.dm_exec_sql_text(sql_handle) AS sqltext
+It is definitely using one of the two execution plans returned above.
+So, check the settings for the Execution Plans
+SELECT * FROM sys.dm_exec_plan_attributes (0x05002D00D1A1EA5510E66E783602000001);
+SELECT * FROM sys.dm_exec_plan_attributes (0x05002D00D1A1EA55E0FC6E783602000001);
+Set_Options is 4345 for both, so they're definitely both using ARITHABORT.
+The only differences are the localisation bits: Language and Date Format. The Azure database is stuck in American, can't seem to change that, while the C# program forces it to British.
+I tried the C# program without forcing it to British, and still got the same issue. It also used exactly the same Execution Plan, so clearly localisation doesn't affect that.
+So, I called up the info on the Execution Plans:-
+SELECT * FROM sys.dm_exec_query_plan (0x05002D00D1A1EA5510E66E783602000001);
+SELECT * FROM sys.dm_exec_query_plan (0x05002D00D1A1EA55E0FC6E783602000001);
+Saved them both, and compared the results:-
+The two columns far left show the overall comparison: yellow being different, white being the same.
+As you can see, the two Execution Plans are almost identical, just with a handful of differences at the top.
+The first differences can be seen in the above screenshot: the 'StatementCompId' is one higher in the SSMS (left) pane than the C# (right) pane. Google doesn't want to tell me what StatementCompId is, but given they're in sequence I'm guessing it's the order to do them in, and the SSMS is one higher because the EXEC command that called the SP counts as one.
+For ease, I've compiled all the remaining differences into a single screenshot:-
+Compile times and CPU usages, free memory, and a couple more 'StatementCompId'
+So, the two Execution Plans are functionally identical, with identical settings (except localisation which doesn't seem to have an effect).
+So why does it take around 17 minutes calling the Azure SP from C# compared to around 1 second calling the Azure SP from SSMS or the local SP from the locally-hosted database either way?
+The Stored Procedure itself is just a SELECT FROM, with a few LEFT JOINs to other tables, nothing fancy and it's never given us any trouble on locally-hosted databases.
+SELECT TOP (@MAXRECORD_Var) &lt;FieldList&gt;
+FROM (
+    SELECT DISTINCT &lt;FieldList&gt;
+    FROM &lt;TableName&gt; WITH (NOLOCK)
+    LEFT JOIN &lt;TableName&gt; WITH (NOLOCK) ON &lt;Link&gt;
+    LEFT JOIN &lt;TableName&gt; WITH (NOLOCK) ON &lt;Link&gt;
+    LEFT JOIN &lt;TableName&gt; WITH (NOLOCK) ON &lt;Link&gt;
+    LEFT JOIN &lt;TableName&gt; WITH (NOLOCK) ON &lt;Link&gt;
+    LEFT JOIN &lt;TableName&gt; WITH (NOLOCK) ON &lt;Link&gt;
+    WHERE (
+        &lt;Conditions&gt;
+    ) AS Base
+ORDER BY &lt;FieldName&gt;
+Edit: Some Progress
+I tried several things that came up from Googling:-
+1) WITH RECOMPILE
+I tried adding this to the Stored Procedure, didn't make any difference
+2) OPTION (OPTIMIZE FOR (@MAXRECORD_Var UNKNOWN, @SEARCHTYPE_Var UNKNOWN))
+I tried adding this to the Stored Procedure, didn't make any difference
+3) Explicitly setting all options
+This one made a noticeable (but still far too small) difference!
+I wrote a query to tell me the current options
+DECLARE @options INT
+SELECT @options = @@OPTIONS
+PRINT @options
+PRINT 'SET DISABLE_DEF_CNST_CHK ' + CASE WHEN ( (1 &amp; @options) = 1 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET IMPLICIT_TRANSACTIONS ' + CASE WHEN ( (2 &amp; @options) = 2 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET CURSOR_CLOSE_ON_COMMIT ' + CASE WHEN ( (4 &amp; @options) = 4 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_WARNINGS ' + CASE WHEN ( (8 &amp; @options) = 8 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_PADDING ' + CASE WHEN ( (16 &amp; @options) = 16 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_NULLS ' + CASE WHEN ( (32 &amp; @options) = 32 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ARITHABORT ' + CASE WHEN ( (64 &amp; @options) = 64 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ARITHIGNORE ' + CASE WHEN ( (128 &amp; @options) = 128 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET QUOTED_IDENTIFIER ' + CASE WHEN ( (256 &amp; @options) = 256 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET NOCOUNT ' + CASE WHEN ( (512 &amp; @options) = 512 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_NULL_DFLT_ON ' + CASE WHEN ( (1024 &amp; @options) = 1024 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_NULL_DFLT_OFF ' + CASE WHEN ( (2048 &amp; @options) = 2048 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET CONCAT_NULL_YIELDS_NULL ' + CASE WHEN ( (4096 &amp; @options) = 4096 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET NUMERIC_ROUNDABORT ' + CASE WHEN ( (8192 &amp; @options) = 8192 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET XACT_ABORT ' + CASE WHEN ( (16384 &amp; @options) = 16384 ) THEN 'ON' ELSE 'OFF' END + ';'
+This produced a set of SET statements, and the current Options value
+5496
+SET DISABLE_DEF_CNST_CHK OFF;
+SET IMPLICIT_TRANSACTIONS OFF;
+SET CURSOR_CLOSE_ON_COMMIT OFF;
+SET ANSI_WARNINGS ON;
+SET ANSI_PADDING ON;
+SET ANSI_NULLS ON;
+SET ARITHABORT ON;
+SET ARITHIGNORE OFF;
+SET QUOTED_IDENTIFIER ON;
+SET NOCOUNT OFF;
+SET ANSI_NULL_DFLT_ON ON;
+SET ANSI_NULL_DFLT_OFF OFF;
+SET CONCAT_NULL_YIELDS_NULL ON;
+SET NUMERIC_ROUNDABORT OFF;
+SET XACT_ABORT OFF;
+Note: Running SET DISABLE_DEF_CNST_CHK OFF; throws an error, so I commented that one out.
+'DISABLE_DEF_CNST_CHK' is not a recognized SET option.
+Adding this to the start of the Stored Procedure brought the time down from 17 minutes to 40 seconds.
+Still far more than 1 second it takes to run in SSMS, and still not enough to be usable, but progress none the less.
+However, I noticed that the Options value it returned (5496) was different to the value I got from the Execution Plan details above (4345), and also some of the settings where different from the settings for that database.
+So, I re-ran the query hard-coded to 4345
+DECLARE @options INT
+SELECT @options = 4345 --@@OPTIONS
+PRINT @options
+PRINT 'SET DISABLE_DEF_CNST_CHK ' + CASE WHEN ( (1 &amp; @options) = 1 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET IMPLICIT_TRANSACTIONS ' + CASE WHEN ( (2 &amp; @options) = 2 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET CURSOR_CLOSE_ON_COMMIT ' + CASE WHEN ( (4 &amp; @options) = 4 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_WARNINGS ' + CASE WHEN ( (8 &amp; @options) = 8 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_PADDING ' + CASE WHEN ( (16 &amp; @options) = 16 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_NULLS ' + CASE WHEN ( (32 &amp; @options) = 32 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ARITHABORT ' + CASE WHEN ( (64 &amp; @options) = 64 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ARITHIGNORE ' + CASE WHEN ( (128 &amp; @options) = 128 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET QUOTED_IDENTIFIER ' + CASE WHEN ( (256 &amp; @options) = 256 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET NOCOUNT ' + CASE WHEN ( (512 &amp; @options) = 512 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_NULL_DFLT_ON ' + CASE WHEN ( (1024 &amp; @options) = 1024 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET ANSI_NULL_DFLT_OFF ' + CASE WHEN ( (2048 &amp; @options) = 2048 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET CONCAT_NULL_YIELDS_NULL ' + CASE WHEN ( (4096 &amp; @options) = 4096 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET NUMERIC_ROUNDABORT ' + CASE WHEN ( (8192 &amp; @options) = 8192 ) THEN 'ON' ELSE 'OFF' END + ';'
+PRINT 'SET XACT_ABORT ' + CASE WHEN ( (16384 &amp; @options) = 16384 ) THEN 'ON' ELSE 'OFF' END + ';'
+This returned
+4345
+SET DISABLE_DEF_CNST_CHK ON;
+SET IMPLICIT_TRANSACTIONS OFF;
+SET CURSOR_CLOSE_ON_COMMIT OFF;
+SET ANSI_WARNINGS ON;
+SET ANSI_PADDING ON;
+SET ANSI_NULLS ON;
+SET ARITHABORT ON;
+SET ARITHIGNORE ON;
+SET QUOTED_IDENTIFIER OFF;
+SET NOCOUNT OFF;
+SET ANSI_NULL_DFLT_ON OFF;
+SET ANSI_NULL_DFLT_OFF OFF;
+SET CONCAT_NULL_YIELDS_NULL ON;
+SET NUMERIC_ROUNDABORT OFF;
+SET XACT_ABORT OFF;
+Again, the line SET DISABLE_DEF_CNST_CHK ON; says it's not an option you can set, so I commented it out.
+Updated the Stored Procedure with those SET values, and tried again.
+It still takes 40 seconds, so no further progress.
+Running it in SSMS still takes 1 second, so at least it didn't break that, not that it's any help but nice to know!
+Edit #2: Or not...
+Seems yesterday's apparent progress was a blip: it's back to taking 17 minutes again! (With nothing changed)
+Tried combining all three options: WITH RECOMPILE, OPTION OPTIMIZE and explicitly setting the SET OPTIONS. Still takes 17 minutes.
+Edit 3: Parameter Sniffing Setting
+In SQL Azure, you can turn off Parameter Sniffing from the database options screen.
+And check them using
+SELECT * FROM sys.database_scoped_configurations
+Tried SSMS and C# twice each after setting this to OFF.
+As before, SSMS takes 1 second, C# still takes 15+ minutes.
+Of course, given C# forces a load of parameters to a specific state when it connects, it's entirely possible that it's overriding it.
+So, just to say I tried it, I added turning it off to the Stored Procedure
+ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = OFF;
+Still 15+ minutes.
+Ah well, was worth a try!
+Plus, lots of new parameters to look up and test.
+Edit #4 : Azure Staging Pool Configurations and Automatic Tuning
+I tried out several different configurations on the Staging Pool, to see if that made a difference. I didn't try the worst query, as it was costing us money to up the eDTUs, but I tried several others, twice each (going down the list each time, so not the same one twice straight away).
+Going from 50 eDTUs to 100 eDTUs made a bit of a difference, so I guess on our Test Elastic Pool we use all of the 50, but after that it didn't make any difference. Oddly, the Premium gave worse performance than Standard in places.
+I then posted this on the Azure MSDN site (when they finally got round to Verifying my account), and they suggested going through all the Performance options on the Azure Portal and see if that recommends anything.
+It suggested a couple of indexes, which I enabled, but that was all.
+Then I flipped the Automatic Tuning over from 'Server' to 'Azure Defaults'
+I re-ran most of the same timing tests, just to see what difference it had made.
+The query that had been taking 17 minutes now generally took 13 seconds, a massive improvement! Yay!
+The rest were a mixed bag. C was generally quicker, most still took around the same time, and E now takes nearly twice as long (26s up from 14s).
+There results also seemed to have a lot more variance than they did before, although it's possible that changing the eDTU size resets the tunings. The second run was usually better than the first, often noticeably so.
+Still all a lot slower than running the same system against a database on a local server, but a huge improvement for the slowest Stored Procedure at least.
+",<c#><sql><performance><azure><stored-procedures>,13931,9,117,662,0,6,22,74,2298,0.0,5,3,14,2019-11-25 16:35,2020-09-08 11:46,,288.0,,Intermediate,23
+49051959,postgresql crosstab simple example,"I got a key-value based table where each key-value pair is assigned to an entity which is identified by an id:
+| id  | key       | value |
+|-----|-----------|-------|
+| 123 | FIRSTNAME | John  |
+| 123 | LASTNAME  | Doe   |
+And I want to transform it a structure like this:
+| id  | firstName | lastName |
+|-----|-----------|----------|
+| 123 | John      | Doe      |
+I suppose one can use postgres built-in crosstab function to do it.
+Can you show me how to do it and explain why it works?
+",<postgresql><pivot-table>,489,0,8,16272,13,59,99,79,23582,0.0,895,1,14,2018-03-01 14:34,2018-03-01 14:34,2018-03-01 14:34,0.0,0.0,Intermediate,23
+49142197,Google Cloud SQL Postgres - randomly slow queries from Google Compute / Kubernetes,"I've been testing Google Cloud SQL with Postgresql, but I have random queries taking ~3s instead of a few ms. 
+Troubleshooting I did:
+The queries themselves aren't problems, rerunning the same query will work. 
+Indexes are properly set. The database is also very very small, it shouldn't do this, even if there weren't any index.
+The Kubernetes container is connecting to the database through SQL Proxy (I followed this https://cloud.google.com/sql/docs/postgres/connect-kubernetes-engine). It is not the problem though as I tried to connect directly to the database, with the same issue.
+I configured net.ipv4.tcp_keepalive_time to 60 to make sure the connection weren't dropping.
+I also have a pool of connection that are never disconnected to make sure it wasn't from that.
+When I run queries directly through my local Postgresql client, I never have the problem.
+I don't have this issue when developing locally either and connecting to my local database.
+What I'm getting at is: I feel there's some weird connection/link issue between my Google Compute instances and my Google SQL instance that I can't seem to figure out. 
+Any idea?
+Edit: 
+I also noticed these logs in my SQL Cloud instance every 30s:
+ERROR:  recovery is not in progress 
+HINT:  Recovery control functions can only be executed during recovery. 
+STATEMENT:  SELECT pg_is_xlog_replay_paused(), current_timestamp
+",<postgresql><google-cloud-sql>,1382,2,4,289,0,1,6,60,1436,0.0,3,1,14,2018-03-07 0:25,2018-04-03 8:20,,27.0,,Intermediate,23
+62472371,psycopg2.errors.InsufficientPrivilege: permission denied for relation django_migrations,"What my settings.py for DB looks like:
+ALLOWED_HOSTS = ['*']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fishercoder',
+        'USER': 'fishercoderuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+I have created a new and empty db named ""fishercoder"" this way:
+psql -U postgres
+create database fishercoder; 
+ALTER USER postgres with password 'badpassword!'; 
+CREATE USER fishercoderuser WITH PASSWORD 'password';
+ALTER ROLE fishercoderuser SET client_encoding TO 'utf8';
+ALTER ROLE fishercoderuser SET default_transaction_isolation TO 'read committed';
+ALTER ROLE fishercoderuser SET timezone TO 'PST8PDT';
+GRANT ALL PRIVILEGES ON DATABASE fishercoder TO fishercoderuser;
+Then I've imported my other SQL dump into this new DB successfully by running:psql -U postgres fishercoder &lt; fishercoder_dump.sql
+Then I tried to run ./manage.py makemigrations on my Django project on this EC2 instance, but got this error:
+Traceback (most recent call last):
+  File ""/home/ubuntu/myprojectdir/myprojectenv/lib/python3.6/site-packages/django/db/backends/utils.py"", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.InsufficientPrivilege: permission denied for relation django_migrations
+I found these three related posts on SO: 
+One, two and three
+I tried the commands they suggested:
+postgres=# GRANT ALL ON ALL TABLES IN SCHEMA public to fishercoderuser;
+GRANT
+postgres=# GRANT ALL ON ALL SEQUENCES IN SCHEMA public to fishercoderuser;
+GRANT
+postgres=# GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to fishercoderuser;
+GRANT
+no luck, I then restarted my postgresql db: sudo service postgresql restart
+when I tried to run migrations again, still faced w/ the same error.
+More debug info below:
+ubuntu@ip-xxx-xxx-xx-xx:~$ psql -U postgres
+Password for user postgres:
+psql (10.12 (Ubuntu 10.12-0ubuntu0.18.04.1))
+Type ""help"" for help.
+postgres=# \dt django_migrations
+Did not find any relation named ""django_migrations"".
+postgres=# \d django_migrations
+Did not find any relation named ""django_migrations"".
+postgres=#  \dp django_migrations
+                            Access privileges
+ Schema | Name | Type | Access privileges | Column privileges | Policies
+--------+------+------+-------------------+-------------------+----------
+(0 rows)
+postgres=# SHOW search_path; \dt *.django_migrations
+   search_path
+-----------------
+ ""$user"", public
+(1 row)
+Did not find any relation named ""*.django_migrations"".
+postgres=# \dn+ public.
+                                     List of schemas
+        Name        |  Owner   |  Access privileges   |           Description
+--------------------+----------+----------------------+----------------------------------
+ information_schema | postgres | postgres=UC/postgres+|
+                    |          | =U/postgres          |
+ pg_catalog         | postgres | postgres=UC/postgres+| system catalog schema
+                    |          | =U/postgres          |
+ pg_temp_1          | postgres |                      |
+ pg_toast           | postgres |                      | reserved schema for TOAST tables
+ pg_toast_temp_1    | postgres |                      |
+ public             | postgres | postgres=UC/postgres+| standard public schema
+                    |          | =UC/postgres         |
+(6 rows)
+Any ideas how to fix this?
+",<python><django><database><postgresql><amazon-ec2>,3403,3,70,3288,12,51,86,58,14759,0.0,3653,3,14,2020-06-19 14:25,2021-06-03 7:39,,349.0,,Basic,10
+53287215,Retry failed sqlalchemy queries,"Every time I'm restarting mysql service, my app is receiving the following error on any query:
+result = self._query(query)
+  File ""/usr/local/lib/python3.6/site-packages/pymysql/cursors.py"", line 328, in _query
+    conn.query(q)
+  File ""/usr/local/lib/python3.6/site-packages/pymysql/connections.py"", line 516, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File ""/usr/local/lib/python3.6/site-packages/pymysql/connections.py"", line 727, in _read_query_result
+    result.read()
+  File ""/usr/local/lib/python3.6/site-packages/pymysql/connections.py"", line 1066, in read
+    first_packet = self.connection._read_packet()
+  File ""/usr/local/lib/python3.6/site-packages/pymysql/connections.py"", line 656, in _read_packet
+    packet_header = self._read_bytes(4)
+  File ""/usr/local/lib/python3.6/site-packages/pymysql/connections.py"", line 702, in _read_bytes
+    CR.CR_SERVER_LOST, ""Lost connection to MySQL server during query"")
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query') [SQL: ...] [parameters: {...}] (Background on this error at: http://sqlalche.me/e/e3q8)
+Any query after that will succeed as usual.
+This is just a common use case for example, in general I might want to retry any query depending on the error.
+Is there any way to catch and retry the query in some low level sqlalchemy api? Doing try-except or a custom query method in my code is not reasonable as I use it too many times and its not maintainable.
+",<python><mysql><sqlalchemy><flask-sqlalchemy><retry-logic>,1528,1,17,8501,10,63,144,80,14014,0.0,8263,4,14,2018-11-13 18:16,2018-11-14 12:16,2018-11-14 12:16,1.0,1.0,Basic,10
+62656356,Is it possible to connect an existing database with Strapi CMS?,"I am trying to create an API using Strapi CMS. I have an existing PostgreSQL + postgis database and I would like to connect-use this database in a Strapi project.
+Do you know if it is possible to do something like this?
+",<postgresql><postgis><strapi>,220,0,0,303,2,3,11,50,12009,0.0,6,4,14,2020-06-30 11:24,2020-08-02 20:32,,33.0,,Basic,3
+49231031,Stored procedure is not returning data,"I am in the progress of transferring a script from a (discontinued) windows server to our Linux one. One of the scripts I need to transfer is a connection with a MSSQL-server. 
+The connection with the server is established and I am able to fetch ""regular"" data from any of the tables, but when I execute a stored procedure, I don't receive any of the desired data. The procedure just returns false when executed. 
+Testing the prepared statement for errors with $stmt-&gt;errorInfo() does not show me any relevant information, it just returns error code 00000, which should indicate everything (should) work fine.
+Array
+(
+    [0] =&gt; 00000
+    [1] =&gt; 0
+    [2] =&gt; (null) [0] (severity 0) [(null)]
+    [3] =&gt; 0
+    [4] =&gt; 0
+)
+php
+$con = new \PDO('dblib:charset=UTF-8;host=freedts;dbname=database', 'user', 'password');
+/** ------------------------------------------------------**/
+$sql = 'SELECT * FROM prgroepen';
+$stmt = $con-&gt;prepare($sql);
+if ($stmt) {
+    try {
+        $stmt-&gt;execute();
+        $data = $stmt-&gt;fetch(\PDO::FETCH_ASSOC);
+        if ($data) echo '&lt;pre&gt;'.print_r($data, true).'&lt;/pre&gt;';
+        else var_dump($data);
+    }catch(\Exception $e) {
+        echo $e-&gt;getMessage();
+    }
+}
+/** ------------------------------------------------------**/
+$SP = &lt;&lt;&lt;SQL
+    DECLARE @return_value int,
+            @soort nvarchar(1),
+            @dagen money
+    EXEC    @return_value = [dbo].[web_voorraadstatus] @produkt = N'ABEC24_9002', @aantal = 1, @soort = @soort OUTPUT, @dagen = @dagen OUTPUT
+    SELECT  @soort as N'@soort', @dagen as N'@dagen'
+SQL;
+$stmt = $con-&gt;prepare($SP);
+if ($stmt) {
+    try {
+        $stmt-&gt;execute();
+        $data = $stmt-&gt;fetch(\PDO::FETCH_ASSOC);
+        if ($data) echo '&lt;pre&gt;'.print_r($data, true).'&lt;/pre&gt;';
+        else var_dump($data);
+    }catch(\Exception $e) {
+        echo $e-&gt;getMessage();
+    }
+}
+output
+Array
+(
+    [kode] =&gt; A
+    [omschrijving] =&gt; ACCESSOIRE DISPLAYS
+    [aeenheid] =&gt; ST
+    [agb] =&gt; 604006
+    [veenheid] =&gt; ST
+    [vgb] =&gt; 700011
+    [coefaank] =&gt; 
+    [coefverk] =&gt; 
+    [internet] =&gt; 1
+    [foto] =&gt; #\\serverpc\fws$\GROEPEN\A.jpg#
+    [vader] =&gt; 
+    [produkt_niveau] =&gt; 0
+    [bs_kode] =&gt; 
+    [bs_vader] =&gt; 
+    [web_volgorde] =&gt; 6
+    [pdfcataloog] =&gt; 
+)
+bool(false) 
+I also tried to call the SP in different ways, but with no avail as well.
+The exact same code runs perfectly on the windows server, with the only difference is that the windows server uses the sqlsrv-driver
+/** ============================== **/
+/*  @produkt as nvarchar(15),
+/*  @aantal as money,
+/*  @soort as nvarchar(1) output,
+/*  @dagen as money output
+/** ============================== **/
+$stmt = $con-&gt;prepare('execute web_voorraadstatus ?, ?, ?, ?');
+$stmt-&gt;bindParam(1, $produkt, PDO::PARAM_STR);
+$stmt-&gt;bindParam(2, $aantal, PDO::PARAM_STR);
+$stmt-&gt;bindParam(3, $soort, PDO::PARAM_STR, 1);
+$stmt-&gt;bindParam(4, $dagen, PDO::PARAM_STR, 10);
+var_dump($stmt-&gt;execute()); # true
+var_dump($soort, $dagen);   # NULL, NULL
+So is dblib actually able to execute stored procedures and retrieving the data returned by it?
+note: the client charset is already set to UTF-8 in the FreeDTS config file
+Here is a partial from the freeDTS log, it's seems I'm receiving data from the MSSQL-server just fine?
+dblib.c:4639:dbsqlok(0x7fcfd8acc530)
+dblib.c:4669:dbsqlok() not done, calling tds_process_tokens()
+token.c:540:tds_process_tokens(0x7fcfd78d7bd0, 0x7ffe281bec38, 0x7ffe281bec3c, 0x6914)
+util.c:156:Changed query state from PENDING to READING
+net.c:555:Received header
+0000 04 01 00 5c 00 37 01 00-                        |...\.7..|
+net.c:609:Received packet
+0000 04 01 00 5c 00 37 01 00-79 00 00 00 00 fe 01 00 |...\.7.. y.......|
+0010 e0 00 00 00 00 00 81 02-00 00 00 21 00 e7 02 00 |........ ...!....|
+0020 09 04 d0 00 34 06 40 00-73 00 6f 00 6f 00 72 00 |....4.@. s.o.o.r.|
+0030 74 00 00 00 21 00 6e 08-06 40 00 64 00 61 00 67 |t...!.n. .@.d.a.g|
+0040 00 65 00 6e 00 d1 02 00-56 00 08 00 00 00 00 90 |.e.n.... V.......|
+0050 d0 03 00 fd 10 00 c1 00-01 00 00 00             |........ ....|
+",<php><sql-server><linux>,4178,0,106,16480,6,47,60,37,2712,,1605,3,14,2018-03-12 8:38,2018-03-20 14:49,,8.0,,Intermediate,17
+60727318,Add generated column to an existing table Postgres,"I am trying to add a generated column to an existing table with this script.   
+alter table Asset_Store add column
+md5_hash VARCHAR(100) GENERATED ALWAYS AS 
+(CAST(UPPER(    
+        case
+             when OR_ID is not null then MD5(cast(OR_ID as varchar(100)))
+             when Asset_ID is not null then MD5(Asset_ID)
+             else null
+        end 
+) as VARCHAR(100)))
+STORED
+;
+but I am getting an error: 
+SQL Error [42601]: ERROR: syntax error at or near ""(""
+ Position: 88
+ ERROR: syntax error at or near ""(""
+ Position: 88
+ ERROR: syntax error at or near ""(""
+ Position: 88
+What is the issue? I don't get it. 
+In the schema of my Asset_Store table the column
+OR_ID is int and Asset_ID is varchar(100).     
+I guess it expects a slightly different syntax... but what is the right syntax?   
+",<sql><postgresql>,797,0,23,38523,19,99,168,45,11960,0.0,1306,2,14,2020-03-17 17:26,2020-03-17 19:37,2020-03-17 19:37,0.0,0.0,Basic,2
+51517262,Laravel Bulk Update for multiple record ids,"I want to mass update my records in Laravel but the records not getting updated. I have a different record for each Id. Below is what I am trying.
+$ids = [5,6,8,9],
+$updated_array = [
+  ['name' =&gt; 'tarun'],
+  ['name' =&gt; 'Akash'],
+  ['name' =&gt; 'Soniya'],
+  ['name' =&gt; 'Shalu'],
+];
+Model::whereIn('id', $ids)-&gt;update($updated_array);
+",<php><mysql><laravel><eloquent>,347,0,9,141,1,1,4,55,27199,0.0,0,8,14,2018-07-25 10:59,2018-07-25 11:26,,0.0,,Basic,10
+61197228,"flask, gunicorn (gevent), sqlalchemy (postgresql): too many connections","I created Flask WSGI-application which uses gunicorn as WSGI-server, for DB it uses PostgreSQL through Flask SQLAlchemy extension. That's all hosted on Heroku.
+gunicorn configuration
+number of workers: 2;
+number of workers connections: 1024;
+number of threads: 1;
+worker class: gevent.
+Heroku PostgreSQL configuration
+maximum number of connections: 20.
+For everything else default configuration is used.
+I'm getting this error: sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL: too many connections for role &lt;id&gt;. Obviously, i'm exceeded allowed number of DB connections.
+I tried these things to fix it:
+for SQLAlchemy set poolclass to NullPool;
+for SQLAlchmey set pool_recycle to 2. Number of connections still the same even after more than 2 seconds;
+session.close() with engine.dispose();
+number of workers - 2, number of worker connections - 9;
+number of workers - 1, number of worker connections - 18;
+number of workers - 1, number of worker connections - 10, SQLAlchemy max_overflow = 0, SQLALchmey pool_size = 10 (i'm getting this error: sqlalchemy.exc.TimeoutError: QueuePool limit of size 10 overflow 0 reached, connection timed out, timeout 30).
+Nothing of this works. I'm still getting this error even with minimum gunicorn configuration (1 worker with 18 connections). I'm really started not to understand what is really going on. 
+I thought it worked like this: each worker have it's own instance of engine, and each engine have it's own pool size. So, if there is 2 workers with engine default config (pool size is 5), then we have 2 * 5 = 10 maximum connections to DB. But it looks like this is really not like this.
+Questions
+how to fix this error?
+how SQLAlchemy pooling works with gevent workers? i.e., how can i count maximum number of DB connections?
+how should I configure it correctly so that it works as expected?
+Sorry for too much questions, but it is really frustrating me.
+",<python><postgresql><flask><sqlalchemy><gunicorn>,1924,0,16,817,0,16,29,72,2727,0.0,802,2,14,2020-04-13 21:37,2022-08-24 13:27,,863.0,,Intermediate,23
+52715797,What's the driver class name for SQL Server JDBC,"I want to connect my Java SpringBoot app to SQL Server and I get the information that spring cannot load driver class. I tried:
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+and 
+spring.datasource.driver-class-name=com.microsoft.jdbc.sqlserver.SQLServerDriver
+But both did not work, here is my maven dependency 
+&lt;dependency&gt;
+    &lt;groupId&gt;com.microsoft.sqlserver&lt;/groupId&gt;
+    &lt;artifactId&gt;mssql-jdbc&lt;/artifactId&gt;
+    &lt;version&gt;7.0.0.jre8&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+",<java><sql-server><spring>,579,0,8,1974,9,30,62,63,36484,0.0,40,2,14,2018-10-09 7:46,2018-10-09 7:51,2018-10-09 7:51,0.0,0.0,Basic,3
+64230223,SQL: What is the equivalent of json_pretty() in postgreSQL,"What is the equivalent of this MySQL function
+SELECT JSON_PRETTY('{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}') AS Result
+  FROM table;
+Formatted JSON:
++------------------------------+
+| Result                       |
++------------------------------+
+| {                            |
+|   &quot;a&quot;: 1,                    |
+|   &quot;b&quot;: 2,                    |
+|   &quot;c&quot;: 3                     |
+| }                            |
++------------------------------+
+I've tried jsonb_pretty() as mentioned in the document but nothing is available
+",<sql><json><postgresql><jsonb><dataformat>,570,0,12,149,0,1,4,52,7245,,0,1,14,2020-10-06 16:40,2020-10-06 17:26,,0.0,,Basic,3
+56254895,Hive partitioned table reads all the partitions despite having a Spark filter,"I'm using spark with scala to read a specific Hive partition. The partition is year, month, day, a and b
+scala&gt; spark.sql(""select * from db.table where year=2019 and month=2 and day=28 and a='y' and b='z'"").show
+But I get this error:
+  org.apache.spark.SparkException: Job aborted due to stage failure: Task 236 in stage 0.0 failed 4 times, most recent failure: Lost task 236.3 in stage 0.0 (TID 287, server, executor 17): org.apache.hadoop.security.AccessControlException: Permission denied: user=user, access=READ, inode=""/path-to-table/table/year=2019/month=2/day=27/a=w/b=x/part-00002"":user:group:-rw-rw----
+As you can see, spark is trying to read a different partition and I don't have permisions there.
+It shouldn't be, because I created a filter and this filter is my partition.
+I tried the same query with Hive and it's works perfectly (No access problems)
+Hive&gt; select * from db.table where year=2019 and month=2 and day=28 and a='y' and b='z';
+Why is spark trying to read this partition and Hive doesn't?
+There is a Spark configuration that am I missing?
+Edit: More information
+Some files were created with Hive, others were copied from one server and pasted to our server with different permissions (we can not change the permissions), then they should have refreshed the data. 
+We are using:
+cloudera 5.13.2.1
+hive 1.1.0
+spark 2.3.0
+hadoop 2.6.0
+scala 2.11.8
+java 1.8.0_144
+Show create table
+|CREATE EXTERNAL TABLE Columns and type
+PARTITIONED BY (`year` int COMMENT '*', `month` int COMMENT '*', `day` int COMMENT '*', `a` string COMMENT '*', `b` string COMMENT '*')
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+ 'serialization.format' = '1'
+)
+STORED AS
+ INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+ OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'hdfs://path'
+TBLPROPERTIES (
+ 'transient_lastDdlTime' = '1559029332'
+)
+|
+",<scala><apache-spark><hive><apache-spark-sql>,1969,0,27,700,0,4,16,80,7031,0.0,49,3,14,2019-05-22 10:36,2019-05-28 1:58,2019-05-28 11:11,6.0,6.0,Intermediate,23
+51324788,result of prepared select statement as array,"I would like to get the complete result of a prepared statement as an array (key/value pairs) in order to later use it in a str_replace() function.
+My table has three columns, an index and the fields ""x1"" and ""x2"". I used the following successfully:
+$db = new mysqli(""servername"", ""username"", ""pw"", ""dbname"");
+if($ps1 = $db-&gt;prepare(""SELECT x1, x2 FROM my_table"")) {
+  $ps1-&gt;execute();
+  $ps1-&gt;bind_result($search, $replace);
+    $result = array();
+    while ($ps1-&gt;fetch()) {
+      $result[$search] = $replace;
+    }
+    $ps1-&gt;close();
+}
+However, I am thinking that there must be a simpler way, without a while loop, getting the complete result, not added up from single rows one by one. 
+I looked at other questions, and I came up with the following, but it doesn't work (""Warning: mysqli_fetch_assoc() expects parameter 1 to be mysqli_result""):
+if($ps1 = $db-&gt;prepare(""SELECT x1, x2 FROM my_table"")) {
+  $ps1-&gt;execute();
+  $result = mysqli_fetch_assoc($ps1);
+  return $result;
+  $ps1-&gt;close();
+}
+I also tried $result = mysqli_fetch_all($ps1); with no success ( getting ""Call to undefined function mysqli_fetch_all()""). 
+BTW, I am using PHP 5.6.
+ADDITION after some answers and discussion in comments concerning MYSQLND:
+phpinfo() displays the following information in its mysqlnd section:
+  Loaded plugins:
+  mysqlnd,debug_trace,auth_plugin_mysql_native_password,auth_plugin_mysql_clear_password,auth_plugin_sha256_password
+",<php><sql><arrays><mysqli><prepared-statement>,1451,0,22,65283,19,73,131,65,6117,0.0,3129,7,14,2018-07-13 12:09,2018-07-17 15:03,2018-07-17 15:03,4.0,4.0,Basic,1
+52457637,Postgres cannot cast type jsonb to integer,"Threre are two tables.
+Table1                           
+ id integer
+ color_name character(64) 
+Table2
+ id integer
+ jdata jsonb
+Json data looks like:
+{""price"": 4500, ""colorId"": 5}
+I need output colors and count of items grouped by colors, so i tried to use this query:
+SELECT Table1.color_name, Table2.jdata -&gt;&gt; 'colorId', count(*)
+FROM Table1
+INNER JOIN Table2
+ON Table1.id = Table2.jdata -&gt;&gt; 'colorId'
+group by Table2.jdata -&gt;&gt; 'colorId';
+I get an error:
+  error: operator does not exist: integer = jsonb
+Also i tried exec this:
+select Table1.color_name, count(*) 
+from Table1
+join Table2
+on (Table2.jdata-&gt;&gt;'colorId')::int = Table1.id
+group by Table1.color_name
+What i get:
+  error: cannot cast type jsonb to integer
+",<json><postgresql><join>,744,0,15,141,1,1,5,79,27511,,0,3,14,2018-09-22 14:32,2018-09-22 14:48,,0.0,,Basic,10
+48612353,How to change the attributes order in Apache SparkSQL `Project` operator?,"This is a Catalyst specific problem
+See below my queryExecution.optimizedPlan before apply my Rule.
+01 Project [x#9, p#10, q#11, if (isnull(q#11)) null else UDF(q#11) AS udfB_10#28, if (isnull(p#10)) null else UDF(p#10) AS udfA_99#93]
+02 +- InMemoryRelation [x#9, p#10, q#11], true, 10000, StorageLevel(disk, memory, deserialized, 1 replicas)
+03    :  +- *SerializeFromObject [assertnotnull(input[0, eic.R0, true], top level non-flat input object).x AS x#9, unwrapoption(IntegerType, assertnotnull(input[0, eic.R0, true], top level non-flat input object).p) AS p#10, unwrapoption(IntegerType, assertnotnull(input[0, eic.R0, true], top level non-flat input object).q) AS q#11]
+04    :     +- *MapElements &lt;function1&gt;, obj#8: eic.R0
+05    :        +- *DeserializeToObject newInstance(class java.lang.Long), obj#7: java.lang.Long
+05    :           +- *Range (0, 3, step=1, splits=Some(2))
+In line 01 I need swap the position of udfA and udfB this way:
+01 Project [x#9, p#10, q#11, if (isnull(p#10)) null else UDF(p#10) AS udfA_99#93, if (isnull(q#11)) null else UDF(q#11) AS udfB_10#28]
+when I try to change the order of the attributes in a Projection operation in SparkSQL via Catalyst optimization the result of the query is modified to an invalid value. Maybe I'm not doing everything is needed. I'm just changing the order of NamedExpression objects in fields parameter:
+object ReorderColumnsOnProjectOptimizationRule extends Rule[LogicalPlan] {
+  def apply(plan: LogicalPlan): LogicalPlan = plan resolveOperators {
+    case Project(fields: Seq[NamedExpression], child) =&gt; 
+      if (checkCondition(fields)) Project(newFieldsObject(fields), child) else Project(fields, child)
+    case _ =&gt; plan
+  }
+  private def newFieldsObject(fields: Seq[NamedExpression]): Seq[NamedExpression] = {
+    // compare UDFs computation cost and return the new NamedExpression list
+    . . .
+  }
+  private def checkCondition(fields: Seq[NamedExpression]): Boolean = {
+    // compare UDFs computation cost and return Boolean for decision off change order on field list.
+    . . . 
+  }
+  . . .
+}
+Note: I'm adding my Rule on extraOptimizations SparkSQL object:
+spark.experimental.extraOptimizations = Seq(ReorderColumnsOnProjectOptimizationRule)
+Any suggestions will be of great help.
+EDIT 1
+By the way, I created a notebook on Databricks for testing purposes.  See this link for more detail
+Commenting on line 60 the optimization is invoked and an error occurs.
+. . .
+58     // Do UDF with less cost before, so I need change the fields order
+59     myPriorityList.size == 2 &amp;&amp; myPriorityList(0) &gt; myPriorityList(1)
+60     false
+61   }
+What did I miss ? 
+EDIT 2
+Consider the following piece of code from compiler optimisation, which is almost analogous :
+if ( really_slow_test(with,plenty,of,parameters)
+     &amp;&amp; slower_test(with,some,parameters)
+     &amp;&amp; fast_test // with no parameters
+   )
+ {
+  ...then code...
+ }
+This code first evaluates an expensive function then, on success, proceeds to evaluate the remainder of the expression. But even if the first test fails and the evaluation is short-cut, there’s a significant performance penalty because the fat really_slow_test(...) is always evaluated. While retaining program correctness, one can rearrange the expression as follows:
+if ( fast_test
+     &amp;&amp; slower_test(with,some,parameters)
+     &amp;&amp; (really_slow_test(with,plenty,of,parameters))
+ {
+  ...then code...
+ }
+My goal is to run the fastest UDFs first
+",<scala><apache-spark><apache-spark-sql>,3493,1,49,1029,1,9,18,80,768,0.0,269,2,14,2018-02-04 19:52,2018-02-08 9:28,2018-02-13 17:08,4.0,9.0,Intermediate,23
+52387021,Spark read parquet with custom schema,"I'm trying to import data with parquet format with custom schema but it returns :
+TypeError: option() missing 1 required positional argument: 'value'
+   ProductCustomSchema = StructType([
+        StructField(""id_sku"", IntegerType(), True),
+        StructField(""flag_piece"", StringType(), True),
+        StructField(""flag_weight"", StringType(), True),
+        StructField(""ds_sku"", StringType(), True),
+        StructField(""qty_pack"", FloatType(), True)])
+def read_parquet_(path, schema) : 
+    return spark.read.format(""parquet"")\
+                             .option(schema)\
+                             .option(""timestampFormat"", ""yyyy/MM/dd HH:mm:ss"")\
+                             .load(path)
+product_nomenclature = 'C:/Users/alexa/Downloads/product_nomenc'
+product_nom = read_parquet_(product_nomenclature, ProductCustomSchema)
+",<apache-spark><pyspark><apache-spark-sql>,834,0,15,441,1,4,15,57,46143,0.0,13,2,14,2018-09-18 12:51,2018-09-18 13:25,,0.0,,Basic,2
+54428037,Installing MySQL and checking root password fails?,"I recently uninstalled and reinstalled MySQL (on Windows 7) using the installer. When I try to set up the MySQL Server, it won't let me continue unless I enter the ""current"" root password??? I don't understand how there can be a current root password if I completely uninstalled and reinstalled the program.
+I've tried with a blank password as well as every password I can possibly think of that I would have used and nothing works. Google is completely unhelpful as every result I've found either refers to a ""homebrew"" installation, whatever that is, or refers to installations on Linux. Is there some folder of config files that the uninstallation refuses to delete that I need to remove manually? Or am I missing something else?
+",<mysql><mysql-workbench>,733,1,0,307,1,2,11,38,41594,0.0,10,5,14,2019-01-29 19:05,2019-01-29 19:33,2019-01-29 19:33,0.0,0.0,Basic,14
+49570306,Proper way to deal with database connectivity issue,"I getting below error on trying to connect with the database :
+  A network-related or instance-specific error occurred while
+  establishing a connection to SQL Server. The server was not found or
+  was not accessible. Verify that the instance name is correct and that
+  SQL Server is configured to allow remote connections. (provider: Named
+  Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+Now sometimes i get this error and sometimes i dont so for eg:When i run my program for the first time,it open connection successfully and when i run for the second time i get this error and the next moment when i run my program again then i dont get error.
+When i try to connect to same database server through SSMS then i am able to connect successfully but i am getting this network issue in my program only.
+Database is not in my LOCAL.Its on AZURE.
+I dont get this error with my local database.
+Code :
+public class AddOperation
+{
+    public void Start()
+    {
+          using (var processor = new MyProcessor())
+          {
+              for (int i = 0; i &lt; 2; i++)
+              {
+                  if(i==0)
+                  {
+                     var connection = new SqlConnection(""Connection string 1"");
+                     processor.Process(connection);
+                  }
+                  else
+                  {
+                      var connection = new SqlConnection(""Connection string 2"");
+                      processor.Process(connection);
+                  }   
+              }
+          }
+    }       
+}
+public class MyProcessor : IDisposable
+{
+    public void Process(DbConnection cn)
+        {
+            using (var cmd = cn.CreateCommand())
+            {
+                cmd.CommandText = ""query"";
+                cmd.CommandTimeout = 1800;
+                cn.Open();//Sometimes work sometimes dont
+                using (var reader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                { 
+                   //code
+                }
+            }
+        }
+}
+So i am confused with 2 things :
+1) ConnectionTimeout : Whether i should increase connectiontimeout and will this solve my unusual connection problem ?
+2) Retry Attempt Policy : Should i implement retry connection mechanism like below :
+public static void OpenConnection(DbConnection cn, int maxAttempts = 1)
+        {
+            int attempts = 0;
+            while (true)
+            {
+                try
+                {
+                    cn.Open();
+                    return;
+                }
+                catch
+                {
+                    attempts++;
+                    if (attempts &gt;= maxAttempts) throw;
+                }
+            }
+        }
+I am confused with this 2 above options.
+Can anybody please suggest me what would be the better way to deal with this problem?
+",<c#><ado.net><azure-sql-database><sqlconnection>,2825,0,56,6736,21,98,218,58,7262,,2232,7,14,2018-03-30 7:32,2018-03-30 15:32,,0.0,,Basic,13
+53829952,Merge Schema with int and double cannot be resolved when reading parquet file,"I've got two parquet files, one contains an integer field myField and another contains a double field myField. When attempting to read both the files at once
+val basePath = ""/path/to/file/""
+val fileWithInt = basePath + ""intFile.snappy.parquet""
+val fileWithDouble = basePath + ""doubleFile.snappy.parquet""
+val result = spark.sqlContext.read.option(""mergeSchema"", true).option(""basePath"", basePath).parquet(Seq(fileWithInt, fileWithDouble): _*).select(""myField"")
+I get the following error
+Caused by: org.apache.spark.SparkException: Failed to merge fields 'myField' and 'myField'. Failed to merge incompatible data types IntegerType and DoubleType
+When passing an explicit schema 
+val schema = StructType(Seq(new StructField(""myField"", IntegerType)))
+val result = spark.sqlContext.read.schema(schema).option(""mergeSchema"", true).option(""basePath"", basePath).parquet(Seq(fileWithInt, fileWithDouble): _*).select(""myField"")
+It fails with the following 
+java.lang.UnsupportedOperationException: org.apache.parquet.column.values.dictionary.PlainValuesDictionary$PlainDoubleDictionary
+    at org.apache.parquet.column.Dictionary.decodeToInt(Dictionary.java:48)
+When casting up to a double
+val schema = StructType(Seq(new StructField(""myField"", DoubleType)))
+I get
+java.lang.UnsupportedOperationException: org.apache.parquet.column.values.dictionary.PlainValuesDictionary$PlainIntegerDictionary
+    at org.apache.parquet.column.Dictionary.decodeToDouble(Dictionary.java:60)
+Does anyone know any ways around this problem other than reprocessing the source data.
+",<scala><apache-spark><apache-spark-sql>,1552,0,14,201,1,2,4,68,20664,0.0,0,1,14,2018-12-18 9:29,2018-12-26 16:09,,8.0,,Intermediate,16
+55837863,"How can I perform version control of Procedures, Views, and Functions in Postgres sql","I want to do a versioning control of my database.
+I currently control my front-end applications through git, however I am creating my database and would like to have a versioning of my tables, function and procedures, how can I accomplish this for database?
+That is, I will make a change in a function but I would like to save the previous one I was executing in case there is any problem I can put the previous one again.
+",<database><postgresql>,423,0,0,157,1,1,7,35,10062,0.0,4,2,14,2019-04-24 20:11,2019-04-24 21:35,2019-04-24 21:35,0.0,0.0,Intermediate,20
+49757487,UnresolvedException: Invalid call to dataType on unresolved object when using DataSet constructed from Seq.empty (since Spark 2.3.0),"The following snippet works fine in Spark 2.2.1 but gives a rather cryptic runtime exception in Spark 2.3.0:
+import sparkSession.implicits._
+import org.apache.spark.sql.functions._
+case class X(xid: Long, yid: Int)
+case class Y(yid: Int, zid: Long)
+case class Z(zid: Long, b: Boolean)
+val xs = Seq(X(1L, 10)).toDS()
+val ys = Seq(Y(10, 100L)).toDS()
+val zs = Seq.empty[Z].toDS()
+val j = xs
+  .join(ys, ""yid"")
+  .join(zs, Seq(""zid""), ""left"")
+  .withColumn(""BAM"", when('b, ""B"").otherwise(""NB""))
+j.show()
+In Spark 2.2.1 it prints to the console
++---+---+---+----+---+
+|zid|yid|xid|   b|BAM|
++---+---+---+----+---+
+|100| 10|  1|null| NB|
++---+---+---+----+---+
+In Spark 2.3.0 it results in:
+org.apache.spark.sql.catalyst.analysis.UnresolvedException: Invalid call to dataType on unresolved object, tree: 'BAM
+  at org.apache.spark.sql.catalyst.analysis.UnresolvedAttribute.dataType(unresolved.scala:105)
+  at org.apache.spark.sql.types.StructType$$anonfun$fromAttributes$1.apply(StructType.scala:435)
+  at org.apache.spark.sql.types.StructType$$anonfun$fromAttributes$1.apply(StructType.scala:435)
+  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)
+  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)
+  at scala.collection.immutable.List.foreach(List.scala:392)
+  at scala.collection.TraversableLike$class.map(TraversableLike.scala:234)
+  at scala.collection.immutable.List.map(List.scala:296)
+  at org.apache.spark.sql.types.StructType$.fromAttributes(StructType.scala:435)
+  at org.apache.spark.sql.catalyst.plans.QueryPlan.schema$lzycompute(QueryPlan.scala:157)
+  ...
+The culprit really seems to be Dataset being created from an empty Seq[Z]. When you change that to something that will also result in an empty Dataset[Z] it works as in Spark 2.2.1, e.g.
+val zs = Seq(Z(10L, true)).toDS().filter('zid === 999L)
+In the migration guide from 2.2 to 2.3 is mentioned:
+  Since Spark 2.3, the Join/Filter’s deterministic predicates that are after the first non-deterministic predicates are also pushed down/through the child operators, if possible. In prior Spark versions, these filters are not eligible for predicate pushdown.
+Is this related, or a (known) bug?
+",<scala><apache-spark><apache-spark-sql>,2225,0,38,149,1,1,5,62,15170,0.0,2,2,14,2018-04-10 15:25,2018-05-02 21:13,,22.0,,Advanced,33
+50177658,NullReferenceException inside .NET code of SqlConnection.CacheConnectionStringProperties(),"I'm facing really strange issue. Given the code below:
+static void Main()
+{
+    var c = new System.Data.SqlClient.SqlConnection();
+    c.ConnectionString = ""Data Source=SOME_NAME;Initial Catalog=SOME_DB;Integrated Security=True"";
+    c.ConnectionString = """"; //null also triggers exception
+    Console.WriteLine(""Success"");
+}
+It worked fine for quite a time, but on newest version of Windows 10 (1803) which has .NET Version 4.7.03056 Release 461808 (seems to be 4.7.2) it crashes with following exception:
+Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Data.SqlClient.SqlConnection.CacheConnectionStringProperties()
+   at System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   at TestCacheConnectionStringProperties.Program.Main()
+This crashes on the second assignment, if I remove any of the assignments of the ConnectionString it works ok.   
+I've looked at the sources and didn't find a place where NullReferenceException could happen (however sources seems to be for .NET Framework 4.7.1 so smth may change).
+Now the question is - what causes this issue? Is this a .NET bug? If yes - how to address it?
+UPDATE: According to the comments - thanks very much guys - the issue is caused by these lines (decompiled):
+private void CacheConnectionStringProperties()
+{
+  SqlConnectionString connectionOptions = this.ConnectionOptions as SqlConnectionString;
+  if (connectionOptions != null)
+    this._connectRetryCount = connectionOptions.ConnectRetryCount;
+  //Seems like this is causing the bug because it is not inside of null-check-if for connectionOptions variable
+  if (this._connectRetryCount != 1 || !ADP.IsAzureSqlServerEndpoint(connectionOptions.DataSource))
+    return;
+  this._connectRetryCount = 2;
+}
+It is somehow related to Azure and is quite different from what is available in sources.
+I've posted the issue here and will wait for response.
+",<c#><.net><sqlconnection><.net-4.7.2>,1946,2,26,3559,2,29,44,51,1664,0.0,1448,1,14,2018-05-04 14:49,2018-05-10 20:54,,6.0,,Basic,12
+52539100,Why did this postgres database upgrade fail?,"I am trying to upgrade from Postgresql 9.6 to 10 unsuccessfully.
+I ran brew upgrade postgresql with success, then ran brew postgresql-upgrade-database with failure message. The issue seems to be this line:
+lc_collate values for database ""postgres"" do not match:  old ""en_GB.UTF-8"", new ""en_US.UTF-8""
+The whole message was:
+    ==&gt; Upgrading postgresql data from 9.6 to 10...
+Stopping `postgresql`... (might take a while)
+==&gt; Successfully stopped `postgresql` (label: homebrew.mxcl.postgresql)
+==&gt; Moving postgresql data from /usr/local/var/postgres to /usr/local/var/postgres.o
+The files belonging to this database system will be owned by user ""jbkimac"".
+This user must also own the server process.
+The database cluster will be initialized with locale ""en_US.UTF-8"".
+The default database encoding has accordingly been set to ""UTF8"".
+The default text search configuration will be set to ""english"".
+Data page checksums are disabled.
+fixing permissions on existing directory /usr/local/var/postgres ... ok
+creating subdirectories ... ok
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting dynamic shared memory implementation ... posix
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+WARNING: enabling ""trust"" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+Success. You can now start the database server using:
+    /usr/local/opt/postgresql/bin/pg_ctl -D /usr/local/var/postgres -l logfile start
+Performing Consistency Checks
+-----------------------------
+Checking cluster versions                                   ok
+Checking database user is the install user                  ok
+Checking database connection settings                       ok
+Checking for prepared transactions                          ok
+Checking for reg* data types in user tables                 ok
+Checking for contrib/isn with bigint-passing mismatch       ok
+Checking for invalid ""unknown"" user columns                 ok
+Creating dump of global objects                             ok
+Creating dump of database schemas
+                                                            ok
+lc_collate values for database ""postgres"" do not match:  old ""en_GB.UTF-8"", new ""en_US.UTF-8""
+Failure, exiting
+Error: Upgrading postgresql data from 9.6 to 10 failed!
+==&gt; Removing empty postgresql initdb database...
+==&gt; Moving postgresql data back from /usr/local/var/postgres.old to /usr/local/var/p
+==&gt; Successfully started `postgresql` (label: homebrew.mxcl.postgresql)
+Error: Failure while executing; `/usr/local/opt/postgresql/bin/pg_upgrade -r -b /usr/local/Cellar/postgresql/9.6.1/bin -B /usr/local/opt/postgresql/bin -d /usr/local/var/postgres.old -D /usr/local/var/postgres -j 8` exited with 1.
+Can anyone help advise me as to how to fix this ""en_GB.UTF-8"", new ""en_US.UTF-8"" conflict issue?
+",<postgresql>,3032,0,55,1930,0,19,39,61,8427,0.0,188,3,14,2018-09-27 14:13,2019-02-27 9:53,,153.0,,Basic,14
+53385230,Laravel Eloquent join vs with,"I see that join is (by default inner join) and its returning all columns but it takes almost the same time as with keyword for just 1000 data.
+$user->join(‘profiles’, ‘users.id’, ‘=’, ‘profiles.user_id’) - generates the below query.
+select * from `users` inner join `profiles` on `users`.`id` = `profiles`.`user_id` where `first_name` LIKE '%a%'`
+User::with(‘profile’) -  this eager loading outputs the below query 
+select * from `users` where exists (select * from `profiles` where `users`.`id` = `profiles`.`user_id` and `first_name` LIKE '%a%')
+which is the best way to return a list of users with a pagination for a REST API ?  eager loading seems promising but its with a sub query.
+if do with eager loading, this is how i will be filtering. need to use whereHas
+if($request-&gt;filled('first_name')){
+        $query-&gt;whereHas('profile',function($q) use ($request){
+            $q-&gt;where('first_name','like','%'.request('first_name').'%');
+        });
+    }
+but if used Join, its less lines of code.
+  if ($request-&gt;filled('first_name')) {
+            $users = $users-&gt;where('first_name', 'LIKE', ""%$request-&gt;first_name%"");
+        }
+laravel version is 5.7
+",<php><mysql><laravel><laravel-5><eloquent>,1177,0,10,5496,15,57,116,37,13011,0.0,2239,1,14,2018-11-20 2:09,2018-11-20 7:53,2018-11-20 7:53,0.0,0.0,Basic,8
+50287558,How to rename duplicated columns after join?,"I want to use join with 3 dataframe, but there are some columns we don't need or have some duplicate name with other dataframes, so I want to drop some columns like below:
+result_df = (aa_df.join(bb_df, 'id', 'left')
+  .join(cc_df, 'id', 'left')
+  .withColumnRenamed(bb_df.status, 'user_status'))
+Please note that status column is in two dataframes, i.e. aa_df and bb_df.
+The above doesn't work. I also tried to use withColumn, but the new column is created, and the old column is still existed.
+",<apache-spark><pyspark><apache-spark-sql>,496,0,7,997,3,14,35,37,37148,0.0,6,3,14,2018-05-11 7:51,2018-05-11 7:59,2018-05-11 8:08,0.0,0.0,Basic,10
+57040784,SQLAlchemy: foreign key to multiple tables,"Let's consider 3 tables:
+books
+American authors
+British authors
+Each book has a foreign key to its author, which can either be in the American table, or the British one.
+How can I implement such foreign key condition in SQLAlchemy?
+I'd like to have a single column to handle the link.
+My approach so far was to create an abstract class Author, from which both AmericanAuthor and BritishAuthor inherit, and have the foreign key of Book point to the parent.
+class Author(Model):
+    __abstract__ = True
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+class AmericanAuthor(Author):
+    __tablename__ = 'american_author'
+    # some other stuff
+class BritishAuthor(Author):
+    __tablename__ = 'british_author'
+    # some other stuff
+class Book(Model):
+    __tablename__ = 'book'
+    title = db.Column(db.String)
+    author_id = db.Column(db.Integer, db.ForeignKey(""author.id""))
+It fails with the error:
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'books.author_id' could not find table 'author' with which to generate a foreign key to target column 'id'
+Which completely makes sense, considering author is abstract...
+",<python><postgresql><sqlalchemy>,1177,0,23,2553,1,17,29,65,6087,,158,2,14,2019-07-15 13:26,2019-07-15 13:52,2020-02-04 8:34,0.0,204.0,Intermediate,18
+49147149,Does PESSIMISTIC_WRITE lock the whole table?,"Just to be sure that I correctly understand how things work.
+If I do em.lock(employee, LockModeType.PESSIMISTIC_WRITE); - will it block only this entity (employee) or the whole table Employees?
+If it matters, I am talking about PostgreSQL.
+",<java><postgresql><hibernate><jpa><locking>,240,0,4,34221,20,137,244,62,8595,0.0,9088,1,14,2018-03-07 8:22,2018-03-07 12:40,2018-03-07 12:40,0.0,0.0,Advanced,32
+58077193,Why does Django drop the SQL DEFAULT constraint when adding a new column?,"In the latest Django (2.2), when I add a new field to a model like this:
+new_field= models.BooleanField(default=False)
+Django runs the following commands for MySQL:
+ALTER TABLE `app_mymodel` ADD COLUMN `new_field` bool DEFAULT b'0' NOT NULL;
+ALTER TABLE `app_mymodel` ALTER COLUMN `new_field` DROP DEFAULT;
+COMMIT;
+While this works when everything is updated, this is very problematic because old versions of the application can no longer create models after this migration is run (they do not know about new_field). Why not just keep the DEFAULTconstraint?
+",<mysql><django><django-models><database-migration><django-migrations>,558,0,6,37451,7,47,62,78,1987,0.0,741,2,14,2019-09-24 9:30,2019-09-27 8:08,2019-10-02 10:58,3.0,8.0,Basic,3
+63850520,Multiple SQL query not working with delimiter on DBeaver,"I can't execute MySQL statement when using delimiter (default ';'). I mean, when I run query like:
+select * from mdw.dim_date dd limit 10;
+select * from mdw.dim_order do limit 5;
+I've got such error:
+SQL Error [1064] [42000]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from mdw.dim_order do limit 5' at line 2
+I don't want to execute this per Alt+X (I am using Dbeaver) as I want to put query into pentaho. I need to execute around 50 deletes, so I don't want to divide it on 50 SQL scripts.
+I am using MySQL (version: 5.6.36-82.0).
+",<mysql><sql><pentaho><dbeaver>,634,0,2,151,1,1,5,56,28714,0.0,0,3,14,2020-09-11 16:00,2020-09-11 16:09,,0.0,,Basic,10

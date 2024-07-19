@@ -1,0 +1,169 @@
+Id,Title,Body,Tags,CreationDate,Y
+34756522,Interaction of other programs outside application,"<p>This is a bit hard to explain...
+Essentially what i want is something like 7zip. You can either use 7zip file manager and right click items to zip it there, OR you can right click on any item outside 7zip, say a folder in desktop, and have the option of using 7zip. How do i achieve this using a C# application? Can you guys point me in the right direction?</p>
+",<c#><visual-studio><cross-application>,16/01/13 0:45,LQ_CLOSE
+34756809,ActionCable channel not accessible outside rails plugin,"<p>I'm trying to create a gem which exposes an ActionCable channel, but I can't get it to work.</p>
+
+<p>This is my gem</p>
+
+<pre><code># lib/my_channel.rb
+class MyChannel &lt; ActionCable::Channel::Base
+  def wait(data)
+    # logic ...
+  end
+end
+
+# lib/engine.rb
+module MyApp
+  class Engine &lt; ::Rails::Engine
+    isolate_namespace MyApp
+  end
+end
+</code></pre>
+
+<p>I then add the gem to my main applications <code>Gemfile</code>, run <code>bundle install</code>, start up the console and run <code>MyChannel</code>. Which don't yield and error, meaning that the channel as been included properly.</p>
+
+<p>I then add this to my main application</p>
+
+<pre><code>// application.js
+var socket = ""ws://localhost:3000/cable"";
+var cable = ActionCable.createConsumer(socket);
+cable.subscriptions.create({ ""channel"": ""MyChannel"" }, {
+  received: function(){
+    // ...
+  }
+});
+</code></pre>
+
+<p>But I'm getting this error</p>
+
+<pre><code>Subscription class not found ({""command""=&gt;""subscribe"", ""identifier""=&gt;""{\""channel\"":\""MyChannel\""}""})
+</code></pre>
+
+<p>What am I missing?</p>
+",<ruby-on-rails><ruby><ruby-on-rails-5><actioncable>,16/01/13 1:16,HQ
+34760758,"Perhaps you need a different ""datestyle"" setting","<p>I have a table which have a column <strong>order_date</strong>  of date type.</p>
+
+<p>query:</p>
+
+<pre><code>INSERT INTO uni_data_temp(sale_order_item_code, 
+            order_date, sale_order_item_status, tracking_number, dispatch_date, 
+            user_id) VALUES ('1000932515',  cast('16/05/2015' as date), 'DISPATCHED', 'UNIPAYP1958141', '2015/05/20', '4')
+</code></pre>
+
+<p>when I am running this query it gives error:</p>
+
+<blockquote>
+<pre><code>ERROR: date/time field value out of range: ""16/05/2015""
+SQL state: 22008
+Hint: Perhaps you need a different ""datestyle"" setting.
+Character: 380
+</code></pre>
+</blockquote>
+
+<p>then I changed the query </p>
+
+<pre><code>INSERT INTO uni_data_temp(sale_order_item_code, 
+            order_date, sale_order_item_status, tracking_number, dispatch_date, 
+            user_id) VALUES ('1000932515',  cast('2015/05/16' as date), 'DISPATCHED', 'UNIPAYP1958141', '2015/05/20', '4')
+</code></pre>
+
+<p>It works fine.</p>
+
+<p>but my problem is my date may be in any style (yyyy/mm/dd or dd/mm/yyyy) how i can cast it according databse ?</p>
+
+<p>Any kind of date format convert into system  database.</p>
+
+<p>Thank You</p>
+",<sql><postgresql><postgresql-9.3>,16/01/13 7:29,HQ
+34760763,I have this JSON:,"I have this JSON:
+
+    var person = {""id"": ""1"", ""name"": ""Michel""}
+How would I return ""1"" when ""Michel"" is selected.
+
+I have tried:
+
+    for (value in person) {
+    if (person.hasOwnProperty(value)) {
+        console.log(value+ "" = "" + person[value]);
+       }
+    }    ",<javascript><json>,16/01/13 7:29,LQ_EDIT
+34760940,Testing Smart Lock for Passwords app integration,"<p>I’ve implemented Smart Lock for Passwords in my app. What are some common scenarios and UX flows that I should test out?</p>
+",<google-smartlockpasswords>,16/01/13 7:40,HQ
+34762571,(VBA) possible combination of data with constraints,"I am working with planetary gear combination.  
+The value conditions is as below:
+  
+s: min(20), max(40)  
+p: min(20), max(40)  
+r: s + 2*p
+
+constraint:  
+(s + r)/4>0 : true  
+p + 2 < (s + p)*sin(180/4) : true
+
+I would like to calculate all the possible even number combinations of s, p, and r.  
+The example of output:
+
+s       p      r  
+20     30     80  
+40     20     80  
+.  
+.  
+Can anyone help me?  
+I have been looking around but have not found solution yet.  
+Thank you very much in advance!",<vba><excel><combinations>,16/01/13 9:14,LQ_EDIT
+34765124,Why is my code not working in this challenge?,"<p>The following is a simple code challenge.  The first block is my code.  The second block is the correct code as provided by the challenge author.</p>
+
+<p>Whilst I see how the 'correct' code works, I fail to see how my code does not.  Can anyone shed some light on this ?</p>
+
+<pre><code>//MY CODE
+
+public String stringTimes(String str, int n) {
+
+  for(int i=0; i&lt;n; i=i+n){
+    str = str + str; 
+  }
+
+  return str;
+}
+
+//==================================================
+
+//CORRECT CODE
+
+//  String result = """";
+
+//  for (int i=0; i&lt;n; i++) {
+//    result = result + str;  // could use += here
+//  }
+
+//  return result;
+//}
+</code></pre>
+",<java><for-loop>,16/01/13 11:10,LQ_CLOSE
+34765301,"Converting php to c#, curl to .net","<p>im trying to convert a PHP file to C#. the problem is that I don't know the equivalent .net commands to curl.</p>
+
+<pre><code>ob_start(); 
+$ret = curl_exec($ch);
+$content = ob_get_contents();
+ob_end_clean(); 
+$rescode = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
+curl_close($ch); 
+</code></pre>
+
+<p>i have tried to find all this information but wheat i have found is only fractured bits of code that are incompatible. </p>
+",<c#><php><.net><curl>,16/01/13 11:20,LQ_CLOSE
+34765944,"""Declared but not used"" variable in for's condition expression","<p>My intuitive approach:
+<a href=""https://play.golang.org/p/6xzg7TK1IH"" rel=""nofollow"">https://play.golang.org/p/6xzg7TK1IH</a></p>
+
+<p>and it doesn't work.</p>
+
+<p>Can you share some alternative ways?</p>
+",<go>,16/01/13 11:49,LQ_CLOSE
+34766876,Sql Server 2012 Crash,"
+
+[Please check Screen Shot][1]
+Problem Signature: System.InvalidCastException
+
+
+  [1]: http://i.stack.imgur.com/K5iYS.png",<sql-server><sql-server-2012>,16/01/13 12:33,LQ_EDIT

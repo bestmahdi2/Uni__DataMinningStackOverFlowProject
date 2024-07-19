@@ -1,0 +1,859 @@
+Id,Title,Body,Tags,CreationDate,Y
+34586576,How to install cakephp3.1.6 on LAMP,"I want to install cakephp3 on ubuntu14.0.4 in lamp. I put cakephp3 folder in /var/WWW/ path. When I entered `localhost/cakephp3/`in browser, something is not shown and no error is not.
+
+what should i do??? please help me...",<php><ubuntu><cakephp><lamp><cakephp-3.x>,16/01/04 7:36,LQ_EDIT
+34586698,show alertdialog but cover the actionbar,"I'm new in android and I try using alertdialog but always cover the actionbar.
+how can doing something like dropdown menu like the picture shown?
+
+I[![enter image description here][1]][1]
+
+
+  [1]: http://i.stack.imgur.com/dX4lF.png",<android>,16/01/04 7:45,LQ_EDIT
+34586997,"SQL Update error. Instead of updating, its adding.","//for some reason it won't update, instead it will add the new data. 
+I am a beginner, and I have hard time trying to find out the error. 
+Thank you for the help.     
+//Read function was working very properly and insert works just fine as well. Its just the update that doesnt work properly, or inserts instead of updating the query or data. 
+<?php include ""db.php""; ?>
+    
+    <?php include ""functions.php"" ?>
+    
+    <?php
+    
+    if(isset($_POST['submit']))
+    
+    {$username = $_POST['username'];
+        
+        $password = $_POST['password'];
+        
+        $id = $_POST['id'];
+        
+        $querys = ""UPDATE users SET "";
+        
+    $querys .= ""username = '$username', "";
+        
+    $querys .= ""password = '$password' "";
+        
+    $querys .= ""WHERE id = $id "";
+    
+        
+    $result = mysqli_query($connection, $querys);
+        
+    if(!$result)
+        {
+            die('Query FAILED'. mysqli_error($connection));
+        }
+    }
+    
+    ?>
+    
+    <!DOCTYPE html>
+    
+    <html lang=""en"">
+    
+    <head>
+    
+        <meta charset=""UTF-8"">
+    
+        <title>Document</title>
+        
+    
+    <link rel=""stylesheet"" 
+    
+    href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
+    
+    "">
+    
+    </head>
+    
+    <body>
+    
+    <div class=""container"">
+    
+        <div class=""col-xs-6"">
+    
+    <form action=""login_create.php"" method=""post"">
+                
+                <div class=""form-group"">
+                <label for=""username"">Username</label>
+                <input type=""text"" name=""username"" class=""form-control"">
+                </div>
+                
+                <div class=""form-group"">
+                <label for=""password"">Password</label>
+                <input type=""password"" name=""password"" class=""form-control"">
+                </div>
+                
+                <div class=""form-group"">
+                <select name=""id"" id="""">
+                <?php
+                 showAllData();
+                ?>
+                
+                </select>
+                </div>
+                
+                <input class=""btn btn-primary"" 
+                type=""submit"" name=""submit"" value=""Update"">
+            </form>    
+            
+        
+        </div>
+    </div>
+    </body>
+    </html>",<php><mysql>,16/01/04 8:13,LQ_EDIT
+34587067,Change color of react-big-calendar events,"<p>I need to make a calendar with events and I decided to use <a href=""http://intljusticemission.github.io/react-big-calendar/examples/index.html"" rel=""noreferrer"">react-big-calendar</a>. But I need to make events of different colors. So each event will have some category and each category has corresponding color. How can I change the color of the event with react? <a href=""https://i.stack.imgur.com/vtw4o.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/vtw4o.png"" alt=""react-big-calendar same color example""></a></p>
+
+<p>Result should look something like this <a href=""https://i.stack.imgur.com/9iKRo.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/9iKRo.png"" alt=""react-big-calendar different colors example""></a></p>
+",<javascript><reactjs><calendar>,16/01/04 8:19,HQ
+34587121,Who designed monokai color scheme?,"<p>I am in love with Monokai color scheme. Did the makers of Sublime Text designed it or is it in use before sublime text arrived? </p>
+
+<p>The second part of the question is that can I freely copy it for my own editor. Does anybody holds copyright over it? </p>
+",<sublimetext2><color-scheme>,16/01/04 8:24,LQ_CLOSE
+34587254,Accessing multiple controllers with same request mapping,"<p>Please find my HomeController and DemoController</p>
+
+<pre><code>class HomeController{
+@RequestMapping(value=""index"")
+public void home(){
+}
+}
+
+class DemoController{
+@RequestMapping(value=""index"")
+public void demo(){
+}
+}
+</code></pre>
+
+<p>when I try to send a request to index, which one will get executed?
+I wanted to know how can we have same request mapping value for multiple controllers</p>
+",<spring><spring-mvc>,16/01/04 8:34,HQ
+34587273,android logcat logs chatty module line expire message,"<p>I am getting lots of this kind of logcat messages related to my application.</p>
+
+<p><code>11-19 19:04:23.872  3327  3440 I chatty  : uid=10085 com.xxxx.yyy expire 18 lines</code></p>
+
+<p>What are these log messages? Am I missing my actual application logcat logs here?</p>
+",<android><logcat><android-logcat>,16/01/04 8:35,HQ
+34587573,Why do we use print statements while defining a function in python? Does it help in debugging?,"<p>I am learning python programming and I read somewhere that many a times we use return statement without any output for the purpose of seeing the side effects. Could you explain why is that so? For eg.</p>
+
+<pre><code>def sum(a, b)
+      print ""enter sum!""
+      print ""a is"", a
+      a = a + b
+      print ""a is"", a
+print sum(2, 123)
+</code></pre>
+
+<p>What is the necessity of writing a print statement here?</p>
+",<python><debugging>,16/01/04 8:59,LQ_CLOSE
+34588057,Why does Shake recommend disabling idle garbage collection?,"<p>In the Shake documentation it recommends compiling using the flag <code>-with-rtsopts=-I0</code> to disable idle garbage collection. Why does Shake recommend that?</p>
+",<haskell><shake-build-system>,16/01/04 9:29,HQ
+34588728,"Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Invalid type in JSON write (NSConcreteData)'","  Getting an error NSInvalidArgumentException', reason: 'Invalid type in JSON write . I hope this error when i post image data string in Request.Please help 
+   
+
+     let imageData : NSData!
+         imageData = UIImagePNGRepresentation(first.image!)!
+            let base64String = imageData.base64EncodedDataWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+    
+    
+      requestObject[""pimage1""] = base64String
+    
+    
+    let jsonData = try! NSJSONSerialization.dataWithJSONObject(params, options: .PrettyPrinted)
+
+Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Invalid type in JSON write (NSConcreteData)'",<ios><swift>,16/01/04 10:10,LQ_EDIT
+34588857,SAML Signing Certificate - Which SSL Certificate Type?,"<p>We're currently developing an SSL solution using SAML 2.0, and until now, have been using self signed certificates for signing the XML requests.</p>
+
+<p>However, as we move to production, we want to use a certificate from a certificate authority. But I'm not really sure what type of certificate to purchase as they are all website centric. For example, single domain, wildcard domain, etc.</p>
+
+<p>For example, have been looking at these:
+<a href=""https://www.123-reg.co.uk/ssl-certificates/"" rel=""noreferrer"">https://www.123-reg.co.uk/ssl-certificates/</a></p>
+
+<p>I'm fairly knowledgeable when it comes to purchasing SSL certificates for a website. However, as the certificate is just going to be use for signing SAML requests, does it matter which type is purchased? Surely whether it supports a single domain or wildcard domain is irrelevant?</p>
+",<ssl><ssl-certificate><saml><saml-2.0>,16/01/04 10:16,HQ
+34588887,Firefox rendering my images as the wrong color - but fine in other browsers,"<p>I have built a website however I am having problems with the png's in firefox as it is rendering the images as the wrong color.  When I inspect the element in dev tool on firefox the images display as the right color which is what I don't understand.</p>
+
+<p>Could someone help </p>
+
+<p>www.forestroad.co.uk</p>
+",<html><css><firefox><browser>,16/01/04 10:18,LQ_CLOSE
+34589023,Undefined index: category_icon_code in line 257,"<p>Hello I am getting Notice Undefined index: in line number 257.
+Please help. 
+Here is code for line number 257.</p>
+
+<pre><code>$my_query = new wp_query( $args );
+            while( $my_query-&gt;have_posts() ) {
+                $my_query-&gt;the_post();
+                global $postID;
+                $current++;
+                $category = get_the_category();
+                $tag = get_cat_ID( $category[0]-&gt;name );
+                $tag_extra_fields = get_option(MY_CATEGORY_FIELDS);
+                if (isset($tag_extra_fields[$tag])) {
+                    $category_icon_code = $tag_extra_fields[$tag]['category_icon_code']; 
+                    $category_icon_color = $tag_extra_fields[$tag]['category_icon_color'];
+                    $your_image_url = $tag_extra_fields[$tag]['your_image_url'];
+                }
+                if (empty($category_icon_code) || empty($category_icon_color) || empty($your_image_url)) {
+
+                        $tag = $category[0]-&gt;category_parent;
+
+                        $tag_extra_fields = get_option(MY_CATEGORY_FIELDS);
+                        if (isset($tag_extra_fields[$tag])) {
+                            if (empty($category_icon_code)){
+                                $category_icon_code = $tag_extra_fields[$tag]['category_icon_code'];
+                            }
+                            if (empty($category_icon_color)){
+                                $category_icon_color = $tag_extra_fields[$tag]['category_icon_color'];
+                            }
+                            if (empty($your_image_url)){
+                                $your_image_url = $tag_extra_fields[$tag]['your_image_url'];
+                            }
+                        }
+
+                    }
+            ?&gt;
+</code></pre>
+
+<p>I am getting undefined index for these.</p>
+
+<pre><code>$category_icon_code
+$category_icon_color
+$your_image_url
+</code></pre>
+
+<p>Thanks in advance.</p>
+",<php><indexing><undefined>,16/01/04 10:25,LQ_CLOSE
+34589033,Trying to get property of non-object in yii,"<p>I'm using yii framework and I'm new in yii and can't understand the problem in this code, it is giving error in this code and I just attached the image of my code</p>
+
+<p><a href=""https://i.stack.imgur.com/ZTANB.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/ZTANB.png"" alt=""image1""></a></p>
+
+<p>and when I just try to <code>echo '&lt;pre&gt;';print_r($role);echo '&lt;/pre&gt;';</code> it just print code like this</p>
+
+<p><a href=""https://i.stack.imgur.com/Upc7A.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/Upc7A.png"" alt=""image2""></a></p>
+
+<p>can't understand why this is giving error.</p>
+",<php><mysql><yii>,16/01/04 10:26,LQ_CLOSE
+34589215,How to remove edge between two vertices?,"<p>I want to remove edge between two vertices, so my code in java tinkerpop3 as below</p>
+
+<pre><code>private void removeEdgeOfTwoVertices(Vertex fromV, Vertex toV,String edgeLabel,GraphTraversalSource g){
+        if(g.V(toV).inE(edgeLabel).bothV().hasId(fromV.id()).hasNext()){
+            List&lt;Edge&gt; edgeList = g.V(toV).inE(edgeLabel).toList();
+            for (Edge edge:edgeList){
+                if(edge.outVertex().id().equals(fromV.id())) {
+                    TitanGraph().tx();
+                    edge.remove();                    
+                    TitanGraph().tx().commit();
+                    return;//Remove edge ok, now return.
+                }
+            }
+        }
+    }
+</code></pre>
+
+<p>Is there a simpler way to remove edge between two vertices by a direct query to that edge and remove it? Thank for your help.</p>
+",<titan><gremlin><tinkerpop3>,16/01/04 10:36,HQ
+34589908,Using array values in images?,"<p>I have a some pictures with values of 1 - 10 E.G. img1.png, img2.png etc.</p>
+
+<p>I also have some code that returns a number. What I would like is to have the returned number append an image.
+My code is below and I can't get it to work properly. without the image it returns a normal number, but with it I get a blank return.</p>
+
+<pre><code>$(""#ext-row"").append(""&lt;div class='container returnedInfo'&gt;&lt;div class='col-md-2 wordValue'&gt; &lt;img src'/Content/Images/img'"" + items[i].WordScore + "".png&lt;/div&gt;
+</code></pre>
+
+<p>Hope this makes sense</p>
+
+<p>Thanks</p>
+",<javascript><jquery><html><image><append>,16/01/04 11:16,LQ_CLOSE
+34590173,Long and wide data – when to use what?,"<p>I'm in the process of compiling data from different data sets into one data set for analysis. I'll be doing data exploration, trying different things to find out what regularities may be hidden in the data, so I don't currently have a specific method in mind. Now I'm wondering if I should compile my data into long or wide format.</p>
+
+<p><strong>Which format should I use, and why?</strong></p>
+
+<p>I understand that data can be reshaped from long to wide or vice versa, but the mere existence of this functionality implies that the need to reshape sometimes arises and this need in turn implies that a specific format might be better suited for a certain task. So when do I need which format, and why?</p>
+
+<p>I'm not asking about performance. That has been covered in other questions.</p>
+",<r><reshape><dataformat>,16/01/04 11:31,HQ
+34590317,Disable logging for one container in Docker-Compose,"<p>I have a web application launched using Docker compose that I want to disable all logging for (or at the very least print it out to syslog instead of a file).</p>
+
+<p>When my web application works it can quickly generate an 11GB log file on startup so this eats up my disk space very fast.</p>
+
+<p>I'm aware that normal docker has <a href=""https://www.sumologic.com/2015/04/16/new-docker-logging-drivers/"" rel=""noreferrer"">logging options</a> for its run command but in Docker Compose I use </p>
+
+<blockquote>
+  <p>Docker-compose up</p>
+</blockquote>
+
+<p>in the application folder to start my application. How would I enable this functionality in my case? I'm not seeing a specific case anywhere online.</p>
+",<docker><docker-compose>,16/01/04 11:39,HQ
+34590369,Formatting a Date String in React Native,"<p>I'm trying to format a Date String in React Native.</p>
+
+<p>Ex: 2016-01-04 10:34:23</p>
+
+<p>Following is the code I'm using.</p>
+
+<pre><code>var date = new Date(""2016-01-04 10:34:23"");
+console.log(date);
+</code></pre>
+
+<p>My problem is, when I'm emulating this on a iPhone 6S, it'll print Mon <code>Jan 04 2016 10:34:23 GMT+0530 (IST)</code> without any problem. But if I try with the iPhone 5S it prints nothing. And if you try to get the month by using a method like <code>date.getMonth()</code> it'll print <code>""NaN""</code>.</p>
+
+<p>Why is this? What is the workaround?</p>
+",<date><react-native>,16/01/04 11:41,HQ
+34590463,Java create enum from String,"<p>I have enum class </p>
+
+<pre><code>public enum PaymentType {
+
+    /**
+     * This notify type we receive when user make first subscription payment.
+     */
+    SUBSCRIPTION_NEW(""subscr_signup""),
+
+    /**
+     * This notify type we receive when user make subscription payment for next
+     * month.
+     */
+    SUBSCRIPTION_PAYMENT(""subscr_payment""),
+
+    /**
+     * This notify type we receive when user cancel subscription from his paypal
+     * personal account.
+     */
+    SUBSCRIPTION_CANCEL(""subscr_cancel""),
+
+    /**
+     * In this case the user cannot change the amount or length of the
+     * subscription, they can however change the funding source or address
+     * associated with their account. Those actions will generate the
+     * subscr_modify IPN that we are receiving.
+     */
+    SUBSCRIPTION_MODIFY(""subscr_modify""),
+
+    /**
+     * Means that the subscription has expired, either because the subscriber
+     * cancelled it or it has a fixed term (implying a fixed number of payments)
+     * and it has now expired with no further payments being due. It is sent at
+     * the end of the term, instead of any payment that would otherwise have
+     * been due on that date.
+     */
+    SUBSCRIPTION_EXPIRED(""subscr_eot""),
+
+    /** User have no money on card, CVV error, another negative errors. */
+    SUBSCRIPTION_FAILED(""subscr_failed"");
+
+    private String type;
+
+    PaymentType(String type) {
+        this.type = type;
+    }
+
+    String getType() {
+        return type;
+    }
+}
+</code></pre>
+
+<p>When I try to create enum :</p>
+
+<pre><code>PaymentType type = PaymentType.valueOf(""subscr_signup"");
+</code></pre>
+
+<p>Java throws to me error :</p>
+
+<pre><code>IllegalArgumentException occured : No enum constant models.PaymentType.subscr_signup
+</code></pre>
+
+<p>How I can fix this?</p>
+",<java><enums>,16/01/04 11:46,LQ_CLOSE
+34591737,My program get crazy,"<p>I tried to do a program that random 10000 numbers between 0-6 and check how much times every number get ruffle. It's get crazy and print lot's of things. please help me thanks!</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#define ARR_SIZE 10000
+#define NUM_OF_FACES 6
+
+int main()
+{
+    srand(time(NULL));
+    int arrCube[ARR_SIZE];
+    int i=0,counter=0,j=0;
+    for(i = 0; i&lt;ARR_SIZE; i++)
+    {
+        arrCube[i] = rand() % NUM_OF_FACES;
+    }   
+    for(i=0;i&lt;ARR_SIZE;i++)
+    {
+        counter=0;
+        for(j=i+1;j&lt;ARR_SIZE -1;j++)
+        {
+            if (arrCube[i]==arrCube[j])
+            {
+                counter++;
+            }
+        }
+        printf(""%d times %d showed up\n"",counter,arrCube[i]);
+    }    
+
+    return (0);
+}
+</code></pre>
+
+<p>Another thing: I know that I can do this program with another array instead the nested loop. someone know?</p>
+",<c>,16/01/04 12:58,LQ_CLOSE
+34594876,Enterprise Distribution Provisioning Profile Expiration,"<p>Our company enterprise provisioning profile is set to expire in a month, <strong>but our distribution certificate is set to expire in a few more years.</strong> What are our options?</p>
+
+<p>Do I need to regenerate a new provisioning profile and create a new build that I have to redistribute?</p>
+
+<p>Or is there a simpler option like just sending out the new provisioning profile I generate? or better yet I don't have to do anything?</p>
+
+<p>Thanks</p>
+",<ios><provisioning-profile><enterprise><enterprise-distribution>,16/01/04 15:51,HQ
+34595322,Change <p> tag by user input forever,"<p><div class=""snippet"" data-lang=""js"" data-hide=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-html lang-html prettyprint-override""><code>&lt;form action=""index.php"" method=""post""&gt;
+&lt;input type=""text"" name=""content"" style=""font-size: 25px"" placeholder=""Name of content""&gt; //The text for p tag
+&lt;/form&gt;
+
+&lt;p&gt;&lt;/p&gt; //display the inputted text above right HERE</code></pre>
+</div>
+</div>
+</p>
+
+<p>Hey,</p>
+
+<p>I need to make simple thing. Make an input on a website, and under it, make a <code>&lt;p&gt;</code> tag. Whatever user inputs to this label/input, it will write that between the <code>&lt;p&gt;</code> tag. I know, that there is way in javascript, but i need to make it change forever, that means, when i refresh the page, it will be there, the same message forever. Any way to make it? Better to make it NOT using cross-database systém (in PhP)...</p>
+
+<p>Please help</p>
+",<javascript><php><html><css>,16/01/04 16:17,LQ_CLOSE
+34596292,Bukkit coding - Where will I put the if.senderHasPermission?,"Where will i put the permission line in my plugin command code?
+
+http://pastebin.com/BCLyr0Mn
+
+
+",<java><minecraft><bukkit>,16/01/04 17:12,LQ_EDIT
+34596936,WordPress theme not use after uploading m'y website on server,"I uploaded my WordPress project on my 1&1 server and i'm very disapointed because all my modification have disapear. My theme is like Virgin.
+Si what can be wrong? Is there something to save before upload my files ?
+Thank you",<wordpress><themes>,16/01/04 17:54,LQ_EDIT
+34596989,If statement to check array values,"<p>I want to display an answer based on what value in an array the user input matches. So I want the if statement to see if what was entered matches any values in the array.</p>
+",<python><arrays><if-statement>,16/01/04 17:56,LQ_CLOSE
+34597186,Use a different user.email and user.name for Git config based upon remote clone URL,"<p>I configure my global <code>~/.gitconfig</code> properties <code>user.name</code> and <code>user.email</code> like this:</p>
+
+<p></p>
+
+<pre><code>git config --global user.email ""mkobit@example.com"" 
+git config --global user.name ""mkobit""
+</code></pre>
+
+<p>This is the default configuration I want for working on personal projects, open source stuff, etc.</p>
+
+<p>When I am working on a project from a specific domain, a corporate domain for example, I am configuring it for each repository when I clone it so that it uses a different <code>user.name</code>/<code>user.email</code>:</p>
+
+<pre><code>git clone ssh://git@git.mycorp.com:1234/groupA/projectA.git
+cd projectA
+git config user.email ""mkobit@mycorp.com""
+git config user.name ""m.kobit""
+</code></pre>
+
+<p>One decent option would be to setup an alias for cloning these kinds of repositories:</p>
+
+<pre><code>git config --global alias.clonecorp 'clone \ 
+        -c user.name=""m.kobit"" -c user.email=""mkobit@mycorp.com""'
+git clonecorp ssh://git@git.mycorp.com:1234/groupA/projectA.git
+</code></pre>
+
+<p>Both of these can be error prone because they both depend on me being smart and following the right steps. Evidence shows that this is near-guaranteed for me to screw-up sometime.</p>
+
+<p>Is there a way to configure Git such that repositories from a certain domain (the <code>mycorp.com</code> in this example) will be configured a certain way? </p>
+",<git>,16/01/04 18:10,HQ
+34597229,google maps API for C#,"<p>im really new in to using APIs so after looking on google maps Api page im not sure if there are APIs designed to be used for C#. I dont need a google maps to be show on my app all i need to know if i can use the google maps API on C#.
+<a href=""https://developers.google.com/maps/documentation/directions/"" rel=""noreferrer"">This is the one i will like to use</a></p>
+
+<p>Ive look for it on many places but all i could find was alternatives to using Gmaps but thats not what i want.</p>
+
+<p>¿It is possible to use it?</p>
+",<c#><google-maps><google-maps-api-3>,16/01/04 18:13,HQ
+34597926,converting daily stock data to weekly-based via pandas in Python,"<p>I've got a <code>DataFrame</code> storing daily-based data which is as below:</p>
+
+<pre><code>Date              Open        High         Low       Close   Volume
+2010-01-04   38.660000   39.299999   38.509998   39.279999  1293400   
+2010-01-05   39.389999   39.520000   39.029999   39.430000  1261400   
+2010-01-06   39.549999   40.700001   39.020000   40.250000  1879800   
+2010-01-07   40.090000   40.349998   39.910000   40.090000   836400   
+2010-01-08   40.139999   40.310001   39.720001   40.290001   654600   
+2010-01-11   40.209999   40.520000   40.040001   40.290001   963600   
+2010-01-12   40.160000   40.340000   39.279999   39.980000  1012800   
+2010-01-13   39.930000   40.669998   39.709999   40.560001  1773400   
+2010-01-14   40.490002   40.970001   40.189999   40.520000  1240600   
+2010-01-15   40.570000   40.939999   40.099998   40.450001  1244200   
+</code></pre>
+
+<p>What I intend to do is to merge it into weekly-based data. After grouping:</p>
+
+<ol>
+<li>the <strong>Date</strong> should be every Monday (at this point, holidays scenario should be considered when Monday is not a trading day, we should apply the first trading day in current week as the Date).</li>
+<li><strong>Open</strong> should be Monday's (or the first trading day of current week) Open.</li>
+<li><strong>Close</strong> should be Friday's (or the last trading day of current week) Close.</li>
+<li><strong>High</strong> should be the highest High of trading days in current week.</li>
+<li><strong>Low</strong> should be the lowest Low of trading days in current week.</li>
+<li><strong>Volumn</strong> should be the sum of all Volumes of trading days in current week.</li>
+</ol>
+
+<p>which should look like this:</p>
+
+<pre><code>Date              Open        High         Low       Close   Volume
+2010-01-04   38.660000   40.700001   38.509998   40.290001  5925600   
+2010-01-11   40.209999   40.970001   39.279999   40.450001  6234600   
+</code></pre>
+
+<p>Currently, my code snippet is as below, which function should I use to mapping daily-based data to the expected weekly-based data? Many thanks!</p>
+
+<pre><code>import pandas_datareader.data as web
+
+start = datetime.datetime(2010, 1, 1)
+end = datetime.datetime(2016, 12, 31)
+f = web.DataReader(""MNST"", ""yahoo"", start, end, session=session)
+print f
+</code></pre>
+",<python><pandas><yahoo-finance>,16/01/04 18:56,HQ
+34597950,Sass and Compass,"<p>I started working with compass today. I have created a project using sass (that's atleast what I entered in the cmd).</p>
+
+<p>It made my project, all good. All files are good etc, made them .sass extensions.</p>
+
+<p>File Structure: <a href=""http://prntscr.com/9m2i7s"" rel=""nofollow"">http://prntscr.com/9m2i7s</a></p>
+
+<p>But now (here comes the problem), when I try to enter in some sass code, it's giving me an error: <a href=""http://prntscr.com/9m2isq"" rel=""nofollow"">http://prntscr.com/9m2isq</a>.</p>
+
+<p>I have already found out what the problem is. The project thinks I'm using scss (where the syntax is without the ';'s and '{ }'s.</p>
+
+<p>I don't mind working with scss instead of sass, but I find it weird. Because it made sass files for me etc.. and now it's wanting me to use scss.</p>
+
+<p>Does anyone know how I would maybe be able to use sass instead of scss?</p>
+
+<p>Kind Regards!</p>
+",<css><sass><compass>,16/01/04 18:58,LQ_CLOSE
+34598268,Realm Migration doesn't work,"<pre><code>    let config = Realm.Configuration(
+        // Set the new schema version. This must be greater than the previously used
+        // version (if you've never set a schema version before, the version is 0).
+        schemaVersion: 1,
+
+        // Set the block which will be called automatically when opening a Realm with
+        // a schema version lower than the one set above
+        migrationBlock: { migration, oldSchemaVersion in
+            // We haven’t migrated anything yet, so oldSchemaVersion == 0
+            if (oldSchemaVersion &lt; 1) {
+                // Nothing to do!
+                // Realm will automatically detect new properties and removed properties
+                // And will update the schema on disk automatically
+            }
+    })
+
+    // Tell Realm to use this new configuration object for the default Realm
+    Realm.Configuration.defaultConfiguration = config
+
+    // Now that we've told Realm how to handle the schema change, opening the file
+    // will automatically perform the migration
+    let realm = try! Realm()
+</code></pre>
+
+<p>This was put in application(application:didFinishLaunchingWithOptions:)</p>
+
+<p>In my test program, I have changed the fields in my object. I would like to remove everything in the database, and move to the new field types. I've copied the code above from the documentation, but it appears to do nothing. I still get these errors:</p>
+
+<pre><code>fatal error: 'try!' expression unexpectedly raised an error: Error Domain=io.realm Code=0 ""Migration is required due to the following errors: 
+- Property types for 'unit' property do not match. Old type 'string', new type 'int'
+- Property 'reps' has been added to latest object model."" UserInfo={NSLocalizedDescription=Migration is required due to the following errors: 
+- Property types for 'unit' property do not match. Old type 'string', new type 'int'
+- Property 'reps' has been added to latest object model.}: file   /Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-700.1.101.15/src/swift/stdlib/public/core/
+</code></pre>
+
+<p>Any ideas?</p>
+",<ios><swift2><realm>,16/01/04 19:20,HQ
+34598363,Get public key from SSH server,"<p>I'm looking for this for a long time.</p>
+
+<p>I need to extract and get modulus and exponent from SSH server.</p>
+
+<p>For example, I know, that on server xxx.xxx.xxx.xxx is running ssh (I can connect to this server / ping) but I dont know user name and password so cannot log in.</p>
+
+<p>I need to get modulus and exponent of public RSA key of this server.</p>
+
+<p>I found, that ssh-keyscan can get modulus + exponent (from documentation) but only if ssh-rsa1 is used. If I try to get ssh-rsa(2) public key with ssh-keyscan, I cannot retrieve from output modulus and exponent.</p>
+
+<p>Is it possible ? </p>
+",<ssh><certificate><rsa><modulus>,16/01/04 19:25,HQ
+34598563,MongoDB Print Pretty with PyMongo,"<p>I've looked up print pretty for MongoDB, and i understand how to do it from the shell. What I can't find is how to do it with PyMongo, so that when I run it in eclipse, the output will print pretty instead of all in one line. Here's what I have right now:</p>
+
+<pre><code>  cursor = collection.find({})
+  for document in cursor: print(document)
+</code></pre>
+
+<p>This prints everything in my collection, but each document in my collection just prints in one line. How can i change this to get it to print pretty?</p>
+",<python><mongodb><printing><pymongo>,16/01/04 19:38,HQ
+34598719,"TGraphic.Draw(Canvas, Rect) does not work","I need to insert an image into an ImageList. The image is in a descendant of TGraphicControl (see source code below). The insertion seems to work. However, I get only a white rectangle in the ImageList:
+
+    function InsertCloudImageIntoImageList(AdvCloudImage1: TAdvCloudImage): Integer;
+    // TAdvCloudImage = class(TGraphicControl)
+    // WebPicture is TCloudPicture = class(TGraphic)
+    var
+      TempBitmap: TBitmap;
+      R: TRect;
+    begin
+      Result := 0;
+      TempBitmap := TBitmap.Create;
+      try
+        TempBitmap.SetSize(16, 16);
+        R.Width  := 16;
+        R.Height := 16;
+        R.Top := 0;
+        R.Left := 0;
+    
+        AdvCloudImage1.WebPicture.Draw(TempBitmap.Canvas, R);
+        Result := Form1.ImageList1.Add(TempBitmap, nil);
+      finally
+        TempBitmap.Free;
+      end;
+    end;
+
+I suspect the bug is in the drawing on the bitmap canvas?",<delphi><draw><delphi-10-seattle><tcanvas>,16/01/04 19:50,LQ_EDIT
+34599888,How do I rename a Google Cloud Platform project?,"<p>Is it possible to rename a Google Cloud Platform project? If so, how?</p>
+
+<p>I don't need to change the project ID or number. But I do want to change the project <em>name</em> (the name used by/for humans to identify a cloud platform project).</p>
+
+<p>Thanks for any tips!</p>
+",<google-cloud-platform>,16/01/04 21:09,HQ
+34600130,How to decrease padding in NumberPicker,"<p>How to decrease padding in NumberPicker  </p>
+
+<p><a href=""https://i.stack.imgur.com/7A7wJ.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/7A7wJ.png"" alt=""enter image description here""></a> </p>
+
+<p>I want something like it: </p>
+
+<p><a href=""https://i.stack.imgur.com/8LT8j.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/8LT8j.png"" alt=""enter image description here""></a></p>
+",<android><android-number-picker>,16/01/04 21:24,HQ
+34600544,Slick Carousel Easing Examples,"<p>I am using Slick Carousel (<a href=""http://kenwheeler.github.io/slick/"" rel=""noreferrer"">http://kenwheeler.github.io/slick/</a>), but don't know how to incorporate different slide transitions.  Does anyone have an example to share?</p>
+
+<p>Here's what I currently have:</p>
+
+<pre><code>    $('.slider1').slick({
+        autoplay:true,
+        autoplaySpeed: 4500,
+        arrows:false,
+        slide:'.slider-pic', 
+        slidesToShow:1,
+        slidesToScroll:1,
+        dots:false,
+        easing: 'easeOutElastic',
+        responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            dots: false
+          }
+        }]
+    });
+</code></pre>
+
+<p>On site - <a href=""http://lantecctc.businesscatalyst.com/"" rel=""noreferrer"">http://lantecctc.businesscatalyst.com/</a></p>
+",<javascript><slick.js>,16/01/04 21:52,HQ
+34600932,npm - EPERM: operation not permitted on Windows,"<p>I ran </p>
+
+<pre><code>npm config set prefix /usr/local
+</code></pre>
+
+<p>After running that command,
+When trying to run any npm commands on Windows OS I keep getting the below. </p>
+
+<pre><code>Error: EPERM: operation not permitted, mkdir 'C:\Program Files (x86)\Git\local'
+at Error (native)
+</code></pre>
+
+<p>Have deleted all files from </p>
+
+<pre><code>C:\Users\&lt;your username&gt;\.config\configstore\
+</code></pre>
+
+<p>It did not work.</p>
+
+<p>Any suggestion ?</p>
+",<javascript><node.js><npm><bower><npm-install>,16/01/04 22:21,HQ
+34601532,"Ruby: syntax error, unexpected end-of-input, expecting keyword_end","<p>I am working on some simple ruby exercises and cannot figure out why I am getting the ""syntax error, unexpected end-of-input, expecting keyword_end"". I keep running over my code and don't see what is wrong, although I am new to ruby.</p>
+
+<pre><code>def SimpleSymbols(str)
+
+    spec_char = ""+=""
+    alpha = ""abcdefghijklmnopqrstuvwxyz""
+
+    str.each_char do |i|
+        if spec_char.include? i
+            next
+        else alpha.include? i 
+            if spec_char.include? str[str.index(i) + 1] &amp;&amp; if spec_char.include? str[str.index(i) - 1]
+                next
+            else
+                return false
+            end
+        end
+    end
+
+    return true
+end
+
+SimpleSymbols(STDIN.gets.chomp)
+</code></pre>
+",<ruby><syntax-error>,16/01/04 23:07,LQ_CLOSE
+34601554,Mac spark-shell Error initializing SparkContext,"<p>I tried to start spark 1.6.0 (spark-1.6.0-bin-hadoop2.4) on Mac OS Yosemite 10.10.5 using </p>
+
+<pre><code>""./bin/spark-shell"". 
+</code></pre>
+
+<p>It has the error below. I also tried to install different versions of Spark but all have the same error. This is the second time I'm running Spark. My previous run works fine. </p>
+
+<pre><code>log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Using Spark's repl log4j profile: org/apache/spark/log4j-defaults-repl.properties
+To adjust logging level use sc.setLogLevel(""INFO"")
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 1.6.0
+      /_/
+
+Using Scala version 2.10.5 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_79)
+Type in expressions to have them evaluated.
+Type :help for more information.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 WARN Utils: Service 'sparkDriver' could not bind on port 0. Attempting port 1.
+16/01/04 13:49:40 ERROR SparkContext: Error initializing SparkContext.
+java.net.BindException: Can't assign requested address: Service 'sparkDriver' failed after 16 retries!
+    at sun.nio.ch.Net.bind0(Native Method)
+    at sun.nio.ch.Net.bind(Net.java:444)
+    at sun.nio.ch.Net.bind(Net.java:436)
+    at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+    at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+    at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:125)
+    at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:485)
+    at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1089)
+    at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:430)
+    at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:415)
+    at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:903)
+    at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:198)
+    at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:348)
+    at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:357)
+    at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+    at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)
+    at java.lang.Thread.run(Thread.java:745)
+java.net.BindException: Can't assign requested address: Service 'sparkDriver' failed after 16 retries!
+    at sun.nio.ch.Net.bind0(Native Method)
+    at sun.nio.ch.Net.bind(Net.java:444)
+    at sun.nio.ch.Net.bind(Net.java:436)
+    at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+    at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+    at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:125)
+    at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:485)
+    at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1089)
+    at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:430)
+    at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:415)
+    at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:903)
+    at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:198)
+    at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:348)
+    at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:357)
+    at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+    at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)
+    at java.lang.Thread.run(Thread.java:745)
+
+java.lang.NullPointerException
+    at org.apache.spark.sql.SQLContext$.createListenerAndUI(SQLContext.scala:1367)
+    at org.apache.spark.sql.hive.HiveContext.&lt;init&gt;(HiveContext.scala:101)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+    at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+    at org.apache.spark.repl.SparkILoop.createSQLContext(SparkILoop.scala:1028)
+    at $iwC$$iwC.&lt;init&gt;(&lt;console&gt;:15)
+    at $iwC.&lt;init&gt;(&lt;console&gt;:24)
+    at &lt;init&gt;(&lt;console&gt;:26)
+    at .&lt;init&gt;(&lt;console&gt;:30)
+    at .&lt;clinit&gt;(&lt;console&gt;)
+    at .&lt;init&gt;(&lt;console&gt;:7)
+    at .&lt;clinit&gt;(&lt;console&gt;)
+    at $print(&lt;console&gt;)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at org.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)
+    at org.apache.spark.repl.SparkIMain$Request.loadAndRun(SparkIMain.scala:1346)
+    at org.apache.spark.repl.SparkIMain.loadAndRunReq$1(SparkIMain.scala:840)
+    at org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:871)
+    at org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:819)
+    at org.apache.spark.repl.SparkILoop.reallyInterpret$1(SparkILoop.scala:857)
+    at org.apache.spark.repl.SparkILoop.interpretStartingWith(SparkILoop.scala:902)
+    at org.apache.spark.repl.SparkILoop.command(SparkILoop.scala:814)
+    at org.apache.spark.repl.SparkILoopInit$$anonfun$initializeSpark$1.apply(SparkILoopInit.scala:132)
+    at org.apache.spark.repl.SparkILoopInit$$anonfun$initializeSpark$1.apply(SparkILoopInit.scala:124)
+    at org.apache.spark.repl.SparkIMain.beQuietDuring(SparkIMain.scala:324)
+    at org.apache.spark.repl.SparkILoopInit$class.initializeSpark(SparkILoopInit.scala:124)
+    at org.apache.spark.repl.SparkILoop.initializeSpark(SparkILoop.scala:64)
+    at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1$$anonfun$apply$mcZ$sp$5.apply$mcV$sp(SparkILoop.scala:974)
+    at org.apache.spark.repl.SparkILoopInit$class.runThunks(SparkILoopInit.scala:159)
+    at org.apache.spark.repl.SparkILoop.runThunks(SparkILoop.scala:64)
+    at org.apache.spark.repl.SparkILoopInit$class.postInitialization(SparkILoopInit.scala:108)
+    at org.apache.spark.repl.SparkILoop.postInitialization(SparkILoop.scala:64)
+    at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply$mcZ$sp(SparkILoop.scala:991)
+    at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply(SparkILoop.scala:945)
+    at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply(SparkILoop.scala:945)
+    at scala.tools.nsc.util.ScalaClassLoader$.savingContextLoader(ScalaClassLoader.scala:135)
+    at org.apache.spark.repl.SparkILoop.org$apache$spark$repl$SparkILoop$$process(SparkILoop.scala:945)
+    at org.apache.spark.repl.SparkILoop.process(SparkILoop.scala:1059)
+    at org.apache.spark.repl.Main$.main(Main.scala:31)
+    at org.apache.spark.repl.Main.main(Main.scala)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:731)
+    at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:181)
+    at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:206)
+    at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:121)
+    at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+
+&lt;console&gt;:16: error: not found: value sqlContext
+         import sqlContext.implicits._
+                ^
+&lt;console&gt;:16: error: not found: value sqlContext
+         import sqlContext.sql
+</code></pre>
+
+<p>Then I add </p>
+
+<pre><code>export SPARK_LOCAL_IP=""127.0.0.1""
+</code></pre>
+
+<p>to spark-env.sh, error changes to:</p>
+
+<pre><code> ERROR : No route to host
+    java.net.ConnectException: No route to host
+        at java.net.Inet6AddressImpl.isReachable0(Native Method)
+        at java.net.Inet6AddressImpl.isReachable(Inet6AddressImpl.java:77)
+        at java.net.InetAddress.isReachable(InetAddress.java:475)
+...
+&lt;console&gt;:10: error: not found: value sqlContext
+       import sqlContext.implicits._
+              ^
+&lt;console&gt;:10: error: not found: value sqlContext
+       import sqlContext.sql
+</code></pre>
+",<apache-spark>,16/01/04 23:09,HQ
